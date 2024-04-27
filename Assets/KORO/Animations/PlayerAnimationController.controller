@@ -11,7 +11,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 9213060700397538021}
-    m_Position: {x: 60, y: 20, z: 0}
+    m_Position: {x: 60, y: 10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1065014915809251642}
     m_Position: {x: 60, y: -60, z: 0}
@@ -35,7 +35,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mixamo_com
+  m_Name: Walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -48,7 +48,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 939f315dd8c81df4eaff9c673006a649, type: 2}
+  m_Motion: {fileID: 7400000, guid: 81906d8b9566e3e4e84e2f5cdad6612d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
