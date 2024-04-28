@@ -4996,6 +4996,7 @@ GameObject:
   - component: {fileID: 8671605141951741711}
   - component: {fileID: 7793862140459038670}
   - component: {fileID: 8578709897593811357}
+  - component: {fileID: 5175416608991701322}
   - component: {fileID: 7253160799843244457}
   m_Layer: 0
   m_Name: PlayerPrefabNew
@@ -5075,6 +5076,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerAnimationController: {fileID: 7253160799843244457}
   speed: 5
+--- !u!114 &5175416608991701322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7402568608815551782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333025dedad909b419ae0a0e8c666916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7253160799843244457
 MonoBehaviour:
   m_ObjectHideFlags: 0
