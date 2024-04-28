@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerRaycastController : MonoBehaviour
 {
+    public GameObject TargetPrice;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +32,7 @@ public class PlayerRaycastController : MonoBehaviour
                 if (hit.collider.gameObject.GetComponent<Place>())
                 {
                     var place = hit.collider.gameObject.GetComponent<Place>();
-                    place.ShowPlacePrice();
+                    //place.ShowPlacePrice();
                 }
                 // Raycast sonucunu işle
                 Debug.Log("Raycast isabet etti: " + hit.collider.gameObject.name);

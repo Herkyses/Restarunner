@@ -12,6 +12,9 @@ public class AIController : MonoBehaviour
     [SerializeField] private Transform _targetFirstPosition;
     
     [SerializeField] private Animator _playerAnimator;
+    
+    public LayerMask obstacleMask;
+    public int obstacleMaskValue;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,8 @@ public class AIController : MonoBehaviour
         _agent.destination = _targetTransform.position;
         float randomTime = Random.Range(0f, 1f);
         _playerAnimator.Play("Walk",0,randomTime);
+        //obstacleMaskValue = LayerMask.NameToLayer("Player");
+        InvokeRepeating("CheckForObstacles", 0f, 0.3f);
         //_targetFirstPosition = transform.position;
     }
 
@@ -29,5 +34,25 @@ public class AIController : MonoBehaviour
         {
             transform.position = _targetFirstPosition.position;
         }
+    }
+    void CheckForObstacles()
+    {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position+ Vector3.up, transform.right, out hit, 2f, obstacleMask))
+            {
+                hit.collider.gameObject.GetComponent<Player>().GainMoney(4f);
+                Debug.DrawRay(transform.position + Vector3.up, transform.right * 2f, Color.blue);
+
+            }
+        
+        
+            if (Physics.Raycast(transform.position+ Vector3.up, -transform.right, out hit, 2f, obstacleMask))
+            {
+                hit.collider.gameObject.GetComponent<Player>().GainMoney(4f);
+                Debug.DrawRay(transform.position + Vector3.up, -transform.right * 2f, Color.red);
+
+            }
+            
+        
     }
 }

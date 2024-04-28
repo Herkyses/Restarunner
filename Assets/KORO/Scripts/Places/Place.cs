@@ -12,7 +12,7 @@ public class Place : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        UnShowPlacePrice();
     }
 
     // Update is called once per frame
@@ -23,7 +23,20 @@ public class Place : MonoBehaviour
 
     public void ShowPlacePrice()
     {
-        _placeCanvas.gameObject.SetActive(true);
-        _placePriceText.text = _placeInfo.Price.ToString();
+        if (_placeCanvas)
+        {
+            _placeCanvas.gameObject.SetActive(true);
+            _placePriceText.text = _placeInfo.Price.ToString();
+        }
+        
+    }
+    public void UnShowPlacePrice()
+    {
+        if (_placeCanvas)
+        {
+            _placeCanvas.gameObject.SetActive(false);
+            //_placePriceText.text = _placeInfo.Price.ToString();
+        }
+        
     }
 }

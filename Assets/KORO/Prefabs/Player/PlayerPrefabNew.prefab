@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2141993483117801898}
   - component: {fileID: 5050870924680686258}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Casual_Male_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1944369447237470801}
   - component: {fileID: 8840610110651599172}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Professional_Male_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4435210095195990926}
   - component: {fileID: 2771052287105789330}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Swimwear_Female
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +372,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2931843400982903933}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fingerright.01.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6437399123045660729}
   - component: {fileID: 6019213420247153950}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Old_Female
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5700072716457108546}
   - component: {fileID: 2668187604900631493}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Prisoner_Male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -646,7 +646,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7408231055903516882}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shoulder.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -678,7 +678,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1571379203145673720}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: spine.03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -712,7 +712,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2131290309553012683}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shin.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -744,7 +744,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7860391065364826694}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pelvis.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -775,7 +775,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6175540355627548272}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fingerleft.01.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -808,7 +808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6712696478895977570}
   - component: {fileID: 1926181227542592066}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Farmer_Female
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +929,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3743419580383274389}
   - component: {fileID: 6963845813862113052}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Police_Female
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1050,7 +1050,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8518927982697346402}
   - component: {fileID: 5779169687298940504}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_ShopAssistant_Female_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1171,7 +1171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6470735658049756839}
   - component: {fileID: 4203999825988082744}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Doctor_Male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1292,7 +1292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3177702646123534581}
   - component: {fileID: 5582546698066234122}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Casual_Female
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1413,7 +1413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6971437043781807336}
   - component: {fileID: 8784097338548358107}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Doctor_Female
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1533,7 +1533,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6044176753974583017}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: spine.01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1566,7 +1566,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5650331710782639997}
   - component: {fileID: 7342438357743802633}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Boss_Male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1687,7 +1687,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3748669467572388702}
   - component: {fileID: 1473024831365446474}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Boss_Female
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1808,7 +1808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6467128120049904601}
   - component: {fileID: 151810949177967934}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Casual_Male_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1928,7 +1928,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6084169255271187865}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: thumb.02.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1959,7 +1959,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5528715454059579818}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: hand.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1994,7 +1994,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8843696729424531757}
   - component: {fileID: 4839638361600773229}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Casual_Skirt_Female_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2114,7 +2114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5354506020037740847}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2148,7 +2148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3678174401793441367}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shoulder.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2180,7 +2180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 424082389600417791}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fingerleft.02.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2211,7 +2211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5226325903888566705}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: foot.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2243,7 +2243,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4281033373468417165}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shin.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2275,7 +2275,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3054677090791531618}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: toe.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2307,7 +2307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5203141199798267471}
   - component: {fileID: 736931889842043932}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_SchoolStudent_Female
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2427,7 +2427,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4503197315238656918}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fingerright.02.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2459,7 +2459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6226328251019574613}
   - component: {fileID: 3045776033697778003}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Gym_Female
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2579,7 +2579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7161174899738638962}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fingerleft.01.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2612,7 +2612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2581711393922267799}
   - component: {fileID: 404249337897367314}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Gym_Male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2732,7 +2732,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1264251700511725408}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2764,7 +2764,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3949546194836397086}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: forearm.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2797,7 +2797,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4523030423539015922}
   - component: {fileID: 3780875575636273163}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Casual_Skirt_Female_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2918,7 +2918,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6101872992386732610}
   - component: {fileID: 7532993671392704227}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Security_Male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3038,7 +3038,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1956908871309485762}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Characters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3070,7 +3070,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7767266021630872382}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: thumb.01.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3102,7 +3102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 135143880320940816}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: thigh.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3134,7 +3134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4203635601478372823}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: foot.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3166,7 +3166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2697251857529857445}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: upperarm.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3199,7 +3199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3774039170652687787}
   - component: {fileID: 2943747229992691527}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_ShopAssistant_Male_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3319,7 +3319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6175011644561966016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: thumb.02.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3351,7 +3351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4393883064523774226}
   - component: {fileID: 138648944644317787}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Swimwear_Male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3472,7 +3472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6694510760567706230}
   - component: {fileID: 4886449426912296088}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Casual_Jacket_Male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3593,7 +3593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6879399459447084503}
   - component: {fileID: 7786389863367352181}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3686,7 +3686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6744428728076875070}
   - component: {fileID: 8397561920716455535}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Farmer_Male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3807,7 +3807,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3086967453273264517}
   - component: {fileID: 164150353735759990}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Prisoner_Female
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3927,7 +3927,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1092203793948799681}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: hand.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3962,7 +3962,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6789149733585169965}
   - component: {fileID: 6968235622032572017}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Police_Male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4083,7 +4083,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5302718470183141002}
   - component: {fileID: 8071779903680260743}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Professional_Female_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4204,7 +4204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8149695836317697416}
   - component: {fileID: 5402901831641160842}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Casual_Jacket_Female
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4325,7 +4325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 849095915382619938}
   - component: {fileID: 755268602533267085}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Pilot_Male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4446,7 +4446,7 @@ GameObject:
   m_Component:
   - component: {fileID: 393315206159446784}
   - component: {fileID: 2196883681548586219}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Labour_Female
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4567,7 +4567,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8912575810257525946}
   - component: {fileID: 8535756241092621524}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Firefighter_Male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4687,7 +4687,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3924772811962759898}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fingerleft.02.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4719,7 +4719,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6652482516378361497}
   - component: {fileID: 1846845981354207139}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Professional_Male_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4839,7 +4839,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2505005607592783509}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: thigh.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4872,7 +4872,7 @@ GameObject:
   m_Component:
   - component: {fileID: 76677771025673706}
   - component: {fileID: 6756277986515556597}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_ShopAssistant_Female_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4998,7 +4998,7 @@ GameObject:
   - component: {fileID: 8578709897593811357}
   - component: {fileID: 5175416608991701322}
   - component: {fileID: 7253160799843244457}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerPrefabNew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5033,6 +5033,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b65b11c9f79fd84fb0863353e2259f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerData: {fileID: 0}
+  PlayerStructData:
+    Money: 0
 --- !u!54 &8671605141951741711
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5111,7 +5114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6816491462284296664}
   - component: {fileID: 1458069876434692272}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Labour_Male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5232,7 +5235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6107462744745147913}
   - component: {fileID: 1915885739619092016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Casual_Male_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5352,7 +5355,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7205801754881363818}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: upperarm.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5384,7 +5387,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6509173838665196956}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: forearm.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5416,7 +5419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5282140979692015050}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fingerright.01.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5448,7 +5451,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5368633517954984806}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5485,7 +5488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4680351397141341542}
   - component: {fileID: 5677259329281000217}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Professional_Female_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5605,7 +5608,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7325539550837337561}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: toe.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5636,7 +5639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8658654160681972588}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: thumb.01.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5669,7 +5672,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1187773675408582308}
   - component: {fileID: 7689477951412145088}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_ShopAssistant_Male_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5789,7 +5792,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1269767052067191048}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: spine.02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5822,7 +5825,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8624818518279664147}
   - component: {fileID: 7188283211282610001}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_CourierBoy_Male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5942,7 +5945,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7783101496862064565}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pelvis.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5974,7 +5977,7 @@ GameObject:
   m_Component:
   - component: {fileID: 934716877492449831}
   - component: {fileID: 7262843592138969788}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_Old_Male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6095,7 +6098,7 @@ GameObject:
   m_Component:
   - component: {fileID: 772397213165837982}
   - component: {fileID: 3009705347526750455}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Char_SchoolStudent_Male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6215,7 +6218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7210300175719938684}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fingerright.02.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6292,6 +6295,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SK_Char_Attachment_Glasses_03
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d59c69234fc30be468971bbc9d6ce4cf, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59c69234fc30be468971bbc9d6ce4cf, type: 3}
 --- !u!4 &6879399460540801339 stripped
@@ -6354,6 +6361,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SK_Char_Attachment_Hair_Male_02
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c462375d46dec0e4da3bb14770738459, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c462375d46dec0e4da3bb14770738459, type: 3}
 --- !u!4 &6879399459911395960 stripped
@@ -6415,6 +6426,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 02aeccb07b581cc4eab6ee6deab0f703, type: 3}
       propertyPath: m_Name
       value: SK_Char_Attachment_Beard_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02aeccb07b581cc4eab6ee6deab0f703, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02aeccb07b581cc4eab6ee6deab0f703, type: 3}
