@@ -21,15 +21,16 @@ public class PlayerMovementController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal"); // Yatay (A/D) giriş
         float verticalInput = Input.GetAxis("Vertical");     // Dikey (W/S) giriş
 
-        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * speed * Time.deltaTime; // Hareket vektörü hesaplanır
 
-        transform.Translate(movement); // Karakteri hareket ettir
         if (horizontalInput == 0 && verticalInput == 0 && !_playerPlayingGuitar)
         {
             _playerAnimationController.PlayIdleAnimation();
         }
         else if ((horizontalInput >= 0 || verticalInput >= 0) && !_playerPlayingGuitar)
         {
+            Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * speed * Time.deltaTime; // Hareket vektörü hesaplanır
+            transform.Translate(movement); // Karakteri hareket ettir
+
             _playerAnimationController.PlayRunAnimation();
         }
         if (Input.GetKeyDown(KeyCode.F))
