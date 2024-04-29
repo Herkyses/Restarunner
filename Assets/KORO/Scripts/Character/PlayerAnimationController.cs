@@ -30,4 +30,15 @@ public class PlayerAnimationController : MonoBehaviour
             _playerAnimator.Play("Idle", -1, normalizedTime: 0.0f);
         }
     }
+    public void PlayGuitarAnimation()
+    {
+        AnimatorStateInfo currentState = _playerAnimator.GetCurrentAnimatorStateInfo(0);
+
+        string currentAnimName = currentState.IsName("Guitar") ? "Guitar" : currentState.fullPathHash.ToString();
+        if (currentAnimName != "Guitar")
+        {
+            Debug.Log("Current Animation: " + currentAnimName);
+            _playerAnimator.Play("Guitar", -1, normalizedTime: 0.0f);
+        }
+    }
 }

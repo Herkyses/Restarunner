@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 //using DG.Tweening;
 
 using UnityEngine;
@@ -37,6 +38,8 @@ public class CameraController : MonoBehaviour
     private float mouseY;
     private float rotationX = 0.0f;
     private float rotationY = 0.0f;
+
+    private bool _canFollow;
     
     private void Awake()
     {
@@ -49,11 +52,40 @@ public class CameraController : MonoBehaviour
             Destroy(gameObject);
         }    
     }
-    
+
+    private void Start()
+    {
+        _canFollow = true;
+    }
+
+    public void CanFollowController(bool zort)
+    {
+        _canFollow = zort;
+
+        if (!zort)
+        {
+            distance = 4f;
+            height = 2f;
+            //transform.DOMove(transform.position + Vector3.up * 0.5f + (PlayerTransform.forward * 3f), 0.5f).OnComplete(LookTarget);
+            //transform.position += (Vector3.up*0.5f+(PlayerTransform.forward*3f));
+        }
+        else
+        {
+            distance = -0.26f;
+            height = 1.74f;
+
+        }
+        
+    }
+    private void LookTarget()
+    {
+        transform.DOLookAt(PlayerTransform.position, 0.2f);
+        //transform.LookAt(PlayerTransform);
+    }
     void LateUpdate()
     {
         
-        if (PlayerTransform != null)
+        if (PlayerTransform != null && _canFollow )
         {
             mouseX = Input.GetAxis("Mouse X") * rotationSpeed;
             mouseY = Input.GetAxis("Mouse Y") * rotationSpeed;
@@ -71,6 +103,21 @@ public class CameraController : MonoBehaviour
             //PlayerTransform.Rotate(Vector3.up * mouseX); // Karakterin yatay dönüşü
             //PlayerTransform.rotation = Quaternion.Euler(new Vector3(PlayerTransform.rotation.x,PlayerTransform.rotation.y+mouseX,PlayerTransform.rotation.z));
             PlayerTransform.rotation = Quaternion.Euler(new Vector3(0,Quaternion.LookRotation(transform.forward).eulerAngles.y,0));
+        }
+        else if(!_canFollow)
+        {
+            mouseX = Input.GetAxis("Mouse X") * rotationSpeed;
+            mouseY = Input.GetAxis("Mouse Y") * rotationSpeed;
+
+            currentRotationAngle += mouseX;
+            rotationY -= mouseY;
+            rotationY = Mathf.Clamp(rotationY, -90f, 90f); // Kameranın aşırı yukarı ya da aşağı dönmesini engelle
+
+            rotation = Quaternion.Euler(rotationY, currentRotationAngle, 0);
+            position = PlayerTransform.position - (rotation * Vector3.forward * distance) + (Vector3.up * height);
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * damping);
+            transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * damping);
         }
         
         
