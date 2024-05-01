@@ -4998,6 +4998,7 @@ GameObject:
   - component: {fileID: 8578709897593811357}
   - component: {fileID: 5175416608991701322}
   - component: {fileID: 7253160799843244457}
+  - component: {fileID: 3984450500382737160}
   m_Layer: 6
   m_Name: PlayerPrefabNew
   m_TagString: Untagged
@@ -5034,8 +5035,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerData: {fileID: 0}
+  _canTakeMoney: 0
+  PlayerInventory: []
   PlayerStructData:
     Money: 0
+    Popularity: 0
 --- !u!54 &8671605141951741711
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5078,6 +5082,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerAnimationController: {fileID: 7253160799843244457}
+  _player: {fileID: 0}
+  _playerPlayingGuitar: 0
   speed: 5
 --- !u!114 &5175416608991701322
 MonoBehaviour:
@@ -5091,6 +5097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333025dedad909b419ae0a0e8c666916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TargetPrice: {fileID: 0}
 --- !u!114 &7253160799843244457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5104,6 +5111,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerAnimator: {fileID: 7786389863367352181}
+--- !u!114 &3984450500382737160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7402568608815551782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4eb394a4c684147a8763b1a9843b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7606353784891132531
 GameObject:
   m_ObjectHideFlags: 0

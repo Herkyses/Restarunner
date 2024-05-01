@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
         if (_canTakeMoney)
         {
             //_playerData.OwnedMoney += gainValue;
+            PlayerStructData.Popularity += 1;
             PlayerStructData.Money += gainValue;
             GameSceneCanvas.Instance.UpdateMoneyText(PlayerStructData.Money);
         }
@@ -40,4 +41,6 @@ public class Player : MonoBehaviour
 public struct PlayerStructData
 {
     public float Money;
+    public int Popularity;
+    
 }
