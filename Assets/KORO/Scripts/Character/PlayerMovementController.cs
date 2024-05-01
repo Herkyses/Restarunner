@@ -9,6 +9,7 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private bool _playerPlayingGuitar;
     [SerializeField] private bool _canPlay;
     [SerializeField] private Transform _playTransform;
+    [SerializeField] private GameObject _guitar;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +54,7 @@ public class PlayerMovementController : MonoBehaviour
                 {
                     gameObject.transform.position = _playTransform.position;
                     gameObject.transform.rotation = _playTransform.rotation;
+                    _guitar.SetActive(true);
                 }
                 CameraController.Instance.CanFollowController(false);
             }
@@ -63,6 +65,8 @@ public class PlayerMovementController : MonoBehaviour
             CameraController.Instance.CanFollowController(true);
             _playerPlayingGuitar = false;
             _player._canTakeMoney = false;
+            _guitar.SetActive(false);
+
 
         }
     }
