@@ -5000,6 +5000,7 @@ GameObject:
   - component: {fileID: 5175416608991701322}
   - component: {fileID: 7253160799843244457}
   - component: {fileID: 3984450500382737160}
+  - component: {fileID: 3049938852541726390}
   m_Layer: 6
   m_Name: PlayerPrefabNew
   m_TagString: Untagged
@@ -5084,6 +5085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerAnimationController: {fileID: 7253160799843244457}
   _player: {fileID: 0}
+  _playerStateController: {fileID: 0}
   _playerPlayingGuitar: 0
   _canPlay: 0
   _playTransform: {fileID: 0}
@@ -5127,6 +5129,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4eb394a4c684147a8763b1a9843b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3049938852541726390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7402568608815551782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb3d348ab547ca4c88966c7c3a6be15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerAnimationController: {fileID: 0}
+  _player: {fileID: 0}
+  _playerStateController: {fileID: 0}
+  _playerPlayingGuitar: 0
+  _canPlay: 0
+  _playTransform: {fileID: 0}
+  _guitar: {fileID: 793121002621948587}
 --- !u!1 &7606353784891132531
 GameObject:
   m_ObjectHideFlags: 0

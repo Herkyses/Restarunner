@@ -9,8 +9,11 @@ public class GameSceneCanvas : MonoBehaviour
 {
     public static GameSceneCanvas Instance;
     [SerializeField] private TextMeshProUGUI _ownedMoneyText;
+    [SerializeField] private TextMeshProUGUI _popularityText;
     [SerializeField] private TextMeshProUGUI _infoText;
     [SerializeField] private GameObject _infoObject;
+    public bool CanShowCanvas;
+
     private void Awake()
     {
         if (Instance == null)
@@ -24,17 +27,18 @@ public class GameSceneCanvas : MonoBehaviour
 
     }
 
-    public void UpdateMoneyText(float gain)
+    public void UpdateMoneyText(float gain,int popularity)
     {
         _ownedMoneyText.text = gain.ToString();
+        _popularityText.text = popularity.ToString();
     }
 
-    public void ShowAreaInfo(AreaInfo areaInfo)
+    public void ShowAreaInfo(string areaInfo)
     {
         if (!_infoObject.activeSelf)
         {
             _infoObject.SetActive(true);
-            _infoText.text = areaInfo.CanvasText;
+            _infoText.text = areaInfo;
         }
     }
     public void UnShowAreaInfo()

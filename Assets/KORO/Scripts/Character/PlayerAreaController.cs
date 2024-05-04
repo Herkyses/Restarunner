@@ -6,11 +6,16 @@ public class PlayerAreaController : MonoBehaviour
 {
     private Player _player;
     private PlayerMovementController _playerMovementController;
+    private PlayerStateController _playerStateController;
+    private PlayerPlayingController _playerPlayingController;
+
+    public bool CanShowCanvas;
     // Start is called before the first frame update
     void Start()
     {
         TryGetComponent(out _player);
         TryGetComponent(out _playerMovementController);
+        TryGetComponent(out _playerPlayingController);
     }
     
     // Update is called once per frame
@@ -23,8 +28,8 @@ public class PlayerAreaController : MonoBehaviour
             if (col.gameObject.GetComponent<AreaController>())
             {
                 col.gameObject.GetComponent<IAreaInfo>().ShowInfo();
-                _playerMovementController.SetPlayTransform(col.gameObject.GetComponent<IAreaInfo>().GetPlayTransform());
-                _playerMovementController.SetCanPlayer(true);
+                _playerPlayingController.SetPlayTransform(col.gameObject.GetComponent<IAreaInfo>().GetPlayTransform());
+                _playerPlayingController.SetCanPlayer(true);
                 return;
             }
             else
@@ -32,8 +37,13 @@ public class PlayerAreaController : MonoBehaviour
                 
             }
         }
-        GameSceneCanvas.Instance.UnShowAreaInfo();
-        _playerMovementController.SetCanPlayer(false);
+
+        if (!GameSceneCanvas.Instance.CanShowCanvas)
+        {
+            GameSceneCanvas.Instance.UnShowAreaInfo();
+
+        }
+        _playerPlayingController.SetCanPlayer(false);
 
     }
 }

@@ -7,6 +7,7 @@ public class AreaController : MonoBehaviour,IAreaInfo
     [SerializeField] private string _areaName;
     [SerializeField] private string _canvasText;
     [SerializeField] private Transform _transformForPlay;
+    [SerializeField] private Enums.AreaStateType _areaStateType;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,9 +26,10 @@ public class AreaController : MonoBehaviour,IAreaInfo
         {
             AreaName = _areaName,
             CanvasText = _canvasText,
-            TransformForPlay = _transformForPlay
+            TransformForPlay = _transformForPlay,
+            AreaStateType = _areaStateType
         };
-        GameSceneCanvas.Instance.ShowAreaInfo(areaInfo);
+        GameSceneCanvas.Instance.ShowAreaInfo(areaInfo.CanvasText);
     }
 
     public Transform GetPlayTransform()
@@ -41,4 +43,5 @@ public struct AreaInfo
     public string AreaName;
     public string CanvasText;
     public Transform TransformForPlay;
+    public Enums.AreaStateType AreaStateType;
 }

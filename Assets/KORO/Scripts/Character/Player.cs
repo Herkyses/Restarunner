@@ -29,11 +29,16 @@ public class Player : MonoBehaviour
         if (_canTakeMoney)
         {
             //_playerData.OwnedMoney += gainValue;
-            PlayerStructData.Popularity += 1;
+            UpdatePopularity(1);
             PlayerStructData.Money += gainValue;
-            GameSceneCanvas.Instance.UpdateMoneyText(PlayerStructData.Money);
+            GameSceneCanvas.Instance.UpdateMoneyText(PlayerStructData.Money,PlayerStructData.Popularity);
         }
         
+    }
+
+    private void UpdatePopularity(int popularity)
+    {
+        PlayerStructData.Popularity += popularity;
     }
     
 }
