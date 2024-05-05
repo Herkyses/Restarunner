@@ -26,6 +26,7 @@ public class PlayerPlayingController : MonoBehaviour
         {
             if (!_playerPlayingGuitar)
             {
+                GameSceneCanvas.Instance.UnShowAreaInfo();
                 _playerPlayingGuitar = true;
                 _player._canTakeMoney = true;
                 if (_playTransform)

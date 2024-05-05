@@ -27,7 +27,11 @@ public class PlayerAreaController : MonoBehaviour
         {
             if (col.gameObject.GetComponent<AreaController>())
             {
-                col.gameObject.GetComponent<IAreaInfo>().ShowInfo();
+                if (!_playerPlayingController._playerPlayingGuitar)
+                {
+                    col.gameObject.GetComponent<IAreaInfo>().ShowInfo();
+
+                }
                 _playerPlayingController.SetPlayTransform(col.gameObject.GetComponent<IAreaInfo>().GetPlayTransform());
                 _playerPlayingController.SetCanPlayer(true);
                 return;

@@ -10,8 +10,10 @@ public class AIController : MonoBehaviour
 
     [SerializeField] private Transform _targetTransform;
     [SerializeField] private Transform _targetFirstPosition;
+    [SerializeField] private Transform _playerPosition;
     
     [SerializeField] private Animator _playerAnimator;
+    public AIStateMachineController AIStateMachineController;
     
     public LayerMask obstacleMask;
     public int obstacleMaskValue;
@@ -19,6 +21,13 @@ public class AIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.TryGetComponent(out AIStateMachineController);
+    }
+
+    /////////// MOVE STATE ///////////
+    public void StartTargetDestination()
+    {
+        _agent.speed = 1f;
         _agent.destination = _targetTransform.position;
         float randomTime = Random.Range(0f, 1f);
         _playerAnimator.Play("Walk",0,randomTime);
@@ -26,7 +35,26 @@ public class AIController : MonoBehaviour
         InvokeRepeating("CheckForObstacles", 0f, 0.3f);
         //_targetFirstPosition = transform.position;
     }
+    
+    /////////// IDLE STATE ///////////
+    public void StartClapState()
+    {
+        _agent.speed = 0;
+        _playerAnimator.Play("Clapping",0,0);
+        if (_playerPosition)
+        {
+            transform.LookAt(_playerPosition);
+        }
 
+        StartCoroutine(Walking());
+    }
+
+    public IEnumerator Walking()
+    {
+        yield return new WaitForSeconds(3f);
+        
+        AIStateMachineController.AIChangeState(AIStateMachineController.AIMoveState);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -40,7 +68,15 @@ public class AIController : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(transform.position+ Vector3.up, transform.right, out hit, 2f, obstacleMask))
             {
-                hit.collider.gameObject.GetComponent<Player>().GainMoney(4f);
+                var player = hit.collider.gameObject.GetComponent<Player>();
+                if (player._canTakeMoney)
+                {
+                    player.GainMoney(4f);
+                    _playerPosition = hit.collider.gameObject.GetComponent<Player>().transform;
+
+                    AIStateMachineController.AIChangeState(AIStateMachineController.AIClapState);
+
+                }
                 Debug.DrawRay(transform.position + Vector3.up, transform.right * 2f, Color.blue);
 
             }
@@ -48,7 +84,15 @@ public class AIController : MonoBehaviour
         
             if (Physics.Raycast(transform.position+ Vector3.up, -transform.right, out hit, 2f, obstacleMask))
             {
-                hit.collider.gameObject.GetComponent<Player>().GainMoney(4f);
+                var player = hit.collider.gameObject.GetComponent<Player>();
+                if (player._canTakeMoney)
+                {
+                    player.GainMoney(4f);
+                    _playerPosition = hit.collider.gameObject.GetComponent<Player>().transform;
+
+                    AIStateMachineController.AIChangeState(AIStateMachineController.AIClapState);
+                }   
+
                 Debug.DrawRay(transform.position + Vector3.up, -transform.right * 2f, Color.red);
 
             }
