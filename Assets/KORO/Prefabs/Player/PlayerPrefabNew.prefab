@@ -5069,8 +5069,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
-  m_Center: {x: 0.0712204, y: 0.6596932, z: 0.071994305}
+  m_Size: {x: 0.36893845, y: 1.4509801, z: 0.3716669}
+  m_Center: {x: 0.00010204315, y: 0.68506235, z: 0.071994305}
 --- !u!114 &8578709897593811357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5086,6 +5086,7 @@ MonoBehaviour:
   _playerAnimationController: {fileID: 7253160799843244457}
   _player: {fileID: 0}
   _playerStateController: {fileID: 0}
+  _playerPlayingController: {fileID: 0}
   _playerPlayingGuitar: 0
   _canPlay: 0
   _playTransform: {fileID: 0}
@@ -5104,6 +5105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPrice: {fileID: 0}
+  InterectabelOutline: {fileID: 0}
 --- !u!114 &7253160799843244457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5129,6 +5131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4eb394a4c684147a8763b1a9843b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanShowCanvas: 0
 --- !u!114 &3049938852541726390
 MonoBehaviour:
   m_ObjectHideFlags: 0
