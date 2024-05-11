@@ -27,6 +27,7 @@ public class PlayerPlayingController : MonoBehaviour
             if (!_playerPlayingGuitar)
             {
                 GameSceneCanvas.Instance.UnShowAreaInfo();
+                GameSceneCanvas.Instance._musicController.Isplayable = true;
                 _playerPlayingGuitar = true;
                 _player._canTakeMoney = true;
                 if (_playTransform)
@@ -41,6 +42,8 @@ public class PlayerPlayingController : MonoBehaviour
         }
         if(Input.GetKeyUp(KeyCode.F))
         {
+            GameSceneCanvas.Instance._musicController.Isplayable = false;
+
             CameraController.Instance.CanFollowController(true);
             _playerPlayingGuitar = false;
             _player._canTakeMoney = false;

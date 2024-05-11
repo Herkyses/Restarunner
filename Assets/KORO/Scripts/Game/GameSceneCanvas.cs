@@ -12,6 +12,7 @@ public class GameSceneCanvas : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _popularityText;
     [SerializeField] private TextMeshProUGUI _infoText;
     [SerializeField] private GameObject _infoObject;
+    public MusicController _musicController;
     public bool CanShowCanvas;
 
     private void Awake()
