@@ -20,22 +20,55 @@ public class PlayInputController : MonoBehaviour
     {
         if (_musicController.IsCorrectable)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow) && _musicController.IsUpArrow)
+            if (Input.GetKeyDown(KeyCode.UpArrow) )
             {
-                score++;
+                if (_musicController.IsUpArrow)
+                {
+                    _musicController.CorrectScore();
+                    score++; 
+                }
+                else
+                {
+                    _musicController.WhiteAnswer();
+                }
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow) && _musicController.IsRightArrow)
+            else if (Input.GetKeyDown(KeyCode.RightArrow) )
             {
-                score++;
+                if (_musicController.IsRightArrow)
+                {
+                    _musicController.CorrectScore();
+                    score++; 
+                }
+                else
+                {
+                    _musicController.WhiteAnswer();
+                }
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && _musicController.IsLeftArrow)
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) )
             {
-                score++;
+                if (_musicController.IsLeftArrow)
+                {
+                    _musicController.CorrectScore();
+                    score++; 
+                }
+                else
+                {
+                    _musicController.WhiteAnswer();
+                }
             }
-            if (Input.GetKeyDown(KeyCode.DownArrow) && _musicController.IsDownArrow)
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                score++;
+                if (_musicController.IsDownArrow)
+                {
+                    _musicController.CorrectScore();
+                    score++; 
+                }
+                else
+                {
+                    _musicController.WhiteAnswer();
+                }
             }
+            
 
             scoreText.text = score.ToString();
         }

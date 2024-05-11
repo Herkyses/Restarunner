@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,8 @@ public class MusicController : MonoBehaviour
 
     //public GameObject correctObject;
     public Sprite[] ArrowImages;
+
+    public Image AnswerControlBg;
 
     public bool IsCorrectable;
     public bool Isplayable;
@@ -48,6 +51,26 @@ public class MusicController : MonoBehaviour
         
     }
 
+    public void CorrectScore()
+    {
+        AnswerColor(Color.green);
+    }
+
+    public void WhiteAnswer()
+    {
+        AnswerColor(Color.red);
+
+    }
+    public void WhiteAnswer2()
+    {
+        AnswerControlBg.DOColor(Color.black, 0.75f);
+
+    }
+
+    public void AnswerColor(Color color)
+    {
+        AnswerControlBg.DOColor(color, 0.75f).OnComplete(WhiteAnswer2);
+    }
     public void InducatorMoveStart()
     {
         AreaInducatorRect.transform.localPosition += Vector3.down*Time.deltaTime*200f;
