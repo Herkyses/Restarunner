@@ -3558,82 +3558,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 481848, guid: fa07ca939fb86614e840203d85f23f08, type: 3}
   m_PrefabInstance: {fileID: 41998385}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &42409553
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 42409554}
-  - component: {fileID: 42409556}
-  - component: {fileID: 42409555}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &42409554
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42409553}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1406477187}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -202.47253, y: -10.248505}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &42409555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42409553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.019384803, g: 0.6320754, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &42409556
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42409553}
-  m_CullTransparentMesh: 1
 --- !u!1 &42549684
 GameObject:
   m_ObjectHideFlags: 0
@@ -22179,7 +22103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1665303, g: 0.5283019, b: 0.10715558, a: 0.46666667}
+  m_Color: {r: 0.1665303, g: 0.5283019, b: 0.10715558, a: 0.36862746}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -79664,7 +79588,6 @@ RectTransform:
   - {fileID: 874913002}
   - {fileID: 1140036593}
   - {fileID: 1631770910}
-  - {fileID: 42409554}
   - {fileID: 1979651383}
   - {fileID: 1429832496}
   m_Father: {fileID: 0}
@@ -81040,7 +80963,7 @@ RectTransform:
   m_Children:
   - {fileID: 823432228}
   m_Father: {fileID: 1406477187}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -112680,7 +112603,7 @@ RectTransform:
   m_Children:
   - {fileID: 1798379898}
   m_Father: {fileID: 1406477187}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -112703,12 +112626,12 @@ MonoBehaviour:
   AreaInducatorRect: {fileID: 1293946014}
   DownArea: {fileID: 434469460}
   MusicControllerPanel: {fileID: 1798379898}
-  correctObject: {fileID: 42409553}
   ArrowImages:
   - {fileID: 21300000, guid: 2f69ddff00adc374cb9192d3a8473eea, type: 3}
   - {fileID: 21300000, guid: 6c20791ac60cc7d4a9a3b8c6be6fa3bc, type: 3}
   - {fileID: 21300000, guid: 41c6f460f7c7fdd47aa24b6d08b15f0a, type: 3}
   - {fileID: 21300000, guid: 836f5de951b48c743b9a6c76d6b4c843, type: 3}
+  AnswerControlBg: {fileID: 1429832497}
   IsCorrectable: 0
   Isplayable: 0
   IsRightArrow: 0

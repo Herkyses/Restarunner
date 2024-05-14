@@ -6,10 +6,25 @@ using UnityEngine;
 public class PlayInputController : MonoBehaviour
 {
     private MusicController _musicController;
-
-    public int score;
+    public int CorrectAnswerCount;
+    public int WrongAnswerCount;
+    public static PlayInputController Instance;
+    public float score;
     public TextMeshProUGUI scoreText;
     // Start is called before the first frame update
+    
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
     void Start()
     {
         gameObject.TryGetComponent(out _musicController);
@@ -18,59 +33,71 @@ public class PlayInputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_musicController.IsCorrectable)
+        if (_musicController.Isplayable)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow) )
             {
-                if (_musicController.IsUpArrow)
+                if (_musicController.IsUpArrow && _musicController.IsCorrectable)
                 {
+                    CorrectAnswerCount++;
                     _musicController.CorrectScore();
                     score++; 
                 }
                 else
                 {
+                    WrongAnswerCount++;
                     _musicController.WhiteAnswer();
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow) )
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                if (_musicController.IsRightArrow)
+                if (_musicController.IsRightArrow && _musicController.IsCorrectable )
                 {
+                    CorrectAnswerCount++;
                     _musicController.CorrectScore();
                     score++; 
                 }
                 else
                 {
+                    WrongAnswerCount++;
                     _musicController.WhiteAnswer();
                 }
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow) )
             {
-                if (_musicController.IsLeftArrow)
+                if (_musicController.IsLeftArrow && _musicController.IsCorrectable)
                 {
+                    CorrectAnswerCount++;
                     _musicController.CorrectScore();
                     score++; 
                 }
                 else
                 {
+                    WrongAnswerCount++;
                     _musicController.WhiteAnswer();
                 }
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                if (_musicController.IsDownArrow)
+                if (_musicController.IsDownArrow && _musicController.IsCorrectable)
                 {
+                    CorrectAnswerCount++;
                     _musicController.CorrectScore();
                     score++; 
                 }
                 else
                 {
+                    WrongAnswerCount++;
                     _musicController.WhiteAnswer();
                 }
             }
-            
 
-            scoreText.text = score.ToString();
+            if (WrongAnswerCount > 0)
+            {
+                score = 100 * (float)CorrectAnswerCount / (float)(WrongAnswerCount + CorrectAnswerCount);
+                scoreText.text = "% " + ((int)score).ToString();
+            }
+            
         }
     }
 }

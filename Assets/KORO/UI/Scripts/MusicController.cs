@@ -59,7 +59,8 @@ public class MusicController : MonoBehaviour
     public void WhiteAnswer()
     {
         AnswerColor(Color.red);
-
+        AreaInducatorRect.anchoredPosition = AreaInducatorPosition;
+        AreaInducatorRect.gameObject.GetComponent<Image>().sprite = ReturnArrowSprite(Random.Range(0, 4));
     }
     public void WhiteAnswer2()
     {

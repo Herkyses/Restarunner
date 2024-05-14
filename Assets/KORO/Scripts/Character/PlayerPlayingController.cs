@@ -48,7 +48,9 @@ public class PlayerPlayingController : MonoBehaviour
             _playerPlayingGuitar = false;
             _player._canTakeMoney = false;
             _guitar.SetActive(false);
-
+            PlayInputController.Instance.CorrectAnswerCount = 0;
+            PlayInputController.Instance.WrongAnswerCount = 0;
+            
 
         }
     }
