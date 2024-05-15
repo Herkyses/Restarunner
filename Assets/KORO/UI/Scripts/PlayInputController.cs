@@ -8,6 +8,7 @@ public class PlayInputController : MonoBehaviour
     private MusicController _musicController;
     public int CorrectAnswerCount;
     public int WrongAnswerCount;
+    public int AnswerCount;
     public static PlayInputController Instance;
     public float score;
     public TextMeshProUGUI scoreText;
@@ -48,6 +49,7 @@ public class PlayInputController : MonoBehaviour
                     WrongAnswerCount++;
                     _musicController.WhiteAnswer();
                 }
+
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
@@ -62,6 +64,7 @@ public class PlayInputController : MonoBehaviour
                     WrongAnswerCount++;
                     _musicController.WhiteAnswer();
                 }
+
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow) )
             {
@@ -76,6 +79,7 @@ public class PlayInputController : MonoBehaviour
                     WrongAnswerCount++;
                     _musicController.WhiteAnswer();
                 }
+
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
@@ -90,6 +94,7 @@ public class PlayInputController : MonoBehaviour
                     WrongAnswerCount++;
                     _musicController.WhiteAnswer();
                 }
+
             }
 
             if (WrongAnswerCount > 0)

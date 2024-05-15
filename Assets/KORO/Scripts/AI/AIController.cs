@@ -71,7 +71,7 @@ public class AIController : MonoBehaviour
                 var player = hit.collider.gameObject.GetComponent<Player>();
                 if (player._canTakeMoney)
                 {
-                    player.GainMoney(4f);
+                    player.GainMoney(1f);
                     _playerPosition = hit.collider.gameObject.GetComponent<Player>().transform;
 
                     AIStateMachineController.AIChangeState(AIStateMachineController.AIClapState);
@@ -87,7 +87,7 @@ public class AIController : MonoBehaviour
                 var player = hit.collider.gameObject.GetComponent<Player>();
                 if (player._canTakeMoney)
                 {
-                    player.GainMoney(4f);
+                    player.GainMoney(1f);
                     _playerPosition = hit.collider.gameObject.GetComponent<Player>().transform;
 
                     AIStateMachineController.AIChangeState(AIStateMachineController.AIClapState);

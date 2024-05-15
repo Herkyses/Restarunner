@@ -30,7 +30,7 @@ public class GameSceneCanvas : MonoBehaviour
 
     public void UpdateMoneyText(float gain,int popularity)
     {
-        _ownedMoneyText.text = gain.ToString();
+        _ownedMoneyText.text = gain.ToString("F2");
         _popularityText.text = popularity.ToString();
     }
 

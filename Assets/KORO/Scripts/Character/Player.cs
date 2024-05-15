@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         {
             //_playerData.OwnedMoney += gainValue;
             UpdatePopularity(1);
-            PlayerStructData.Money += gainValue;
+            PlayerStructData.Money += gainValue*(PlayInputController.Instance.score/100)*PlayInputController.Instance.CorrectAnswerCount;
             GameSceneCanvas.Instance.UpdateMoneyText(PlayerStructData.Money,PlayerStructData.Popularity);
         }
         
