@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 623028780203769133}
   - component: {fileID: 1770751726811497083}
   - component: {fileID: 1870991240632891537}
-  m_Layer: 0
+  - component: {fileID: 8852601044237284480}
+  m_Layer: 9
   m_Name: SM_Props_City_Beach_Chair_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,6 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,10 +55,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -81,6 +85,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &1770751726811497083
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -107,3 +112,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.46853125, y: 0.5368695, z: 0.08131045}
   m_Center: {x: 0, y: 0.82371616, z: -0.251034}
+--- !u!114 &8852601044237284480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415692894610414840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aeec2ce7799b3343b7f79c0cbaf12c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

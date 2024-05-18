@@ -8,6 +8,7 @@ public class AIStateMachineController : MonoBehaviour
     public AIClapState AIClapState;
     public AIIdleState AIIdleState;
     public AIMoveState AIMoveState;
+    public AISitState AISitState;
     public AIController AIController;
     
     [SerializeField] private Animator _playerAnimator;
@@ -27,6 +28,7 @@ public class AIStateMachineController : MonoBehaviour
         AIIdleState = new AIIdleState(this);
         AIClapState = new AIClapState(this);
         AIMoveState = new AIMoveState(this);
+        AISitState = new AISitState(this);
         AIChangeState(AIMoveState);
     }
 

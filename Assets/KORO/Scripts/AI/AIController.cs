@@ -11,6 +11,7 @@ public class AIController : MonoBehaviour
     [SerializeField] private Transform _targetTransform;
     [SerializeField] private Transform _targetFirstPosition;
     [SerializeField] private Transform _playerPosition;
+    [SerializeField] private Transform _chairPosition;
     
     [SerializeField] private Animator _playerAnimator;
     public AIStateMachineController AIStateMachineController;
@@ -23,7 +24,12 @@ public class AIController : MonoBehaviour
     {
         gameObject.TryGetComponent(out AIStateMachineController);
     }
-
+    /////////// SIT STATE ///////////
+    public void StartSitState()
+    {
+        _agent.speed = 0f;
+        _playerAnimator.Play("Sit",0);
+    }
     /////////// MOVE STATE ///////////
     public void StartTargetDestination()
     {
@@ -36,7 +42,7 @@ public class AIController : MonoBehaviour
         //_targetFirstPosition = transform.position;
     }
     
-    /////////// IDLE STATE ///////////
+    /////////// CLAP STATE ///////////
     public void StartClapState()
     {
         _agent.speed = 0;

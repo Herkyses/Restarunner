@@ -97,7 +97,7 @@ public class PlayInputController : MonoBehaviour
 
             }
 
-            if (WrongAnswerCount > 0)
+            if (WrongAnswerCount > 0 || CorrectAnswerCount > 0)
             {
                 score = 100 * (float)CorrectAnswerCount / (float)(WrongAnswerCount + CorrectAnswerCount);
                 scoreText.text = "% " + ((int)score).ToString();
