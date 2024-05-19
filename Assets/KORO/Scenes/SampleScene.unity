@@ -145,7 +145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &1128863
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &1128865
 BoxCollider:
@@ -192,10 +192,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128862}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
+  m_Size: {x: 0.3, y: 1.13, z: 0.18}
   m_Center: {x: 0.0712204, y: 0.6596932, z: 0.071994305}
 --- !u!114 &1128866
 MonoBehaviour:
@@ -214,12 +214,17 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 2049870682}
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
+  _targetPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _playerAnimator: {fileID: 1128867}
   AIStateMachineController: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMaskValue: 0
+  destinationValue: 0
 --- !u!95 &1128867
 Animator:
   serializedVersion: 5
@@ -322,6 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9966ea9182c1d45ad7f5f68ee65f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactabled: 0
 --- !u!1001 &3476293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5039,7 +5045,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &76728840
 BoxCollider:
@@ -5049,7 +5055,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76728837}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
@@ -5071,12 +5077,17 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 1480333179}
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
+  _targetPositions:
+  - {fileID: 1868345826}
+  - {fileID: 1119903384}
+  - {fileID: 1480333179}
   _playerAnimator: {fileID: 76728842}
   AIStateMachineController: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMaskValue: 0
+  destinationValue: 0
 --- !u!95 &76728842
 Animator:
   serializedVersion: 5
@@ -5179,6 +5190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9966ea9182c1d45ad7f5f68ee65f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactabled: 0
 --- !u!1 &77260731
 GameObject:
   m_ObjectHideFlags: 0
@@ -9807,7 +9819,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &148756518
 BoxCollider:
@@ -9817,7 +9829,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148756515}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
@@ -9839,12 +9851,17 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 1119903384}
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
+  _targetPositions:
+  - {fileID: 1392797113}
+  - {fileID: 1480333179}
+  - {fileID: 1119903384}
   _playerAnimator: {fileID: 148756520}
   AIStateMachineController: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMaskValue: 0
+  destinationValue: 0
 --- !u!95 &148756520
 Animator:
   serializedVersion: 5
@@ -9947,6 +9964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9966ea9182c1d45ad7f5f68ee65f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactabled: 0
 --- !u!1 &154318813
 GameObject:
   m_ObjectHideFlags: 0
@@ -21934,7 +21952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &370821019
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -21971,7 +21989,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &370821021
 BoxCollider:
@@ -21981,10 +21999,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370821018}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
+  m_Size: {x: 0.3, y: 1.13, z: 0.18}
   m_Center: {x: 0.0712204, y: 0.6596932, z: 0.071994305}
 --- !u!114 &370821022
 MonoBehaviour:
@@ -22003,12 +22021,17 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 1869716651}
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
+  _targetPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _playerAnimator: {fileID: 370821023}
   AIStateMachineController: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMaskValue: 0
+  destinationValue: 0
 --- !u!95 &370821023
 Animator:
   serializedVersion: 5
@@ -22111,6 +22134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9966ea9182c1d45ad7f5f68ee65f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactabled: 0
 --- !u!1 &376372545
 GameObject:
   m_ObjectHideFlags: 0
@@ -24016,7 +24040,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &403048131
 BoxCollider:
@@ -24026,10 +24050,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403048128}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
+  m_Size: {x: 0.3, y: 1.13, z: 0.18}
   m_Center: {x: 0.0712204, y: 0.6596932, z: 0.071994305}
 --- !u!114 &403048132
 MonoBehaviour:
@@ -24048,12 +24072,17 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 1119903384}
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
+  _targetPositions:
+  - {fileID: 1352510516}
+  - {fileID: 1480333179}
+  - {fileID: 1119903384}
   _playerAnimator: {fileID: 403048133}
   AIStateMachineController: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMaskValue: 0
+  destinationValue: 0
 --- !u!95 &403048133
 Animator:
   serializedVersion: 5
@@ -24156,6 +24185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9966ea9182c1d45ad7f5f68ee65f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactabled: 0
 --- !u!1001 &403444925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38766,7 +38796,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &662879582
 BoxCollider:
@@ -38776,7 +38806,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662879579}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
@@ -38798,12 +38828,17 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 1480333179}
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
+  _targetPositions:
+  - {fileID: 957874284}
+  - {fileID: 1119903384}
+  - {fileID: 1480333179}
   _playerAnimator: {fileID: 662879584}
   AIStateMachineController: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMaskValue: 0
+  destinationValue: 0
 --- !u!95 &662879584
 Animator:
   serializedVersion: 5
@@ -38906,6 +38941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9966ea9182c1d45ad7f5f68ee65f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactabled: 0
 --- !u!1 &665018923
 GameObject:
   m_ObjectHideFlags: 0
@@ -41257,7 +41293,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704965012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.196068, y: -13.630175, z: 68.1433}
+  m_LocalPosition: {x: 22.4, y: -13.630175, z: 66.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -44878,7 +44914,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &767430050
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -44915,7 +44951,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &767430052
 BoxCollider:
@@ -44925,10 +44961,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767430049}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
+  m_Size: {x: 0.3, y: 1.13, z: 0.18}
   m_Center: {x: 0.0712204, y: 0.6596932, z: 0.071994305}
 --- !u!114 &767430053
 MonoBehaviour:
@@ -44947,12 +44983,17 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 1869716651}
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
+  _targetPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _playerAnimator: {fileID: 767430054}
   AIStateMachineController: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMaskValue: 0
+  destinationValue: 0
 --- !u!95 &767430054
 Animator:
   serializedVersion: 5
@@ -45055,6 +45096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9966ea9182c1d45ad7f5f68ee65f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactabled: 0
 --- !u!1 &768530569
 GameObject:
   m_ObjectHideFlags: 0
@@ -52105,7 +52147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &884337094
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -52142,7 +52184,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &884337096
 BoxCollider:
@@ -52152,10 +52194,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884337093}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
+  m_Size: {x: 0.3, y: 1.13, z: 0.18}
   m_Center: {x: 0.0712204, y: 0.6596932, z: 0.071994305}
 --- !u!114 &884337097
 MonoBehaviour:
@@ -52174,12 +52216,17 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 2049870682}
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
+  _targetPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _playerAnimator: {fileID: 884337098}
   AIStateMachineController: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMaskValue: 0
+  destinationValue: 0
 --- !u!95 &884337098
 Animator:
   serializedVersion: 5
@@ -52282,6 +52329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9966ea9182c1d45ad7f5f68ee65f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactabled: 0
 --- !u!1 &885671320
 GameObject:
   m_ObjectHideFlags: 0
@@ -56647,7 +56695,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &967078008
 BoxCollider:
@@ -56657,10 +56705,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967078005}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
+  m_Size: {x: 0.3, y: 1.13, z: 0.18}
   m_Center: {x: 0.0712204, y: 0.6596932, z: 0.071994305}
 --- !u!114 &967078009
 MonoBehaviour:
@@ -56679,12 +56727,17 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 1119903384}
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
+  _targetPositions:
+  - {fileID: 1352510516}
+  - {fileID: 1480333179}
+  - {fileID: 1119903384}
   _playerAnimator: {fileID: 967078010}
   AIStateMachineController: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMaskValue: 0
+  destinationValue: 0
 --- !u!95 &967078010
 Animator:
   serializedVersion: 5
@@ -56787,6 +56840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9966ea9182c1d45ad7f5f68ee65f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactabled: 0
 --- !u!1001 &967869177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63927,7 +63981,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &1080256664
 BoxCollider:
@@ -63937,10 +63991,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080256661}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
+  m_Size: {x: 0.3, y: 1.13, z: 0.18}
   m_Center: {x: 0.0712204, y: 0.6596932, z: 0.071994305}
 --- !u!114 &1080256665
 MonoBehaviour:
@@ -63959,12 +64013,17 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 1480333179}
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
+  _targetPositions:
+  - {fileID: 1091571714}
+  - {fileID: 1119903384}
+  - {fileID: 1480333179}
   _playerAnimator: {fileID: 1080256666}
   AIStateMachineController: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMaskValue: 0
+  destinationValue: 0
 --- !u!95 &1080256666
 Animator:
   serializedVersion: 5
@@ -64067,6 +64126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9966ea9182c1d45ad7f5f68ee65f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactabled: 0
 --- !u!1 &1080392011
 GameObject:
   m_ObjectHideFlags: 0
@@ -75358,7 +75418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1796476119746872898, guid: 669b72584678731419fa4ab7eace0b3c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -36.226303
+      value: -36.05
       objectReference: {fileID: 0}
     - target: {fileID: 1796476119746872898, guid: 669b72584678731419fa4ab7eace0b3c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -77995,7 +78055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &1340365123
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -78032,7 +78092,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &1340365125
 BoxCollider:
@@ -78042,10 +78102,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340365122}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
+  m_Size: {x: 0.3, y: 1.13, z: 0.18}
   m_Center: {x: 0.0712204, y: 0.6596932, z: 0.071994305}
 --- !u!114 &1340365126
 MonoBehaviour:
@@ -78064,12 +78124,17 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 1869716651}
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
+  _targetPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _playerAnimator: {fileID: 1340365127}
   AIStateMachineController: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMaskValue: 0
+  destinationValue: 0
 --- !u!95 &1340365127
 Animator:
   serializedVersion: 5
@@ -78172,6 +78237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9966ea9182c1d45ad7f5f68ee65f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactabled: 0
 --- !u!1 &1340488935
 GameObject:
   m_ObjectHideFlags: 0
@@ -90795,7 +90861,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532193108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.34, y: -13.630175, z: 70.9}
+  m_LocalPosition: {x: 15.2, y: -13.630175, z: 70.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -91985,7 +92051,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &1566858014
 BoxCollider:
@@ -91995,10 +92061,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566858011}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
+  m_Size: {x: 0.3, y: 1.13, z: 0.18}
   m_Center: {x: 0.0712204, y: 0.6596932, z: 0.071994305}
 --- !u!114 &1566858015
 MonoBehaviour:
@@ -92017,12 +92083,17 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 1480333179}
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
+  _targetPositions:
+  - {fileID: 78072823}
+  - {fileID: 1119903384}
+  - {fileID: 1480333179}
   _playerAnimator: {fileID: 1566858016}
   AIStateMachineController: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMaskValue: 0
+  destinationValue: 0
 --- !u!95 &1566858016
 Animator:
   serializedVersion: 5
@@ -92125,6 +92196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9966ea9182c1d45ad7f5f68ee65f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactabled: 0
 --- !u!1 &1570205852
 GameObject:
   m_ObjectHideFlags: 0
@@ -116348,7 +116420,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &1990566209
 BoxCollider:
@@ -116358,10 +116430,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990566206}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
+  m_Size: {x: 0.3, y: 1.13, z: 0.18}
   m_Center: {x: 0.0712204, y: 0.6596932, z: 0.071994305}
 --- !u!114 &1990566210
 MonoBehaviour:
@@ -116376,16 +116448,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _agent: {fileID: 1990566207}
-  _targetTransform: {fileID: 1063070952}
-  _targetFirstPosition: {fileID: 1063070952}
+  _targetTransform: {fileID: 1480333179}
+  _targetFirstPosition: {fileID: 1119903384}
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
+  _targetPositions:
+  - {fileID: 1285112453}
+  - {fileID: 1480333179}
+  - {fileID: 1119903384}
   _playerAnimator: {fileID: 1990566211}
   AIStateMachineController: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMaskValue: 0
+  destinationValue: 0
 --- !u!95 &1990566211
 Animator:
   serializedVersion: 5
@@ -116488,6 +116565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9966ea9182c1d45ad7f5f68ee65f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactabled: 0
 --- !u!1 &1991335168
 GameObject:
   m_ObjectHideFlags: 0
@@ -118257,7 +118335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &2022765548
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -118294,7 +118372,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &2022765550
 BoxCollider:
@@ -118304,10 +118382,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2022765547}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
+  m_Size: {x: 0.3, y: 1.13, z: 0.18}
   m_Center: {x: 0.0712204, y: 0.6596932, z: 0.071994305}
 --- !u!114 &2022765551
 MonoBehaviour:
@@ -118326,12 +118404,17 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 2049870682}
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
+  _targetPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _playerAnimator: {fileID: 2022765552}
   AIStateMachineController: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMaskValue: 0
+  destinationValue: 0
 --- !u!95 &2022765552
 Animator:
   serializedVersion: 5
@@ -118434,6 +118517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9966ea9182c1d45ad7f5f68ee65f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactabled: 0
 --- !u!1 &2023659821
 GameObject:
   m_ObjectHideFlags: 0
@@ -118934,7 +119018,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &2029177027
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -118971,7 +119055,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &2029177029
 BoxCollider:
@@ -118981,10 +119065,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029177026}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
+  m_Size: {x: 0.3, y: 1.13, z: 0.18}
   m_Center: {x: 0.0712204, y: 0.6596932, z: 0.071994305}
 --- !u!114 &2029177030
 MonoBehaviour:
@@ -119003,12 +119087,17 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 2049870682}
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
+  _targetPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _playerAnimator: {fileID: 2029177031}
   AIStateMachineController: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMaskValue: 0
+  destinationValue: 0
 --- !u!95 &2029177031
 Animator:
   serializedVersion: 5
@@ -119111,6 +119200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9966ea9182c1d45ad7f5f68ee65f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactabled: 0
 --- !u!1 &2032005503
 GameObject:
   m_ObjectHideFlags: 0
@@ -120249,7 +120339,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &2043309579
 BoxCollider:
@@ -120259,10 +120349,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2043309576}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
+  m_Size: {x: 0.3, y: 1.13, z: 0.18}
   m_Center: {x: 0.0712204, y: 0.6596932, z: 0.071994305}
 --- !u!114 &2043309580
 MonoBehaviour:
@@ -120281,12 +120371,17 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 1119903384}
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
+  _targetPositions:
+  - {fileID: 2136345391}
+  - {fileID: 1480333179}
+  - {fileID: 1119903384}
   _playerAnimator: {fileID: 2043309581}
   AIStateMachineController: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMaskValue: 0
+  destinationValue: 0
 --- !u!95 &2043309581
 Animator:
   serializedVersion: 5
@@ -120389,6 +120484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9966ea9182c1d45ad7f5f68ee65f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactabled: 0
 --- !u!1 &2043712905
 GameObject:
   m_ObjectHideFlags: 0
@@ -125800,7 +125896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &2127667440
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -125837,7 +125933,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &2127667442
 BoxCollider:
@@ -125847,10 +125943,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127667439}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
+  m_Size: {x: 0.3, y: 1.13, z: 0.18}
   m_Center: {x: 0.0712204, y: 0.6596932, z: 0.071994305}
 --- !u!114 &2127667443
 MonoBehaviour:
@@ -125869,12 +125965,17 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 1869716651}
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
+  _targetPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _playerAnimator: {fileID: 2127667444}
   AIStateMachineController: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMaskValue: 0
+  destinationValue: 0
 --- !u!95 &2127667444
 Animator:
   serializedVersion: 5
@@ -125977,6 +126078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9966ea9182c1d45ad7f5f68ee65f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactabled: 0
 --- !u!1 &2129537924
 GameObject:
   m_ObjectHideFlags: 0
@@ -130982,7 +131084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &4416397172706597387
 Animator:
   serializedVersion: 5
@@ -131017,7 +131119,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &4416397172706597389
 BoxCollider:
@@ -131027,7 +131129,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4416397172706597386}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.51117516, y: 1.4002415, z: 0.3716669}
@@ -131071,12 +131173,17 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 2049870682}
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
+  _targetPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _playerAnimator: {fileID: 4416397172706597387}
   AIStateMachineController: {fileID: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMaskValue: 0
+  destinationValue: 0
 --- !u!114 &4416397172706597392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131103,6 +131210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9966ea9182c1d45ad7f5f68ee65f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactabled: 0
 --- !u!4 &4448282257511934830
 Transform:
   m_ObjectHideFlags: 0

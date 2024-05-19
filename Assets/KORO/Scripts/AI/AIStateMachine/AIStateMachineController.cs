@@ -29,7 +29,9 @@ public class AIStateMachineController : MonoBehaviour
         AIClapState = new AIClapState(this);
         AIMoveState = new AIMoveState(this);
         AISitState = new AISitState(this);
+        var zort = Random.Range(0, 1);
         AIChangeState(AIMoveState);
+
     }
 
     public void AIChangeState(AIBaseState currentState)

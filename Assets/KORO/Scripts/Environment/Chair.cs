@@ -11,6 +11,7 @@ public class Chair : MonoBehaviour, IAIInteractable
         AITransform.rotation = transform.rotation;
         var stateMAchineController = AITransform.gameObject.GetComponent<AIStateMachineController>();
         stateMAchineController.AIChangeState(stateMAchineController.AISitState);
+        AITransform.gameObject.GetComponent<AIAreaController>().InteractabelControl();
     }
 
 }

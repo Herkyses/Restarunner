@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AIAreaController : MonoBehaviour
 {
+    public bool Interactabled;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,21 +14,31 @@ public class AIAreaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.2f);
-
-        foreach (Collider col in colliders)
+        if (!Interactabled)
         {
-            var interfacezort = col.gameObject.GetComponent<IAIInteractable>();
-            if (interfacezort != null)
-            {
-                interfacezort.StartState(transform);
-            }
-            else
-            {
-                
-            }
-        }
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 0.2f);
 
-        
+            foreach (Collider col in colliders)
+            {
+                var interfacezort = col.gameObject.GetComponent<IAIInteractable>();
+                if (interfacezort != null)
+                {
+                    interfacezort.StartState(transform);
+                }
+                else
+                {
+                
+                }
+            } 
+        }
+    }
+
+    public void InteractabelControl()
+    {
+        Interactabled = true;
+    }
+    public void InteractabelDeactive()
+    {
+        Interactabled = false;
     }
 }

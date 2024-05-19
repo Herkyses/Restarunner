@@ -12,16 +12,19 @@ public class AIController : MonoBehaviour
     [SerializeField] private Transform _targetFirstPosition;
     [SerializeField] private Transform _playerPosition;
     [SerializeField] private Transform _chairPosition;
+    [SerializeField] private List<Transform> _targetPositions;
     
     [SerializeField] private Animator _playerAnimator;
     public AIStateMachineController AIStateMachineController;
     
     public LayerMask obstacleMask;
     public int obstacleMaskValue;
+    public int destinationValue = -1;
 
     // Start is called before the first frame update
     void Start()
     {
+        destinationValue = -1;
         gameObject.TryGetComponent(out AIStateMachineController);
     }
     /////////// SIT STATE ///////////
@@ -29,12 +32,53 @@ public class AIController : MonoBehaviour
     {
         _agent.speed = 0f;
         _playerAnimator.Play("Sit",0);
+        StartCoroutine(Walking());
+
     }
     /////////// MOVE STATE ///////////
+    public void SetDestinationTarget()
+    {
+        var zort = Random.Range(0, 2);
+        if (zort == 0)
+        {
+            if (destinationValue != 0)
+            {
+                destinationValue = 0;
+                _agent.destination = _targetPositions[destinationValue].position;
+
+            }
+            else
+            {
+                _targetTransform = _targetPositions[1];
+                _agent.destination = _targetPositions[1].position;
+                //GetComponent<AIAreaController>().InteractabelDeactive();
+            }
+
+        }
+        else
+        {
+            if (destinationValue != 1)
+            {
+                destinationValue = 1;
+                _agent.destination = _targetPositions[destinationValue].position;
+
+            }
+            else
+            {
+                destinationValue = 2;
+                _agent.destination = _targetPositions[destinationValue].position;
+            }
+            _targetTransform = _targetPositions[destinationValue];
+
+            //GetComponent<AIAreaController>().InteractabelDeactive();
+
+
+        }
+    }
     public void StartTargetDestination()
     {
         _agent.speed = 1f;
-        _agent.destination = _targetTransform.position;
+        SetDestinationTarget();
         float randomTime = Random.Range(0f, 1f);
         _playerAnimator.Play("Walk",0,randomTime);
         //obstacleMaskValue = LayerMask.NameToLayer("Player");
@@ -66,6 +110,8 @@ public class AIController : MonoBehaviour
     {
         if (1 > Vector3.Distance(transform.position, _targetTransform.position))
         {
+            StartTargetDestination();
+            GetComponent<AIAreaController>().InteractabelDeactive();
             transform.position = _targetFirstPosition.position;
         }
     }
