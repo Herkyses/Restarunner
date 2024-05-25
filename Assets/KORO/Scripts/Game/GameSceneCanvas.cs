@@ -13,8 +13,10 @@ public class GameSceneCanvas : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _popularityText;
     [SerializeField] private TextMeshProUGUI _infoText;
     [SerializeField] private GameObject _infoObject;
+    public OrderPanelController _orderPanel;
     public MusicController _musicController;
-    public Image _orderPanel;
+    public Image _orderPanelImage;
+    
     public bool CanShowCanvas;
     public bool CanMove;
 
@@ -30,6 +32,7 @@ public class GameSceneCanvas : MonoBehaviour
         }
 
     }
+    
 
     public void UpdateMoneyText(float gain,int popularity)
     {
@@ -52,17 +55,11 @@ public class GameSceneCanvas : MonoBehaviour
             _infoObject.SetActive(false);
         }
     }
-
-    public void ShowOrderNoteBook()
-    {
-        CanMove = false;
-        _orderPanel.gameObject.SetActive(true);
-    }
+    
 
     public void CanFollowTrue()
     {
-        CanMove = true;
-
+        _orderPanel.CanFollowTrue();
     }
     // Start is called before the first frame update
     void Start()

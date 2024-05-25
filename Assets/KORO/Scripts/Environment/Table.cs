@@ -5,21 +5,34 @@ using UnityEngine;
 public class Table : MonoBehaviour,IInterectableObject
 {
     [SerializeField] private string checkOrder = "Check Order";
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private List<OrderDataStruct> _orderList ;
+    public int TableNumber ;
+   
+    private void OnEnable()
     {
-        
+        Chair.GivedOrder += CreateOrdersWithAction;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        Chair.GivedOrder -= CreateOrdersWithAction;
+
+    }
+    public void CreateOrdersWithAction(int tableNumber)
+    {
+        if (OrderPanelController.Instance.OpenedTableNumber == tableNumber && tableNumber == TableNumber)
+        {
+            InterectableObjectRun();
+        }
     }
 
+    public void SetOrder(OrderDataStruct singleOrder)
+    {
+        _orderList.Add(singleOrder);
+    }
     public void InterectableObjectRun()
     {
-        GameSceneCanvas.Instance.ShowOrderNoteBook();
+        OrderPanelController.Instance.ShowOrder(_orderList,TableNumber);
     }
 
     public void ShowOutline(bool active)

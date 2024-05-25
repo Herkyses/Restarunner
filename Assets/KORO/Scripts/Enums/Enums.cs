@@ -17,8 +17,14 @@ public class Enums : MonoBehaviour
     }
     public enum AreaStateType
     {
-        Door,
-        PlayArea,
+        Door = 0,
+        PlayArea = 1,
+        
+    }
+    public enum OrderType
+    {
+        Pizza,
+        Burger,
         
     }
 }
