@@ -25,7 +25,11 @@ public class Chair : MonoBehaviour, IAIInteractable
         AITransform.gameObject.GetComponent<AIAreaController>().InteractabelControl();
         var orderIndex = Random.Range(0, 2);
         SetOrderTable(orderIndex);
-        GivedOrder?.Invoke(_tableNumber);
+        if (OrderPanelController.Instance.OpenedTableNumber == _tableNumber)
+        {
+            GivedOrder?.Invoke(_tableNumber);
+
+        }
     }
 
     public void SetOrderTable(int orderIndex)

@@ -20,10 +20,9 @@ public class Table : MonoBehaviour,IInterectableObject
     }
     public void CreateOrdersWithAction(int tableNumber)
     {
-        if (OrderPanelController.Instance.OpenedTableNumber == tableNumber && tableNumber == TableNumber)
-        {
-            InterectableObjectRun();
-        }
+        if(tableNumber == TableNumber)
+        InterectableObjectRun();
+        
     }
 
     public void SetOrder(OrderDataStruct singleOrder)
