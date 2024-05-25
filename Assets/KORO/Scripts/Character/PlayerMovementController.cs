@@ -25,20 +25,24 @@ public class PlayerMovementController : MonoBehaviour
 
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal"); 
-        float verticalInput = Input.GetAxis("Vertical");     
-
-
-        if (horizontalInput == 0 && verticalInput == 0 && !_playerPlayingController._playerPlayingGuitar)
+        if (GameSceneCanvas.Instance.CanMove)
         {
-            _playerAnimationController.PlayIdleAnimation();
-        }
-        else if ((horizontalInput >= 0 || verticalInput >= 0) && !_playerPlayingController._playerPlayingGuitar)
-        {
-            Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * speed * Time.deltaTime; // Hareket vektörü hesaplanır
-            transform.Translate(movement); // Karakteri hareket ettir
+            float horizontalInput = Input.GetAxis("Horizontal"); 
+            float verticalInput = Input.GetAxis("Vertical");     
 
-            _playerAnimationController.PlayRunAnimation();
+
+            if (horizontalInput == 0 && verticalInput == 0 && !_playerPlayingController._playerPlayingGuitar)
+            {
+                _playerAnimationController.PlayIdleAnimation();
+            }
+            else if ((horizontalInput >= 0 || verticalInput >= 0) && !_playerPlayingController._playerPlayingGuitar)
+            {
+                Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * speed * Time.deltaTime; // Hareket vektörü hesaplanır
+                transform.Translate(movement); // Karakteri hareket ettir
+
+                _playerAnimationController.PlayRunAnimation();
+            }
         }
+        
     }
 }

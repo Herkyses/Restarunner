@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Chair : MonoBehaviour, IAIInteractable
 {
-
+    [SerializeField] private Table _ownerTable;
     public void StartState(Transform AITransform)
     {
         AITransform.position = transform.position;
@@ -12,6 +12,11 @@ public class Chair : MonoBehaviour, IAIInteractable
         var stateMAchineController = AITransform.gameObject.GetComponent<AIStateMachineController>();
         stateMAchineController.AIChangeState(stateMAchineController.AISitState);
         AITransform.gameObject.GetComponent<AIAreaController>().InteractabelControl();
+    }
+
+    public void SetOrderTable()
+    {
+        
     }
 
 }

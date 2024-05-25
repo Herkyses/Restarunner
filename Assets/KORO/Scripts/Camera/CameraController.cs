@@ -56,12 +56,13 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         _canFollow = true;
+        GameSceneCanvas.Instance.CanMove = true;
     }
 
     public void CanFollowController(bool zort)
     {
         _canFollow = zort;
-
+    
         if (!zort)
         {
             distance = 4f;
@@ -84,41 +85,44 @@ public class CameraController : MonoBehaviour
     }
     void LateUpdate()
     {
-        
-        if (PlayerTransform != null && _canFollow )
+        if (GameSceneCanvas.Instance.CanMove)
         {
-            mouseX = Input.GetAxis("Mouse X") * rotationSpeed;
-            mouseY = Input.GetAxis("Mouse Y") * rotationSpeed;
+            if (PlayerTransform != null)
+            {
+                mouseX = Input.GetAxis("Mouse X") * rotationSpeed;
+                mouseY = Input.GetAxis("Mouse Y") * rotationSpeed;
 
-            currentRotationAngle += mouseX;
-            rotationY -= mouseY;
-            rotationY = Mathf.Clamp(rotationY, MinAxisY, MaxAxisY); // Kameranın aşırı yukarı ya da aşağı dönmesini engelle
+                currentRotationAngle += mouseX;
+                rotationY -= mouseY;
+                rotationY = Mathf.Clamp(rotationY, MinAxisY, MaxAxisY); // Kameranın aşırı yukarı ya da aşağı dönmesini engelle
 
-            rotation = Quaternion.Euler(rotationY, currentRotationAngle, 0);
-            position = PlayerTransform.position - (rotation * Vector3.forward * distance) + (Vector3.up * height);
+                rotation = Quaternion.Euler(rotationY, currentRotationAngle, 0);
+                position = PlayerTransform.position - (rotation * Vector3.forward * distance) + (Vector3.up * height);
 
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * damping);
-            transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * damping);
+                transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * damping);
+                transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * damping);
             
-            //PlayerTransform.Rotate(Vector3.up * mouseX); // Karakterin yatay dönüşü
-            //PlayerTransform.rotation = Quaternion.Euler(new Vector3(PlayerTransform.rotation.x,PlayerTransform.rotation.y+mouseX,PlayerTransform.rotation.z));
-            PlayerTransform.rotation = Quaternion.Euler(new Vector3(0,Quaternion.LookRotation(transform.forward).eulerAngles.y,0));
+                //PlayerTransform.Rotate(Vector3.up * mouseX); // Karakterin yatay dönüşü
+                //PlayerTransform.rotation = Quaternion.Euler(new Vector3(PlayerTransform.rotation.x,PlayerTransform.rotation.y+mouseX,PlayerTransform.rotation.z));
+                PlayerTransform.rotation = Quaternion.Euler(new Vector3(0,Quaternion.LookRotation(transform.forward).eulerAngles.y,0));
+            }
+            else if(!_canFollow)
+            {
+                mouseX = Input.GetAxis("Mouse X") * rotationSpeed;
+                mouseY = Input.GetAxis("Mouse Y") * rotationSpeed;
+
+                currentRotationAngle += mouseX;
+                rotationY -= mouseY;
+                rotationY = Mathf.Clamp(rotationY, -90f, 90f); // Kameranın aşırı yukarı ya da aşağı dönmesini engelle
+
+                rotation = Quaternion.Euler(rotationY, currentRotationAngle, 0);
+                position = PlayerTransform.position - (rotation * Vector3.forward * distance) + (Vector3.up * height);
+
+                transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * damping);
+                transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * damping);
+            }
         }
-        else if(!_canFollow)
-        {
-            mouseX = Input.GetAxis("Mouse X") * rotationSpeed;
-            mouseY = Input.GetAxis("Mouse Y") * rotationSpeed;
-
-            currentRotationAngle += mouseX;
-            rotationY -= mouseY;
-            rotationY = Mathf.Clamp(rotationY, -90f, 90f); // Kameranın aşırı yukarı ya da aşağı dönmesini engelle
-
-            rotation = Quaternion.Euler(rotationY, currentRotationAngle, 0);
-            position = PlayerTransform.position - (rotation * Vector3.forward * distance) + (Vector3.up * height);
-
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * damping);
-            transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * damping);
-        }
+        
         
         
     }

@@ -5,13 +5,15 @@ using UnityEngine.AI;
 
 public class AIController : MonoBehaviour
 {
-
+    
+    
     [SerializeField] private NavMeshAgent _agent;
 
     [SerializeField] private Transform _targetTransform;
     [SerializeField] private Transform _targetFirstPosition;
     [SerializeField] private Transform _playerPosition;
     [SerializeField] private Transform _chairPosition;
+    [SerializeField] private AICanvas _aıCanvas_;
     [SerializeField] private List<Transform> _targetPositions;
     
     [SerializeField] private Animator _playerAnimator;
@@ -32,7 +34,7 @@ public class AIController : MonoBehaviour
     {
         _agent.speed = 0f;
         _playerAnimator.Play("Sit",0);
-        StartCoroutine(Walking());
+        StartCoroutine(FoodIcon());
 
     }
     /////////// MOVE STATE ///////////
@@ -104,6 +106,12 @@ public class AIController : MonoBehaviour
         yield return new WaitForSeconds(3f);
         
         AIStateMachineController.AIChangeState(AIStateMachineController.AIMoveState);
+    }
+    public IEnumerator FoodIcon()
+    {
+        yield return new WaitForSeconds(3f);
+        
+        _aıCanvas_.InfoImage.gameObject.SetActive(true);
     }
     // Update is called once per frame
     void Update()
