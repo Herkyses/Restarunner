@@ -20,8 +20,11 @@ public class Table : MonoBehaviour,IInterectableObject
     }
     public void CreateOrdersWithAction(int tableNumber)
     {
-        if(tableNumber == TableNumber)
-        InterectableObjectRun();
+        if (tableNumber == TableNumber)
+        {
+            InterectableObjectRun();
+
+        }
         
     }
 
