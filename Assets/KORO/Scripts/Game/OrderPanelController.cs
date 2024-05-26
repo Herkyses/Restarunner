@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class OrderPanelController : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class OrderPanelController : MonoBehaviour
     [SerializeField] private GameObject _orderPanel;
     [SerializeField] private SingleOrder _singlePf;
     [SerializeField] private Transform _singlePfParent;
-    [SerializeField] private List<SingleOrder> _singleOrderList;
+    [FormerlySerializedAs("_singleOrderList")] [SerializeField] private List<SingleOrder> _tableOrderList;
+    [SerializeField] private List<SingleOrder> _orderList;
     public int OpenedTableNumber;
     
     private void Awake()
@@ -45,11 +47,12 @@ public class OrderPanelController : MonoBehaviour
     public void CreateOrders(List<OrderDataStruct> _orderList)
     {
         DeleteChilds();
-        _singleOrderList.Clear();
+        _tableOrderList.Clear();
         for (int i = 0; i < _orderList.Count; i++)
         {
             var order = Instantiate(_singlePf, _singlePfParent);
-            _singleOrderList.Add(order);
+            order.Initialize();
+            _tableOrderList.Add(order);
         }
     }
 
