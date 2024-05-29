@@ -13,10 +13,12 @@ public class Chair : MonoBehaviour, IAIInteractable
     private void Start()
     {
         _tableNumber = _ownerTable.TableNumber;
+
     }
 
     public void StartState(Transform AITransform)
     {
+        _ownerTable.IsTableAvailable = false;
         _tableNumber = _ownerTable.TableNumber;
         AITransform.position = transform.position;
         AITransform.rotation = transform.rotation;

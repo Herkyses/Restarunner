@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class Table : MonoBehaviour,IInterectableObject
 {
     [SerializeField] private string checkOrder = "Check Order";
     [SerializeField] private List<OrderDataStruct> _orderList ;
+    public bool IsTableAvailable ;
     public int TableNumber ;
    
     private void OnEnable()
@@ -18,6 +20,12 @@ public class Table : MonoBehaviour,IInterectableObject
         Chair.GivedOrder -= CreateOrdersWithAction;
 
     }
+
+    private void Start()
+    {
+        IsTableAvailable = false;
+    }
+
     public void CreateOrdersWithAction(int tableNumber)
     {
         if (tableNumber == TableNumber)
