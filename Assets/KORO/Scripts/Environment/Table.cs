@@ -9,6 +9,8 @@ public class Table : MonoBehaviour,IInterectableObject
     [SerializeField] private List<OrderDataStruct> _orderList ;
     public bool IsTableAvailable ;
     public int TableNumber ;
+    public int TableCapacity;
+    public int CustomerCount;
    
     private void OnEnable()
     {
@@ -21,6 +23,18 @@ public class Table : MonoBehaviour,IInterectableObject
 
     }
 
+    public void AvailabilityControl()
+    {
+        if (CustomerCount < TableCapacity)
+        {
+            CustomerCount++;
+        }
+        else
+        {
+            IsTableAvailable = false;
+        }
+    }
+
     private void Start()
     {
         IsTableAvailable = false;
@@ -31,7 +45,6 @@ public class Table : MonoBehaviour,IInterectableObject
         if (tableNumber == TableNumber)
         {
             InterectableObjectRun();
-
         }
         
     }

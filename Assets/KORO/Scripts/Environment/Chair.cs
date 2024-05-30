@@ -18,7 +18,7 @@ public class Chair : MonoBehaviour, IAIInteractable
 
     public void StartState(Transform AITransform)
     {
-        _ownerTable.IsTableAvailable = false;
+        _ownerTable.AvailabilityControl();
         _tableNumber = _ownerTable.TableNumber;
         AITransform.position = transform.position;
         AITransform.rotation = transform.rotation;
