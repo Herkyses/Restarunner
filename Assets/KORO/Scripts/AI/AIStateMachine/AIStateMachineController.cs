@@ -9,8 +9,10 @@ public class AIStateMachineController : MonoBehaviour
     public AIIdleState AIIdleState;
     public AIMoveState AIMoveState;
     public AISitState AISitState;
+    public AITargetRestaurantState AITargetRestaurantState;
+    public AIWaitPlayerState AIWaitPlayerState;
     public AIController AIController;
-    
+    public AIAnimationController AIAnimationController;
     [SerializeField] private Animator _playerAnimator;
  
    
@@ -18,19 +20,26 @@ public class AIStateMachineController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (CurrentState != null)
+        {
+            CurrentState.UpdateState();
+        }
     }
 
     void Start()
     {
         gameObject.TryGetComponent(out AIController);
         _playerAnimator = gameObject.GetComponent<Animator>();
+        AIAnimationController = gameObject.GetComponent<AIAnimationController>();
         AIIdleState = new AIIdleState(this);
         AIClapState = new AIClapState(this);
         AIMoveState = new AIMoveState(this);
         AISitState = new AISitState(this);
-        var zort = Random.Range(0, 1);
-        AIChangeState(AIMoveState);
+        AITargetRestaurantState = new AITargetRestaurantState(this);
+        AIWaitPlayerState = new AIWaitPlayerState(this);
+        var zort = Random.Range(0, 2);
+        AIChangeState(AITargetRestaurantState);
+
 
     }
 

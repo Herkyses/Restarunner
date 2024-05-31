@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 public class AIController : MonoBehaviour
 {
     
     
-    [SerializeField] private NavMeshAgent _agent;
+    public NavMeshAgent _agent;
 
     [SerializeField] private Transform _targetTransform;
     [SerializeField] private Transform _targetFirstPosition;
@@ -16,7 +17,8 @@ public class AIController : MonoBehaviour
     [SerializeField] private AICanvas _aıCanvas_;
     [SerializeField] private List<Transform> _targetPositions;
     
-    [SerializeField] private Animator _playerAnimator;
+    [FormerlySerializedAs("_playerAnimator")] public Animator AiAnimator;
+    public AIAnimationController AIAnimationController;
     public AIStateMachineController AIStateMachineController;
     
     public LayerMask obstacleMask;
@@ -28,12 +30,13 @@ public class AIController : MonoBehaviour
     {
         destinationValue = -1;
         gameObject.TryGetComponent(out AIStateMachineController);
+        gameObject.TryGetComponent(out AIAnimationController);
     }
     /////////// SIT STATE ///////////
     public void StartSitState()
     {
         _agent.speed = 0f;
-        _playerAnimator.Play("Sit",0);
+        AiAnimator.Play("Sit",0);
         StartCoroutine(FoodIcon());
 
     }
@@ -82,7 +85,7 @@ public class AIController : MonoBehaviour
         _agent.speed = 1f;
         SetDestinationTarget();
         float randomTime = Random.Range(0f, 1f);
-        _playerAnimator.Play("Walk",0,randomTime);
+        AiAnimator.Play("Walk",0,randomTime);
         //obstacleMaskValue = LayerMask.NameToLayer("Player");
         InvokeRepeating("CheckForObstacles", 0f, 0.3f);
         //_targetFirstPosition = transform.position;
@@ -92,7 +95,7 @@ public class AIController : MonoBehaviour
     public void StartClapState()
     {
         _agent.speed = 0;
-        _playerAnimator.Play("Clapping",0,0);
+        AiAnimator.Play("Clapping",0,0);
         if (_playerPosition)
         {
             transform.LookAt(_playerPosition);
