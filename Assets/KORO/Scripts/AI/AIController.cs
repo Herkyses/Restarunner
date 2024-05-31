@@ -23,6 +23,7 @@ public class AIController : MonoBehaviour
     
     public LayerMask obstacleMask;
     public int obstacleMaskValue;
+    public int AgentID;
     public int destinationValue = -1;
 
     // Start is called before the first frame update
