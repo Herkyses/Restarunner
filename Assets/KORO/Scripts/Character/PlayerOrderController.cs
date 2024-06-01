@@ -4,8 +4,23 @@ using UnityEngine;
 
 public class PlayerOrderController : MonoBehaviour
 {
-    [SerializeField] private List<OrderDataStruct> _orderList ;
+    public static PlayerOrderController Instance;
+    
+    public List<Orders> OrderList = new List<Orders>();
+    
+    
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -16,5 +31,15 @@ public class PlayerOrderController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SetOrder(int tableNumber, List<OrderDataStruct> orderDataStruct)
+    {
+        var order = new Orders()
+        {
+            TableNumber = tableNumber,
+            OrderDataStructs = orderDataStruct
+        };
+        OrderList.Add(order);
     }
 }

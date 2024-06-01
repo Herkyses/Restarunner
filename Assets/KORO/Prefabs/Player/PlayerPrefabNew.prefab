@@ -5002,6 +5002,7 @@ GameObject:
   - component: {fileID: 7253160799843244457}
   - component: {fileID: 3984450500382737160}
   - component: {fileID: 3049938852541726390}
+  - component: {fileID: 2141547518}
   m_Layer: 6
   m_Name: PlayerPrefabNew
   m_TagString: Untagged
@@ -5152,6 +5153,59 @@ MonoBehaviour:
   _canPlay: 0
   _playTransform: {fileID: 0}
   _guitar: {fileID: 1540869012038150518}
+--- !u!114 &2141547518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7402568608815551782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e1496d0d024804ab1d1b4ad574675f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OrderList:
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
+  - TableNumber: 0
+    OrderDataStructs: []
 --- !u!1 &7606353784891132531
 GameObject:
   m_ObjectHideFlags: 0

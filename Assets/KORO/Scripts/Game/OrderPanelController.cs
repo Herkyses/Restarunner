@@ -10,8 +10,13 @@ public class OrderPanelController : MonoBehaviour
     [SerializeField] private GameObject _orderPanel;
     [SerializeField] private SingleOrder _singlePf;
     [SerializeField] private Transform _singlePfParent;
+    [SerializeField] private Transform _singlePfParentForFoodList;
+    [SerializeField] private Transform _singlePfParentForSelectedFoodList;
     [FormerlySerializedAs("_singleOrderList")] [SerializeField] private List<SingleOrder> _tableOrderList;
-    [SerializeField] private List<SingleOrder> _orderList;
+    public List<SingleOrder> SelectedOrderList;
+    public List<SingleOrder> FoodList;
+    public List<Orders> OrderList = new List<Orders>();
+
     public int OpenedTableNumber;
     
     private void Awake()
@@ -27,6 +32,37 @@ public class OrderPanelController : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        DeleteChilds(_singlePfParentForSelectedFoodList);
+
+        DeleteChilds(_singlePfParentForFoodList);
+        for (int i = 0; i < GameDataManager.Instance.Orders.Count; i++)
+        {
+            
+            var singleOrder = Instantiate(_singlePf, _singlePfParentForFoodList);
+            singleOrder.OrderType = GameDataManager.Instance.Orders[i].OrderType;
+            singleOrder.OrderPrice = GameDataManager.Instance.Orders[i].OrderPrice;
+            singleOrder.SingleOrderUIType = Enums.SingleOrderUIType.FoodList;
+            FoodList.Add(singleOrder);
+            singleOrder.Initialize();
+        }
+    }
+    public void PlayerOrderInventory(SingleOrder singleOrder)
+    {
+        
+        var singleOrderObject = Instantiate(_singlePf, _singlePfParentForSelectedFoodList);
+        singleOrderObject.OrderType = singleOrder.OrderType;
+        singleOrderObject.OrderPrice = singleOrder.OrderPrice;
+        singleOrderObject.Initialize();
+        SelectedOrderList.Add(singleOrderObject);
+        var DataStruct = new OrderDataStruct()
+        {
+            OrderType = singleOrder.OrderType,
+            OrderPrice = singleOrder.OrderPrice,
+        };
+        PlayerOrderController.Instance.OrderList[OpenedTableNumber].OrderDataStructs.Add(DataStruct);
+    }
     public void ShowOrder(List<OrderDataStruct> _orderList,int tableNumber)
     {
         OpenedTableNumber = tableNumber;
@@ -46,7 +82,7 @@ public class OrderPanelController : MonoBehaviour
     
     public void CreateOrders(List<OrderDataStruct> _orderList)
     {
-        DeleteChilds();
+        DeleteChilds(_singlePfParent);
         _tableOrderList.Clear();
         for (int i = 0; i < _orderList.Count; i++)
         {
@@ -56,9 +92,9 @@ public class OrderPanelController : MonoBehaviour
         }
     }
 
-    public void DeleteChilds()
+    public void DeleteChilds(Transform parentTransform)
     {
-        var orderArray = _singlePfParent.GetComponentsInChildren<SingleOrder>();
+        var orderArray = parentTransform.GetComponentsInChildren<SingleOrder>();
         if (orderArray.Length > 0)
         {
             for (int i = 0; i < orderArray.Length; i++)

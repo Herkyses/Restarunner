@@ -27,4 +27,11 @@ public class Enums : MonoBehaviour
         Burger,
         
     }
+    public enum SingleOrderUIType
+    {
+        Order,
+        FoodList,
+        PlayerOrderList,
+        
+    }
 }
