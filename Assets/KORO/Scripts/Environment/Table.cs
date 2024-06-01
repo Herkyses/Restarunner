@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class Table : MonoBehaviour,IInterectableObject
+
+public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 {
     [SerializeField] private string checkOrder = "Check Order";
     [SerializeField] private List<OrderDataStruct> _orderList ;
@@ -11,7 +13,8 @@ public class Table : MonoBehaviour,IInterectableObject
     public int TableNumber ;
     public int TableCapacity;
     public int CustomerCount;
-   
+
+    public List<Chair> ChairList;
     private void OnEnable()
     {
         Chair.GivedOrder += CreateOrdersWithAction;
@@ -22,7 +25,48 @@ public class Table : MonoBehaviour,IInterectableObject
         Chair.GivedOrder -= CreateOrdersWithAction;
 
     }
+    public void StartState(Transform AITransform)
+    {
+        AvailabilityControl();
+        var chair = CheckChairAvailable();
+        if (chair)
+        {
+            chair.isChairAvailable = false;
+            AITransform.position = chair.transform.position;
+            AITransform.rotation = chair.transform.rotation;
+            var stateMAchineController = AITransform.gameObject.GetComponent<AIStateMachineController>();
+            stateMAchineController.AIChangeState(stateMAchineController.AISitState);
+            AITransform.gameObject.GetComponent<AIAreaController>().InteractabelControl();
+            var orderIndex = Random.Range(0, 2);
+            SetOrderTable(orderIndex);
+            if (OrderPanelController.Instance.OpenedTableNumber == TableNumber)
+            {
+                Chair.GivedOrder?.Invoke(TableNumber);
+            }
+        }
+        
+    }
+    public void SetOrderTable(int orderIndex)
+    {
+        
+        var newOrder = new OrderDataStruct()
+        {
+            OrderType = (Enums.OrderType) orderIndex,
+        };
+        SetOrder(newOrder);
+    }
+    public Chair CheckChairAvailable()
+    {
+        for (int i = 0; i < ChairList.Count; i++)
+        {
+            if (ChairList[i].isChairAvailable)
+            {
+                return ChairList[i];
+            }
+        }
 
+        return null;
+    }
     public void AvailabilityControl()
     {
         if (CustomerCount < TableCapacity)

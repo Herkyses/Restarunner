@@ -32,6 +32,7 @@ public class AIAreaController : MonoBehaviour
             } 
         }
     }
+    
 
     public void InteractabelControl()
     {

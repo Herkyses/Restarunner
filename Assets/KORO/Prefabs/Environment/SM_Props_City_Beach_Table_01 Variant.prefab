@@ -73,8 +73,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9014958, y: 0.07107544, z: 0.9014957}
-  m_Center: {x: 0, y: 0.8092867, z: -0.000000059604645}
+  m_Size: {x: 0.9014958, y: 0.7428085, z: 0.9014957}
+  m_Center: {x: 0, y: 0.47342017, z: -0.000000059604645}
 --- !u!114 &5116514396345180378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,3 +93,4 @@ MonoBehaviour:
   TableNumber: 0
   TableCapacity: 2
   CustomerCount: 0
+  ChairList: []

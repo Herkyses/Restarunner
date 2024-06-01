@@ -9,16 +9,17 @@ public class Chair : MonoBehaviour, IAIInteractable
     [SerializeField] private Table _ownerTable;
     [SerializeField] private int _tableNumber;
     public static Action<int> GivedOrder;
+    public bool isChairAvailable;
 
     private void Start()
     {
         _tableNumber = _ownerTable.TableNumber;
-
+        isChairAvailable = true;
     }
 
     public void StartState(Transform AITransform)
     {
-        _ownerTable.AvailabilityControl();
+        /*_ownerTable.AvailabilityControl();
         _tableNumber = _ownerTable.TableNumber;
         AITransform.position = transform.position;
         AITransform.rotation = transform.rotation;
@@ -31,17 +32,9 @@ public class Chair : MonoBehaviour, IAIInteractable
         {
             GivedOrder?.Invoke(_tableNumber);
 
-        }
+        }*/
     }
 
-    public void SetOrderTable(int orderIndex)
-    {
-        
-        var newOrder = new OrderDataStruct()
-        {
-           OrderType = (Enums.OrderType) orderIndex,
-        };
-        _ownerTable.SetOrder(newOrder);
-    }
+    
 
 }

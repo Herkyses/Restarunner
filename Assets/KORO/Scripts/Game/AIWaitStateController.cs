@@ -5,9 +5,21 @@ using UnityEngine;
 public class AIWaitStateController : MonoBehaviour,IInterectableObject
 {
     public List<AIController> AiControllers;
-    
+    public static AIWaitStateController Instance;
     
         
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
     
     public void InterectableObjectRun()
     {
@@ -22,7 +34,7 @@ public class AIWaitStateController : MonoBehaviour,IInterectableObject
     public void AddList(AIController aiController)
     {
         AiControllers.Add(aiController);
-        TableAvailablePanel.Instance.SetCustomerList();
+        TableAvailablePanel.Instance.SetCustomerList(aiController.AgentID);
     }
     public Outline GetOutlineComponent()
     {
@@ -34,5 +46,17 @@ public class AIWaitStateController : MonoBehaviour,IInterectableObject
         return "CheckAvailableTables";
     }
 
+    public void AISetTablePos(int index,Transform tableTransform)
+    {
+        for (int i = 0; i < AiControllers.Count; i++)
+        {
+            if (AiControllers[i].AgentID == index)
+            {
+                AiControllers[i]._agent.destination = tableTransform.position;
+                AiControllers[i]._agent.speed = 1f;
+                TableAvailablePanel.Instance.RemoveFromCustomerList(index);
+            }
+        }
+    }
     
 }

@@ -9,6 +9,7 @@ public class AIStateMachineController : MonoBehaviour
     public AIIdleState AIIdleState;
     public AIMoveState AIMoveState;
     public AISitState AISitState;
+    public AITargetSitState AITargetSitState;
     public AITargetRestaurantState AITargetRestaurantState;
     public AIWaitPlayerState AIWaitPlayerState;
     public AIController AIController;
@@ -35,6 +36,7 @@ public class AIStateMachineController : MonoBehaviour
         AIClapState = new AIClapState(this);
         AIMoveState = new AIMoveState(this);
         AISitState = new AISitState(this);
+        AITargetSitState = new AITargetSitState(this);
         AITargetRestaurantState = new AITargetRestaurantState(this);
         AIWaitPlayerState = new AIWaitPlayerState(this);
         var zort = Random.Range(0, 2);
