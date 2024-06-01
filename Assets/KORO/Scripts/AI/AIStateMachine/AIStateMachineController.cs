@@ -12,9 +12,11 @@ public class AIStateMachineController : MonoBehaviour
     public AITargetSitState AITargetSitState;
     public AITargetRestaurantState AITargetRestaurantState;
     public AIWaitPlayerState AIWaitPlayerState;
+    public AIChefState AIChefState;
     public AIController AIController;
     public AIAnimationController AIAnimationController;
     [SerializeField] private Animator _playerAnimator;
+    [SerializeField] private bool _isAIChef;
  
    
 
@@ -39,9 +41,18 @@ public class AIStateMachineController : MonoBehaviour
         AITargetSitState = new AITargetSitState(this);
         AITargetRestaurantState = new AITargetRestaurantState(this);
         AIWaitPlayerState = new AIWaitPlayerState(this);
+        AIChefState = new AIChefState(this);
         var zort = Random.Range(0, 2);
-        AIChangeState(AITargetRestaurantState);
+        if (!_isAIChef)
+        {
+            AIChangeState(AITargetRestaurantState);
 
+        }
+        else
+        {
+            AIChangeState(AIChefState);
+
+        }
 
     }
 
