@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
 
-public class AIController : MonoBehaviour
+public class AIController : MonoBehaviour,IInterectableObject
 {
     
     
@@ -25,6 +25,8 @@ public class AIController : MonoBehaviour
     public int obstacleMaskValue;
     public int AgentID;
     public int destinationValue = -1;
+    public Table AIOwnerTable;
+    public OrderDataStruct FoodDataStruct;
 
     // Start is called before the first frame update
     void Start()
@@ -162,5 +164,36 @@ public class AIController : MonoBehaviour
             }
             
         
+    }
+    
+    public void InterectableObjectRun()
+    {
+        if (PlayerOrderController.Instance.TakedFood)
+        {
+            PlayerOrderController.Instance.TakedFood = false;
+            PlayerOrderController.Instance.Food.transform.position = transform.position;
+        }
+    }
+
+    public void ShowOutline(bool active)
+    {
+        
+    }
+
+    public Outline GetOutlineComponent()
+    {
+        return null;
+    }
+
+    public string GetInterectableText()
+    {
+        if (PlayerOrderController.Instance.TakedFood)
+        {
+            return "Give Food";
+        }
+        else
+        {
+            return null;
+        }
     }
 }

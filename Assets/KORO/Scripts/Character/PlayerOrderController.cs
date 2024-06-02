@@ -8,7 +8,9 @@ public class PlayerOrderController : MonoBehaviour
     
     public List<Orders> OrderList = new List<Orders>();
     public List<Food> OrderFoodList = new List<Food>();
+    public Food Food;
     public Transform FoodTransform;
+    public bool TakedFood;
     
     
     private void Awake()
@@ -23,6 +25,21 @@ public class PlayerOrderController : MonoBehaviour
         }
 
     }
+
+    public void TakeFood(Food food)
+    {
+        if (!TakedFood)
+        {
+            Food = food;
+            TakedFood = true;
+            OrderFoodList.Add(food);
+            food.transform.position = PlayerOrderController.Instance.FoodTransform.position;
+            food.transform.rotation = PlayerOrderController.Instance.FoodTransform.rotation;
+            food.transform.SetParent(PlayerOrderController.Instance.FoodTransform);
+        }
+        
+    }
+    
     // Start is called before the first frame update
     void Start()
     {

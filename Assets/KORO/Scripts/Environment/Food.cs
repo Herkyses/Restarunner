@@ -8,9 +8,7 @@ public class Food : MonoBehaviour,IInterectableObject
 
     public void InterectableObjectRun()
     {
-        PlayerOrderController.Instance.OrderFoodList.Add(GetComponent<Food>());
-        transform.position = PlayerOrderController.Instance.FoodTransform.position;
-        transform.SetParent(PlayerOrderController.Instance.FoodTransform);
+        PlayerOrderController.Instance.TakeFood(GetComponent<Food>());
     }
 
     public void ShowOutline(bool active)
