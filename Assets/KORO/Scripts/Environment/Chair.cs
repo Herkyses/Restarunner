@@ -10,6 +10,7 @@ public class Chair : MonoBehaviour, IAIInteractable
     [SerializeField] private int _tableNumber;
     public static Action<int> GivedOrder;
     public bool isChairAvailable;
+    public Transform ChairFoodTransform;
 
     private void Start()
     {
