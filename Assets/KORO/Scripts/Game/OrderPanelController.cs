@@ -106,6 +106,7 @@ public class OrderPanelController : MonoBehaviour
         for (int i = 0; i < _orderList.Count; i++)
         {
             var order = Instantiate(_singlePf, _singlePfParent);
+            order.OrderType = _orderList[i].OrderType;
             order.Initialize();
             _tableOrderList.Add(order);
         }
