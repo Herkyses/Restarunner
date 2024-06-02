@@ -1,0 +1,82 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+public class GiveChefOrderPanelController : MonoBehaviour
+{
+
+    public static Action<List<OrderDataStruct>> IsGivedToChef;
+    public static GiveChefOrderPanelController Instance;
+    public Transform Panel;
+    [SerializeField] private Transform _singlePfParent;
+    [SerializeField] private SingleOrder _singlePf;
+    [SerializeField] private TextMeshProUGUI SelectedOrderListCountText;
+
+    public List<Orders> OrderList = new List<Orders>();
+    public int SelectedOrderListCount;
+
+    public Orders Orders ;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
+    public void GiveChefOrderPanel()
+    {
+        Orders = OrderList[SelectedOrderListCount];
+
+        IsGivedToChef?.Invoke(Orders.OrderDataStructs);
+    }
+
+    public void OrderListIndexIncrease(bool isIncrease)
+    {
+        DeleteChilds(_singlePfParent);
+        if (isIncrease)
+        {
+            SelectedOrderListCount++;
+            
+        }
+        else
+        {
+            if (SelectedOrderListCount >= 1)
+            {
+                SelectedOrderListCount--;
+            }
+        }
+
+        SelectedOrderListCountText.text = SelectedOrderListCount.ToString();
+        InitiliazeGiveChefOrderPanel();
+    }
+
+    public void InitiliazeGiveChefOrderPanel()
+    {
+        for (int i = 0; i < OrderList[SelectedOrderListCount].OrderDataStructs.Count; i++)
+        {
+            var singleOrder = Instantiate(_singlePf, _singlePfParent);
+            singleOrder.OrderType = OrderList[SelectedOrderListCount].OrderDataStructs[i].OrderType;
+            singleOrder.Initialize();
+        }
+    }
+    public void DeleteChilds(Transform parentTransform)
+    {
+        var orderArray = parentTransform.GetComponentsInChildren<SingleOrder>();
+        if (orderArray.Length > 0)
+        {
+            for (int i = 0; i < orderArray.Length; i++)
+            {
+                Destroy(orderArray[i].gameObject);
+            }
+        }
+    }
+}

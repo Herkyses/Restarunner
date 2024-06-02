@@ -7,6 +7,8 @@ public class PlayerOrderController : MonoBehaviour
     public static PlayerOrderController Instance;
     
     public List<Orders> OrderList = new List<Orders>();
+    public List<Food> OrderFoodList = new List<Food>();
+    public Transform FoodTransform;
     
     
     private void Awake()
@@ -32,7 +34,7 @@ public class PlayerOrderController : MonoBehaviour
     {
         
     }
-
+    
     public void SetOrder(int tableNumber, List<OrderDataStruct> orderDataStruct)
     {
         var order = new Orders()

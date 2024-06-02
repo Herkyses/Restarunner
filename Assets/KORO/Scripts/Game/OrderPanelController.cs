@@ -35,7 +35,6 @@ public class OrderPanelController : MonoBehaviour
     private void Start()
     {
         DeleteChilds(_singlePfParentForSelectedFoodList);
-
         DeleteChilds(_singlePfParentForFoodList);
         for (int i = 0; i < GameDataManager.Instance.Orders.Count; i++)
         {
@@ -65,12 +64,32 @@ public class OrderPanelController : MonoBehaviour
     }
     public void ShowOrder(List<OrderDataStruct> _orderList,int tableNumber)
     {
+        DeleteChilds(_singlePfParentForSelectedFoodList);
         OpenedTableNumber = tableNumber;
+        CreateSelectedOrders();
+
         GameSceneCanvas.Instance.CanMove = false;
         _orderPanel.gameObject.SetActive(true);
         CreateOrders(_orderList);
     }
-
+    public void CreateSelectedOrders()
+    {
+        for (int i = 0; i < PlayerOrderController.Instance.OrderList.Count; i++)
+        {
+            if (OpenedTableNumber == PlayerOrderController.Instance.OrderList[i].TableNumber)
+            {
+                for (int j = 0; j < PlayerOrderController.Instance.OrderList[i].OrderDataStructs.Count; j++)
+                {
+                    var order = Instantiate(_singlePf, _singlePfParentForSelectedFoodList);
+                    order.OrderType = PlayerOrderController.Instance.OrderList[i].OrderDataStructs[j].OrderType;
+                    order.Initialize();
+                    _tableOrderList.Add(order);
+                }
+                
+            }
+            
+        }
+    }
     public void CanFollowTrue()
     {
         GameSceneCanvas.Instance.CanMove = true;

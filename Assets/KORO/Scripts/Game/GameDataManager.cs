@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameDataManager : MonoBehaviour
 {
     public List<OrderDataStruct> Orders;
+    public List<Food> Foods;
 
     public static GameDataManager Instance;
     // Start is called before the first frame update
