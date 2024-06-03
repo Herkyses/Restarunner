@@ -13,14 +13,16 @@ public class AITargetSitState : AIBaseState
 
     public override void EnterState()
     {
-        AIStateMachineController.AIController.StartClapState();
+        AIStateMachineController.AIController.AIAnimationController.PlayMoveAnimation();
         
     }
 
     public override void UpdateState()
     {
-        
-        
+        if (Vector3.Distance(AIStateMachineController.transform.position, AIStateMachineController.AITargetSitTransform.position) < 0.1f)
+        {
+            AIStateMachineController.AIController.GetComponent<AIAreaController>().StartInteractableObject();
+        }
     }
 
     public override void ExitState()

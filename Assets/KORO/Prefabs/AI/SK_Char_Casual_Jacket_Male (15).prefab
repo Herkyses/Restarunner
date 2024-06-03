@@ -5513,6 +5513,11 @@ MonoBehaviour:
   obstacleMaskValue: 0
   AgentID: 0
   destinationValue: 0
+  AIOwnerTable: {fileID: 0}
+  AIOwnerChair: {fileID: 0}
+  FoodDataStruct:
+    OrderType: 0
+    OrderPrice: 0
 --- !u!65 &4405635005135441278
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5555,7 +5560,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AIController: {fileID: 0}
-  AIAnimationController: {fileID: 0}
+  AIAnimationController: {fileID: 4405635005135441272}
+  AITargetSitTransform: {fileID: 0}
   _playerAnimator: {fileID: 0}
   _isAIChef: 0
 --- !u!195 &4405635005135441152

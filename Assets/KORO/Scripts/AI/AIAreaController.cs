@@ -14,6 +14,27 @@ public class AIAreaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*if (!Interactabled)
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 0.2f);
+
+            foreach (Collider col in colliders)
+            {
+                var interfacezort = col.gameObject.GetComponent<IAIInteractable>();
+                if (interfacezort != null)
+                {
+                    interfacezort.StartState(transform);
+                }
+                else
+                {
+                
+                }
+            } 
+        }*/
+    }
+
+    public void StartInteractableObject()
+    {
         if (!Interactabled)
         {
             Collider[] colliders = Physics.OverlapSphere(transform.position, 0.2f);

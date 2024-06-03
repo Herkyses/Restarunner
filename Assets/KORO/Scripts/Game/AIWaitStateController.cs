@@ -52,6 +52,8 @@ public class AIWaitStateController : MonoBehaviour,IInterectableObject
         {
             if (AiControllers[i].AgentID == index)
             {
+                AiControllers[i].AIStateMachineController.AITargetSitTransform = tableTransform;
+                AiControllers[i].AIStateMachineController.AIChangeState(AiControllers[i].AIStateMachineController.AITargetSitState);
                 AiControllers[i]._agent.destination = tableTransform.position;
                 AiControllers[i]._agent.speed = 1f;
                 TableAvailablePanel.Instance.RemoveFromCustomerList(index);

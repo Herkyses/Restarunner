@@ -16,7 +16,7 @@ public class AITargetRestaurantState : AIBaseState
     {
         //AIStateMachineController.AIController.StartTargetDestination();
         AIStateMachineController.AIController._agent.destination = Places.Instance.DoorTransform.position;
-        AIStateMachineController.AIController.AIAnimationController.PlayMoveAnimation();
+        AIStateMachineController.AIAnimationController.PlayMoveAnimation();
 
     }
 

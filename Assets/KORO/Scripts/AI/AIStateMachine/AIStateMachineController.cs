@@ -15,6 +15,8 @@ public class AIStateMachineController : MonoBehaviour
     public AIChefState AIChefState;
     public AIController AIController;
     public AIAnimationController AIAnimationController;
+    public Transform AITargetSitTransform;
+
     [SerializeField] private Animator _playerAnimator;
     [SerializeField] private bool _isAIChef;
  
@@ -68,5 +70,12 @@ public class AIStateMachineController : MonoBehaviour
         CurrentState = currentState;
         CurrentState.EnterState();
 
+    }
+    
+    
+    // TargetSitState//
+    public void TargetSitStateStart()
+    {
+        
     }
 }
