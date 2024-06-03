@@ -47,7 +47,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     /////////// MOVE STATE ///////////
     public void SetDestinationTarget()
     {
-        var zort = Random.Range(0, 2);
+        /*var zort = Random.Range(0, 2);
         if (zort == 0)
         {
             if (destinationValue != 0)
@@ -82,7 +82,8 @@ public class AIController : MonoBehaviour,IInterectableObject
             //GetComponent<AIAreaController>().InteractabelDeactive();
 
 
-        }
+        }*/
+        _agent.destination = _targetPositions[1].position;
     }
     public void StartTargetDestination()
     {
@@ -175,6 +176,7 @@ public class AIController : MonoBehaviour,IInterectableObject
             PlayerOrderController.Instance.Food.transform.position = AIOwnerChair.ChairFoodTransform.position;
             PlayerOrderController.Instance.Food.transform.rotation = AIOwnerChair.ChairFoodTransform.rotation;
             PlayerOrderController.Instance.Food.transform.SetParent(AIOwnerChair.ChairFoodTransform);
+            AIStateMachineController.AIChangeState(AIStateMachineController.AIEatState);
         }
     }
 

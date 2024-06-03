@@ -36,4 +36,9 @@ public class AIAnimationController : MonoBehaviour
     {
         
     }
+    public void PlayEatAnimation()
+    {
+        float randomTime = Random.Range(0f, 1f);
+        AiAnimator.Play("Eat",0);
+    }
 }

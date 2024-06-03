@@ -13,6 +13,7 @@ public class AIStateMachineController : MonoBehaviour
     public AITargetRestaurantState AITargetRestaurantState;
     public AIWaitPlayerState AIWaitPlayerState;
     public AIChefState AIChefState;
+    public AIEatState AIEatState;
     public AIController AIController;
     public AIAnimationController AIAnimationController;
     public Transform AITargetSitTransform;
@@ -40,6 +41,7 @@ public class AIStateMachineController : MonoBehaviour
         AIClapState = new AIClapState(this);
         AIMoveState = new AIMoveState(this);
         AISitState = new AISitState(this);
+        AIEatState = new AIEatState(this);
         AITargetSitState = new AITargetSitState(this);
         AITargetRestaurantState = new AITargetRestaurantState(this);
         AIWaitPlayerState = new AIWaitPlayerState(this);
@@ -77,5 +79,16 @@ public class AIStateMachineController : MonoBehaviour
     public void TargetSitStateStart()
     {
         
+    }
+    // TargetSitState//
+    public void EatStateStart()
+    {
+        StartCoroutine(EatDuring());
+    }
+
+    public IEnumerator EatDuring()
+    {
+        yield return new WaitForSeconds(5f);
+        AIChangeState(AIMoveState);
     }
 }

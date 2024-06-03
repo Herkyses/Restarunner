@@ -14,7 +14,6 @@ public class AIMoveState : AIBaseState
     public override void EnterState()
     {
         AIStateMachineController.AIController.StartTargetDestination();
-        
     }
 
     public override void UpdateState()
