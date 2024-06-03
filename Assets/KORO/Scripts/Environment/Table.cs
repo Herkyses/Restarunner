@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,6 +14,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     public int TableNumber ;
     public int TableCapacity;
     public int CustomerCount;
+    public TextMeshProUGUI TableNumberText;
 
     public List<Chair> ChairList;
     public List<Transform> FoodTransformList;
@@ -87,6 +89,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     private void Start()
     {
         IsTableAvailable = false;
+        TableNumberText.text = TableNumber.ToString();
     }
 
     public void CreateOrdersWithAction(int tableNumber)

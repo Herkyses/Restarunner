@@ -64,6 +64,7 @@ public class OrderPanelController : MonoBehaviour
     }
     public void ShowOrder(List<OrderDataStruct> _orderList,int tableNumber)
     {
+        SelectedOrderList.Clear();
         DeleteChilds(_singlePfParentForSelectedFoodList);
         OpenedTableNumber = tableNumber;
         CreateSelectedOrders();

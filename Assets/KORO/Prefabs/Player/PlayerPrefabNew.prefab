@@ -5266,32 +5266,12 @@ MonoBehaviour:
     OrderDataStructs: []
   - TableNumber: 7
     OrderDataStructs: []
-  - TableNumber: 0
-    OrderDataStructs: []
-  - TableNumber: 0
-    OrderDataStructs: []
-  - TableNumber: 0
-    OrderDataStructs: []
-  - TableNumber: 0
-    OrderDataStructs: []
-  - TableNumber: 0
-    OrderDataStructs: []
-  - TableNumber: 0
-    OrderDataStructs: []
-  - TableNumber: 0
-    OrderDataStructs: []
-  - TableNumber: 0
-    OrderDataStructs: []
-  - TableNumber: 0
-    OrderDataStructs: []
-  - TableNumber: 0
-    OrderDataStructs: []
-  - TableNumber: 0
-    OrderDataStructs: []
-  - TableNumber: 0
+  - TableNumber: 8
     OrderDataStructs: []
   OrderFoodList: []
+  Food: {fileID: 0}
   FoodTransform: {fileID: 9215106161737911943}
+  TakedFood: 0
 --- !u!1 &7606353784891132531
 GameObject:
   m_ObjectHideFlags: 0
