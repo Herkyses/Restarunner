@@ -70,7 +70,6 @@ public class TableAvailablePanel : MonoBehaviour
     {
         GameSceneCanvas.Instance.CanMove = false;
         _availabilityPanel.gameObject.SetActive(true);
-
     }
     public void DeActiveAbilityPanel()
     {
@@ -86,6 +85,7 @@ public class TableAvailablePanel : MonoBehaviour
             if (tableIndex == _availabilityList[i].TableNumber)
             {
                 _availabilityList[i].SingleAvailabilityButtonDeactivate();
+                _availabilityList[i].CustomerCount--;
             }
         }
     }
@@ -110,7 +110,7 @@ public class TableAvailablePanel : MonoBehaviour
     }
     public void DeleteChilds()
     {
-        var orderArray = _tablesParent.GetComponentsInChildren<SingleAvailability>();
+        var orderArray = _contentParent.GetComponentsInChildren<SingleAvailability>();
         if (orderArray.Length > 0)
         {
             for (int i = 0; i < orderArray.Length; i++)
