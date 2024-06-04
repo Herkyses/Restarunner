@@ -120,6 +120,15 @@ public class AIController : MonoBehaviour,IInterectableObject
         yield return new WaitForSeconds(3f);
         
         _aıCanvas_.InfoImage.gameObject.SetActive(true);
+        if (FoodDataStruct.OrderType == Enums.OrderType.Burger)
+        {
+            _aıCanvas_.InfoImage.sprite = GameDataManager.Instance.FoodsImages[1];
+        }
+        else if (FoodDataStruct.OrderType == Enums.OrderType.Pizza)
+        {
+            _aıCanvas_.InfoImage.sprite = GameDataManager.Instance.FoodsImages[0]; ///////////DAtalar eklencek
+
+        }
     }
     // Update is called once per frame
     void Update()
