@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SingleAvailability : MonoBehaviour
 {
     public int TableNumber;
+    public int CustomerCount;
     public Image TableImageBg;
     public TextMeshProUGUI AvailabilityText;
     public Table OwnerTable;
@@ -24,9 +25,13 @@ public class SingleAvailability : MonoBehaviour
     {
         if (!IsSingleAvailabilityButtonPressed)
         {
-            IsSingleAvailabilityButtonPressed = true;
+            CustomerCount++;
+            if (CustomerCount >= OwnerTable.TableCapacity)
+            {
+                IsSingleAvailabilityButtonPressed = true;
+                TableImageBg.color = Color.red;
+            }
             AIWaitStateController.Instance.AISetTablePos(TableAvailablePanel.Instance.SelectedCustomerIndex,OwnerTable.transform);
-            TableImageBg.color = Color.red;
         }
         
         

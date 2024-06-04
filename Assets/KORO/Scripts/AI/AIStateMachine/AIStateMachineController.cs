@@ -91,6 +91,8 @@ public class AIStateMachineController : MonoBehaviour
         yield return new WaitForSeconds(5f);
         TableAvailablePanel.Instance.RedAvailability(AIController.AIOwnerTable.TableNumber);
         AIController.AIOwnerChair.isChairAvailable = true;
+        AIController.AIOwnerTable.CustomerCount--;
+        //TableAvailablePanel.Instance.InitializeAvailabilityPanel();
         AIChangeState(AIMoveState);
     }
 }
