@@ -47,6 +47,7 @@ public class TableAvailablePanel : MonoBehaviour
         for (int i = 0; i < availabilityArray.Length; i++)
         {
             var singleAvailability = Instantiate(_singleAvailabilityPf, _contentParent);
+            singleAvailability.CustomerCount = availabilityArray[i].CustomerCount;
             _availabilityList.Add(singleAvailability);
             singleAvailability.SingleAvailabilityInitialize(availabilityArray[i].TableNumber , availabilityArray[i]);
         }
