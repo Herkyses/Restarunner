@@ -17,6 +17,7 @@ public class SingleAvailability : MonoBehaviour
     {
         AvailabilityText.text = tableNumber.ToString();
         OwnerTable = ownerTable;
+        TableNumber = ownerTable.TableNumber;
     }
 
     public void SingleAvailabilityButtonPressed()
@@ -29,5 +30,11 @@ public class SingleAvailability : MonoBehaviour
         }
         
         
+    }
+    public void SingleAvailabilityButtonDeactivate()
+    {
+        IsSingleAvailabilityButtonPressed = false;
+        //AIWaitStateController.Instance.AISetTablePos(TableAvailablePanel.Instance.SelectedCustomerIndex,OwnerTable.transform);
+        TableImageBg.color = Color.white;
     }
 }

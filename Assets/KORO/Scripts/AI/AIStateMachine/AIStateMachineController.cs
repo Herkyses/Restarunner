@@ -89,6 +89,8 @@ public class AIStateMachineController : MonoBehaviour
     public IEnumerator EatDuring()
     {
         yield return new WaitForSeconds(5f);
+        TableAvailablePanel.Instance.RedAvailability(AIController.AIOwnerTable.TableNumber);
+        AIController.AIOwnerChair.isChairAvailable = true;
         AIChangeState(AIMoveState);
     }
 }

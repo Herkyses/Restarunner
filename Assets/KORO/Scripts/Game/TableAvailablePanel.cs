@@ -79,6 +79,17 @@ public class TableAvailablePanel : MonoBehaviour
 
     }
 
+    public void RedAvailability(int tableIndex)
+    {
+        for (int i = 0; i < _availabilityList.Count; i++)
+        {
+            if (tableIndex == _availabilityList[i].TableNumber)
+            {
+                _availabilityList[i].SingleAvailabilityButtonDeactivate();
+            }
+        }
+    }
+
     public void SetCustomerList(int AIIndex)
     {
         var customer = Instantiate(_customerPf, _customerParent);
