@@ -5,6 +5,7 @@ using UnityEngine;
 public class Food : MonoBehaviour,IInterectableObject
 {
     public Enums.OrderType OrderType;
+    public GameObject FoodObject;
 
     public void InterectableObjectRun()
     {

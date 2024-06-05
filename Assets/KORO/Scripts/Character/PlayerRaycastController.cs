@@ -24,7 +24,7 @@ public class PlayerRaycastController : MonoBehaviour
         while (true)
         {
             
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
 
             Vector3 screenCenter = new Vector3(Screen.width / 2f, Screen.height / 2f, 0);
 

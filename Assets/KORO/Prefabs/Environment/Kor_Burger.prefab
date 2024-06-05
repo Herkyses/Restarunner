@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OrderType: 1
+  FoodObject: {fileID: 7817864274866230421}
 --- !u!1 &7817864274866230421
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,6 +27,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     public int destinationValue = -1;
     public Table AIOwnerTable;
     public Chair AIOwnerChair;
+    public Food AIOwnerFood;
     public OrderDataStruct FoodDataStruct;
 
     // Start is called before the first frame update
@@ -181,10 +182,12 @@ public class AIController : MonoBehaviour,IInterectableObject
     {
         if (PlayerOrderController.Instance.TakedFood)
         {
+            AIOwnerFood = PlayerOrderController.Instance.Food;
             PlayerOrderController.Instance.TakedFood = false;
             PlayerOrderController.Instance.Food.transform.position = AIOwnerChair.ChairFoodTransform.position;
             PlayerOrderController.Instance.Food.transform.rotation = AIOwnerChair.ChairFoodTransform.rotation;
             PlayerOrderController.Instance.Food.transform.SetParent(AIOwnerChair.ChairFoodTransform);
+            PlayerOrderController.Instance.Food = null;
             AIStateMachineController.AIChangeState(AIStateMachineController.AIEatState);
         }
     }

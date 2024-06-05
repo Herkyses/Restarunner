@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OrderType: 0
+  FoodObject: {fileID: 5102914881241170329}
 --- !u!1001 &5336866566055296200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185,6 +186,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f3ea75668cc7da47b28b2c37fa769fb, type: 3}
+--- !u!1 &5102914881241170329 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5f3ea75668cc7da47b28b2c37fa769fb, type: 3}
+  m_PrefabInstance: {fileID: 5336866566055296200}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5592031067744705315 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5f3ea75668cc7da47b28b2c37fa769fb, type: 3}
