@@ -93,7 +93,7 @@ public class AIStateMachineController : MonoBehaviour
         AIController.AIOwnerChair.isChairAvailable = true;
         AIController.AIOwnerTable.CustomerCount--;
         Destroy(AIController.AIOwnerFood.FoodObject);
-        TableAvailablePanel.Instance.InitializeAvailabilityPanel();
+        TableAvailablePanel.Instance.CheckTable(AIController.AIOwnerTable.TableNumber);
         AIChangeState(AIMoveState);
     }
 }

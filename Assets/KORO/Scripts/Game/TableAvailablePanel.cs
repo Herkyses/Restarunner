@@ -52,6 +52,19 @@ public class TableAvailablePanel : MonoBehaviour
             singleAvailability.SingleAvailabilityInitialize(availabilityArray[i].TableNumber , availabilityArray[i]);
         }
     }
+
+    public void CheckTable(int tableIndex)
+    {
+        var availabilityArray = _tablesParent.GetComponentsInChildren<Table>();
+
+        for (int i = 0; i < availabilityArray.Length; i++)
+        {
+            if (i == tableIndex)
+            {
+                availabilityArray[i].CheckChairAvailable();
+            }
+        }
+    }
     
     
     // Update is called once per frame
