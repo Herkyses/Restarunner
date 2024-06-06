@@ -24,6 +24,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
     {
         ChefOwnerStructData = orderDataStruct;
         CreateFoods();
+        orderDataStruct.Clear();
     }
 
     public void CreateFoods()
