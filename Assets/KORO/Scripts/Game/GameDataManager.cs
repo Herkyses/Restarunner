@@ -34,4 +34,20 @@ public class GameDataManager : MonoBehaviour
     {
         
     }
+
+    public Sprite GetFoodSprite(Enums.OrderType orderType)
+    {
+        if (orderType == Enums.OrderType.Burger)
+        {
+            return FoodsImages[1];
+        }
+        else if (orderType == Enums.OrderType.Pizza)
+        {
+            return FoodsImages[0];
+        }
+        else
+        {
+            return null;
+        } 
+    }
 }

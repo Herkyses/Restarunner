@@ -12,11 +12,13 @@ public class SingleOrder : MonoBehaviour
     public float OrderPrice;
     public TextMeshProUGUI OrderText;
     public Image SingleOrderPlusImage;
+    public Image FoodImage;
 
     public void Initialize()
     {
         OrderText.text = OrderType.ToString();
         SingleOrderTypeInitialize();
+        FoodImage.sprite = GameDataManager.Instance.GetFoodSprite(OrderType);
     }
 
     public void SingleOrderTypeInitialize()
