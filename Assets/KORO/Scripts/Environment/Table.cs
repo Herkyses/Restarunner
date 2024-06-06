@@ -62,6 +62,11 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         aiController.FoodDataStruct = newOrder;
         SetOrder(newOrder);
     }
+
+    public void RemoveOrder(OrderDataStruct orderDataStruct)
+    {
+        _orderList.Remove(orderDataStruct);
+    }
     public Chair CheckChairAvailable()
     {
         for (int i = 0; i < ChairList.Count; i++)

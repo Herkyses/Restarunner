@@ -94,6 +94,7 @@ public class AIStateMachineController : MonoBehaviour
         AIController.AIOwnerTable.CustomerCount--;
         Destroy(AIController.AIOwnerFood.FoodObject);
         TableAvailablePanel.Instance.CheckTable(AIController.AIOwnerTable.TableNumber);
+        AIController.AIOwnerTable.RemoveOrder(AIController.FoodDataStruct);
         AIChangeState(AIMoveState);
     }
 }
