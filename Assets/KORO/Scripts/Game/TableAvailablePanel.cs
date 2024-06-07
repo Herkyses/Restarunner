@@ -16,6 +16,7 @@ public class TableAvailablePanel : MonoBehaviour
     [SerializeField] private List<SingleCustomer> _customerList;
     
     public int SelectedCustomerIndex;
+    public bool IsCustomerSelected;
 
     public static TableAvailablePanel Instance;
     // Start is called before the first frame update
@@ -152,6 +153,8 @@ public class TableAvailablePanel : MonoBehaviour
             if (customerIndex == _customerList[i].aiIndex)
             {
                 _customerList[i].GetComponent<Image>().color = Color.green;
+                TableAvailablePanel.Instance.IsCustomerSelected = true;
+
             }
             else
             {

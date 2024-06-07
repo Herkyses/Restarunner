@@ -23,17 +23,20 @@ public class SingleAvailability : MonoBehaviour
 
     public void SingleAvailabilityButtonPressed()
     {
-        if (!IsSingleAvailabilityButtonPressed)
+        if (TableAvailablePanel.Instance.IsCustomerSelected)
         {
-            CustomerCount++;
-            if (CustomerCount >= OwnerTable.TableCapacity)
+            if (!IsSingleAvailabilityButtonPressed)
             {
-                IsSingleAvailabilityButtonPressed = true;
-                TableImageBg.color = Color.red;
+                TableAvailablePanel.Instance.IsCustomerSelected = false;
+                CustomerCount++;
+                if (CustomerCount >= OwnerTable.TableCapacity)
+                {
+                    IsSingleAvailabilityButtonPressed = true;
+                    TableImageBg.color = Color.red;
+                }
+                AIWaitStateController.Instance.AISetTablePos(TableAvailablePanel.Instance.SelectedCustomerIndex,OwnerTable.transform);
             }
-            AIWaitStateController.Instance.AISetTablePos(TableAvailablePanel.Instance.SelectedCustomerIndex,OwnerTable.transform);
         }
-        
         
     }
 
