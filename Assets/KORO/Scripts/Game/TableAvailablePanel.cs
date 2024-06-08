@@ -34,9 +34,15 @@ public class TableAvailablePanel : MonoBehaviour
     }
     void Start()
     {
+        //InitializeAvailabilityPanel();
+        //DeleteCustomerChilds();
+
+    }
+
+    public void Initialize()
+    {
         InitializeAvailabilityPanel();
         DeleteCustomerChilds();
-
     }
 
     public void InitializeAvailabilityPanel()

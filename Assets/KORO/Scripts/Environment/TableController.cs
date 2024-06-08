@@ -28,6 +28,7 @@ public class TableController : MonoBehaviour
     private void Start()
     {
         SettableNumbers();
+        TableAvailablePanel.Instance.Initialize();
     }
 
     public void SettableNumbers()
