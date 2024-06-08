@@ -6,11 +6,13 @@ public class TableSet : MonoBehaviour
 {
     public Table table;
     public int groundLayer;
+    public int tableIndexLayer;
 
     // Start is called before the first frame update
     void Start()
     {
         groundLayer = LayerMask.NameToLayer("Ground");
+        tableIndexLayer = LayerMask.NameToLayer("TableSet");
 
     }
 
@@ -22,20 +24,31 @@ public class TableSet : MonoBehaviour
 
     public void CheckGround()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.5f);
-
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 1f);
+        var checkControl = false;
         foreach (Collider collider in colliders)
         {
-            if (collider.gameObject.layer == groundLayer)
+            if (collider.gameObject != gameObject && collider.gameObject.layer == tableIndexLayer)
+            {
+                return;
+            }
+           
+        }
+        foreach (Collider collider in colliders)
+        {
+            
+            if (collider.gameObject != gameObject && collider.gameObject.layer == groundLayer) 
             {
                 table.IsTableSetTransform = true;
                 return;
             }
         }
 
+       
+
         table.IsTableSetTransform = false;
     }
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer != groundLayer)
         {
@@ -48,5 +61,5 @@ public class TableSet : MonoBehaviour
             table.IsTableSetTransform = true;
 
         }
-    }
+    }*/
 }

@@ -174,6 +174,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             float zValue = hit.point.z;
             TableSet.GetComponent<BoxCollider>().enabled = true;
             TableSet.transform.position = new Vector3(xValue,TableSet.transform.position.y,zValue); // Objenin pozisyonunu fare ile tıklanan noktaya taşı
+            TableController.Instance.EnableTableSetCollider(true);
         } 
         if (Input.GetMouseButton(0))
         {
@@ -182,7 +183,8 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             {
                 //if(colliders.Length )
                 TableSet.GetComponent<BoxCollider>().enabled = false;
-
+                TableController.Instance.EnableTableSetCollider(false);
+                IsTableSetTransform = false;
                 IsTableMove = false;
             }
             

@@ -10,7 +10,21 @@ public class TableController : MonoBehaviour
     public Transform TableTransform;
     public TableSet TableSetPf;
     public int TableSetCapacity;
+    public static TableController Instance;
 
+    
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
     private void Start()
     {
         SettableNumbers();
@@ -27,7 +41,11 @@ public class TableController : MonoBehaviour
         }
     }
 
-    public void CreateTableSet()
+    public void EnableTableSetCollider(bool enabledValue)
     {
+        for (int i = 0; i < TableSets.Count; i++)
+        {
+            TableSets[i].GetComponent<BoxCollider>().enabled = enabledValue;
+        }
     }
 }
