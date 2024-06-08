@@ -105,5 +105,13 @@ public class PlayerRaycastController : MonoBehaviour
             if(Izort != null)
             Izort.InterectableObjectRun();
         }
+
+        if (Input.GetKey(KeyCode.H))
+        {
+            if (Izort != null)
+            {
+                Izort.Move();
+            }
+        }
     }
 }

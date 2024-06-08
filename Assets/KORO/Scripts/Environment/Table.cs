@@ -11,10 +11,12 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     [SerializeField] private string checkOrder = "Check Order";
     [SerializeField] private List<OrderDataStruct> _orderList ;
     public bool IsTableAvailable ;
+    public bool IsTableMove ;
     public int TableNumber ;
     public int TableCapacity;
     public int CustomerCount;
     public TextMeshProUGUI TableNumberText;
+    public TableSet TableSet;
 
     public List<Chair> ChairList;
     public List<Transform> FoodTransformList;
@@ -28,6 +30,16 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         Chair.GivedOrder -= CreateOrdersWithAction;
 
     }
+
+    private void Update()
+    {
+        if (IsTableMove)
+        {
+            MoveStart();
+        }
+        
+    }
+
     public void StartState(Transform AITransform)
     {
         AvailabilityControl();
@@ -137,4 +149,33 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         }
         return checkOrder;
     }
+
+    public void Move()
+    {
+        if (!IsTableMove)
+        {
+            IsTableMove = true;
+        }
+        
+    }
+    public void MoveStart()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        RaycastHit hit;
+
+        
+        if (Physics.Raycast(ray, out hit))
+        {
+            float xValue = hit.point.x;
+            float zValue = hit.point.z;
+            
+            TableSet.transform.position = new Vector3(xValue,TableSet.transform.position.y,zValue); // Objenin pozisyonunu fare ile tıklanan noktaya taşı
+        } 
+        if (Input.GetMouseButton(0))
+        {
+            IsTableMove = false;
+        }
+        
+    }
+
 }

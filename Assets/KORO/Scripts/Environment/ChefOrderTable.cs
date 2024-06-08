@@ -34,4 +34,9 @@ public class ChefOrderTable : MonoBehaviour,IInterectableObject
             GiveChefOrderPanelController.Instance.Orders = PlayerOrderController.Instance.OrderList[orderIndex];
         }
     }
+
+    public void Move()
+    {
+        
+    }
 }

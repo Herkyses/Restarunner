@@ -56,9 +56,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 6105574504622195182}
     m_Modifications:
     - target: {fileID: 4579503556467666277, guid: d04709b71caa2ba40a215bd7322ed4eb, type: 3}
-      propertyPath: TableNumber
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: TableSet
+      value: 
+      objectReference: {fileID: 6988734389883096775}
     - target: {fileID: 4579503556467666277, guid: d04709b71caa2ba40a215bd7322ed4eb, type: 3}
       propertyPath: ChairList.Array.data[0]
       value: 

@@ -26,5 +26,8 @@ public class Food : MonoBehaviour,IInterectableObject
     {
         return "Take Food";
     }
-    
+    public void Move()
+    {
+        
+    }
 }

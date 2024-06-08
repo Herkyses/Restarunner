@@ -49,5 +49,9 @@ public class Interectable : MonoBehaviour,IInterectableObject
     {
         return EnvironmentInfo.CommandText;
     }
+    public void Move()
+    {
+        
+    }
 
 }

@@ -213,4 +213,8 @@ public class AIController : MonoBehaviour,IInterectableObject
             return null;
         }
     }
+    public void Move()
+    {
+        
+    }
 }

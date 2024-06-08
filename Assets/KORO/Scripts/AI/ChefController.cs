@@ -66,4 +66,8 @@ public class ChefController : MonoBehaviour,IInterectableObject
         Debug.Log("selamkee");
         return "GiveOrder";
     }
+    public void Move()
+    {
+        
+    }
 }
