@@ -10,12 +10,12 @@ public class AIController : MonoBehaviour,IInterectableObject
     
     public NavMeshAgent _agent;
 
-    [SerializeField] private Transform _targetTransform;
-    [SerializeField] private Transform _targetFirstPosition;
+    public Transform _targetTransform;
+    public Transform _targetFirstPosition;
     [SerializeField] private Transform _playerPosition;
     [SerializeField] private Transform _chairPosition;
     [SerializeField] private AICanvas _aıCanvas_;
-    [SerializeField] private List<Transform> _targetPositions;
+    public List<Transform> _targetPositions;
     
     [FormerlySerializedAs("_playerAnimator")] public Animator AiAnimator;
     public AIAnimationController AIAnimationController;
@@ -134,12 +134,16 @@ public class AIController : MonoBehaviour,IInterectableObject
     // Update is called once per frame
     void Update()
     {
-        if (1 > Vector3.Distance(transform.position, _targetTransform.position))
+        if (_targetTransform)
         {
-            StartTargetDestination();
-            GetComponent<AIAreaController>().InteractabelDeactive();
-            transform.position = _targetFirstPosition.position;
+            if (1 > Vector3.Distance(transform.position, _targetTransform.position))
+            {
+                StartTargetDestination();
+                GetComponent<AIAreaController>().InteractabelDeactive();
+                transform.position = _targetFirstPosition.position;
+            }
         }
+        
     }
     void CheckForObstacles()
     {
