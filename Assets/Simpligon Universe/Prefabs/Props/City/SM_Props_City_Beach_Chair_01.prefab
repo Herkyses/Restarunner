@@ -124,3 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aeec2ce7799b3343b7f79c0cbaf12c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ownerTable: {fileID: 0}
+  _tableNumber: 0
+  isChairAvailable: 0
+  ChairFoodTransform: {fileID: 0}
