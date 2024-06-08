@@ -24,7 +24,7 @@ public class TableSet : MonoBehaviour
 
     public void CheckGround()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 1f);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.8f);
         var checkControl = false;
         foreach (Collider collider in colliders)
         {
