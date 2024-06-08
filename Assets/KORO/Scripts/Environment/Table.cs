@@ -12,9 +12,11 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     [SerializeField] private List<OrderDataStruct> _orderList ;
     public bool IsTableAvailable ;
     public bool IsTableMove ;
+    public bool IsTableSetTransform ;
     public int TableNumber ;
     public int TableCapacity;
     public int CustomerCount;
+    public int groundLayer;
     public TextMeshProUGUI TableNumberText;
     public TableSet TableSet;
 
@@ -105,6 +107,8 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
     private void Start()
     {
+        groundLayer = LayerMask.NameToLayer("Ground");
+
         IsTableAvailable = false;
         TableNumberText.text = TableNumber.ToString();
     }
@@ -168,14 +172,36 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         {
             float xValue = hit.point.x;
             float zValue = hit.point.z;
-            
+            TableSet.GetComponent<BoxCollider>().enabled = true;
             TableSet.transform.position = new Vector3(xValue,TableSet.transform.position.y,zValue); // Objenin pozisyonunu fare ile tıklanan noktaya taşı
         } 
         if (Input.GetMouseButton(0))
         {
-            IsTableMove = false;
+            TableSet.CheckGround();
+            if (IsTableSetTransform)
+            {
+                //if(colliders.Length )
+                TableSet.GetComponent<BoxCollider>().enabled = false;
+
+                IsTableMove = false;
+            }
+            
         }
         
     }
 
+    /*private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer != groundLayer)
+        {
+            IsTableSetTransform = false;
+        }
+        else
+        {
+            Debug.Log("asdadasddas");
+
+            IsTableSetTransform = true;
+
+        }
+    }*/
 }
