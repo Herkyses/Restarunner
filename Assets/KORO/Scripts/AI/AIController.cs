@@ -135,6 +135,14 @@ public class AIController : MonoBehaviour,IInterectableObject
         }
         
     }
+
+    public void DeactivatedFoodIcon()
+    {
+        if (_aıCanvas_.InfoImage.gameObject.activeSelf)
+        {
+            _aıCanvas_.InfoImage.gameObject.SetActive(false);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
