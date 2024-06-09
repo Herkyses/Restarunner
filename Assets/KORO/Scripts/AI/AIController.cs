@@ -16,6 +16,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     [SerializeField] private Transform _chairPosition;
     [SerializeField] private AICanvas _aıCanvas_;
     public List<Transform> _targetPositions;
+    public List<GameObject> AIModels;
     
     [FormerlySerializedAs("_playerAnimator")] public Animator AiAnimator;
     public AIAnimationController AIAnimationController;
@@ -30,6 +31,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     public Food AIOwnerFood;
     public OrderDataStruct FoodDataStruct;
 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -232,5 +234,15 @@ public class AIController : MonoBehaviour,IInterectableObject
     public void Move()
     {
         
+    }
+    public void SetModel(int modelIndex)
+    {
+        for (int i = 0; i < AIModels.Count; i++)
+        {
+            if (modelIndex == i)
+            {
+                AIModels[i].SetActive(true);
+            }
+        }
     }
 }

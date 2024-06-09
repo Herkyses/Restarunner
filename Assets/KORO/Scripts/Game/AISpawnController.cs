@@ -23,6 +23,8 @@ public class AISpawnController : MonoBehaviour
         for (int i = 0; i < AiCount; i++)
         {
             var singleAi = Instantiate(AlPf,transform);
+            var index = Random.Range(0, 7);
+            singleAi.SetModel(index);
             AllAIList.Add(singleAi);
             singleAi.AgentID = i;
             var randomPosition = Random.Range(0, 2);

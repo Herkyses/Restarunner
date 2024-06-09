@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7262918142865069807
 Transform:
   m_ObjectHideFlags: 0
@@ -1861,6 +1861,29 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  AIModels:
+  - {fileID: 7262918143958815603}
+  - {fileID: 7262918143446058159}
+  - {fileID: 7262918142991629991}
+  - {fileID: 7262918144334053031}
+  - {fileID: 7262918144612156691}
+  - {fileID: 7262918144415443028}
+  - {fileID: 7262918143043109898}
+  - {fileID: 7262918143366513992}
+  - {fileID: 7262918144585164080}
+  - {fileID: 7262918143276583972}
+  - {fileID: 7262918144566997927}
+  - {fileID: 7262918143890507384}
+  - {fileID: 7262918143008614301}
+  - {fileID: 7262918142959046202}
+  - {fileID: 7262918142931078339}
+  - {fileID: 7262918143530347154}
+  - {fileID: 7262918144468401433}
+  - {fileID: 7262918144436183695}
+  - {fileID: 7262918143203370797}
+  - {fileID: 7262918143237001996}
+  - {fileID: 7262918144385453110}
+  - {fileID: 7262918143975156003}
   AiAnimator: {fileID: 7262918143254985459}
   AIAnimationController: {fileID: 0}
   AIStateMachineController: {fileID: 0}
