@@ -10,6 +10,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 {
     [SerializeField] private string checkOrder = "Check Order";
     [SerializeField] private List<OrderDataStruct> _orderList ;
+    public List<AIController> _aiControllerList ;
     public bool IsTableAvailable ;
     public bool IsTableMove ;
     public bool IsTableSetTransform ;
@@ -54,7 +55,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             var stateMAchineController = AITransform.gameObject.GetComponent<AIStateMachineController>();
             stateMAchineController.AIChangeState(stateMAchineController.AISitState);
             AITransform.gameObject.GetComponent<AIAreaController>().InteractabelControl();
-            
+            _aiControllerList.Add(AITransform.gameObject.GetComponent<AIController>());
             var orderIndex = Random.Range(0, 2);
             stateMAchineController.GetComponent<AIController>().AIOwnerTable = this;
             stateMAchineController.GetComponent<AIController>().AIOwnerChair = chair;
@@ -131,7 +132,15 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         if (!PlayerOrderController.Instance.TakedFood)
         {
             OrderPanelController.Instance.ShowOrder(_orderList,TableNumber);
+            OpenOrderPanels();
+        }
+    }
 
+    public void OpenOrderPanels()
+    {
+        for (int i = 0; i < _aiControllerList.Count; i++)
+        {
+            StartCoroutine(_aiControllerList[i].FoodIcon());
         }
     }
 

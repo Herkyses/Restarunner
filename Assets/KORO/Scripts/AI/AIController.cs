@@ -42,7 +42,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     {
         _agent.speed = 0f;
         AiAnimator.Play("Sit",0);
-        StartCoroutine(FoodIcon());
+        //StartCoroutine(FoodIcon());
 
     }
     /////////// MOVE STATE ///////////
@@ -118,18 +118,22 @@ public class AIController : MonoBehaviour,IInterectableObject
     }
     public IEnumerator FoodIcon()
     {
-        yield return new WaitForSeconds(3f);
-        
-        _aıCanvas_.InfoImage.gameObject.SetActive(true);
-        if (FoodDataStruct.OrderType == Enums.OrderType.Burger)
-        {
-            _aıCanvas_.InfoImage.sprite = GameDataManager.Instance.FoodsImages[1];
-        }
-        else if (FoodDataStruct.OrderType == Enums.OrderType.Pizza)
-        {
-            _aıCanvas_.InfoImage.sprite = GameDataManager.Instance.FoodsImages[0]; ///////////DAtalar eklencek
+        yield return new WaitForSeconds(0.2f);
 
+        if (!_aıCanvas_.InfoImage.gameObject.activeSelf)
+        {
+            _aıCanvas_.InfoImage.gameObject.SetActive(true);
+            if (FoodDataStruct.OrderType == Enums.OrderType.Burger)
+            {
+                _aıCanvas_.InfoImage.sprite = GameDataManager.Instance.FoodsImages[1];
+            }
+            else if (FoodDataStruct.OrderType == Enums.OrderType.Pizza)
+            {
+                _aıCanvas_.InfoImage.sprite = GameDataManager.Instance.FoodsImages[0]; ///////////DAtalar eklencek
+
+            }
         }
+        
     }
     // Update is called once per frame
     void Update()
