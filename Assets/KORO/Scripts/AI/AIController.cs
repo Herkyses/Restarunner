@@ -12,6 +12,7 @@ public class AIController : MonoBehaviour,IInterectableObject
 
     public Transform _targetTransform;
     public Transform _targetFirstPosition;
+    public bool IsFinishedFood;
     [SerializeField] private Transform _playerPosition;
     [SerializeField] private Transform _chairPosition;
     [SerializeField] private AICanvas _aıCanvas_;

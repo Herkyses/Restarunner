@@ -14,6 +14,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     public bool IsTableAvailable ;
     public bool IsTableMove ;
     public bool IsTableSetTransform ;
+    public bool IsTableFoodFinished ;
     public int TableNumber ;
     public int TableCapacity;
     public int CustomerCount;
@@ -24,6 +25,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
     public List<Chair> ChairList;
     public List<Transform> FoodTransformList;
+    public Transform BillPanel;
     private void OnEnable()
     {
         Chair.GivedOrder += CreateOrdersWithAction;
@@ -42,6 +44,25 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             MoveStart();
         }
         
+    }
+
+    public bool CheckAllCustomerFinishedFood()
+    {
+        for (int i = 0; i < _aiControllerList.Count; i++)
+        {
+            if (!_aiControllerList[i].IsFinishedFood)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public void AllFoodfinished()
+    {
+        IsTableFoodFinished = true;
+        BillPanel.gameObject.SetActive(true);
     }
 
     public void StartState(Transform AITransform)

@@ -100,6 +100,10 @@ public class AIStateMachineController : MonoBehaviour
         Destroy(AIController.AIOwnerFood.FoodObject);
         TableAvailablePanel.Instance.CheckTable(AIController.AIOwnerTable.TableNumber);
         AIController.AIOwnerTable.RemoveOrder(AIController.FoodDataStruct);
-        AIChangeState(AIMoveState);
+        if (AIController.AIOwnerTable.CheckAllCustomerFinishedFood())
+        {
+            AIController.AIOwnerTable.AllFoodfinished();
+        }
+        //AIChangeState(AIMoveState);
     }
 }
