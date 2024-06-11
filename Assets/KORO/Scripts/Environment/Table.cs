@@ -178,11 +178,19 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
     public string GetInterectableText()
     {
-        if (PlayerOrderController.Instance.TakedFood)
+        if (!PlayerOrderController.Instance.TakedFood)
         {
             //return "GivedFoods";
         }
-        return checkOrder;
+
+        if (!IsTableFoodFinished)
+        {
+            return checkOrder;
+        }
+        else
+        {
+            return "CheckBills";
+        }
     }
 
     public void Move()
