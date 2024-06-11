@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TableAvailablePanel : MonoBehaviour
 {
     [SerializeField] private Transform _availabilityPanel;
-    [SerializeField] private Transform _tablesParent;
+    public Transform _tablesParent;
     [SerializeField] private Transform _customerParent;
     [SerializeField] private Transform _contentParent;
     
@@ -43,6 +43,7 @@ public class TableAvailablePanel : MonoBehaviour
     {
         InitializeAvailabilityPanel();
         DeleteCustomerChilds();
+        CheckOrderBillsPanel.Instance.Initialize();
     }
 
     public void InitializeAvailabilityPanel()

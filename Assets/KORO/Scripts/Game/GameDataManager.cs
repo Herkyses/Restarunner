@@ -8,6 +8,7 @@ public class GameDataManager : MonoBehaviour
     public List<OrderDataStruct> Orders;
     public List<Food> Foods;
     public List<Sprite> FoodsImages;
+    public List<OrderData> FoodDatas;
 
     public static GameDataManager Instance;
     // Start is called before the first frame update
@@ -33,6 +34,19 @@ public class GameDataManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public float GetOrderBill(Enums.OrderType orderType)
+    {
+        for (int i = 0; i < FoodDatas.Count; i++)
+        {
+            if (FoodDatas[i].OrderType == orderType)
+            {
+                return FoodDatas[i].OrderPrice;
+            }
+        }
+
+        return -1;
     }
 
     public Sprite GetFoodSprite(Enums.OrderType orderType)
