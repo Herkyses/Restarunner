@@ -89,14 +89,12 @@ public class AIStateMachineController : MonoBehaviour
     public IEnumerator EatDuring()
     {
         yield return new WaitForSeconds(5f);
-        TableAvailablePanel.Instance.RedAvailability(AIController.AIOwnerTable.TableNumber);
         AIController.DeactivatedFoodIcon();
         
         AIController.AIOwnerTable.TotalBills += GameDataManager.Instance.GetOrderBill(AIController.FoodDataStruct.OrderType);
         
         CheckOrderBillsPanel.Instance.UpdatePanel(AIController.AIOwnerTable.TableNumber,AIController.AIOwnerTable.TotalBills);    
         Destroy(AIController.AIOwnerFood.FoodObject);
-        TableAvailablePanel.Instance.CheckTable(AIController.AIOwnerTable.TableNumber);
         AIController.AIOwnerTable.RemoveOrder(AIController.FoodDataStruct);
         if (AIController.AIOwnerTable.CheckAllCustomerFinishedFood())
         {
@@ -110,7 +108,9 @@ public class AIStateMachineController : MonoBehaviour
     public void SetMoveStateFromOrderBill()
     {
         //AIController.AIOwnerTable._aiControllerList.Remove(AIController);
-        
+        TableAvailablePanel.Instance.RedAvailability(AIController.AIOwnerTable.TableNumber);
+        TableAvailablePanel.Instance.CheckTable(AIController.AIOwnerTable.TableNumber);
+
         AIController.AIOwnerChair.isChairAvailable = true;
         AIController.AIOwnerTable.CustomerCount--;
         AIChangeState(AIMoveState);

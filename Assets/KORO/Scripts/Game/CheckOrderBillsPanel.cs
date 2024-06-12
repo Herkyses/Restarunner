@@ -54,6 +54,17 @@ public class CheckOrderBillsPanel : MonoBehaviour
         }
     }
 
+    public void UpdateBillList(int index)
+    {
+        for (int i = 0; i < BillList.Count; i++)
+        {
+            if (index == BillList[i].TableNumber)
+            {
+                BillList[i].Initialize(BillList[i].TableNumber,0);
+            }
+        }
+    }
+
     public void CreateTableBill()
     {
         BillTable.Instance.CreateTableBill(TableController.Instance.TableSets[SelectedTable].table.TotalBills);
