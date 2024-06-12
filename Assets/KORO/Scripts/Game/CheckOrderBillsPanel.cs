@@ -10,6 +10,7 @@ public class CheckOrderBillsPanel : MonoBehaviour
     [SerializeField] private SingleBill _singleBill;
     public List<SingleBill> BillList;
     public static CheckOrderBillsPanel Instance;
+    public int SelectedTable;
 
     
     private void Awake()
@@ -52,17 +53,12 @@ public class CheckOrderBillsPanel : MonoBehaviour
             BillList.Add(bill);
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void CreateTableBill()
     {
-        
+        BillTable.Instance.CreateTableBill(TableController.Instance.TableSets[SelectedTable].table.TotalBills);
     }
+    
     public void ActiveBillsPanel()
     {
         GameSceneCanvas.Instance.CanMove = false;

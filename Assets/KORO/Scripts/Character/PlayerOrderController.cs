@@ -9,8 +9,10 @@ public class PlayerOrderController : MonoBehaviour
     public List<Orders> OrderList = new List<Orders>();
     public List<Food> OrderFoodList = new List<Food>();
     public Food Food;
+    public TableBill TableBill;
     public Transform FoodTransform;
     public bool TakedFood;
+    public bool TakedTableBill;
     
     
     private void Awake()
@@ -36,6 +38,19 @@ public class PlayerOrderController : MonoBehaviour
             food.transform.position = PlayerOrderController.Instance.FoodTransform.position;
             food.transform.rotation = PlayerOrderController.Instance.FoodTransform.rotation;
             food.transform.SetParent(PlayerOrderController.Instance.FoodTransform);
+        }
+        
+    }
+    public void TakeBill(TableBill tableBill)
+    {
+        if (!TakedTableBill)
+        {
+            TableBill = tableBill;
+            TakedTableBill = true;
+            //OrderFoodList.Add(food);
+            TableBill.transform.position = PlayerOrderController.Instance.FoodTransform.position;
+            //TableBill.transform.rotation = PlayerOrderController.Instance.FoodTransform.rotation;
+            TableBill.transform.SetParent(PlayerOrderController.Instance.FoodTransform);
         }
         
     }

@@ -7,6 +7,9 @@ public class BillTable : MonoBehaviour,IInterectableObject
     
     public static BillTable Instance;
 
+    [SerializeField] private Transform _tableBillParent;
+    [SerializeField] private TableBill _tableBillPf;
+
     private void Awake()
     {
         if (Instance == null)
@@ -29,6 +32,19 @@ public class BillTable : MonoBehaviour,IInterectableObject
     void Update()
     {
         
+    }
+
+    public void CreateTableBill(float totalBills)
+    {
+        DeleteChilds();
+        var tableBill = Instantiate(_tableBillPf, _tableBillParent);
+        tableBill.transform.localPosition = Vector3.zero;
+        tableBill.BillValue = totalBills;
+    }
+    public void UpdateTableBill(TableBill tableBill)
+    {
+        tableBill.transform.SetParent(_tableBillParent);
+        tableBill.transform.localPosition = Vector3.zero;
     }
 
     public void InterectableObjectRun()
@@ -54,5 +70,16 @@ public class BillTable : MonoBehaviour,IInterectableObject
     public void Move()
     {
         
+    }
+    public void DeleteChilds()
+    {
+        var orderArray = _tableBillParent.GetComponentsInChildren<TableBill>();
+        if (orderArray.Length > 0)
+        {
+            for (int i = 0; i < orderArray.Length; i++)
+            {
+                Destroy(orderArray[i].gameObject);
+            }
+        }
     }
 }

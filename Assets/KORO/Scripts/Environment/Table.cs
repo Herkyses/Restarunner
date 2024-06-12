@@ -151,10 +151,21 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     }
     public void InterectableObjectRun()
     {
-        if (!PlayerOrderController.Instance.TakedFood)
+        if (!PlayerOrderController.Instance.TakedFood && !PlayerOrderController.Instance.TakedTableBill)
         {
             OrderPanelController.Instance.ShowOrder(_orderList,TableNumber);
             OpenOrderPanels();
+        }
+
+        if (PlayerOrderController.Instance.TakedTableBill)
+        {
+            for (int i = 0; i < _aiControllerList.Count; i++)
+            {
+                _aiControllerList[i].AIStateMachineController.SetMoveStateFromOrderBill();
+            } 
+            BillTable.Instance.UpdateTableBill(PlayerOrderController.Instance.TableBill);
+            PlayerOrderController.Instance.TakedTableBill = false;
+            _aiControllerList.Clear();
         }
     }
 

@@ -27,4 +27,9 @@ public class SingleBill : MonoBehaviour
         TableOrderBill = totalBill;
         BillText.text = TableOrderBill.ToString();
     }
+
+    public void SingleBillSelected()
+    {
+        CheckOrderBillsPanel.Instance.SelectedTable = TableNumber;
+    }
 }

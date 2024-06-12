@@ -90,10 +90,8 @@ public class AIStateMachineController : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         TableAvailablePanel.Instance.RedAvailability(AIController.AIOwnerTable.TableNumber);
-        AIController.AIOwnerTable._aiControllerList.Remove(AIController);
         AIController.DeactivatedFoodIcon();
-        AIController.AIOwnerChair.isChairAvailable = true;
-        AIController.AIOwnerTable.CustomerCount--;
+        
         AIController.AIOwnerTable.TotalBills += GameDataManager.Instance.GetOrderBill(AIController.FoodDataStruct.OrderType);
         
         CheckOrderBillsPanel.Instance.UpdatePanel(AIController.AIOwnerTable.TableNumber,AIController.AIOwnerTable.TotalBills);    
@@ -104,6 +102,17 @@ public class AIStateMachineController : MonoBehaviour
         {
             AIController.AIOwnerTable.AllFoodfinished();
         }
+        //AIController.AIOwnerChair.isChairAvailable = true;
+        //AIController.AIOwnerTable.CustomerCount--;
         //AIChangeState(AIMoveState);
+    }
+
+    public void SetMoveStateFromOrderBill()
+    {
+        //AIController.AIOwnerTable._aiControllerList.Remove(AIController);
+        
+        AIController.AIOwnerChair.isChairAvailable = true;
+        AIController.AIOwnerTable.CustomerCount--;
+        AIChangeState(AIMoveState);
     }
 }
