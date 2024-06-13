@@ -43,7 +43,7 @@ public class TableAvailablePanel : MonoBehaviour
     {
         InitializeAvailabilityPanel();
         DeleteCustomerChilds();
-        CheckOrderBillsPanel.Instance.Initialize();
+        //CheckOrderBillsPanel.Instance.Initialize();
     }
 
     public void InitializeAvailabilityPanel()

@@ -22,6 +22,8 @@ public class InitializeManager : MonoBehaviour
     {
         TableController.Instance.Initialize();
         TableAvailablePanel.Instance.Initialize();
+        CheckOrderBillsPanel.Instance.Initialize();
+
         AISpawnController.Instance.Initialize();
         OrderPanelController.Instance.Initialize();
         PlacePanelController.Instance.Initialize();

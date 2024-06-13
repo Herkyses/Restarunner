@@ -1329,6 +1329,7 @@ MonoBehaviour:
     IngredientValue: 0
   - OrderType: 1
     IngredientValue: 0
+  _panel: {fileID: 677409233023969758}
 --- !u!1 &3364995486108749663
 GameObject:
   m_ObjectHideFlags: 0
@@ -10379,9 +10380,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CheckOrderBillsPanel, Assembly-CSharp
-        m_MethodName: DeActiveBillsPanel
+      - m_Target: {fileID: 364562329645023409}
+        m_TargetAssemblyTypeName: PlacePanelController, Assembly-CSharp
+        m_MethodName: DeActivePlacePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

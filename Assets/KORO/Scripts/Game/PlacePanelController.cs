@@ -7,6 +7,7 @@ public class PlacePanelController : MonoBehaviour
 {
     public static PlacePanelController Instance;
     public List<FoodIngredient> FoodIngredients;
+    public Transform _panel;
     private void Awake()
     {
         if (Instance == null)
@@ -20,7 +21,17 @@ public class PlacePanelController : MonoBehaviour
 
     }
 
-    
+    public void ActivePlacePanel()
+    {
+        GameSceneCanvas.Instance.CanMove = false;
+        _panel.gameObject.SetActive(true);
+    }
+    public void DeActivePlacePanel()
+    {
+        GameSceneCanvas.Instance.CanMove = true;
+        _panel.gameObject.SetActive(false);
+
+    }
 
     public void Initialize()
     {

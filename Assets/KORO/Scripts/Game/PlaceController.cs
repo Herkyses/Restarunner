@@ -15,10 +15,10 @@ public class PlaceController : MonoBehaviour,IInterectableObject
     {
         
     }
-
+    
     public void InterectableObjectRun()
     {
-        
+        PlacePanelController.Instance.ActivePlacePanel();
     }
     public void ShowOutline(bool active)
     {
