@@ -13,9 +13,18 @@ public class AISpawnController : MonoBehaviour
     public int AiCount;
 
 
-    private void Start()
+    public static AISpawnController Instance;
+    private void Awake()
     {
-        Initialize();
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     public void Initialize()

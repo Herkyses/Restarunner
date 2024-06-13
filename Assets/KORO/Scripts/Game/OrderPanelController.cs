@@ -32,7 +32,7 @@ public class OrderPanelController : MonoBehaviour
 
     }
 
-    private void Start()
+    public void Initialize()
     {
         DeleteChilds(_singlePfParentForSelectedFoodList);
         DeleteChilds(_singlePfParentForFoodList);

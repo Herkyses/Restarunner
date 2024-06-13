@@ -25,10 +25,15 @@ public class TableController : MonoBehaviour
         }
 
     }
-    private void Start()
+
+    public void Initialize()
     {
         SettableNumbers();
-        TableAvailablePanel.Instance.Initialize();
+    }
+
+    private void Start()
+    {
+        
     }
 
     public void SettableNumbers()
