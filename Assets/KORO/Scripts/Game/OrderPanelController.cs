@@ -36,12 +36,12 @@ public class OrderPanelController : MonoBehaviour
     {
         DeleteChilds(_singlePfParentForSelectedFoodList);
         DeleteChilds(_singlePfParentForFoodList);
-        for (int i = 0; i < GameDataManager.Instance.Orders.Count; i++)
+        for (int i = 0; i < GameDataManager.Instance.FoodDatas.Count; i++)
         {
             
             var singleOrder = Instantiate(_singlePf, _singlePfParentForFoodList);
-            singleOrder.OrderType = GameDataManager.Instance.Orders[i].OrderType;
-            singleOrder.OrderPrice = GameDataManager.Instance.Orders[i].OrderPrice;
+            singleOrder.OrderType = GameDataManager.Instance.FoodDatas[i].OrderType;
+            singleOrder.OrderPrice = GameDataManager.Instance.FoodDatas[i].OrderPrice;
             singleOrder.SingleOrderUIType = Enums.SingleOrderUIType.FoodList;
             FoodList.Add(singleOrder);
             singleOrder.Initialize();

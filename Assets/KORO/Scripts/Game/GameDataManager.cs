@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 public class GameDataManager : MonoBehaviour
 {
-    public List<OrderDataStruct> Orders;
+    
     public List<Food> Foods;
-    //public List<Sprite> FoodsImages;
     public List<OrderData> FoodDatas;
 
     public static GameDataManager Instance;
@@ -25,16 +24,7 @@ public class GameDataManager : MonoBehaviour
         }
 
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     public float GetOrderBill(Enums.OrderType orderType)
     {
