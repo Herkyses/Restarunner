@@ -15,3 +15,4 @@ MonoBehaviour:
   OrderType: 0
   OrderPrice: 5
   FoodIcon: {fileID: 21300000, guid: d3d0e79100bfef544872049eaf3666ef, type: 3}
+  Food: {fileID: 3790451602083387791, guid: 6981100ff450618419cdd1884f7ac5b7, type: 3}

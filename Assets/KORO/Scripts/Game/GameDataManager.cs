@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameDataManager : MonoBehaviour
 {
     
-    public List<Food> Foods;
+    
     public List<OrderData> FoodDatas;
 
     public static GameDataManager Instance;

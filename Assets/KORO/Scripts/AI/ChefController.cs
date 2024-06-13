@@ -31,11 +31,11 @@ public class ChefController : MonoBehaviour,IInterectableObject
     {
         for (int i = 0; i < ChefOwnerStructData.Count; i++)
         {
-            for (int j = 0; j < GameDataManager.Instance.Foods.Count; j++)
+            for (int j = 0; j < GameDataManager.Instance.FoodDatas.Count; j++)
             {
-                if (ChefOwnerStructData[i].OrderType == GameDataManager.Instance.Foods[j].OrderType)
+                if (ChefOwnerStructData[i].OrderType == GameDataManager.Instance.FoodDatas[j].OrderType)
                 {
-                    var food = Instantiate(GameDataManager.Instance.Foods[j]);
+                    var food = Instantiate(GameDataManager.Instance.FoodDatas[j].Food);
                     food.transform.position = _chefOrderTable.FoodTransformList[_chefOrderTableIndex].position;
                     _chefOrderTableIndex++;
                     if (_chefOrderTableIndex >= _chefOrderTable.FoodTransformList.Count)
