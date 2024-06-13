@@ -7,7 +7,7 @@ public class GameDataManager : MonoBehaviour
 {
     public List<OrderDataStruct> Orders;
     public List<Food> Foods;
-    public List<Sprite> FoodsImages;
+    //public List<Sprite> FoodsImages;
     public List<OrderData> FoodDatas;
 
     public static GameDataManager Instance;
@@ -51,17 +51,18 @@ public class GameDataManager : MonoBehaviour
 
     public Sprite GetFoodSprite(Enums.OrderType orderType)
     {
-        if (orderType == Enums.OrderType.Burger)
+        
+        switch (orderType)
         {
-            return FoodsImages[1];
+            case Enums.OrderType.Pizza:
+                return FoodDatas[0].FoodIcon;
+                break;
+            case Enums.OrderType.Burger:
+                return FoodDatas[1].FoodIcon;
+                break;
+            
         }
-        else if (orderType == Enums.OrderType.Pizza)
-        {
-            return FoodsImages[0];
-        }
-        else
-        {
-            return null;
-        } 
+
+        return null;
     }
 }

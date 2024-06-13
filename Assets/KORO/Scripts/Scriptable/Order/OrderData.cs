@@ -8,4 +8,5 @@ public class OrderData : ScriptableObject
 {
     public Enums.OrderType OrderType;
     public float OrderPrice;
+    public Sprite FoodIcon;
 }

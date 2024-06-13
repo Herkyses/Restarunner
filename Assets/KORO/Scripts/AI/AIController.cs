@@ -128,11 +128,11 @@ public class AIController : MonoBehaviour,IInterectableObject
             _aıCanvas_.InfoImage.gameObject.SetActive(true);
             if (FoodDataStruct.OrderType == Enums.OrderType.Burger)
             {
-                _aıCanvas_.InfoImage.sprite = GameDataManager.Instance.FoodsImages[1];
+                _aıCanvas_.InfoImage.sprite = GameDataManager.Instance.GetFoodSprite(Enums.OrderType.Burger);
             }
             else if (FoodDataStruct.OrderType == Enums.OrderType.Pizza)
             {
-                _aıCanvas_.InfoImage.sprite = GameDataManager.Instance.FoodsImages[0]; ///////////DAtalar eklencek
+                _aıCanvas_.InfoImage.sprite = GameDataManager.Instance.GetFoodSprite(Enums.OrderType.Pizza);
 
             }
         }
