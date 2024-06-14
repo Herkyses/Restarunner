@@ -5155,8 +5155,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.19, y: 1.2608633, z: 0.3716669}
-  m_Center: {x: 0.00010204315, y: 0.6446307, z: 0.071994305}
+  m_Size: {x: 0.19, y: 1.1934671, z: 0.3716669}
+  m_Center: {x: 0.00010204315, y: 0.6109326, z: 0.071994305}
 --- !u!114 &8578709897593811357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5270,8 +5270,10 @@ MonoBehaviour:
     OrderDataStructs: []
   OrderFoodList: []
   Food: {fileID: 0}
+  TableBill: {fileID: 0}
   FoodTransform: {fileID: 9215106161737911943}
   TakedFood: 0
+  TakedTableBill: 0
 --- !u!1 &7606353784891132531
 GameObject:
   m_ObjectHideFlags: 0

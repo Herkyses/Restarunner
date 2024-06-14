@@ -7,7 +7,9 @@ public class PlacePanelController : MonoBehaviour
 {
     public static PlacePanelController Instance;
     public List<FoodIngredient> FoodIngredients;
+    //public List<FoodIngredient> FoodIngredients;
     public Transform _panel;
+    public Transform _singlePlaceItemParentTransform;
     private void Awake()
     {
         if (Instance == null)
@@ -48,6 +50,17 @@ public class PlacePanelController : MonoBehaviour
             if (orderType == FoodIngredients[i].OrderType)
             {
                 FoodIngredients[i].IngredientValue--;
+            }
+        }
+    }
+    public void DeleteChilds()
+    {
+        var orderArray = _singlePlaceItemParentTransform.GetComponentsInChildren<SingleShopItem>();
+        if (orderArray.Length > 0)
+        {
+            for (int i = 0; i < orderArray.Length; i++)
+            {
+                Destroy(orderArray[i].gameObject);
             }
         }
     }
