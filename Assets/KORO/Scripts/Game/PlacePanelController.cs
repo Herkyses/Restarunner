@@ -2,14 +2,16 @@
  using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+ using UnityEngine.Serialization;
 
-public class PlacePanelController : MonoBehaviour
+ public class PlacePanelController : MonoBehaviour
 {
     public static PlacePanelController Instance;
     public List<FoodIngredient> FoodIngredients;
     //public List<FoodIngredient> FoodIngredients;
     public Transform _panel;
-    public Transform _singlePlaceItemParentTransform;
+    [FormerlySerializedAs("_singlePlaceItemParentTransform")] public Transform SingleShopItemParentTransform;
+    public SingleShopItem SingleShopItemPf;
     private void Awake()
     {
         if (Instance == null)
@@ -37,12 +39,19 @@ public class PlacePanelController : MonoBehaviour
 
     public void Initialize()
     {
+        DeleteChilds();
         for (int i = 0; i < FoodIngredients.Count; i++)
         {
             FoodIngredients[i].IngredientValue = 5;
         }
     }
-
+    public void InitializeShopPanel()
+    {
+        for (int i = 0; i < ShopManager.Instance.FirstShopItems.Count; i++)
+        {
+            var singleItem = Instantiate(SingleShopItemPf, SingleShopItemParentTransform);
+        }
+    }
     public void DecreeseIngredient(Enums.OrderType orderType)
     {
         for (int i = 0; i < FoodIngredients.Count; i++)
@@ -55,7 +64,7 @@ public class PlacePanelController : MonoBehaviour
     }
     public void DeleteChilds()
     {
-        var orderArray = _singlePlaceItemParentTransform.GetComponentsInChildren<SingleShopItem>();
+        var orderArray = SingleShopItemParentTransform.GetComponentsInChildren<SingleShopItem>();
         if (orderArray.Length > 0)
         {
             for (int i = 0; i < orderArray.Length; i++)

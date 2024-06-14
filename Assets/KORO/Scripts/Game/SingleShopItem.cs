@@ -8,13 +8,16 @@ public class SingleShopItem : MonoBehaviour
 {
     public Image Icon;
     public float Price;
+    public Enums.ShopItemType ItemType;
+
 
     public TextMeshProUGUI PriceText;
 
 
-    public void InitializeSingleShopItem()
+    public void InitializeSingleShopItem(ShopItem shopItem)
     {
-        
+        Price = shopItem.ShopItemPrice;
+        ItemType = shopItem.ItemType;
     }
     public void SinglePlaceItemPressed()
     {
