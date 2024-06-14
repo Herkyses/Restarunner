@@ -40,6 +40,7 @@ using UnityEngine;
     public void Initialize()
     {
         DeleteChilds();
+        InitializeShopPanel();
         for (int i = 0; i < FoodIngredients.Count; i++)
         {
             FoodIngredients[i].IngredientValue = 5;
@@ -50,6 +51,7 @@ using UnityEngine;
         for (int i = 0; i < ShopManager.Instance.FirstShopItems.Count; i++)
         {
             var singleItem = Instantiate(SingleShopItemPf, SingleShopItemParentTransform);
+            singleItem.InitializeSingleShopItem(ShopManager.Instance.FirstShopItems[i]);
         }
     }
     public void DecreeseIngredient(Enums.OrderType orderType)

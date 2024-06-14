@@ -18,6 +18,7 @@ public class SingleShopItem : MonoBehaviour
     {
         Price = shopItem.ShopItemPrice;
         ItemType = shopItem.ItemType;
+        Icon.sprite = shopItem.ShopItemIcon;
     }
     public void SinglePlaceItemPressed()
     {

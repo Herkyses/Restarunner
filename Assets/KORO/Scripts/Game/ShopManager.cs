@@ -27,4 +27,5 @@ public class ShopItem
 {
     public Enums.ShopItemType ItemType;
     public float ShopItemPrice;
+    public Sprite ShopItemIcon;
 }

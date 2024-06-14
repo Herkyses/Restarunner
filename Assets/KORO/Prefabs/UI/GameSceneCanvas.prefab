@@ -1557,7 +1557,8 @@ MonoBehaviour:
   - OrderType: 1
     IngredientValue: 0
   _panel: {fileID: 677409233023969758}
-  _singlePlaceItemParentTransform: {fileID: 2287923644688162544}
+  SingleShopItemParentTransform: {fileID: 2287923644688162544}
+  SingleShopItemPf: {fileID: 4269544568182306317, guid: b4dff51adcd0e3847ac7067cc38400b5, type: 3}
 --- !u!1 &3364995486108749663
 GameObject:
   m_ObjectHideFlags: 0
