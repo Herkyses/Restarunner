@@ -267,6 +267,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         TableController.Instance.TableSets.Add(TableSet);
         TableController.Instance.UpdateTables();
         TableAvailablePanel.Instance.AddNewTable(this);
+        CheckOrderBillsPanel.Instance.UpdatePanel(TableNumber,TotalBills);
     }
     /*private void OnTriggerEnter(Collider other)
     {
