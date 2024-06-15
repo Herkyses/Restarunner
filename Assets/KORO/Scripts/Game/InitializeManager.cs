@@ -20,9 +20,12 @@ public class InitializeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MapManager.Instance.LoadMap();
+        TableController.Instance.SetTableNumbers();
         TableController.Instance.Initialize();
         TableAvailablePanel.Instance.Initialize();
         CheckOrderBillsPanel.Instance.Initialize();
+
 
         AISpawnController.Instance.Initialize();
         OrderPanelController.Instance.Initialize();

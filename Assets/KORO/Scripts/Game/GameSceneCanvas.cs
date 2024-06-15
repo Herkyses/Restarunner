@@ -31,7 +31,8 @@ public class GameSceneCanvas : MonoBehaviour
             Destroy(gameObject);
         }
 
-    }
+    }   
+    
     
 
     public void UpdateMoneyText(float gain,int popularity)

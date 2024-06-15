@@ -13,7 +13,7 @@ public class TableSet : MonoBehaviour
     {
         groundLayer = LayerMask.NameToLayer("Ground");
         tableIndexLayer = LayerMask.NameToLayer("TableSet");
-
+        //transform.position = MapManager.Instance.
     }
 
     // Update is called once per frame

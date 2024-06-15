@@ -28,7 +28,7 @@ public class TableController : MonoBehaviour
 
     public void Initialize()
     {
-        SettableNumbers();
+        //SettableNumbers();
     }
 
     private void Start()
@@ -36,7 +36,7 @@ public class TableController : MonoBehaviour
         
     }
 
-    public void SettableNumbers()
+    /*public void SettableNumbers()
     {
         for (int i = 0; i < TableSetCapacity; i++)
         {
@@ -44,6 +44,19 @@ public class TableController : MonoBehaviour
             TableSets.Add(set);
             set.transform.position = TableSetsTransforms[i].position;
             set.table.TableNumber = i + 1;
+        }
+    }*/
+
+    public void SetTableNumbers()
+    {
+        GameObject[] tableObjects = GameObject.FindGameObjectsWithTag("TableSet");
+
+        for (int i = 0; i < tableObjects.Length; i++)
+        {
+            var tableSet = tableObjects[i].GetComponent<TableSet>();
+            TableSets.Add(tableSet);
+            tableSet.table.TableNumber = i + 1;
+            tableSet.table.TableInitialize();
         }
     }
 
