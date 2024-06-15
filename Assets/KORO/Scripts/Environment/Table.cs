@@ -241,6 +241,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             TableSet.CheckGround();
             if (IsTableSetTransform)
             {
+                MapManager.Instance.SaveMap();
                 TableControl();
                 //if(colliders.Length )
                 TableSet.GetComponent<BoxCollider>().enabled = false;

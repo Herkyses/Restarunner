@@ -93,13 +93,17 @@ public class MapManager : MonoBehaviour
             foreach (MapObject mapObject in mapData.objects)
             {
                 GameObject prefab = GetPrefabByType(mapObject.type);
-                if (prefab != null)
+                if (mapObject.type == "TableSet")
                 {
-                    Vector3 position = new Vector3(mapObject.posX, mapObject.posY, mapObject.posZ);
-                    Quaternion rotation = Quaternion.Euler(mapObject.rotX, mapObject.rotY, mapObject.rotZ);
-                    var table = Instantiate(prefab, position, rotation);
-                    table.transform.SetParent(TableController.Instance.TableTransform);
+                    if (prefab != null)
+                    {
+                        Vector3 position = new Vector3(mapObject.posX, mapObject.posY, mapObject.posZ);
+                        Quaternion rotation = Quaternion.Euler(mapObject.rotX, mapObject.rotY, mapObject.rotZ);
+                        var table = Instantiate(prefab, position, rotation);
+                        table.transform.SetParent(TableController.Instance.TableTransform);
+                    }
                 }
+                
             }
 
             Debug.Log("Map loaded.");
