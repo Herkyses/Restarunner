@@ -42,24 +42,32 @@ public class MapManager : MonoBehaviour
         }
     }
 
+    public void SetTableTransformFromMapData()
+    {
+        GameObject[] tableObjects = GameObject.FindGameObjectsWithTag("TableSet");
+        if (tableObjects.Length > 0)
+        {
+            foreach (GameObject table in tableObjects)
+            {
+                MapObject tableSet = new MapObject();
+                tableSet.type = "TableSet";
+                tableSet.posX = table.transform.position.x;
+                tableSet.posY = table.transform.position.y;
+                tableSet.posZ = table.transform.position.z;
+                tableSet.rotX = table.transform.rotation.eulerAngles.x;
+                tableSet.rotY = table.transform.rotation.eulerAngles.y;
+                tableSet.rotZ = table.transform.rotation.eulerAngles.z;
+                mapData.objects.Add(tableSet);
+            }
+        }
+        
+    }
     public void SaveMap()
     {
         // Mevcut sahnede bulunan objelerin bilgilerini alıp kaydedelim
         mapData.objects.Clear(); // Önceki verileri temizleyelim
 
-        GameObject[] treeObjects = GameObject.FindGameObjectsWithTag("TableSet");
-        foreach (GameObject table in treeObjects)
-        {
-            MapObject tableSet = new MapObject();
-            tableSet.type = "TableSet";
-            tableSet.posX = table.transform.position.x;
-            tableSet.posY = table.transform.position.y;
-            tableSet.posZ = table.transform.position.z;
-            tableSet.rotX = table.transform.rotation.eulerAngles.x;
-            tableSet.rotY = table.transform.rotation.eulerAngles.y;
-            tableSet.rotZ = table.transform.rotation.eulerAngles.z;
-            mapData.objects.Add(tableSet);
-        }
+        SetTableTransformFromMapData();
 
         /*GameObject[] rockObjects = GameObject.FindGameObjectsWithTag("Rock");
         foreach (GameObject rock in rockObjects)
