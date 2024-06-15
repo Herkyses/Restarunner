@@ -7,6 +7,7 @@ public class ShopManager : MonoBehaviour
     public static ShopManager Instance;
     public List<ShopItem> FirstShopItems;
     public List<ShopItemData> FirstShopItemDatas;
+    public List<ShopItemData> EnvironmentShopItemDatas;
     public Transform ShopOrderTransform;
     // Start is called before the first frame update
     private void Awake()

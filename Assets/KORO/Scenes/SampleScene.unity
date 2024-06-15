@@ -23204,8 +23204,9 @@ MonoBehaviour:
     ItemObject: {fileID: 0}
   FirstShopItemDatas:
   - {fileID: 11400000, guid: 2d26118d7f7653c45b3fb614938bc2c8, type: 2}
-  - {fileID: 11400000, guid: 56a97bbe5ce0e49459e8bda2f468cf6d, type: 2}
   - {fileID: 11400000, guid: 2b6f92b799d911d4ab29468386d56109, type: 2}
+  EnvironmentShopItemDatas:
+  - {fileID: 11400000, guid: 56a97bbe5ce0e49459e8bda2f468cf6d, type: 2}
   ShopOrderTransform: {fileID: 1105194079}
 --- !u!4 &1503920071 stripped
 Transform:

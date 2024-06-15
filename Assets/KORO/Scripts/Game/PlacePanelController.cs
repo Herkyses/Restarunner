@@ -40,18 +40,32 @@ using UnityEngine;
     public void Initialize()
     {
         DeleteChilds();
-        InitializeShopPanel();
+        InitializeShopPanel(ShopManager.Instance.FirstShopItemDatas);
         for (int i = 0; i < FoodIngredients.Count; i++)
         {
             FoodIngredients[i].IngredientValue = 5;
         }
     }
-    public void InitializeShopPanel()
+
+    public void InitializeWithButton(int index)
     {
-        for (int i = 0; i < ShopManager.Instance.FirstShopItemDatas.Count; i++)
+        DeleteChilds();
+        switch (index)
+        {
+            case 0:
+                InitializeShopPanel(ShopManager.Instance.FirstShopItemDatas);
+                break;
+            case 1:
+                InitializeShopPanel(ShopManager.Instance.EnvironmentShopItemDatas);
+                break;
+        }
+    }
+    public void InitializeShopPanel(List<ShopItemData> shopItemDatas)
+    {
+        for (int i = 0; i < shopItemDatas.Count; i++)
         {
             var singleItem = Instantiate(SingleShopItemPf, SingleShopItemParentTransform);
-            singleItem.InitializeSingleShopItem(ShopManager.Instance.FirstShopItemDatas[i]);
+            singleItem.InitializeSingleShopItem(shopItemDatas[i]);
         }
     }
     public void DecreeseIngredient(Enums.OrderType orderType)
