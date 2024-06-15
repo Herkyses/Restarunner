@@ -55,4 +55,20 @@ public class GameDataManager : MonoBehaviour
 
         return null;
     }
+    public float GetFoodPrice(Enums.OrderType orderType)
+    {
+        
+        switch (orderType)
+        {
+            case Enums.OrderType.Pizza:
+                return FoodDatas[0].OrderPrice;
+                break;
+            case Enums.OrderType.Burger:
+                return FoodDatas[1].OrderPrice;
+                break;
+            
+        }
+
+        return 0;
+    }
 }

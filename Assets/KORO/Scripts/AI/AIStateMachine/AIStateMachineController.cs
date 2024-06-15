@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AIStateMachineController : MonoBehaviour
 {
@@ -17,7 +20,7 @@ public class AIStateMachineController : MonoBehaviour
     public AIController AIController;
     public AIAnimationController AIAnimationController;
     public Transform AITargetSitTransform;
-
+    public static Action<float> PayedOrderBill; 
     [SerializeField] private Animator _playerAnimator;
     [SerializeField] private bool _isAIChef;
  
@@ -110,7 +113,7 @@ public class AIStateMachineController : MonoBehaviour
         //AIController.AIOwnerTable._aiControllerList.Remove(AIController);
         TableAvailablePanel.Instance.RedAvailability(AIController.AIOwnerTable.TableNumber);
         TableAvailablePanel.Instance.CheckTable(AIController.AIOwnerTable.TableNumber);
-
+        PayedOrderBill?.Invoke(GameDataManager.Instance.GetFoodPrice(AIController.FoodDataStruct.OrderType));
         AIController.AIOwnerChair.isChairAvailable = true;
         AIController.AIOwnerTable.CustomerCount--;
         AIChangeState(AIMoveState);

@@ -31,15 +31,33 @@ public class GameSceneCanvas : MonoBehaviour
             Destroy(gameObject);
         }
 
-    }   
-    
-    
+    }
 
-    public void UpdateMoneyText(float gain,int popularity)
+    private void Start()
+    {
+        UpdateMoneyText(PlayerPrefsManager.Instance.LoadPlayerMoney());
+    }
+
+    private void OnEnable()
+    {
+        PlayerPrefsManager.GainedMoney += UpdateMoneyText;
+    }
+
+    private void OnDisable()
+    {
+        PlayerPrefsManager.GainedMoney -= UpdateMoneyText;
+
+    }
+
+    public void UpdateMoneyText(float gain)
+    {
+        _ownedMoneyText.text = gain.ToString("F2");
+    }
+    /*public void UpdateMoneyText(float gain,int popularity)
     {
         _ownedMoneyText.text = gain.ToString("F2");
         _popularityText.text = popularity.ToString();
-    }
+    }*/
 
     public void ShowAreaInfo(string areaInfo)
     {
@@ -62,15 +80,5 @@ public class GameSceneCanvas : MonoBehaviour
     {
         _orderPanel.CanFollowTrue();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
