@@ -38,8 +38,14 @@ public class CheckOrderBillsPanel : MonoBehaviour
             {
                 BillList[i].TableOrderBill = totalBill;
                 BillList[i].Initialize(tableNumber,totalBill);
+                return;
             }
         }
+        var availabilityArray = TableAvailablePanel.Instance._tablesParent.GetComponentsInChildren<Table>();
+
+        var bill = Instantiate(_singleBill, _billParent);
+        bill.Initialize(availabilityArray[tableNumber-1].TableNumber,availabilityArray[tableNumber-1].TotalBills);
+        BillList.Add(bill);
     }
 
     public void CreateBills()
@@ -67,7 +73,7 @@ public class CheckOrderBillsPanel : MonoBehaviour
 
     public void CreateTableBill()
     {
-        BillTable.Instance.CreateTableBill(TableController.Instance.TableSets[SelectedTable].table.TotalBills);
+        BillTable.Instance.CreateTableBill(TableController.Instance.TableSets[SelectedTable-1].table.TotalBills);
     }
     
     public void ActiveBillsPanel()
