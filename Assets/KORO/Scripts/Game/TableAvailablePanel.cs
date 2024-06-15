@@ -61,6 +61,14 @@ public class TableAvailablePanel : MonoBehaviour
         }
     }
 
+    public void AddNewTable(Table newTable)
+    {
+        var singleAvailability = Instantiate(_singleAvailabilityPf, _contentParent);
+        singleAvailability.CustomerCount = newTable.CustomerCount;
+        _availabilityList.Add(singleAvailability);
+        singleAvailability.SingleAvailabilityInitialize(newTable.TableNumber , newTable);
+    }
+
     public void CheckTable(int tableIndex)
     {
         var availabilityArray = _tablesParent.GetComponentsInChildren<Table>();

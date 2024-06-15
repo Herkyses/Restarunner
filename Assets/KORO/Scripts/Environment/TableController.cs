@@ -47,6 +47,15 @@ public class TableController : MonoBehaviour
         }
     }
 
+    public void UpdateTables()
+    {
+        for (int i = 0; i < TableSets.Count; i++)
+        {
+            TableSets[i].table.TableNumber = i + 1;
+            TableSets[i].table.TableInitialize();
+        }
+    }
+
     public void EnableTableSetCollider(bool enabledValue)
     {
         for (int i = 0; i < TableSets.Count; i++)

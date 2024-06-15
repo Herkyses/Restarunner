@@ -48,10 +48,10 @@ using UnityEngine;
     }
     public void InitializeShopPanel()
     {
-        for (int i = 0; i < ShopManager.Instance.FirstShopItems.Count; i++)
+        for (int i = 0; i < ShopManager.Instance.FirstShopItemDatas.Count; i++)
         {
             var singleItem = Instantiate(SingleShopItemPf, SingleShopItemParentTransform);
-            singleItem.InitializeSingleShopItem(ShopManager.Instance.FirstShopItems[i]);
+            singleItem.InitializeSingleShopItem(ShopManager.Instance.FirstShopItemDatas[i]);
         }
     }
     public void DecreeseIngredient(Enums.OrderType orderType)

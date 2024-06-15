@@ -136,6 +136,12 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         TableNumberText.text = TableNumber.ToString();
     }
 
+    public void TableInitialize()
+    {
+        IsTableAvailable = false;
+        TableNumberText.text = TableNumber.ToString();
+    }
+
     public void CreateOrdersWithAction(int tableNumber)
     {
         if (tableNumber == TableNumber)
@@ -214,6 +220,8 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         }
         
     }
+
+    
     public void MoveStart()
     {
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
@@ -233,6 +241,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             TableSet.CheckGround();
             if (IsTableSetTransform)
             {
+                TableControl();
                 //if(colliders.Length )
                 TableSet.GetComponent<BoxCollider>().enabled = false;
                 TableController.Instance.EnableTableSetCollider(false);
@@ -243,7 +252,22 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         }
         
     }
-
+    public void TableControl()
+    {
+        var isTableHere = false;
+        for (int i = 0; i < TableController.Instance.TableSets.Count; i++)
+        {
+            if (TableSet == TableController.Instance.TableSets[i])
+            {
+                return;
+            }
+        }
+        TableSet.transform.SetParent(TableController.Instance.TableTransform);
+        TableController.Instance.TableSetCapacity++;
+        TableController.Instance.TableSets.Add(TableSet);
+        TableController.Instance.UpdateTables();
+        TableAvailablePanel.Instance.AddNewTable(this);
+    }
     /*private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer != groundLayer)

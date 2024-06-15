@@ -18008,6 +18008,89 @@ Transform:
   m_Father: {fileID: 1751551247}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1105194076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1105194079}
+  - component: {fileID: 1105194078}
+  - component: {fileID: 1105194077}
+  m_Layer: 0
+  m_Name: OrderPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &1105194077
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105194076}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1105194078
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105194076}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1105194079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105194076}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -641.2858, y: -591.494, z: 24.2384}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1502789539}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1119903380
 GameObject:
   m_ObjectHideFlags: 0
@@ -23089,7 +23172,8 @@ Transform:
   m_LocalPosition: {x: 651.23584, y: 591.7341, z: 0.13906331}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1105194079}
   m_Father: {fileID: 0}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23109,12 +23193,20 @@ MonoBehaviour:
   - ItemType: 0
     ShopItemPrice: 500
     ShopItemIcon: {fileID: 21300000, guid: 307c7bd21d968b748b955cd706287366, type: 3}
+    ItemObject: {fileID: 0}
   - ItemType: 1
     ShopItemPrice: 25
     ShopItemIcon: {fileID: 21300000, guid: 3a5677d805479184b9c4b3b0c43f8116, type: 3}
+    ItemObject: {fileID: 0}
   - ItemType: 2
     ShopItemPrice: 500
     ShopItemIcon: {fileID: 21300000, guid: 2fda9ea1a25a3214a829f74a43ce0326, type: 3}
+    ItemObject: {fileID: 0}
+  FirstShopItemDatas:
+  - {fileID: 11400000, guid: 2d26118d7f7653c45b3fb614938bc2c8, type: 2}
+  - {fileID: 11400000, guid: 56a97bbe5ce0e49459e8bda2f468cf6d, type: 2}
+  - {fileID: 11400000, guid: 2b6f92b799d911d4ab29468386d56109, type: 2}
+  ShopOrderTransform: {fileID: 1105194079}
 --- !u!4 &1503920071 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4622734964229003934, guid: ca6b4af9fcafa4c4aa9f4ea9b95f607d, type: 3}
@@ -29561,7 +29653,7 @@ MonoBehaviour:
   - {fileID: 1811620013}
   TableTransform: {fileID: 1976326932}
   TableSetPf: {fileID: 6988734389883096775, guid: cde83d22065814b4aad7f9525f6a111e, type: 3}
-  TableSetCapacity: 6
+  TableSetCapacity: 2
 --- !u!1001 &1978993897
 PrefabInstance:
   m_ObjectHideFlags: 0

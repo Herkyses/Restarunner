@@ -19,6 +19,7 @@ public class SingleAvailability : MonoBehaviour
         AvailabilityText.text = tableNumber.ToString();
         OwnerTable = ownerTable;
         TableNumber = ownerTable.TableNumber;
+        
     }
 
     public void SingleAvailabilityButtonPressed()
