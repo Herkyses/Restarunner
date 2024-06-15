@@ -113,6 +113,7 @@ public class AIStateMachineController : MonoBehaviour
         //AIController.AIOwnerTable._aiControllerList.Remove(AIController);
         TableAvailablePanel.Instance.RedAvailability(AIController.AIOwnerTable.TableNumber);
         TableAvailablePanel.Instance.CheckTable(AIController.AIOwnerTable.TableNumber);
+        GameSceneCanvas.Instance.AddPopularity();
         PayedOrderBill?.Invoke(GameDataManager.Instance.GetFoodPrice(AIController.FoodDataStruct.OrderType));
         AIController.AIOwnerChair.isChairAvailable = true;
         AIController.AIOwnerTable.CustomerCount--;

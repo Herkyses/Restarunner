@@ -36,6 +36,16 @@ public class GameSceneCanvas : MonoBehaviour
     private void Start()
     {
         UpdateMoneyText(PlayerPrefsManager.Instance.LoadPlayerMoney());
+        UpdatePopularityText(PlayerPrefsManager.Instance.LoadPopularity());
+
+    }
+
+    public void AddPopularity()
+    {
+        var popularity = PlayerPrefsManager.Instance.LoadPopularity();
+        popularity++;
+        PlayerPrefsManager.Instance.SavePopularity(popularity);
+        UpdatePopularityText(popularity);
     }
 
     private void OnEnable()
@@ -53,11 +63,10 @@ public class GameSceneCanvas : MonoBehaviour
     {
         _ownedMoneyText.text = gain.ToString("F2");
     }
-    /*public void UpdateMoneyText(float gain,int popularity)
+    public void UpdatePopularityText(int popularity)
     {
-        _ownedMoneyText.text = gain.ToString("F2");
         _popularityText.text = popularity.ToString();
-    }*/
+    }
 
     public void ShowAreaInfo(string areaInfo)
     {

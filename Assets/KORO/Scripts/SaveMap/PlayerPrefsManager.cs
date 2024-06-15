@@ -7,6 +7,7 @@ public class PlayerPrefsManager : MonoBehaviour
 {
     public static PlayerPrefsManager Instance;
     public static Action<float> GainedMoney;
+    public static Action<int> GainedPopularity;
     /*private void OnEnable()
     {
         AIStateMachineController.PayedOrderBill += SavePlayerMoney;
@@ -29,12 +30,7 @@ public class PlayerPrefsManager : MonoBehaviour
         }
         
     }
-
-    public void PlayerMoney(float money)
-    {
-        
-        SavePlayerMoney(money);
-    }
+    
     
     public void SavePlayerMoney(float money)
     {
@@ -44,5 +40,14 @@ public class PlayerPrefsManager : MonoBehaviour
     public float LoadPlayerMoney()
     {
         return PlayerPrefs.GetFloat("PlayerMoney", 0); // Varsayılan değer 0
+    }
+    public void SavePopularity(int money)
+    {
+        PlayerPrefs.SetInt("Popularity", money);
+        PlayerPrefs.Save();
+    }
+    public int LoadPopularity()
+    {
+        return PlayerPrefs.GetInt("Popularity", 0); // Varsayılan değer 0
     }
 }
