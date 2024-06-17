@@ -47,6 +47,7 @@ public class AISpawnController : MonoBehaviour
         NewAISpawn();
     }
 
+    
     public void NewAISpawn()
     {
         var singleAi = Instantiate(AlPf,transform);
@@ -54,50 +55,12 @@ public class AISpawnController : MonoBehaviour
         singleAi.SetModel(index);
         AllAIList.Add(singleAi);
         singleAi.AgentID = ActiveAiCount;
-        var randomPosition = Random.Range(0, 2);
-            
-            
-        if (randomPosition == 0)
-        {
-            singleAi.transform.position = TargetList[0].transform.position;
-            singleAi._targetTransform = TargetList[1].transform;
-            singleAi._targetFirstPosition = TargetList[0].transform;
-            singleAi._targetPositions[1] = TargetList[0].transform;
-            singleAi._targetPositions[2] = TargetList[1].transform;
-        }
-        else
-        {
-            singleAi.transform.position = TargetList[1].transform.position;
-            singleAi._targetTransform = TargetList[0].transform;
-            singleAi._targetFirstPosition = TargetList[1].transform;
-            singleAi._targetPositions[1] = TargetList[1].transform;
-            singleAi._targetPositions[2] = TargetList[0].transform;
-
-        }
+        SetTransformToAI(singleAi);
     }
 
     public void SetTransformForAI(AIController singleAi)
     {
-        var randomPosition = Random.Range(0, 2);
-            
-            
-        if (randomPosition == 0)
-        {
-            singleAi.transform.position = TargetList[0].transform.position;
-            singleAi._targetTransform = TargetList[1].transform;
-            singleAi._targetFirstPosition = TargetList[0].transform;
-            singleAi._targetPositions[1] = TargetList[0].transform;
-            singleAi._targetPositions[2] = TargetList[1].transform;
-        }
-        else
-        {
-            singleAi.transform.position = TargetList[1].transform.position;
-            singleAi._targetTransform = TargetList[0].transform;
-            singleAi._targetFirstPosition = TargetList[1].transform;
-            singleAi._targetPositions[1] = TargetList[1].transform;
-            singleAi._targetPositions[2] = TargetList[0].transform;
-
-        }  
+        SetTransformToAI(singleAi); 
         singleAi.AIStateMachineController.AIInitialize();
     }
     public void Initialize()
@@ -109,26 +72,30 @@ public class AISpawnController : MonoBehaviour
             singleAi.SetModel(index);
             AllAIList.Add(singleAi);
             singleAi.AgentID = i;
-            var randomPosition = Random.Range(0, 2);
+            SetTransformToAI(singleAi);
+        }
+    }
+    public void SetTransformToAI(AIController singleAi)
+    {
+        var randomPosition = Random.Range(0, 2);
             
             
-            if (randomPosition == 0)
-            {
-                singleAi.transform.position = TargetList[0].transform.position;
-                singleAi._targetTransform = TargetList[1].transform;
-                singleAi._targetFirstPosition = TargetList[0].transform;
-                singleAi._targetPositions[1] = TargetList[0].transform;
-                singleAi._targetPositions[2] = TargetList[1].transform;
-            }
-            else
-            {
-                singleAi.transform.position = TargetList[1].transform.position;
-                singleAi._targetTransform = TargetList[0].transform;
-                singleAi._targetFirstPosition = TargetList[1].transform;
-                singleAi._targetPositions[1] = TargetList[1].transform;
-                singleAi._targetPositions[2] = TargetList[0].transform;
+        if (randomPosition == 0)
+        {
+            singleAi.transform.position = TargetList[0].transform.position;
+            singleAi._targetTransform = TargetList[1].transform;
+            singleAi._targetFirstPosition = TargetList[0].transform;
+            singleAi._targetPositions[1] = TargetList[0].transform;
+            singleAi._targetPositions[2] = TargetList[1].transform;
+        }
+        else
+        {
+            singleAi.transform.position = TargetList[1].transform.position;
+            singleAi._targetTransform = TargetList[0].transform;
+            singleAi._targetFirstPosition = TargetList[1].transform;
+            singleAi._targetPositions[1] = TargetList[1].transform;
+            singleAi._targetPositions[2] = TargetList[0].transform;
 
-            }
         }
     }
 }
