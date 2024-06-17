@@ -214,7 +214,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
     public void Move()
     {
-        if (!IsTableMove)
+        if (!IsTableMove && !PlaceController.RestaurantIsOpen)
         {
             IsTableMove = true;
         }
