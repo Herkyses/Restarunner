@@ -14,7 +14,7 @@ public class AITargetSitState : AIBaseState
     public override void EnterState()
     {
         AIStateMachineController.AIController.AIAnimationController.PlayMoveAnimation();
-        
+        AIStateMachineController.AIWaitTimeController.WaitTimeStarted = false;
     }
 
     public override void UpdateState()
