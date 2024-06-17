@@ -19,6 +19,7 @@ public class AIStateMachineController : MonoBehaviour
     public AIEatState AIEatState;
     public AIController AIController;
     public AIAnimationController AIAnimationController;
+    public AIWaitTimeController AIWaitTimeController;
     public Transform AITargetSitTransform;
     public static Action<float> PayedOrderBill; 
     [SerializeField] private Animator _playerAnimator;
@@ -38,6 +39,7 @@ public class AIStateMachineController : MonoBehaviour
     void Start()
     {
         gameObject.TryGetComponent(out AIController);
+        gameObject.TryGetComponent(out AIWaitTimeController);
         _playerAnimator = gameObject.GetComponent<Animator>();
         AIAnimationController = gameObject.GetComponent<AIAnimationController>();
         AIIdleState = new AIIdleState(this);

@@ -1755,6 +1755,7 @@ GameObject:
   - component: {fileID: 7262918143254985359}
   - component: {fileID: 7262918143254985463}
   - component: {fileID: 7262918143254985462}
+  - component: {fileID: 6436366087363938100}
   m_Layer: 8
   m_Name: AIPrefab
   m_TagString: Untagged
@@ -1854,6 +1855,7 @@ MonoBehaviour:
   _agent: {fileID: 7262918143254985359}
   _targetTransform: {fileID: 0}
   _targetFirstPosition: {fileID: 0}
+  IsFinishedFood: 0
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
   "_a\u0131Canvas_": {fileID: 8789694162604850828}
@@ -1942,6 +1944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AIController: {fileID: 0}
   AIAnimationController: {fileID: 7262918143254985463}
+  AIWaitTimeController: {fileID: 0}
   AITargetSitTransform: {fileID: 0}
   _playerAnimator: {fileID: 0}
   _isAIChef: 0
@@ -1993,6 +1996,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Interactabled: 0
+--- !u!114 &6436366087363938100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7262918143254985358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77791265384d4434fb91afccfdc14b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaitTimeStarted: 0
+  WaitTimeValue: 0
 --- !u!1 &7262918143274460853
 GameObject:
   m_ObjectHideFlags: 0

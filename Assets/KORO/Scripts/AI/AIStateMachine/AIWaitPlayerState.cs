@@ -23,6 +23,8 @@ public class AIWaitPlayerState : AIBaseState
             {
                 var AIWaitStateController = col.gameObject.GetComponent<AIWaitStateController>();
                 AIWaitStateController.AddList(AIStateMachineController.AIController);
+                AIStateMachineController.AIWaitTimeController.WaitTimeValue = 10f;
+                AIStateMachineController.AIWaitTimeController.WaitTimeStarted = true;
             }
             else
             {
@@ -34,11 +36,11 @@ public class AIWaitPlayerState : AIBaseState
     public override void UpdateState()
     {
         
-        if (!PlaceController.RestaurantIsOpen)
+        /*if (!PlaceController.RestaurantIsOpen)
         {
             AIStateMachineController.AIChangeState(AIStateMachineController.AIMoveState);
 
-        }
+        }*/
     }
 
     public override void ExitState()
