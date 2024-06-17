@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlaceController : MonoBehaviour,IInterectableObject
 {
+    public static bool RestaurantIsOpen;
     // Start is called before the first frame update
     void Start()
     {

@@ -24,7 +24,17 @@ public class AITargetRestaurantState : AIBaseState
     {
         if (Vector3.Distance(AIStateMachineController.transform.position, Places.Instance.DoorTransform.position) < 1f)
         {
-            AIStateMachineController.AIChangeState(AIStateMachineController.AIWaitPlayerState);
+            if (PlaceController.RestaurantIsOpen)
+            {
+                AIStateMachineController.AIChangeState(AIStateMachineController.AIWaitPlayerState);
+
+            }
+            else
+            {
+                AIStateMachineController.AIChangeState(AIStateMachineController.AIMoveState);
+
+            }
+            
         }
         
     }

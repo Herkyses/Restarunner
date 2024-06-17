@@ -34,7 +34,11 @@ public class AIWaitPlayerState : AIBaseState
     public override void UpdateState()
     {
         
-        
+        if (!PlaceController.RestaurantIsOpen)
+        {
+            AIStateMachineController.AIChangeState(AIStateMachineController.AIMoveState);
+
+        }
     }
 
     public override void ExitState()
