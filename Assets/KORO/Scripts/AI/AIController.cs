@@ -199,7 +199,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     
     public void InterectableObjectRun()
     {
-        if (PlayerOrderController.Instance.TakedFood)
+        if (PlayerOrderController.Instance.TakedFood && PlayerOrderController.Instance.Food.OrderType == FoodDataStruct.OrderType)
         {
             AIOwnerFood = PlayerOrderController.Instance.Food;
             PlayerOrderController.Instance.TakedFood = false;
@@ -209,6 +209,7 @@ public class AIController : MonoBehaviour,IInterectableObject
             PlayerOrderController.Instance.Food = null;
             AIStateMachineController.AIChangeState(AIStateMachineController.AIEatState);
         }
+        //////Check Sittttttt
     }
 
     public void ShowOutline(bool active)
