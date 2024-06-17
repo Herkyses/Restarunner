@@ -63,10 +63,12 @@ public class AISpawnController : MonoBehaviour
         SetTransformToAI(singleAi); 
         singleAi.AIStateMachineController.AIInitialize();
     }
-    public void Initialize()
+    public IEnumerator Initialize()
     {
         for (int i = 0; i < ActiveAiCount + (PlayerPrefsManager.Instance.LoadPopularity()/2); i++)
         {
+            var ranDomTime = Random.Range(1, 3);
+            yield return new WaitForSeconds(ranDomTime);
             var singleAi = Instantiate(AlPf,transform);
             var index = Random.Range(0, 7);
             singleAi.SetModel(index);
