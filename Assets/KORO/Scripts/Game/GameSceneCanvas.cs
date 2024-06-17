@@ -16,6 +16,7 @@ public class GameSceneCanvas : MonoBehaviour
     public OrderPanelController _orderPanel;
     public MusicController _musicController;
     public Image _orderPanelImage;
+    public static Action UpdateAISpawnController;
     
     public bool CanShowCanvas;
     public bool CanMove;
@@ -44,6 +45,10 @@ public class GameSceneCanvas : MonoBehaviour
     {
         var popularity = PlayerPrefsManager.Instance.LoadPopularity();
         popularity++;
+        if (popularity % 2 == 0)
+        {
+            UpdateAISpawnController?.Invoke();
+        }
         PlayerPrefsManager.Instance.SavePopularity(popularity);
         UpdatePopularityText(popularity);
     }

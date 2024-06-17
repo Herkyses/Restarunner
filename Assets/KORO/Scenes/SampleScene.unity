@@ -11769,7 +11769,7 @@ MonoBehaviour:
   - {fileID: 2049870682}
   AllAIList: []
   AlPf: {fileID: 7262918143254985458, guid: e33d6afcba68cb84d902075ce1324fda, type: 3}
-  AiCount: 5
+  ActiveAiCount: 4
 --- !u!1001 &786675931
 PrefabInstance:
   m_ObjectHideFlags: 0

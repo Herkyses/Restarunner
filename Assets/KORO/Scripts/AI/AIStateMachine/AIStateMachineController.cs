@@ -49,18 +49,31 @@ public class AIStateMachineController : MonoBehaviour
         AITargetRestaurantState = new AITargetRestaurantState(this);
         AIWaitPlayerState = new AIWaitPlayerState(this);
         AIChefState = new AIChefState(this);
-        var zort = Random.Range(0, 2);
+        AIInitialize();
+
+    }
+
+    public void AIInitialize()
+    {
         if (!_isAIChef)
         {
-            AIChangeState(AITargetRestaurantState);
+            var zort = Random.Range(0, 2);
+            if (zort == 0)
+            {
+                AIChangeState(AITargetRestaurantState);
 
+            }
+            else
+            {
+                AIChangeState(AIMoveState);
+
+            }
         }
         else
         {
             AIChangeState(AIChefState);
 
         }
-
     }
 
     public void AIChangeState(AIBaseState currentState)

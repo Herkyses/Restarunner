@@ -87,7 +87,7 @@ public class AIController : MonoBehaviour,IInterectableObject
 
 
         }*/
-        _agent.destination = _targetPositions[1].position;
+        _agent.destination = _targetPositions[2].position;
     }
     public void StartTargetDestination()
     {
@@ -96,7 +96,7 @@ public class AIController : MonoBehaviour,IInterectableObject
         float randomTime = Random.Range(0f, 1f);
         AiAnimator.Play("Walk",0,randomTime);
         //obstacleMaskValue = LayerMask.NameToLayer("Player");
-        InvokeRepeating("CheckForObstacles", 0f, 0.3f);
+        //InvokeRepeating("CheckForObstacles", 0f, 0.3f);
         //_targetFirstPosition = transform.position;
     }
     
@@ -151,12 +151,12 @@ public class AIController : MonoBehaviour,IInterectableObject
     {
         if (_targetTransform)
         {
-            if (1 > Vector3.Distance(transform.position, _targetTransform.position))
+            /*if (1 > Vector3.Distance(transform.position, _targetTransform.position))
             {
                 StartTargetDestination();
                 GetComponent<AIAreaController>().InteractabelDeactive();
                 transform.position = _targetFirstPosition.position;
-            }
+            }*/
         }
         
     }
