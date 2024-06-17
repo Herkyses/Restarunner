@@ -2198,6 +2198,7 @@ GameObject:
   - component: {fileID: 143369075}
   - component: {fileID: 143369077}
   - component: {fileID: 143369076}
+  - component: {fileID: 143369078}
   m_Layer: 0
   m_Name: SM_Envr_Road_Country_02 (2)
   m_TagString: Untagged
@@ -2213,7 +2214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143369074}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -26.26998, y: 54.982998, z: 78.41715}
+  m_LocalPosition: {x: -26.26998, y: 54.982998, z: 78.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2269,6 +2270,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143369074}
+  m_Mesh: {fileID: -4845250661520071639, guid: 790724ccd111fa64f98c415ebd6926b3, type: 3}
+--- !u!64 &143369078
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143369074}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -4845250661520071639, guid: 790724ccd111fa64f98c415ebd6926b3, type: 3}
 --- !u!1001 &144987806
 PrefabInstance:
@@ -4623,6 +4638,7 @@ GameObject:
   - component: {fileID: 341909292}
   - component: {fileID: 341909294}
   - component: {fileID: 341909293}
+  - component: {fileID: 341909295}
   m_Layer: 0
   m_Name: SM_Envr_Road_Country_02 (4)
   m_TagString: Untagged
@@ -4638,7 +4654,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341909291}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -26.26998, y: 54.982998, z: 98.37716}
+  m_LocalPosition: {x: -26.26998, y: 54.982998, z: 98.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4694,6 +4710,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341909291}
+  m_Mesh: {fileID: -4845250661520071639, guid: 790724ccd111fa64f98c415ebd6926b3, type: 3}
+--- !u!64 &341909295
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341909291}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -4845250661520071639, guid: 790724ccd111fa64f98c415ebd6926b3, type: 3}
 --- !u!1001 &345240141
 PrefabInstance:
@@ -11486,6 +11516,7 @@ GameObject:
   - component: {fileID: 801097991}
   - component: {fileID: 801097993}
   - component: {fileID: 801097992}
+  - component: {fileID: 801097994}
   m_Layer: 0
   m_Name: SM_Envr_Road_Country_02 (6)
   m_TagString: Untagged
@@ -11501,7 +11532,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801097990}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -26.26998, y: 54.982998, z: 118.48716}
+  m_LocalPosition: {x: -26.26998, y: 54.982998, z: 118.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11557,6 +11588,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801097990}
+  m_Mesh: {fileID: -4845250661520071639, guid: 790724ccd111fa64f98c415ebd6926b3, type: 3}
+--- !u!64 &801097994
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801097990}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -4845250661520071639, guid: 790724ccd111fa64f98c415ebd6926b3, type: 3}
 --- !u!4 &804655402 stripped
 Transform:
@@ -18973,6 +19018,7 @@ GameObject:
   - component: {fileID: 1301283366}
   - component: {fileID: 1301283368}
   - component: {fileID: 1301283367}
+  - component: {fileID: 1301283369}
   m_Layer: 0
   m_Name: SM_Envr_Road_Country_02 (7)
   m_TagString: Untagged
@@ -18988,7 +19034,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301283365}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -26.26998, y: 54.982998, z: 128.52}
+  m_LocalPosition: {x: -26.26998, y: 54.982998, z: 128.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19044,6 +19090,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301283365}
+  m_Mesh: {fileID: -4845250661520071639, guid: 790724ccd111fa64f98c415ebd6926b3, type: 3}
+--- !u!64 &1301283369
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301283365}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -4845250661520071639, guid: 790724ccd111fa64f98c415ebd6926b3, type: 3}
 --- !u!4 &1301298749 stripped
 Transform:
@@ -21873,6 +21933,7 @@ GameObject:
   - component: {fileID: 1496164009}
   - component: {fileID: 1496164011}
   - component: {fileID: 1496164010}
+  - component: {fileID: 1496164012}
   m_Layer: 0
   m_Name: SM_Envr_Road_Country_02 (3)
   m_TagString: Untagged
@@ -21888,7 +21949,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496164008}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -26.26998, y: 54.982998, z: 88.45}
+  m_LocalPosition: {x: -26.26998, y: 54.982998, z: 88.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21944,6 +22005,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496164008}
+  m_Mesh: {fileID: -4845250661520071639, guid: 790724ccd111fa64f98c415ebd6926b3, type: 3}
+--- !u!64 &1496164012
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496164008}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -4845250661520071639, guid: 790724ccd111fa64f98c415ebd6926b3, type: 3}
 --- !u!1001 &1498045814
 PrefabInstance:
@@ -26461,6 +26536,7 @@ GameObject:
   - component: {fileID: 1871900282}
   - component: {fileID: 1871900284}
   - component: {fileID: 1871900283}
+  - component: {fileID: 1871900285}
   m_Layer: 0
   m_Name: SM_Envr_Road_Country_02 (5)
   m_TagString: Untagged
@@ -26476,7 +26552,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871900281}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -26.26998, y: 54.982998, z: 108.41}
+  m_LocalPosition: {x: -26.26998, y: 54.982998, z: 108.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26532,6 +26608,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871900281}
+  m_Mesh: {fileID: -4845250661520071639, guid: 790724ccd111fa64f98c415ebd6926b3, type: 3}
+--- !u!64 &1871900285
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871900281}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -4845250661520071639, guid: 790724ccd111fa64f98c415ebd6926b3, type: 3}
 --- !u!1 &1872208223
 GameObject:
@@ -26864,6 +26954,7 @@ GameObject:
   - component: {fileID: 1888642365}
   - component: {fileID: 1888642367}
   - component: {fileID: 1888642366}
+  - component: {fileID: 1888642368}
   m_Layer: 0
   m_Name: SM_Envr_Road_Country_02 (1)
   m_TagString: Untagged
@@ -26935,6 +27026,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1888642364}
+  m_Mesh: {fileID: -4845250661520071639, guid: 790724ccd111fa64f98c415ebd6926b3, type: 3}
+--- !u!64 &1888642368
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888642364}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -4845250661520071639, guid: 790724ccd111fa64f98c415ebd6926b3, type: 3}
 --- !u!1001 &1889075522
 PrefabInstance:
@@ -32355,7 +32460,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6590288134353260133}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -26.26998, y: 54.982998, z: 58.30715}
+  m_LocalPosition: {x: -26.26998, y: 54.982998, z: 58.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33910,6 +34015,7 @@ GameObject:
   - component: {fileID: 5782261868884743391}
   - component: {fileID: 7462855037814201210}
   - component: {fileID: 4644781679623712688}
+  - component: {fileID: 7462855037814201211}
   m_Layer: 0
   m_Name: SM_Envr_Road_Country_02
   m_TagString: Untagged
@@ -34304,6 +34410,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6590288134353260133}
+  m_Mesh: {fileID: -4845250661520071639, guid: 790724ccd111fa64f98c415ebd6926b3, type: 3}
+--- !u!64 &7462855037814201211
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6590288134353260133}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -4845250661520071639, guid: 790724ccd111fa64f98c415ebd6926b3, type: 3}
 --- !u!1 &7525129707830861802
 GameObject:
