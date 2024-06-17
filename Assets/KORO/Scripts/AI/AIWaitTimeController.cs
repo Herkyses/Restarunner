@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +8,13 @@ public class AIWaitTimeController : MonoBehaviour
     public bool WaitTimeStarted;
     public float WaitTimeValue;
     public int WaitTimeTempValue;
-    
-    
-    
+    public AIStateMachineController AIStateMachineController;
+
+
+    private void Start()
+    {
+        gameObject.TryGetComponent(out AIStateMachineController);
+    }
 
     // Update is called once per frame
     void Update()
@@ -30,6 +35,7 @@ public class AIWaitTimeController : MonoBehaviour
             else
             {
                 WaitTimeStarted = false;
+                AIStateMachineController.AIChangeState(AIStateMachineController.AIMoveState);
             }
         }
     }
