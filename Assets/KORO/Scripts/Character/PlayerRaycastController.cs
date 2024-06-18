@@ -24,7 +24,7 @@ public class PlayerRaycastController : MonoBehaviour
         while (true)
         {
             
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.05f);
 
             Vector3 screenCenter = new Vector3(Screen.width / 2f, Screen.height / 2f, 0);
 
@@ -34,12 +34,7 @@ public class PlayerRaycastController : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit,10f))
             {
-                if (hit.collider.gameObject.GetComponent<Place>())
-                {
-                    var place = hit.collider.gameObject.GetComponent<Place>();
-                    //place.ShowPlacePrice();
-                }
-
+                
                 Izort = hit.collider.gameObject.GetComponent<IInterectableObject>();
                 if (Izort != null)
                 {
