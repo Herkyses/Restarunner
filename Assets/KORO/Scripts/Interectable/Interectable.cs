@@ -6,12 +6,14 @@ public class Interectable : MonoBehaviour,IInterectableObject
 {
     [SerializeField] private Outline _ownerOutline;
     public string InterectableInfoText;
+    public float RotationFirstValue;
 
     public EnvironmentInfo EnvironmentInfo;
     // Start is called before the first frame update
     void Start()
     {
         gameObject.TryGetComponent(out _ownerOutline);
+        RotationFirstValue = transform.localRotation.eulerAngles.y;
     }
     
 
@@ -23,7 +25,17 @@ public class Interectable : MonoBehaviour,IInterectableObject
 
     public void InterectableObjectRun()
     {
-        if (transform.eulerAngles.y < 100)
+        var yValue = transform.localRotation.eulerAngles.y;
+        if (yValue > 1)
+        {
+            transform.localRotation = Quaternion.Euler(new Vector3(0f,0,0f));
+        }
+        else
+        {
+            transform.localRotation = Quaternion.Euler(new Vector3(0f,RotationFirstValue,0f));
+
+        }
+        /*if (transform.eulerAngles.y < 100)
         {
             transform.localRotation = Quaternion.Euler(new Vector3(0f,112f,0f));
             
@@ -33,7 +45,7 @@ public class Interectable : MonoBehaviour,IInterectableObject
         {
             transform.localRotation = Quaternion.Euler(new Vector3(0f,0f,0f));
 
-        }
+        }*/
     }
     public void ShowOutline(bool active)
     {
