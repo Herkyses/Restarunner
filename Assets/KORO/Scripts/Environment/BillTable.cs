@@ -9,6 +9,7 @@ public class BillTable : MonoBehaviour,IInterectableObject
 
     [SerializeField] private Transform _tableBillParent;
     [SerializeField] private TableBill _tableBillPf;
+    [SerializeField] private TableBill _tableBillTemp;
 
     private void Awake()
     {
@@ -37,12 +38,20 @@ public class BillTable : MonoBehaviour,IInterectableObject
     public void CreateTableBill(float totalBills)
     {
         DeleteChilds();
-        var tableBill = Instantiate(_tableBillPf, _tableBillParent);
-        tableBill.transform.localPosition = Vector3.zero;
-        tableBill.BillValue = totalBills;
+        if (!_tableBillTemp)
+        {
+            _tableBillTemp = Instantiate(_tableBillPf, _tableBillParent);
+        }
+        else
+        {
+            _tableBillTemp.gameObject.SetActive(true);
+        }
+        _tableBillTemp.transform.localPosition = Vector3.zero;
+        _tableBillTemp.BillValue = totalBills;
     }
     public void UpdateTableBill(TableBill tableBill)
     {
+        tableBill.gameObject.SetActive(false);
         tableBill.transform.SetParent(_tableBillParent);
         tableBill.transform.localPosition = Vector3.zero;
     }
