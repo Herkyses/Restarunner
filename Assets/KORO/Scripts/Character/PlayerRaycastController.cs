@@ -32,7 +32,7 @@ public class PlayerRaycastController : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(screenCenter);
             
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit,10f))
+            if (Physics.Raycast(ray, out hit,5f))
             {
                 
                 Izort = hit.collider.gameObject.GetComponent<IInterectableObject>();
