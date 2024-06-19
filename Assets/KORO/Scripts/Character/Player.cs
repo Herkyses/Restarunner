@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         PlayerMoney = PlayerPrefsManager.Instance.LoadPlayerMoney();
+        CameraController.Instance.PlayerTransform = transform;
     }
 
     private void Update()

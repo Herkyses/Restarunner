@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,8 +18,19 @@ public class InitializeManager : MonoBehaviour
         }
 
     }
+
+    private void OnEnable()
+    {
+        GameManager.GameStarted += Initialize;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.GameStarted -= Initialize;
+    }
+
     // Start is called before the first frame update
-    void Start()
+    public void Initialize()
     {
         MapManager.Instance.LoadMap();
         TableController.Instance.SetTableNumbers();
