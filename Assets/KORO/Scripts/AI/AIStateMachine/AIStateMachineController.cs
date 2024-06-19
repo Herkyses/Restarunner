@@ -120,7 +120,7 @@ public class AIStateMachineController : MonoBehaviour
         AIController.AIOwnerTable.TotalBills += GameDataManager.Instance.GetOrderBill(AIController.FoodDataStruct.OrderType);
         
         CheckOrderBillsPanel.Instance.UpdatePanel(AIController.AIOwnerTable.TableNumber,AIController.AIOwnerTable.TotalBills);    
-        Destroy(AIController.AIOwnerFood.FoodObject);
+        Destroy(AIController.AIOwnerFood.Food.gameObject);
         AIController.AIOwnerTable.RemoveOrder(AIController.FoodDataStruct);
         if (AIController.AIOwnerTable.CheckAllCustomerFinishedFood())
         {

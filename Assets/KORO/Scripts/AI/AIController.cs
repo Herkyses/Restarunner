@@ -29,7 +29,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     public int destinationValue = -1;
     public Table AIOwnerTable;
     public Chair AIOwnerChair;
-    public Food AIOwnerFood;
+    public FoodTable AIOwnerFood;
     public OrderDataStruct FoodDataStruct;
 
     
@@ -201,12 +201,12 @@ public class AIController : MonoBehaviour,IInterectableObject
     {
         if (PlayerOrderController.Instance.TakedFood && PlayerOrderController.Instance.Food.OrderType == FoodDataStruct.OrderType)
         {
-            AIOwnerFood = PlayerOrderController.Instance.Food;
+            AIOwnerFood = PlayerOrderController.Instance.FoodTable;
             PlayerOrderController.Instance.TakedFood = false;
-            PlayerOrderController.Instance.Food.transform.position = AIOwnerChair.ChairFoodTransform.position;
-            PlayerOrderController.Instance.Food.transform.rotation = AIOwnerChair.ChairFoodTransform.rotation;
-            PlayerOrderController.Instance.Food.transform.SetParent(AIOwnerChair.ChairFoodTransform);
-            PlayerOrderController.Instance.Food = null;
+            PlayerOrderController.Instance.FoodTable.transform.position = AIOwnerChair.ChairFoodTransform.position;
+            PlayerOrderController.Instance.FoodTable.transform.rotation = AIOwnerChair.ChairFoodTransform.rotation;
+            PlayerOrderController.Instance.FoodTable.transform.SetParent(AIOwnerChair.ChairFoodTransform);
+            PlayerOrderController.Instance.FoodTable = null;
             AIStateMachineController.AIChangeState(AIStateMachineController.AIEatState);
         }
         //////Check Sittttttt

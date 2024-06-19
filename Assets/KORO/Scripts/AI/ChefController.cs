@@ -35,7 +35,8 @@ public class ChefController : MonoBehaviour,IInterectableObject
             {
                 if (ChefOwnerStructData[i].OrderType == GameDataManager.Instance.FoodDatas[j].OrderType)
                 {
-                    var food = Instantiate(GameDataManager.Instance.FoodDatas[j].Food);
+                    var food = Instantiate(GameDataManager.Instance.FoodTablePf);
+                    food.CreateFood(GameDataManager.Instance.FoodDatas[j].Food.OrderType);
                     food.transform.position = _chefOrderTable.FoodTransformList[_chefOrderTableIndex].position;
                     PlacePanelController.Instance.DecreeseIngredient(food.OrderType);
                     _chefOrderTableIndex++;

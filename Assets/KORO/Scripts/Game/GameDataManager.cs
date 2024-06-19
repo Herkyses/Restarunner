@@ -8,6 +8,7 @@ public class GameDataManager : MonoBehaviour
     
     
     public List<OrderData> FoodDatas;
+    public FoodTable FoodTablePf;
 
     public static GameDataManager Instance;
     // Start is called before the first frame update
@@ -24,7 +25,22 @@ public class GameDataManager : MonoBehaviour
         }
 
     }
-    
+
+    public Food GetFood(Enums.OrderType orderType)
+    {
+        switch (orderType)
+        {
+            case Enums.OrderType.Pizza:
+                return FoodDatas[0].Food;
+                break;
+            case Enums.OrderType.Burger:
+                return FoodDatas[1].Food;
+                break;
+            
+        }
+
+        return null;
+    }
 
     public float GetOrderBill(Enums.OrderType orderType)
     {
