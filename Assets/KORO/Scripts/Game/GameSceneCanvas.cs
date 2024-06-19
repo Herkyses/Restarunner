@@ -78,8 +78,9 @@ public class GameSceneCanvas : MonoBehaviour
         if (!_infoObject.activeSelf)
         {
             _infoObject.SetActive(true);
-            _infoText.text = areaInfo;
         }
+        _infoText.text = areaInfo;
+
     }
     public void UnShowAreaInfo()
     {
