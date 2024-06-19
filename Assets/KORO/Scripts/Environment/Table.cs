@@ -235,7 +235,15 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             TableSet.GetComponent<BoxCollider>().enabled = true;
             TableSet.transform.position = new Vector3(xValue,TableSet.transform.position.y,zValue); // Objenin pozisyonunu fare ile tıklanan noktaya taşı
             TableController.Instance.EnableTableSetCollider(true);
-        } 
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            var tableRotat = TableSet.transform.rotation;
+            var tableRotatTemp = Quaternion.Euler(new Vector3(tableRotat.eulerAngles.x,tableRotat.eulerAngles.y+90f,tableRotat.eulerAngles.z));
+
+            TableSet.transform.rotation = tableRotatTemp;
+        }
         if (Input.GetMouseButton(0))
         {
             TableSet.CheckGround();
