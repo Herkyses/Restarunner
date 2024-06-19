@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SaveManager : MonoBehaviour
+public class MainMenuUIManager : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
-        ChangeSceneForSample();
+        
     }
 
     // Update is called once per frame
@@ -17,9 +16,8 @@ public class SaveManager : MonoBehaviour
     {
         
     }
-
     public void ChangeSceneForSample()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("SampleScene");
     }
 }
