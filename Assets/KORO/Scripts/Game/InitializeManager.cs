@@ -33,6 +33,7 @@ public class InitializeManager : MonoBehaviour
     public void Initialize()
     {
         MapManager.Instance.LoadMap();
+        MealManager.Instance.Initiliaze();
         TableController.Instance.SetTableNumbers();
         TableController.Instance.Initialize();
         TableAvailablePanel.Instance.Initialize();

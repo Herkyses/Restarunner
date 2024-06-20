@@ -21,7 +21,7 @@ public class MealManager : MonoBehaviour
     private SaveManager saveManager;
     private MealsList mealsList;
 
-    private void Start()
+    public void Initiliaze()
     {
         saveManager = new SaveManager();
         LoadMeals();
