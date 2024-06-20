@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class MealManager : MonoBehaviour
 {
     public static MealManager Instance;
+    public static Action UpdateFoodIngredient;
     
     private void Awake()
     {
@@ -65,6 +67,7 @@ public class MealManager : MonoBehaviour
         {
             Debug.Log("Cannot make " + mealName + ". Not enough ingredients.");
         }
+        UpdateFoodIngredient?.Invoke();
     }
     
 }

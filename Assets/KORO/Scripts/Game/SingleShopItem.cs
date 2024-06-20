@@ -24,6 +24,16 @@ public class SingleShopItem : MonoBehaviour
         OrderType = shopItem.ItemOrderType;
         PriceText.text = Price.ToString();
     }
+
+    public void InitializeFoodIngredient(Enums.OrderType orderType, int foodGredientvalue)
+    {
+        // Price = shopItem.ShopItemPrice;
+        // ItemType = shopItem.ItemType;
+        // Icon.sprite = shopItem.ShopItemIcon;
+        // _shopItemData = shopItem;
+         OrderType = orderType;
+        PriceText.text = foodGredientvalue.ToString();
+    }
     public void SinglePlaceItemPressed()
     {
         ShopManager.Instance.CreateShopItem(_shopItemData);

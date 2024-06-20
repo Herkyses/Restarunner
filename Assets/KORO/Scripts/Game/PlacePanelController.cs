@@ -8,8 +8,10 @@ using UnityEngine;
 {
     public static PlacePanelController Instance;
     public List<FoodIngredient> FoodIngredients;
+    public List<SingleShopItem> OwnerFoodIngredients;
     //public List<FoodIngredient> FoodIngredients;
     public Transform _panel;
+    public Transform _ownerFoodIngredients;
     [FormerlySerializedAs("_singlePlaceItemParentTransform")] public Transform SingleShopItemParentTransform;
     public SingleShopItem SingleShopItemPf;
     private void Awake()
@@ -23,6 +25,15 @@ using UnityEngine;
             Destroy(gameObject);
         }
 
+    }
+
+    private void OnEnable()
+    {
+        MealManager.UpdateFoodIngredient += UpdateFoodIngredient;
+    }
+    private void OnDisable()
+    {
+        MealManager.UpdateFoodIngredient -= UpdateFoodIngredient;
     }
 
     public void ActivePlacePanel()
@@ -44,6 +55,23 @@ using UnityEngine;
         for (int i = 0; i < FoodIngredients.Count; i++)
         {
             FoodIngredients[i].IngredientValue = 5;
+        }
+
+        for (int i = 0; i < PlayerPrefsManager.Instance.LoadMeals().meals.Count; i++)
+        {
+            var singleOwnerfoodGredient = Instantiate(SingleShopItemPf, _ownerFoodIngredients);
+            singleOwnerfoodGredient.transform.SetParent(_ownerFoodIngredients);
+            singleOwnerfoodGredient.InitializeFoodIngredient(PlayerPrefsManager.Instance.LoadMeals().meals[i].mealName,PlayerPrefsManager.Instance.LoadMeals().meals[i].ingredientQuantity);
+            OwnerFoodIngredients.Add(singleOwnerfoodGredient);
+
+        }
+    }
+
+    public void UpdateFoodIngredient()
+    {
+        for (int i = 0; i < OwnerFoodIngredients.Count; i++)
+        {
+            OwnerFoodIngredients[i].InitializeFoodIngredient(OwnerFoodIngredients[i].OrderType, PlayerPrefsManager.Instance.LoadMeals().meals[i].ingredientQuantity);
         }
     }
 

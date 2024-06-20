@@ -43547,12 +43547,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 56a97bbe5ce0e49459e8bda2f468cf6d, type: 2}
   FoodIngradientShopItemDatas:
   - {fileID: 11400000, guid: 18eacb21f91414f4493519c836ec086d, type: 2}
-  - {fileID: 11400000, guid: ca94d8fd090dfa14f9577e3c899add68, type: 2}
-  - {fileID: 11400000, guid: 56763ecb757a6ea42b04179a338fdfff, type: 2}
   - {fileID: 11400000, guid: 781cca38a693963489313acf214ab258, type: 2}
   - {fileID: 11400000, guid: 47bdd4fb12940e947b0bac4ed9f28164, type: 2}
-  - {fileID: 11400000, guid: a0f0120d643bac445940f83b74a5d9e0, type: 2}
+  - {fileID: 11400000, guid: 56763ecb757a6ea42b04179a338fdfff, type: 2}
   - {fileID: 11400000, guid: b177c338da34c334d881f3f2869d4478, type: 2}
+  - {fileID: 11400000, guid: a0f0120d643bac445940f83b74a5d9e0, type: 2}
+  - {fileID: 11400000, guid: ca94d8fd090dfa14f9577e3c899add68, type: 2}
   ShopOrderTransform: {fileID: 1105194079}
 --- !u!4 &1503920071 stripped
 Transform:
