@@ -43,5 +43,6 @@ public class Enums : MonoBehaviour
         Chef,
         Table,
         Waiter,
+        FoodIngredient,
     }
 }

@@ -8,6 +8,7 @@ public class ShopManager : MonoBehaviour
     public List<ShopItem> FirstShopItems;
     public List<ShopItemData> FirstShopItemDatas;
     public List<ShopItemData> EnvironmentShopItemDatas;
+    public List<ShopItemData> FoodIngradientShopItemDatas;
     public Transform ShopOrderTransform;
     // Start is called before the first frame update
     private void Awake()
@@ -34,7 +35,34 @@ public class ShopManager : MonoBehaviour
                 break;
             case Enums.ShopItemType.Waiter:
                 break;
+            case Enums.ShopItemType.FoodIngredient:
+                BuyFoodIngredient(shopItemData.ItemOrderType);
+                break;
             
+        }
+    }
+
+    public void BuyFoodIngredient(Enums.OrderType orderType)
+    {
+        MealManager mealManager = new MealManager();
+
+        // Yemekleri yükle ve Burger yap
+        mealManager.LoadMeals();
+
+        mealManager.MakeMeal(orderType,1);
+
+        // Veriyi tekrar yükle ve kalan miktarları kontrol et
+        MealsList loadedMealsList = PlayerPrefsManager.Instance.LoadMeals();
+        if (loadedMealsList != null)
+        {
+            foreach (Meal meal in loadedMealsList.meals)
+            {
+                Debug.Log("Meal: " + meal.mealName + ", Ingredient Quantity: " + meal.ingredientQuantity);
+            }
+        }
+        else
+        {
+            Debug.Log("No data found.");
         }
     }
 

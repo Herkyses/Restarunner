@@ -10,7 +10,7 @@ public class SingleShopItem : MonoBehaviour
     public float Price;
     public Enums.ShopItemType ItemType;
     [SerializeField] private ShopItemData _shopItemData;
-
+    public Enums.OrderType OrderType;
 
     public TextMeshProUGUI PriceText;
 
@@ -21,6 +21,8 @@ public class SingleShopItem : MonoBehaviour
         ItemType = shopItem.ItemType;
         Icon.sprite = shopItem.ShopItemIcon;
         _shopItemData = shopItem;
+        OrderType = shopItem.ItemOrderType;
+        PriceText.text = Price.ToString();
     }
     public void SinglePlaceItemPressed()
     {

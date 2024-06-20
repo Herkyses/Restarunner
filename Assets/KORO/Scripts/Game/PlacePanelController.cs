@@ -58,6 +58,9 @@ using UnityEngine;
             case 1:
                 InitializeShopPanel(ShopManager.Instance.EnvironmentShopItemDatas);
                 break;
+            case 2:
+                InitializeShopPanel(ShopManager.Instance.FoodIngradientShopItemDatas);
+                break;
         }
     }
     public void InitializeShopPanel(List<ShopItemData> shopItemDatas)

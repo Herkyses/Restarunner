@@ -10,4 +10,6 @@ public class ShopItemData : ScriptableObject
     public float ShopItemPrice;
     public Sprite ShopItemIcon;
     public GameObject ItemObject;
+    public Enums.OrderType ItemOrderType;
+
 }
