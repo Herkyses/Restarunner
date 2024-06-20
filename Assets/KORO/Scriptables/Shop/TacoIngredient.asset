@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03a3a0940f7786142a1350d09d68e0ca, type: 3}
-  m_Name: PastaIngredient
+  m_Name: TacoIngredient
   m_EditorClassIdentifier: 
   ItemType: 3
   ShopItemPrice: 10
   ShopItemIcon: {fileID: 21300000, guid: 2fda9ea1a25a3214a829f74a43ce0326, type: 3}
   ItemObject: {fileID: 0}
-  ItemOrderType: 3
+  ItemOrderType: 2

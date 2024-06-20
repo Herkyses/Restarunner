@@ -42,11 +42,11 @@ public class MealManager : MonoBehaviour
             {
                 new Meal(Enums.OrderType.Burger, 5),
                 new Meal(Enums.OrderType.Pizza, 5),
-                new Meal(Enums.OrderType.Salad, 5),
-                new Meal(Enums.OrderType.Pasta, 5),
-                new Meal(Enums.OrderType.Soup, 5),
+                new Meal(Enums.OrderType.Taco, 5),
+                new Meal(Enums.OrderType.Croissant, 5),
+                new Meal(Enums.OrderType.HotDog, 5),
                 new Meal(Enums.OrderType.Sandwich, 5),
-                new Meal(Enums.OrderType.Omelette, 5)
+                new Meal(Enums.OrderType.Chicken, 5)
             };
 
             mealsList = new MealsList(meals);
