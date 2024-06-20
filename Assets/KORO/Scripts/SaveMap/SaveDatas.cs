@@ -27,3 +27,26 @@ public class MapObject
     public float rotY;
     public float rotZ;
 } 
+[System.Serializable]
+public class Meal
+{
+    public string mealName;
+    public int ingredientQuantity;
+
+    public Meal(string mealName, int ingredientQuantity)
+    {
+        this.mealName = mealName;
+        this.ingredientQuantity = ingredientQuantity;
+    }
+}
+
+[System.Serializable]
+public class MealsList
+{
+    public List<Meal> meals;
+
+    public MealsList(List<Meal> meals)
+    {
+        this.meals = meals;
+    }
+}

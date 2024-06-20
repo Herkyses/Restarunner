@@ -96,4 +96,28 @@ public class GameSceneCanvas : MonoBehaviour
         _orderPanel.CanFollowTrue();
     }
     
+    public void zort()
+    {
+        MealManager mealManager = new MealManager();
+
+        // Yemekleri yükle ve Burger yap
+        mealManager.LoadMeals();
+
+        mealManager.MakeMeal("Burger");
+
+        // Veriyi tekrar yükle ve kalan miktarları kontrol et
+        MealsList loadedMealsList = PlayerPrefsManager.Instance.LoadMeals();
+        if (loadedMealsList != null)
+        {
+            foreach (Meal meal in loadedMealsList.meals)
+            {
+                Debug.Log("Meal: " + meal.mealName + ", Ingredient Quantity: " + meal.ingredientQuantity);
+            }
+        }
+        else
+        {
+            Debug.Log("No data found.");
+        }
+    }
+    
 }

@@ -50,4 +50,21 @@ public class PlayerPrefsManager : MonoBehaviour
     {
         return PlayerPrefs.GetInt("Popularity", 0); // Varsayılan değer 0
     }
+    public void SaveMeals(MealsList mealsList)
+    {
+        string jsonData = JsonUtility.ToJson(mealsList);
+        PlayerPrefs.SetString("MealsData", jsonData);
+        PlayerPrefs.Save();
+    }
+
+    public MealsList LoadMeals()
+    {
+        if (PlayerPrefs.HasKey("MealsData"))
+        {
+            string jsonData = PlayerPrefs.GetString("MealsData");
+            MealsList mealsList = JsonUtility.FromJson<MealsList>(jsonData);
+            return mealsList;
+        }
+        return null;
+    }
 }
