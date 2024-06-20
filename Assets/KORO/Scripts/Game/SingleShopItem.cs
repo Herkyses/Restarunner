@@ -36,6 +36,10 @@ public class SingleShopItem : MonoBehaviour
     }
     public void SinglePlaceItemPressed()
     {
-        ShopManager.Instance.CreateShopItem(_shopItemData);
+        if (ItemType != Enums.ShopItemType.FoodIngredient)
+        {
+            ShopManager.Instance.CreateShopItem(_shopItemData);
+
+        }
     }
 }
