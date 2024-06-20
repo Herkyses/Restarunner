@@ -36,20 +36,20 @@ public class ShopManager : MonoBehaviour
             case Enums.ShopItemType.Waiter:
                 break;
             case Enums.ShopItemType.FoodIngredient:
-                BuyFoodIngredient(shopItemData.ItemOrderType);
+                BuyFoodIngredient(shopItemData);
                 break;
             
         }
     }
 
-    public void BuyFoodIngredient(Enums.OrderType orderType)
+    public void BuyFoodIngredient(ShopItemData shopItemData)
     {
         MealManager mealManager = new MealManager();
 
         // Yemekleri yükle ve Burger yap
         mealManager.LoadMeals();
 
-        mealManager.MakeMeal(orderType,1);
+        mealManager.MakeMeal(shopItemData.ItemOrderType,1);
 
         // Veriyi tekrar yükle ve kalan miktarları kontrol et
         MealsList loadedMealsList = PlayerPrefsManager.Instance.LoadMeals();
