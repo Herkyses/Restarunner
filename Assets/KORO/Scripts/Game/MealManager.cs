@@ -38,13 +38,13 @@ public class MealManager : MonoBehaviour
             // Eğer veriler yoksa, başlangıç verilerini yükle
             List<Meal> meals = new List<Meal>
             {
-                new Meal("Burger", 5),
-                new Meal("Pizza", 5),
-                new Meal("Salad", 5),
-                new Meal("Pasta", 5),
-                new Meal("Soup", 5),
-                new Meal("Sandwich", 5),
-                new Meal("Omelette", 5)
+                new Meal(Enums.OrderType.Burger, 5),
+                new Meal(Enums.OrderType.Pizza, 5),
+                new Meal(Enums.OrderType.Salad, 5),
+                new Meal(Enums.OrderType.Pasta, 5),
+                new Meal(Enums.OrderType.Soup, 5),
+                new Meal(Enums.OrderType.Sandwich, 5),
+                new Meal(Enums.OrderType.Omelette, 5)
             };
 
             mealsList = new MealsList(meals);
@@ -52,7 +52,7 @@ public class MealManager : MonoBehaviour
         }
     }
 
-    public void MakeMeal(string mealName)
+    public void MakeMeal(Enums.OrderType mealName)
     {
         Meal meal = mealsList.meals.Find(m => m.mealName == mealName);
         if (meal != null && meal.ingredientQuantity > 0)

@@ -25,7 +25,11 @@ public class Enums : MonoBehaviour
     {
         Pizza,
         Burger,
-        
+        Salad,
+        Pasta,
+        Soup,
+        Sandwich,
+        Omelette,
     }
     public enum SingleOrderUIType
     {

@@ -103,7 +103,7 @@ public class GameSceneCanvas : MonoBehaviour
         // Yemekleri yükle ve Burger yap
         mealManager.LoadMeals();
 
-        mealManager.MakeMeal("Burger");
+        mealManager.MakeMeal(Enums.OrderType.Burger);
 
         // Veriyi tekrar yükle ve kalan miktarları kontrol et
         MealsList loadedMealsList = PlayerPrefsManager.Instance.LoadMeals();

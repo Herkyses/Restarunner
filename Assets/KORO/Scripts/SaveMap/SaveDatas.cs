@@ -30,10 +30,10 @@ public class MapObject
 [System.Serializable]
 public class Meal
 {
-    public string mealName;
+    public Enums.OrderType mealName;
     public int ingredientQuantity;
 
-    public Meal(string mealName, int ingredientQuantity)
+    public Meal(Enums.OrderType mealName, int ingredientQuantity)
     {
         this.mealName = mealName;
         this.ingredientQuantity = ingredientQuantity;
