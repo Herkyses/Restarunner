@@ -66,6 +66,21 @@ public class GameDataManager : MonoBehaviour
             case Enums.OrderType.Burger:
                 return FoodDatas[1].FoodIcon;
                 break;
+            case Enums.OrderType.Chicken:
+                return FoodDatas[1].FoodIcon;
+                break;
+            case Enums.OrderType.Croissant:
+                return FoodDatas[1].FoodIcon;
+                break;
+            case Enums.OrderType.Sandwich:
+                return FoodDatas[1].FoodIcon;
+                break;
+            case Enums.OrderType.Taco:
+                return FoodDatas[1].FoodIcon;
+                break;
+            case Enums.OrderType.HotDog:
+                return FoodDatas[1].FoodIcon;
+                break;
             
         }
 
