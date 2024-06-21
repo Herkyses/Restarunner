@@ -20,6 +20,7 @@ public class AIStateMachineController : MonoBehaviour
     public AIController AIController;
     public AIAnimationController AIAnimationController;
     public AIWaitTimeController AIWaitTimeController;
+    public AIAreaController AIAreaController;
     public Transform AITargetSitTransform;
     public static Action<float> PayedOrderBill; 
     [SerializeField] private Animator _playerAnimator;
@@ -40,6 +41,8 @@ public class AIStateMachineController : MonoBehaviour
     {
         gameObject.TryGetComponent(out AIController);
         gameObject.TryGetComponent(out AIWaitTimeController);
+        gameObject.TryGetComponent(out AIAreaController);
+        
         _playerAnimator = gameObject.GetComponent<Animator>();
         AIAnimationController = gameObject.GetComponent<AIAnimationController>();
         AIIdleState = new AIIdleState(this);
@@ -140,6 +143,7 @@ public class AIStateMachineController : MonoBehaviour
         PayedOrderBill?.Invoke(GameDataManager.Instance.GetFoodPrice(AIController.FoodDataStruct.OrderType));
         AIController.AIOwnerChair.isChairAvailable = true;
         AIController.AIOwnerTable.CustomerCount--;
+        AIAreaController.InteractabelDeactive();
         AIChangeState(AIMoveState);
     }
 }
