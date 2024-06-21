@@ -33,7 +33,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
         {
             for (int j = 0; j < GameDataManager.Instance.FoodDatas.Count; j++)
             {
-                if (ChefOwnerStructData[i].OrderType == GameDataManager.Instance.FoodDatas[j].OrderType)
+                if (ChefOwnerStructData[i].OrderType == GameDataManager.Instance.FoodDatas[j].OrderType && MealManager.Instance.GetMealIngredient(GameDataManager.Instance.FoodDatas[j].OrderType) > 0)
                 {
                     var food = Instantiate(GameDataManager.Instance.FoodTablePf);
                     food.CreateFood(GameDataManager.Instance.FoodDatas[j].Food.OrderType);

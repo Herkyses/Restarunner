@@ -69,5 +69,19 @@ public class MealManager : MonoBehaviour
         }
         UpdateFoodIngredient?.Invoke();
     }
+
+    public int GetMealIngredient(Enums.OrderType mealName)
+    {
+        Meal meal = mealsList.meals.Find(m => m.mealName == mealName);
+        if (meal != null && meal.ingredientQuantity > 0)
+        {
+            return meal.ingredientQuantity;
+            
+        }
+        else
+        {
+            return -1;
+        }
+    }
     
 }
