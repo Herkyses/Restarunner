@@ -39,6 +39,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
                     food.CreateFood(GameDataManager.Instance.FoodDatas[j].Food.OrderType);
                     food.transform.position = _chefOrderTable.FoodTransformList[_chefOrderTableIndex].position;
                     PlacePanelController.Instance.DecreeseIngredient(food.OrderType);
+                    MealManager.Instance.MakeMeal(GameDataManager.Instance.FoodDatas[j].Food.OrderType,-1);
                     _chefOrderTableIndex++;
                     if (_chefOrderTableIndex >= _chefOrderTable.FoodTransformList.Count)
                     {
