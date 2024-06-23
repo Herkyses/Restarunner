@@ -43603,6 +43603,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2b6f92b799d911d4ab29468386d56109, type: 2}
   EnvironmentShopItemDatas:
   - {fileID: 11400000, guid: 56a97bbe5ce0e49459e8bda2f468cf6d, type: 2}
+  - {fileID: 11400000, guid: 7ccdee3a54bf93b4d9dd2d92eb559379, type: 2}
   FoodIngradientShopItemDatas:
   - {fileID: 11400000, guid: 18eacb21f91414f4493519c836ec086d, type: 2}
   - {fileID: 11400000, guid: 781cca38a693963489313acf214ab258, type: 2}
