@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MapManager : MonoBehaviour
 {
     private string filePath;
     private MapData mapData;
 
-    public GameObject treePrefab;
+    [FormerlySerializedAs("treePrefab")] public GameObject tableSetPrefab;
+    public GameObject[] tableSets;
     public GameObject rockPrefab;
     public static MapManager Instance;
     private void Awake()
@@ -57,6 +59,7 @@ public class MapManager : MonoBehaviour
                 tableSet.rotX = table.transform.rotation.eulerAngles.x;
                 tableSet.rotY = table.transform.rotation.eulerAngles.y;
                 tableSet.rotZ = table.transform.rotation.eulerAngles.z;
+                tableSet.tableID = table.GetComponent<TableSet>().tableTypeID;
                 mapData.objects.Add(tableSet);
             }
         }
@@ -100,7 +103,7 @@ public class MapManager : MonoBehaviour
             // Yükleme işlemi
             foreach (MapObject mapObject in mapData.objects)
             {
-                GameObject prefab = GetPrefabByType(mapObject.type);
+                GameObject prefab = GetPrefabByType(mapObject.type,mapObject.tableID);
                 if (mapObject.type == "TableSet")
                 {
                     if (prefab != null)
@@ -135,9 +138,12 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    private GameObject GetPrefabByType(string type)
+    private GameObject GetPrefabByType(string type,int tableID = -1)
     {
-        if (type == "TableSet") return treePrefab;
+        if (type == "TableSet")
+        {
+            return tableSets[tableID];
+        }
         if (type == "Rock") return rockPrefab;
         return null;
     }

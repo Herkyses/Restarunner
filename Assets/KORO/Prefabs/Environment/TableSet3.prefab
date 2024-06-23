@@ -152,6 +152,7 @@ MonoBehaviour:
   table: {fileID: 6497150917911997021}
   groundLayer: 0
   tableIndexLayer: 0
+  tableTypeID: 2
 --- !u!65 &4985917389719943773
 BoxCollider:
   m_ObjectHideFlags: 0
