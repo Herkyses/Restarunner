@@ -11,5 +11,6 @@ public class ShopItemData : ScriptableObject
     public Sprite ShopItemIcon;
     public GameObject ItemObject;
     public Enums.OrderType ItemOrderType;
+    public int TableSetID;
 
 }
