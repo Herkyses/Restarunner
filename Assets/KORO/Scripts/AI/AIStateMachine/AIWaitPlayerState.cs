@@ -15,7 +15,7 @@ public class AIWaitPlayerState : AIBaseState
     {
         AIStateMachineController.AIController.AIAnimationController.PlayIdleAnimation();
         AIStateMachineController.AIController._agent.speed = 0;
-        Collider[] colliders = Physics.OverlapSphere(AIStateMachineController.transform.position, 0.3f);
+        Collider[] colliders = Physics.OverlapSphere(AIStateMachineController.transform.position, 0.5f);
         
         foreach (Collider col in colliders)
         {

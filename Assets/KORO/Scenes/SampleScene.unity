@@ -40711,8 +40711,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChefOwnerStructData: []
-  FoodParent: {fileID: 0}
-  _chefOrderTable: {fileID: 0}
+  FoodParent: {fileID: 2112945851}
+  _chefOrderTable: {fileID: 2112945850}
   _chefOrderTableIndex: 0
 --- !u!1 &1406012006
 GameObject:
@@ -60340,6 +60340,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63fb00425f51bc043b2e30a81b1758ab, type: 3}
+--- !u!114 &2112945850 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6875272231816818827, guid: 63fb00425f51bc043b2e30a81b1758ab, type: 3}
+  m_PrefabInstance: {fileID: 2112945849}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76334c920d52710409fa048eeb1f77ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2112945851 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6405076166393272162, guid: 63fb00425f51bc043b2e30a81b1758ab, type: 3}
+  m_PrefabInstance: {fileID: 2112945849}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2118057457
 PrefabInstance:
   m_ObjectHideFlags: 0

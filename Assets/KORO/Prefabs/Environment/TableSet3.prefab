@@ -99,7 +99,7 @@ MonoBehaviour:
   _ownerTable: {fileID: 6497150917911997021}
   _tableNumber: 0
   isChairAvailable: 0
-  ChairFoodTransform: {fileID: 0}
+  ChairFoodTransform: {fileID: 6443248768749148549}
 --- !u!1 &4564751280442413612
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +265,7 @@ MonoBehaviour:
   _ownerTable: {fileID: 6497150917911997021}
   _tableNumber: 0
   isChairAvailable: 0
-  ChairFoodTransform: {fileID: 0}
+  ChairFoodTransform: {fileID: 3400908905292686370}
 --- !u!1 &8072910269563481967
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +365,7 @@ MonoBehaviour:
   _ownerTable: {fileID: 6497150917911997021}
   _tableNumber: 0
   isChairAvailable: 0
-  ChairFoodTransform: {fileID: 0}
+  ChairFoodTransform: {fileID: 1742046190350830793}
 --- !u!1001 &7324874371218786104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -450,6 +450,21 @@ PrefabInstance:
 --- !u!4 &1172144808203050837 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8494744444474038381, guid: fe95e3e540d8f3b408d7e539d49751fb, type: 3}
+  m_PrefabInstance: {fileID: 7324874371218786104}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1742046190350830793 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9046557000631372785, guid: fe95e3e540d8f3b408d7e539d49751fb, type: 3}
+  m_PrefabInstance: {fileID: 7324874371218786104}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3400908905292686370 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5374301579295138586, guid: fe95e3e540d8f3b408d7e539d49751fb, type: 3}
+  m_PrefabInstance: {fileID: 7324874371218786104}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6443248768749148549 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4380923750021848765, guid: fe95e3e540d8f3b408d7e539d49751fb, type: 3}
   m_PrefabInstance: {fileID: 7324874371218786104}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6497150917911997021 stripped
