@@ -57,9 +57,16 @@ public class MealManager : MonoBehaviour
     public void MakeMeal(Enums.OrderType mealName,int value)
     {
         Meal meal = mealsList.meals.Find(m => m.mealName == mealName);
-        if (meal != null && meal.ingredientQuantity > 0)
+        if (meal != null )
         {
-            meal.ingredientQuantity += value;
+            if (value < 0 && meal.ingredientQuantity > 0)
+            {
+                meal.ingredientQuantity += value;
+            }
+            else if(value > 0)
+            {
+                meal.ingredientQuantity += value;
+            }
             PlayerPrefsManager.Instance.SaveMeals(mealsList);
             Debug.Log("Made " + mealName + ". Remaining quantity: " + meal.ingredientQuantity);
         }
