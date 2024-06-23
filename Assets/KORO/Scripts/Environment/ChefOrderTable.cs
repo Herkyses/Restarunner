@@ -9,6 +9,8 @@ public class ChefOrderTable : MonoBehaviour,IInterectableObject
     public void InterectableObjectRun()
     {
         GiveChefOrderPanelController.Instance.Panel.gameObject.SetActive(true);
+        GameSceneCanvas.Instance.CanMove = false;
+
         GiveChefOrderPanelController.Instance.OrderList = PlayerOrderController.Instance.OrderList;
     }
 

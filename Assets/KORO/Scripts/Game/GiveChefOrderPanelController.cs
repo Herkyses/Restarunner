@@ -79,4 +79,11 @@ public class GiveChefOrderPanelController : MonoBehaviour
             }
         }
     }
+
+    public void DeactivePanel()
+    {
+        Panel.gameObject.SetActive(false);
+        GameSceneCanvas.Instance.CanMove = true;
+
+    }
 }
