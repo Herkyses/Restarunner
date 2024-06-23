@@ -36,6 +36,11 @@ public class AIWaitStateController : MonoBehaviour,IInterectableObject
         AiControllers.Add(aiController);
         TableAvailablePanel.Instance.SetCustomerList(aiController.AgentID);
     }
+
+    public void RemoveFromAiControllersList(AIController aiController)
+    {
+        AiControllers.Remove(aiController);
+    }
     public Outline GetOutlineComponent()
     {
         return null;

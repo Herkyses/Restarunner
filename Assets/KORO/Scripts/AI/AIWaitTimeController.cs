@@ -36,6 +36,8 @@ public class AIWaitTimeController : MonoBehaviour
             {
                 WaitTimeStarted = false;
                 AIStateMachineController.AIChangeState(AIStateMachineController.AIMoveState);
+                TableAvailablePanel.Instance.RemoveFromCustomerList(AIStateMachineController.AIController.AgentID);
+                AIWaitStateController.Instance.RemoveFromAiControllersList(AIStateMachineController.AIController);
             }
         }
     }

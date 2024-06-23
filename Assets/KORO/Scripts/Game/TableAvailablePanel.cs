@@ -126,6 +126,8 @@ public class TableAvailablePanel : MonoBehaviour
         customer.InitializeSingleCustom(AIIndex);
         _customerList.Add(customer);
     }
+
+    
     public void RemoveFromCustomerList(int AIIndex)
     {
         for (int i = 0; i < _customerList.Count; i++)
