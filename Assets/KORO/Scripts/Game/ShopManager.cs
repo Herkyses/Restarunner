@@ -31,7 +31,11 @@ public class ShopManager : MonoBehaviour
             case Enums.ShopItemType.Chef:
                 break;
             case Enums.ShopItemType.Table:
-                CreateTable(shopItemData);
+                if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
+                {
+                    GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
+                    CreateTable(shopItemData);
+                }
                 break;
             case Enums.ShopItemType.Waiter:
                 break;
