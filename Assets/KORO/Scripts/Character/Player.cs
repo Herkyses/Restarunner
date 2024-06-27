@@ -15,12 +15,12 @@ public class Player : MonoBehaviour
     
     private void OnEnable()
     {
-        AIStateMachineController.PayedOrderBill += GainMoney;
+        GameManager.PayedOrderBill += GainMoney;
     }
 
     private void OnDisable()
     {
-        AIStateMachineController.PayedOrderBill -= GainMoney;
+        GameManager.PayedOrderBill -= GainMoney;
     }
     
     void Start()

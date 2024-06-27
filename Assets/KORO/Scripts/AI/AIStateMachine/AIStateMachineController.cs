@@ -22,7 +22,7 @@ public class AIStateMachineController : MonoBehaviour
     public AIWaitTimeController AIWaitTimeController;
     public AIAreaController AIAreaController;
     public Transform AITargetSitTransform;
-    public static Action<float> PayedOrderBill; 
+    //public static Action<float> PayedOrderBill; 
     [SerializeField] private Animator _playerAnimator;
     [SerializeField] private bool _isAIChef;
  
@@ -140,7 +140,7 @@ public class AIStateMachineController : MonoBehaviour
         TableAvailablePanel.Instance.RedAvailability(AIController.AIOwnerTable.TableNumber);
         TableAvailablePanel.Instance.CheckTable(AIController.AIOwnerTable.TableNumber);
         GameSceneCanvas.Instance.AddPopularity();
-        PayedOrderBill?.Invoke(GameDataManager.Instance.GetFoodPrice(AIController.FoodDataStruct.OrderType));
+        GameManager.PayedOrderBill?.Invoke(GameDataManager.Instance.GetFoodPrice(AIController.FoodDataStruct.OrderType));
         AIController.AIOwnerChair.isChairAvailable = true;
         AIController.AIOwnerTable.CustomerCount--;
         AIAreaController.InteractabelDeactive();

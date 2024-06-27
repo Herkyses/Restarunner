@@ -36,7 +36,11 @@ public class ShopManager : MonoBehaviour
             case Enums.ShopItemType.Waiter:
                 break;
             case Enums.ShopItemType.FoodIngredient:
-                BuyFoodIngredient(shopItemData);
+                if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
+                {
+                    GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
+                    BuyFoodIngredient(shopItemData);
+                }
                 break;
             
         }

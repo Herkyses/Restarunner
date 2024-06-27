@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public Player PlayerPrefab;
     public Transform PlayerSpawnTransform;
+    public static Action<float> PayedOrderBill; 
+
 
     public static Action GameStarted;
     // Start is called before the first frame update
