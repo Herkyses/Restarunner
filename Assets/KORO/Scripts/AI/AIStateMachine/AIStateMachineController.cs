@@ -142,6 +142,7 @@ public class AIStateMachineController : MonoBehaviour
         GameSceneCanvas.Instance.AddPopularity();
         GameManager.PayedOrderBill?.Invoke(GameDataManager.Instance.GetFoodPrice(AIController.FoodDataStruct.OrderType));
         AIController.AIOwnerChair.isChairAvailable = true;
+        AIController.IsSitting = false;
         AIController.AIOwnerTable.CustomerCount--;
         AIAreaController.InteractabelDeactive();
         AIController.IsFinishedFood = false;

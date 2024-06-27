@@ -81,6 +81,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             var orderIndex = Random.Range(0, 2);
             stateMAchineController.GetComponent<AIController>().AIOwnerTable = this;
             stateMAchineController.GetComponent<AIController>().AIOwnerChair = chair;
+            stateMAchineController.GetComponent<AIController>().IsSitting = true;
             SetOrderTable(stateMAchineController.GetComponent<AIController>(),orderIndex);
             if (OrderPanelController.Instance.OpenedTableNumber == TableNumber)
             {

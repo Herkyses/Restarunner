@@ -13,6 +13,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     public Transform _targetTransform;
     public Transform _targetFirstPosition;
     public bool IsFinishedFood;
+    public bool IsSitting;
     [SerializeField] private Transform _playerPosition;
     [SerializeField] private Transform _chairPosition;
     [SerializeField] private AICanvas _aıCanvas_;
@@ -199,7 +200,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     
     public void InterectableObjectRun()
     {
-        if (PlayerOrderController.Instance.TakedFood && PlayerOrderController.Instance.Food.OrderType == FoodDataStruct.OrderType)
+        if (PlayerOrderController.Instance.TakedFood && PlayerOrderController.Instance.Food.OrderType == FoodDataStruct.OrderType && IsSitting)
         {
             AIOwnerFood = PlayerOrderController.Instance.FoodTable;
             PlayerOrderController.Instance.TakedFood = false;
