@@ -73,7 +73,10 @@ public class CheckOrderBillsPanel : MonoBehaviour
 
     public void CreateTableBill()
     {
-        BillTable.Instance.CreateTableBill(TableController.Instance.TableSets[SelectedTable-1].table);
+        if (TableController.Instance.TableSets[SelectedTable - 1].table.CheckAllCustomerFinishedFood())
+        {
+            BillTable.Instance.CreateTableBill(TableController.Instance.TableSets[SelectedTable-1].table);
+        }
     }
     
     public void ActiveBillsPanel()

@@ -121,7 +121,7 @@ public class AIStateMachineController : MonoBehaviour
         AIController.DeactivatedFoodIcon();
         
         AIController.AIOwnerTable.TotalBills += GameDataManager.Instance.GetOrderBill(AIController.FoodDataStruct.OrderType);
-        
+        AIController.IsFinishedFood = true;
         CheckOrderBillsPanel.Instance.UpdatePanel(AIController.AIOwnerTable.TableNumber,AIController.AIOwnerTable.TotalBills);    
         Destroy(AIController.AIOwnerFood.Food.gameObject);
         AIController.AIOwnerTable.RemoveOrder(AIController.FoodDataStruct);
@@ -144,6 +144,7 @@ public class AIStateMachineController : MonoBehaviour
         AIController.AIOwnerChair.isChairAvailable = true;
         AIController.AIOwnerTable.CustomerCount--;
         AIAreaController.InteractabelDeactive();
+        AIController.IsFinishedFood = false;
         AIChangeState(AIMoveState);
     }
 }
