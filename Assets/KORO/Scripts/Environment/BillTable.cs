@@ -35,7 +35,7 @@ public class BillTable : MonoBehaviour,IInterectableObject
         
     }
 
-    public void CreateTableBill(float totalBills)
+    public void CreateTableBill(Table ownerTable)
     {
         DeleteChilds();
         if (!_tableBillTemp)
@@ -47,7 +47,8 @@ public class BillTable : MonoBehaviour,IInterectableObject
             _tableBillTemp.gameObject.SetActive(true);
         }
         _tableBillTemp.transform.localPosition = Vector3.zero;
-        _tableBillTemp.BillValue = totalBills;
+        _tableBillTemp.BillValue = ownerTable.TotalBills;
+        _tableBillTemp.OwnerTable = ownerTable;
     }
     public void UpdateTableBill(TableBill tableBill)
     {

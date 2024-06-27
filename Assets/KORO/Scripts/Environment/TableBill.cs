@@ -5,6 +5,7 @@ using UnityEngine;
 public class TableBill : MonoBehaviour,IInterectableObject
 {
     public float BillValue;
+    public Table OwnerTable;
     
     public void InterectableObjectRun()
     {
