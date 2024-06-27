@@ -163,7 +163,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             OpenOrderPanels();
         }
 
-        if (PlayerOrderController.Instance.TakedTableBill)
+        if (PlayerOrderController.Instance.TakedTableBill && PlayerOrderController.Instance.TableBill.OwnerTable == this)
         {
             for (int i = 0; i < _aiControllerList.Count; i++)
             {
