@@ -43,6 +43,7 @@ public class InitializeManager : MonoBehaviour
         StartCoroutine(AISpawnController.Instance.Initialize());
         OrderPanelController.Instance.Initialize();
         PlacePanelController.Instance.Initialize();
+        PlaceController.Instance.Initialize();
     }
 
     // Update is called once per frame

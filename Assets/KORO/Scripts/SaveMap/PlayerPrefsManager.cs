@@ -43,7 +43,7 @@ public class PlayerPrefsManager : MonoBehaviour
     }
     public void SavePlaceLevel(int level)
     {
-        PlayerPrefs.SetFloat("PlaceLevel", level);
+        PlayerPrefs.SetInt("PlaceLevel", level);
         PlayerPrefs.Save();
     }
     public int LoadPlaceLevel()

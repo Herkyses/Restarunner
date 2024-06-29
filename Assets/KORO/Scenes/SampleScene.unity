@@ -57556,7 +57556,9 @@ MonoBehaviour:
     - {fileID: 1255319316}
     - {fileID: 1255319315}
   - ActiveObject: []
-    DeActiveObject: []
+    DeActiveObject:
+    - {fileID: 1255319316}
+    - {fileID: 1255319315}
   - ActiveObject: []
     DeActiveObject: []
   - ActiveObject: []

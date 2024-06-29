@@ -52,8 +52,10 @@ public class ShopManager : MonoBehaviour
                 if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
                 {
                     GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
+                    var level = PlayerPrefsManager.Instance.LoadPlaceLevel() +1;
+                    PlayerPrefsManager.Instance.SavePlaceLevel(level);
+
                     BuyPlaceUpgrade();
-                    PlayerPrefsManager.Instance.SavePlaceLevel(PlayerPrefsManager.Instance.LoadPlaceLevel()+1);
 
                 }
                 break;

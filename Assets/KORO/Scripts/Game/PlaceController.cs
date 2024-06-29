@@ -37,11 +37,16 @@ public class PlaceController : MonoBehaviour,IInterectableObject
 
     public void Initialize()
     {
-        for (int i = 0; i < PlayerPrefsManager.Instance.LoadPlaceLevel(); i++)
+        var levelValue = PlayerPrefsManager.Instance.LoadPlaceLevel();
+        for (int i = 0; i < levelValue; i++)
         {
             for (int j = 0; j < PlaceLevels[i].ActiveObject.Count; j++)
             {
                 PlaceLevels[i].ActiveObject[j].SetActive(true);
+            }
+
+            for (int j = 0; j < PlaceLevels[i].DeActiveObject.Count; j++)
+            {
                 PlaceLevels[i].DeActiveObject[j].SetActive(false);
             }
         }   
