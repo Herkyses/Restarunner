@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlaceController : MonoBehaviour,IInterectableObject
 {
     public static bool RestaurantIsOpen;
+
+    public List<PlaceLevel> PlaceLevels;
+
+    public int LevelValue;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +19,18 @@ public class PlaceController : MonoBehaviour,IInterectableObject
     void Update()
     {
         
+    }
+
+    public void Initialize()
+    {
+        for (int i = 0; i < LevelValue; i++)
+        {
+            for (int j = 0; j < PlaceLevels[i].ActiveObject.Count; j++)
+            {
+                PlaceLevels[i].ActiveObject[j].SetActive(true);
+                PlaceLevels[i].DeActiveObject[j].SetActive(false);
+            }
+        }   
     }
     
     public void InterectableObjectRun()
@@ -37,4 +53,11 @@ public class PlaceController : MonoBehaviour,IInterectableObject
     {
         
     }
+}
+
+[System.Serializable]
+public struct PlaceLevel
+{
+    public List<GameObject> ActiveObject;
+    public List<GameObject> DeActiveObject;
 }

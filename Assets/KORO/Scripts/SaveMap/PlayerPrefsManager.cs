@@ -41,6 +41,15 @@ public class PlayerPrefsManager : MonoBehaviour
     {
         return PlayerPrefs.GetFloat("PlayerMoney", 0); // Varsayılan değer 0
     }
+    public void SavePlaceLevel(int money)
+    {
+        PlayerPrefs.SetFloat("PlaceLevel", money);
+        PlayerPrefs.Save();
+    }
+    public float LoadPlaceLevel()
+    {
+        return PlayerPrefs.GetInt("PlaceLevel", 0); // Varsayılan değer 0
+    }
     public void SavePopularity(int money)
     {
         PlayerPrefs.SetInt("Popularity", money);
