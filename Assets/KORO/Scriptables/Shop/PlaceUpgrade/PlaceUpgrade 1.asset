@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlaceUpgrade 1
   m_EditorClassIdentifier: 
   ItemType: 4
-  ShopItemPrice: 0
+  ShopItemPrice: 35
   ShopItemIcon: {fileID: 0}
   ItemObject: {fileID: 0}
   ItemOrderType: 0
