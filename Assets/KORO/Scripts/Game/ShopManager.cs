@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -100,7 +101,13 @@ public class ShopManager : MonoBehaviour
         PlaceController.Instance.Initialize();
     }
 
-    
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.L))
+        {
+            Player.Instance.GainMoney(10f);
+        }
+    }
 }
 [System.Serializable]
 public class ShopItem

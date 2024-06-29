@@ -79,6 +79,8 @@ public class MealManager : MonoBehaviour
 
     public int GetMealIngredient(Enums.OrderType mealName)
     {
+        mealsList = PlayerPrefsManager.Instance.LoadMeals();
+
         Meal meal = mealsList.meals.Find(m => m.mealName == mealName);
         if (meal != null && meal.ingredientQuantity > 0)
         {

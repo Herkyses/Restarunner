@@ -13,6 +13,20 @@ public class Player : MonoBehaviour
     public PlayerStructData PlayerStructData;
     // Start is called before the first frame update
     
+    
+    public static Player Instance;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
     private void OnEnable()
     {
         GameManager.PayedOrderBill += GainMoney;
