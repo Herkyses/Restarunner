@@ -49,6 +49,13 @@ public class ShopManager : MonoBehaviour
                 }
                 break;
             case Enums.ShopItemType.PlaceUpgrade:
+                if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
+                {
+                    GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
+                    BuyPlaceUpgrade();
+                    PlayerPrefsManager.Instance.SavePlaceLevel(PlayerPrefsManager.Instance.LoadPlaceLevel()+1);
+
+                }
                 break;
             
         }
@@ -83,6 +90,11 @@ public class ShopManager : MonoBehaviour
         var item = Instantiate(shopItemData.ItemObject);
         item.transform.position = ShopOrderTransform.position;
         
+    }
+
+    public void BuyPlaceUpgrade()
+    {
+        PlaceController.Instance.Initialize();
     }
 
     

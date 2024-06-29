@@ -41,12 +41,12 @@ public class PlayerPrefsManager : MonoBehaviour
     {
         return PlayerPrefs.GetFloat("PlayerMoney", 0); // Varsayılan değer 0
     }
-    public void SavePlaceLevel(int money)
+    public void SavePlaceLevel(int level)
     {
-        PlayerPrefs.SetFloat("PlaceLevel", money);
+        PlayerPrefs.SetFloat("PlaceLevel", level);
         PlayerPrefs.Save();
     }
-    public float LoadPlaceLevel()
+    public int LoadPlaceLevel()
     {
         return PlayerPrefs.GetInt("PlaceLevel", 0); // Varsayılan değer 0
     }

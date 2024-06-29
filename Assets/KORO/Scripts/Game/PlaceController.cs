@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlaceController : MonoBehaviour,IInterectableObject
 {
+    public static PlaceController Instance;
+
     public static bool RestaurantIsOpen;
 
     public List<PlaceLevel> PlaceLevels;
@@ -20,10 +22,22 @@ public class PlaceController : MonoBehaviour,IInterectableObject
     {
         
     }
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
+    }
 
     public void Initialize()
     {
-        for (int i = 0; i < LevelValue; i++)
+        for (int i = 0; i < PlayerPrefsManager.Instance.LoadPlaceLevel(); i++)
         {
             for (int j = 0; j < PlaceLevels[i].ActiveObject.Count; j++)
             {
