@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: PizzaIngredient
   m_EditorClassIdentifier: 
   ItemType: 3
-  ShopItemPrice: 10
+  ShopItemPrice: 3
   ShopItemIcon: {fileID: 21300000, guid: d3d0e79100bfef544872049eaf3666ef, type: 3}
   ItemObject: {fileID: 0}
   ItemOrderType: 0
+  TableSetID: 0
+  PlaceLevel: 0

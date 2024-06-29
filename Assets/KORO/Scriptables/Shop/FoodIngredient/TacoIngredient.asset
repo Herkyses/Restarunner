@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: TacoIngredient
   m_EditorClassIdentifier: 
   ItemType: 3
-  ShopItemPrice: 10
+  ShopItemPrice: 3
   ShopItemIcon: {fileID: 21300000, guid: 9ae6d131c50e42a4db73f55c99c580e7, type: 3}
   ItemObject: {fileID: 0}
   ItemOrderType: 2
+  TableSetID: 0
+  PlaceLevel: 0

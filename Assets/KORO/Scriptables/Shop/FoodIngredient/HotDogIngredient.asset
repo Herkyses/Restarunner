@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: HotDogIngredient
   m_EditorClassIdentifier: 
   ItemType: 3
-  ShopItemPrice: 10
+  ShopItemPrice: 3
   ShopItemIcon: {fileID: 21300000, guid: edf764521aa34b548b714ef425427609, type: 3}
   ItemObject: {fileID: 0}
   ItemOrderType: 4
+  TableSetID: 0
+  PlaceLevel: 0
