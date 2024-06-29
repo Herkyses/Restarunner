@@ -25,7 +25,7 @@ public class ShopManager : MonoBehaviour
 
     }
 
-    public void CreateShopItem(ShopItemData shopItemData)
+    public void CreateShopItem(ShopItemData shopItemData,SingleShopItem singleShopItem)
     {
         switch (shopItemData.ItemType)
         {
@@ -51,6 +51,7 @@ public class ShopManager : MonoBehaviour
             case Enums.ShopItemType.PlaceUpgrade:
                 if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
                 {
+                    singleShopItem.IsButtonActive = false;
                     GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
                     var level = PlayerPrefsManager.Instance.LoadPlaceLevel() +1;
                     PlayerPrefsManager.Instance.SavePlaceLevel(level);

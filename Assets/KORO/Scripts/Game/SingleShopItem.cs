@@ -11,18 +11,27 @@ public class SingleShopItem : MonoBehaviour
     public Enums.ShopItemType ItemType;
     [SerializeField] private ShopItemData _shopItemData;
     public Enums.OrderType OrderType;
+    public bool IsButtonActive;
 
     public TextMeshProUGUI PriceText;
 
 
     public void InitializeSingleShopItem(ShopItemData shopItem)
     {
+        IsButtonActive = true;
         Price = shopItem.ShopItemPrice;
         ItemType = shopItem.ItemType;
         Icon.sprite = shopItem.ShopItemIcon;
         _shopItemData = shopItem;
         OrderType = shopItem.ItemOrderType;
         PriceText.text = Price.ToString();
+        if (shopItem.ItemType == Enums.ShopItemType.PlaceUpgrade)
+        {
+            if (shopItem.PlaceLevel <= PlayerPrefsManager.Instance.LoadPlaceLevel())
+            {
+                IsButtonActive = false;
+            }
+        }
     }
 
     public void InitializeFoodIngredient(Enums.OrderType orderType, int foodGredientvalue)
@@ -36,7 +45,11 @@ public class SingleShopItem : MonoBehaviour
     }
     public void SinglePlaceItemPressed()
     {
-        ShopManager.Instance.CreateShopItem(_shopItemData);
+        if (!IsButtonActive)
+        {
+            return;
+        }
+        ShopManager.Instance.CreateShopItem(_shopItemData,this);
     }
     public Sprite GetFoodSprite(Enums.OrderType orderType)
     {
