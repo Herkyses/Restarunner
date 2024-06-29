@@ -36804,6 +36804,41 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6330875377799697847, guid: a115d1ae127e56e44a4c80ff44b36a38, type: 3}
   m_PrefabInstance: {fileID: 1255319314}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1255319317 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6470738663347246405, guid: a115d1ae127e56e44a4c80ff44b36a38, type: 3}
+  m_PrefabInstance: {fileID: 1255319314}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1255319318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7814215614649068273, guid: a115d1ae127e56e44a4c80ff44b36a38, type: 3}
+  m_PrefabInstance: {fileID: 1255319314}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1255319319 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1699550487581684917, guid: a115d1ae127e56e44a4c80ff44b36a38, type: 3}
+  m_PrefabInstance: {fileID: 1255319314}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1255319320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1599945958552847911, guid: a115d1ae127e56e44a4c80ff44b36a38, type: 3}
+  m_PrefabInstance: {fileID: 1255319314}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1255319321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 186860929073038433, guid: a115d1ae127e56e44a4c80ff44b36a38, type: 3}
+  m_PrefabInstance: {fileID: 1255319314}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1255319322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 40029608593510415, guid: a115d1ae127e56e44a4c80ff44b36a38, type: 3}
+  m_PrefabInstance: {fileID: 1255319314}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1255319323 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 788995343, guid: a115d1ae127e56e44a4c80ff44b36a38, type: 3}
+  m_PrefabInstance: {fileID: 1255319314}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1256428895
 GameObject:
   m_ObjectHideFlags: 0
@@ -57556,7 +57591,14 @@ MonoBehaviour:
     - {fileID: 1255319316}
     - {fileID: 1255319315}
   - ActiveObject: []
-    DeActiveObject: []
+    DeActiveObject:
+    - {fileID: 1255319323}
+    - {fileID: 1255319322}
+    - {fileID: 1255319321}
+    - {fileID: 1255319320}
+    - {fileID: 1255319319}
+    - {fileID: 1255319318}
+    - {fileID: 1255319317}
   - ActiveObject: []
     DeActiveObject: []
   - ActiveObject: []
