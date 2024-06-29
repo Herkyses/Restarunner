@@ -6,6 +6,7 @@ using UnityEngine;
 public class ChefController : MonoBehaviour,IInterectableObject
 {
     [SerializeField] private List<OrderDataStruct> ChefOwnerStructData;
+    [SerializeField] private List<OrderDataStruct> RemovedOrderDataStructs;
     [SerializeField] private Transform FoodParent;
     [SerializeField] private ChefOrderTable _chefOrderTable;
     [SerializeField] private int _chefOrderTableIndex;
@@ -24,7 +25,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
     {
         ChefOwnerStructData = orderDataStruct;
         CreateFoods();
-        orderDataStruct.Clear();
+        //orderDataStruct.Clear();        ////////////önemliiiiii yapılanları çıkar sadece
     }
 
     public void CreateFoods()
@@ -36,6 +37,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
                 if (ChefOwnerStructData[i].OrderType == GameDataManager.Instance.FoodDatas[j].OrderType && MealManager.Instance.GetMealIngredient(GameDataManager.Instance.FoodDatas[j].OrderType) > 0)
                 {
                     var food = Instantiate(GameDataManager.Instance.FoodTablePf);
+                    RemovedOrderDataStructs.Add(ChefOwnerStructData[i]);
                     food.CreateFood(GameDataManager.Instance.FoodDatas[j].Food.OrderType);
                     food.transform.position = _chefOrderTable.FoodTransformList[_chefOrderTableIndex].position;
                     PlacePanelController.Instance.DecreeseIngredient(food.OrderType);
@@ -47,7 +49,14 @@ public class ChefController : MonoBehaviour,IInterectableObject
                     }
                 }
             }
+
+            
         }
+        for (int j = 0; j < RemovedOrderDataStructs.Count; j++)
+        {
+            ChefOwnerStructData.Remove(RemovedOrderDataStructs[j]);
+        }
+        RemovedOrderDataStructs.Clear();
     }
     public void InterectableObjectRun()
     {
