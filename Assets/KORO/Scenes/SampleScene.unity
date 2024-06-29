@@ -43393,6 +43393,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b177c338da34c334d881f3f2869d4478, type: 2}
   - {fileID: 11400000, guid: a0f0120d643bac445940f83b74a5d9e0, type: 2}
   - {fileID: 11400000, guid: ca94d8fd090dfa14f9577e3c899add68, type: 2}
+  PlaceUpgradeDatas:
+  - {fileID: 11400000, guid: 0892016ae82574b4799c623f9083f9f1, type: 2}
+  - {fileID: 11400000, guid: ec6036cc00bf25a43aeda67c7c6e5db3, type: 2}
+  - {fileID: 11400000, guid: 6841013bb74a867448d8c60bd04a1ab0, type: 2}
+  - {fileID: 11400000, guid: d6c7bb7a7e1dd1442b6d255f8df972e8, type: 2}
+  - {fileID: 11400000, guid: 9acd65221db8aaf4d80a71f04447073f, type: 2}
+  - {fileID: 11400000, guid: 2cb78b28695ca89498dde511eada6610, type: 2}
   ShopOrderTransform: {fileID: 1105194079}
 --- !u!4 &1503920071 stripped
 Transform:
@@ -57544,6 +57551,7 @@ MonoBehaviour:
     DeActiveObject: []
   - ActiveObject: []
     DeActiveObject: []
+  LevelValue: 0
 --- !u!1001 &2016562871
 PrefabInstance:
   m_ObjectHideFlags: 0

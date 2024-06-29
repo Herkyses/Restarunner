@@ -12,5 +12,6 @@ public class ShopItemData : ScriptableObject
     public GameObject ItemObject;
     public Enums.OrderType ItemOrderType;
     public int TableSetID;
+    public int PlaceLevel;
 
 }

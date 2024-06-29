@@ -44,5 +44,6 @@ public class Enums : MonoBehaviour
         Table,
         Waiter,
         FoodIngredient,
+        PlaceUpgrade,
     }
 }

@@ -9,6 +9,7 @@ public class ShopManager : MonoBehaviour
     public List<ShopItemData> FirstShopItemDatas;
     public List<ShopItemData> EnvironmentShopItemDatas;
     public List<ShopItemData> FoodIngradientShopItemDatas;
+    public List<ShopItemData> PlaceUpgradeDatas;
     public Transform ShopOrderTransform;
     // Start is called before the first frame update
     private void Awake()
@@ -39,12 +40,15 @@ public class ShopManager : MonoBehaviour
                 break;
             case Enums.ShopItemType.Waiter:
                 break;
+            
             case Enums.ShopItemType.FoodIngredient:
                 if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
                 {
                     GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
                     BuyFoodIngredient(shopItemData);
                 }
+                break;
+            case Enums.ShopItemType.PlaceUpgrade:
                 break;
             
         }

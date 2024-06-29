@@ -89,6 +89,9 @@ using UnityEngine;
             case 2:
                 InitializeShopPanel(ShopManager.Instance.FoodIngradientShopItemDatas);
                 break;
+            case 3:
+                InitializeShopPanel(ShopManager.Instance.PlaceUpgradeDatas);
+                break;
         }
     }
     public void InitializeShopPanel(List<ShopItemData> shopItemDatas)
