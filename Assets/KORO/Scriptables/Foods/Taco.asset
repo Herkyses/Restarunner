@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88dd8ad6c585e34ea2aff1729a5d2cd, type: 3}
+  m_Name: Taco
+  m_EditorClassIdentifier: 
+  OrderType: 2
+  OrderPrice: 5
+  FoodIcon: {fileID: 21300000, guid: 9ae6d131c50e42a4db73f55c99c580e7, type: 3}
+  Food: {fileID: 5008637789223367219, guid: 74a35586114ab104f984ddb37e615238, type: 3}
