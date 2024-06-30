@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemType: 4
   ShopItemPrice: 35
-  ShopItemIcon: {fileID: 0}
+  ShopItemIcon: {fileID: 21300000, guid: aad983bc590a1074b85fe3a1787ba4e5, type: 3}
   ItemObject: {fileID: 0}
   ItemOrderType: 0
   TableSetID: 0
