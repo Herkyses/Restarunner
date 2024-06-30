@@ -4891,6 +4891,11 @@ MonoBehaviour:
   FoodDatas:
   - {fileID: 11400000, guid: b39f77a38964a8a4da76729dfd32fc7d, type: 2}
   - {fileID: 11400000, guid: 9b634da93b438ca4e9ca830361ee1d8f, type: 2}
+  - {fileID: 11400000, guid: c8139901052d540458e4967232d52114, type: 2}
+  - {fileID: 11400000, guid: 88bade79d67be0642a722a44e37182b5, type: 2}
+  - {fileID: 11400000, guid: f3f83b3a83415d64eb370736c58953dd, type: 2}
+  - {fileID: 11400000, guid: 2d538b18ac81d9845bef9e23e9a8bd50, type: 2}
+  - {fileID: 11400000, guid: b35d16357113b0c45b69eda4ac66e8c8, type: 2}
   FoodTablePf: {fileID: 3412080890901677963, guid: 3265c903c47d73b4bb2463bd6201a7cb, type: 3}
 --- !u!4 &145396660
 Transform:
@@ -40767,6 +40772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChefOwnerStructData: []
+  RemovedOrderDataStructs: []
   FoodParent: {fileID: 2112945851}
   _chefOrderTable: {fileID: 2112945850}
   _chefOrderTableIndex: 0
