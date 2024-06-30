@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: 100 $
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -93,10 +93,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.35
-  m_fontSizeBase: 19.8
+  m_fontSize: 30.1
+  m_fontSizeBase: 30.1
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
@@ -228,6 +228,9 @@ MonoBehaviour:
   Icon: {fileID: 4584121567686504260}
   Price: 0
   ItemType: 0
+  _shopItemData: {fileID: 0}
+  OrderType: 0
+  IsButtonActive: 0
   PriceText: {fileID: 7347093882017087932}
 --- !u!1 &4078416315569288552
 GameObject:
@@ -399,8 +402,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -22.89}
-  m_SizeDelta: {x: 100, y: 33.9474}
+  m_AnchoredPosition: {x: 0, y: -33.5}
+  m_SizeDelta: {x: 100, y: 45.3}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &2996550265605373359
 CanvasRenderer:

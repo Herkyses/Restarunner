@@ -24,7 +24,7 @@ public class SingleShopItem : MonoBehaviour
         Icon.sprite = shopItem.ShopItemIcon;
         _shopItemData = shopItem;
         OrderType = shopItem.ItemOrderType;
-        PriceText.text = Price.ToString();
+        PriceText.text = Price.ToString() + " $";
         if (shopItem.ItemType == Enums.ShopItemType.PlaceUpgrade)
         {
             if (shopItem.PlaceLevel <= PlayerPrefsManager.Instance.LoadPlaceLevel())
