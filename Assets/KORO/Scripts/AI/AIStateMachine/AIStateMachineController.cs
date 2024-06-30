@@ -84,10 +84,13 @@ public class AIStateMachineController : MonoBehaviour
             }
 
         }
-        else
+        else if(_isAIChef)
         {
             AIChangeState(AIChefState);
-
+        }
+        else if(_isAIWaiter)
+        {
+            AIChangeState(AIWaiterState);
         }
     }
 
