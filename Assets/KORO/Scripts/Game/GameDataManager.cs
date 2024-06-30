@@ -32,10 +32,18 @@ public class GameDataManager : MonoBehaviour
         {
             case Enums.OrderType.Pizza:
                 return FoodDatas[0].Food;
-                break;
             case Enums.OrderType.Burger:
                 return FoodDatas[1].Food;
-                break;
+            case Enums.OrderType.Chicken:
+                return FoodDatas[2].Food;
+            case Enums.OrderType.Croissant:
+                return FoodDatas[3].Food;
+            case Enums.OrderType.HotDog:
+                return FoodDatas[4].Food;
+            case Enums.OrderType.Sandwich:
+                return FoodDatas[5].Food;
+            case Enums.OrderType.Taco:
+                return FoodDatas[6].Food;
             
         }
 
@@ -67,19 +75,19 @@ public class GameDataManager : MonoBehaviour
                 return FoodDatas[1].FoodIcon;
                 break;
             case Enums.OrderType.Chicken:
-                return FoodDatas[1].FoodIcon;
+                return FoodDatas[2].FoodIcon;
                 break;
             case Enums.OrderType.Croissant:
-                return FoodDatas[1].FoodIcon;
-                break;
-            case Enums.OrderType.Sandwich:
-                return FoodDatas[1].FoodIcon;
-                break;
-            case Enums.OrderType.Taco:
-                return FoodDatas[1].FoodIcon;
+                return FoodDatas[3].FoodIcon;
                 break;
             case Enums.OrderType.HotDog:
-                return FoodDatas[1].FoodIcon;
+                return FoodDatas[4].FoodIcon;
+                break;
+            case Enums.OrderType.Taco:
+                return FoodDatas[5].FoodIcon;
+                break;
+            case Enums.OrderType.Sandwich:
+                return FoodDatas[6].FoodIcon;
                 break;
             
         }

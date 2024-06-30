@@ -78,7 +78,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             stateMAchineController.AIChangeState(stateMAchineController.AISitState);
             AITransform.gameObject.GetComponent<AIAreaController>().InteractabelControl();
             _aiControllerList.Add(AITransform.gameObject.GetComponent<AIController>());
-            var orderIndex = Random.Range(0, 2);
+            var orderIndex = Random.Range(0, GameDataManager.Instance.FoodDatas.Count);
             stateMAchineController.GetComponent<AIController>().AIOwnerTable = this;
             stateMAchineController.GetComponent<AIController>().AIOwnerChair = chair;
             stateMAchineController.GetComponent<AIController>().IsSitting = true;

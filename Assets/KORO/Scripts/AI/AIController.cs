@@ -127,15 +127,8 @@ public class AIController : MonoBehaviour,IInterectableObject
         if (!_aıCanvas_.InfoImage.gameObject.activeSelf)
         {
             _aıCanvas_.InfoImage.gameObject.SetActive(true);
-            if (FoodDataStruct.OrderType == Enums.OrderType.Burger)
-            {
-                _aıCanvas_.InfoImage.sprite = GameDataManager.Instance.GetFoodSprite(Enums.OrderType.Burger);
-            }
-            else if (FoodDataStruct.OrderType == Enums.OrderType.Pizza)
-            {
-                _aıCanvas_.InfoImage.sprite = GameDataManager.Instance.GetFoodSprite(Enums.OrderType.Pizza);
+            _aıCanvas_.InfoImage.sprite = GameDataManager.Instance.GetFoodSprite(FoodDataStruct.OrderType);
 
-            }
         }
         
     }
