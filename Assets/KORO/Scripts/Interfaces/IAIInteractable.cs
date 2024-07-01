@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IAIInteractable
 {
-    public void StartState(Transform AITransform);
+    public void StartState(Transform AITransform,Enums.AIStateType aiStateType);
 }

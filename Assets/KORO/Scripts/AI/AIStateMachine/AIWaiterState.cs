@@ -17,7 +17,10 @@ public class AIWaiterState : AIBaseState
 
     public override void UpdateState()
     {
-        
+        if (Vector3.Distance(AIStateMachineController.transform.position, AIStateMachineController.AITargetSitTransform.position) < 0.2f)
+        {
+            AIStateMachineController.AIController.GetComponent<AIAreaController>().StartInteractableObject(Enums.AIStateType.Waiter);
+        }
         
     }
 

@@ -46,4 +46,10 @@ public class Enums : MonoBehaviour
         FoodIngredient,
         PlaceUpgrade,
     }
+
+    public enum AIStateType
+    {
+        Waiter,
+        Customer,
+    }
 }

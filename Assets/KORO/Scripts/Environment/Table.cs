@@ -65,29 +65,37 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         BillPanel.gameObject.SetActive(true);
     }
 
-    public void StartState(Transform AITransform)
+    public void StartState(Transform AITransform, Enums.AIStateType aiStateType)
     {
-        AvailabilityControl();
-        var chair = CheckChairAvailable();
-        if (chair)
+        if (aiStateType == Enums.AIStateType.Customer)
         {
-            chair.isChairAvailable = false;
-            AITransform.position = chair.transform.position;
-            AITransform.rotation = chair.transform.rotation;
-            var stateMAchineController = AITransform.gameObject.GetComponent<AIStateMachineController>();
-            stateMAchineController.AIChangeState(stateMAchineController.AISitState);
-            AITransform.gameObject.GetComponent<AIAreaController>().InteractabelControl();
-            _aiControllerList.Add(AITransform.gameObject.GetComponent<AIController>());
-            var orderIndex = Random.Range(0, GameDataManager.Instance.FoodDatas.Count);
-            stateMAchineController.GetComponent<AIController>().AIOwnerTable = this;
-            stateMAchineController.GetComponent<AIController>().AIOwnerChair = chair;
-            stateMAchineController.GetComponent<AIController>().IsSitting = true;
-            SetOrderTable(stateMAchineController.GetComponent<AIController>(),orderIndex);
-            if (OrderPanelController.Instance.OpenedTableNumber == TableNumber)
+            AvailabilityControl();
+            var chair = CheckChairAvailable();
+            if (chair)
             {
-                Chair.GivedOrder?.Invoke(TableNumber);
+                chair.isChairAvailable = false;
+                AITransform.position = chair.transform.position;
+                AITransform.rotation = chair.transform.rotation;
+                var stateMAchineController = AITransform.gameObject.GetComponent<AIStateMachineController>();
+                stateMAchineController.AIChangeState(stateMAchineController.AISitState);
+                AITransform.gameObject.GetComponent<AIAreaController>().InteractabelControl();
+                _aiControllerList.Add(AITransform.gameObject.GetComponent<AIController>());
+                var orderIndex = Random.Range(0, GameDataManager.Instance.FoodDatas.Count);
+                stateMAchineController.GetComponent<AIController>().AIOwnerTable = this;
+                stateMAchineController.GetComponent<AIController>().AIOwnerChair = chair;
+                stateMAchineController.GetComponent<AIController>().IsSitting = true;
+                SetOrderTable(stateMAchineController.GetComponent<AIController>(),orderIndex);
+                if (OrderPanelController.Instance.OpenedTableNumber == TableNumber)
+                {
+                    Chair.GivedOrder?.Invoke(TableNumber);
+                }
             }
         }
+        else if(aiStateType == Enums.AIStateType.Waiter)
+        {
+            
+        }
+        
         
     }
     public void SetOrderTable(AIController aiController,int orderIndex)

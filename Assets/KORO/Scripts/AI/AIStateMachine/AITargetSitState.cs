@@ -21,7 +21,7 @@ public class AITargetSitState : AIBaseState
     {
         if (Vector3.Distance(AIStateMachineController.transform.position, AIStateMachineController.AITargetSitTransform.position) < 0.2f)
         {
-            AIStateMachineController.AIController.GetComponent<AIAreaController>().StartInteractableObject();
+            AIStateMachineController.AIController.GetComponent<AIAreaController>().StartInteractableObject(Enums.AIStateType.Customer);
         }
     }
 

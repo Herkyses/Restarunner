@@ -33,7 +33,7 @@ public class AIAreaController : MonoBehaviour
         }*/
     }
 
-    public void StartInteractableObject()
+    public void StartInteractableObject(Enums.AIStateType aiStateType)
     {
         if (!Interactabled)
         {
@@ -41,15 +41,23 @@ public class AIAreaController : MonoBehaviour
 
             foreach (Collider col in colliders)
             {
-                var interfacezort = col.gameObject.GetComponent<IAIInteractable>();
-                if (interfacezort != null)
+                if (aiStateType == Enums.AIStateType.Customer)
                 {
-                    interfacezort.StartState(transform);
+                    var interfacezort = col.gameObject.GetComponent<IAIInteractable>();
+                    if (interfacezort != null)
+                    {
+                        interfacezort.StartState(transform,Enums.AIStateType.Customer);
+                    }
                 }
-                else
+                else if (aiStateType == Enums.AIStateType.Waiter)
                 {
+                    var interfacezort = col.gameObject.GetComponent<IAIInteractable>();
+                    if (interfacezort != null)
+                    {
+                        interfacezort.StartState(transform,Enums.AIStateType.Waiter);
+                    }
+                }
                 
-                }
             } 
         }
     }
