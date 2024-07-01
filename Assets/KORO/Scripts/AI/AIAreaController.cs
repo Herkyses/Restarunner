@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,18 @@ using UnityEngine;
 public class AIAreaController : MonoBehaviour
 {
     public bool Interactabled;
+
+    public AIController AIController;
+
+    public WaiterController WaiterController;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        gameObject.TryGetComponent(out AIController);
+        gameObject.TryGetComponent(out WaiterController);
+    }
+
     void Start()
     {
         
@@ -46,7 +58,7 @@ public class AIAreaController : MonoBehaviour
                     var interfacezort = col.gameObject.GetComponent<IAIInteractable>();
                     if (interfacezort != null)
                     {
-                        interfacezort.StartState(transform,Enums.AIStateType.Customer);
+                        interfacezort.StartState(this,Enums.AIStateType.Customer);
                     }
                 }
                 else if (aiStateType == Enums.AIStateType.Waiter)
@@ -54,7 +66,7 @@ public class AIAreaController : MonoBehaviour
                     var interfacezort = col.gameObject.GetComponent<IAIInteractable>();
                     if (interfacezort != null)
                     {
-                        interfacezort.StartState(transform,Enums.AIStateType.Waiter);
+                        interfacezort.StartState(this,Enums.AIStateType.Waiter);
                     }
                 }
                 

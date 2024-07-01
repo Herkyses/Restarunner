@@ -65,7 +65,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         BillPanel.gameObject.SetActive(true);
     }
 
-    public void StartState(Transform AITransform, Enums.AIStateType aiStateType)
+    public void StartState(AIAreaController AIArea, Enums.AIStateType aiStateType)
     {
         if (aiStateType == Enums.AIStateType.Customer)
         {
@@ -74,12 +74,12 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             if (chair)
             {
                 chair.isChairAvailable = false;
-                AITransform.position = chair.transform.position;
-                AITransform.rotation = chair.transform.rotation;
-                var stateMAchineController = AITransform.gameObject.GetComponent<AIStateMachineController>();
+                AIArea.transform.position = chair.transform.position;
+                AIArea.transform.rotation = chair.transform.rotation;
+                var stateMAchineController = AIArea.gameObject.GetComponent<AIStateMachineController>();
                 stateMAchineController.AIChangeState(stateMAchineController.AISitState);
-                AITransform.gameObject.GetComponent<AIAreaController>().InteractabelControl();
-                _aiControllerList.Add(AITransform.gameObject.GetComponent<AIController>());
+                AIArea.gameObject.GetComponent<AIAreaController>().InteractabelControl();
+                _aiControllerList.Add(AIArea.gameObject.GetComponent<AIController>());
                 var orderIndex = Random.Range(0, GameDataManager.Instance.FoodDatas.Count);
                 stateMAchineController.GetComponent<AIController>().AIOwnerTable = this;
                 stateMAchineController.GetComponent<AIController>().AIOwnerChair = chair;
