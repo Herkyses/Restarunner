@@ -50,50 +50,15 @@ public class AIController : MonoBehaviour,IInterectableObject
 
     }
     /////////// MOVE STATE ///////////
-    public void SetDestinationTarget()
+    public void SetDestinationTarget(Vector3 targetPosition)
     {
-        /*var zort = Random.Range(0, 2);
-        if (zort == 0)
-        {
-            if (destinationValue != 0)
-            {
-                destinationValue = 0;
-                _agent.destination = _targetPositions[destinationValue].position;
-
-            }
-            else
-            {
-                _targetTransform = _targetPositions[1];
-                _agent.destination = _targetPositions[1].position;
-                //GetComponent<AIAreaController>().InteractabelDeactive();
-            }
-
-        }
-        else
-        {
-            if (destinationValue != 1)
-            {
-                destinationValue = 1;
-                _agent.destination = _targetPositions[destinationValue].position;
-
-            }
-            else
-            {
-                destinationValue = 2;
-                _agent.destination = _targetPositions[destinationValue].position;
-            }
-            _targetTransform = _targetPositions[destinationValue];
-
-            //GetComponent<AIAreaController>().InteractabelDeactive();
-
-
-        }*/
-        _agent.destination = _targetPositions[2].position;
+        
+        _agent.destination = targetPosition;
     }
-    public void StartTargetDestination()
+    public void StartTargetDestination(Vector3 targetPosition)
     {
         _agent.speed = 1f;
-        SetDestinationTarget();
+        SetDestinationTarget(targetPosition);
         float randomTime = Random.Range(0f, 1f);
         AiAnimator.Play("Walk",0,randomTime);
         //obstacleMaskValue = LayerMask.NameToLayer("Player");
