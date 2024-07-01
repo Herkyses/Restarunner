@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class WaiterController : MonoBehaviour
 {
+    [SerializeField] private List<OrderDataStruct> _orderList ;
+    public int TableNumber ;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,10 @@ public class WaiterController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void AddOrder(List<OrderDataStruct> orderDataStructList)
+    {
+        _orderList = orderDataStructList;
     }
 }

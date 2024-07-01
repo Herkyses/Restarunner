@@ -93,7 +93,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         }
         else if(aiStateType == Enums.AIStateType.Waiter)
         {
-            
+            AIArea.WaiterController.AddOrder(_orderList);
         }
         
         
