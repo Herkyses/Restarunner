@@ -18,6 +18,7 @@ public class AIStateMachineController : MonoBehaviour
     public AIChefState AIChefState;
     public AIEatState AIEatState;
     public AIWaiterState AIWaiterState;
+    public AIWaiterMoveState AIWaiterMoveState;
     public AIController AIController;
     public AIAnimationController AIAnimationController;
     public AIWaitTimeController AIWaitTimeController;
