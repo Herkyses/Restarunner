@@ -66,16 +66,14 @@ public class AIStateMachineController : MonoBehaviour
         {
             if (PlaceController.RestaurantIsOpen)
             {
-                var zort = Random.Range(0, 2);
-                if (zort == 0)
+                
+                if (Random.value < 0.5f)
                 {
                     AIChangeState(AITargetRestaurantState);
-
                 }
                 else
                 {
                     AIChangeState(AIMoveState);
-
                 }
             }
             else

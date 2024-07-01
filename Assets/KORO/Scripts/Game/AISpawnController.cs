@@ -79,16 +79,14 @@ public class AISpawnController : MonoBehaviour
     }
     public void SetTransformToAI(AIController singleAi)
     {
-        var randomPosition = Random.Range(0, 2);
-            
-            
-        if (randomPosition == 0)
+        
+        if (Random.value < 0.5f)
         {
             singleAi.transform.position = TargetList[0].transform.position;
             singleAi._targetTransform = TargetList[1].transform;
             singleAi._targetFirstPosition = TargetList[0].transform;
             singleAi._targetPositions[1] = TargetList[0].transform;
-            singleAi._targetPositions[2] = TargetList[1].transform;
+            singleAi._targetPositions[2] = TargetList[1].transform;        
         }
         else
         {
@@ -96,8 +94,7 @@ public class AISpawnController : MonoBehaviour
             singleAi._targetTransform = TargetList[0].transform;
             singleAi._targetFirstPosition = TargetList[1].transform;
             singleAi._targetPositions[1] = TargetList[1].transform;
-            singleAi._targetPositions[2] = TargetList[0].transform;
-
+            singleAi._targetPositions[2] = TargetList[0].transform;        
         }
     }
 }
