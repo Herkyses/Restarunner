@@ -21,6 +21,7 @@ public class AIWaiterMoveChefState : AIBaseState
         if (Vector3.Distance(AIStateMachineController.transform.position, TableController.Instance.ChefController.transform.position) < 1f)
         {
             AIStateMachineController.AIController._agent.speed = 0;
+            AIStateMachineController.AIChangeState(AIStateMachineController.AIWaiterGiveOrderState);
             //AIStateMachineController.AIController.GetComponent<AIAreaController>().StartInteractableObject(Enums.AIStateType.Waiter);
             //AIStateMachineController.AIWaiterController.OwnerTableForWaiter.StartState(AIStateMachineController.AIAreaController,Enums.AIStateType.Waiter);
         }
