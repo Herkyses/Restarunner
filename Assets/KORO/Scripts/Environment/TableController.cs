@@ -10,6 +10,7 @@ public class TableController : MonoBehaviour
     public List<Transform> TableSetsTransforms;
     public Transform TableTransform;
     public TableSet TableSetPf;
+    public ChefController ChefController;
     public int TableSetCapacity;
     public static TableController Instance;
 

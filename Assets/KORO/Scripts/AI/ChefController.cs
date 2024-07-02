@@ -75,7 +75,6 @@ public class ChefController : MonoBehaviour,IInterectableObject
 
     public string GetInterectableText()
     {
-        Debug.Log("selamkee");
         return "GiveOrder";
     }
     public void Move()

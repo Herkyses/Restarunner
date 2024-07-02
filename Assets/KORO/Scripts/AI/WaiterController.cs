@@ -9,6 +9,7 @@ public class WaiterController : MonoBehaviour
     public int TableNumber ;
     public AIStateMachineController AIStateMachineController;
     public Table OwnerTableForWaiter;
+    public ChefController ChefController;
 
     private void Awake()
     {

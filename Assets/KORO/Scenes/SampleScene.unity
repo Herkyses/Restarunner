@@ -44773,6 +44773,7 @@ MonoBehaviour:
   AIController: {fileID: 0}
   AIAnimationController: {fileID: 0}
   AIWaitTimeController: {fileID: 0}
+  AIWaiterController: {fileID: 0}
   AIAreaController: {fileID: 0}
   AITargetSitTransform: {fileID: 0}
   AITargetTableTransform: {fileID: 0}
@@ -62507,6 +62508,7 @@ MonoBehaviour:
   - {fileID: 1811620013}
   TableTransform: {fileID: 1976326932}
   TableSetPf: {fileID: 6988734389883096775, guid: cde83d22065814b4aad7f9525f6a111e, type: 3}
+  ChefController: {fileID: 1401744965}
   TableSetCapacity: 2
 --- !u!1001 &1977723158
 PrefabInstance:
@@ -65933,6 +65935,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _orderList: []
   TableNumber: 0
+  AIStateMachineController: {fileID: 0}
+  OwnerTableForWaiter: {fileID: 0}
+  ChefController: {fileID: 0}
 --- !u!114 &2073248499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65998,6 +66003,7 @@ MonoBehaviour:
   AIController: {fileID: 0}
   AIAnimationController: {fileID: 0}
   AIWaitTimeController: {fileID: 0}
+  AIWaiterController: {fileID: 0}
   AIAreaController: {fileID: 0}
   AITargetSitTransform: {fileID: 0}
   AITargetTableTransform: {fileID: 0}
