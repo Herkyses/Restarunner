@@ -52,4 +52,9 @@ public class WaiterController : MonoBehaviour
     {
         _orderList = orderDataStructList;
     }
+
+    public List<OrderDataStruct> GetOrders()
+    {
+        return _orderList;
+    }
 }
