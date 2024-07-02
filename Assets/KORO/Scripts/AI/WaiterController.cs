@@ -10,6 +10,9 @@ public class WaiterController : MonoBehaviour
     public AIStateMachineController AIStateMachineController;
     public Table OwnerTableForWaiter;
     public ChefController ChefController;
+    public TableBill TableBill;
+    public Food Food;
+
 
     private void Awake()
     {
