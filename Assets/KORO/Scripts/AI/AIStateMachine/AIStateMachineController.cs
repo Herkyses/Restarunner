@@ -22,14 +22,19 @@ public class AIStateMachineController : MonoBehaviour
     public AIController AIController;
     public AIAnimationController AIAnimationController;
     public AIWaitTimeController AIWaitTimeController;
+    public WaiterController AIWaiterController;
     public AIAreaController AIAreaController;
     public Transform AITargetSitTransform;
+    public Transform AITargetTableTransform;
     //public static Action<float> PayedOrderBill; 
     [SerializeField] private Animator _playerAnimator;
     [SerializeField] private bool _isAIChef;
     [SerializeField] private bool _isAIWaiter;
- 
-   
+
+
+    
+
+    
 
     // Update is called once per frame
     void Update()
@@ -45,6 +50,7 @@ public class AIStateMachineController : MonoBehaviour
         gameObject.TryGetComponent(out AIController);
         gameObject.TryGetComponent(out AIWaitTimeController);
         gameObject.TryGetComponent(out AIAreaController);
+        gameObject.TryGetComponent(out AIWaiterController);
         
         _playerAnimator = gameObject.GetComponent<Animator>();
         AIAnimationController = gameObject.GetComponent<AIAnimationController>();
@@ -57,13 +63,15 @@ public class AIStateMachineController : MonoBehaviour
         AITargetRestaurantState = new AITargetRestaurantState(this);
         AIWaitPlayerState = new AIWaitPlayerState(this);
         AIChefState = new AIChefState(this);
+        AIWaiterState = new AIWaiterState(this);
+        AIWaiterMoveState = new AIWaiterMoveState(this);
         AIInitialize();
 
     }
 
     public void AIInitialize()
     {
-        if (!_isAIChef)
+        if (!_isAIChef && !_isAIWaiter)
         {
             if (PlaceController.RestaurantIsOpen)
             {

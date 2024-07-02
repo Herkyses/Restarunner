@@ -44721,6 +44721,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Interactabled: 0
+  AIController: {fileID: 0}
+  WaiterController: {fileID: 0}
 --- !u!114 &1401744958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44773,6 +44775,7 @@ MonoBehaviour:
   AIWaitTimeController: {fileID: 0}
   AIAreaController: {fileID: 0}
   AITargetSitTransform: {fileID: 0}
+  AITargetTableTransform: {fileID: 0}
   _playerAnimator: {fileID: 0}
   _isAIChef: 1
   _isAIWaiter: 0
@@ -65928,6 +65931,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b87ee02bd2e8ae9469fc3ccf3fcdcc90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _orderList: []
+  TableNumber: 0
 --- !u!114 &2073248499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65941,6 +65946,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Interactabled: 0
+  AIController: {fileID: 0}
+  WaiterController: {fileID: 0}
 --- !u!114 &2073248500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65993,9 +66000,10 @@ MonoBehaviour:
   AIWaitTimeController: {fileID: 0}
   AIAreaController: {fileID: 0}
   AITargetSitTransform: {fileID: 0}
+  AITargetTableTransform: {fileID: 0}
   _playerAnimator: {fileID: 0}
-  _isAIChef: 1
-  _isAIWaiter: 0
+  _isAIChef: 0
+  _isAIWaiter: 1
 --- !u!54 &2073248503
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TableController : MonoBehaviour
 {
+    public static Action<Table> GivedOrderForAIWaiter;
     public List<TableSet> TableSets;
     public List<Transform> TableSetsTransforms;
     public Transform TableTransform;
