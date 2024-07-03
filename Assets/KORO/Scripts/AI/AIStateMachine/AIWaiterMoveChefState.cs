@@ -14,6 +14,8 @@ public class AIWaiterMoveChefState : AIBaseState
     {
         AIStateMachineController.AIController._agent.destination = TableController.Instance.ChefController.transform.position;
         AIStateMachineController.AIController._agent.speed = 1;
+        AIStateMachineController.AIController.AIAnimationController.PlayMoveAnimation();
+
     }
 
     public override void UpdateState()
@@ -22,6 +24,8 @@ public class AIWaiterMoveChefState : AIBaseState
         {
             AIStateMachineController.AIController._agent.speed = 0;
             AIStateMachineController.AIChangeState(AIStateMachineController.AIWaiterGiveOrderState);
+            AIStateMachineController.AIController.AIAnimationController.PlayIdleAnimation();
+
             //AIStateMachineController.AIController.GetComponent<AIAreaController>().StartInteractableObject(Enums.AIStateType.Waiter);
             //AIStateMachineController.AIWaiterController.OwnerTableForWaiter.StartState(AIStateMachineController.AIAreaController,Enums.AIStateType.Waiter);
         }

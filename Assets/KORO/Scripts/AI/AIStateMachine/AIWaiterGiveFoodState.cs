@@ -15,6 +15,7 @@ public class AIWaiterGiveFoodState : AIBaseState
     {
         AIStateMachineController.AIController._agent.destination = AIStateMachineController.AIWaiterController.OwnerTableForWaiter.transform.position;
         AIStateMachineController.AIController._agent.speed = 1f;
+        AIStateMachineController.AIController.AIAnimationController.PlayMoveAnimation();
     }
 
     public override void UpdateState()
@@ -32,6 +33,8 @@ public class AIWaiterGiveFoodState : AIBaseState
                         if (!aiList[i].IsTakedFood)
                         {
                             aiList[i].InterectableObjectRunforWaiter(AIStateMachineController.AIWaiterController.FoodTable[0]);
+                            AIStateMachineController.AIController.AIAnimationController.PlayIdleAnimation();
+
                             break;
                         }
                         

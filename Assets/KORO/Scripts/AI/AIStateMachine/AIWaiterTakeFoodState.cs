@@ -13,6 +13,8 @@ public class AIWaiterTakeFoodState : AIBaseState
     public override void EnterState()
     {
         AIStateMachineController.AIController._agent.destination = AIStateMachineController.AIWaiterController.FoodTable[0].transform.position;
+        AIStateMachineController.AIController.AIAnimationController.PlayMoveAnimation();
+
     }
 
     public override void UpdateState()
@@ -22,6 +24,8 @@ public class AIWaiterTakeFoodState : AIBaseState
             AIStateMachineController.AIController._agent.speed = 0;
             AIStateMachineController.AIWaiterController.FoodTable[0].transform.SetParent(AIStateMachineController.transform);
             AIStateMachineController.AIChangeState(AIStateMachineController.AIWaiterGiveFoodState);
+            AIStateMachineController.AIController.AIAnimationController.PlayIdleAnimation();
+
         }
         
     }
