@@ -22,12 +22,12 @@ public class WaiterController : MonoBehaviour
 
     private void OnEnable()
     {
-        //TableController.GivedOrderForAIWaiter += WaiterMoveStateStart; 
+        ChefController.FoodCreated += WaiterMoveFoodStateStart;
     }
 
     private void OnDisable()
     {
-        //TableController.GivedOrderForAIWaiter -= WaiterMoveStateStart; 
+        ChefController.FoodCreated -= WaiterMoveFoodStateStart;
     }
     
     public void WaiterMoveStateStart(Table table)
@@ -36,6 +36,11 @@ public class WaiterController : MonoBehaviour
         OwnerTableForWaiter = table;
         AIStateMachineController.AITargetTableTransform = table.transform;
         AIStateMachineController.AIChangeState(AIStateMachineController.AIWaiterMoveState);
+    }
+
+    public void WaiterMoveFoodStateStart(WaiterController ownerWaiter)
+    {
+        AIStateMachineController.AIChangeState(AIStateMachineController.AIWaiterTakeFoodState);
     }
 
     // Start is called before the first frame update

@@ -17,12 +17,18 @@ public class AIStateMachineController : MonoBehaviour
     public AIWaitPlayerState AIWaitPlayerState;
     public AIChefState AIChefState;
     public AIEatState AIEatState;
+    
+    
     public AIWaiterState AIWaiterState;
     public AIWaiterMoveState AIWaiterMoveState;
     public AIWaiterMoveChefState AIWaiterMoveChefState;
     public AIWaiterGiveOrderState AIWaiterGiveOrderState;
     public AIWaiterTakeOrderBillState AIWaiterTakeOrderBillState;
     public AIWaiterGiveOrderBillState AIWaiterGiveOrderBillState;
+    public AIWaiterTakeFoodState AIWaiterTakeFoodState;
+    public AIWaiterGiveFoodState AIWaiterGiveFoodState;
+    
+    
     public AIController AIController;
     public AIAnimationController AIAnimationController;
     public AIWaitTimeController AIWaitTimeController;
@@ -73,6 +79,8 @@ public class AIStateMachineController : MonoBehaviour
         AIWaiterGiveOrderState = new AIWaiterGiveOrderState(this);
         AIWaiterTakeOrderBillState = new AIWaiterTakeOrderBillState(this);
         AIWaiterGiveOrderBillState = new AIWaiterGiveOrderBillState(this);
+        AIWaiterTakeFoodState = new AIWaiterTakeFoodState(this);
+        AIWaiterGiveFoodState = new AIWaiterGiveFoodState(this);
         AIInitialize();
 
     }

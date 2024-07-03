@@ -12,7 +12,7 @@ public class AIWaiterGiveOrderState : AIBaseState
     }
     public override void EnterState()
     {
-        TableController.Instance.ChefController.SetOrders(AIStateMachineController.AIWaiterController.GetOrders(),false);
+        TableController.Instance.ChefController.SetOrders(AIStateMachineController.AIWaiterController.GetOrders(),false,AIStateMachineController.AIWaiterController);
     }
 
     public override void UpdateState()

@@ -8,6 +8,7 @@ public class FoodTable : MonoBehaviour,IInterectableObject
     public GameObject FoodObject;
     public Food Food;
     public Transform FoodSpawnTransform;
+    public WaiterController OwnerWaiterCotroller;
     public void InterectableObjectRun()
     {
         PlayerOrderController.Instance.TakeFood(GetComponent<FoodTable>());

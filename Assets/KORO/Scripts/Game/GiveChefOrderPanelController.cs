@@ -7,7 +7,7 @@ using UnityEngine;
 public class GiveChefOrderPanelController : MonoBehaviour
 {
 
-    public static Action<List<OrderDataStruct>,bool> IsGivedToChef;
+    public static Action<List<OrderDataStruct>,bool,WaiterController> IsGivedToChef;
     public static GiveChefOrderPanelController Instance;
     public Transform Panel;
     [SerializeField] private Transform _singlePfParent;
@@ -36,7 +36,7 @@ public class GiveChefOrderPanelController : MonoBehaviour
     {
         Orders = OrderList[SelectedOrderListCount];
 
-        IsGivedToChef?.Invoke(Orders.OrderDataStructs,true);
+        IsGivedToChef?.Invoke(Orders.OrderDataStructs,true,null);
     }
 
     public void OrderListIndexIncrease(bool isIncrease)
