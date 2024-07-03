@@ -50,14 +50,14 @@ public class ChefController : MonoBehaviour,IInterectableObject
                 if (ChefOwnerStructData[i].OrderType == GameDataManager.Instance.FoodDatas[j].OrderType && MealManager.Instance.GetMealIngredient(GameDataManager.Instance.FoodDatas[j].OrderType) > 0)
                 {
                     var food = Instantiate(GameDataManager.Instance.FoodTablePf);
-                    _tableFood = food;
-                    _tableFoodList.Add(_tableFood);
+                    
                     RemovedOrderDataStructs.Add(ChefOwnerStructData[i]);
                     food.CreateFood(GameDataManager.Instance.FoodDatas[j].Food.OrderType);
                     food.transform.position = _chefOrderTable.FoodTransformList[_chefOrderTableIndex].position;
                     PlacePanelController.Instance.DecreeseIngredient(food.OrderType);
                     MealManager.Instance.MakeMeal(GameDataManager.Instance.FoodDatas[j].Food.OrderType,-1);
                     _chefOrderTableIndex++;
+                    _tableFoodList.Add(food);
                     if (_chefOrderTableIndex >= _chefOrderTable.FoodTransformList.Count)
                     {
                         _chefOrderTableIndex = 0;

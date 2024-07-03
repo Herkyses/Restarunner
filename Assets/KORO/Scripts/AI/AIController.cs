@@ -14,6 +14,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     public Transform _targetFirstPosition;
     public bool IsFinishedFood;
     public bool IsSitting;
+    public bool IsTakedFood;
     [SerializeField] private Transform _playerPosition;
     [SerializeField] private Transform _chairPosition;
     [SerializeField] private AICanvas _aıCanvas_;
@@ -160,6 +161,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     {
         if (PlayerOrderController.Instance.TakedFood && PlayerOrderController.Instance.Food.OrderType == FoodDataStruct.OrderType && IsSitting)
         {
+            IsTakedFood = true;
             AIOwnerFood = PlayerOrderController.Instance.FoodTable;
             PlayerOrderController.Instance.TakedFood = false;
             PlayerOrderController.Instance.FoodTable.transform.position = AIOwnerChair.ChairFoodTransform.position;
@@ -168,7 +170,17 @@ public class AIController : MonoBehaviour,IInterectableObject
             PlayerOrderController.Instance.FoodTable = null;
             AIStateMachineController.AIChangeState(AIStateMachineController.AIEatState);
         }
-        //////Check Sittttttt
+    }
+    public void InterectableObjectRunforWaiter(FoodTable foodTable)
+    {
+        IsTakedFood = true;
+        AIOwnerFood = foodTable;
+        foodTable.transform.position = AIOwnerChair.ChairFoodTransform.position;
+        foodTable.transform.rotation = AIOwnerChair.ChairFoodTransform.rotation;
+        foodTable.transform.SetParent(AIOwnerChair.ChairFoodTransform);
+            
+        AIStateMachineController.AIChangeState(AIStateMachineController.AIEatState);
+        
     }
 
     public void ShowOutline(bool active)

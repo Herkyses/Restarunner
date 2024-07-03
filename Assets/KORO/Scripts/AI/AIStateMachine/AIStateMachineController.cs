@@ -91,15 +91,16 @@ public class AIStateMachineController : MonoBehaviour
         {
             if (PlaceController.RestaurantIsOpen)
             {
-                
-                if (Random.value < 0.5f)
+                AIChangeState(AITargetRestaurantState);
+
+                /*if (Random.value < 0.5f)
                 {
                     AIChangeState(AITargetRestaurantState);
                 }
                 else
                 {
                     AIChangeState(AIMoveState);
-                }
+                }*/
             }
             else
             {
@@ -175,5 +176,6 @@ public class AIStateMachineController : MonoBehaviour
         AIAreaController.InteractabelDeactive();
         AIController.IsFinishedFood = false;
         AIChangeState(AIMoveState);
+        AIController.IsTakedFood = false;
     }
 }
