@@ -21,9 +21,7 @@ public class AllWaitersController : MonoBehaviour
         {
             if (WaiterControllers[i].IsAvailable)
             {
-                WaiterControllers[i].OwnerTableForWaiter = table;
-                WaiterControllers[i].AIStateMachineController.AITargetTableTransform = table.transform;
-                WaiterControllers[i].AIStateMachineController.AIChangeState(WaiterControllers[i].AIStateMachineController.AIWaiterMoveState);
+                WaiterControllers[i].WaiterMoveStateStart(table);
                 return;
             }
         }

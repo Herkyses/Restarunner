@@ -32,6 +32,7 @@ public class WaiterController : MonoBehaviour
     
     public void WaiterMoveStateStart(Table table)
     {
+        IsAvailable = false;
         OwnerTableForWaiter = table;
         AIStateMachineController.AITargetTableTransform = table.transform;
         AIStateMachineController.AIChangeState(AIStateMachineController.AIWaiterMoveState);
