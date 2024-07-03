@@ -12,6 +12,7 @@ public class WaiterController : MonoBehaviour
     public ChefController ChefController;
     public TableBill TableBill;
     public Food Food;
+    public bool IsAvailable;
 
 
     private void Awake()
@@ -21,12 +22,12 @@ public class WaiterController : MonoBehaviour
 
     private void OnEnable()
     {
-        TableController.GivedOrderForAIWaiter += WaiterMoveStateStart; 
+        //TableController.GivedOrderForAIWaiter += WaiterMoveStateStart; 
     }
 
     private void OnDisable()
     {
-        TableController.GivedOrderForAIWaiter -= WaiterMoveStateStart; 
+        //TableController.GivedOrderForAIWaiter -= WaiterMoveStateStart; 
     }
     
     public void WaiterMoveStateStart(Table table)

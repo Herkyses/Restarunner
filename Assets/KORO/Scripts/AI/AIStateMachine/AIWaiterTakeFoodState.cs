@@ -2,22 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIWaiterGiveOrderState : AIBaseState
+public class AIWaiterTakeFoodState : AIBaseState
 {
     public string StateName;
     public AIStateMachineController AIStateMachineController;
-    public AIWaiterGiveOrderState(AIStateMachineController stateMachine) : base("AIWaiterGiveOrderState", stateMachine)
+    public AIWaiterTakeFoodState(AIStateMachineController stateMachine) : base("AIWaiterTakeFoodState", stateMachine)
     {
         AIStateMachineController = stateMachine;
     }
     public override void EnterState()
     {
-        TableController.Instance.ChefController.SetOrders(AIStateMachineController.AIWaiterController.GetOrders(),false);
+        
     }
 
     public override void UpdateState()
     {
-        
+        if (Vector3.Distance(AIStateMachineController.transform.position, TableController.Instance.ChefController.transform.position) < 1f)
+        {
+            
+        }
         
     }
 

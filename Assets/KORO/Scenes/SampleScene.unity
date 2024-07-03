@@ -1725,6 +1725,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2227653845492763139, guid: a9e4c0433ed15fe44981d287bd647ea9, type: 3}
   m_PrefabInstance: {fileID: 41757719}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &44262310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 44262312}
+  - component: {fileID: 44262311}
+  m_Layer: 0
+  m_Name: AllWaitersController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &44262311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44262310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e169515faed058e4ca3ec744a1fc07d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaiterControllers:
+  - {fileID: 2073248498}
+--- !u!4 &44262312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44262310}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.311977, y: 1.8352468, z: 21.813591}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &47193972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65938,6 +65984,9 @@ MonoBehaviour:
   AIStateMachineController: {fileID: 0}
   OwnerTableForWaiter: {fileID: 0}
   ChefController: {fileID: 0}
+  TableBill: {fileID: 0}
+  Food: {fileID: 0}
+  IsAvailable: 1
 --- !u!114 &2073248499
 MonoBehaviour:
   m_ObjectHideFlags: 0

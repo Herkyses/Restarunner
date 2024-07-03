@@ -10,6 +10,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
     [SerializeField] private Transform FoodParent;
     [SerializeField] private ChefOrderTable _chefOrderTable;
     [SerializeField] private int _chefOrderTableIndex;
+    public static Action FoodCreated;
 
     private void OnEnable()
     {
@@ -21,10 +22,14 @@ public class ChefController : MonoBehaviour,IInterectableObject
         GiveChefOrderPanelController.IsGivedToChef -= SetOrders;
     }
 
-    public void SetOrders(List<OrderDataStruct> orderDataStruct)
+    public void SetOrders(List<OrderDataStruct> orderDataStruct,bool isPlayerGive = true)
     {
         ChefOwnerStructData = orderDataStruct;
         CreateFoods();
+        if (!isPlayerGive)
+        {
+            FoodCreated?.Invoke();
+        }
         //orderDataStruct.Clear();        ////////////önemliiiiii yapılanları çıkar sadece
     }
 
