@@ -11,7 +11,7 @@ public class WaiterController : MonoBehaviour
     public Table OwnerTableForWaiter;
     public ChefController ChefController;
     public TableBill TableBill;
-    public Food Food;
+    public List<FoodTable> FoodTable;
     public bool IsAvailable;
 
 

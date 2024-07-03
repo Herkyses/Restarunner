@@ -11,6 +11,8 @@ public class ChefController : MonoBehaviour,IInterectableObject
     [SerializeField] private ChefOrderTable _chefOrderTable;
     [SerializeField] private int _chefOrderTableIndex;
     public static Action<WaiterController> FoodCreated;
+    private FoodTable _tableFood;
+    private List<FoodTable> _tableFoodList = new List<FoodTable>();
 
     private void OnEnable()
     {
@@ -25,15 +27,21 @@ public class ChefController : MonoBehaviour,IInterectableObject
     public void SetOrders(List<OrderDataStruct> orderDataStruct,bool isPlayerGive = true,WaiterController ownerWaiter = null)
     {
         ChefOwnerStructData = orderDataStruct;
-        CreateFoods();
         if (!isPlayerGive)
         {
+            CreateFoods(true);
+            ownerWaiter.FoodTable = _tableFoodList;
             FoodCreated?.Invoke(ownerWaiter);
+        }
+        else
+        {
+            CreateFoods(false);
+
         }
         //orderDataStruct.Clear();        ////////////önemliiiiii yapılanları çıkar sadece
     }
 
-    public void CreateFoods()
+    public void CreateFoods(bool withWaiter)
     {
         for (int i = 0; i < ChefOwnerStructData.Count; i++)
         {
@@ -42,6 +50,8 @@ public class ChefController : MonoBehaviour,IInterectableObject
                 if (ChefOwnerStructData[i].OrderType == GameDataManager.Instance.FoodDatas[j].OrderType && MealManager.Instance.GetMealIngredient(GameDataManager.Instance.FoodDatas[j].OrderType) > 0)
                 {
                     var food = Instantiate(GameDataManager.Instance.FoodTablePf);
+                    _tableFood = food;
+                    _tableFoodList.Add(_tableFood);
                     RemovedOrderDataStructs.Add(ChefOwnerStructData[i]);
                     food.CreateFood(GameDataManager.Instance.FoodDatas[j].Food.OrderType);
                     food.transform.position = _chefOrderTable.FoodTransformList[_chefOrderTableIndex].position;
