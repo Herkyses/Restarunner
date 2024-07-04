@@ -1741,7 +1741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &44262311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44872,6 +44872,7 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 1480333179}
   IsFinishedFood: 0
   IsSitting: 0
+  IsTakedFood: 0
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
   "_a\u0131Canvas_": {fileID: 221406127}
@@ -65909,7 +65910,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2073248497
 Transform:
   m_ObjectHideFlags: 0
@@ -65985,7 +65986,7 @@ MonoBehaviour:
   OwnerTableForWaiter: {fileID: 0}
   ChefController: {fileID: 0}
   TableBill: {fileID: 0}
-  Food: {fileID: 0}
+  FoodTable: []
   IsAvailable: 1
 --- !u!114 &2073248499
 MonoBehaviour:
@@ -66105,6 +66106,7 @@ MonoBehaviour:
   _targetFirstPosition: {fileID: 1480333179}
   IsFinishedFood: 0
   IsSitting: 0
+  IsTakedFood: 0
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
   "_a\u0131Canvas_": {fileID: 1206036536}
