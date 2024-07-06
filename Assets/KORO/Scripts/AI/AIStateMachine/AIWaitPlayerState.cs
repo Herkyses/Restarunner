@@ -15,22 +15,11 @@ public class AIWaitPlayerState : AIBaseState
     {
         AIStateMachineController.AIController.AIAnimationController.PlayIdleAnimation();
         AIStateMachineController.AIController._agent.speed = 0;
-        Collider[] colliders = Physics.OverlapSphere(AIStateMachineController.transform.position, 0.5f);
-        
-        foreach (Collider col in colliders)
-        {
-            if (col.gameObject.GetComponent<AIWaitStateController>())
-            {
-                var AIWaitStateController = col.gameObject.GetComponent<AIWaitStateController>();
-                AIWaitStateController.AddList(AIStateMachineController.AIController);
-                AIStateMachineController.AIWaitTimeController.WaitTimeValue = 10f;
-                AIStateMachineController.AIWaitTimeController.WaitTimeStarted = true;
-            }
-            else
-            {
-                
-            }
-        }
+
+        var AIWaitStateController = Places.Instance.DoorTransform.gameObject.GetComponent<AIWaitStateController>();
+        AIWaitStateController.AddList(AIStateMachineController.AIController);
+        AIStateMachineController.AIWaitTimeController.WaitTimeValue = 10f;
+        AIStateMachineController.AIWaitTimeController.WaitTimeStarted = true;
     }
 
     public override void UpdateState()

@@ -27,7 +27,6 @@ public class AITargetRestaurantState : AIBaseState
             if (PlaceController.RestaurantIsOpen)
             {
                 AIStateMachineController.AIChangeState(AIStateMachineController.AIWaitPlayerState);
-
             }
             else
             {
