@@ -48048,6 +48048,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2d26118d7f7653c45b3fb614938bc2c8, type: 2}
   - {fileID: 11400000, guid: 2b6f92b799d911d4ab29468386d56109, type: 2}
   EnvironmentShopItemDatas:
+  - {fileID: 11400000, guid: 01cb5d0719d543f41bebc3ebbd5f767c, type: 2}
   - {fileID: 11400000, guid: 56a97bbe5ce0e49459e8bda2f468cf6d, type: 2}
   - {fileID: 11400000, guid: 7ccdee3a54bf93b4d9dd2d92eb559379, type: 2}
   - {fileID: 11400000, guid: 3b64d7d1759a5f7418e23d28c66a55bf, type: 2}
