@@ -109,15 +109,15 @@ public class AIController : MonoBehaviour,IInterectableObject
     // Update is called once per frame
     void Update()
     {
-        if (_targetTransform)
+        /*if (_targetTransform)
         {
             /*if (1 > Vector3.Distance(transform.position, _targetTransform.position))
             {
                 StartTargetDestination();
                 GetComponent<AIAreaController>().InteractabelDeactive();
                 transform.position = _targetFirstPosition.position;
-            }*/
-        }
+            }#1#
+        }*/
         
     }
     void CheckForObstacles()
