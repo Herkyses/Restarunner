@@ -77,6 +77,21 @@ public class AISpawnController : MonoBehaviour
             SetTransformToAI(singleAi);
         }
     }
+
+    public void CreateAIForGroup(Transform spawnTransform)
+    {
+        var singleAi = Instantiate(AlPf,transform);
+        var index = Random.Range(0, 7);
+        singleAi.SetModel(index);
+        singleAi.transform.position = spawnTransform.position + Vector3.back * 0.2f;
+        singleAi.AgentID = AllAIList.Count;
+        AllAIList.Add(singleAi);
+    }
+
+    public void GetAvailableAI(int aiCount)
+    {
+        
+    }
     public void SetTransformToAI(AIController singleAi)
     {
         

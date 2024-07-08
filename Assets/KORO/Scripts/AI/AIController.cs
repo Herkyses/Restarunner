@@ -20,7 +20,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     [SerializeField] private AICanvas _aıCanvas_;
     public List<Transform> _targetPositions;
     public List<GameObject> AIModels;
-    
+    //public List<AIController>
     [FormerlySerializedAs("_playerAnimator")] public Animator AiAnimator;
     public AIAnimationController AIAnimationController;
     public AIStateMachineController AIStateMachineController;
