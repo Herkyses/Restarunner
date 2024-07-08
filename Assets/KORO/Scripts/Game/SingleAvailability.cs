@@ -35,7 +35,7 @@ public class SingleAvailability : MonoBehaviour
                     IsSingleAvailabilityButtonPressed = true;
                     TableImageBg.color = Color.red;
                 }
-                AIWaitStateController.Instance.AISetTablePos(TableAvailablePanel.Instance.SelectedCustomerIndex,OwnerTable.transform);
+                AIWaitStateController.Instance.AISetTablePos(TableAvailablePanel.Instance.SelectedCustomerIndex,OwnerTable);
             }
         }
         

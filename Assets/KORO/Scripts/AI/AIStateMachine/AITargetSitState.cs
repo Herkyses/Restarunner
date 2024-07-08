@@ -19,9 +19,10 @@ public class AITargetSitState : AIBaseState
 
     public override void UpdateState()
     {
-        if (Vector3.Distance(AIStateMachineController.transform.position, AIStateMachineController.AITargetSitTransform.position) < 0.2f)
+        if (Vector3.Distance(AIStateMachineController.transform.position, AIStateMachineController.OwnerTable.transform.position) < 0.2f)
         {
-            AIStateMachineController.AIController.GetComponent<AIAreaController>().StartInteractableObject(Enums.AIStateType.Customer);
+            //AIStateMachineController.AIController.GetComponent<AIAreaController>().StartInteractableObject(Enums.AIStateType.Customer);
+            AIStateMachineController.OwnerTable.StartState(AIStateMachineController.AIController.GetComponent<AIAreaController>(),Enums.AIStateType.Customer);
         }
     }
 

@@ -51,15 +51,16 @@ public class AIWaitStateController : MonoBehaviour,IInterectableObject
         return "CheckAvailableTables";
     }
 
-    public void AISetTablePos(int index,Transform tableTransform)
+    public void AISetTablePos(int index,Table table)
     {
         for (int i = 0; i < AiControllers.Count; i++)
         {
             if (AiControllers[i].AgentID == index)
             {
-                AiControllers[i].AIStateMachineController.AITargetSitTransform = tableTransform;
+                AiControllers[i].AIStateMachineController.AITargetSitTransform = table.transform;
+                AiControllers[i].AIStateMachineController.OwnerTable = table;
                 AiControllers[i].AIStateMachineController.AIChangeState(AiControllers[i].AIStateMachineController.AITargetSitState);
-                AiControllers[i]._agent.destination = tableTransform.position;
+                AiControllers[i]._agent.destination = table.transform.position;
                 AiControllers[i]._agent.speed = 1f;
                 TableAvailablePanel.Instance.RemoveFromCustomerList(index);
             }

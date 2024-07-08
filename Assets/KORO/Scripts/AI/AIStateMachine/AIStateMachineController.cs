@@ -36,6 +36,8 @@ public class AIStateMachineController : MonoBehaviour
     public AIAreaController AIAreaController;
     public Transform AITargetSitTransform;
     public Transform AITargetTableTransform;
+
+    public Table OwnerTable;
     //public static Action<float> PayedOrderBill; 
     [SerializeField] private Animator _playerAnimator;
     [SerializeField] private bool _isAIChef;
@@ -177,5 +179,6 @@ public class AIStateMachineController : MonoBehaviour
         AIController.IsFinishedFood = false;
         AIChangeState(AIMoveState);
         AIController.IsTakedFood = false;
+        OwnerTable = null;
     }
 }
