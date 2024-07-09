@@ -81,6 +81,19 @@ public class TableAvailablePanel : MonoBehaviour
             }
         }
     }
+
+    public int GetCustomerCount(int index)
+    {
+        for (int i = 0; i < _customerList.Count; i++)
+        {
+            if (index == _customerList[i].aiIndex)
+            {
+                return _customerList[i].FriendCountInt;
+            }
+        }
+
+        return -1;
+    }
     
     
     // Update is called once per frame
