@@ -10,6 +10,7 @@ public class SingleAvailability : MonoBehaviour
     public int CustomerCount;
     public Image TableImageBg;
     public TextMeshProUGUI AvailabilityText;
+    public TextMeshProUGUI CustomerCountText;
     public Table OwnerTable;
     public bool IsSingleAvailabilityButtonPressed;
 
@@ -19,7 +20,7 @@ public class SingleAvailability : MonoBehaviour
         AvailabilityText.text = tableNumber.ToString();
         OwnerTable = ownerTable;
         TableNumber = ownerTable.TableNumber;
-        
+        CustomerCountText.text = OwnerTable.TableCapacity.ToString();
     }
 
     public void SingleAvailabilityButtonPressed()
