@@ -17,8 +17,9 @@ public class SingleCustomer : MonoBehaviour
     public void InitializeSingleCustom(int customerIndex,int friendCount)
     {
         aiIndex = customerIndex;
-        aiIndexText.text = aiIndex.ToString();
-        FriendCount.text = friendCount.ToString();
+        //aiIndexText.text = aiIndex.ToString();
+        aiIndexText.text = friendCount.ToString();
+        //FriendCount.text = friendCount.ToString();
     }
 
     public void SetCustomerId()

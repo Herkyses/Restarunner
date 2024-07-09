@@ -89,7 +89,8 @@ public class AISpawnController : MonoBehaviour
         singleAi.AgentID = AllAIList.Count;
         AllAIList.Add(singleAi);
         singleAi.Initiliaze(true);*/
-        for (int i = 0; i < TableController.Instance.TableSets[2].table.TableCapacity-1; i++)
+        var randomTable = Random.Range(0, TableController.Instance.TableSets.Count);
+        for (int i = 0; i < TableController.Instance.TableSets[randomTable].table.TableCapacity-1; i++)
         {
             var ranDomTime = Random.Range(1, 3);
             var singleAi = Instantiate(AlPf,transform);
