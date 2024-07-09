@@ -31,10 +31,10 @@ public class AIWaitStateController : MonoBehaviour,IInterectableObject
             
     }
 
-    public void AddList(AIController aiController)
+    public void AddList(AIController aiController,int friendCount)
     {
         AiControllers.Add(aiController);
-        TableAvailablePanel.Instance.SetCustomerList(aiController.AgentID);
+        TableAvailablePanel.Instance.SetCustomerList(aiController.AgentID,friendCount);
     }
 
     public void RemoveFromAiControllersList(AIController aiController)

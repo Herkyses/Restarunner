@@ -29,12 +29,15 @@ public class SingleAvailability : MonoBehaviour
             if (!IsSingleAvailabilityButtonPressed)
             {
                 TableAvailablePanel.Instance.IsCustomerSelected = false;
-                CustomerCount++;
+                
+                IsSingleAvailabilityButtonPressed = true;
+                TableImageBg.color = Color.red;
+                /*CustomerCount++;
                 if (CustomerCount >= OwnerTable.TableCapacity)
                 {
                     IsSingleAvailabilityButtonPressed = true;
                     TableImageBg.color = Color.red;
-                }
+                }*/
                 AIWaitStateController.Instance.AISetTablePos(TableAvailablePanel.Instance.SelectedCustomerIndex,OwnerTable);
             }
         }

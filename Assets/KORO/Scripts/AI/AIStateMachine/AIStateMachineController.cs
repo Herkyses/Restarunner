@@ -180,7 +180,6 @@ public class AIStateMachineController : MonoBehaviour
         {
             for (int i = 0; i < Friends.Count; i++)
             {
-                Friends[i].AIStateMachineController.AIChangeState(Friends[i].AIStateMachineController.AITargetSitState);
                 Friends[i].AIStateMachineController.AITargetSitTransform = OwnerTable.transform;
                 Friends[i].AIStateMachineController.OwnerTable = OwnerTable;
                 Friends[i].AIStateMachineController.AIChangeState(Friends[i].AIStateMachineController.AITargetSitState);

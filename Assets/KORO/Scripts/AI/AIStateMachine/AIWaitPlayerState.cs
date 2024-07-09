@@ -17,10 +17,11 @@ public class AIWaitPlayerState : AIBaseState
         AIStateMachineController.AIController._agent.speed = 0;
 
         var AIWaitStateController = Places.Instance.DoorTransform.gameObject.GetComponent<AIWaitStateController>();
-        AIWaitStateController.AddList(AIStateMachineController.AIController);
         AIStateMachineController.AIWaitTimeController.WaitTimeValue = 10f;
         AIStateMachineController.AIWaitTimeController.WaitTimeStarted = true;
         AISpawnController.Instance.CreateAIForGroup(AIStateMachineController.Friends,AIStateMachineController.transform);
+        AIWaitStateController.AddList(AIStateMachineController.AIController,AIStateMachineController.Friends.Count);
+
     }
     
     public override void UpdateState()

@@ -120,10 +120,10 @@ public class TableAvailablePanel : MonoBehaviour
         }
     }
 
-    public void SetCustomerList(int AIIndex)
+    public void SetCustomerList(int AIIndex,int friendCount)
     {
         var customer = Instantiate(_customerPf, _customerParent);
-        customer.InitializeSingleCustom(AIIndex);
+        customer.InitializeSingleCustom(AIIndex,friendCount);
         _customerList.Add(customer);
     }
 

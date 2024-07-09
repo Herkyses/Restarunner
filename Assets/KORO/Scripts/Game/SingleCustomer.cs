@@ -7,16 +7,18 @@ public class SingleCustomer : MonoBehaviour
 {
     public int aiIndex;
     public TextMeshProUGUI aiIndexText;
+    public TextMeshProUGUI FriendCount;
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    public void InitializeSingleCustom(int customerIndex)
+    public void InitializeSingleCustom(int customerIndex,int friendCount)
     {
         aiIndex = customerIndex;
         aiIndexText.text = aiIndex.ToString();
+        FriendCount.text = friendCount.ToString();
     }
 
     public void SetCustomerId()
