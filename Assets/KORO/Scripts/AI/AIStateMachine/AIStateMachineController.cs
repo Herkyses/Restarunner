@@ -17,6 +17,8 @@ public class AIStateMachineController : MonoBehaviour
     public AIWaitPlayerState AIWaitPlayerState;
     public AIChefState AIChefState;
     public AIEatState AIEatState;
+
+    public bool IsFriend;
     
     
     public AIWaiterState AIWaiterState;
@@ -36,6 +38,8 @@ public class AIStateMachineController : MonoBehaviour
     public AIAreaController AIAreaController;
     public Transform AITargetSitTransform;
     public Transform AITargetTableTransform;
+
+    public List<AIController> Friends;
 
     public Table OwnerTable;
     //public static Action<float> PayedOrderBill; 
@@ -57,7 +61,7 @@ public class AIStateMachineController : MonoBehaviour
         }
     }
 
-    void Start()
+    public void Initialize(bool isFriend = false)
     {
         gameObject.TryGetComponent(out AIController);
         gameObject.TryGetComponent(out AIWaitTimeController);
@@ -83,12 +87,17 @@ public class AIStateMachineController : MonoBehaviour
         AIWaiterGiveOrderBillState = new AIWaiterGiveOrderBillState(this);
         AIWaiterTakeFoodState = new AIWaiterTakeFoodState(this);
         AIWaiterGiveFoodState = new AIWaiterGiveFoodState(this);
+        IsFriend = isFriend;
         AIInitialize();
 
     }
 
     public void AIInitialize()
     {
+        if (IsFriend)
+        {
+            return;
+        }
         if (!_isAIChef && !_isAIWaiter)
         {
             if (PlaceController.RestaurantIsOpen)
@@ -163,6 +172,23 @@ public class AIStateMachineController : MonoBehaviour
         //AIController.AIOwnerChair.isChairAvailable = true;
         //AIController.AIOwnerTable.CustomerCount--;
         //AIChangeState(AIMoveState);
+    }
+
+    public void SetFriendsState()
+    {
+        if (Friends.Count > 0)
+        {
+            for (int i = 0; i < Friends.Count; i++)
+            {
+                Friends[i].AIStateMachineController.AIChangeState(Friends[i].AIStateMachineController.AITargetSitState);
+                Friends[i].AIStateMachineController.AITargetSitTransform = OwnerTable.transform;
+                Friends[i].AIStateMachineController.OwnerTable = OwnerTable;
+                Friends[i].AIStateMachineController.AIChangeState(Friends[i].AIStateMachineController.AITargetSitState);
+                Friends[i]._agent.destination = OwnerTable.transform.position;
+                Friends[i]._agent.speed = 1f;
+                //TableAvailablePanel.Instance.RemoveFromCustomerList(Friends[i].AgentID);
+            }
+        }
     }
 
     public void SetMoveStateFromOrderBill()

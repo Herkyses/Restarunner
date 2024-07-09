@@ -20,9 +20,9 @@ public class AIWaitPlayerState : AIBaseState
         AIWaitStateController.AddList(AIStateMachineController.AIController);
         AIStateMachineController.AIWaitTimeController.WaitTimeValue = 10f;
         AIStateMachineController.AIWaitTimeController.WaitTimeStarted = true;
-        //AISpawnController.Instance.CreateAIForGroup(AIStateMachineController.transform);
+        AISpawnController.Instance.CreateAIForGroup(AIStateMachineController.Friends,AIStateMachineController.transform);
     }
-
+    
     public override void UpdateState()
     {
         

@@ -62,6 +62,7 @@ public class AIWaitStateController : MonoBehaviour,IInterectableObject
                 AiControllers[i].AIStateMachineController.AIChangeState(AiControllers[i].AIStateMachineController.AITargetSitState);
                 AiControllers[i]._agent.destination = table.transform.position;
                 AiControllers[i]._agent.speed = 1f;
+                AiControllers[i].AIStateMachineController.SetFriendsState();
                 TableAvailablePanel.Instance.RemoveFromCustomerList(index);
             }
         }

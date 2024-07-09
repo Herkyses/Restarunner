@@ -36,11 +36,12 @@ public class AIController : MonoBehaviour,IInterectableObject
 
     
     // Start is called before the first frame update
-    void Start()
+    public void Initiliaze(bool isFriend = false)
     {
         destinationValue = -1;
         gameObject.TryGetComponent(out AIStateMachineController);
         gameObject.TryGetComponent(out AIAnimationController);
+        AIStateMachineController.Initialize(isFriend);
     }
     /////////// SIT STATE ///////////
     public void StartSitState()
