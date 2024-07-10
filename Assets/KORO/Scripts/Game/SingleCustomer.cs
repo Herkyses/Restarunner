@@ -19,7 +19,7 @@ public class SingleCustomer : MonoBehaviour
     {
         aiIndex = customerIndex;
         //aiIndexText.text = aiIndex.ToString();
-        aiIndexText.text = friendCount.ToString();
+        aiIndexText.text = "+" + friendCount.ToString();
         FriendCountInt = friendCount;
         //FriendCount.text = friendCount.ToString();
     }
