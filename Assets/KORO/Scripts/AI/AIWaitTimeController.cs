@@ -36,6 +36,14 @@ public class AIWaitTimeController : MonoBehaviour
             {
                 WaitTimeStarted = false;
                 AIStateMachineController.AIChangeState(AIStateMachineController.AIMoveState);
+                if (AIStateMachineController.Friends.Count > 0)
+                {
+                    for (int i = 0; i < AIStateMachineController.Friends.Count; i++)
+                    {
+                        AIStateMachineController.Friends[i].AIStateMachineController.AIChangeState(AIStateMachineController.Friends[i].AIStateMachineController.AIMoveState);
+                    }
+                    AIStateMachineController.Friends.Clear();
+                }
                 TableAvailablePanel.Instance.RemoveFromCustomerList(AIStateMachineController.AIController.AgentID);
                 AIWaitStateController.Instance.RemoveFromAiControllersList(AIStateMachineController.AIController);
             }
