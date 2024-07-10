@@ -38,8 +38,6 @@ public class PlayerOrderController : MonoBehaviour
             Food = food.Food;
             TakedFood = true;
             OrderFoodList.Add(food.Food);
-            //food.transform.position = FoodTransform.position;
-            //food.transform.rotation = FoodTransform.rotation;
 
             food.transform.DOMove(FoodTransform.position, 0.2f);
             food.transform.DORotate(FoodTransform.rotation.eulerAngles, 0.2f);

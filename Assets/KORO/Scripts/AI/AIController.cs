@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
@@ -165,9 +166,13 @@ public class AIController : MonoBehaviour,IInterectableObject
             IsTakedFood = true;
             AIOwnerFood = PlayerOrderController.Instance.FoodTable;
             PlayerOrderController.Instance.TakedFood = false;
-            PlayerOrderController.Instance.FoodTable.transform.position = AIOwnerChair.ChairFoodTransform.position;
-            PlayerOrderController.Instance.FoodTable.transform.rotation = AIOwnerChair.ChairFoodTransform.rotation;
+            //PlayerOrderController.Instance.FoodTable.transform.position = AIOwnerChair.ChairFoodTransform.position;
+            //PlayerOrderController.Instance.FoodTable.transform.rotation = AIOwnerChair.ChairFoodTransform.rotation;
             PlayerOrderController.Instance.FoodTable.transform.SetParent(AIOwnerChair.ChairFoodTransform);
+
+            PlayerOrderController.Instance.FoodTable.transform.DORotate(AIOwnerChair.ChairFoodTransform.rotation.eulerAngles,0.2f);
+            PlayerOrderController.Instance.FoodTable.transform.DOMove(AIOwnerChair.ChairFoodTransform.position,0.2f);
+
             PlayerOrderController.Instance.FoodTable = null;
             AIStateMachineController.AIChangeState(AIStateMachineController.AIEatState);
         }
