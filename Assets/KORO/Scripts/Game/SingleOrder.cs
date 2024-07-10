@@ -33,4 +33,8 @@ public class SingleOrder : MonoBehaviour
     {
         OrderPanelController.Instance.PlayerOrderInventory(this);
     }
+    public void MinusButtonPressed()
+    {
+        
+    }
 }
