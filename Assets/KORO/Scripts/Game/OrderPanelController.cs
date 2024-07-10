@@ -51,6 +51,7 @@ public class OrderPanelController : MonoBehaviour
     {
         
         var singleOrderObject = Instantiate(_singlePf, _singlePfParentForSelectedFoodList);
+        singleOrderObject.SingleOrderUIType = Enums.SingleOrderUIType.PlayerOrderList;
         singleOrderObject.OrderType = singleOrder.OrderType;
         singleOrderObject.OrderPrice = singleOrder.OrderPrice;
         singleOrderObject.Initialize();
