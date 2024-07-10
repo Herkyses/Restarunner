@@ -101,6 +101,8 @@ public class AISpawnController : MonoBehaviour
             friends.Add(singleAi);
             singleAi.AgentID = AllAIList.Count;
             singleAi.Initiliaze(true);
+            SetTransformToAI(singleAi,true);
+
 
         }
     }
@@ -109,12 +111,15 @@ public class AISpawnController : MonoBehaviour
     {
         
     }
-    public void SetTransformToAI(AIController singleAi)
+    public void SetTransformToAI(AIController singleAi,bool isFriend = false)
     {
         
         if (Random.value < 0.5f)
         {
-            singleAi.transform.position = TargetList[0].transform.position;
+            if (!isFriend)
+            {
+                singleAi.transform.position = TargetList[0].transform.position;
+            }
             singleAi._targetTransform = TargetList[1].transform;
             singleAi._targetFirstPosition = TargetList[0].transform;
             singleAi._targetPositions[1] = TargetList[0].transform;
@@ -122,11 +127,15 @@ public class AISpawnController : MonoBehaviour
         }
         else
         {
-            singleAi.transform.position = TargetList[1].transform.position;
+            if (!isFriend)
+            {
+                singleAi.transform.position = TargetList[1].transform.position;
+            }
             singleAi._targetTransform = TargetList[0].transform;
             singleAi._targetFirstPosition = TargetList[1].transform;
             singleAi._targetPositions[1] = TargetList[1].transform;
             singleAi._targetPositions[2] = TargetList[0].transform;        
         }
     }
+    
 }
