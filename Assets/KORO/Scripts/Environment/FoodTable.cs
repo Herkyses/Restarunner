@@ -37,8 +37,8 @@ public class FoodTable : MonoBehaviour,IInterectableObject
     {
         DeleteChilds(FoodSpawnTransform);
         var food = Instantiate(GameDataManager.Instance.GetFood(orderType),FoodSpawnTransform);
+        food.transform.localPosition = Vector3.zero;
         Food = food;
-        food.transform.position = Vector3.zero;
     }
     
     public void DeleteChilds(Transform parent)
