@@ -12,6 +12,7 @@ public class SingleOrder : MonoBehaviour
     public float OrderPrice;
     public TextMeshProUGUI OrderText;
     public Image SingleOrderPlusImage;
+    public Image SingleOrderMinusImage;
     public Image FoodImage;
 
     public void Initialize()
@@ -27,6 +28,10 @@ public class SingleOrder : MonoBehaviour
         {
             SingleOrderPlusImage.gameObject.SetActive(true);
         }
+        else if(SingleOrderUIType == Enums.SingleOrderUIType.PlayerOrderList)
+        {
+            SingleOrderMinusImage.gameObject.SetActive(true);
+        }
     }
 
     public void PlusButtonPressed()
@@ -35,6 +40,7 @@ public class SingleOrder : MonoBehaviour
     }
     public void MinusButtonPressed()
     {
-        
+        OrderPanelController.Instance.RemoveOrderFromLPayer(this);
+
     }
 }

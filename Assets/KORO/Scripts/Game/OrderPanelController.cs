@@ -63,6 +63,20 @@ public class OrderPanelController : MonoBehaviour
         };
         PlayerOrderController.Instance.OrderList[OpenedTableNumber].OrderDataStructs.Add(DataStruct);
     }
+
+    public void RemoveOrderFromLPayer(SingleOrder singleOrder)
+    {
+        SelectedOrderList.Remove(singleOrder);
+        for (int i = 0; i < PlayerOrderController.Instance.OrderList[OpenedTableNumber].OrderDataStructs.Count; i++)
+        {
+            if (PlayerOrderController.Instance.OrderList[OpenedTableNumber].OrderDataStructs[i].OrderType == singleOrder.OrderType)
+            {
+                PlayerOrderController.Instance.OrderList[OpenedTableNumber].OrderDataStructs.Remove(PlayerOrderController.Instance.OrderList[OpenedTableNumber].OrderDataStructs[i]);
+                Destroy(singleOrder.gameObject);
+                return;
+            }
+        }
+    }
     public void ShowOrder(List<OrderDataStruct> _orderList,int tableNumber)
     {
         SelectedOrderList.Clear();
