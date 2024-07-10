@@ -2549,6 +2549,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aiIndex: 0
   aiIndexText: {fileID: 0}
+  FriendCount: {fileID: 0}
+  FriendCountInt: 0
 --- !u!114 &2416453466085047226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9601,7 +9603,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 0, y: 0}
+  m_Spacing: {x: 0, y: 27.2}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &6436319219660221171
