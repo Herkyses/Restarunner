@@ -52,9 +52,9 @@ public class PlayerOrderController : MonoBehaviour
             TableBill = tableBill;
             TakedTableBill = true;
             //OrderFoodList.Add(food);
-            TableBill.transform.position = PlayerOrderController.Instance.FoodTransform.position;
-            //TableBill.transform.rotation = PlayerOrderController.Instance.FoodTransform.rotation;
-            TableBill.transform.SetParent(PlayerOrderController.Instance.FoodTransform);
+            TableBill.transform.position = FoodTransform.position;
+            TableBill.transform.rotation = FoodTransform.rotation;
+            TableBill.transform.SetParent(FoodTransform);
         }
         
     }
