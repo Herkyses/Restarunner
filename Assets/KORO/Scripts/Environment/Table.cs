@@ -65,6 +65,12 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         BillPanel.gameObject.SetActive(true);
     }
 
+    public void ResetTable()
+    {
+        IsTableFoodFinished = false;
+        BillPanel.gameObject.SetActive(false);
+    }
+
     public void StartState(AIAreaController AIArea, Enums.AIStateType aiStateType)
     {
         if (aiStateType == Enums.AIStateType.Customer)
@@ -184,6 +190,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             CheckOrderBillsPanel.Instance.UpdateBillList(TableNumber);
             TotalBills = 0;
             _aiControllerList.Clear();
+            ResetTable();
         }
     }
 
