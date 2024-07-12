@@ -39,9 +39,9 @@ public class PlayerOrderController : MonoBehaviour
             TakedFood = true;
             OrderFoodList.Add(food.Food);
 
-            food.transform.DOMove(FoodTransform.position, 0.2f);
-            food.transform.DORotate(FoodTransform.rotation.eulerAngles, 0.2f);
-            food.transform.SetParent(FoodTransform);
+            food.transform.DOMove(CameraController.Instance.PlayerTakedObjectTransformParent.position, 0.2f);
+            food.transform.DORotate(CameraController.Instance.PlayerTakedObjectTransformParent.rotation.eulerAngles, 0.2f);
+            food.transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
         }
         
     }
@@ -52,9 +52,13 @@ public class PlayerOrderController : MonoBehaviour
             TableBill = tableBill;
             TakedTableBill = true;
             //OrderFoodList.Add(food);
-            TableBill.transform.position = FoodTransform.position;
-            TableBill.transform.rotation = FoodTransform.rotation;
-            TableBill.transform.SetParent(FoodTransform);
+            TableBill.transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
+            TableBill.transform.localPosition = Vector3.zero;
+            TableBill.transform.localRotation = CameraController.Instance.PlayerTakedObjectTransformParent.localRotation;
+            /*TableBill.transform.position = FoodTransform.position;
+            var zort = FoodTransform.transform.rotation.eulerAngles + new Vector3(0f, 0f, -90f);
+            TableBill.transform.localRotation = Quaternion.Euler(zort);
+            TableBill.transform.SetParent(FoodTransform);*/
         }
         
     }

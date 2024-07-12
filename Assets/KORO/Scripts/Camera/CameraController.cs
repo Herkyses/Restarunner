@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
 {
     public static CameraController Instance;
     public Transform PlayerTransform;
+    public Transform PlayerTakedObjectTransformParent;
     
     /*public float CamTransformXDifference = 0;
     public float CamTransformYDifference = 0;
