@@ -47,7 +47,7 @@ public class BillTable : MonoBehaviour,IInterectableObject
             _tableBillTemp.gameObject.SetActive(true);
         }
         _tableBillTemp.transform.localPosition = Vector3.zero;
-        var zort = _tableBillParent.transform.rotation.eulerAngles + new Vector3(0f, 0f, -90f);
+        var zort = _tableBillParent.transform.rotation.eulerAngles;
         _tableBillTemp.transform.localRotation = Quaternion.Euler(zort);
         _tableBillTemp.BillValue = ownerTable.TotalBills;
         _tableBillTemp.OwnerTable = ownerTable;
