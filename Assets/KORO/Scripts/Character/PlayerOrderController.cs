@@ -53,8 +53,8 @@ public class PlayerOrderController : MonoBehaviour
             TakedTableBill = true;
             //OrderFoodList.Add(food);
             TableBill.transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
-            TableBill.transform.localPosition = Vector3.zero;
-            TableBill.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            TableBill.transform.localPosition = new Vector3(0.2f,0,0);
+            TableBill.transform.localRotation = Quaternion.Euler(new Vector3(0f,0,30));
             /*TableBill.transform.position = FoodTransform.position;
             var zort = FoodTransform.transform.rotation.eulerAngles + new Vector3(0f, 0f, -90f);
             TableBill.transform.localRotation = Quaternion.Euler(zort);
