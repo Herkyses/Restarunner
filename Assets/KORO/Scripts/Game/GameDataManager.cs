@@ -83,10 +83,10 @@ public class GameDataManager : MonoBehaviour
             case Enums.OrderType.HotDog:
                 return FoodDatas[4].FoodIcon;
                 break;
-            case Enums.OrderType.Taco:
+            case Enums.OrderType.Sandwich:
                 return FoodDatas[5].FoodIcon;
                 break;
-            case Enums.OrderType.Sandwich:
+            case Enums.OrderType.Taco:
                 return FoodDatas[6].FoodIcon;
                 break;
             
@@ -114,10 +114,10 @@ public class GameDataManager : MonoBehaviour
             case Enums.OrderType.HotDog:
                 return FoodDatas[4].OrderPrice;
                 break;
-            case Enums.OrderType.Taco:
+            case Enums.OrderType.Sandwich:
                 return FoodDatas[5].OrderPrice;
                 break;
-            case Enums.OrderType.Sandwich:
+            case Enums.OrderType.Taco:
                 return FoodDatas[6].OrderPrice;
                 break;
             
