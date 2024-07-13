@@ -9,12 +9,15 @@ public class PoolManager : MonoBehaviour
 
     public GameObject FoodTableObject;
     public GameObject FoodObject;
+    public GameObject OrderBill;
     [FormerlySerializedAs("FoodParent")] public Transform TableFoodParent;
     public Transform FoodParent;
+    public Transform OrderBillParent;
     public int initialSize = 10;
     
     private Queue<GameObject> FoodTablePool;
     private Queue<GameObject> FoodPool;
+    private Queue<GameObject> OrderBillPool;
     
     private void Awake()
     {
@@ -32,6 +35,7 @@ public class PoolManager : MonoBehaviour
     {
         FoodTrayPool();
         FoodPoolMethod();
+        OrderBillMethod();
     }
 
     public void FoodTrayPool()
@@ -57,7 +61,30 @@ public class PoolManager : MonoBehaviour
             FoodPool.Enqueue(obj);
         }
     }
+    public void OrderBillMethod()
+    {
+        OrderBillPool = new Queue<GameObject>();
+        for (int i = 0; i < initialSize; i++)
+        {
+            GameObject obj = Instantiate(OrderBill);
+            obj.transform.SetParent(OrderBillParent);
+            obj.SetActive(false);
+            OrderBillPool.Enqueue(obj);
+        }
+    }
+    public GameObject GetFromPoolForOrderBill()
+    {
+        if (OrderBillPool.Count == 0)
+        {
+            GameObject obj = Instantiate(OrderBill);
+            obj.SetActive(false);
+            FoodTablePool.Enqueue(obj);
+        }
 
+        GameObject pooledObject = OrderBillPool.Dequeue();
+        pooledObject.SetActive(true);
+        return pooledObject;
+    }
     public GameObject GetFromPool()
     {
         if (FoodTablePool.Count == 0)
@@ -96,5 +123,11 @@ public class PoolManager : MonoBehaviour
         obj.transform.SetParent(FoodParent);
         obj.SetActive(false);
         FoodPool.Enqueue(obj);
+    }
+    public void ReturnToPoolForOrderBill(GameObject obj)
+    {
+        obj.transform.SetParent(OrderBillParent);
+        obj.SetActive(false);
+        OrderBillPool.Enqueue(obj);
     }
 }

@@ -38,14 +38,17 @@ public class BillTable : MonoBehaviour,IInterectableObject
     public void CreateTableBill(Table ownerTable)
     {
         DeleteChilds();
-        if (!_tableBillTemp)
+        /*if (!_tableBillTemp)
         {
             _tableBillTemp = Instantiate(_tableBillPf, _tableBillParent);
         }
         else
         {
             _tableBillTemp.gameObject.SetActive(true);
-        }
+        }*/
+
+        _tableBillTemp = PoolManager.Instance.GetFromPoolForOrderBill().GetComponent<TableBill>();
+        _tableBillTemp.transform.SetParent(_tableBillParent);
         _tableBillTemp.transform.localPosition = Vector3.zero;
         var zort = _tableBillParent.transform.rotation.eulerAngles;
         _tableBillTemp.transform.localRotation = Quaternion.Euler(zort);
@@ -54,9 +57,10 @@ public class BillTable : MonoBehaviour,IInterectableObject
     }
     public void UpdateTableBill(TableBill tableBill)
     {
-        tableBill.gameObject.SetActive(false);
+        PoolManager.Instance.ReturnToPoolForOrderBill(tableBill.gameObject);
+        /*tableBill.gameObject.SetActive(false);
         tableBill.transform.SetParent(_tableBillParent);
-        tableBill.transform.localPosition = Vector3.zero;
+        tableBill.transform.localPosition = Vector3.zero;*/
     }
 
     public void InterectableObjectRun()
