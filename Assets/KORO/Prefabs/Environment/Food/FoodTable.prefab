@@ -114,6 +114,7 @@ MonoBehaviour:
   OrderType: 0
   FoodObject: {fileID: 0}
   Food: {fileID: 0}
+  IsFoodFinished: 0
   FoodSpawnTransform: {fileID: 7227048280185219731}
   OwnerWaiterCotroller: {fileID: 0}
 --- !u!1 &7998264308638996600

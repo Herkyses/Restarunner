@@ -49,6 +49,29 @@ public class GameDataManager : MonoBehaviour
 
         return null;
     }
+    public MeshRenderer GetFoodMesh(Enums.OrderType orderType)
+    {
+        switch (orderType)
+        {
+            case Enums.OrderType.Pizza:
+                return FoodDatas[0].FoodMesh;
+            case Enums.OrderType.Burger:
+                return FoodDatas[1].FoodMesh;
+            case Enums.OrderType.Chicken:
+                return FoodDatas[2].FoodMesh;
+            case Enums.OrderType.Croissant:
+                return FoodDatas[3].FoodMesh;
+            case Enums.OrderType.HotDog:
+                return FoodDatas[4].FoodMesh;
+            case Enums.OrderType.Sandwich:
+                return FoodDatas[5].FoodMesh;
+            case Enums.OrderType.Taco:
+                return FoodDatas[6].FoodMesh;
+            
+        }
+
+        return null;
+    }
 
     public float GetOrderBill(Enums.OrderType orderType)
     {

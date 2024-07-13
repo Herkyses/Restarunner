@@ -10,4 +10,5 @@ public class OrderData : ScriptableObject
     public float OrderPrice;
     public Sprite FoodIcon;
     public Food Food;
+    public MeshRenderer FoodMesh;
 }
