@@ -77,7 +77,9 @@ public class AISpawnController : MonoBehaviour
         {
             var ranDomTime = Random.Range(1, 3);
             yield return new WaitForSeconds(ranDomTime);
-            var singleAi = Instantiate(AlPf,transform);
+            //var singleAi = Instantiate(AlPf,transform);
+            var singleAi = PoolManager.Instance.GetCustomerAI().GetComponent<AIController>();
+            singleAi.transform.SetParent(transform);
             var index = Random.Range(0, 7);
             singleAi.SetModel(index);
             AllAIList.Add(singleAi);
