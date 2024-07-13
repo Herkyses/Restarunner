@@ -7,11 +7,12 @@ public class FoodTable : MonoBehaviour,IInterectableObject
     public Enums.OrderType OrderType;
     public GameObject FoodObject;
     public Food Food;
+    public bool IsFoodFinished;
     public Transform FoodSpawnTransform;
     public WaiterController OwnerWaiterCotroller;
     public void InterectableObjectRun()
     {
-        PlayerOrderController.Instance.TakeFood(GetComponent<FoodTable>());
+        PlayerOrderController.Instance.TakeFood(GetComponent<FoodTable>(),IsFoodFinished);
     }
 
     public void ShowOutline(bool active)

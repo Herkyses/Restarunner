@@ -30,15 +30,19 @@ public class PlayerOrderController : MonoBehaviour
 
     }
 
-    public void TakeFood(FoodTable food)
+    public void TakeFood(FoodTable food,bool isFoodFinished)
     {
+       
         FoodTable = food;
+        
         if (!TakedFood)
         {
-            Food = food.Food;
-            TakedFood = true;
-            OrderFoodList.Add(food.Food);
-
+            if (!isFoodFinished)
+            {
+                Food = food.Food;
+                TakedFood = true;
+                OrderFoodList.Add(food.Food);            
+            }
             food.transform.DOLocalMove(Vector3.zero, 0.2f);
             food.transform.DOLocalRotate(Vector3.zero, 0.2f);
             food.transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
