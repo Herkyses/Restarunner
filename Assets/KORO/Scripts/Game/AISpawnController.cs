@@ -119,7 +119,9 @@ public class AISpawnController : MonoBehaviour
             for (int i = 0; i < table.TableCapacity-1; i++)
             {
                 var ranDomTime = Random.Range(1, 3);
-                var singleAi = Instantiate(AlPf,transform);
+                //var singleAi = Instantiate(AlPf,transform);
+                var singleAi = PoolManager.Instance.GetCustomerAI().GetComponent<AIController>();
+                singleAi.transform.SetParent(transform);
                 var index = Random.Range(0, 7);
                 singleAi.SetModel(index);
                 singleAi.transform.position = spawnTransform.position + Vector3.back * 0.2f;
