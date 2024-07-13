@@ -35,6 +35,7 @@ public class SingleAvailability : MonoBehaviour
                 
                     IsSingleAvailabilityButtonPressed = true;
                     TableImageBg.color = Color.red;
+                    OwnerTable.IsTableAvailable = false;
                     /*CustomerCount++;
                     if (CustomerCount >= OwnerTable.TableCapacity)
                     {

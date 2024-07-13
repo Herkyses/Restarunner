@@ -148,7 +148,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     {
         groundLayer = LayerMask.NameToLayer("Ground");
 
-        IsTableAvailable = false;
+        IsTableAvailable = true;
         TableNumberText.text = TableNumber.ToString();
     }
 

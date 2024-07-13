@@ -202,6 +202,10 @@ public class AIStateMachineController : MonoBehaviour
         AIController.AIOwnerChair.isChairAvailable = true;
         AIController.IsSitting = false;
         AIController.AIOwnerTable.CustomerCount--;
+        if (!AIController.AIOwnerTable.IsTableAvailable)
+        {
+            AIController.AIOwnerTable.IsTableAvailable = true;
+        }
         AIAreaController.InteractabelDeactive();
         AIController.IsFinishedFood = false;
         AIChangeState(AIMoveState);
