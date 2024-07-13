@@ -89,22 +89,38 @@ public class AISpawnController : MonoBehaviour
         singleAi.AgentID = AllAIList.Count;
         AllAIList.Add(singleAi);
         singleAi.Initiliaze(true);*/
-        var randomTable = Random.Range(0, TableController.Instance.TableSets.Count);
-        for (int i = 0; i < TableController.Instance.TableSets[randomTable].table.TableCapacity-1; i++)
+        var randomTable = 0;
+        var table = new Table();
+        for (int i = 0; i < TableController.Instance.TableSets.Count; i++)
         {
-            var ranDomTime = Random.Range(1, 3);
-            var singleAi = Instantiate(AlPf,transform);
-            var index = Random.Range(0, 7);
-            singleAi.SetModel(index);
-            singleAi.transform.position = spawnTransform.position + Vector3.back * 0.2f;
-            AllAIList.Add(singleAi);
-            friends.Add(singleAi);
-            singleAi.AgentID = AllAIList.Count;
-            singleAi.Initiliaze(true);
-            SetTransformToAI(singleAi,true);
-
-
+            if (TableController.Instance.TableSets[i].table.IsTableAvailable)
+            {
+                randomTable = TableController.Instance.TableSets[i].table.TableNumber;
+                table = TableController.Instance.TableSets[i].table;
+                break;
+            }
+            
+            randomTable = -1;
+            
         }
+
+        if (randomTable != -1)
+        {
+            for (int i = 0; i < table.TableCapacity-1; i++)
+            {
+                var ranDomTime = Random.Range(1, 3);
+                var singleAi = Instantiate(AlPf,transform);
+                var index = Random.Range(0, 7);
+                singleAi.SetModel(index);
+                singleAi.transform.position = spawnTransform.position + Vector3.back * 0.2f;
+                AllAIList.Add(singleAi);
+                friends.Add(singleAi);
+                singleAi.AgentID = AllAIList.Count;
+                singleAi.Initiliaze(true);
+                SetTransformToAI(singleAi,true);
+            }
+        }
+        
     }
 
     public void GetAvailableAI(int aiCount)
