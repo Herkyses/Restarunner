@@ -40,7 +40,7 @@ public class InitializeManager : MonoBehaviour
         CheckOrderBillsPanel.Instance.Initialize();
 
 
-        StartCoroutine(AISpawnController.Instance.Initialize());
+        //StartCoroutine(AISpawnController.Instance.Initialize());
         OrderPanelController.Instance.Initialize();
         PlacePanelController.Instance.Initialize();
         PlaceController.Instance.Initialize();

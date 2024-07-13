@@ -15,10 +15,13 @@ public class AISpawnController : MonoBehaviour
     private void OnEnable()
     {
         GameSceneCanvas.UpdateAISpawnController += UpdateAiSpawner;
+        PoolManager.IsPoolManagerInitiliazed += InitiliazeAIS;
     }
     private void OnDisable()
     {
         GameSceneCanvas.UpdateAISpawnController -= UpdateAiSpawner;
+        PoolManager.IsPoolManagerInitiliazed -= InitiliazeAIS;
+
     }
 
 
@@ -62,6 +65,11 @@ public class AISpawnController : MonoBehaviour
     {
         SetTransformToAI(singleAi); 
         singleAi.AIStateMachineController.AIInitialize();
+    }
+
+    public void InitiliazeAIS()
+    {
+        StartCoroutine(Initialize());
     }
     public IEnumerator Initialize()
     {

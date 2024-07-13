@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine.Serialization;
 public class PoolManager : MonoBehaviour
 {
     public static PoolManager Instance;
-
+    public static Action IsPoolManagerInitiliazed;
     public GameObject FoodTableObject;
     public GameObject FoodObject;
     public GameObject OrderBill;
@@ -36,6 +37,7 @@ public class PoolManager : MonoBehaviour
         FoodTrayPool();
         FoodPoolMethod();
         OrderBillMethod();
+        IsPoolManagerInitiliazed?.Invoke();
     }
 
     public void FoodTrayPool()
