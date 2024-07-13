@@ -52,6 +52,7 @@ public class PoolManager : MonoBehaviour
 
     public void ReturnToPool(GameObject obj)
     {
+        obj.transform.SetParent(FoodParent);
         obj.SetActive(false);
         pool.Enqueue(obj);
     }
