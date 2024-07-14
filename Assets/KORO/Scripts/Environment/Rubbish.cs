@@ -9,7 +9,6 @@ public class Rubbish : MonoBehaviour,IInterectableObject
         gameObject.SetActive(false);
         if (RubbishManager.Instance.CheckRubbishLevel())
         {
-            Debug.Log("aynenöylebeaynenöyle");
             RubbishManager.Instance.UpdateRubbishLevel();
             RubbishManager.Instance.ActivateRubbishes();
         }
