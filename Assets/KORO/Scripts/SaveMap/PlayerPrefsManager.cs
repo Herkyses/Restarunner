@@ -76,4 +76,14 @@ public class PlayerPrefsManager : MonoBehaviour
         }
         return null;
     }
+    
+    public void SavePlaceRubbishLevel(int level)
+    {
+        PlayerPrefs.SetInt("PlaceRubbishLevel", level);
+        PlayerPrefs.Save();
+    }
+    public int LoadPlaceRubbishLevel()
+    {
+        return PlayerPrefs.GetInt("PlaceRubbishLevel", 0); // Varsayılan değer 0
+    }
 }

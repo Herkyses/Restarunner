@@ -44,6 +44,7 @@ public class InitializeManager : MonoBehaviour
         OrderPanelController.Instance.Initialize();
         PlacePanelController.Instance.Initialize();
         PlaceController.Instance.Initialize();
+        RubbishManager.Instance.Initiliaze();
     }
 
     // Update is called once per frame
