@@ -11,6 +11,7 @@ public class Rubbish : MonoBehaviour,IInterectableObject
         {
             Debug.Log("aynenöylebeaynenöyle");
             RubbishManager.Instance.UpdateRubbishLevel();
+            RubbishManager.Instance.ActivateRubbishes();
         }
     }
 

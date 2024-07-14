@@ -51772,6 +51772,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 6394378619366133529}
     m_Modifications:
     - target: {fileID: 1666786232519296504, guid: cc726fd576a52974983976d2276d967a, type: 3}
+      propertyPath: _rubbishLevelsParents.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666786232519296504, guid: cc726fd576a52974983976d2276d967a, type: 3}
       propertyPath: _rubbishLevelsParents.Array.data[0]
       value: 
       objectReference: {fileID: 3740971051926416637}
@@ -51779,6 +51783,22 @@ PrefabInstance:
       propertyPath: _rubbishLevelsParents.Array.data[1]
       value: 
       objectReference: {fileID: 4043356637262480793}
+    - target: {fileID: 1666786232519296504, guid: cc726fd576a52974983976d2276d967a, type: 3}
+      propertyPath: _rubbishLevelsParents.Array.data[2]
+      value: 
+      objectReference: {fileID: 1859332570137588268}
+    - target: {fileID: 1666786232519296504, guid: cc726fd576a52974983976d2276d967a, type: 3}
+      propertyPath: _rubbishLevelsParents.Array.data[3]
+      value: 
+      objectReference: {fileID: 4147522133367504874}
+    - target: {fileID: 1666786232519296504, guid: cc726fd576a52974983976d2276d967a, type: 3}
+      propertyPath: _rubbishLevelsParents.Array.data[4]
+      value: 
+      objectReference: {fileID: 6391994065889728820}
+    - target: {fileID: 1666786232519296504, guid: cc726fd576a52974983976d2276d967a, type: 3}
+      propertyPath: _rubbishLevelsParents.Array.data[5]
+      value: 
+      objectReference: {fileID: 6658985841645992547}
     - target: {fileID: 1970344132245692936, guid: cc726fd576a52974983976d2276d967a, type: 3}
       propertyPath: m_RootOrder
       value: 390

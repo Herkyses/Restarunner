@@ -50,7 +50,7 @@ public class ShopManager : MonoBehaviour
                 }
                 break;
             case Enums.ShopItemType.PlaceUpgrade:
-                if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
+                if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney() && PlayerPrefsManager.Instance.LoadPlaceLevel() < PlayerPrefsManager.Instance.LoadPlaceRubbishLevel())
                 {
                     singleShopItem.IsButtonActive = false;
                     GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
