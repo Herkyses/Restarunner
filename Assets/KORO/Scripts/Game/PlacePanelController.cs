@@ -92,6 +92,9 @@ using UnityEngine;
             case 3:
                 InitializeShopPanel(ShopManager.Instance.PlaceUpgradeDatas);
                 break;
+            case 4:
+                InitializeShopPanel(ShopManager.Instance.DecorationDatas);
+                break;
         }
     }
     public void InitializeShopPanel(List<ShopItemData> shopItemDatas)

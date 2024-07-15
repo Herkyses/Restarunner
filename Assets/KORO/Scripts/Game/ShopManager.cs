@@ -11,6 +11,7 @@ public class ShopManager : MonoBehaviour
     public List<ShopItemData> EnvironmentShopItemDatas;
     public List<ShopItemData> FoodIngradientShopItemDatas;
     public List<ShopItemData> PlaceUpgradeDatas;
+    public List<ShopItemData> DecorationDatas;
     public Transform ShopOrderTransform;
     // Start is called before the first frame update
     private void Awake()
