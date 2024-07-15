@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public bool _canTakeMoney;
     public float PlayerMoney;
     [SerializeField] private GameObject[] PlayerInventory;
+    public GameObject PlayerTakedObject;
     
     public PlayerStructData PlayerStructData;
     // Start is called before the first frame update

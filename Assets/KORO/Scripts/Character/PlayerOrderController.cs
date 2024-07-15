@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerOrderController : MonoBehaviour
 {
     public static PlayerOrderController Instance;
-    
+
     public List<Orders> OrderList = new List<Orders>();
     public List<Food> OrderFoodList = new List<Food>();
     public Food Food;
@@ -46,6 +46,7 @@ public class PlayerOrderController : MonoBehaviour
             food.transform.DOLocalMove(Vector3.zero, 0.2f);
             food.transform.DOLocalRotate(Vector3.zero, 0.2f);
             food.transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
+            Player.Instance.PlayerTakedObject = food.gameObject;
         }
         
     }
