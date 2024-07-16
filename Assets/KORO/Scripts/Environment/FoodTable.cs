@@ -33,6 +33,10 @@ public class FoodTable : MonoBehaviour,IInterectableObject
     {
         
     }
+    public void Open()
+    {
+        
+    }
 
     public void CreateFood(Enums.OrderType orderType)
     {

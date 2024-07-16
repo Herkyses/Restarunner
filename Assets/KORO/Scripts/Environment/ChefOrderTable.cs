@@ -41,4 +41,8 @@ public class ChefOrderTable : MonoBehaviour,IInterectableObject
     {
         
     }
+    public void Open()
+    {
+        
+    }
 }

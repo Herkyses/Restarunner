@@ -72,6 +72,10 @@ public class PlaceController : MonoBehaviour,IInterectableObject
     {
         
     }
+    public void Open()
+    {
+        
+    }
 }
 
 [System.Serializable]

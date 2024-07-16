@@ -56,4 +56,8 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     {
         
     }
+    public void Open()
+    {
+        
+    }
 }

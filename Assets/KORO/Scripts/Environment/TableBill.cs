@@ -30,4 +30,8 @@ public class TableBill : MonoBehaviour,IInterectableObject
     {
         
     }
+    public void Open()
+    {
+        
+    }
 }

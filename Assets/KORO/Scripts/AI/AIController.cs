@@ -226,4 +226,8 @@ public class AIController : MonoBehaviour,IInterectableObject
             }
         }
     }
+    public void Open()
+    {
+        
+    }
 }

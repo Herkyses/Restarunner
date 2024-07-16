@@ -309,4 +309,8 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
         }
     }*/
+    public void Open()
+    {
+        
+    }
 }

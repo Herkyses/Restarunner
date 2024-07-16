@@ -31,4 +31,8 @@ public class Trays : MonoBehaviour,IInterectableObject
     {
         
     }
+    public void Open()
+    {
+        
+    }
 }

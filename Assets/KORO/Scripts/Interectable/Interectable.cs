@@ -65,5 +65,9 @@ public class Interectable : MonoBehaviour,IInterectableObject
     {
         
     }
+    public void Open()
+    {
+        
+    }
 
 }

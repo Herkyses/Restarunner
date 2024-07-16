@@ -97,4 +97,8 @@ public class ChefController : MonoBehaviour,IInterectableObject
     {
         
     }
+    public void Open()
+    {
+        
+    }
 }

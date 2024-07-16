@@ -98,4 +98,8 @@ public class BillTable : MonoBehaviour,IInterectableObject
             }
         }
     }
+    public void Open()
+    {
+        
+    }
 }

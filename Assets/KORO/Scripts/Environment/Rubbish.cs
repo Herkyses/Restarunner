@@ -33,4 +33,8 @@ public class Rubbish : MonoBehaviour,IInterectableObject
     {
         
     }
+    public void Open()
+    {
+        
+    }
 }

@@ -71,5 +71,9 @@ public class AIWaitStateController : MonoBehaviour,IInterectableObject
     {
         
     }
+    public void Open()
+    {
+        
+    }
     
 }

@@ -75,4 +75,8 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
     {
         
     }
+    public void Open()
+    {
+        
+    }
 }
