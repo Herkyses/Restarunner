@@ -25,9 +25,14 @@ public class OrderBox : MonoBehaviour,IInterectableObject
 
     public void InterectableObjectRun()
     {
-        transform.DOLocalMove(new Vector3(-0.1f,-0.2f,0f), 0.2f);
-        transform.DOLocalRotate(new Vector3(0,0,-11f), 0.2f);
-        transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
+        if (!Player.Instance.PlayerTakedObject)
+        {
+            transform.DOLocalMove(new Vector3(-0.1f,-0.2f,0f), 0.2f);
+            transform.DOLocalRotate(new Vector3(0,0,-11f), 0.2f);
+            transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
+            Player.Instance.PlayerTakedObject = gameObject;  
+        }
+        
     }
 
     public void ShowOutline(bool active)
