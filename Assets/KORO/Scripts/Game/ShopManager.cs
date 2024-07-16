@@ -106,7 +106,8 @@ public class ShopManager : MonoBehaviour
     }
     public void CreateOrderBox(ShopItemData shopItemData)
     {
-        var item = Instantiate(OrderBoxObject);
+        //var item = Instantiate(OrderBoxObject);
+        var item = PoolManager.Instance.GetFromPoolForOrderBox();
         item.GetComponent<OrderBox>().SetShopItemData(shopItemData);
         item.transform.position = ShopOrderTransform.position;
         

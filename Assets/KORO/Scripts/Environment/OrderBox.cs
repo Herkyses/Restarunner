@@ -60,6 +60,6 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     {
         var objectZort = Instantiate(_shopItemData.ItemObject);
         objectZort.transform.position = transform.position;
-        Destroy(gameObject);
+        PoolManager.Instance.ReturnToPoolForOrderBox(gameObject);
     }
 }

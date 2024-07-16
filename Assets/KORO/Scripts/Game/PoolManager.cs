@@ -14,21 +14,24 @@ public class PoolManager : MonoBehaviour
     public GameObject FoodObject;
     public GameObject OrderBill;
     public GameObject CustomerAIObject;
+    public GameObject OrderBoxObject;
     
     
     [FormerlySerializedAs("FoodParent")] public Transform TableFoodParent;
     public Transform FoodParent;
     public Transform OrderBillParent;
     public Transform CustomerAIObjectParent;
+    public Transform OrderBoxParent;
     
     
     
     public int initialSize = 10;
     
-    private Queue<GameObject> FoodTablePool;
-    private Queue<GameObject> FoodPool;
-    private Queue<GameObject> OrderBillPool;
-    private Queue<GameObject> CustomerAIPool;
+    private Queue<GameObject> FoodTablePool = new Queue<GameObject>();
+    private Queue<GameObject> FoodPool= new Queue<GameObject>();
+    private Queue<GameObject> OrderBillPool= new Queue<GameObject>();
+    private Queue<GameObject> CustomerAIPool= new Queue<GameObject>();
+    private Queue<GameObject> OrderBoxPool= new Queue<GameObject>();
     
     private void Awake()
     {
@@ -44,58 +47,29 @@ public class PoolManager : MonoBehaviour
     }
     void Start()
     {
-        FoodTrayPool();
-        FoodPoolMethod();
-        OrderBillMethod();
-        CustomerAIPoolMethod();
+        
+        CreatePoolObject(FoodTablePool,TableFoodParent,FoodTableObject);
+        CreatePoolObject(FoodPool,FoodParent,FoodObject);
+        CreatePoolObject(OrderBillPool,OrderBillParent,OrderBill);
+        CreatePoolObject(CustomerAIPool,CustomerAIObjectParent,CustomerAIObject);
+        CreatePoolObject(OrderBoxPool,OrderBoxParent,OrderBoxObject);
         IsPoolManagerInitiliazed?.Invoke();
     }
 
-    public void FoodTrayPool()
-    {
-        FoodTablePool = new Queue<GameObject>();
-        for (int i = 0; i < initialSize; i++)
-        {
-            GameObject obj = Instantiate(FoodTableObject);
-            obj.transform.SetParent(TableFoodParent);
-            obj.SetActive(false);
-            FoodTablePool.Enqueue(obj);
-        }
-    }
+   
 
-    public void FoodPoolMethod()
+    public void CreatePoolObject(Queue<GameObject> poolList,Transform parent,GameObject poolObject)
     {
-        FoodPool = new Queue<GameObject>();
+        poolList = new Queue<GameObject>();
         for (int i = 0; i < initialSize; i++)
         {
-            GameObject obj = Instantiate(FoodObject);
-            obj.transform.SetParent(FoodParent);
+            GameObject obj = Instantiate(poolObject);
+            obj.transform.SetParent(parent);
             obj.SetActive(false);
-            FoodPool.Enqueue(obj);
+            poolList.Enqueue(obj);
         }
     }
-    public void OrderBillMethod()
-    {
-        OrderBillPool = new Queue<GameObject>();
-        for (int i = 0; i < initialSize; i++)
-        {
-            GameObject obj = Instantiate(OrderBill);
-            obj.transform.SetParent(OrderBillParent);
-            obj.SetActive(false);
-            OrderBillPool.Enqueue(obj);
-        }
-    }
-    public void CustomerAIPoolMethod()
-    {
-        CustomerAIPool = new Queue<GameObject>();
-        for (int i = 0; i < initialSize; i++)
-        {
-            GameObject obj = Instantiate(CustomerAIObject);
-            obj.transform.SetParent(CustomerAIObjectParent);
-            obj.SetActive(false);
-            CustomerAIPool.Enqueue(obj);
-        }
-    }
+    
     public GameObject GetFromPoolForOrderBill()
     {
         if (OrderBillPool.Count == 0)
@@ -148,6 +122,19 @@ public class PoolManager : MonoBehaviour
         pooledObject.SetActive(true);
         return pooledObject;
     }
+    public GameObject GetFromPoolForOrderBox()
+    {
+        if (OrderBoxPool.Count == 0)
+        {
+            GameObject obj = Instantiate(OrderBoxObject);
+            obj.SetActive(false);
+            OrderBoxPool.Enqueue(obj);
+        }
+
+        GameObject pooledObject = OrderBoxPool.Dequeue();
+        pooledObject.SetActive(true);
+        return pooledObject;
+    }
 
     public void ReturnToPool(GameObject obj)
     {
@@ -172,5 +159,11 @@ public class PoolManager : MonoBehaviour
         obj.transform.SetParent(CustomerAIObjectParent);
         obj.SetActive(false);
         OrderBillPool.Enqueue(obj);
+    }
+    public void ReturnToPoolForOrderBox(GameObject obj)
+    {
+        obj.transform.SetParent(OrderBoxParent);
+        obj.SetActive(false);
+        OrderBoxPool.Enqueue(obj);
     }
 }
