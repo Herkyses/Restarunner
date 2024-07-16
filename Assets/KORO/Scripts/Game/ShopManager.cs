@@ -12,6 +12,7 @@ public class ShopManager : MonoBehaviour
     public List<ShopItemData> FoodIngradientShopItemDatas;
     public List<ShopItemData> PlaceUpgradeDatas;
     public List<ShopItemData> DecorationDatas;
+    public GameObject OrderBoxObject;
     public Transform ShopOrderTransform;
     // Start is called before the first frame update
     private void Awake()
@@ -104,7 +105,7 @@ public class ShopManager : MonoBehaviour
     }
     public void CreateDecoration(ShopItemData shopItemData)
     {
-        var item = Instantiate(shopItemData.ItemObject);
+        var item = Instantiate(OrderBoxObject);
         item.GetComponent<OrderBox>().SetShopItemData(shopItemData);
         item.transform.position = ShopOrderTransform.position;
         

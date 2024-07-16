@@ -58,6 +58,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     }
     public void Open()
     {
-        
+        var objectZort = Instantiate(_shopItemData.ItemObject);
+        objectZort.transform.position = transform.position;
     }
 }
