@@ -57,11 +57,16 @@ public class PlayerRaycastController : MonoBehaviour
                 {
 
                     GameSceneCanvas.Instance.CanShowCanvas = false;
-                    if(Izort != null)
-                    Izort.ShowOutline(false);
+                    if (Izort != null)
+                    {
+                        Izort.ShowOutline(false);
+                    }
 
                     if (InterectabelOutline)
-                    InterectabelOutline.enabled = false;
+                    {
+                        InterectabelOutline.enabled = false;
+
+                    }
 
                     GameSceneCanvas.Instance.UnShowAreaInfo();
                     
@@ -97,8 +102,19 @@ public class PlayerRaycastController : MonoBehaviour
         }
         if(Input.GetKeyUp(KeyCode.E))
         {
-            if(Izort != null)
-            Izort.InterectableObjectRun();
+            if (Izort != null)
+            {
+                Izort.InterectableObjectRun();
+
+            }
+        }
+        if(Input.GetKeyUp(KeyCode.T))
+        {
+            if (Izort != null)
+            {
+                Izort.Open();
+
+            }
         }
 
         if (Input.GetKey(KeyCode.H))
