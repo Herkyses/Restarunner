@@ -30,6 +30,8 @@ public class OrderBox : MonoBehaviour,IInterectableObject
             transform.DOLocalMove(new Vector3(-0.1f,-0.2f,0f), 0.2f);
             transform.DOLocalRotate(new Vector3(0,0,-11f), 0.2f);
             transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
+            GetComponent<Rigidbody>().useGravity = false;
+            GetComponent<BoxCollider>().enabled = false;
             Player.Instance.PlayerTakedObject = gameObject;  
         }
         

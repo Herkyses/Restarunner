@@ -108,5 +108,28 @@ public class PlayerRaycastController : MonoBehaviour
                 Izort.Move();
             }
         }
+        if (Input.GetKey(KeyCode.J))
+        {
+            if (Player.Instance.PlayerTakedObject)
+            {
+                var takenObject = Player.Instance.PlayerTakedObject;
+                if (takenObject)
+                {
+                    takenObject.transform.SetParent(null);
+                    if (takenObject.GetComponent<Rigidbody>())
+                    {
+                        takenObject.GetComponent<Rigidbody>().useGravity = true;
+                    }
+                    if (takenObject.GetComponent<BoxCollider>())
+                    {
+                        takenObject.GetComponent<BoxCollider>().enabled = true;
+                    }
+                    
+                    Player.Instance.PlayerTakedObject = null;
+                    
+                }
+            }
+            
+        }
     }
 }
