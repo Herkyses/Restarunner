@@ -52,6 +52,11 @@ public class Player : MonoBehaviour
         }*/
     }
 
+    public void DropTakenObject()
+    {
+        PlayerTakedObject = null;
+    }
+
     public void GainMoney(float gainValue)
     {
         /*if (_canTakeMoney)

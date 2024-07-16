@@ -165,15 +165,17 @@ public class AIController : MonoBehaviour,IInterectableObject
         {
             IsTakedFood = true;
             AIOwnerFood = PlayerOrderController.Instance.FoodTable;
-            PlayerOrderController.Instance.TakedFood = false;
+            var playerOrderController = PlayerOrderController.Instance;
+            playerOrderController.TakedFood = false;
             //PlayerOrderController.Instance.FoodTable.transform.position = AIOwnerChair.ChairFoodTransform.position;
             //PlayerOrderController.Instance.FoodTable.transform.rotation = AIOwnerChair.ChairFoodTransform.rotation;
-            PlayerOrderController.Instance.FoodTable.transform.SetParent(AIOwnerChair.ChairFoodTransform);
+            playerOrderController.FoodTable.transform.SetParent(AIOwnerChair.ChairFoodTransform);
 
-            PlayerOrderController.Instance.FoodTable.transform.DORotate(AIOwnerChair.ChairFoodTransform.rotation.eulerAngles,0.2f);
-            PlayerOrderController.Instance.FoodTable.transform.DOMove(AIOwnerChair.ChairFoodTransform.position,0.2f);
+            playerOrderController.FoodTable.transform.DORotate(AIOwnerChair.ChairFoodTransform.rotation.eulerAngles,0.2f);
+            playerOrderController.FoodTable.transform.DOMove(AIOwnerChair.ChairFoodTransform.position,0.2f);
 
-            PlayerOrderController.Instance.FoodTable = null;
+            playerOrderController.FoodTable = null;
+            Player.Instance.DropTakenObject();
             AIStateMachineController.AIChangeState(AIStateMachineController.AIEatState);
         }
     }
