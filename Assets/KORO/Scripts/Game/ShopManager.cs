@@ -38,7 +38,8 @@ public class ShopManager : MonoBehaviour
                 if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
                 {
                     GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
-                    CreateTable(shopItemData);
+                    //CreateTable(shopItemData);
+                    CreateOrderBox(shopItemData);
                 }
                 break;
             case Enums.ShopItemType.Waiter:
@@ -66,7 +67,7 @@ public class ShopManager : MonoBehaviour
             case Enums.ShopItemType.Decoration:
                 if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
                 {
-                    CreateDecoration(shopItemData);
+                    CreateOrderBox(shopItemData);
                 }
                 break;
             
@@ -103,7 +104,7 @@ public class ShopManager : MonoBehaviour
         item.transform.position = ShopOrderTransform.position;
         
     }
-    public void CreateDecoration(ShopItemData shopItemData)
+    public void CreateOrderBox(ShopItemData shopItemData)
     {
         var item = Instantiate(OrderBoxObject);
         item.GetComponent<OrderBox>().SetShopItemData(shopItemData);
