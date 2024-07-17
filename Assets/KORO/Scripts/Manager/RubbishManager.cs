@@ -30,6 +30,11 @@ public class RubbishManager : MonoBehaviour
     {
         PlayerPrefsManager.Instance.SavePlaceRubbishLevel(_rubbishLevel+1);
         _rubbishLevel ++;
+        if (_rubbishLevel == 1)
+        {
+            //var tutorialStep = PlayerPrefsManager.Instance.LoadPlayerTutorialStep();
+            PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(1);
+        }
     }
 
     public bool CheckRubbishLevel()

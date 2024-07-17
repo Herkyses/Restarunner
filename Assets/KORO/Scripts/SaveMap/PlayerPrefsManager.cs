@@ -35,7 +35,7 @@ public class PlayerPrefsManager : MonoBehaviour
         PlayerPrefs.SetInt("PlayerTutorialStep", step);
         PlayerPrefs.Save();
     }
-    public float LoadPlayerTutorialStep()
+    public int LoadPlayerTutorialStep()
     {
         return PlayerPrefs.GetInt("PlayerTutorialStep", 0); 
     }
