@@ -30,7 +30,15 @@ public class PlayerPrefsManager : MonoBehaviour
         }
         
     }
-    
+    public void SavePlayerPlayerTutorialStep(int step)
+    {
+        PlayerPrefs.SetInt("PlayerTutorialStep", step);
+        PlayerPrefs.Save();
+    }
+    public float LoadPlayerTutorialStep()
+    {
+        return PlayerPrefs.GetInt("PlayerTutorialStep", 0); 
+    }
     
     public void SavePlayerMoney(float money)
     {
@@ -39,7 +47,7 @@ public class PlayerPrefsManager : MonoBehaviour
     }
     public float LoadPlayerMoney()
     {
-        return PlayerPrefs.GetFloat("PlayerMoney", 0); // Varsayılan değer 0
+        return PlayerPrefs.GetFloat("PlayerMoney", 0); 
     }
     public void SavePlaceLevel(int level)
     {
@@ -48,7 +56,7 @@ public class PlayerPrefsManager : MonoBehaviour
     }
     public int LoadPlaceLevel()
     {
-        return PlayerPrefs.GetInt("PlaceLevel", 0); // Varsayılan değer 0
+        return PlayerPrefs.GetInt("PlaceLevel", 0); 
     }
     public void SavePopularity(int money)
     {
@@ -57,7 +65,7 @@ public class PlayerPrefsManager : MonoBehaviour
     }
     public int LoadPopularity()
     {
-        return PlayerPrefs.GetInt("Popularity", 0); // Varsayılan değer 0
+        return PlayerPrefs.GetInt("Popularity", 0); 
     }
     public void SaveMeals(MealsList mealsList)
     {
@@ -84,6 +92,6 @@ public class PlayerPrefsManager : MonoBehaviour
     }
     public int LoadPlaceRubbishLevel()
     {
-        return PlayerPrefs.GetInt("PlaceRubbishLevel", 0); // Varsayılan değer 0
+        return PlayerPrefs.GetInt("PlaceRubbishLevel", 0);
     }
 }
