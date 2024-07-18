@@ -10,42 +10,50 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
     public Transform OpenTransform;
     public Transform CloseTransform;
     public Transform Parent;
+    public bool CanMove = true;
     public void InterectableObjectRun()
     {
-        if (OpenCloseSequence != null)
+        if (CanMove)
         {
-            OpenCloseSequence.Kill();
-        }
-        PlaceController.RestaurantIsOpen = !PlaceController.RestaurantIsOpen;
-        if (PlaceController.RestaurantIsOpen)
-        {
-            OpenCloseSequence = DOTween.Sequence();
-            OpenCloseSequence.Append(Parent.DORotate(new Vector3(-90, 0, 0), 0.2f,RotateMode.LocalAxisAdd)).
-                Append(Parent.DORotate(new Vector3(0, 180, 0), 0.2f,RotateMode.LocalAxisAdd)).
-                Append(Parent.DORotate(new Vector3(-90, 0, 0), 0.2f,RotateMode.LocalAxisAdd));
+            CanMove = false;
+            if (OpenCloseSequence != null)
+            {
+                OpenCloseSequence.Kill();
+            }
+            PlaceController.RestaurantIsOpen = !PlaceController.RestaurantIsOpen;
+            if (PlaceController.RestaurantIsOpen)
+            {
+                OpenCloseSequence = DOTween.Sequence();
+                OpenCloseSequence.Append(Parent.DORotate(new Vector3(-90, 0, 0), 0.2f,RotateMode.LocalAxisAdd)).
+                    Append(Parent.DORotate(new Vector3(0, 180, 0), 0.2f,RotateMode.LocalAxisAdd)).
+                    Append(Parent.DORotate(new Vector3(-90, 0, 0), 0.2f,RotateMode.LocalAxisAdd));
                 // Y ekseni etrafında döndür
-            //OpenCloseSequence.Append(transform.DORotate(new Vector3(0, 90, 0), 0.2f));
+                //OpenCloseSequence.Append(transform.DORotate(new Vector3(0, 90, 0), 0.2f));
 
             
-            OpenCloseSequence.OnComplete(() =>
+                OpenCloseSequence.OnComplete(() =>
+                {
+                    CanMove = true;
+                });            
+            }
+            else
             {
-            });            
-        }
-        else
-        {
-            OpenCloseSequence = DOTween.Sequence();
-            OpenCloseSequence.Append(Parent.DORotate(new Vector3(90, 0, 0), 0.2f,RotateMode.LocalAxisAdd)).
-                Append(Parent.DORotate(new Vector3(0, 180, 0), 0.2f,RotateMode.LocalAxisAdd)).
-                Append(Parent.DORotate(new Vector3(90, 0, 0), 0.2f,RotateMode.LocalAxisAdd));
+                OpenCloseSequence = DOTween.Sequence();
+                OpenCloseSequence.Append(Parent.DORotate(new Vector3(90, 0, 0), 0.2f,RotateMode.LocalAxisAdd)).
+                    Append(Parent.DORotate(new Vector3(0, 180, 0), 0.2f,RotateMode.LocalAxisAdd)).
+                    Append(Parent.DORotate(new Vector3(90, 0, 0), 0.2f,RotateMode.LocalAxisAdd));
                 // Y ekseni etrafında döndür
-            //OpenCloseSequence.Append(transform.DORotate(new Vector3(0, 90, 0), 0.2f));
+                //OpenCloseSequence.Append(transform.DORotate(new Vector3(0, 90, 0), 0.2f));
 
             
-            OpenCloseSequence.OnComplete(() =>
-            {
-            });            
+                OpenCloseSequence.OnComplete(() =>
+                {
+                    CanMove = true;
+                });            
 
+            }
         }
+        
     }
 
     public void ShowOutline(bool active)
