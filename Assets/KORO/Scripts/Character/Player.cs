@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerData _playerData;
     public bool _canTakeMoney;
+    public bool CanCleanRubbish;
     public float PlayerMoney;
     [SerializeField] private GameObject[] PlayerInventory;
     public GameObject PlayerTakedObject;
@@ -46,10 +47,11 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            GainMoney(12f);
-        }*/
+            CanCleanRubbish = !CanCleanRubbish;
+            CameraController.Instance.CleanToolActive(CanCleanRubbish);
+        }
     }
 
     public void DropTakenObject()

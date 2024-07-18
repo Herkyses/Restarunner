@@ -6,12 +6,15 @@ public class Rubbish : MonoBehaviour,IInterectableObject
 {
     public void InterectableObjectRun()
     {
-        gameObject.SetActive(false);
-        if (RubbishManager.Instance.CheckRubbishLevel())
+        
+        if (Player.Instance.CanCleanRubbish)
         {
-            RubbishManager.Instance.UpdateRubbishLevel();
-            RubbishManager.Instance.ActivateRubbishes();
-        }
+            gameObject.SetActive(false);
+            if (RubbishManager.Instance.CheckRubbishLevel())
+            {
+                RubbishManager.Instance.UpdateRubbishLevel();
+                RubbishManager.Instance.ActivateRubbishes();
+            }        }
     }
 
     public void ShowOutline(bool active)
@@ -26,7 +29,12 @@ public class Rubbish : MonoBehaviour,IInterectableObject
 
     public string GetInterectableText()
     {
-        return "Clean Rubbish";
+        if (Player.Instance.CanCleanRubbish)
+        {
+            return "Clean Rubbish";
+        }
+        return null;
+
     }
 
     public void Move()

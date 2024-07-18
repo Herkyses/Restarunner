@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
     public static CameraController Instance;
     public Transform PlayerTransform;
     public Transform PlayerTakedObjectTransformParent;
+    public GameObject CleanTool;
     
     /*public float CamTransformXDifference = 0;
     public float CamTransformYDifference = 0;
@@ -128,6 +129,10 @@ public class CameraController : MonoBehaviour
         
     }
 
+    public void CleanToolActive(bool active)
+    {
+        CleanTool.SetActive(active);
+    }
     
 
     /*public float GetRotation()
