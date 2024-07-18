@@ -9,12 +9,14 @@ public class Rubbish : MonoBehaviour,IInterectableObject
         
         if (Player.Instance.CanCleanRubbish)
         {
+            CameraController.Instance.MoveCleanTool();
             gameObject.SetActive(false);
             if (RubbishManager.Instance.CheckRubbishLevel())
             {
                 RubbishManager.Instance.UpdateRubbishLevel();
                 RubbishManager.Instance.ActivateRubbishes();
-            }        }
+            }        
+        }
     }
 
     public void ShowOutline(bool active)

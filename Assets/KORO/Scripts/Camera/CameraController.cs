@@ -12,7 +12,10 @@ public class CameraController : MonoBehaviour
     public Transform PlayerTransform;
     public Transform PlayerTakedObjectTransformParent;
     public GameObject CleanTool;
-    
+    public GameObject CleanToolChild;
+    public bool CleanToolChildMove = true;
+    public Sequence CleanToolSequence;
+
     /*public float CamTransformXDifference = 0;
     public float CamTransformYDifference = 0;
     public float CamTransformZDifference = 0;
@@ -23,6 +26,7 @@ public class CameraController : MonoBehaviour
     private Vector3 position;
     
     public Vector3 CamPosition = new Vector3();
+    public Vector3 CleanToolFirstRotation = new Vector3();
     public float CamSpeed = 2f;
     public float currentRotationAngle;
     public float currentRotationAngleY;
@@ -57,6 +61,7 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        CleanToolFirstRotation = new Vector3(CleanToolChild.transform.localRotation.eulerAngles.x, CleanToolChild.transform.localRotation.eulerAngles.y, CleanToolChild.transform.localRotation.eulerAngles.z);
         _canFollow = true;
         GameSceneCanvas.Instance.CanMove = true;
     }
@@ -78,6 +83,32 @@ public class CameraController : MonoBehaviour
             height = 1.74f;
 
         }
+        
+    }
+
+    public void MoveCleanTool()
+    {
+        if (CleanToolChildMove)
+        {
+            CleanToolChildMove = false;
+            if (CleanToolSequence != null)
+            {
+                CleanToolSequence.Kill();
+            }
+
+            var toolChild = CleanToolChild.transform.localRotation.eulerAngles;
+            CleanToolSequence = DOTween.Sequence();
+            CleanToolSequence.Append(CleanToolChild.transform.DOLocalRotate(new Vector3(40f,toolChild.y , toolChild.z), 0.2f)).
+                Append(CleanToolChild.transform.DOLocalRotate(new Vector3(20f,toolChild.y , toolChild.z), 0.2f)).
+                Append(CleanToolChild.transform.DOLocalRotate(new Vector3(40f,toolChild.y , toolChild.z), 0.2f)).
+                Append(CleanToolChild.transform.DOLocalRotate(CleanToolFirstRotation,0.2f));
+            
+            CleanToolSequence.OnComplete(() =>
+            {
+                CleanToolChildMove = true;
+            });      
+        }
+        
         
     }
     private void LookTarget()
