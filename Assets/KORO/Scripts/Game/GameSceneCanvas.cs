@@ -75,11 +75,15 @@ public class GameSceneCanvas : MonoBehaviour
 
     public void ShowAreaInfo(string areaInfo)
     {
-        if (!_infoObject.activeSelf)
+        if (areaInfo != null)
         {
-            _infoObject.SetActive(true);
+            if (!_infoObject.activeSelf)
+            {
+                _infoObject.SetActive(true);
+            }
+            _infoText.text = areaInfo;
         }
-        _infoText.text = areaInfo;
+        
 
     }
     public void UnShowAreaInfo()
