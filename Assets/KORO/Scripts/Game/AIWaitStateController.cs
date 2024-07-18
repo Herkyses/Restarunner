@@ -23,7 +23,7 @@ public class AIWaitStateController : MonoBehaviour,IInterectableObject
     
     public void InterectableObjectRun()
     {
-        TableAvailablePanel.Instance.ActiveAbilityPanel();
+        //TableAvailablePanel.Instance.ActiveAbilityPanel();
     }
 
     public void ShowOutline(bool active)
@@ -48,7 +48,7 @@ public class AIWaitStateController : MonoBehaviour,IInterectableObject
 
     public string GetInterectableText()
     {
-        return "CheckAvailableTables";
+        return null;
     }
 
     public void AISetTablePos(int index,Table table)
