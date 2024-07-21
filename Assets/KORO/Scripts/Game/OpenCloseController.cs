@@ -63,6 +63,8 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
     private void Start()
     {
         textsButtons = new []{"E"};
+        texts = new []{"E"};
+       
     }
 
     public void ShowOutline(bool active)
@@ -100,13 +102,13 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
     {
         if (PlaceController.RestaurantIsOpen)
         {
-            var textarray = new string[]{"Close Restaurant"};
-            return textarray;
+            texts[0] = "Close Restaurant";
+            return texts;
         }
         else
         {
-            var textarray = new string[]{"Open Restaurant"};
-            return textarray;
+            texts[0] = "Open Restaurant";
+            return texts;
 
         }
     }
