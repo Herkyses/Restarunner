@@ -1,15 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FoodTable : MonoBehaviour,IInterectableObject
 {
+    [SerializeField] private string[] texts = new [] {"Take OrderBox"};
+    [SerializeField] private string[] textsButtons = new [] {"E"};
     public Enums.OrderType OrderType;
     public GameObject FoodObject;
     public Food Food;
     public bool IsFoodFinished;
     public Transform FoodSpawnTransform;
     public WaiterController OwnerWaiterCotroller;
+
+    private void Start()
+    {
+        texts = new [] {"Take Food"};
+        textsButtons = new [] {"E"};
+    }
+
     public void InterectableObjectRun()
     {
         PlayerOrderController.Instance.TakeFood(GetComponent<FoodTable>(),IsFoodFinished);
@@ -39,7 +49,7 @@ public class FoodTable : MonoBehaviour,IInterectableObject
     }
     public string[] GetInterectableTexts()
     {
-        return null;
+        return texts;
     }
 
     public void CreateFood(Enums.OrderType orderType)
@@ -68,6 +78,6 @@ public class FoodTable : MonoBehaviour,IInterectableObject
     }
     public string[] GetInterectableButtons()
     {
-        return null;
+        return textsButtons;
     }
 }

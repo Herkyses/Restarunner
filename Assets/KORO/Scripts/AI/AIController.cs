@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class AIController : MonoBehaviour,IInterectableObject
 {
@@ -11,6 +13,9 @@ public class AIController : MonoBehaviour,IInterectableObject
     
     public NavMeshAgent _agent;
 
+    
+    [SerializeField] private string[] texts = new [] {"Take OrderBox"};
+    [SerializeField] private string[] textsButtons = new [] {"E"};
     public Transform _targetTransform;
     public Transform _targetFirstPosition;
     public bool IsFinishedFood;
@@ -44,6 +49,13 @@ public class AIController : MonoBehaviour,IInterectableObject
         gameObject.TryGetComponent(out AIAnimationController);
         AIStateMachineController.Initialize(isFriend);
     }
+
+    private void Start()
+    {
+        texts = new [] {"Serv the food"};
+        textsButtons = new [] {"E"};
+    }
+
     /////////// SIT STATE ///////////
     public void StartSitState()
     {
@@ -232,10 +244,18 @@ public class AIController : MonoBehaviour,IInterectableObject
     }
     public string[] GetInterectableTexts()
     {
-        return null;
+        //return null;
+        if (PlayerOrderController.Instance.TakedFood)
+        {
+            return texts;
+        }
+        else
+        {
+            return null;
+        }
     }
     public string[] GetInterectableButtons()
     {
-        return null;
+        return textsButtons;
     }
 }
