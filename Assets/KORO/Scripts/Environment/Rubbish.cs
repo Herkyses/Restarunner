@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Rubbish : MonoBehaviour,IInterectableObject
 {
+    
+    [SerializeField] private string[] texts = new [] {"Take OrderBox"};
+    [SerializeField] private string[] textsButtons = new [] {"E"};
     public void InterectableObjectRun()
     {
         
@@ -17,6 +21,12 @@ public class Rubbish : MonoBehaviour,IInterectableObject
                 RubbishManager.Instance.ActivateRubbishes();
             }        
         }
+    }
+
+    private void Start()
+    {
+        texts = new [] {"Clean"};
+        textsButtons = new [] {"E"};
     }
 
     public void ShowOutline(bool active)
@@ -49,10 +59,18 @@ public class Rubbish : MonoBehaviour,IInterectableObject
     }
     public string[] GetInterectableTexts()
     {
+        if (Player.Instance.CanCleanRubbish)
+        {
+            return texts;
+        }
         return null;
     }
     public string[] GetInterectableButtons()
     {
+        if (Player.Instance.CanCleanRubbish)
+        {
+            return textsButtons;
+        }
         return null;
     }
 }

@@ -256,6 +256,14 @@ public class AIController : MonoBehaviour,IInterectableObject
     }
     public string[] GetInterectableButtons()
     {
-        return textsButtons;
+        
+        if (PlayerOrderController.Instance.TakedFood)
+        {
+            return textsButtons;
+        }
+        else
+        {
+            return null;
+        }
     }
 }
