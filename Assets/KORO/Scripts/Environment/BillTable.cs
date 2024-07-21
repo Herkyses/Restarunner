@@ -7,6 +7,9 @@ public class BillTable : MonoBehaviour,IInterectableObject
     
     public static BillTable Instance;
 
+    
+    [SerializeField] private string[] texts = new [] {"Check Order "};
+    [SerializeField] private string[] textsButtons = new [] {"E"};
     [SerializeField] private Transform _tableBillParent;
     [SerializeField] private TableBill _tableBillPf;
     [SerializeField] private TableBill _tableBillTemp;
@@ -26,7 +29,8 @@ public class BillTable : MonoBehaviour,IInterectableObject
     // Start is called before the first frame update
     void Start()
     {
-        
+        texts = new []{"Check Order Bills"};
+        textsButtons = new []{"E"};
     }
 
     // Update is called once per frame
@@ -104,10 +108,10 @@ public class BillTable : MonoBehaviour,IInterectableObject
     }
     public string[] GetInterectableTexts()
     {
-        return null;
+        return texts;
     }
     public string[] GetInterectableButtons()
     {
-        return null;
+        return textsButtons;
     }
 }
