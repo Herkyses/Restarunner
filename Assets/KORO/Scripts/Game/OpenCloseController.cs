@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -5,6 +6,9 @@ using UnityEngine;
 
 public class OpenCloseController : MonoBehaviour,IInterectableObject
 {
+    [SerializeField] private string[] texts = new [] {"Check Order "};
+    [SerializeField] private string[] textsButtons = new [] {"E"};
+    
     public Tween OpenCloseTween;
     public Sequence OpenCloseSequence;
     public Transform OpenTransform;
@@ -56,6 +60,11 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
         
     }
 
+    private void Start()
+    {
+        textsButtons = new []{"E"};
+    }
+
     public void ShowOutline(bool active)
     {
         
@@ -89,7 +98,17 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
     }
     public string[] GetInterectableTexts()
     {
-        return null;
+        if (PlaceController.RestaurantIsOpen)
+        {
+            var textarray = new string[]{"Close Restaurant"};
+            return textarray;
+        }
+        else
+        {
+            var textarray = new string[]{"Open Restaurant"};
+            return textarray;
+
+        }
     }
     public string[] GetInterectableButtons()
     {

@@ -96,11 +96,12 @@ public class GameSceneCanvas : MonoBehaviour
             if (!_objectInfoTextsParent.activeSelf)
             {
                 _objectInfoTextsParent.SetActive(true);
-                for (int i = 0; i < areaInfo.Length; i++)
-                {
-                    _infoTexts[i].text = areaInfo[i];
+                
+            }
+            for (int i = 0; i < areaInfo.Length; i++)
+            {
+                _infoTexts[i].text = areaInfo[i];
                     
-                }
             }
             
         }
