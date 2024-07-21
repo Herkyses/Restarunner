@@ -10,11 +10,14 @@ public class PlaceController : MonoBehaviour,IInterectableObject
 
     public List<PlaceLevel> PlaceLevels;
 
+    [SerializeField] private string[] texts = new [] {"Take OrderBox"};
+    [SerializeField] private string[] textsButtons = new [] {"E"};
     public int LevelValue;
     // Start is called before the first frame update
     void Start()
     {
-        
+        texts = new [] {"Check Place"};
+        textsButtons = new [] {"E"};
     }
 
     // Update is called once per frame
@@ -78,11 +81,11 @@ public class PlaceController : MonoBehaviour,IInterectableObject
     }
     public string[] GetInterectableTexts()
     {
-        return null;
+        return texts;
     }
     public string[] GetInterectableButtons()
     {
-        return null;
+        return textsButtons;
     }
 }
 
