@@ -6,6 +6,8 @@ using UnityEngine;
 public class OrderBox : MonoBehaviour,IInterectableObject
 {
     [SerializeField] private ShopItemData _shopItemData;
+
+    public string[] InteractableButtons;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +53,10 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     {
         return null;
     }
+    public string[] GetInterectableTexts()
+    {
+        return null;
+    }
 
     public void Move()
     {
@@ -61,5 +67,9 @@ public class OrderBox : MonoBehaviour,IInterectableObject
         var objectZort = Instantiate(_shopItemData.ItemObject);
         objectZort.transform.position = transform.position;
         PoolManager.Instance.ReturnToPoolForOrderBox(gameObject);
+    }
+    public string[] GetInterectableButtons()
+    {
+        return null;
     }
 }

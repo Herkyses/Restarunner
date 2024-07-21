@@ -93,6 +93,14 @@ public class ChefController : MonoBehaviour,IInterectableObject
     {
         return "GiveOrder";
     }
+    public string[] GetInterectableTexts()
+    {
+        return null;
+    }
+    public string[] GetInterectableButtons()
+    {
+        return null;
+    }
     public void Move()
     {
         

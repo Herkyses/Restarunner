@@ -8,6 +8,8 @@ public interface IInterectableObject
     public void ShowOutline(bool active);
     public Outline GetOutlineComponent();
     public string GetInterectableText();
+    public string[] GetInterectableTexts();
+    public string[] GetInterectableButtons();
     public void Move();
     public void Open();
 

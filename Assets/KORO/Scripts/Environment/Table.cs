@@ -313,4 +313,12 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     {
         
     }
+    public string[] GetInterectableTexts()
+    {
+        return null;
+    }
+    public string[] GetInterectableButtons()
+    {
+        return null;
+    }
 }

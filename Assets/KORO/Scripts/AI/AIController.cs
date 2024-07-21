@@ -230,4 +230,12 @@ public class AIController : MonoBehaviour,IInterectableObject
     {
         
     }
+    public string[] GetInterectableTexts()
+    {
+        return null;
+    }
+    public string[] GetInterectableButtons()
+    {
+        return null;
+    }
 }

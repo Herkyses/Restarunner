@@ -47,4 +47,12 @@ public class Rubbish : MonoBehaviour,IInterectableObject
     {
         
     }
+    public string[] GetInterectableTexts()
+    {
+        return null;
+    }
+    public string[] GetInterectableButtons()
+    {
+        return null;
+    }
 }

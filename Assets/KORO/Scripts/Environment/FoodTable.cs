@@ -37,6 +37,10 @@ public class FoodTable : MonoBehaviour,IInterectableObject
     {
         
     }
+    public string[] GetInterectableTexts()
+    {
+        return null;
+    }
 
     public void CreateFood(Enums.OrderType orderType)
     {
@@ -61,5 +65,9 @@ public class FoodTable : MonoBehaviour,IInterectableObject
                 Destroy(orderArray[i].gameObject);
             }
         }
+    }
+    public string[] GetInterectableButtons()
+    {
+        return null;
     }
 }

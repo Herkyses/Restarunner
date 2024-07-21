@@ -76,6 +76,14 @@ public class PlaceController : MonoBehaviour,IInterectableObject
     {
         
     }
+    public string[] GetInterectableTexts()
+    {
+        return null;
+    }
+    public string[] GetInterectableButtons()
+    {
+        return null;
+    }
 }
 
 [System.Serializable]

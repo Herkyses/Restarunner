@@ -56,6 +56,8 @@ public class PlayerRaycastController : MonoBehaviour
                     Izort.ShowOutline(true);
                     GameSceneCanvas.Instance.CanShowCanvas = true;
                     GameSceneCanvas.Instance.ShowAreaInfo(Izort.GetInterectableText());
+                    GameSceneCanvas.Instance.ShowAreaInfoForTexts(Izort.GetInterectableTexts());
+                    GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(Izort.GetInterectableButtons());
                     //place.ShowPlacePrice();
                 }
                 else

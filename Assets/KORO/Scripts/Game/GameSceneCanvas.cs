@@ -12,7 +12,10 @@ public class GameSceneCanvas : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _ownedMoneyText;
     [SerializeField] private TextMeshProUGUI _popularityText;
     [SerializeField] private TextMeshProUGUI _infoText;
+    [SerializeField] private TextMeshProUGUI[] _infoTexts;
+    [SerializeField] private TextMeshProUGUI[] _infoButtonsTexts;
     [SerializeField] private GameObject _infoObject;
+    [SerializeField] private GameObject _objectInfoTextsParent;
     public OrderPanelController _orderPanel;
     public MusicController _musicController;
     public Image _orderPanelImage;
@@ -86,11 +89,44 @@ public class GameSceneCanvas : MonoBehaviour
         
 
     }
+    public void ShowAreaInfoForTexts(string[] areaInfo)
+    {
+        if (areaInfo != null)
+        {
+            if (!_objectInfoTextsParent.activeSelf)
+            {
+                _objectInfoTextsParent.SetActive(true);
+                for (int i = 0; i < areaInfo.Length; i++)
+                {
+                    _infoTexts[i].text = areaInfo[i];
+                    
+                }
+            }
+            
+        }
+    }
+    public void ShowAreaInfoForTextsButtons(string[] areaInfoButton)
+    {
+        if (areaInfoButton != null)
+        {
+            for (int i = 0; i < areaInfoButton.Length; i++)
+            {
+                _infoButtonsTexts[i].text = areaInfoButton[i];
+                    
+            }
+            
+        }
+    }
     public void UnShowAreaInfo()
     {
         if (_infoObject.activeSelf)
         {
             _infoObject.SetActive(false);
+        }
+        if (_objectInfoTextsParent.activeSelf)
+        {
+            _objectInfoTextsParent.SetActive(false);
+            
         }
     }
     

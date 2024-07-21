@@ -26,6 +26,14 @@ public class Trays : MonoBehaviour,IInterectableObject
     {
         return null;
     }
+    public string[] GetInterectableTexts()
+    {
+        return null;
+    }
+    public string[] GetInterectableButtons()
+    {
+        return null;
+    }
 
     public void Move()
     {
