@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ChefOrderTable : MonoBehaviour,IInterectableObject
 {
+    [SerializeField] private string[] texts = new [] {"Give Order "};
+    [SerializeField] private string[] textsButtons = new [] {"E"};
     public List<Transform> FoodTransformList = new List<Transform>();
     
     public void InterectableObjectRun()
@@ -12,6 +15,12 @@ public class ChefOrderTable : MonoBehaviour,IInterectableObject
         GameSceneCanvas.Instance.CanMove = false;
 
         GiveChefOrderPanelController.Instance.OrderList = PlayerOrderController.Instance.OrderList;
+    }
+
+    private void Start()
+    {
+        texts = new []{"Give Order "};
+        textsButtons = new []{"E"};
     }
 
     public void ShowOutline(bool active)
@@ -47,10 +56,10 @@ public class ChefOrderTable : MonoBehaviour,IInterectableObject
     }
     public string[] GetInterectableTexts()
     {
-        return null;
+        return texts;
     }
     public string[] GetInterectableButtons()
     {
-        return null;
+        return textsButtons;
     }
 }
