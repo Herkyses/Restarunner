@@ -5,13 +5,17 @@ using UnityEngine;
 
 public class OrderBox : MonoBehaviour,IInterectableObject
 {
+    
+    [SerializeField] private string[] texts = new [] {"Take OrderBox"};
+    [SerializeField] private string[] textsButtons = new [] {"E"};
     [SerializeField] private ShopItemData _shopItemData;
 
     public string[] InteractableButtons;
     // Start is called before the first frame update
     void Start()
     {
-        
+        texts = new [] {"Take OrderBox","Open"};
+        textsButtons = new [] {"E","T"};
     }
 
     // Update is called once per frame
@@ -55,7 +59,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     }
     public string[] GetInterectableTexts()
     {
-        return null;
+        return texts;
     }
 
     public void Move()
@@ -70,6 +74,6 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     }
     public string[] GetInterectableButtons()
     {
-        return null;
+        return textsButtons;
     }
 }
