@@ -237,6 +237,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         if (!IsTableMove && !PlaceController.RestaurantIsOpen && CustomerCount == 0)
         {
             IsTableMove = true;
+            Player.Instance.PlayerTakedObject = gameObject;
         }
         
     }
@@ -276,6 +277,8 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
                 TableController.Instance.EnableTableSetCollider(false);
                 IsTableSetTransform = false;
                 IsTableMove = false;
+                Player.Instance.PlayerTakedObject = null;
+
             }
             
         }
