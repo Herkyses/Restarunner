@@ -26,12 +26,14 @@ public class PlayerRaycastController : MonoBehaviour
         int layerToIgnore = LayerMask.NameToLayer("Ground"); 
         int layerMask = 1 << layerToIgnore;
         layerMask = ~layerMask;
+        
         while (true)
         {
             
             yield return new WaitForSeconds(0.05f);
-
-            Vector3 screenCenter = new Vector3(Screen.width / 2f, Screen.height / 2f, 0);
+            if (!Player.Instance.PlayerTakedObject)
+            {
+                Vector3 screenCenter = new Vector3(Screen.width / 2f, Screen.height / 2f, 0);
 
 
             Ray ray = Camera.main.ScreenPointToRay(screenCenter);
@@ -99,6 +101,14 @@ public class PlayerRaycastController : MonoBehaviour
                 Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 2f);
 
             }
+            }
+            else
+            {
+                GameSceneCanvas.Instance.UnShowAreaInfo();
+
+            }
+
+            
         }
     }
 
