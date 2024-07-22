@@ -242,6 +242,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         {
             IsTableMove = true;
             Player.Instance.PlayerTakedObject = gameObject;
+            Player.Instance.PlayerStateType = Enums.PlayerStateType.MoveTable;
             GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTable);
             GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTable);
         }
@@ -278,6 +279,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             {
                 MapManager.Instance.SaveMap();
                 TableControl();
+                Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
                 //if(colliders.Length )
                 TableSet.GetComponent<BoxCollider>().enabled = false;
                 TableController.Instance.EnableTableSetCollider(false);

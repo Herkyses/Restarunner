@@ -103,6 +103,7 @@ public class PlayerRaycastController : MonoBehaviour
                     }
                     else
                     {
+                        if(Player.Instance.PlayerStateType != Enums.PlayerStateType.TakeBox)
                         GameSceneCanvas.Instance.UnShowAreaInfo();
                         Izort = null;
                     }
@@ -175,9 +176,11 @@ public class PlayerRaycastController : MonoBehaviour
                     {
                         takenObject.GetComponent<BoxCollider>().enabled = true;
                     }
-                    
-                    Player.Instance.PlayerTakedObject = null;
+
+                    var playerInstance = Player.Instance;
+                    playerInstance.PlayerTakedObject = null;
                     GameSceneCanvas.Instance.UnShowAreaInfo();
+                    playerInstance.PlayerStateType = Enums.PlayerStateType.Free;
                 }
             }
             

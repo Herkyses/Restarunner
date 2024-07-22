@@ -44,6 +44,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
             GetComponent<Rigidbody>().useGravity = false;
             GetComponent<BoxCollider>().enabled = false;
             Player.Instance.PlayerTakedObject = gameObject;
+            Player.Instance.PlayerStateType = Enums.PlayerStateType.TakeBox;
             GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTake);
             GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTake);
         }
@@ -90,6 +91,6 @@ public class OrderBox : MonoBehaviour,IInterectableObject
 
     public Enums.PlayerStateType GetStateType()
     {
-        return Enums.PlayerStateType.TakeBox;
+        return Enums.PlayerStateType.Free;
     }
 }

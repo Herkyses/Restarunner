@@ -61,5 +61,6 @@ public class Enums : MonoBehaviour
         TakeBox,
         Trays,
         GiveFood,
+        MoveTable,
     }
 }
