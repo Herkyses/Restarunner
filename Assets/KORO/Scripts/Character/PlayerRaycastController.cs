@@ -42,7 +42,9 @@ public class PlayerRaycastController : MonoBehaviour
                 if (Physics.Raycast(ray, out hit,10f,layerMask))
                 {
                     var hitObject = hit.collider.gameObject;
-                    if((hitObject.TryGetComponent(out Rubbish rubbish) && Player.Instance.CanCleanRubbish) ||(!Player.Instance.CanCleanRubbish&& !PlayerOrderController.Instance.TakedFood)||(hitObject.TryGetComponent(out AIController aicon) && PlayerOrderController.Instance.TakedFood))
+                    if((hitObject.TryGetComponent(out Rubbish rubbish) && Player.Instance.CanCleanRubbish)
+                       ||(!Player.Instance.CanCleanRubbish&& !PlayerOrderController.Instance.TakedFood)
+                       ||(hitObject.TryGetComponent(out AIController aicon) && PlayerOrderController.Instance.TakedFood))
                     {
                         Izort = hit.collider.gameObject.GetComponent<IInterectableObject>();
                         if (Izort != null)
