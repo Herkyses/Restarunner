@@ -114,4 +114,8 @@ public class BillTable : MonoBehaviour,IInterectableObject
     {
         return textsButtons;
     }
+    public Enums.PlayerStateType GetStateType()
+    {
+        return Enums.PlayerStateType.Free;
+    }
 }

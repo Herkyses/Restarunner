@@ -12,5 +12,6 @@ public interface IInterectableObject
     public string[] GetInterectableButtons();
     public void Move();
     public void Open();
+    public Enums.PlayerStateType GetStateType();
 
 }

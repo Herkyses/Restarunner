@@ -77,5 +77,9 @@ public class Interectable : MonoBehaviour,IInterectableObject
     {
         return null;
     }
+    public Enums.PlayerStateType GetStateType()
+    {
+        return Enums.PlayerStateType.GiveFood;
+    }
 
 }

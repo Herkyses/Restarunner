@@ -179,6 +179,7 @@ public class AIController : MonoBehaviour,IInterectableObject
             AIOwnerFood = PlayerOrderController.Instance.FoodTable;
             var playerOrderController = PlayerOrderController.Instance;
             playerOrderController.TakedFood = false;
+            Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
             //PlayerOrderController.Instance.FoodTable.transform.position = AIOwnerChair.ChairFoodTransform.position;
             //PlayerOrderController.Instance.FoodTable.transform.rotation = AIOwnerChair.ChairFoodTransform.rotation;
             playerOrderController.FoodTable.transform.SetParent(AIOwnerChair.ChairFoodTransform);
@@ -265,5 +266,9 @@ public class AIController : MonoBehaviour,IInterectableObject
         {
             return null;
         }
+    }
+    public Enums.PlayerStateType GetStateType()
+    {
+        return Enums.PlayerStateType.GiveFood;
     }
 }

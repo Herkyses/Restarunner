@@ -87,4 +87,9 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     {
         return textsButtons;
     }
+
+    public Enums.PlayerStateType GetStateType()
+    {
+        return Enums.PlayerStateType.TakeBox;
+    }
 }

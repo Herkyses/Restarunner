@@ -109,4 +109,8 @@ public class ChefController : MonoBehaviour,IInterectableObject
     {
         
     }
+    public Enums.PlayerStateType GetStateType()
+    {
+        return Enums.PlayerStateType.Free;
+    }
 }

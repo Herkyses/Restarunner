@@ -42,4 +42,8 @@ public class TableBill : MonoBehaviour,IInterectableObject
     {
         return null;
     }
+    public Enums.PlayerStateType GetStateType()
+    {
+        return Enums.PlayerStateType.Free;
+    }
 }

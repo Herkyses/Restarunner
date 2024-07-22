@@ -162,7 +162,19 @@ public class CameraController : MonoBehaviour
 
     public void CleanToolActive(bool active)
     {
-        CleanTool.SetActive(active);
+        if (Player.Instance.PlayerStateType == Enums.PlayerStateType.Free || Player.Instance.PlayerStateType == Enums.PlayerStateType.Cleaner)
+        {
+            CleanTool.SetActive(active);
+            if (active)
+            {
+                Player.Instance.PlayerStateType = Enums.PlayerStateType.Cleaner;
+            }
+            else
+            {
+                Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
+
+            }
+        }
         
     }
     

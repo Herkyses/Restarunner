@@ -43,4 +43,8 @@ public class Trays : MonoBehaviour,IInterectableObject
     {
         
     }
+    public Enums.PlayerStateType GetStateType()
+    {
+        return Enums.PlayerStateType.Trays;
+    }
 }

@@ -87,6 +87,10 @@ public class PlaceController : MonoBehaviour,IInterectableObject
     {
         return textsButtons;
     }
+    public Enums.PlayerStateType GetStateType()
+    {
+        return Enums.PlayerStateType.Free;
+    }
 }
 
 [System.Serializable]

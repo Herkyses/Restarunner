@@ -53,4 +53,13 @@ public class Enums : MonoBehaviour
         Waiter,
         Customer,
     }
+    public enum PlayerStateType
+    {
+        Free,
+        OrderBill,
+        Cleaner,
+        TakeBox,
+        Trays,
+        GiveFood,
+    }
 }

@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public float PlayerMoney;
     [SerializeField] private GameObject[] PlayerInventory;
     public GameObject PlayerTakedObject;
-    
+    public Enums.PlayerStateType PlayerStateType;
     public PlayerStructData PlayerStructData;
     // Start is called before the first frame update
     

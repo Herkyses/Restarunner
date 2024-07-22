@@ -333,4 +333,17 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     {
         return textsButtons;
     }
+    public Enums.PlayerStateType GetStateType()
+    {
+        if (IsTableFoodFinished)
+        {
+            return Enums.PlayerStateType.OrderBill;
+
+        }
+        else
+        {
+            return Enums.PlayerStateType.Free;
+
+        }
+    }
 }

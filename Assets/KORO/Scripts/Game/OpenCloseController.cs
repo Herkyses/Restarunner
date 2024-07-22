@@ -116,4 +116,8 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
     {
         return null;
     }
+    public Enums.PlayerStateType GetStateType()
+    {
+        return Enums.PlayerStateType.Free;
+    }
 }
