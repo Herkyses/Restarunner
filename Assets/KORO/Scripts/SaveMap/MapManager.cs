@@ -29,7 +29,7 @@ public class MapManager : MonoBehaviour
 
     private void Update()
     {
-        // Tuşlara atama işlemleri burada gerçekleştirilecek.
+        /*// Tuşlara atama işlemleri burada gerçekleştirilecek.
         if (Input.GetKeyDown(KeyCode.S))
         {
             SaveMap();
@@ -41,7 +41,7 @@ public class MapManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.R))
         {
             ResetMap();
-        }
+        }*/
     }
 
     public void SetTableTransformFromMapData()

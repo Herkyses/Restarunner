@@ -163,6 +163,7 @@ public class CameraController : MonoBehaviour
     public void CleanToolActive(bool active)
     {
         CleanTool.SetActive(active);
+        
     }
     
 
