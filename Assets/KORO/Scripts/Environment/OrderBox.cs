@@ -7,7 +7,9 @@ public class OrderBox : MonoBehaviour,IInterectableObject
 {
     
     [SerializeField] private string[] texts = new [] {"Take OrderBox"};
+    [SerializeField] private string[] textsForTake = new [] {"Drop"};
     [SerializeField] private string[] textsButtons = new [] {"E"};
+    [SerializeField] private string[] textsButtonsForTake = new [] {"J"};
     [SerializeField] private ShopItemData _shopItemData;
 
     public string[] InteractableButtons;
@@ -16,6 +18,9 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     {
         texts = new [] {"Take OrderBox","Open"};
         textsButtons = new [] {"E","T"};
+        textsButtonsForTake = new [] {"J"};
+        textsForTake = new [] {"Drop"};
+        
     }
 
     // Update is called once per frame
@@ -38,7 +43,9 @@ public class OrderBox : MonoBehaviour,IInterectableObject
             transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
             GetComponent<Rigidbody>().useGravity = false;
             GetComponent<BoxCollider>().enabled = false;
-            Player.Instance.PlayerTakedObject = gameObject;  
+            Player.Instance.PlayerTakedObject = gameObject;
+            GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTake);
+            GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTake);
         }
         
     }
@@ -68,9 +75,13 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     }
     public void Open()
     {
-        var objectZort = Instantiate(_shopItemData.ItemObject);
-        objectZort.transform.position = transform.position;
-        PoolManager.Instance.ReturnToPoolForOrderBox(gameObject);
+        if (!Player.Instance.PlayerTakedObject)
+        {
+            var objectZort = Instantiate(_shopItemData.ItemObject);
+            objectZort.transform.position = transform.position;
+            PoolManager.Instance.ReturnToPoolForOrderBox(gameObject);
+        }
+        
     }
     public string[] GetInterectableButtons()
     {

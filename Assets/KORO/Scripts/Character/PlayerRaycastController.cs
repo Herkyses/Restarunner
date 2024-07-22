@@ -102,11 +102,7 @@ public class PlayerRaycastController : MonoBehaviour
 
             }
             }
-            else
-            {
-                GameSceneCanvas.Instance.UnShowAreaInfo();
-
-            }
+           
 
             
         }
@@ -159,7 +155,7 @@ public class PlayerRaycastController : MonoBehaviour
                     }
                     
                     Player.Instance.PlayerTakedObject = null;
-                    
+                    GameSceneCanvas.Instance.UnShowAreaInfo();
                 }
             }
             

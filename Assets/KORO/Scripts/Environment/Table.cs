@@ -9,7 +9,9 @@ using Random = UnityEngine.Random;
 public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 {
     [SerializeField] private string[] texts = new [] {"Check Order "};
+    [SerializeField] private string[] textsForTable = new [] {"Drop","Rotate"};
     [SerializeField] private string[] textsButtons = new [] {"E"};
+    [SerializeField] private string[] textsButtonsForTable = new [] {"M0","R"};
     [SerializeField] private string checkOrder = "Check Order";
     [SerializeField] private List<OrderDataStruct> _orderList ;
     public List<AIController> _aiControllerList ;
@@ -151,6 +153,8 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         groundLayer = LayerMask.NameToLayer("Ground");
         texts = new []{"Check Order","Move"};
         textsButtons = new []{"E","H"};
+        textsForTable = new [] {"Drop","Rotate"};
+        textsButtonsForTable = new [] {"M0","R"};
         IsTableAvailable = true;
         TableNumberText.text = TableNumber.ToString();
     }
@@ -238,6 +242,8 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         {
             IsTableMove = true;
             Player.Instance.PlayerTakedObject = gameObject;
+            GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTable);
+            GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTable);
         }
         
     }
