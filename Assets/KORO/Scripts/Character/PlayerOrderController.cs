@@ -32,26 +32,21 @@ public class PlayerOrderController : MonoBehaviour
 
     public void TakeFood(FoodTable food,bool isFoodFinished)
     {
-        if (!Player.Instance.PlayerTakedObject)
+        FoodTable = food;
+        
+        if (!TakedFood)
         {
-            FoodTable = food;
-        
-            if (!TakedFood)
+            if (!isFoodFinished)
             {
-                if (!isFoodFinished)
-                {
-                    Food = food.Food;
-                    TakedFood = true;
-                    OrderFoodList.Add(food.Food);            
-                }
-                food.transform.DOLocalMove(Vector3.zero, 0.2f);
-                food.transform.DOLocalRotate(Vector3.zero, 0.2f);
-                food.transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
-                Player.Instance.PlayerTakedObject = food.gameObject;
-            } 
+                Food = food.Food;
+                TakedFood = true;
+                OrderFoodList.Add(food.Food);            
+            }
+            food.transform.DOLocalMove(Vector3.zero, 0.2f);
+            food.transform.DOLocalRotate(Vector3.zero, 0.2f);
+            food.transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
+            //Player.Instance.PlayerTakedObject = food.gameObject;
         }
-        
-        
     }
     public void TakeBill(TableBill tableBill)
     {
