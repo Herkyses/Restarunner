@@ -20,4 +20,10 @@ public class MainMenuUIManager : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+    public void NewGame()
+    {
+        PlayerPrefs.DeleteAll();
+        MapManager.Instance.ResetMap();
+        SceneManager.LoadScene("SampleScene");
+    }
 }
