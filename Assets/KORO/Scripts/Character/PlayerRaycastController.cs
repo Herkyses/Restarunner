@@ -41,47 +41,55 @@ public class PlayerRaycastController : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit,10f,layerMask))
                 {
-                
-                    Izort = hit.collider.gameObject.GetComponent<IInterectableObject>();
-                    if (Izort != null)
+                    var hitObject = hit.collider.gameObject;
+                    if((hitObject.TryGetComponent(out Rubbish rubbish) && Player.Instance.CanCleanRubbish) ||(!Player.Instance.CanCleanRubbish))
                     {
-                    
-                        if (InterectabelOutline)
+                        Izort = hit.collider.gameObject.GetComponent<IInterectableObject>();
+                        if (Izort != null)
                         {
-                            InterectabelOutline.enabled = false;
+                    
+                            if (InterectabelOutline)
+                            {
+                                InterectabelOutline.enabled = false;
+                                GameSceneCanvas.Instance.CanShowCanvas = false;
+
+                                GameSceneCanvas.Instance.UnShowAreaInfo();
+                            }
+
+                            InterectabelOutline = Izort.GetOutlineComponent();
+                            Izort.ShowOutline(true);
+                            GameSceneCanvas.Instance.CanShowCanvas = true;
+                            GameSceneCanvas.Instance.ShowAreaInfo(Izort.GetInterectableText());
+                            GameSceneCanvas.Instance.ShowAreaInfoForTexts(Izort.GetInterectableTexts());
+                            GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(Izort.GetInterectableButtons());
+                            //place.ShowPlacePrice();
+                        }
+                        else
+                        {
                             GameSceneCanvas.Instance.CanShowCanvas = false;
+                            if (Izort != null)
+                            {
+                                Izort.ShowOutline(false);
+                            }
+
+                            if (InterectabelOutline)
+                            {
+                                InterectabelOutline.enabled = false;
+
+                            }
 
                             GameSceneCanvas.Instance.UnShowAreaInfo();
+                    
                         }
-
-                        InterectabelOutline = Izort.GetOutlineComponent();
-                        Izort.ShowOutline(true);
-                        GameSceneCanvas.Instance.CanShowCanvas = true;
-                        GameSceneCanvas.Instance.ShowAreaInfo(Izort.GetInterectableText());
-                        GameSceneCanvas.Instance.ShowAreaInfoForTexts(Izort.GetInterectableTexts());
-                        GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(Izort.GetInterectableButtons());
-                        //place.ShowPlacePrice();
+                        // Raycast sonucunu işle
+                        Debug.Log("Raycast isabet etti: " + hit.collider.gameObject.name);
+                        Debug.DrawRay(ray.origin, hit.point - ray.origin, Color.green, 2f);
                     }
                     else
                     {
-                        GameSceneCanvas.Instance.CanShowCanvas = false;
-                        if (Izort != null)
-                        {
-                            Izort.ShowOutline(false);
-                        }
-
-                        if (InterectabelOutline)
-                        {
-                            InterectabelOutline.enabled = false;
-
-                        }
-
                         GameSceneCanvas.Instance.UnShowAreaInfo();
-                    
                     }
-                    // Raycast sonucunu işle
-                    Debug.Log("Raycast isabet etti: " + hit.collider.gameObject.name);
-                    Debug.DrawRay(ray.origin, hit.point - ray.origin, Color.green, 2f);
+                    
 
                 }
                 else
