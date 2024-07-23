@@ -40,6 +40,10 @@ using UnityEngine;
     {
         GameSceneCanvas.Instance.CanMove = false;
         _panel.gameObject.SetActive(true);
+        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 1)
+        {
+            InitializeWithButton(1);
+        }
     }
     public void DeActivePlacePanel()
     {
@@ -77,6 +81,10 @@ using UnityEngine;
 
     public void InitializeWithButton(int index)
     {
+        if (index != 1 && PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 1)
+        {
+            return;
+        }
         DeleteChilds();
         switch (index)
         {
