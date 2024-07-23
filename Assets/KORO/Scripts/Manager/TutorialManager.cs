@@ -40,10 +40,6 @@ public class TutorialManager : MonoBehaviour
     public void Initiliaze()
     {
         totalStepCount = 5;
-        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() < 1)
-        {
-            TutorialPanelController.Instance.ActivateTutorialPanel(true);
-        }
         SetTutorialInfo(PlayerPrefsManager.Instance.LoadPlayerTutorialStep());
     }
 
@@ -52,12 +48,15 @@ public class TutorialManager : MonoBehaviour
         switch (step)
         {
             case 0:
+                TutorialPanelController.Instance.ActivateTutorialPanel(true);
+                TutorialPanelController.Instance.ActivateRemainingText(true);
+                
                 TutorialPanelController.Instance.SetTutorialInfoText("Clean Restaurant\n " + "Use a broom\n <color=green>Press P</color>");
                 TutorialPanelController.Instance.SetRubbishCount();
                 break;
             case 1:
-                TutorialPanelController.Instance.ActivateTutorialPanel(false);
-
+                TutorialPanelController.Instance.ActivateTutorialPanel(true);
+                TutorialPanelController.Instance.SetTutorialInfoText("Buy table set");
                 break;
             case 2:
                 break;

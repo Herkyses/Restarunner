@@ -34,6 +34,7 @@ public class RubbishManager : MonoBehaviour
         {
             //var tutorialStep = PlayerPrefsManager.Instance.LoadPlayerTutorialStep();
             PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(1);
+            TutorialPanelController.Instance.ActivateRemainingText(false);
             TutorialManager.Instance.Initiliaze();
 
         }
