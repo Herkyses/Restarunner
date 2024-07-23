@@ -34,6 +34,8 @@ public class RubbishManager : MonoBehaviour
         {
             //var tutorialStep = PlayerPrefsManager.Instance.LoadPlayerTutorialStep();
             PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(1);
+            TutorialManager.Instance.Initiliaze();
+
         }
     }
 
@@ -52,6 +54,12 @@ public class RubbishManager : MonoBehaviour
         }
 
         return true;
+    }
+
+    public int GetRubbishCount()
+    {
+        var rubbishList = _rubbishLevelsParents[_rubbishLevel].GetComponentsInChildren<Rubbish>();
+        return rubbishList.Length;
     }
 
     public void ActivateRubbishes()

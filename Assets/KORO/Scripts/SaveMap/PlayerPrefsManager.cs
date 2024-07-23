@@ -8,6 +8,8 @@ public class PlayerPrefsManager : MonoBehaviour
     public static PlayerPrefsManager Instance;
     public static Action<float> GainedMoney;
     public static Action<int> GainedPopularity;
+
+    public static Action TutorialStepUpdated;
     /*private void OnEnable()
     {
         AIStateMachineController.PayedOrderBill += SavePlayerMoney;
@@ -34,6 +36,7 @@ public class PlayerPrefsManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("PlayerTutorialStep", step);
         PlayerPrefs.Save();
+        //TutorialStepUpdated?.Invoke();
     }
     public int LoadPlayerTutorialStep()
     {
