@@ -59,6 +59,8 @@ public class TutorialManager : MonoBehaviour
                 TutorialPanelController.Instance.SetTutorialInfoText("Buy table set");
                 break;
             case 2:
+                TutorialPanelController.Instance.ActivateTutorialPanel(true);
+                TutorialPanelController.Instance.SetTutorialInfoText("Take Orderbox and Open in Restaurant");
                 break;
             case 3:
                 break;

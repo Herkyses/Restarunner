@@ -111,6 +111,11 @@ public class ShopManager : MonoBehaviour
         item.GetComponent<OrderBox>().SetShopItemData(shopItemData);
         item.transform.position = ShopOrderTransform.position;
         MapManager.Instance.SaveMap();
+        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 1)
+        {
+            PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(2);
+            TutorialManager.Instance.Initiliaze();
+        }
         
     }
 
