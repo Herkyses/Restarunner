@@ -27,6 +27,7 @@ public class MapObject
     public float rotY;
     public float rotZ;
     public int tableID;
+    public ShopItemData shopItemData;
 } 
 [System.Serializable]
 public class Meal

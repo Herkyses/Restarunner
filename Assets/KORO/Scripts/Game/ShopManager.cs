@@ -110,6 +110,7 @@ public class ShopManager : MonoBehaviour
         var item = PoolManager.Instance.GetFromPoolForOrderBox();
         item.GetComponent<OrderBox>().SetShopItemData(shopItemData);
         item.transform.position = ShopOrderTransform.position;
+        MapManager.Instance.SaveMap();
         
     }
 

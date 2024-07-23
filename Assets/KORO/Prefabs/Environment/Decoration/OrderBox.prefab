@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8967111628947938701}
   m_Layer: 0
   m_Name: OrderBox
-  m_TagString: Untagged
+  m_TagString: OrderBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,7 +111,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af22ffaf7283a146acdca72e912cf32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsForTake:
+  - Drop
+  textsButtons:
+  - E
+  textsButtonsForTake:
+  - J
   _shopItemData: {fileID: 0}
+  InteractableButtons: []
 --- !u!54 &8967111628947938701
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -23,6 +23,10 @@ public class OrderBox : MonoBehaviour,IInterectableObject
         
     }
 
+    public ShopItemData GetShopItemData()
+    {
+        return _shopItemData;
+    }
     // Update is called once per frame
     void Update()
     {

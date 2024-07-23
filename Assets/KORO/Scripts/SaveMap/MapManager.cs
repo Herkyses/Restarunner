@@ -12,6 +12,8 @@ public class MapManager : MonoBehaviour
     [FormerlySerializedAs("treePrefab")] public GameObject tableSetPrefab;
     public GameObject[] tableSets;
     public GameObject rockPrefab;
+    public GameObject orderBoxPf;
+    public ShopItemData[] orderBoxShopItemDatas;
     public static MapManager Instance;
     private void Awake()
     {
@@ -65,13 +67,34 @@ public class MapManager : MonoBehaviour
         }
         
     }
+    public void SetOrderBoxTransformFromMapData()
+    {
+        GameObject[] orderBoxObjects = GameObject.FindGameObjectsWithTag("OrderBox");
+        if (orderBoxObjects.Length > 0)
+        {
+            foreach (GameObject orderBoxObject in orderBoxObjects)
+            {
+                MapObject orderBox = new MapObject();
+                orderBox.type = "OrderBox";
+                orderBox.posX = orderBoxObject.transform.position.x;
+                orderBox.posY = orderBoxObject.transform.position.y;
+                orderBox.posZ = orderBoxObject.transform.position.z;
+                orderBox.rotX = orderBoxObject.transform.rotation.eulerAngles.x;
+                orderBox.rotY = orderBoxObject.transform.rotation.eulerAngles.y;
+                orderBox.rotZ = orderBoxObject.transform.rotation.eulerAngles.z;
+                orderBox.shopItemData = orderBoxObject.gameObject.GetComponent<OrderBox>().GetShopItemData();
+                mapData.objects.Add(orderBox);
+            }
+        }
+        
+    }
     public void SaveMap()
     {
         // Mevcut sahnede bulunan objelerin bilgilerini alıp kaydedelim
         mapData.objects.Clear(); // Önceki verileri temizleyelim
 
         SetTableTransformFromMapData();
-
+        SetOrderBoxTransformFromMapData();
         /*GameObject[] rockObjects = GameObject.FindGameObjectsWithTag("Rock");
         foreach (GameObject rock in rockObjects)
         {
@@ -114,6 +137,16 @@ public class MapManager : MonoBehaviour
                         table.transform.SetParent(TableController.Instance.TableTransform);
                     }
                 }
+                if (mapObject.type == "OrderBox")
+                {
+                    if (prefab != null)
+                    {
+                        Vector3 position = new Vector3(mapObject.posX, mapObject.posY, mapObject.posZ);
+                        Quaternion rotation = Quaternion.Euler(mapObject.rotX, mapObject.rotY, mapObject.rotZ);
+                        var orderBox = Instantiate(prefab, position, rotation);
+                        orderBox.gameObject.GetComponent<OrderBox>().SetShopItemData(mapObject.shopItemData); 
+                    }
+                }
                 
             }
 
@@ -144,7 +177,11 @@ public class MapManager : MonoBehaviour
         {
             return tableSets[tableID];
         }
-        if (type == "Rock") return rockPrefab;
+
+        if (type == "OrderBox")
+        {
+            return orderBoxPf;
+        }
         return null;
     }
 }
