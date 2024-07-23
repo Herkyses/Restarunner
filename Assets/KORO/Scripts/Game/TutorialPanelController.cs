@@ -37,7 +37,8 @@ public class TutorialPanelController : MonoBehaviour
     public void SetRubbishCount()
     {
         TutorialTextForRemainingRubbish.gameObject.SetActive(true);
-        TutorialTextForRemainingRubbish.text = RubbishManager.Instance.GetRubbishCount().ToString() + "Remaining";
+        var a = RubbishManager.Instance.GetRubbishCount();
+        TutorialTextForRemainingRubbish.text = $"<color=green>{a.ToString()}</color>"  + " Left";
     }
 
     public void ActivateRemainingText(bool activate)
