@@ -57,7 +57,10 @@ public class PlaceController : MonoBehaviour,IInterectableObject
     
     public void InterectableObjectRun()
     {
-        PlacePanelController.Instance.ActivePlacePanel();
+        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() > 0)
+        {
+            PlacePanelController.Instance.ActivePlacePanel();
+        }
     }
     public void ShowOutline(bool active)
     {
