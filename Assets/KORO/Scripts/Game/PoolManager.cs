@@ -76,7 +76,7 @@ public class PoolManager : MonoBehaviour
         {
             GameObject obj = Instantiate(OrderBill);
             obj.SetActive(false);
-            FoodTablePool.Enqueue(obj);
+            OrderBillPool.Enqueue(obj);
         }
 
         GameObject pooledObject = OrderBillPool.Dequeue();

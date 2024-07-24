@@ -60,6 +60,8 @@ public class PlayerOrderController : MonoBehaviour
             TableBill.transform.localPosition = new Vector3(0.2f,0,0);
             tableBill.transform.DOLocalMove(new Vector3(0.2f, 0, 0), 0.2f);
             tableBill.transform.DOLocalRotate(new Vector3(0f,0,30), 0.2f);
+            Player.Instance.PlayerStateType = Enums.PlayerStateType.OrderBill;
+
             //TableBill.transform.localRotation = Quaternion.Euler(new Vector3(0f,0,30));
             /*TableBill.transform.position = FoodTransform.position;
             var zort = FoodTransform.transform.rotation.eulerAngles + new Vector3(0f, 0f, -90f);

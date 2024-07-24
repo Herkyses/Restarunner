@@ -197,6 +197,11 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
         if (PlayerOrderController.Instance.TakedTableBill && PlayerOrderController.Instance.TableBill.OwnerTable == this)
         {
+            if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
+            {
+                PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(10);
+                TutorialManager.Instance.SetTutorialInfo(PlayerPrefsManager.Instance.LoadPlayerTutorialStep());
+            }
             for (int i = 0; i < _aiControllerList.Count; i++)
             {
                 _aiControllerList[i].AIStateMachineController.SetMoveStateFromOrderBill();
