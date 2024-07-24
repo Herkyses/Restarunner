@@ -50,7 +50,7 @@ public class PlayerPrefsManager : MonoBehaviour
     }
     public float LoadPlayerMoney()
     {
-        return PlayerPrefs.GetFloat("PlayerMoney", 0); 
+        return PlayerPrefs.GetFloat("PlayerMoney", 25); 
     }
     public void SavePlaceLevel(int level)
     {
