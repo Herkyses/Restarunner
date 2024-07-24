@@ -36,6 +36,19 @@ public class SingleOrder : MonoBehaviour
 
     public void PlusButtonPressed()
     {
+        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
+        {
+            if (TableController.Instance.TableSets[0].table.GetOrders()[0].OrderType == OrderType && PlayerOrderController.Instance.OrderList[1].OrderDataStructs.Count == 0)
+            {
+                OrderPanelController.Instance.PlayerOrderInventory(this);
+                TutorialManager.Instance.SetTutorialInfo(7);
+                return;
+            }
+            else
+            {
+                return;
+            }
+        }
         OrderPanelController.Instance.PlayerOrderInventory(this);
     }
     public void MinusButtonPressed()

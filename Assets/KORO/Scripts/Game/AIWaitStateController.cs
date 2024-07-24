@@ -66,8 +66,7 @@ public class AIWaitStateController : MonoBehaviour,IInterectableObject
                 TableAvailablePanel.Instance.RemoveFromCustomerList(index);
                 if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
                 {
-                    PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(5);
-                    TutorialManager.Instance.Initiliaze();
+                    TutorialManager.Instance.SetTutorialInfo(5);
                 }
             }
         }

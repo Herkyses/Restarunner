@@ -72,7 +72,19 @@ public class TutorialManager : MonoBehaviour
                 break;
             case 5:
                 TutorialPanelController.Instance.ActivateTutorialPanel(true);
-                TutorialPanelController.Instance.SetTutorialInfoText("Take Customers Orders from Table");
+                TutorialPanelController.Instance.SetTutorialInfoText("Take Customer Order from Table");
+                break;
+            case 6:
+                TutorialPanelController.Instance.ActivateTutorialPanel(true);
+                TutorialPanelController.Instance.SetTutorialInfoText("You can add order to your order inventory from foods with plus Button");
+                break;
+            case 7:
+                TutorialPanelController.Instance.ActivateTutorialPanel(true);
+                TutorialPanelController.Instance.SetTutorialInfoText("Give order to chef");
+                break;
+            case 8:
+                TutorialPanelController.Instance.ActivateTutorialPanel(true);
+                TutorialPanelController.Instance.SetTutorialInfoText("Take and Serv Food to Customer");
                 break;
             default:
                 TutorialPanelController.Instance.ActivateTutorialPanel(false);

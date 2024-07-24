@@ -50,6 +50,11 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         
     }
 
+    public List<OrderDataStruct> GetOrders()
+    {
+        return _orderList;
+    }
+
     public bool CheckAllCustomerFinishedFood()
     {
         for (int i = 0; i < _aiControllerList.Count; i++)
@@ -182,8 +187,12 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     {
         if (!PlayerOrderController.Instance.TakedFood && !PlayerOrderController.Instance.TakedTableBill)
         {
-            OrderPanelController.Instance.ShowOrder(_orderList,TableNumber);
-            OpenOrderPanels();
+            if (CustomerCount > 0)
+            {
+                OrderPanelController.Instance.ShowOrder(_orderList,TableNumber);
+                OpenOrderPanels();
+            }
+            
         }
 
         if (PlayerOrderController.Instance.TakedTableBill && PlayerOrderController.Instance.TableBill.OwnerTable == this)

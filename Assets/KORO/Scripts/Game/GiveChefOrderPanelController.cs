@@ -35,8 +35,13 @@ public class GiveChefOrderPanelController : MonoBehaviour
     public void GiveChefOrderPanel()
     {
         Orders = OrderList[SelectedOrderListCount];
-
-        IsGivedToChef?.Invoke(Orders.OrderDataStructs,true,null);
+        var orderStructs = Orders.OrderDataStructs;
+        
+        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 7)
+        {
+            orderStructs = TableController.Instance.TableSets[0].table.GetOrders();
+        }
+        IsGivedToChef?.Invoke(orderStructs,true,null);
     }
 
     public void OrderListIndexIncrease(bool isIncrease)

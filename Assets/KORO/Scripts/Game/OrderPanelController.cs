@@ -87,6 +87,10 @@ public class OrderPanelController : MonoBehaviour
         GameSceneCanvas.Instance.CanMove = false;
         _orderPanel.gameObject.SetActive(true);
         CreateOrders(_orderList);
+        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
+        {
+            TutorialManager.Instance.SetTutorialInfo(6);
+        }
     }
     public void CreateSelectedOrders()
     {
