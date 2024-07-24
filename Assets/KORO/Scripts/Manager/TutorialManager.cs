@@ -86,6 +86,10 @@ public class TutorialManager : MonoBehaviour
                 TutorialPanelController.Instance.ActivateTutorialPanel(true);
                 TutorialPanelController.Instance.SetTutorialInfoText("Take and Serv Food to Customer");
                 break;
+            case 9:
+                TutorialPanelController.Instance.ActivateTutorialPanel(true);
+                TutorialPanelController.Instance.SetTutorialInfoText("If the customer has finished their meal, select the relevant table from the billing desk and take the bill to the table");
+                break;
             default:
                 TutorialPanelController.Instance.ActivateTutorialPanel(false);
                 break;

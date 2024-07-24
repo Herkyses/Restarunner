@@ -190,6 +190,10 @@ public class AIController : MonoBehaviour,IInterectableObject
             playerOrderController.FoodTable = null;
             Player.Instance.DropTakenObject();
             AIStateMachineController.AIChangeState(AIStateMachineController.AIEatState);
+            if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
+            {
+                TutorialManager.Instance.SetTutorialInfo(9);
+            }
         }
     }
     public void InterectableObjectRunforWaiter(FoodTable foodTable)

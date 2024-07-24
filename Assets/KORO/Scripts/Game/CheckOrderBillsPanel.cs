@@ -101,4 +101,20 @@ public class CheckOrderBillsPanel : MonoBehaviour
             }
         }
     }
+
+    public void SelectedOrderBillforInducator(int tableNumber)
+    {
+        for (int i = 0; i < BillList.Count; i++)
+        {
+            if (tableNumber == BillList[i].TableNumber)
+            {
+                BillList[i].SelectInducator();
+            }
+            else
+            {
+                BillList[i].SelectedDefaultColor();
+
+            }
+        }
+    }
 }
