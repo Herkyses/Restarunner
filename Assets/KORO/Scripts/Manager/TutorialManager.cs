@@ -70,6 +70,10 @@ public class TutorialManager : MonoBehaviour
                 TutorialPanelController.Instance.ActivateTutorialPanel(true);
                 TutorialPanelController.Instance.SetTutorialInfoText("Open Restaurant");
                 break;
+            case 5:
+                TutorialPanelController.Instance.ActivateTutorialPanel(true);
+                TutorialPanelController.Instance.SetTutorialInfoText("Check Available Tables for Customers");
+                break;
             default:
                 TutorialPanelController.Instance.ActivateTutorialPanel(false);
                 break;
