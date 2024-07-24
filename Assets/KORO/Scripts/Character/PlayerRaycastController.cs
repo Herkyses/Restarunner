@@ -94,8 +94,11 @@ public class PlayerRaycastController : MonoBehaviour
                         }
                         else
                         {
-                            GameSceneCanvas.Instance.UnShowAreaInfo();
+                            if (Player.Instance.PlayerStateType != Enums.PlayerStateType.TakeBox)
+                            {
+                                GameSceneCanvas.Instance.UnShowAreaInfo();
 
+                            }
                             Izort = null;
 
                         }

@@ -18,36 +18,5 @@ public class PlayerAreaController : MonoBehaviour
         TryGetComponent(out _playerPlayingController);
     }
     
-    // Update is called once per frame
-    void Update()
-    {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 1.5f);
-
-        foreach (Collider col in colliders)
-        {
-            if (col.gameObject.GetComponent<AreaController>())
-            {
-                if (!_playerPlayingController._playerPlayingGuitar)
-                {
-                    col.gameObject.GetComponent<IAreaInfo>().ShowInfo();
-
-                }
-                _playerPlayingController.SetPlayTransform(col.gameObject.GetComponent<IAreaInfo>().GetPlayTransform());
-                _playerPlayingController.SetCanPlayer(true);
-                return;
-            }
-            else
-            {
-                
-            }
-        }
-
-        if (!GameSceneCanvas.Instance.CanShowCanvas)
-        {
-            GameSceneCanvas.Instance.UnShowAreaInfo();
-
-        }
-        _playerPlayingController.SetCanPlayer(false);
-
-    }
+    
 }

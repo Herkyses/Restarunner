@@ -153,7 +153,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         groundLayer = LayerMask.NameToLayer("Ground");
         texts = new []{"Check Order","Move"};
         textsButtons = new []{"E","H"};
-        textsForTable = new [] {"Drop","Rotate"};
+        textsForTable = new [] {"Place","Rotate"};
         textsButtonsForTable = new [] {"M0","R"};
         IsTableAvailable = true;
         TableNumberText.text = TableNumber.ToString();
@@ -286,7 +286,11 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
                 IsTableSetTransform = false;
                 IsTableMove = false;
                 Player.Instance.PlayerTakedObject = null;
-
+                if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 2)
+                {
+                    PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(4);
+                    TutorialManager.Instance.Initiliaze();
+                }
             }
             
         }

@@ -85,6 +85,10 @@ public class OrderBox : MonoBehaviour,IInterectableObject
             var objectZort = Instantiate(_shopItemData.ItemObject);
             objectZort.transform.position = transform.position;
             PoolManager.Instance.ReturnToPoolForOrderBox(gameObject);
+            if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 2)
+            {
+                TutorialManager.Instance.SetTutorialInfo(3);
+            }
         }
         
     }
