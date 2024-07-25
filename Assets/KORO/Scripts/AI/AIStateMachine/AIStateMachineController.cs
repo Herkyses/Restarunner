@@ -102,16 +102,16 @@ public class AIStateMachineController : MonoBehaviour
         {
             if (PlaceController.RestaurantIsOpen)
             {
-                AIChangeState(AITargetRestaurantState);
+                //AIChangeState(AITargetRestaurantState);
 
-                /*if (Random.value < 0.5f)
+                if (Random.value < 0.5f)
                 {
                     AIChangeState(AITargetRestaurantState);
                 }
                 else
                 {
                     AIChangeState(AIMoveState);
-                }*/
+                }
             }
             else
             {

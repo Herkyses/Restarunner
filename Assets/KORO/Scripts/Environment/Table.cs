@@ -208,6 +208,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             } 
             BillTable.Instance.UpdateTableBill(PlayerOrderController.Instance.TableBill);
             PlayerOrderController.Instance.TakedTableBill = false;
+            Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
             CheckOrderBillsPanel.Instance.UpdateBillList(TableNumber);
             TotalBills = 0;
             _aiControllerList.Clear();

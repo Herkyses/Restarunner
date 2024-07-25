@@ -14,11 +14,13 @@ public class AISpawnController : MonoBehaviour
 
     private void OnEnable()
     {
+        OpenCloseController.RestaurantOpened += SetRestaurantStateForTutorial;
         GameSceneCanvas.UpdateAISpawnController += UpdateAiSpawner;
         PoolManager.IsPoolManagerInitiliazed += InitiliazeAIS;
     }
     private void OnDisable()
     {
+        OpenCloseController.RestaurantOpened -= SetRestaurantStateForTutorial;
         GameSceneCanvas.UpdateAISpawnController -= UpdateAiSpawner;
         PoolManager.IsPoolManagerInitiliazed -= InitiliazeAIS;
 
@@ -50,7 +52,10 @@ public class AISpawnController : MonoBehaviour
         NewAISpawn();
     }
 
-    
+    public void SetRestaurantStateForTutorial()
+    {
+        AllAIList[0].AIStateMachineController.AIChangeState(AllAIList[0].AIStateMachineController.AITargetRestaurantState);
+    }
     public void NewAISpawn()
     {
         var singleAi = Instantiate(AlPf,transform);

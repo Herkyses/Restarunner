@@ -15,6 +15,8 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
     public Transform CloseTransform;
     public Transform Parent;
     public bool CanMove = true;
+
+    public static Action RestaurantOpened;
     public void InterectableObjectRun()
     {
         if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() < 3)
@@ -31,7 +33,10 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
             PlaceController.RestaurantIsOpen = !PlaceController.RestaurantIsOpen;
             if (PlaceController.RestaurantIsOpen)
             {
-                
+                if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
+                {
+                    RestaurantOpened?.Invoke();
+                }
                 OpenCloseSequence = DOTween.Sequence();
                 OpenCloseSequence.Append(Parent.DORotate(new Vector3(-90, 0, 0), 0.2f,RotateMode.LocalAxisAdd)).
                     Append(Parent.DORotate(new Vector3(0, 180, 0), 0.2f,RotateMode.LocalAxisAdd)).
