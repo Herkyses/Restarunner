@@ -16,7 +16,7 @@ public class PlaceController : MonoBehaviour,IInterectableObject
     // Start is called before the first frame update
     void Start()
     {
-        texts = new [] {"Check Place"};
+        texts = new [] {"Use Computer"};
         textsButtons = new [] {"E"};
     }
 
@@ -72,7 +72,7 @@ public class PlaceController : MonoBehaviour,IInterectableObject
     }
     public string GetInterectableText()
     {
-        return "Check Place";
+        return "Use Computer";
     }
     public void Move()
     {

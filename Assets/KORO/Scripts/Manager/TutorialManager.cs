@@ -51,16 +51,16 @@ public class TutorialManager : MonoBehaviour
                 TutorialPanelController.Instance.ActivateTutorialPanel(true);
                 TutorialPanelController.Instance.ActivateRemainingText(true);
                 
-                TutorialPanelController.Instance.SetTutorialInfoText("Clean Restaurant\n " + "Use a broom\n <color=green>Press P</color>");
+                TutorialPanelController.Instance.SetTutorialInfoText("To clean the restaurant, pick up the broom. <color=green>Press 'P'</color>  to pick up the broom.");
                 TutorialPanelController.Instance.SetRubbishCount();
                 break;
             case 1:
                 TutorialPanelController.Instance.ActivateTutorialPanel(true);
-                TutorialPanelController.Instance.SetTutorialInfoText("Buy Table Set from Shop");
+                TutorialPanelController.Instance.SetTutorialInfoText("Purchase the table set from the store using the computer.");
                 break;
             case 2:
                 TutorialPanelController.Instance.ActivateTutorialPanel(true);
-                TutorialPanelController.Instance.SetTutorialInfoText("Take The Order Box outside and Open in Restaurant");
+                TutorialPanelController.Instance.SetTutorialInfoText("Bring the order box from outside into the restaurant and open it.");
                 break;
             case 3:
                 TutorialPanelController.Instance.ActivateTutorialPanel(true);
