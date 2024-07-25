@@ -42,11 +42,12 @@ public class GiveChefOrderPanelController : MonoBehaviour
             orderStructs = TableController.Instance.TableSets[0].table.GetOrders();
         }
         IsGivedToChef?.Invoke(orderStructs,true,null);
+        DeactivePanel();
     }
 
     public void OrderListIndexIncrease(bool isIncrease)
     {
-        DeleteChilds(_singlePfParent);
+        
         if (isIncrease)
         {
             SelectedOrderListCount++;
@@ -66,6 +67,7 @@ public class GiveChefOrderPanelController : MonoBehaviour
 
     public void InitiliazeGiveChefOrderPanel()
     {
+        DeleteChilds(_singlePfParent);
         for (int i = 0; i < OrderList[SelectedOrderListCount].OrderDataStructs.Count; i++)
         {
             var singleOrder = Instantiate(_singlePf, _singlePfParent);
