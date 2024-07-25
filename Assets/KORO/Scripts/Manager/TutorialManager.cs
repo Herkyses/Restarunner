@@ -64,11 +64,11 @@ public class TutorialManager : MonoBehaviour
                 break;
             case 3:
                 TutorialPanelController.Instance.ActivateTutorialPanel(true);
-                TutorialPanelController.Instance.SetTutorialInfoText("Move and Place The Table");
+                TutorialPanelController.Instance.SetTutorialInfoText("Move and set up the table set.");
                 break;
             case 4:
                 TutorialPanelController.Instance.ActivateTutorialPanel(true);
-                TutorialPanelController.Instance.SetTutorialInfoText("Open Restaurant and Guide customers to the table");
+                TutorialPanelController.Instance.SetTutorialInfoText("Open the restaurant and guide customers to their tables.");
                 break;
             case 5:
                 TutorialPanelController.Instance.ActivateTutorialPanel(true);

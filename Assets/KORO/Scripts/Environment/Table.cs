@@ -158,7 +158,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         groundLayer = LayerMask.NameToLayer("Ground");
         texts = new []{"Check Order","Move"};
         textsButtons = new []{"E","H"};
-        textsForTable = new [] {"Place","Rotate"};
+        textsForTable = new [] {"Set up","Rotate"};
         textsButtonsForTable = new [] {"M0","R"};
         IsTableAvailable = true;
         TableNumberText.text = TableNumber.ToString();
