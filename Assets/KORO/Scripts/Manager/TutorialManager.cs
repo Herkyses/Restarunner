@@ -84,7 +84,7 @@ public class TutorialManager : MonoBehaviour
                 break;
             case 8:
                 TutorialPanelController.Instance.ActivateTutorialPanel(true);
-                TutorialPanelController.Instance.SetTutorialInfoText("Take and Serv Food to Customer");
+                TutorialPanelController.Instance.SetTutorialInfoText("Pick up the food and serve it.");
                 break;
             case 9:
                 TutorialPanelController.Instance.ActivateTutorialPanel(true);
