@@ -80,7 +80,7 @@ public class TutorialManager : MonoBehaviour
                 break;
             case 7:
                 TutorialPanelController.Instance.ActivateTutorialPanel(true);
-                TutorialPanelController.Instance.SetTutorialInfoText("Give order to chef");
+                TutorialPanelController.Instance.SetTutorialInfoText("Give the order to the chef.");
                 break;
             case 8:
                 TutorialPanelController.Instance.ActivateTutorialPanel(true);
