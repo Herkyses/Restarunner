@@ -1333,6 +1333,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &8311888087604209995
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2694,6 +2698,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 413ecbd18172caf4cb5d93e53f4750ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - 'Check Available '
+  textsButtons:
+  - E
 --- !u!1 &266056687193818917
 GameObject:
   m_ObjectHideFlags: 0
@@ -3510,6 +3518,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &8938957160183598392
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4091,6 +4103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &2501382426542563525
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4201,6 +4217,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &3680739788465623035
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5049,7 +5069,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &974545871469757426
 Transform:
   m_ObjectHideFlags: 0
@@ -5127,6 +5147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &1349769103059368031
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5353,7 +5377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1106238368642870783
 Transform:
   m_ObjectHideFlags: 0
@@ -5431,6 +5455,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &6725605153392252516
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6766,6 +6794,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &8061723781093152533
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7008,6 +7040,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &2229937831754821367
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12194,7 +12230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2269290140045273923
 Transform:
   m_ObjectHideFlags: 0
@@ -12272,6 +12308,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &6966782395805551018
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12382,6 +12422,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &2511160343375264113
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12686,6 +12730,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &7742539900984041185
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13481,6 +13529,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &4238850871394969028
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13591,6 +13643,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &9069111641639646200
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14357,7 +14413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2660764436273567917
 Transform:
   m_ObjectHideFlags: 0
@@ -14435,6 +14491,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &5382199408594078076
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15149,7 +15209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2802504224326645642
 Transform:
   m_ObjectHideFlags: 0
@@ -15227,6 +15287,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &1124525292303038347
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15996,7 +16060,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2979653386792857997
 Transform:
   m_ObjectHideFlags: 0
@@ -16074,6 +16138,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &8569320311779927306
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17066,7 +17134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3251245275931428065
 Transform:
   m_ObjectHideFlags: 0
@@ -17144,6 +17212,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &160875012218823518
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18852,6 +18924,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &46437516748848443
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19450,6 +19526,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &1399713485556954117
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20526,6 +20606,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &161191309929007360
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20669,7 +20753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3853839291611184114
 Transform:
   m_ObjectHideFlags: 0
@@ -20747,6 +20831,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &5350796569421714589
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20857,6 +20945,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &2094820484392898556
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20967,6 +21059,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &1259673494463143995
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23361,6 +23457,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &8409509802738133402
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25793,7 +25893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4545979709712047587
 Transform:
   m_ObjectHideFlags: 0
@@ -25871,6 +25971,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &8923701004091921983
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26244,6 +26348,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &1524492836232383585
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26942,7 +27050,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5320311628550781097
 Transform:
   m_ObjectHideFlags: 0
@@ -27020,6 +27128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &5721045312433130680
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27622,6 +27734,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &5495717090156112645
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29091,6 +29207,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &1422087108544253004
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29696,7 +29816,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5261923094185095559
 Transform:
   m_ObjectHideFlags: 0
@@ -29774,6 +29894,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &3476879615492323231
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32247,7 +32371,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6514988638253908608
 Transform:
   m_ObjectHideFlags: 0
@@ -32325,6 +32449,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &5498787880256133231
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32435,6 +32563,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &7317331007865971547
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33256,7 +33388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6168208136820133569
 Transform:
   m_ObjectHideFlags: 0
@@ -33265,7 +33397,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6168208136819925781}
   m_LocalRotation: {x: -0, y: -0.47700527, z: -0, w: 0.8789004}
-  m_LocalPosition: {x: -3.552, y: -1.76, z: 7.9699993}
+  m_LocalPosition: {x: -3.23, y: -1.76, z: 7.9699993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33334,6 +33466,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &6973382290527582406
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33542,6 +33678,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &5513933695940628867
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36004,6 +36144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &6550388277606574073
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36605,7 +36749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6055996373911374788
 Transform:
   m_ObjectHideFlags: 0
@@ -36683,6 +36827,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &5054557865157782930
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36959,6 +37107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &8702605047168723665
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36991,7 +37143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6908057127852465694
 Transform:
   m_ObjectHideFlags: 0
@@ -37069,6 +37221,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &2423744472555712234
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37868,7 +38024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7351776042306807047
 Transform:
   m_ObjectHideFlags: 0
@@ -37946,6 +38102,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &809411777461123361
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39180,7 +39340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7136247648785609815
 Transform:
   m_ObjectHideFlags: 0
@@ -39258,6 +39418,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &2165700240519844155
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39368,6 +39532,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &2623453881662187243
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40463,6 +40631,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &2023371643128647510
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41465,7 +41637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7966951815963545611
 Transform:
   m_ObjectHideFlags: 0
@@ -41543,6 +41715,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &3119206775801681204
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41653,6 +41829,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &1644522759332685235
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41685,7 +41865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8220565731956652700
 Transform:
   m_ObjectHideFlags: 0
@@ -41763,6 +41943,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &7782441922973974562
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45189,6 +45373,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &6962385989585692876
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45299,6 +45487,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &4519524909674867978
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45784,6 +45976,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &8044477678382619290
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47168,7 +47364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8644430836553882080
 Transform:
   m_ObjectHideFlags: 0
@@ -47177,7 +47373,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8644430836554045450}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.955, y: -1.91, z: 7.5423985}
+  m_LocalPosition: {x: -3.746, y: -1.91, z: 6.553}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47246,6 +47442,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &1982899053114939066
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49613,7 +49813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8994161979098508184
 Transform:
   m_ObjectHideFlags: 0
@@ -49691,6 +49891,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &4909186258328934448
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -50258,6 +50462,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &5786566869804399162
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -51544,6 +51752,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &6961902131322716631
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -51674,7 +51886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9164990254254052042
 Transform:
   m_ObjectHideFlags: 0
@@ -51752,6 +51964,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &1880576526787892943
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -51862,6 +52078,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
 --- !u!65 &5830120967027992492
 BoxCollider:
   m_ObjectHideFlags: 0
