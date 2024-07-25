@@ -76,7 +76,9 @@ public class CheckOrderBillsPanel : MonoBehaviour
         if (TableController.Instance.TableSets[SelectedTable - 1].table.CheckAllCustomerFinishedFood())
         {
             BillTable.Instance.CreateTableBill(TableController.Instance.TableSets[SelectedTable-1].table);
+            DeActiveBillsPanel();
         }
+        
     }
     
     public void ActiveBillsPanel()
