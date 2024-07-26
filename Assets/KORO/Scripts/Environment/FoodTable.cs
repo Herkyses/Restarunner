@@ -76,6 +76,11 @@ public class FoodTable : MonoBehaviour,IInterectableObject
             }
         }
     }
+
+    public void EatedFood()
+    {
+        PoolManager.Instance.ReturnToPoolForFood(Food.gameObject);
+    }
     public string[] GetInterectableButtons()
     {
         return textsButtons;

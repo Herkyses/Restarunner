@@ -40,12 +40,17 @@ public class PlayerOrderController : MonoBehaviour
             {
                 Food = food.Food;
                 TakedFood = true;
-                OrderFoodList.Add(food.Food);            
+                OrderFoodList.Add(food.Food);
+                Player.Instance.PlayerStateType = Enums.PlayerStateType.GiveFood;
+            }
+            else
+            {
+                Player.Instance.PlayerStateType = Enums.PlayerStateType.Trays;
             }
             food.transform.DOLocalMove(Vector3.zero, 0.2f);
             food.transform.DOLocalRotate(Vector3.zero, 0.2f);
             food.transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
-            Player.Instance.PlayerStateType = Enums.PlayerStateType.GiveFood;
+            //Player.Instance.PlayerStateType = Enums.PlayerStateType.GiveFood;
             //Player.Instance.PlayerTakedObject = food.gameObject;
         }
     }
