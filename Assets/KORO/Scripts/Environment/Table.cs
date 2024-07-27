@@ -161,13 +161,13 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         textsForTable = new [] {"Set up","Rotate"};
         textsButtonsForTable = new [] {"M0","R"};
         IsTableAvailable = true;
-        TableNumberText.text = TableNumber.ToString();
+        TableNumberText.text = (TableNumber+1).ToString();
     }
 
     public void TableInitialize()
     {
         IsTableAvailable = false;
-        TableNumberText.text = TableNumber.ToString();
+        TableNumberText.text = (TableNumber+1).ToString();
     }
 
     public void CreateOrdersWithAction(int tableNumber)

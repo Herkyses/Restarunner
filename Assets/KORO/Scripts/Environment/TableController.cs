@@ -57,7 +57,7 @@ public class TableController : MonoBehaviour
         {
             var tableSet = tableObjects[i].GetComponent<TableSet>();
             TableSets.Add(tableSet);
-            tableSet.table.TableNumber = i + 1;
+            tableSet.table.TableNumber = i;
             tableSet.table.TableInitialize();
         }
     }
@@ -66,9 +66,10 @@ public class TableController : MonoBehaviour
     {
         for (int i = 0; i < TableSets.Count; i++)
         {
-            TableSets[i].table.TableNumber = i + 1;
+            TableSets[i].table.TableNumber = i;
             TableSets[i].table.TableInitialize();
         }
+        PlayerOrderController.Instance.SetOrderList();  /// Oturan olmaması lazımmmmmm
     }
 
     public void EnableTableSetCollider(bool enabledValue)

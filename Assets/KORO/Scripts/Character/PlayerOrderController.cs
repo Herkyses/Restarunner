@@ -79,7 +79,7 @@ public class PlayerOrderController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetOrderList();
     }
 
     // Update is called once per frame
@@ -96,5 +96,22 @@ public class PlayerOrderController : MonoBehaviour
             OrderDataStructs = orderDataStruct
         };
         OrderList.Add(order);
+    }
+
+    public void SetOrderList()
+    {
+        OrderList.Clear();
+        for (int i = 0; i < TableController.Instance.TableSets.Count; i++)
+        {
+            var order = new Orders();
+            order.OrderDataStructs = new List<OrderDataStruct>();
+            order.TableNumber = TableController.Instance.TableSets[i].table.TableNumber;
+            OrderList.Add(order);
+        }
+    }
+
+    public void AddNewOrderList()
+    {
+        
     }
 }

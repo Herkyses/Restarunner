@@ -38,7 +38,7 @@ public class SingleOrder : MonoBehaviour
     {
         if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
         {
-            if (TableController.Instance.TableSets[0].table.GetOrders()[0].OrderType == OrderType && PlayerOrderController.Instance.OrderList[1].OrderDataStructs.Count == 0)
+            if (TableController.Instance.TableSets[0].table.GetOrders()[0].OrderType == OrderType && PlayerOrderController.Instance.OrderList[0].OrderDataStructs.Count == 0)
             {
                 OrderPanelController.Instance.PlayerOrderInventory(this);
                 TutorialManager.Instance.SetTutorialInfo(7);

@@ -44,7 +44,7 @@ public class CheckOrderBillsPanel : MonoBehaviour
         var availabilityArray = TableAvailablePanel.Instance._tablesParent.GetComponentsInChildren<Table>();
 
         var bill = Instantiate(_singleBill, _billParent);
-        bill.Initialize(availabilityArray[tableNumber-1].TableNumber,availabilityArray[tableNumber-1].TotalBills);
+        bill.Initialize(availabilityArray[tableNumber].TableNumber,availabilityArray[tableNumber].TotalBills);
         BillList.Add(bill);
     }
 
@@ -73,9 +73,9 @@ public class CheckOrderBillsPanel : MonoBehaviour
 
     public void CreateTableBill()
     {
-        if (TableController.Instance.TableSets[SelectedTable - 1].table.CheckAllCustomerFinishedFood())
+        if (TableController.Instance.TableSets[SelectedTable].table.CheckAllCustomerFinishedFood())
         {
-            BillTable.Instance.CreateTableBill(TableController.Instance.TableSets[SelectedTable-1].table);
+            BillTable.Instance.CreateTableBill(TableController.Instance.TableSets[SelectedTable].table);
             DeActiveBillsPanel();
         }
         

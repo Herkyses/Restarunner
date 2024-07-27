@@ -47,21 +47,26 @@ public class GiveChefOrderPanelController : MonoBehaviour
 
     public void OrderListIndexIncrease(bool isIncrease)
     {
-        
-        if (isIncrease)
+        if (TableController.Instance.TableSets.Count > 1)
         {
-            SelectedOrderListCount++;
-            
-        }
-        else
-        {
-            if (SelectedOrderListCount >= 1)
+            if (isIncrease)
             {
-                SelectedOrderListCount--;
+                if (SelectedOrderListCount < TableController.Instance.TableSets.Count-1)
+                {
+                    SelectedOrderListCount++;
+                }
+            }
+            else
+            {
+                if (SelectedOrderListCount >= 1)
+                {
+                    SelectedOrderListCount--;
+                }
             }
         }
+        
 
-        SelectedOrderListCountText.text = SelectedOrderListCount.ToString();
+        SelectedOrderListCountText.text = (SelectedOrderListCount+1).ToString();
         InitiliazeGiveChefOrderPanel();
     }
 
