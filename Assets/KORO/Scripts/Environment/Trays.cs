@@ -1,9 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Trays : MonoBehaviour,IInterectableObject
 {
+    
+    [SerializeField] private string[] texts = new [] {"Take OrderBox"};
+    [SerializeField] private string[] textsButtons = new [] {"E"};
+
+
+    private void Start()
+    {
+        texts = new [] {"Place the empty tray."};
+        textsButtons = new [] {"E"};
+    }
+
     public void InterectableObjectRun()
     {
         if (PlayerOrderController.Instance.FoodTable.gameObject)
@@ -25,15 +37,15 @@ public class Trays : MonoBehaviour,IInterectableObject
 
     public string GetInterectableText()
     {
-        return null;
+        return "Place the empty tray.";
     }
     public string[] GetInterectableTexts()
     {
-        return null;
+        return texts;
     }
     public string[] GetInterectableButtons()
     {
-        return null;
+        return textsButtons;
     }
 
     public void Move()
