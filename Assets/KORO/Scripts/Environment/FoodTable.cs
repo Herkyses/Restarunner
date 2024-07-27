@@ -59,6 +59,7 @@ public class FoodTable : MonoBehaviour,IInterectableObject
         var food = PoolManager.Instance.GetFromPoolForFood().GetComponent<Food>();
         food.transform.SetParent(FoodSpawnTransform);
         food.transform.position = Vector3.zero;
+        food.transform.localRotation = Quaternion.Euler(Vector3.zero);
         food.OrderType = orderType;
         food.GetComponent<MeshFilter>().sharedMesh = GameDataManager.Instance.GetFood(orderType).GetComponent<MeshFilter>().sharedMesh;
         food.transform.localPosition = Vector3.zero;

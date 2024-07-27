@@ -55,6 +55,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
                     RemovedOrderDataStructs.Add(ChefOwnerStructData[i]);
                     food.CreateFood(GameDataManager.Instance.FoodDatas[j].Food.OrderType);
                     food.transform.position = _chefOrderTable.FoodTransformList[_chefOrderTableIndex].position;
+                    food.transform.localRotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
                     if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() > 4)
                     {
                         PlacePanelController.Instance.DecreeseIngredient(food.OrderType);
