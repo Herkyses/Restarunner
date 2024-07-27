@@ -6,6 +6,6 @@ public class Food : MonoBehaviour
 {
     public Enums.OrderType OrderType;
     public GameObject FoodObject;
+    public float QualityWaitTime;
 
-   
 }

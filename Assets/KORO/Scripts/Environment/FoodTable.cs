@@ -2,20 +2,29 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FoodTable : MonoBehaviour,IInterectableObject
 {
     [SerializeField] private string[] texts = new [] {"Take OrderBox"};
     [SerializeField] private string[] textsButtons = new [] {"E"};
+    [SerializeField] private Image _foodQualityImage;
+    [SerializeField] private GameObject _foodQualityCanvasObject;
     public Enums.OrderType OrderType;
     public GameObject FoodObject;
     public Food Food;
     public bool IsFoodFinished;
+    public bool QualityTimeStarted;
+    
     public Transform FoodSpawnTransform;
+    public float WaitTime;
+    public int WaitTimeTempValue;
+
     public WaiterController OwnerWaiterCotroller;
 
     private void Start()
     {
+        WaitTime = 10f;
         texts = new [] {"Take Food"};
         textsButtons = new [] {"E"};
     }
@@ -64,6 +73,14 @@ public class FoodTable : MonoBehaviour,IInterectableObject
         food.GetComponent<MeshFilter>().sharedMesh = GameDataManager.Instance.GetFood(orderType).GetComponent<MeshFilter>().sharedMesh;
         food.transform.localPosition = Vector3.zero;
         Food = food;
+        _foodQualityCanvasObject.SetActive(true);
+        WaitTime = food.QualityWaitTime;
+        QualityTimeStarted = true;
+    }
+
+    public void FoodGivedCustomer()
+    {
+        _foodQualityCanvasObject.SetActive(false);
     }
     
     public void DeleteChilds(Transform parent)
@@ -89,5 +106,28 @@ public class FoodTable : MonoBehaviour,IInterectableObject
     public Enums.PlayerStateType GetStateType()
     {
         return Enums.PlayerStateType.Free;
+    }
+    void Update()
+    {
+        if (QualityTimeStarted)
+        {
+            if (WaitTime > 0)
+            {
+                WaitTime -= Time.deltaTime;
+                if (WaitTimeTempValue != (int)WaitTime)
+                {
+                    _foodQualityImage.fillAmount = WaitTime / 10f;
+                }
+                Debug.Log("zortingsbuyukzero " + WaitTime);
+                WaitTimeTempValue = (int) WaitTime;
+            }
+            else
+            {
+                Debug.Log("zortingskucukzero " + WaitTime);
+
+                QualityTimeStarted = false;
+                
+            }
+        }
     }
 }

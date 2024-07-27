@@ -113,3 +113,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrderType: 4
   FoodObject: {fileID: 0}
+  QualityWaitTime: 10

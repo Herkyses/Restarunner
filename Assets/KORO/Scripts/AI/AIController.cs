@@ -177,6 +177,7 @@ public class AIController : MonoBehaviour,IInterectableObject
         {
             IsTakedFood = true;
             AIOwnerFood = PlayerOrderController.Instance.FoodTable;
+            AIOwnerFood.FoodGivedCustomer();
             var playerOrderController = PlayerOrderController.Instance;
             playerOrderController.TakedFood = false;
             Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
