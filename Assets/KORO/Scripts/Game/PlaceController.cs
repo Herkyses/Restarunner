@@ -9,6 +9,8 @@ public class PlaceController : MonoBehaviour,IInterectableObject
     public static bool RestaurantIsOpen;
 
     public List<PlaceLevel> PlaceLevels;
+    private Outline _pcOutline;
+
 
     [SerializeField] private string[] texts = new [] {"Take OrderBox"};
     [SerializeField] private string[] textsButtons = new [] {"E"};
@@ -18,6 +20,8 @@ public class PlaceController : MonoBehaviour,IInterectableObject
     {
         texts = new [] {"Use Computer"};
         textsButtons = new [] {"E"};
+        _pcOutline = GetComponent<Outline>();
+
     }
 
     // Update is called once per frame
@@ -64,11 +68,11 @@ public class PlaceController : MonoBehaviour,IInterectableObject
     }
     public void ShowOutline(bool active)
     {
-        
+        _pcOutline.enabled = active;
     }
     public Outline GetOutlineComponent()
     {
-        return null;
+        return _pcOutline;
     }
     public string GetInterectableText()
     {
