@@ -13,6 +13,7 @@ public class BillTable : MonoBehaviour,IInterectableObject
     [SerializeField] private Transform _tableBillParent;
     [SerializeField] private TableBill _tableBillPf;
     [SerializeField] private TableBill _tableBillTemp;
+    [SerializeField] private Outline _tableBillOutline;
 
     private void Awake()
     {
@@ -74,12 +75,12 @@ public class BillTable : MonoBehaviour,IInterectableObject
 
     public void ShowOutline(bool active)
     {
-        
+        _tableBillOutline.enabled = active;
     }
 
     public Outline GetOutlineComponent()
     {
-        return null;
+        return _tableBillOutline;
     }
 
     public string GetInterectableText()
