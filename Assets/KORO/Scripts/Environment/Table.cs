@@ -30,6 +30,8 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     public List<Chair> ChairList;
     public List<Transform> FoodTransformList;
     public Transform BillPanel;
+
+    private Outline _outline;
     private void OnEnable()
     {
         Chair.GivedOrder += CreateOrdersWithAction;
@@ -40,6 +42,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         Chair.GivedOrder -= CreateOrdersWithAction;
 
     }
+    
 
     private void Update()
     {
@@ -162,6 +165,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         textsButtonsForTable = new [] {"M0","R"};
         IsTableAvailable = true;
         TableNumberText.text = (TableNumber+1).ToString();
+        _outline = GetComponent<Outline>();
     }
 
     public void TableInitialize()
@@ -226,12 +230,12 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
     public void ShowOutline(bool active)
     {
-        
+        _outline.enabled = active;
     }
 
     public Outline GetOutlineComponent()
     {
-        return null;
+        return _outline;
     }
 
     public string GetInterectableText()

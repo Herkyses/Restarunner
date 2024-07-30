@@ -10,6 +10,8 @@ public class FoodTable : MonoBehaviour,IInterectableObject
     [SerializeField] private string[] textsButtons = new [] {"E"};
     [SerializeField] private Image _foodQualityImage;
     [SerializeField] private GameObject _foodQualityCanvasObject;
+    private Outline _outline;
+    
     public Enums.OrderType OrderType;
     public GameObject FoodObject;
     public Food Food;
@@ -27,6 +29,7 @@ public class FoodTable : MonoBehaviour,IInterectableObject
         WaitTime = 10f;
         texts = new [] {"Take Food"};
         textsButtons = new [] {"E"};
+        _outline = GetComponent<Outline>();
     }
 
     public void InterectableObjectRun()
@@ -36,12 +39,12 @@ public class FoodTable : MonoBehaviour,IInterectableObject
 
     public void ShowOutline(bool active)
     {
-        
+        _outline.enabled = active;
     }
 
     public Outline GetOutlineComponent()
     {
-        return null;
+        return _outline;
     }
 
     public string GetInterectableText()

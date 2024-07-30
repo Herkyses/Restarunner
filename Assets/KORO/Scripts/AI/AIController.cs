@@ -40,6 +40,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     public FoodTable AIOwnerFood;
     public OrderDataStruct FoodDataStruct;
 
+    private Outline _outline;
     
     // Start is called before the first frame update
     public void Initiliaze(bool isFriend = false)
@@ -54,6 +55,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     {
         texts = new [] {"Serv the food"};
         textsButtons = new [] {"E"};
+        _outline = GetComponent<Outline>();
     }
 
     /////////// SIT STATE ///////////
@@ -211,11 +213,18 @@ public class AIController : MonoBehaviour,IInterectableObject
 
     public void ShowOutline(bool active)
     {
-        
+        if (PlayerOrderController.Instance.TakedFood && PlayerOrderController.Instance.Food.OrderType == FoodDataStruct.OrderType && IsSitting)
+        {
+            _outline.enabled = active;
+        }
     }
 
     public Outline GetOutlineComponent()
     {
+        if (PlayerOrderController.Instance.TakedFood && PlayerOrderController.Instance.Food.OrderType == FoodDataStruct.OrderType && IsSitting)
+        {
+            return _outline;
+        }
         return null;
     }
 
@@ -241,6 +250,10 @@ public class AIController : MonoBehaviour,IInterectableObject
             if (modelIndex == i)
             {
                 AIModels[i].SetActive(true);
+            }
+            else
+            {
+                AIModels[i].SetActive(false);
             }
         }
     }

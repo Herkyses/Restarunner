@@ -897,6 +897,7 @@ GameObject:
   - component: {fileID: 7325185934482662146}
   - component: {fileID: 6223956154318569772}
   - component: {fileID: 4579503556467666277}
+  - component: {fileID: 3881764503258349044}
   m_Layer: 0
   m_Name: Table2
   m_TagString: Untagged
@@ -998,6 +999,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51bfa36d3114b0b4780dc93ca80c3bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - 'Check Order '
+  textsForTable:
+  - Drop
+  - Rotate
+  textsButtons:
+  - E
+  textsButtonsForTable:
+  - M0
+  - R
   checkOrder: Check Order
   _orderList: []
   _aiControllerList: []
@@ -1017,3 +1028,21 @@ MonoBehaviour:
   - {fileID: 0}
   FoodTransformList: []
   BillPanel: {fileID: 6046867861851426603}
+--- !u!114 &3881764503258349044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9126744464799908567}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

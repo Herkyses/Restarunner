@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 894023044536798398}
   - component: {fileID: 3093117706928140852}
   - component: {fileID: 3412080890901677963}
+  - component: {fileID: 5636165899591508423}
   m_Layer: 0
   m_Name: FoodTable
   m_TagString: Untagged
@@ -319,6 +320,24 @@ MonoBehaviour:
   WaitTime: 10
   WaitTimeTempValue: 0
   OwnerWaiterCotroller: {fileID: 0}
+--- !u!114 &5636165899591508423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686819375015701867}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2440889507344422512
 GameObject:
   m_ObjectHideFlags: 0

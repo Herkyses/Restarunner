@@ -8,6 +8,7 @@ public class TableSet : MonoBehaviour
     public int groundLayer;
     public int tableIndexLayer;
     public int tableTypeID;
+    private Outline _outline;
 
     // Start is called before the first frame update
     void Start()
