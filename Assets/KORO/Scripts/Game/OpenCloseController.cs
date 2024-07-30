@@ -8,6 +8,7 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
 {
     [SerializeField] private string[] texts = new [] {"Check Order "};
     [SerializeField] private string[] textsButtons = new [] {"E"};
+    [SerializeField] private Outline outline;
     
     public Tween OpenCloseTween;
     public Sequence OpenCloseSequence;
@@ -74,17 +75,17 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
     {
         textsButtons = new []{"E"};
         texts = new []{"E"};
-       
+        outline = GetComponent<Outline>();
     }
 
     public void ShowOutline(bool active)
     {
-        
+        outline.enabled = active;
     }
 
     public Outline GetOutlineComponent()
     {
-        return null;
+        return outline;
     }
 
     public string GetInterectableText()
