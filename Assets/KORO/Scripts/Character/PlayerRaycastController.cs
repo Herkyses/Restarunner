@@ -49,7 +49,8 @@ public class PlayerRaycastController : MonoBehaviour
                         if (interact.GetStateType() == Player.Instance.PlayerStateType)
                         {
                             
-                        
+                            var gameScene = GameSceneCanvas.Instance;
+
                             Izort = hit.collider.gameObject.GetComponent<IInterectableObject>();
                             if (Izort != null)
                             {
@@ -57,22 +58,22 @@ public class PlayerRaycastController : MonoBehaviour
                                 if (InterectabelOutline)
                                 {
                                     InterectabelOutline.enabled = false;
-                                    GameSceneCanvas.Instance.CanShowCanvas = false;
+                                    gameScene.CanShowCanvas = false;
 
-                                    GameSceneCanvas.Instance.UnShowAreaInfo();
+                                    gameScene.UnShowAreaInfo();
                                 }
 
                                 InterectabelOutline = Izort.GetOutlineComponent();
                                 Izort.ShowOutline(true);
-                                GameSceneCanvas.Instance.CanShowCanvas = true;
-                                GameSceneCanvas.Instance.ShowAreaInfo(Izort.GetInterectableText());
-                                GameSceneCanvas.Instance.ShowAreaInfoForTexts(Izort.GetInterectableTexts());
-                                GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(Izort.GetInterectableButtons());
+                                gameScene.CanShowCanvas = true;
+                                gameScene.ShowAreaInfo(Izort.GetInterectableText());
+                                gameScene.ShowAreaInfoForTexts(Izort.GetInterectableTexts());
+                                gameScene.ShowAreaInfoForTextsButtons(Izort.GetInterectableButtons());
                                 //place.ShowPlacePrice();
                             }
                             else
                             {
-                                GameSceneCanvas.Instance.CanShowCanvas = false;
+                                gameScene.CanShowCanvas = false;
                                 if (Izort != null)
                                 {
                                     Izort.ShowOutline(false);
@@ -80,7 +81,7 @@ public class PlayerRaycastController : MonoBehaviour
 
                                 DeactivateOutline();
 
-                                GameSceneCanvas.Instance.UnShowAreaInfo();
+                                gameScene.UnShowAreaInfo();
                     
                             }
                             // Raycast sonucunu işle
