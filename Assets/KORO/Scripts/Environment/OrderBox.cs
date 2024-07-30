@@ -11,7 +11,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     [SerializeField] private string[] textsButtons = new [] {"E"};
     [SerializeField] private string[] textsButtonsForTake = new [] {"J"};
     [SerializeField] private ShopItemData _shopItemData;
-
+    private Outline _outline;
     public string[] InteractableButtons;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
         textsButtons = new [] {"E","T"};
         textsButtonsForTake = new [] {"J"};
         textsForTake = new [] {"Drop"};
-        
+        _outline = GetComponent<Outline>();
     }
 
     public ShopItemData GetShopItemData()
@@ -57,12 +57,12 @@ public class OrderBox : MonoBehaviour,IInterectableObject
 
     public void ShowOutline(bool active)
     {
-        
+        _outline.enabled = active;
     }
 
     public Outline GetOutlineComponent()
     {
-        return null;
+        return _outline;
     }
 
     public string GetInterectableText()
