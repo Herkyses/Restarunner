@@ -7,12 +7,14 @@ public class ReservationTable : MonoBehaviour,IInterectableObject
 {
     [SerializeField] private string[] texts = new [] {"Check Available "};
     [SerializeField] private string[] textsButtons = new [] {"E"};
+    [SerializeField] private Outline outline;
 
 
     private void Start()
     {
         texts = new []{"Check Available "};
         textsButtons = new []{"E"};
+        outline = GetComponent<Outline>();
     }
 
     public void InterectableObjectRun()
@@ -23,12 +25,12 @@ public class ReservationTable : MonoBehaviour,IInterectableObject
 
     public void ShowOutline(bool active)
     {
-        
+        outline.enabled = active;
     }
 
     public Outline GetOutlineComponent()
     {
-        return null;
+        return outline;
     }
 
     public string GetInterectableText()
