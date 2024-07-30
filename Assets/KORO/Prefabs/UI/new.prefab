@@ -1249,6 +1249,7 @@ GameObject:
   - component: {fileID: 8925417365945257691}
   - component: {fileID: 2895397664626220689}
   - component: {fileID: 8311888087604209995}
+  - component: {fileID: 5150674458706691589}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (1)
   m_TagString: Untagged
@@ -1350,6 +1351,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
   m_Center: {x: -0.007880627, y: -0.09918504, z: -0.02901989}
+--- !u!114 &5150674458706691589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26475462990683926}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &40029608593510415
 GameObject:
   m_ObjectHideFlags: 0
@@ -3434,6 +3453,7 @@ GameObject:
   - component: {fileID: 8909154215527762791}
   - component: {fileID: 487114998371092010}
   - component: {fileID: 8938957160183598392}
+  - component: {fileID: 2884567013658369522}
   m_Layer: 0
   m_Name: SM_Props_Street_Garbage_Bag_01
   m_TagString: Untagged
@@ -3535,6 +3555,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5538589, y: 0.5494354, z: 0.5240203}
   m_Center: {x: 0.029474892, y: 0.2653497, z: -0.08106592}
+--- !u!114 &2884567013658369522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411225743414910172}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &587215415788316741
 GameObject:
   m_ObjectHideFlags: 0
@@ -4019,6 +4057,7 @@ GameObject:
   - component: {fileID: 1561012426747061837}
   - component: {fileID: 2709630420959376432}
   - component: {fileID: 2501382426542563525}
+  - component: {fileID: 5785159120507974870}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (5)
   m_TagString: Untagged
@@ -4120,6 +4159,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
   m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
+--- !u!114 &5785159120507974870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678161847755853831}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &785646839037090415
 GameObject:
   m_ObjectHideFlags: 0
@@ -4133,6 +4190,7 @@ GameObject:
   - component: {fileID: 4577733458264472093}
   - component: {fileID: 4729220681329665567}
   - component: {fileID: 3680739788465623035}
+  - component: {fileID: 1122216692858302204}
   m_Layer: 0
   m_Name: SM_Props_Street_Garbage_Bag_01
   m_TagString: Untagged
@@ -4234,6 +4292,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5538589, y: 0.5494354, z: 0.5240203}
   m_Center: {x: 0.029474892, y: 0.2653497, z: -0.08106592}
+--- !u!114 &1122216692858302204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785646839037090415}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &810790615024030289
 GameObject:
   m_ObjectHideFlags: 0
@@ -5063,6 +5139,7 @@ GameObject:
   - component: {fileID: 974545871471582342}
   - component: {fileID: 5906157860167225355}
   - component: {fileID: 1349769103059368031}
+  - component: {fileID: 3832013830517397525}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (4)
   m_TagString: Untagged
@@ -5164,6 +5241,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
   m_Center: {x: -0.0078825345, y: -0.09918504, z: -0.029020844}
+--- !u!114 &3832013830517397525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974545871469456934}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1044333275525097362
 GameObject:
   m_ObjectHideFlags: 0
@@ -5371,6 +5466,7 @@ GameObject:
   - component: {fileID: 1106238368644723339}
   - component: {fileID: 4848907127932268418}
   - component: {fileID: 6725605153392252516}
+  - component: {fileID: 3574235607570735451}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (3)
   m_TagString: Untagged
@@ -5472,6 +5568,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
   m_Center: {x: -0.0078825345, y: -0.09918504, z: -0.029020844}
+--- !u!114 &3574235607570735451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106238368642514987}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1130979972808326129
 GameObject:
   m_ObjectHideFlags: 0
@@ -6710,6 +6824,7 @@ GameObject:
   - component: {fileID: 8024524278468207562}
   - component: {fileID: 5432387399911431126}
   - component: {fileID: 8061723781093152533}
+  - component: {fileID: 8824306137967912493}
   m_Layer: 0
   m_Name: SM_Prop_CardboardBox_01
   m_TagString: Untagged
@@ -6811,6 +6926,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.59747314, y: 0.5052583, z: 0.5974655}
   m_Center: {x: -0.000015258789, y: 0.25262916, z: -0.0000038146973}
+--- !u!114 &8824306137967912493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460917193234440062}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1468011788288429798
 GameObject:
   m_ObjectHideFlags: 0
@@ -6956,6 +7089,7 @@ GameObject:
   - component: {fileID: 1805094314320568983}
   - component: {fileID: 4093280566166542939}
   - component: {fileID: 2229937831754821367}
+  - component: {fileID: 9091616898290897406}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (5)
   m_TagString: Untagged
@@ -7057,6 +7191,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
   m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
+--- !u!114 &9091616898290897406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500627769944910687}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1508041636092273682
 GameObject:
   m_ObjectHideFlags: 0
@@ -12224,6 +12376,7 @@ GameObject:
   - component: {fileID: 2269290140043402821}
   - component: {fileID: 1099754031636024610}
   - component: {fileID: 6966782395805551018}
+  - component: {fileID: 5100045597501846857}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (1)
   m_TagString: Untagged
@@ -12325,6 +12478,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.30053717, y: 0.19, z: 0.45871747}
   m_Center: {x: 0, y: 3.3087225e-24, z: -0.000003814698}
+--- !u!114 &5100045597501846857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2269290140045634217}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2271935468493731923
 GameObject:
   m_ObjectHideFlags: 0
@@ -12338,6 +12509,7 @@ GameObject:
   - component: {fileID: 5417705861130651514}
   - component: {fileID: 1985689395645614793}
   - component: {fileID: 2511160343375264113}
+  - component: {fileID: 7493297674670209803}
   m_Layer: 0
   m_Name: SM_Props_Street_Garbage_Bag_03 (1)
   m_TagString: Untagged
@@ -12439,6 +12611,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.470091, y: 0.674114, z: 0.4766893}
   m_Center: {x: 0.0068828687, y: 0.32620633, z: -0.06482835}
+--- !u!114 &7493297674670209803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2271935468493731923}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2318471711977000276
 GameObject:
   m_ObjectHideFlags: 0
@@ -12646,6 +12836,7 @@ GameObject:
   - component: {fileID: 8340265477849103567}
   - component: {fileID: 2482959898888938838}
   - component: {fileID: 7742539900984041185}
+  - component: {fileID: 3908205142548035551}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (5)
   m_TagString: Untagged
@@ -12747,6 +12938,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
   m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
+--- !u!114 &3908205142548035551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2354775717712504871}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2403373329227788217
 GameObject:
   m_ObjectHideFlags: 0
@@ -13445,6 +13654,7 @@ GameObject:
   - component: {fileID: 1004638870447059126}
   - component: {fileID: 2972431478021682918}
   - component: {fileID: 4238850871394969028}
+  - component: {fileID: 4653891628762942287}
   m_Layer: 0
   m_Name: SM_Prop_CardboardBox_01
   m_TagString: Untagged
@@ -13546,6 +13756,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.59747314, y: 0.5052583, z: 0.5974655}
   m_Center: {x: -0.000015258789, y: 0.25262916, z: -0.0000038146973}
+--- !u!114 &4653891628762942287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2495265480845063120}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2520132148794144202
 GameObject:
   m_ObjectHideFlags: 0
@@ -13559,6 +13787,7 @@ GameObject:
   - component: {fileID: 4697449572292454575}
   - component: {fileID: 1302827016078496238}
   - component: {fileID: 9069111641639646200}
+  - component: {fileID: 3849233835683707679}
   m_Layer: 0
   m_Name: SM_Prop_CardboardBox_01
   m_TagString: Untagged
@@ -13660,6 +13889,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.59747314, y: 0.5052583, z: 0.5974655}
   m_Center: {x: -0.000015258789, y: 0.25262916, z: -0.0000038146973}
+--- !u!114 &3849233835683707679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2520132148794144202}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2530549350216751917
 GameObject:
   m_ObjectHideFlags: 0
@@ -14407,6 +14654,7 @@ GameObject:
   - component: {fileID: 2660764436275415001}
   - component: {fileID: 7106116980684465888}
   - component: {fileID: 5382199408594078076}
+  - component: {fileID: 1888320629922645363}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (9)
   m_TagString: Untagged
@@ -14508,6 +14756,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
   m_Center: {x: -0.0078825345, y: -0.09918504, z: -0.029020844}
+--- !u!114 &1888320629922645363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2660764436273427833}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2771395429189996601
 GameObject:
   m_ObjectHideFlags: 0
@@ -15203,6 +15469,7 @@ GameObject:
   - component: {fileID: 2802504224328499852}
   - component: {fileID: 5785204017681644113}
   - component: {fileID: 1124525292303038347}
+  - component: {fileID: 4653055735093924591}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (3)
   m_TagString: Untagged
@@ -15304,6 +15571,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
   m_Center: {x: -0.0000019073486, y: 3.3087225e-24, z: -0.000002861023}
+--- !u!114 &4653055735093924591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2802504224326547040}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2803403418953757438
 GameObject:
   m_ObjectHideFlags: 0
@@ -16054,6 +16339,7 @@ GameObject:
   - component: {fileID: 2979653386795200249}
   - component: {fileID: 3529311508116433177}
   - component: {fileID: 8569320311779927306}
+  - component: {fileID: 4480374643073632521}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (6)
   m_TagString: Untagged
@@ -16155,6 +16441,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
   m_Center: {x: -0.007884442, y: -0.09918504, z: -0.02901989}
+--- !u!114 &4480374643073632521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2979653386793000025}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2989377844049044075
 GameObject:
   m_ObjectHideFlags: 0
@@ -17128,6 +17432,7 @@ GameObject:
   - component: {fileID: 3251245275933252501}
   - component: {fileID: 2923742992945467739}
   - component: {fileID: 160875012218823518}
+  - component: {fileID: 4728001263169041297}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05
   m_TagString: Untagged
@@ -17229,6 +17534,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.34788644, y: 0.13130899, z: 0.31467593}
   m_Center: {x: -0.007880628, y: -0.09918504, z: -0.029020846}
+--- !u!114 &4728001263169041297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3251245275931126069}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3253200298799725373
 GameObject:
   m_ObjectHideFlags: 0
@@ -18840,6 +19163,7 @@ GameObject:
   - component: {fileID: 374231961319803354}
   - component: {fileID: 8132908047754591251}
   - component: {fileID: 46437516748848443}
+  - component: {fileID: 3705172705350140279}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (5)
   m_TagString: Untagged
@@ -18941,6 +19265,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
   m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
+--- !u!114 &3705172705350140279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3422611518591926977}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3463158434665434168
 GameObject:
   m_ObjectHideFlags: 0
@@ -19442,6 +19784,7 @@ GameObject:
   - component: {fileID: 2091523792579971374}
   - component: {fileID: 2023774718119480713}
   - component: {fileID: 1399713485556954117}
+  - component: {fileID: 4495420740904995354}
   m_Layer: 0
   m_Name: SM_Props_Street_Garbage_Bag_01
   m_TagString: Untagged
@@ -19543,6 +19886,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5538589, y: 0.5494354, z: 0.5240203}
   m_Center: {x: 0.029474892, y: 0.2653497, z: -0.08106592}
+--- !u!114 &4495420740904995354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3535265421033687036}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3552429035566322015
 GameObject:
   m_ObjectHideFlags: 0
@@ -20522,6 +20883,7 @@ GameObject:
   - component: {fileID: 3866748268248233725}
   - component: {fileID: 7741869687762544585}
   - component: {fileID: 161191309929007360}
+  - component: {fileID: 5392497064939178375}
   m_Layer: 0
   m_Name: SM_Props_Street_Garbage_Bag_01
   m_TagString: Untagged
@@ -20623,6 +20985,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5538589, y: 0.5494354, z: 0.5240203}
   m_Center: {x: 0.029474892, y: 0.2653497, z: -0.08106592}
+--- !u!114 &5392497064939178375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3774812490699606359}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3831925619082045567
 GameObject:
   m_ObjectHideFlags: 0
@@ -20747,6 +21127,7 @@ GameObject:
   - component: {fileID: 3853839291608730630}
   - component: {fileID: 7969692643954174690}
   - component: {fileID: 5350796569421714589}
+  - component: {fileID: 3287836027631736766}
   m_Layer: 0
   m_Name: SM_Prop_Paper_03
   m_TagString: Untagged
@@ -20848,6 +21229,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.30052185, y: 0.19, z: 0.45871735}
   m_Center: {x: -0.0000076293945, y: 3.3087225e-24, z: -0.0000038146973}
+--- !u!114 &3287836027631736766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3853839291610921604}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3866129272299556399
 GameObject:
   m_ObjectHideFlags: 0
@@ -20861,6 +21260,7 @@ GameObject:
   - component: {fileID: 6419433199258115259}
   - component: {fileID: 1446468034363238159}
   - component: {fileID: 2094820484392898556}
+  - component: {fileID: 6433473518642895677}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (1)
   m_TagString: Untagged
@@ -20962,6 +21362,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
   m_Center: {x: -0.007880627, y: -0.09918504, z: -0.02901989}
+--- !u!114 &6433473518642895677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3866129272299556399}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3938117481514565295
 GameObject:
   m_ObjectHideFlags: 0
@@ -20975,6 +21393,7 @@ GameObject:
   - component: {fileID: 6020703705798550369}
   - component: {fileID: 3391305219898561776}
   - component: {fileID: 1259673494463143995}
+  - component: {fileID: 7404428191159888472}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (4)
   m_TagString: Untagged
@@ -21076,6 +21495,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
   m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
+--- !u!114 &7404428191159888472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3938117481514565295}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3988668031422619052
 GameObject:
   m_ObjectHideFlags: 0
@@ -23373,6 +23810,7 @@ GameObject:
   - component: {fileID: 897244851319118739}
   - component: {fileID: 357012004913669990}
   - component: {fileID: 8409509802738133402}
+  - component: {fileID: 8616769158086588422}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (4)
   m_TagString: Untagged
@@ -23474,6 +23912,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
   m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
+--- !u!114 &8616769158086588422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4285923858520044725}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4291072072106929447
 GameObject:
   m_ObjectHideFlags: 0
@@ -25887,6 +26343,7 @@ GameObject:
   - component: {fileID: 4545979709713891991}
   - component: {fileID: 1498298192637921807}
   - component: {fileID: 8923701004091921983}
+  - component: {fileID: 194919952524922902}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (2)
   m_TagString: Untagged
@@ -25988,6 +26445,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
   m_Center: {x: -0.007880627, y: -0.09918504, z: -0.029020844}
+--- !u!114 &194919952524922902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4545979709711773751}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4551014926065436278
 GameObject:
   m_ObjectHideFlags: 0
@@ -26264,6 +26739,7 @@ GameObject:
   - component: {fileID: 7633987103989780757}
   - component: {fileID: 5956916715069426164}
   - component: {fileID: 1524492836232383585}
+  - component: {fileID: 6550137801983739884}
   m_Layer: 0
   m_Name: SM_Props_Street_Garbage_Bag_01
   m_TagString: Untagged
@@ -26365,6 +26841,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5538589, y: 0.5494354, z: 0.5240203}
   m_Center: {x: 0.029474892, y: 0.2653497, z: -0.08106592}
+--- !u!114 &6550137801983739884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4714648731453850370}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4775165148508065110
 GameObject:
   m_ObjectHideFlags: 0
@@ -27044,6 +27538,7 @@ GameObject:
   - component: {fileID: 6457783497388573638}
   - component: {fileID: 7641176923214997434}
   - component: {fileID: 5721045312433130680}
+  - component: {fileID: 6679725919977394408}
   m_Layer: 0
   m_Name: SM_Props_Street_Garbage_Bag_03 (1)
   m_TagString: Untagged
@@ -27145,6 +27640,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.470091, y: 0.674114, z: 0.4766893}
   m_Center: {x: 0.0068828687, y: 0.32620633, z: -0.06482835}
+--- !u!114 &6679725919977394408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800374928745849363}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4821751271362928601
 GameObject:
   m_ObjectHideFlags: 0
@@ -27650,6 +28163,7 @@ GameObject:
   - component: {fileID: 3896518373360245741}
   - component: {fileID: 8638168379931146892}
   - component: {fileID: 5495717090156112645}
+  - component: {fileID: 1860247819498938927}
   m_Layer: 0
   m_Name: SM_Props_Street_Garbage_Bag_03 (1)
   m_TagString: Untagged
@@ -27751,6 +28265,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.470091, y: 0.674114, z: 0.4766893}
   m_Center: {x: 0.0068828687, y: 0.32620633, z: -0.06482835}
+--- !u!114 &1860247819498938927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4981991784376759576}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4993500949145768078
 GameObject:
   m_ObjectHideFlags: 0
@@ -29123,6 +29655,7 @@ GameObject:
   - component: {fileID: 2204282419667434639}
   - component: {fileID: 4039602689082258255}
   - component: {fileID: 1422087108544253004}
+  - component: {fileID: 1054077120804456450}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (4)
   m_TagString: Untagged
@@ -29224,6 +29757,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
   m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
+--- !u!114 &1054077120804456450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5110480895994298205}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5122068249710916876
 GameObject:
   m_ObjectHideFlags: 0
@@ -29810,6 +30361,7 @@ GameObject:
   - component: {fileID: 5261923094187470579}
   - component: {fileID: 3524162605093779450}
   - component: {fileID: 3476879615492323231}
+  - component: {fileID: 2806014839166117814}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (5)
   m_TagString: Untagged
@@ -29911,6 +30463,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
   m_Center: {x: -0.007880627, y: -0.09918504, z: -0.029020844}
+--- !u!114 &2806014839166117814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5261923094185270355}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5304916855507800998
 GameObject:
   m_ObjectHideFlags: 0
@@ -32365,6 +32935,7 @@ GameObject:
   - component: {fileID: 5342060233706142191}
   - component: {fileID: 7016031571232849024}
   - component: {fileID: 5498787880256133231}
+  - component: {fileID: 1467757220573836013}
   m_Layer: 0
   m_Name: SM_Props_Street_Garbage_Bag_01
   m_TagString: Untagged
@@ -32466,6 +33037,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5538589, y: 0.5494354, z: 0.5240203}
   m_Center: {x: 0.029474892, y: 0.2653497, z: -0.08106592}
+--- !u!114 &1467757220573836013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5846291386745542714}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5874141253458373906
 GameObject:
   m_ObjectHideFlags: 0
@@ -32479,6 +33068,7 @@ GameObject:
   - component: {fileID: 6496600426124149243}
   - component: {fileID: 6397549996451292373}
   - component: {fileID: 7317331007865971547}
+  - component: {fileID: 4889894000351056102}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (1)
   m_TagString: Untagged
@@ -32580,6 +33170,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
   m_Center: {x: -0.007880627, y: -0.09918504, z: -0.02901989}
+--- !u!114 &4889894000351056102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5874141253458373906}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5897452495172435743
 GameObject:
   m_ObjectHideFlags: 0
@@ -33382,6 +33990,7 @@ GameObject:
   - component: {fileID: 6168208136821985717}
   - component: {fileID: 6007931847780040475}
   - component: {fileID: 6973382290527582406}
+  - component: {fileID: 7253782048029143579}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (1)
   m_TagString: Untagged
@@ -33483,6 +34092,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
   m_Center: {x: -0.007880627, y: -0.09918504, z: -0.02901989}
+--- !u!114 &7253782048029143579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168208136819925781}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6184121436875869439
 GameObject:
   m_ObjectHideFlags: 0
@@ -33594,6 +34221,7 @@ GameObject:
   - component: {fileID: 6190220295833367415}
   - component: {fileID: 452803092011112995}
   - component: {fileID: 5513933695940628867}
+  - component: {fileID: 4901523605386244816}
   m_Layer: 0
   m_Name: SM_Prop_CardboardBox_04
   m_TagString: Untagged
@@ -33695,6 +34323,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8364258, y: 0.7018579, z: 1.0492964}
   m_Center: {x: -0.000015258789, y: 0.35092896, z: 0.0000023841858}
+--- !u!114 &4901523605386244816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6190220295835052267}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6326982466093657474
 GameObject:
   m_ObjectHideFlags: 0
@@ -36060,6 +36706,7 @@ GameObject:
   - component: {fileID: 7774772424942222073}
   - component: {fileID: 2950300492390404509}
   - component: {fileID: 6550388277606574073}
+  - component: {fileID: 90628377716469723}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (5)
   m_TagString: Untagged
@@ -36161,6 +36808,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
   m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
+--- !u!114 &90628377716469723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6777952256495625270}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6795816946173825312
 GameObject:
   m_ObjectHideFlags: 0
@@ -36743,6 +37408,7 @@ GameObject:
   - component: {fileID: 4917953062898069675}
   - component: {fileID: 1822006519451666579}
   - component: {fileID: 5054557865157782930}
+  - component: {fileID: 6463090296755499939}
   m_Layer: 0
   m_Name: SM_Props_Street_Garbage_Bag_03
   m_TagString: Untagged
@@ -36844,6 +37510,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.470091, y: 0.674114, z: 0.4766893}
   m_Center: {x: 0.0068828687, y: 0.32620633, z: -0.06482835}
+--- !u!114 &6463090296755499939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6863741130047672702}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6864434845290516036
 GameObject:
   m_ObjectHideFlags: 0
@@ -37023,6 +37707,7 @@ GameObject:
   - component: {fileID: 7558381238065057768}
   - component: {fileID: 6220530714881974531}
   - component: {fileID: 8702605047168723665}
+  - component: {fileID: 3974455455405000215}
   m_Layer: 0
   m_Name: SM_Props_Street_Garbage_Bag_03 (1)
   m_TagString: Untagged
@@ -37124,6 +37809,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.470091, y: 0.674114, z: 0.4766893}
   m_Center: {x: 0.0068828687, y: 0.32620633, z: -0.06482835}
+--- !u!114 &3974455455405000215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6901287253528243400}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6908057127852892148
 GameObject:
   m_ObjectHideFlags: 0
@@ -37137,6 +37840,7 @@ GameObject:
   - component: {fileID: 6908057127854861080}
   - component: {fileID: 7886440347641716827}
   - component: {fileID: 2423744472555712234}
+  - component: {fileID: 7272470209119171239}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (2)
   m_TagString: Untagged
@@ -37238,6 +37942,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.30053714, y: 0.19, z: 0.4587174}
   m_Center: {x: 0.0000038146973, y: 3.3087225e-24, z: -0.0000061988835}
+--- !u!114 &7272470209119171239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6908057127852892148}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6942322607028116496
 GameObject:
   m_ObjectHideFlags: 0
@@ -38018,6 +38740,7 @@ GameObject:
   - component: {fileID: 7351776042304469619}
   - component: {fileID: 950576813296722573}
   - component: {fileID: 809411777461123361}
+  - component: {fileID: 6808143893121868299}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (8)
   m_TagString: Untagged
@@ -38119,6 +38842,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
   m_Center: {x: -0.007884442, y: -0.09918504, z: -0.02901989}
+--- !u!114 &6808143893121868299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7351776042306586835}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7391610211614144411
 GameObject:
   m_ObjectHideFlags: 0
@@ -39334,6 +40075,7 @@ GameObject:
   - component: {fileID: 8305244308199100216}
   - component: {fileID: 5783214107734208927}
   - component: {fileID: 2165700240519844155}
+  - component: {fileID: 8632363728205333089}
   m_Layer: 0
   m_Name: SM_Props_Street_Garbage_Bag_02
   m_TagString: Untagged
@@ -39435,6 +40177,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.63014376, y: 0.6801947, z: 0.58549666}
   m_Center: {x: -0.003498733, y: 0.3291135, z: -0.06564316}
+--- !u!114 &8632363728205333089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7512808753832750829}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7544665979222663644
 GameObject:
   m_ObjectHideFlags: 0
@@ -39448,6 +40208,7 @@ GameObject:
   - component: {fileID: 7502246234570850907}
   - component: {fileID: 2919865052911504450}
   - component: {fileID: 2623453881662187243}
+  - component: {fileID: 185746398414431783}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (4)
   m_TagString: Untagged
@@ -39549,6 +40310,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
   m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
+--- !u!114 &185746398414431783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7544665979222663644}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7586304749760489836
 GameObject:
   m_ObjectHideFlags: 0
@@ -40547,6 +41326,7 @@ GameObject:
   - component: {fileID: 8583464542538050594}
   - component: {fileID: 2107436656204542749}
   - component: {fileID: 2023371643128647510}
+  - component: {fileID: 4303022362229874623}
   m_Layer: 0
   m_Name: SM_Props_Street_Garbage_Bag_03 (1)
   m_TagString: Untagged
@@ -40648,6 +41428,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.470091, y: 0.674114, z: 0.4766893}
   m_Center: {x: 0.0068828687, y: 0.32620633, z: -0.06482835}
+--- !u!114 &4303022362229874623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7828670722719579337}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7879140886649762168
 GameObject:
   m_ObjectHideFlags: 0
@@ -41631,6 +42429,7 @@ GameObject:
   - component: {fileID: 7966951815961748749}
   - component: {fileID: 7242673815858822469}
   - component: {fileID: 3119206775801681204}
+  - component: {fileID: 5635997934445209769}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (4)
   m_TagString: Untagged
@@ -41732,6 +42531,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
   m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
+--- !u!114 &5635997934445209769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966951815963972065}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8191342173818930698
 GameObject:
   m_ObjectHideFlags: 0
@@ -41745,6 +42562,7 @@ GameObject:
   - component: {fileID: 8191342173816688302}
   - component: {fileID: 1073647104891801024}
   - component: {fileID: 1644522759332685235}
+  - component: {fileID: 208722695675476573}
   m_Layer: 0
   m_Name: SM_Prop_CardboardBox_01
   m_TagString: Untagged
@@ -41846,6 +42664,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.59747314, y: 0.5052583, z: 0.5974655}
   m_Center: {x: -0.000015258789, y: 0.25262916, z: -0.0000038146973}
+--- !u!114 &208722695675476573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191342173818930698}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8220565731956463432
 GameObject:
   m_ObjectHideFlags: 0
@@ -41859,6 +42695,7 @@ GameObject:
   - component: {fileID: 8220565731958466024}
   - component: {fileID: 7231045005450577352}
   - component: {fileID: 7782441922973974562}
+  - component: {fileID: 6124585386047192523}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (7)
   m_TagString: Untagged
@@ -41960,6 +42797,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
   m_Center: {x: -0.0078825345, y: -0.09918504, z: -0.02901989}
+--- !u!114 &6124585386047192523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8220565731956463432}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8235958357233076396
 GameObject:
   m_ObjectHideFlags: 0
@@ -45289,6 +46144,7 @@ GameObject:
   - component: {fileID: 4715407650436461833}
   - component: {fileID: 3614475527917634936}
   - component: {fileID: 6962385989585692876}
+  - component: {fileID: 3023347633760963430}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (1)
   m_TagString: Untagged
@@ -45390,6 +46246,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
   m_Center: {x: -0.007880627, y: -0.09918504, z: -0.02901989}
+--- !u!114 &3023347633760963430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385486646554219265}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8463608825131376315
 GameObject:
   m_ObjectHideFlags: 0
@@ -45403,6 +46277,7 @@ GameObject:
   - component: {fileID: 7670551954962765454}
   - component: {fileID: 6715999504040558030}
   - component: {fileID: 4519524909674867978}
+  - component: {fileID: 4428836690722170269}
   m_Layer: 0
   m_Name: SM_Prop_CardboardBox_01
   m_TagString: Untagged
@@ -45504,6 +46379,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.59747314, y: 0.5052583, z: 0.5974655}
   m_Center: {x: -0.000015258789, y: 0.25262916, z: -0.0000038146973}
+--- !u!114 &4428836690722170269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8463608825131376315}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8477988270351450638
 GameObject:
   m_ObjectHideFlags: 0
@@ -45892,6 +46785,7 @@ GameObject:
   - component: {fileID: 1038542477703408614}
   - component: {fileID: 4257933110155300379}
   - component: {fileID: 8044477678382619290}
+  - component: {fileID: 1690214091933191548}
   m_Layer: 0
   m_Name: SM_Props_Street_Garbage_Bag_03 (1)
   m_TagString: Untagged
@@ -45993,6 +46887,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.470091, y: 0.674114, z: 0.4766893}
   m_Center: {x: 0.0068828687, y: 0.32620633, z: -0.06482835}
+--- !u!114 &1690214091933191548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8536553496292402351}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8541173963584974731
 GameObject:
   m_ObjectHideFlags: 0
@@ -47358,6 +48270,7 @@ GameObject:
   - component: {fileID: 8644430836552084710}
   - component: {fileID: 5474839476880368483}
   - component: {fileID: 1982899053114939066}
+  - component: {fileID: 7095651284933635829}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (5)
   m_TagString: Untagged
@@ -47459,6 +48372,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
   m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
+--- !u!114 &7095651284933635829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8644430836554045450}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8657385921314665787
 GameObject:
   m_ObjectHideFlags: 0
@@ -49807,6 +50738,7 @@ GameObject:
   - component: {fileID: 8994161979096112798}
   - component: {fileID: 8800073293006320522}
   - component: {fileID: 4909186258328934448}
+  - component: {fileID: 3890191638972237409}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (6)
   m_TagString: Untagged
@@ -49908,6 +50840,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3005371, y: 6.673064e-17, z: 0.45871735}
   m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
+--- !u!114 &3890191638972237409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8994161979098344050}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &9001811683335765668
 GameObject:
   m_ObjectHideFlags: 0
@@ -50378,6 +51328,7 @@ GameObject:
   - component: {fileID: 6877790805512535565}
   - component: {fileID: 6184663131120681514}
   - component: {fileID: 5786566869804399162}
+  - component: {fileID: 8589362565017324721}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (4)
   m_TagString: Untagged
@@ -50479,6 +51430,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
   m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
+--- !u!114 &8589362565017324721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9103702016902036115}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &9160049987757911489
 GameObject:
   m_ObjectHideFlags: 0
@@ -51668,6 +52637,7 @@ GameObject:
   - component: {fileID: 920306387026391383}
   - component: {fileID: 7537127101105050381}
   - component: {fileID: 6961902131322716631}
+  - component: {fileID: 5419704716419503401}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (1)
   m_TagString: Untagged
@@ -51769,6 +52739,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
   m_Center: {x: -0.007880627, y: -0.09918504, z: -0.02901989}
+--- !u!114 &5419704716419503401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9160444672859460362}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &9163360495963533015
 GameObject:
   m_ObjectHideFlags: 0
@@ -51880,6 +52868,7 @@ GameObject:
   - component: {fileID: 9164990254252189644}
   - component: {fileID: 2285167901346547500}
   - component: {fileID: 1880576526787892943}
+  - component: {fileID: 3805528649515181749}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02
   m_TagString: Untagged
@@ -51981,6 +52970,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
   m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
+--- !u!114 &3805528649515181749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9164990254254150432}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &9178295231318144877
 GameObject:
   m_ObjectHideFlags: 0
@@ -51994,6 +53001,7 @@ GameObject:
   - component: {fileID: 2544640282897240658}
   - component: {fileID: 7538504117813917768}
   - component: {fileID: 5830120967027992492}
+  - component: {fileID: 1830881482421156310}
   m_Layer: 0
   m_Name: SM_Prop_CardboardBox_01
   m_TagString: Untagged
@@ -52095,6 +53103,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.59747314, y: 0.5052583, z: 0.5974655}
   m_Center: {x: -0.000015258789, y: 0.25262916, z: -0.0000038146973}
+--- !u!114 &1830881482421156310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9178295231318144877}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
+  outlineWidth: 5.75
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &4400344932106575616
 PrefabInstance:
   m_ObjectHideFlags: 0

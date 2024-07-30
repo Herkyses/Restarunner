@@ -8,6 +8,7 @@ public class Rubbish : MonoBehaviour,IInterectableObject
     
     [SerializeField] private string[] texts = new [] {"Take OrderBox"};
     [SerializeField] private string[] textsButtons = new [] {"E"};
+    private Outline _rubbishOutline;
     public void InterectableObjectRun()
     {
         
@@ -31,16 +32,17 @@ public class Rubbish : MonoBehaviour,IInterectableObject
     {
         texts = new [] {"Clean"};
         textsButtons = new [] {"E"};
+        _rubbishOutline = GetComponent<Outline>();
     }
 
     public void ShowOutline(bool active)
     {
-        
+        _rubbishOutline.enabled = active;
     }
 
     public Outline GetOutlineComponent()
     {
-        return null;
+        return _rubbishOutline;
     }
 
     public string GetInterectableText()

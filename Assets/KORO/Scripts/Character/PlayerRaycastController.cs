@@ -78,11 +78,7 @@ public class PlayerRaycastController : MonoBehaviour
                                     Izort.ShowOutline(false);
                                 }
 
-                                if (InterectabelOutline)
-                                {
-                                    InterectabelOutline.enabled = false;
-
-                                }
+                                DeactivateOutline();
 
                                 GameSceneCanvas.Instance.UnShowAreaInfo();
                     
@@ -100,7 +96,7 @@ public class PlayerRaycastController : MonoBehaviour
 
                             }
                             Izort = null;
-
+                            DeactivateOutline();
                         }
                         
                     }
@@ -111,7 +107,7 @@ public class PlayerRaycastController : MonoBehaviour
                             GameSceneCanvas.Instance.UnShowAreaInfo();
                         }
                         Izort = null;
-
+                        DeactivateOutline();
                     }
                     
 
@@ -139,6 +135,13 @@ public class PlayerRaycastController : MonoBehaviour
         }
     }
 
+    public void DeactivateOutline()
+    {
+        if (InterectabelOutline)
+        {
+            InterectabelOutline.enabled = false;
+        }
+    }
     private void Update()
     {
         
