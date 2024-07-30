@@ -7,6 +7,11 @@ public class ChefController : MonoBehaviour,IInterectableObject
 {
     [SerializeField] private List<OrderDataStruct> ChefOwnerStructData;
     [SerializeField] private List<OrderDataStruct> RemovedOrderDataStructs;
+    
+    [SerializeField] private string[] texts = new [] {"Give Order "};
+    [SerializeField] private string[] textsButtons = new [] {"E"};
+    private Outline _chefOutline;
+
     [SerializeField] private Transform FoodParent;
     [SerializeField] private ChefOrderTable _chefOrderTable;
     [SerializeField] private int _chefOrderTableIndex;
@@ -22,6 +27,14 @@ public class ChefController : MonoBehaviour,IInterectableObject
     private void OnDisable()
     {
         GiveChefOrderPanelController.IsGivedToChef -= SetOrders;
+    }
+
+    private void Start()
+    {
+        texts = new []{"Give Order "};
+        textsButtons = new []{"E"};
+        _chefOutline = GetComponent<Outline>();
+
     }
 
     public void SetOrders(List<OrderDataStruct> orderDataStruct,bool isPlayerGive = true,WaiterController ownerWaiter = null)
@@ -85,17 +98,22 @@ public class ChefController : MonoBehaviour,IInterectableObject
     }
     public void InterectableObjectRun()
     {
-        
+        var orderPanel = GiveChefOrderPanelController.Instance;
+        orderPanel.Panel.gameObject.SetActive(true);
+        GameSceneCanvas.Instance.CanMove = false;
+        orderPanel.OrderList = PlayerOrderController.Instance.OrderList;
+        orderPanel.SelectedOrderListCount = 0;
+        orderPanel.OrderListIndexIncrease(true);
     }
 
     public void ShowOutline(bool active)
     {
-        
+        _chefOutline.enabled = active;
     }
 
     public Outline GetOutlineComponent()
     {
-        return null;
+        return _chefOutline;
     }
 
     public string GetInterectableText()
@@ -104,11 +122,11 @@ public class ChefController : MonoBehaviour,IInterectableObject
     }
     public string[] GetInterectableTexts()
     {
-        return null;
+        return texts;
     }
     public string[] GetInterectableButtons()
     {
-        return null;
+        return textsButtons;
     }
     public void Move()
     {

@@ -73,12 +73,16 @@ public class GiveChefOrderPanelController : MonoBehaviour
     public void InitiliazeGiveChefOrderPanel()
     {
         DeleteChilds(_singlePfParent);
-        for (int i = 0; i < OrderList[SelectedOrderListCount].OrderDataStructs.Count; i++)
+        if (OrderList.Count > 0)
         {
-            var singleOrder = Instantiate(_singlePf, _singlePfParent);
-            singleOrder.OrderType = OrderList[SelectedOrderListCount].OrderDataStructs[i].OrderType;
-            singleOrder.Initialize();
+            for (int i = 0; i < OrderList[SelectedOrderListCount].OrderDataStructs.Count; i++)
+            {
+                var singleOrder = Instantiate(_singlePf, _singlePfParent);
+                singleOrder.OrderType = OrderList[SelectedOrderListCount].OrderDataStructs[i].OrderType;
+                singleOrder.Initialize();
+            }
         }
+        
     }
     public void DeleteChilds(Transform parentTransform)
     {

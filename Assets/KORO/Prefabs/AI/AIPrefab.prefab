@@ -1853,9 +1853,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _agent: {fileID: 7262918143254985359}
+  texts:
+  - Take OrderBox
+  textsButtons:
+  - E
   _targetTransform: {fileID: 0}
   _targetFirstPosition: {fileID: 0}
   IsFinishedFood: 0
+  IsSitting: 0
+  IsTakedFood: 0
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
   "_a\u0131Canvas_": {fileID: 8789694162604850828}
@@ -1942,12 +1948,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8ed1ebd74b4bc4b899aba7e6a5099a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsFriend: 0
   AIController: {fileID: 0}
   AIAnimationController: {fileID: 7262918143254985463}
   AIWaitTimeController: {fileID: 0}
+  AIWaiterController: {fileID: 0}
+  AIAreaController: {fileID: 0}
   AITargetSitTransform: {fileID: 0}
+  AITargetTableTransform: {fileID: 0}
+  Friends: []
+  OwnerTable: {fileID: 0}
   _playerAnimator: {fileID: 0}
   _isAIChef: 0
+  _isAIWaiter: 0
 --- !u!195 &7262918143254985359
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1996,6 +2009,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Interactabled: 0
+  AIController: {fileID: 0}
+  WaiterController: {fileID: 0}
 --- !u!114 &6436366087363938100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2010,6 +2025,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WaitTimeStarted: 0
   WaitTimeValue: 0
+  WaitTimeTempValue: 0
+  AIStateMachineController: {fileID: 0}
 --- !u!1 &7262918143274460853
 GameObject:
   m_ObjectHideFlags: 0

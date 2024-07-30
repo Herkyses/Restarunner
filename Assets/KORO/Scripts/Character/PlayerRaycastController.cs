@@ -108,6 +108,7 @@ public class PlayerRaycastController : MonoBehaviour
                         }
                         Izort = null;
                         DeactivateOutline();
+                        InterectabelOutline = null;
                     }
                     
 

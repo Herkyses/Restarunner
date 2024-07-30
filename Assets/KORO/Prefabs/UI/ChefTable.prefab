@@ -280,6 +280,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76334c920d52710409fa048eeb1f77ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texts:
+  - 'Give Order '
+  textsButtons:
+  - E
   FoodTransformList:
   - {fileID: 6875272232360281177}
   - {fileID: 6875272232452718913}

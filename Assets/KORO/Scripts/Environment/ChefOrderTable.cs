@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChefOrderTable : MonoBehaviour,IInterectableObject
+public class ChefOrderTable : MonoBehaviour//IInterectableObject
 {
     [SerializeField] private string[] texts = new [] {"Give Order "};
     [SerializeField] private string[] textsButtons = new [] {"E"};
