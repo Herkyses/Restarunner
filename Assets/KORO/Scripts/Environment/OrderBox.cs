@@ -98,6 +98,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
         {
             var objectZort = Instantiate(_shopItemData.ItemObject);
             objectZort.transform.position = transform.position;
+            objectZort.transform.position = new Vector3(objectZort.transform.position.x, 0, objectZort.transform.position.z);
             PoolManager.Instance.ReturnToPoolForOrderBox(gameObject);
             if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 2)
             {
