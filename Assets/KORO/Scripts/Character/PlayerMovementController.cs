@@ -31,11 +31,11 @@ public class PlayerMovementController : MonoBehaviour
             float verticalInput = Input.GetAxis("Vertical");     
 
 
-            if (horizontalInput == 0 && verticalInput == 0 && !_playerPlayingController._playerPlayingGuitar)
+            if (horizontalInput == 0 && verticalInput == 0)
             {
                 _playerAnimationController.PlayIdleAnimation();
             }
-            else if ((horizontalInput >= 0 || verticalInput >= 0) && !_playerPlayingController._playerPlayingGuitar)
+            else if ((horizontalInput != 0 || verticalInput != 0))
             {
                 Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * speed * Time.deltaTime; // Hareket vektörü hesaplanır
                 transform.Translate(movement); // Karakteri hareket ettir
