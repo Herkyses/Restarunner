@@ -60,15 +60,19 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
     public bool CheckAllCustomerFinishedFood()
     {
-        for (int i = 0; i < _aiControllerList.Count; i++)
+        if (_aiControllerList.Count > 0)
         {
-            if (!_aiControllerList[i].IsFinishedFood)
+            for (int i = 0; i < _aiControllerList.Count; i++)
             {
-                return false;
+                if (!_aiControllerList[i].IsFinishedFood)
+                {
+                    return false;
+                }
             }
-        }
 
-        return true;
+            return true;
+        }
+        return false;
     }
 
     public void AllFoodfinished()
