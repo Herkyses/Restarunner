@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -7,18 +8,26 @@ public class OrderBox : MonoBehaviour,IInterectableObject
 {
     
     [SerializeField] private string[] texts = new [] {"Take OrderBox"};
+    [SerializeField] private string[] textsBefore = new [] {"Take OrderBox"};
     [SerializeField] private string[] textsForTake = new [] {"Drop"};
     [SerializeField] private string[] textsButtons = new [] {"E"};
+    [SerializeField] private string[] textsButtonsBefore = new [] {"E"};
     [SerializeField] private string[] textsButtonsForTake = new [] {"J"};
     [SerializeField] private ShopItemData _shopItemData;
+    [SerializeField] private bool _isOrderBoxOpenAvailable;
     private Outline _outline;
     public string[] InteractableButtons;
+    public int groundLayer;
     // Start is called before the first frame update
     void Start()
     {
+        groundLayer = LayerMask.NameToLayer("Ground");
         texts = new [] {"Take OrderBox","Open"};
+        textsBefore = new [] {"Take OrderBox"};
+        
         textsButtons = new [] {"E","T"};
         textsButtonsForTake = new [] {"J"};
+        textsButtonsBefore = new [] {"E"};
         textsForTake = new [] {"Drop"};
         _outline = GetComponent<Outline>();
     }
@@ -51,6 +60,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
             Player.Instance.PlayerStateType = Enums.PlayerStateType.TakeBox;
             GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTake);
             GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTake);
+            _isOrderBoxOpenAvailable = false;
         }
         
     }
@@ -71,7 +81,11 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     }
     public string[] GetInterectableTexts()
     {
-        return texts;
+        if (_isOrderBoxOpenAvailable)
+        {
+            return texts;
+        }
+        return textsBefore;
     }
 
     public void Move()
@@ -80,7 +94,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     }
     public void Open()
     {
-        if (!Player.Instance.PlayerTakedObject)
+        if (!Player.Instance.PlayerTakedObject && _isOrderBoxOpenAvailable)
         {
             var objectZort = Instantiate(_shopItemData.ItemObject);
             objectZort.transform.position = transform.position;
@@ -94,11 +108,41 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     }
     public string[] GetInterectableButtons()
     {
-        return textsButtons;
+        if (_isOrderBoxOpenAvailable)
+        {
+            return textsButtons;
+        }
+        return textsButtonsBefore;
     }
 
     public Enums.PlayerStateType GetStateType()
     {
         return Enums.PlayerStateType.Free;
     }
+    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == groundLayer)
+        {
+            _isOrderBoxOpenAvailable = true;
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        
+        if (other.gameObject.layer == groundLayer)
+        {
+            _isOrderBoxOpenAvailable = false;
+        }    
+    }
+    private void OnDrawGizmos()
+    {
+        // Gizmos ile tetiklenen objeyi ve tetikleme durumunu görebilirsin
+        Gizmos.color = _isOrderBoxOpenAvailable ? Color.green : Color.red;
+        Gizmos.DrawSphere(transform.position, 0.5f);
+    }
+    
 }
