@@ -3230,7 +3230,7 @@ SkinnedMeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5762077579785061775}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 3
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -3242,7 +3242,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1131d708b20fe2b4a9b327be8f497228, type: 2}
+  - {fileID: 2100000, guid: c3c495ed0cdc77c41bd393df1be6ebcd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5123,8 +5123,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerData: {fileID: 0}
   _canTakeMoney: 0
+  CanCleanRubbish: 0
   PlayerMoney: 0
   PlayerInventory: []
+  PlayerTakedObject: {fileID: 0}
+  PlayerStateType: 0
   PlayerStructData:
     Money: 0
     Popularity: 0
@@ -5270,6 +5273,7 @@ MonoBehaviour:
     OrderDataStructs: []
   OrderFoodList: []
   Food: {fileID: 0}
+  FoodTable: {fileID: 0}
   TableBill: {fileID: 0}
   FoodTransform: {fileID: 9215106161737911943}
   TakedFood: 0
