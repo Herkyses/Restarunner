@@ -23,7 +23,7 @@ public class PlayerMovementController : MonoBehaviour
     
     public float speed = 5f; // Karakterin hareket hızı
 
-    void Update()
+    void FixedUpdate()
     {
         if (GameSceneCanvas.Instance.CanMove)
         {
