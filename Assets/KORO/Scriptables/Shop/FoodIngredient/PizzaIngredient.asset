@@ -18,4 +18,4 @@ MonoBehaviour:
   ItemObject: {fileID: 0}
   ItemOrderType: 0
   TableSetID: 0
-  PlaceLevel: 0
+  PlaceLevel: 5

@@ -18,4 +18,4 @@ MonoBehaviour:
   ItemObject: {fileID: 4564751280442413612, guid: cde83d22065814b4aad7f9525f6a111e, type: 3}
   ItemOrderType: 0
   TableSetID: 1
-  PlaceLevel: 0
+  PlaceLevel: 1

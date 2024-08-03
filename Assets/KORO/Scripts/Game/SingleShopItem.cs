@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SingleShopItem : MonoBehaviour
 {
     public Image Icon;
+    public Image LockerIcon;
     public float Price;
     public Enums.ShopItemType ItemType;
     [SerializeField] private ShopItemData _shopItemData;
@@ -18,18 +19,45 @@ public class SingleShopItem : MonoBehaviour
 
     public void InitializeSingleShopItem(ShopItemData shopItem)
     {
-        IsButtonActive = true;
+        
         Price = shopItem.ShopItemPrice;
         ItemType = shopItem.ItemType;
         Icon.sprite = shopItem.ShopItemIcon;
         _shopItemData = shopItem;
         OrderType = shopItem.ItemOrderType;
         PriceText.text = Price.ToString() + " $";
+        var placeLevel = PlayerPrefsManager.Instance.LoadPlaceLevel();
         if (shopItem.ItemType == Enums.ShopItemType.PlaceUpgrade)
         {
-            if (shopItem.PlaceLevel <= PlayerPrefsManager.Instance.LoadPlaceLevel())
+            if (shopItem.PlaceLevel < placeLevel)
             {
                 IsButtonActive = false;
+                LockerIcon.gameObject.SetActive(false);
+
+            }
+            else if (shopItem.PlaceLevel == placeLevel)
+            {
+                IsButtonActive = true;
+                LockerIcon.gameObject.SetActive(false);
+            }
+            else
+            {
+                IsButtonActive = false;
+
+            }
+            
+        }
+        else
+        {
+            if (shopItem.PlaceLevel <= placeLevel)
+            {
+                IsButtonActive = true;
+                LockerIcon.gameObject.SetActive(false);
+            }
+            else
+            {
+                IsButtonActive = false;
+
             }
         }
     }
