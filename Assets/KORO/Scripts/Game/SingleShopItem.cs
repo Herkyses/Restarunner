@@ -26,16 +26,21 @@ public class SingleShopItem : MonoBehaviour
         _shopItemData = shopItem;
         OrderType = shopItem.ItemOrderType;
         PriceText.text = Price.ToString() + " $";
+        UpdateShopItem();
+    }
+
+    public void UpdateShopItem()
+    {
         var placeLevel = PlayerPrefsManager.Instance.LoadPlaceLevel();
-        if (shopItem.ItemType == Enums.ShopItemType.PlaceUpgrade)
+        if (_shopItemData.ItemType == Enums.ShopItemType.PlaceUpgrade)
         {
-            if (shopItem.PlaceLevel < placeLevel)
+            if (_shopItemData.PlaceLevel < placeLevel)
             {
                 IsButtonActive = false;
                 LockerIcon.gameObject.SetActive(false);
 
             }
-            else if (shopItem.PlaceLevel == placeLevel)
+            else if (_shopItemData.PlaceLevel == placeLevel)
             {
                 IsButtonActive = true;
                 LockerIcon.gameObject.SetActive(false);
@@ -49,7 +54,7 @@ public class SingleShopItem : MonoBehaviour
         }
         else
         {
-            if (shopItem.PlaceLevel <= placeLevel)
+            if (_shopItemData.PlaceLevel <= placeLevel)
             {
                 IsButtonActive = true;
                 LockerIcon.gameObject.SetActive(false);

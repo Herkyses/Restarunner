@@ -9,6 +9,7 @@ using UnityEngine;
     public static PlacePanelController Instance;
     public List<FoodIngredient> FoodIngredients;
     public List<SingleShopItem> OwnerFoodIngredients;
+    public List<SingleShopItem> OpeningShopItems;
     //public List<FoodIngredient> FoodIngredients;
     public Transform _panel;
     public Transform _ownerFoodIngredients;
@@ -107,10 +108,20 @@ using UnityEngine;
     }
     public void InitializeShopPanel(List<ShopItemData> shopItemDatas)
     {
+        OpeningShopItems.Clear();
         for (int i = 0; i < shopItemDatas.Count; i++)
         {
             var singleItem = Instantiate(SingleShopItemPf, SingleShopItemParentTransform);
             singleItem.InitializeSingleShopItem(shopItemDatas[i]);
+            OpeningShopItems.Add(singleItem);
+        }
+    }
+
+    public void UpdateShopItems()
+    {
+        for (int i = 0; i < OpeningShopItems.Count; i++)
+        {
+            OpeningShopItems[i].UpdateShopItem();
         }
     }
     public void DecreeseIngredient(Enums.OrderType orderType)
