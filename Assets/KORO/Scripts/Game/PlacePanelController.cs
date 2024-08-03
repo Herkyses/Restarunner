@@ -65,6 +65,7 @@ using UnityEngine;
         for (int i = 0; i < PlayerPrefsManager.Instance.LoadMeals().meals.Count; i++)
         {
             var singleOwnerfoodGredient = Instantiate(SingleShopItemPf, _ownerFoodIngredients);
+            singleOwnerfoodGredient.CheckShopItem();
             singleOwnerfoodGredient.transform.SetParent(_ownerFoodIngredients);
             singleOwnerfoodGredient.InitializeFoodIngredient(PlayerPrefsManager.Instance.LoadMeals().meals[i].mealName,PlayerPrefsManager.Instance.LoadMeals().meals[i].ingredientQuantity);
             OwnerFoodIngredients.Add(singleOwnerfoodGredient);
@@ -112,7 +113,7 @@ using UnityEngine;
         for (int i = 0; i < shopItemDatas.Count; i++)
         {
             var singleItem = Instantiate(SingleShopItemPf, SingleShopItemParentTransform);
-            singleItem.InitializeSingleShopItem(shopItemDatas[i]);
+            singleItem.InitializeSingleShopItem(shopItemDatas[i], Enums.ShopItemUIType.Shop);
             OpeningShopItems.Add(singleItem);
         }
     }

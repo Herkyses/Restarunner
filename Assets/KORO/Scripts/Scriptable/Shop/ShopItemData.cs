@@ -7,6 +7,7 @@ using UnityEngine;
 public class ShopItemData : ScriptableObject
 {
     public Enums.ShopItemType ItemType;
+    public Enums.ShopItemUIType ShopItemUIType;
     public float ShopItemPrice;
     public Sprite ShopItemIcon;
     public GameObject ItemObject;

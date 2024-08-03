@@ -48,6 +48,12 @@ public class Enums : MonoBehaviour
         Decoration,
     }
 
+    public enum ShopItemUIType
+    {
+        Shop,
+        Inventory,
+    }
+
     public enum AIStateType
     {
         Waiter,

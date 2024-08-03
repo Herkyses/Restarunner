@@ -229,6 +229,7 @@ MonoBehaviour:
   LockerIcon: {fileID: 8963275964162361443}
   Price: 0
   ItemType: 0
+  ShopItemUIType: 1
   _shopItemData: {fileID: 0}
   OrderType: 0
   IsButtonActive: 0

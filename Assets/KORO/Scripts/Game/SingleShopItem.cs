@@ -10,6 +10,7 @@ public class SingleShopItem : MonoBehaviour
     public Image LockerIcon;
     public float Price;
     public Enums.ShopItemType ItemType;
+    public Enums.ShopItemUIType ShopItemUIType;
     [SerializeField] private ShopItemData _shopItemData;
     public Enums.OrderType OrderType;
     public bool IsButtonActive;
@@ -17,18 +18,30 @@ public class SingleShopItem : MonoBehaviour
     public TextMeshProUGUI PriceText;
 
 
-    public void InitializeSingleShopItem(ShopItemData shopItem)
+    public void InitializeSingleShopItem(ShopItemData shopItem,Enums.ShopItemUIType shopItemUIType = Enums.ShopItemUIType.Inventory)
     {
         
         Price = shopItem.ShopItemPrice;
         ItemType = shopItem.ItemType;
         Icon.sprite = shopItem.ShopItemIcon;
         _shopItemData = shopItem;
+        ShopItemUIType = shopItemUIType;
         OrderType = shopItem.ItemOrderType;
         PriceText.text = Price.ToString() + " $";
-        UpdateShopItem();
+        CheckShopItem();
     }
 
+    public void CheckShopItem()
+    {
+        if (ShopItemUIType == Enums.ShopItemUIType.Inventory)
+        {
+            LockerIcon.gameObject.SetActive(false);
+        }
+        else
+        {
+            UpdateShopItem();
+        }
+    }
     public void UpdateShopItem()
     {
         var placeLevel = PlayerPrefsManager.Instance.LoadPlaceLevel();
@@ -78,7 +91,7 @@ public class SingleShopItem : MonoBehaviour
     }
     public void SinglePlaceItemPressed()
     {
-        if (!IsButtonActive)
+        if (!IsButtonActive || ShopItemUIType == Enums.ShopItemUIType.Inventory)
         {
             return;
         }

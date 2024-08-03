@@ -62,9 +62,9 @@ public class ShopManager : MonoBehaviour
                     PlayerPrefsManager.Instance.SavePlaceLevel(level);
 
                     BuyPlaceUpgrade();
+                    PlacePanelController.Instance.UpdateShopItems();
 
                 }
-                PlacePanelController.Instance.UpdateShopItems();
                 break;
             case Enums.ShopItemType.Decoration:
                 if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
