@@ -103,10 +103,10 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
                 AIArea.gameObject.GetComponent<AIAreaController>().InteractabelControl();
                 _aiControllerList.Add(AIArea.gameObject.GetComponent<AIController>());
                 var orderIndex = Random.Range(0, GameDataManager.Instance.FoodDatas.Count);
-                stateMAchineController.GetComponent<AIController>().AIOwnerTable = this;
-                stateMAchineController.GetComponent<AIController>().AIOwnerChair = chair;
-                stateMAchineController.GetComponent<AIController>().IsSitting = true;
-                SetOrderTable(stateMAchineController.GetComponent<AIController>(),orderIndex);
+                AIArea.AIController.AIOwnerTable = this;
+                AIArea.AIController.AIOwnerChair = chair;
+                AIArea.AIController.IsSitting = true;
+                SetOrderTable(AIArea.AIController,orderIndex);
                 TableController.GivedOrderForAIWaiter?.Invoke(this);
                 if (OrderPanelController.Instance.OpenedTableNumber == TableNumber)
                 {
