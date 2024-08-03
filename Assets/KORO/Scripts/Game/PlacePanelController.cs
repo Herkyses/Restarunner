@@ -110,11 +110,25 @@ using UnityEngine;
     public void InitializeShopPanel(List<ShopItemData> shopItemDatas)
     {
         OpeningShopItems.Clear();
+        var placeLevel = PlayerPrefsManager.Instance.LoadPlaceLevel();
+
         for (int i = 0; i < shopItemDatas.Count; i++)
         {
-            var singleItem = Instantiate(SingleShopItemPf, SingleShopItemParentTransform);
-            singleItem.InitializeSingleShopItem(shopItemDatas[i], Enums.ShopItemUIType.Shop);
-            OpeningShopItems.Add(singleItem);
+            if (shopItemDatas[i].PlaceLevel <= placeLevel)
+            {
+                var singleItem = Instantiate(SingleShopItemPf, SingleShopItemParentTransform);
+                singleItem.InitializeSingleShopItem(shopItemDatas[i], Enums.ShopItemUIType.Shop);
+                OpeningShopItems.Add(singleItem);
+            }
+        }
+        for (int i = 0; i < shopItemDatas.Count; i++)
+        {
+            if (shopItemDatas[i].PlaceLevel > placeLevel)
+            {
+                var singleItem = Instantiate(SingleShopItemPf, SingleShopItemParentTransform);
+                singleItem.InitializeSingleShopItem(shopItemDatas[i], Enums.ShopItemUIType.Shop);
+                OpeningShopItems.Add(singleItem);
+            }
         }
     }
 
