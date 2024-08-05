@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
     public Transform PlayerTransform;
     public Transform PlayerTakedObjectTransformParent;
     public GameObject CleanTool;
+    public GameObject FightTool;
     public GameObject CleanToolChild;
     public bool CleanToolChildMove = true;
     public Sequence CleanToolSequence;
@@ -162,17 +163,41 @@ public class CameraController : MonoBehaviour
 
     public void CleanToolActive(bool active)
     {
-        if (Player.Instance.PlayerStateType == Enums.PlayerStateType.Free || Player.Instance.PlayerStateType == Enums.PlayerStateType.Cleaner)
+        var playerState = Player.Instance.PlayerStateType;
+        if (playerState == Enums.PlayerStateType.Free || playerState == Enums.PlayerStateType.Cleaner|| playerState == Enums.PlayerStateType.Fight)
         {
+
             CleanTool.SetActive(active);
             if (active)
             {
                 Player.Instance.PlayerStateType = Enums.PlayerStateType.Cleaner;
+                FightTool.SetActive(false);
+                Player.Instance.CanFight = false;
             }
             else
             {
                 Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
 
+            }
+        }
+        
+    }
+    public void FightToolActive(bool active)
+    {
+        var playerState = Player.Instance.PlayerStateType;
+        if (playerState == Enums.PlayerStateType.Free || playerState == Enums.PlayerStateType.Fight|| playerState == Enums.PlayerStateType.Cleaner)
+        {
+
+            FightTool.SetActive(active);
+            if (active)
+            {
+                Player.Instance.PlayerStateType = Enums.PlayerStateType.Fight;
+                CleanTool.SetActive(false);
+                Player.Instance.CanCleanRubbish = false;
+            }
+            else
+            {
+                Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
             }
         }
         

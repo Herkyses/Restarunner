@@ -68,5 +68,6 @@ public class Enums : MonoBehaviour
         Trays,
         GiveFood,
         MoveTable,
+        Fight,
     }
 }

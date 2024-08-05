@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerData _playerData;
     public bool _canTakeMoney;
     public bool CanCleanRubbish;
+    public bool CanFight;
     public float PlayerMoney;
     [SerializeField] private GameObject[] PlayerInventory;
     public GameObject PlayerTakedObject;
@@ -51,6 +52,12 @@ public class Player : MonoBehaviour
         {
             CanCleanRubbish = !CanCleanRubbish;
             CameraController.Instance.CleanToolActive(CanCleanRubbish);
+
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            CanFight = !CanFight;
+            CameraController.Instance.FightToolActive(CanFight);
         }
     }
 
