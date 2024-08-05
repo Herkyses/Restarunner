@@ -40,7 +40,8 @@ public class AIWaitTimeController : MonoBehaviour
                 {
                     for (int i = 0; i < AIStateMachineController.Friends.Count; i++)
                     {
-                        PoolManager.Instance.ReturnToPoolForCustomerAI(AIStateMachineController.Friends[i].gameObject);
+                        //PoolManager.Instance.ReturnToPoolForCustomerAI(AIStateMachineController.Friends[i].gameObject);
+                        PoolManager.Instance.ReturnToPoolForRagdollCustomerAI(AIStateMachineController.Friends[i].gameObject);
                     }
                     AIStateMachineController.Friends.Clear();
                 }

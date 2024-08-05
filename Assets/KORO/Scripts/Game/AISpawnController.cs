@@ -9,6 +9,7 @@ public class AISpawnController : MonoBehaviour
     public List<Transform> TargetList;
     public List<AIController> AllAIList;
     public AIController AlPf;
+    public AIController AlPfRagdoll;
 
     public int ActiveAiCount;
 
@@ -58,7 +59,7 @@ public class AISpawnController : MonoBehaviour
     }
     public void NewAISpawn()
     {
-        var singleAi = Instantiate(AlPf,transform);
+        var singleAi = Instantiate(AlPfRagdoll,transform);
         var index = Random.Range(0, 7);
         singleAi.SetModel(index);
         AllAIList.Add(singleAi);
@@ -83,7 +84,18 @@ public class AISpawnController : MonoBehaviour
             var ranDomTime = Random.Range(1, 3);
             yield return new WaitForSeconds(ranDomTime);
             //var singleAi = Instantiate(AlPf,transform);
-            var singleAi = PoolManager.Instance.GetCustomerAI().GetComponent<AIController>();
+            var singleAi = new AIController();
+            singleAi = PoolManager.Instance.GetCustomerRagdollAI().GetComponent<AIController>(); 
+
+            /*if (Random.value < 0.2f)
+            {
+                singleAi = PoolManager.Instance.GetCustomerAI().GetComponent<AIController>(); 
+            }
+            else
+            {
+                singleAi = PoolManager.Instance.GetCustomerRagdollAI().GetComponent<AIController>(); 
+
+            }*/
             singleAi.transform.SetParent(transform);
             var index = Random.Range(0, 7);
             singleAi.SetModel(index);
@@ -125,7 +137,8 @@ public class AISpawnController : MonoBehaviour
             {
                 var ranDomTime = Random.Range(1, 3);
                 //var singleAi = Instantiate(AlPf,transform);
-                var singleAi = PoolManager.Instance.GetCustomerAI().GetComponent<AIController>();
+                //var singleAi = PoolManager.Instance.GetCustomerAI().GetComponent<AIController>();
+                var singleAi = PoolManager.Instance.GetCustomerRagdollAI().GetComponent<AIController>();
                 singleAi.transform.SetParent(transform);
                 var index = Random.Range(0, 7);
                 singleAi.SetModel(index);

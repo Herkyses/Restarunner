@@ -849,12 +849,12 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 3
-    positionSpring: 6
+    positionSpring: 2
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_AngularYZDrive:
     serializedVersion: 3
-    positionSpring: 6
+    positionSpring: 2
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_SlerpDrive:
@@ -2000,6 +2000,7 @@ GameObject:
   - component: {fileID: 7262918143254985462}
   - component: {fileID: 6436366087363938100}
   - component: {fileID: 1747700887071992929}
+  - component: {fileID: 364665135249311421}
   m_Layer: 8
   m_Name: newragd
   m_TagString: Untagged
@@ -2289,6 +2290,50 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &364665135249311421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7262918143254985358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c846c571316edd44d9671fc0bdf350b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdollRigidbodies:
+  - {fileID: 7249838669590118864}
+  - {fileID: 7747630345863659408}
+  - {fileID: 2448397096035834299}
+  - {fileID: 1386824634625260182}
+  - {fileID: 5525369659571133186}
+  - {fileID: 4796556233294804551}
+  - {fileID: 3081903269828645603}
+  - {fileID: 6978561112004525872}
+  - {fileID: 4703232422146117949}
+  - {fileID: 4394952849404143414}
+  - {fileID: 7291241775899400791}
+  - {fileID: 4678662027309050687}
+  - {fileID: 3651621500023360259}
+  - {fileID: 1495856261788097644}
+  - {fileID: 7334621837133531738}
+  ragdollColliders:
+  - {fileID: 2910473438874829077}
+  - {fileID: 4746916371017829297}
+  - {fileID: 6877949662000824404}
+  - {fileID: 9058374811033050346}
+  - {fileID: 623908133813489584}
+  - {fileID: 7011906028039242957}
+  - {fileID: 30451864111862062}
+  - {fileID: 2440454576161004234}
+  - {fileID: 7674093821142200563}
+  - {fileID: 5668978052453868877}
+  - {fileID: 6569505932457084116}
+  - {fileID: 1479414574346430112}
+  - {fileID: 7783824840220627778}
+  - {fileID: 8848499172463970148}
+  characterAnimator: {fileID: 0}
 --- !u!1 &7262918143274460853
 GameObject:
   m_ObjectHideFlags: 0
@@ -3902,12 +3947,12 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 3
-    positionSpring: 6
+    positionSpring: 2
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_AngularYZDrive:
     serializedVersion: 3
-    positionSpring: 6
+    positionSpring: 2
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_SlerpDrive:

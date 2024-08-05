@@ -49,13 +49,14 @@ public class AIController : MonoBehaviour,IInterectableObject
         gameObject.TryGetComponent(out AIStateMachineController);
         gameObject.TryGetComponent(out AIAnimationController);
         AIStateMachineController.Initialize(isFriend);
+        _outline = GetComponent<Outline>();
+
     }
 
     private void Start()
     {
         texts = new [] {"Serv the food"};
         textsButtons = new [] {"E"};
-        _outline = GetComponent<Outline>();
     }
 
     /////////// SIT STATE ///////////
@@ -175,6 +176,13 @@ public class AIController : MonoBehaviour,IInterectableObject
     
     public void InterectableObjectRun()
     {
+        if (TryGetComponent(out AIRagdollController aiRagdollController))
+        {
+            if (aiRagdollController)
+            {
+                aiRagdollController.SetRagdollState(true);
+            }
+        }
         if (PlayerOrderController.Instance.TakedFood && PlayerOrderController.Instance.Food.OrderType == FoodDataStruct.OrderType && IsSitting)
         {
             IsTakedFood = true;
