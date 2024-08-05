@@ -180,7 +180,10 @@ public class AIController : MonoBehaviour,IInterectableObject
         {
             if (aiRagdollController)
             {
+                StartCoroutine(aiRagdollController.AddForceToAICor(PlayerOrderController.Instance.transform.forward));
+
                 aiRagdollController.SetRagdollState(true);
+                //aiRagdollController.AddForceToAI(PlayerOrderController.Instance.transform.forward);
             }
         }
         if (PlayerOrderController.Instance.TakedFood && PlayerOrderController.Instance.Food.OrderType == FoodDataStruct.OrderType && IsSitting)

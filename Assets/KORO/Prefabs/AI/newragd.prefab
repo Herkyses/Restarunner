@@ -589,6 +589,7 @@ GameObject:
   - component: {fileID: 7262918142967778693}
   - component: {fileID: 4796556233294804551}
   - component: {fileID: 2584952213066873147}
+  - component: {fileID: 8822028907152826587}
   m_Layer: 8
   m_Name: spine.03
   m_TagString: Untagged
@@ -726,6 +727,20 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!136 &8822028907152826587
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7262918142967778692}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.1
+  m_Height: 0.54
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7262918142975443239
 GameObject:
   m_ObjectHideFlags: 0
@@ -2324,6 +2339,7 @@ MonoBehaviour:
   - {fileID: 6877949662000824404}
   - {fileID: 9058374811033050346}
   - {fileID: 623908133813489584}
+  - {fileID: 8822028907152826587}
   - {fileID: 7011906028039242957}
   - {fileID: 30451864111862062}
   - {fileID: 2440454576161004234}
@@ -2334,6 +2350,9 @@ MonoBehaviour:
   - {fileID: 7783824840220627778}
   - {fileID: 8848499172463970148}
   characterAnimator: {fileID: 0}
+  AIChildObject: {fileID: 7262918143743155071}
+  AIChildObjectPos: {x: 0, y: 0, z: 0}
+  AIChildObjectRot: {x: 0, y: 0, z: 0}
 --- !u!1 &7262918143274460853
 GameObject:
   m_ObjectHideFlags: 0
