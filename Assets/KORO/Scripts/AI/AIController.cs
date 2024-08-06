@@ -21,6 +21,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     public bool IsFinishedFood;
     public bool IsSitting;
     public bool IsTakedFood;
+    public bool IsBadGuy;
     [SerializeField] private Transform _playerPosition;
     [SerializeField] private Transform _chairPosition;
     [SerializeField] private AICanvas _aıCanvas_;
@@ -192,15 +193,16 @@ public class AIController : MonoBehaviour,IInterectableObject
             AIOwnerFood = PlayerOrderController.Instance.FoodTable;
             AIOwnerFood.FoodGivedCustomer();
             var playerOrderController = PlayerOrderController.Instance;
+            var foodTable = playerOrderController.FoodTable;
             playerOrderController.TakedFood = false;
             Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
             //PlayerOrderController.Instance.FoodTable.transform.position = AIOwnerChair.ChairFoodTransform.position;
             //PlayerOrderController.Instance.FoodTable.transform.rotation = AIOwnerChair.ChairFoodTransform.rotation;
-            playerOrderController.FoodTable.transform.SetParent(AIOwnerChair.ChairFoodTransform);
+            foodTable.transform.SetParent(AIOwnerChair.ChairFoodTransform);
 
-            playerOrderController.FoodTable.transform.DORotate(AIOwnerChair.ChairFoodTransform.rotation.eulerAngles,0.2f);
-            playerOrderController.FoodTable.transform.DOMove(AIOwnerChair.ChairFoodTransform.position,0.2f);
-
+            foodTable.transform.DORotate(AIOwnerChair.ChairFoodTransform.rotation.eulerAngles,0.2f);
+            foodTable.transform.DOMove(AIOwnerChair.ChairFoodTransform.position,0.2f);
+            foodTable = null;
             playerOrderController.FoodTable = null;
             Player.Instance.DropTakenObject();
             AIStateMachineController.AIChangeState(AIStateMachineController.AIEatState);
@@ -298,6 +300,13 @@ public class AIController : MonoBehaviour,IInterectableObject
     }
     public Enums.PlayerStateType GetStateType()
     {
-        return Enums.PlayerStateType.GiveFood;
+        if (IsBadGuy)
+        {
+            return Enums.PlayerStateType.Fight;
+        }
+        else
+        {
+            return Enums.PlayerStateType.GiveFood;
+        }
     }
 }

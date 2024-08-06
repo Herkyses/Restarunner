@@ -17,6 +17,7 @@ public class AIStateMachineController : MonoBehaviour
     public AIWaitPlayerState AIWaitPlayerState;
     public AIChefState AIChefState;
     public AIEatState AIEatState;
+    public AIRunFromRestaurantState AIRunFromRestaurantState;
 
     public bool IsFriend;
     
@@ -87,6 +88,7 @@ public class AIStateMachineController : MonoBehaviour
         AIWaiterGiveOrderBillState = new AIWaiterGiveOrderBillState(this);
         AIWaiterTakeFoodState = new AIWaiterTakeFoodState(this);
         AIWaiterGiveFoodState = new AIWaiterGiveFoodState(this);
+        AIRunFromRestaurantState = new AIRunFromRestaurantState(this);
         IsFriend = isFriend;
         AIInitialize();
 
