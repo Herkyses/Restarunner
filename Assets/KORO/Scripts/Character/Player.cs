@@ -102,7 +102,7 @@ public class Player : MonoBehaviour
 
     public void StartFight()
     {
-        
+        CameraController.Instance.MoveFightTool();
     }
     
 }

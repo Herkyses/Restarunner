@@ -165,12 +165,12 @@ public class AIController : MonoBehaviour,IInterectableObject
     
     public void InterectableObjectRun()
     {
-        if (TryGetComponent(out AIRagdollController aiRagdollController))
+        if (TryGetComponent(out AIRagdollController aiRagdollController) && IsBadGuy)
         {
             if (aiRagdollController)
             {
                 StartCoroutine(aiRagdollController.AddForceToAICor(PlayerOrderController.Instance.transform.forward));
-
+                Player.Instance.StartFight();
                 aiRagdollController.SetRagdollState(true);
                 //aiRagdollController.AddForceToAI(PlayerOrderController.Instance.transform.forward);
             }
