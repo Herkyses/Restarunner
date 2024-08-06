@@ -6,6 +6,8 @@ using UnityEngine;
 public class AIRagdollController : MonoBehaviour
 {
 
+    public AIStateMachineController AIStateMachineController;
+
     public Rigidbody[] ragdollRigidbodies;
     public Collider[] ragdollColliders;
     public Animator characterAnimator;
@@ -19,6 +21,7 @@ public class AIRagdollController : MonoBehaviour
 
     private void Start()
     {
+        gameObject.TryGetComponent(out AIStateMachineController);
         characterAnimator = GetComponent<Animator>();
         SetRagdollState(false);
         AIChildObjectPos = AIChildObject.transform.localPosition;
@@ -93,6 +96,6 @@ public class AIRagdollController : MonoBehaviour
             ragdollRigidbodies[i].transform.localRotation = Quaternion.Euler(aAIChildObjectRot[i]);
         }
         SetRagdollState(false);
-        
+        AIStateMachineController.AIChangeState(AIStateMachineController.AIMoveState);
     }
 }
