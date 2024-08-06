@@ -14,17 +14,8 @@ public class Rubbish : MonoBehaviour,IInterectableObject
         
         if (Player.Instance.CanCleanRubbish)
         {
-            CameraController.Instance.MoveCleanTool();
             gameObject.SetActive(false);
-            if (PlayerPrefsManager.Instance.LoadPlaceRubbishLevel() == 0)
-            {
-                TutorialPanelController.Instance.SetRubbishCount();
-            }
-            if (RubbishManager.Instance.CheckRubbishLevel())
-            {
-                RubbishManager.Instance.UpdateRubbishLevel();
-                RubbishManager.Instance.ActivateRubbishes();
-            }        
+            Player.Instance.StartClean();
         }
     }
 

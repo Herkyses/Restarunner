@@ -14,8 +14,11 @@ public class CameraController : MonoBehaviour
     public GameObject CleanTool;
     public GameObject FightTool;
     public GameObject CleanToolChild;
+    public GameObject FightToolChild;
     public bool CleanToolChildMove = true;
+    public bool FightToolChildMove = true;
     public Sequence CleanToolSequence;
+    public Sequence FightToolSequence;
 
     /*public float CamTransformXDifference = 0;
     public float CamTransformYDifference = 0;
@@ -62,7 +65,8 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        CleanToolFirstRotation = new Vector3(CleanToolChild.transform.localRotation.eulerAngles.x, CleanToolChild.transform.localRotation.eulerAngles.y, CleanToolChild.transform.localRotation.eulerAngles.z);
+        var localRotforClean = CleanToolChild.transform.localRotation.eulerAngles;
+        CleanToolFirstRotation = new Vector3(localRotforClean.x, localRotforClean.y, localRotforClean.z);
         _canFollow = true;
         GameSceneCanvas.Instance.CanMove = true;
     }
@@ -109,8 +113,31 @@ public class CameraController : MonoBehaviour
                 CleanToolChildMove = true;
             });      
         }
-        
-        
+    }
+    public void MoveFightTool()
+    {
+        if (FightToolChildMove)
+        {
+            var firstRot = FightToolChild.transform.localRotation.eulerAngles;
+
+            FightToolChildMove = false;
+            if (FightToolSequence != null)
+            {
+                FightToolSequence.Kill();
+            }
+
+            var toolChild = FightToolChild.transform.localRotation.eulerAngles;
+            FightToolSequence = DOTween.Sequence();
+            FightToolSequence.Append(FightToolChild.transform.DOLocalRotate(new Vector3(40f,toolChild.y , toolChild.z), 0.2f)).
+                Append(FightToolChild.transform.DOLocalRotate(new Vector3(20f,toolChild.y , toolChild.z), 0.2f)).
+                Append(FightToolChild.transform.DOLocalRotate(new Vector3(40f,toolChild.y , toolChild.z), 0.2f)).
+                Append(FightToolChild.transform.DOLocalRotate(firstRot,0.2f));
+            
+            FightToolSequence.OnComplete(() =>
+            {
+                FightToolChildMove = true;
+            });      
+        }
     }
     private void LookTarget()
     {

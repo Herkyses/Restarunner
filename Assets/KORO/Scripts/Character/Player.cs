@@ -85,6 +85,25 @@ public class Player : MonoBehaviour
     {
         PlayerStructData.Popularity += popularity;
     }
+
+    public void StartClean()
+    {
+        CameraController.Instance.MoveCleanTool();
+        if (PlayerPrefsManager.Instance.LoadPlaceRubbishLevel() == 0)
+        {
+            TutorialPanelController.Instance.SetRubbishCount();
+        }
+        if (RubbishManager.Instance.CheckRubbishLevel())
+        {
+            RubbishManager.Instance.UpdateRubbishLevel();
+            RubbishManager.Instance.ActivateRubbishes();
+        }        
+    }
+
+    public void StartFight()
+    {
+        
+    }
     
 }
 [Serializable]
