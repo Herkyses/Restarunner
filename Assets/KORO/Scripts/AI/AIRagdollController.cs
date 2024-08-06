@@ -81,13 +81,7 @@ public class AIRagdollController : MonoBehaviour
         StartCoroutine(ReturnWalk());
 
     }
-
-    public void StartImpulse(Vector3 direction)
-    {
-        ragdollRigidbodies[4].AddForce(direction*10f,ForceMode.Impulse);
-        StartCoroutine(ReturnWalk());
-
-    }
+    
     public IEnumerator ReturnWalk()
     {
         yield return new WaitForSeconds(2f);

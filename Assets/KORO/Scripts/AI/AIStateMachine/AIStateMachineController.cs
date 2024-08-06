@@ -172,6 +172,22 @@ public class AIStateMachineController : MonoBehaviour
         if (AIController.AIOwnerTable.CheckAllCustomerFinishedFood())
         {
             AIController.AIOwnerTable.AllFoodfinished();
+            if (Random.value < 0.5f)
+            {
+                AIController.AIOwnerTable.ResetTable();
+                AIChangeState(AIRunFromRestaurantState);
+                AIController.IsBadGuy = true;
+                ResetAI();
+                if (Friends.Count > 0)
+                {
+                    for (int i = 0; i < Friends.Count; i++)
+                    {
+                        Friends[i].AIStateMachineController.AIChangeState(Friends[i].AIStateMachineController.AIRunFromRestaurantState);
+                        Friends[i].AIStateMachineController.ResetAI();
+                    }
+                }
+            }
+            
         }
         //AIController.AIOwnerChair.isChairAvailable = true;
         //AIController.AIOwnerTable.CustomerCount--;
@@ -197,10 +213,24 @@ public class AIStateMachineController : MonoBehaviour
     public void SetMoveStateFromOrderBill()
     {
         //AIController.AIOwnerTable._aiControllerList.Remove(AIController);
-        TableAvailablePanel.Instance.RedAvailability(AIController.AIOwnerTable.TableNumber);
-        TableAvailablePanel.Instance.CheckTable(AIController.AIOwnerTable.TableNumber);
+        
         GameSceneCanvas.Instance.AddPopularity();
         GameManager.PayedOrderBill?.Invoke(GameDataManager.Instance.GetFoodPrice(AIController.FoodDataStruct.OrderType));
+        ResetAI();
+        AIChangeState(AIMoveState);
+        
+    }
+    public void SetMoveStateForRunState()
+    {
+        //AIController.AIOwnerTable._aiControllerList.Remove(AIController);
+        ResetAI();
+    }
+
+    public void ResetAI()
+    {
+        TableAvailablePanel.Instance.RedAvailability(AIController.AIOwnerTable.TableNumber);
+        TableAvailablePanel.Instance.CheckTable(AIController.AIOwnerTable.TableNumber);
+       
         AIController.AIOwnerChair.isChairAvailable = true;
         AIController.IsSitting = false;
         AIController.AIOwnerTable.CustomerCount--;
@@ -210,7 +240,6 @@ public class AIStateMachineController : MonoBehaviour
         }
         AIAreaController.InteractabelDeactive();
         AIController.IsFinishedFood = false;
-        AIChangeState(AIMoveState);
         AIController.IsTakedFood = false;
         OwnerTable = null;
     }

@@ -84,6 +84,18 @@ public class AIController : MonoBehaviour,IInterectableObject
         //InvokeRepeating("CheckForObstacles", 0f, 0.3f);
         //_targetFirstPosition = transform.position;
     }
+    /////////// RUN STATE ///////////
+    
+    public void StartTargetDestinationForRun(Vector3 targetPosition)
+    {
+        _agent.speed = 3.5f;
+        SetDestinationTarget(targetPosition);
+        float randomTime = Random.Range(0f, 1f);
+        AiAnimator.Play("Run",0,randomTime);
+        //obstacleMaskValue = LayerMask.NameToLayer("Player");
+        //InvokeRepeating("CheckForObstacles", 0f, 0.3f);
+        //_targetFirstPosition = transform.position;
+    }
     
     /////////// CLAP STATE ///////////
     public void StartClapState()

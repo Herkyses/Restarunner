@@ -83,6 +83,9 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
     public void ResetTable()
     {
+        CheckOrderBillsPanel.Instance.UpdateBillList(TableNumber);
+        TotalBills = 0;
+        _aiControllerList.Clear();
         IsTableFoodFinished = false;
         BillPanel.gameObject.SetActive(false);
     }
@@ -214,12 +217,10 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             {
                 _aiControllerList[i].AIStateMachineController.SetMoveStateFromOrderBill();
             } 
-            BillTable.Instance.UpdateTableBill(PlayerOrderController.Instance.TableBill);
             PlayerOrderController.Instance.TakedTableBill = false;
+            BillTable.Instance.UpdateTableBill(PlayerOrderController.Instance.TableBill);
             Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
-            CheckOrderBillsPanel.Instance.UpdateBillList(TableNumber);
-            TotalBills = 0;
-            _aiControllerList.Clear();
+            
             ResetTable();
         }
     }

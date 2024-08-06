@@ -211,7 +211,7 @@ public class CameraController : MonoBehaviour
     public void FightToolActive(bool active)
     {
         var playerState = Player.Instance.PlayerStateType;
-        if (playerState == Enums.PlayerStateType.Free || playerState == Enums.PlayerStateType.Fight|| playerState == Enums.PlayerStateType.Cleaner)
+        if (playerState == Enums.PlayerStateType.Free || playerState == Enums.PlayerStateType.Fight|| playerState == Enums.PlayerStateType.Cleaner|| playerState == Enums.PlayerStateType.GiveFood)
         {
 
             FightTool.SetActive(active);
@@ -220,10 +220,24 @@ public class CameraController : MonoBehaviour
                 Player.Instance.PlayerStateType = Enums.PlayerStateType.Fight;
                 CleanTool.SetActive(false);
                 Player.Instance.CanCleanRubbish = false;
+                if (PlayerOrderController.Instance.TakedFood)
+                {
+                    PlayerOrderController.Instance.FoodTable.gameObject.SetActive(false);
+                }
             }
             else
             {
-                Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
+                if (PlayerOrderController.Instance.TakedFood)
+                {
+                    PlayerOrderController.Instance.FoodTable.gameObject.SetActive(true);
+                    Player.Instance.PlayerStateType = Enums.PlayerStateType.GiveFood;
+
+                }
+                else
+                {
+                    Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
+
+                }
             }
         }
         

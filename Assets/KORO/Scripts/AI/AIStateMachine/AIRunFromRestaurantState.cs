@@ -14,8 +14,7 @@ public class AIRunFromRestaurantState : AIBaseState
 
     public override void EnterState()
     {
-        
-        
+        AIStateMachineController.AIController.StartTargetDestinationForRun(AIStateMachineController.AIController._targetPositions[2].position);
     }
 
     public override void UpdateState()
