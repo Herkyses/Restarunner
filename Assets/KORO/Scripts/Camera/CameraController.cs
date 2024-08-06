@@ -128,7 +128,7 @@ public class CameraController : MonoBehaviour
 
             var toolChild = FightToolChild.transform.localRotation.eulerAngles;
             FightToolSequence = DOTween.Sequence();
-            FightToolSequence.Append(FightToolChild.transform.DOLocalRotate(new Vector3(toolChild.x,toolChild.y , 30f), 0.1f)).
+            FightToolSequence.Append(FightToolChild.transform.DOLocalRotate(new Vector3(toolChild.x,toolChild.y , 50f), 0.1f)).
                 Append(FightToolChild.transform.DOLocalRotate(new Vector3(toolChild.x,toolChild.y , toolChild.z), 0.1f)).
                 Append(FightToolChild.transform.DOLocalRotate(firstRot,0.1f));
             
