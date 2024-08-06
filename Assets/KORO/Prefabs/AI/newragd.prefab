@@ -2122,7 +2122,7 @@ MonoBehaviour:
   IsFinishedFood: 0
   IsSitting: 0
   IsTakedFood: 0
-  IsBadGuy: 0
+  IsBadGuy: 1
   _playerPosition: {fileID: 0}
   _chairPosition: {fileID: 0}
   "_a\u0131Canvas_": {fileID: 8789694162604850828}

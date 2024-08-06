@@ -72,11 +72,19 @@ public class AIRagdollController : MonoBehaviour
         while (elapsedTime < 0.1)
         {
             // Kuvvet uygulama işlemi
-            transform.position += direction * 25f * Time.deltaTime;
+            ragdollRigidbodies[4].AddForce(direction*5f,ForceMode.Impulse);
+            //transform.position += direction * 25f * Time.deltaTime;
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
+        StartCoroutine(ReturnWalk());
+
+    }
+
+    public void StartImpulse(Vector3 direction)
+    {
+        ragdollRigidbodies[4].AddForce(direction*10f,ForceMode.Impulse);
         StartCoroutine(ReturnWalk());
 
     }
