@@ -218,6 +218,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
                 _aiControllerList[i].AIStateMachineController.SetMoveStateFromOrderBill();
             } 
             PlayerOrderController.Instance.TakedTableBill = false;
+            Player.Instance.PlayerTakedObject = null;
             BillTable.Instance.UpdateTableBill(PlayerOrderController.Instance.TableBill);
             Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
             

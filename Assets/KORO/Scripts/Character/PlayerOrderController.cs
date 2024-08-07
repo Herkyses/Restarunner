@@ -51,7 +51,7 @@ public class PlayerOrderController : MonoBehaviour
             food.transform.DOLocalRotate(Vector3.zero, 0.2f);
             food.transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
             //Player.Instance.PlayerStateType = Enums.PlayerStateType.GiveFood;
-            //Player.Instance.PlayerTakedObject = food.gameObject;
+            Player.Instance.PlayerTakedObject = food.gameObject;
         }
     }
     public void TakeBill(TableBill tableBill)
@@ -66,7 +66,7 @@ public class PlayerOrderController : MonoBehaviour
             tableBill.transform.DOLocalMove(new Vector3(0.2f, 0, 0), 0.2f);
             tableBill.transform.DOLocalRotate(new Vector3(0f,0,30), 0.2f);
             Player.Instance.PlayerStateType = Enums.PlayerStateType.OrderBill;
-
+            Player.Instance.PlayerTakedObject = TableBill.gameObject;
             //TableBill.transform.localRotation = Quaternion.Euler(new Vector3(0f,0,30));
             /*TableBill.transform.position = FoodTransform.position;
             var zort = FoodTransform.transform.rotation.eulerAngles + new Vector3(0f, 0f, -90f);

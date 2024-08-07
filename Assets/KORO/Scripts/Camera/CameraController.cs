@@ -208,6 +208,11 @@ public class CameraController : MonoBehaviour
         }
         
     }
+
+    public void StateInitiliazeForTakeObject()
+    {
+        
+    }
     public void FightToolActive(bool active)
     {
         var playerState = Player.Instance.PlayerStateType;
