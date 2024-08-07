@@ -50,14 +50,14 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            CanCleanRubbish = !CanCleanRubbish;
-            CameraController.Instance.CleanToolActive(CanCleanRubbish);
+            //CanCleanRubbish = !CanCleanRubbish;
+            CameraController.Instance.StateInitiliazeForTakeObject(Enums.PlayerStateType.Cleaner);
 
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
-            CanFight = !CanFight;
-            CameraController.Instance.FightToolActive(CanFight);
+            //CanFight = !CanFight;
+            CameraController.Instance.StateInitiliazeForTakeObject(Enums.PlayerStateType.Fight);
         }
     }
 

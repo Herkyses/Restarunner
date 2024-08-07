@@ -12,11 +12,11 @@ public class Rubbish : MonoBehaviour,IInterectableObject
     public void InterectableObjectRun()
     {
         
-        if (Player.Instance.CanCleanRubbish)
-        {
+        //if (Player.Instance.CanCleanRubbish)
+        //{
             gameObject.SetActive(false);
             Player.Instance.StartClean();
-        }
+        //}
     }
 
     private void Start()
@@ -56,19 +56,19 @@ public class Rubbish : MonoBehaviour,IInterectableObject
     }
     public string[] GetInterectableTexts()
     {
-        if (Player.Instance.CanCleanRubbish)
-        {
+        //if (Player.Instance.CanCleanRubbish)
+        //{
             return texts;
-        }
-        return null;
+        //}
+        //return null;
     }
     public string[] GetInterectableButtons()
     {
-        if (Player.Instance.CanCleanRubbish)
-        {
+        //if (Player.Instance.CanCleanRubbish)
+        //{
             return textsButtons;
-        }
-        return null;
+        //}
+        //return null;
     }
     public Enums.PlayerStateType GetStateType()
     {

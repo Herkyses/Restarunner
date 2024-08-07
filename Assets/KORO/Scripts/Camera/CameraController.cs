@@ -49,6 +49,8 @@ public class CameraController : MonoBehaviour
     private float rotationX = 0.0f;
     private float rotationY = 0.0f;
 
+    private Enums.PlayerStateType firstPlayerState;
+
     private bool _canFollow;
     
     private void Awake()
@@ -69,6 +71,8 @@ public class CameraController : MonoBehaviour
         CleanToolFirstRotation = new Vector3(localRotforClean.x, localRotforClean.y, localRotforClean.z);
         _canFollow = true;
         GameSceneCanvas.Instance.CanMove = true;
+        firstPlayerState = Enums.PlayerStateType.None;
+
     }
 
     public void CanFollowController(bool zort)
@@ -186,67 +190,72 @@ public class CameraController : MonoBehaviour
         
         
     }
+    
 
-    public void CleanToolActive(bool active)
+    public void StateInitiliazeForTakeObject(Enums.PlayerStateType playerStateType)
     {
-        var playerState = Player.Instance.PlayerStateType;
-        if (playerState == Enums.PlayerStateType.Free || playerState == Enums.PlayerStateType.Cleaner|| playerState == Enums.PlayerStateType.Fight)
+        if (Player.Instance.PlayerStateType == playerStateType)
         {
-
-            CleanTool.SetActive(active);
-            if (active)
+            Player.Instance.PlayerStateType = firstPlayerState;
+            firstPlayerState = Enums.PlayerStateType.None;
+            if (Player.Instance.PlayerTakedObject && !Player.Instance.PlayerTakedObject.activeSelf)
             {
-                Player.Instance.PlayerStateType = Enums.PlayerStateType.Cleaner;
-                FightTool.SetActive(false);
-                Player.Instance.CanFight = false;
+                Player.Instance.PlayerTakedObject.SetActive(true);
             }
             else
             {
                 Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
 
             }
+            switch (playerStateType)
+            {
+                case Enums.PlayerStateType.Fight:
+                    FightTool.SetActive(false);
+                    break;
+                case Enums.PlayerStateType.Cleaner:
+                    CleanTool.SetActive(false);
+                    break;
+            }
         }
-        
-    }
-
-    public void StateInitiliazeForTakeObject()
-    {
-        
-    }
-    public void FightToolActive(bool active)
-    {
-        var playerState = Player.Instance.PlayerStateType;
-        if (playerState == Enums.PlayerStateType.Free || playerState == Enums.PlayerStateType.Fight|| playerState == Enums.PlayerStateType.Cleaner|| playerState == Enums.PlayerStateType.GiveFood)
+        else
         {
-
-            FightTool.SetActive(active);
-            if (active)
+            if (Player.Instance.PlayerTakedObject && Player.Instance.PlayerTakedObject.activeSelf)
             {
-                Player.Instance.PlayerStateType = Enums.PlayerStateType.Fight;
-                CleanTool.SetActive(false);
-                Player.Instance.CanCleanRubbish = false;
-                if (PlayerOrderController.Instance.TakedFood)
-                {
-                    PlayerOrderController.Instance.FoodTable.gameObject.SetActive(false);
-                }
+                Player.Instance.PlayerTakedObject.SetActive(false);
+                firstPlayerState = Player.Instance.PlayerStateType;
+
             }
-            else
+            
+            switch (playerStateType)
             {
-                if (PlayerOrderController.Instance.TakedFood)
-                {
-                    PlayerOrderController.Instance.FoodTable.gameObject.SetActive(true);
-                    Player.Instance.PlayerStateType = Enums.PlayerStateType.GiveFood;
+                
+                case Enums.PlayerStateType.Fight:
+                    
+                    FightTool.SetActive(true);
+                    CleanTool.SetActive(false);
+                    if (firstPlayerState != Enums.PlayerStateType.None)
+                    {
+                        firstPlayerState = Player.Instance.PlayerStateType;;
+                    }
+                    break;
+                case Enums.PlayerStateType.Cleaner:
+                    
+                    CleanTool.SetActive(true);
+                    FightTool.SetActive(false);
+                    if (firstPlayerState != Enums.PlayerStateType.None)
+                    {
+                        firstPlayerState = Player.Instance.PlayerStateType;;
+                    }
 
-                }
-                else
-                {
-                    Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
-
-                }
+                    break;
             }
+            Player.Instance.PlayerStateType = playerStateType;
         }
+
         
+
     }
+    
     
 
     /*public float GetRotation()
