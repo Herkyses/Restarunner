@@ -173,7 +173,7 @@ public class PlayerRaycastController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.J))
         {
-            if (Player.Instance.PlayerTakedObject)
+            if (Player.Instance.PlayerStateType == Enums.PlayerStateType.TakeBox)
             {
                 var takenObject = Player.Instance.PlayerTakedObject;
                 if (takenObject)

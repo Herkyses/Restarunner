@@ -49,8 +49,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
 
     public void InterectableObjectRun()
     {
-        if (!Player.Instance.PlayerTakedObject)
-        {
+        
             transform.DOLocalMove(new Vector3(-0.1f,-0.2f,0f), 0.2f);
             transform.DOLocalRotate(new Vector3(0,0,-11f), 0.2f);
             transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
@@ -61,7 +60,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
             GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTake);
             GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTake);
             _isOrderBoxOpenAvailable = false;
-        }
+        
         
     }
 
