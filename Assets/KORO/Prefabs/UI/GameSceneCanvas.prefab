@@ -4336,6 +4336,7 @@ GameObject:
   - component: {fileID: 4736498854962768008}
   - component: {fileID: 218764742135899412}
   - component: {fileID: 3736464882405432140}
+  - component: {fileID: 8580884288980082955}
   m_Layer: 5
   m_Name: InteractableButtons
   m_TagString: Untagged
@@ -4428,6 +4429,18 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 17.4}
   m_Constraint: 1
   m_ConstraintCount: 1
+--- !u!225 &8580884288980082955
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2923400432141393436}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2945383110420916145
 GameObject:
   m_ObjectHideFlags: 0
@@ -4566,6 +4579,7 @@ GameObject:
   - component: {fileID: 3212065254728199053}
   - component: {fileID: 471755659142236887}
   - component: {fileID: 8337798783106247849}
+  - component: {fileID: 8446222016948155463}
   m_Layer: 5
   m_Name: Image (2)
   m_TagString: Untagged
@@ -4632,6 +4646,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.16
+--- !u!225 &8446222016948155463
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2955216324996500727}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2956790908116135025
 GameObject:
   m_ObjectHideFlags: 0
@@ -4987,6 +5013,7 @@ GameObject:
   - component: {fileID: 8680350099184838333}
   - component: {fileID: 776498329382345721}
   - component: {fileID: 364562329645023409}
+  - component: {fileID: 3242503276166896952}
   m_Layer: 5
   m_Name: ShopPanelController
   m_TagString: Untagged
@@ -5071,10 +5098,23 @@ MonoBehaviour:
   - OrderType: 1
     IngredientValue: 0
   OwnerFoodIngredients: []
+  OpeningShopItems: []
   _panel: {fileID: 677409233023969758}
   _ownerFoodIngredients: {fileID: 8201832411285893862}
   SingleShopItemParentTransform: {fileID: 2287923644688162544}
   SingleShopItemPf: {fileID: 4269544568182306317, guid: b4dff51adcd0e3847ac7067cc38400b5, type: 3}
+--- !u!225 &3242503276166896952
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3267616222350411951}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3347154495942380249
 GameObject:
   m_ObjectHideFlags: 0
@@ -6955,6 +6995,7 @@ GameObject:
   - component: {fileID: 9134097727457985185}
   - component: {fileID: 6782036292586793456}
   - component: {fileID: 3255834003585043375}
+  - component: {fileID: 131808271663971270}
   m_Layer: 5
   m_Name: CheckOrderBillsPanel
   m_TagString: Untagged
@@ -7038,6 +7079,18 @@ MonoBehaviour:
   _singleBill: {fileID: 3585026562688847052, guid: 8d5e323d7a7c91d45a186640bd5fef24, type: 3}
   BillList: []
   SelectedTable: 0
+--- !u!225 &131808271663971270
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5236647901921257010}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5238364398880936148
 GameObject:
   m_ObjectHideFlags: 0
@@ -9120,6 +9173,7 @@ GameObject:
   - component: {fileID: 6436319219212864708}
   - component: {fileID: 6436319219212864709}
   - component: {fileID: 6436319219212864710}
+  - component: {fileID: 7830937684304004975}
   m_Layer: 5
   m_Name: GiveChefOrderPanel
   m_TagString: Untagged
@@ -9207,6 +9261,18 @@ MonoBehaviour:
   Orders:
     TableNumber: 0
     OrderDataStructs: []
+--- !u!225 &7830937684304004975
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6436319219212864704}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6436319219224985473
 GameObject:
   m_ObjectHideFlags: 0
@@ -11226,6 +11292,7 @@ GameObject:
   - component: {fileID: 6436319219716614772}
   - component: {fileID: 6436319219716614773}
   - component: {fileID: 6436319219716614774}
+  - component: {fileID: 355852569561810069}
   m_Layer: 5
   m_Name: TableAvailablePanel
   m_TagString: Untagged
@@ -11314,6 +11381,18 @@ MonoBehaviour:
   _customerList: []
   SelectedCustomerIndex: 0
   IsCustomerSelected: 0
+--- !u!225 &355852569561810069
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6436319219716614768}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6436319219743010496
 GameObject:
   m_ObjectHideFlags: 0
@@ -11536,6 +11615,7 @@ GameObject:
   - component: {fileID: 6436319219796649481}
   - component: {fileID: 6436319219796649487}
   - component: {fileID: 6436319219796649480}
+  - component: {fileID: 164699187559824157}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -11603,6 +11683,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &164699187559824157
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6436319219796649482}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6436319219801065525
 GameObject:
   m_ObjectHideFlags: 0
@@ -12297,6 +12389,7 @@ GameObject:
   - component: {fileID: 6436319220034316562}
   - component: {fileID: 6436319220034316560}
   - component: {fileID: 6436319220034316561}
+  - component: {fileID: 2187257556488839882}
   m_Layer: 5
   m_Name: Info
   m_TagString: Untagged
@@ -12364,6 +12457,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &2187257556488839882
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6436319220034316563}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6436319220077607735
 GameObject:
   m_ObjectHideFlags: 0
@@ -12533,6 +12638,7 @@ GameObject:
   - component: {fileID: 6436319220097357181}
   - component: {fileID: 6436319220097357182}
   - component: {fileID: 6436319220097357180}
+  - component: {fileID: 2072832418392753594}
   m_Layer: 5
   m_Name: OrderPanel
   m_TagString: Untagged
@@ -12621,6 +12727,18 @@ MonoBehaviour:
   FoodList: []
   OrderList: []
   OpenedTableNumber: -1
+--- !u!225 &2072832418392753594
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6436319220097357176}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6436319220117700475
 GameObject:
   m_ObjectHideFlags: 0
@@ -13590,6 +13708,7 @@ GameObject:
   - component: {fileID: 6436319220348238291}
   - component: {fileID: 6436319220348238289}
   - component: {fileID: 6436319220348238290}
+  - component: {fileID: 1623386651694386038}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -13656,6 +13775,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &1623386651694386038
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6436319220348238284}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6436319220371809205
 GameObject:
   m_ObjectHideFlags: 0
@@ -14303,6 +14434,7 @@ GameObject:
   - component: {fileID: 6436319220545053693}
   - component: {fileID: 6436319220545053635}
   - component: {fileID: 6436319220545053692}
+  - component: {fileID: 9062470000373810245}
   m_Layer: 5
   m_Name: Popularity
   m_TagString: Untagged
@@ -14370,6 +14502,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &9062470000373810245
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6436319220545053694}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6436319220557864003
 GameObject:
   m_ObjectHideFlags: 0
@@ -14977,6 +15121,7 @@ GameObject:
   - component: {fileID: 6436319220704855242}
   - component: {fileID: 6436319220704855243}
   - component: {fileID: 6436319220704855236}
+  - component: {fileID: 8551217497731233198}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -15060,6 +15205,18 @@ MonoBehaviour:
   precomputeOutline: 1
   bakeKeys: []
   bakeValues: []
+--- !u!225 &8551217497731233198
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6436319220704855238}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6436319220717888410
 GameObject:
   m_ObjectHideFlags: 0
@@ -15769,6 +15926,7 @@ GameObject:
   - component: {fileID: 6436319220872949716}
   - component: {fileID: 6436319220872949723}
   - component: {fileID: 6436319220872949722}
+  - component: {fileID: 892412444196968215}
   m_Layer: 5
   m_Name: PlayAreaPanel
   m_TagString: Untagged
@@ -15843,6 +16001,18 @@ MonoBehaviour:
   AnswerCount: 0
   score: 0
   scoreText: {fileID: 6436319219743010502}
+--- !u!225 &892412444196968215
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6436319220872949717}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6436319220911929196
 GameObject:
   m_ObjectHideFlags: 0
@@ -18226,6 +18396,7 @@ GameObject:
   - component: {fileID: 7786053017519387734}
   - component: {fileID: 639746724316197006}
   - component: {fileID: 7236579841658373196}
+  - component: {fileID: 5911017021661955491}
   m_Layer: 5
   m_Name: TutorialPanel
   m_TagString: Untagged
@@ -18307,6 +18478,18 @@ MonoBehaviour:
   TutorialPanel: {fileID: 487826370788429981}
   TutorialText: {fileID: 5179579472333537940}
   TutorialTextForRemainingRubbish: {fileID: 7950591141101347891}
+--- !u!225 &5911017021661955491
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7810146992473396011}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8085680400369909307
 GameObject:
   m_ObjectHideFlags: 0
