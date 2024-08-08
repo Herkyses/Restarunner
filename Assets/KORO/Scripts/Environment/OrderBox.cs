@@ -103,6 +103,11 @@ public class OrderBox : MonoBehaviour,IInterectableObject
             {
                 TutorialManager.Instance.SetTutorialInfo(3);
             }
+
+            if (_shopItemData.ItemType == Enums.ShopItemType.Table)
+            {
+                objectZort.GetComponent<TableSet>().table.Move();
+            }
         }
         
     }
