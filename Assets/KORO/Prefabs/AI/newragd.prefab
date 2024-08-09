@@ -2318,6 +2318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c846c571316edd44d9671fc0bdf350b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AIStateMachineController: {fileID: 0}
   ragdollRigidbodies:
   - {fileID: 7249838669590118864}
   - {fileID: 7747630345863659408}
@@ -4340,7 +4341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7262918143805163605
 Transform:
   m_ObjectHideFlags: 0
@@ -4376,7 +4377,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1131d708b20fe2b4a9b327be8f497228, type: 2}
+  - {fileID: 2100000, guid: c3c495ed0cdc77c41bd393df1be6ebcd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
