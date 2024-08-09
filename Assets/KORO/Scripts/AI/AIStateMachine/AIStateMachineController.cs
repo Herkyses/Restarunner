@@ -172,8 +172,8 @@ public class AIStateMachineController : MonoBehaviour
         if (AIController.AIOwnerTable.CheckAllCustomerFinishedFood())
         {
             AIController.AIOwnerTable.AllFoodfinished();
-            if (Random.value < 0.5f)
-            {
+            //if (Random.value < 0.5f)
+            //{
                 AIController.AIOwnerTable.ResetTable();
                 AIChangeState(AIRunFromRestaurantState);
                 AIController.IsBadGuy = true;
@@ -186,7 +186,7 @@ public class AIStateMachineController : MonoBehaviour
                         Friends[i].AIStateMachineController.ResetAI();
                     }
                 }
-            }
+            //}
             
         }
         //AIController.AIOwnerChair.isChairAvailable = true;

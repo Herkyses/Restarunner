@@ -88,6 +88,9 @@ public class AIController : MonoBehaviour,IInterectableObject
     
     public void StartTargetDestinationForRun(Vector3 targetPosition)
     {
+        var aiOutline = GetComponent<Outline>();
+        aiOutline.enabled = true;
+        aiOutline.OutlineColor = Color.red;
         _agent.speed = 3.5f;
         SetDestinationTarget(targetPosition);
         float randomTime = Random.Range(0f, 1f);
