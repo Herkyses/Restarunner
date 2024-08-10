@@ -42,7 +42,10 @@ public class AIController : MonoBehaviour,IInterectableObject
     public OrderDataStruct FoodDataStruct;
 
     private Outline _outline;
+
+
     
+
     // Start is called before the first frame update
     public void Initiliaze(bool isFriend = false)
     {
@@ -95,6 +98,7 @@ public class AIController : MonoBehaviour,IInterectableObject
         SetDestinationTarget(targetPosition);
         float randomTime = Random.Range(0f, 1f);
         AiAnimator.Play("Run",0,randomTime);
+        AISpawnController.CatchNonPayer?.Invoke();
         //obstacleMaskValue = LayerMask.NameToLayer("Player");
         //InvokeRepeating("CheckForObstacles", 0f, 0.3f);
         //_targetFirstPosition = transform.position;

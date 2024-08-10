@@ -97,5 +97,6 @@ public class AIRagdollController : MonoBehaviour
         }
         SetRagdollState(false);
         AIStateMachineController.AIChangeState(AIStateMachineController.AIMoveState);
+        GameSceneCanvas.Instance._catchNonPayerPanel.StopCatchPanel();
     }
 }

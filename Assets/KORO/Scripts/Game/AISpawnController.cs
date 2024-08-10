@@ -10,6 +10,7 @@ public class AISpawnController : MonoBehaviour
     public List<AIController> AllAIList;
     public AIController AlPf;
     public AIController AlPfRagdoll;
+    public static Action CatchNonPayer;
 
     public int ActiveAiCount;
 

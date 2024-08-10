@@ -17,6 +17,7 @@ public class GameSceneCanvas : MonoBehaviour
     [SerializeField] private GameObject _infoObject;
     [SerializeField] private GameObject _objectInfoTextsParent;
     public OrderPanelController _orderPanel;
+    public CatchNonPayerPanelController _catchNonPayerPanel;
     public MusicController _musicController;
     public Image _orderPanelImage;
     public static Action UpdateAISpawnController;
