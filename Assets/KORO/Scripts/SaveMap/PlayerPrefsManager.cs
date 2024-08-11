@@ -38,6 +38,16 @@ public class PlayerPrefsManager : MonoBehaviour
         PlayerPrefs.Save();
         //TutorialStepUpdated?.Invoke();
     }
+    public int LoadDecorationCount()
+    {
+        return PlayerPrefs.GetInt("DecorationCount", 0); 
+    }
+    public void SaveDecorationCount(int decorationCount)
+    {
+        PlayerPrefs.SetInt("DecorationCount", decorationCount);
+        PlayerPrefs.Save();
+        //TutorialStepUpdated?.Invoke();
+    }
     public int LoadPlayerTutorialStep()
     {
         return PlayerPrefs.GetInt("PlayerTutorialStep", 0); 
