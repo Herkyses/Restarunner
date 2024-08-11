@@ -15,7 +15,7 @@ MonoBehaviour:
   ItemType: 5
   ShopItemUIType: 0
   ShopItemPrice: 3
-  ShopItemIcon: {fileID: 21300000, guid: babdfd50d2a24434b90622c65c95136d, type: 3}
+  ShopItemIcon: {fileID: 21300000, guid: 16cebe0bfc8c1c7409db815c4ec3f05f, type: 3}
   ItemObject: {fileID: 7977562239397116334, guid: 2b584c7491f9ce74397a9a5b27a61b33, type: 3}
   ItemOrderType: 1
   TableSetID: 0
