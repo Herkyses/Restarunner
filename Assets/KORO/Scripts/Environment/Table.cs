@@ -265,11 +265,15 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     {
         if (!IsTableMove && !PlaceController.RestaurantIsOpen && CustomerCount == 0)
         {
+            Player.Instance.ActivatedRaycast(false);
             IsTableMove = true;
             Player.Instance.PlayerTakedObject = gameObject;
             Player.Instance.PlayerStateType = Enums.PlayerStateType.MoveTable;
             GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTable);
             GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTable);
+            TableSet.GetComponent<BoxCollider>().enabled = false;
+            TableController.Instance.EnableTableSetCollider(true);
+
         }
         
     }
@@ -279,15 +283,15 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     {
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
-
+        
         
         if (Physics.Raycast(ray, out hit))
         {
             float xValue = hit.point.x;
             float zValue = hit.point.z;
-            TableSet.GetComponent<BoxCollider>().enabled = true;
+            //TableSet.GetComponent<BoxCollider>().enabled = true;
             TableSet.transform.position = new Vector3(xValue,0,zValue); // Objenin pozisyonunu fare ile tıklanan noktaya taşı
-            TableController.Instance.EnableTableSetCollider(true);
+            //TableController.Instance.EnableTableSetCollider(true);
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -304,6 +308,8 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             {
                 MapManager.Instance.SaveMap();
                 TableControl();
+                Player.Instance.ActivatedRaycast(true);
+
                 Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
                 //if(colliders.Length )
                 TableSet.GetComponent<BoxCollider>().enabled = false;

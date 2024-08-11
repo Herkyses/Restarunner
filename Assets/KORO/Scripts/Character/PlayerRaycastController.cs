@@ -10,6 +10,8 @@ public class PlayerRaycastController : MonoBehaviour
     public Outline InterectabelOutline;
 
     public IInterectableObject Izort;
+
+    public bool IsRaycastActive = true;
     
     
     // Start is called before the first frame update
@@ -26,8 +28,9 @@ public class PlayerRaycastController : MonoBehaviour
         int layerToIgnore = LayerMask.NameToLayer("Ground"); 
         int layerMask = 1 << layerToIgnore;
         layerMask = ~layerMask;
-        
-        while (true)
+        if(IsRaycastActive)
+        {
+            while (true)
         {
             
             yield return new WaitForSeconds(0.05f);
@@ -39,6 +42,7 @@ public class PlayerRaycastController : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(screenCenter);
             
                 RaycastHit hit;
+                
                 if (Physics.Raycast(ray, out hit,10f,layerMask))
                 {
                     var hitObject = hit.collider.gameObject;
@@ -135,6 +139,9 @@ public class PlayerRaycastController : MonoBehaviour
 
             
         }
+            
+        }
+        
     }
 
     public void DeactivateOutline()

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerData _playerData;
+    [SerializeField] private PlayerRaycastController _playerRaycastController;
     public bool _canTakeMoney;
     public bool CanCleanRubbish;
     public bool CanFight;
@@ -42,8 +43,14 @@ public class Player : MonoBehaviour
     
     void Start()
     {
+        gameObject.TryGetComponent(out _playerRaycastController);
         PlayerMoney = PlayerPrefsManager.Instance.LoadPlayerMoney();
         CameraController.Instance.PlayerTransform = transform;
+    }
+
+    public void ActivatedRaycast(bool active)
+    {
+        _playerRaycastController.IsRaycastActive = active;
     }
 
     private void Update()

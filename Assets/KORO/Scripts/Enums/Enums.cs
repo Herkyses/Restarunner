@@ -70,5 +70,6 @@ public class Enums : MonoBehaviour
         MoveTable,
         Fight,
         None,
+        DecorationMove,
     }
 }

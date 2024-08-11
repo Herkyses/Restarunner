@@ -7,6 +7,9 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
 {
     private bool isDecorationMove;
 
+    private int layerMask;
+    private int layerToIgnore;
+
     private void Update()
     {
         if (isDecorationMove)
@@ -46,9 +49,15 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
     {
         if (!isDecorationMove && !PlaceController.RestaurantIsOpen)
         {
-            isDecorationMove = true;
+            
+            //gameObject.layer = LayerMask.NameToLayer("Ground");
+            GetComponent<BoxCollider>().enabled = false;
             Player.Instance.PlayerTakedObject = gameObject;
-            //Player.Instance.PlayerStateType = Enums.PlayerStateType.MoveTable;
+            Player.Instance.PlayerStateType = Enums.PlayerStateType.DecorationMove;
+            Player.Instance.ActivatedRaycast(false);
+            isDecorationMove = true;
+
+
             //GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTable);
             //GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTable);
         }
@@ -57,13 +66,13 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
     {
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
-
+        //Player.Instance.DeactivatedRaycast();
         
         if (Physics.Raycast(ray, out hit))
         {
             float xValue = hit.point.x;
             float zValue = hit.point.z;
-            GetComponent<BoxCollider>().enabled = true;
+            //GetComponent<BoxCollider>().enabled = true;
             transform.position = new Vector3(xValue,0,zValue); // Objenin pozisyonunu fare ile tıklanan noktaya taşı
         }
 
@@ -79,6 +88,8 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
             TableSet.CheckGround();
             if (IsTableSetTransform)
             {
+                        Player.Instance.ActivatedRaycast(false);
+
                 MapManager.Instance.SaveMap();
                 TableControl();
                 Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
