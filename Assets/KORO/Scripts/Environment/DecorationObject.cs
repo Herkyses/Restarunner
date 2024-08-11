@@ -83,18 +83,18 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
 
             transform.rotation = tableRotatTemp;
         }
-        /*if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))
         {
-            TableSet.CheckGround();
-            if (IsTableSetTransform)
+            //TableSet.CheckGround();
+            /*if (IsTableSetTransform)
             {
-                        Player.Instance.ActivatedRaycast(false);
-
                 MapManager.Instance.SaveMap();
                 TableControl();
+                Player.Instance.ActivatedRaycast(true);
+
                 Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
                 //if(colliders.Length )
-                GetComponent<BoxCollider>().enabled = false;
+                TableSet.GetComponent<BoxCollider>().enabled = false;
                 TableController.Instance.EnableTableSetCollider(false);
                 IsTableSetTransform = false;
                 IsTableMove = false;
@@ -104,9 +104,11 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
                     PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(4);
                     TutorialManager.Instance.Initiliaze();
                 }
-            }
-            
-        }*/
+            }*/
+            isDecorationMove = false;
+            Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
+
+        }
         
     }
     public void Open()
