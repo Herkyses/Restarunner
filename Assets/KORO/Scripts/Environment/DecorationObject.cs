@@ -120,7 +120,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
             isDecorationMove = false;
             Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
             MapManager.Instance.SaveMap();
-
+            gameObject.transform.SetParent(DecorationController.Instance.transform);
 
         }
         

@@ -50,16 +50,16 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     public void InterectableObjectRun()
     {
         
-            transform.DOLocalMove(new Vector3(-0.1f,-0.2f,0f), 0.2f);
-            transform.DOLocalRotate(new Vector3(0,0,-11f), 0.2f);
-            transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
-            GetComponent<Rigidbody>().useGravity = false;
-            GetComponent<BoxCollider>().enabled = false;
-            Player.Instance.PlayerTakedObject = gameObject;
-            Player.Instance.PlayerStateType = Enums.PlayerStateType.TakeBox;
-            GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTake);
-            GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTake);
-            _isOrderBoxOpenAvailable = false;
+        transform.DOLocalMove(new Vector3(-0.1f,-0.2f,0f), 0.2f);
+        transform.DOLocalRotate(new Vector3(0,0,-11f), 0.2f);
+        transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
+        GetComponent<Rigidbody>().useGravity = false;
+        GetComponent<BoxCollider>().enabled = false;
+        Player.Instance.PlayerTakedObject = gameObject;
+        Player.Instance.PlayerStateType = Enums.PlayerStateType.TakeBox;
+        GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTake);
+        GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTake);
+        _isOrderBoxOpenAvailable = false;
         
         
     }
@@ -96,7 +96,6 @@ public class OrderBox : MonoBehaviour,IInterectableObject
         if (!Player.Instance.PlayerTakedObject && _isOrderBoxOpenAvailable)
         {
             var objectZort = Instantiate(_shopItemData.ItemObject);
-            objectZort.transform.position = transform.position;
             objectZort.transform.position = new Vector3(objectZort.transform.position.x, 0, objectZort.transform.position.z);
             PoolManager.Instance.ReturnToPoolForOrderBox(gameObject);
             if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 2)
@@ -107,6 +106,10 @@ public class OrderBox : MonoBehaviour,IInterectableObject
             if (_shopItemData.ItemType == Enums.ShopItemType.Table)
             {
                 objectZort.GetComponent<TableSet>().table.Move();
+            }
+            if (_shopItemData.ItemType == Enums.ShopItemType.Decoration)
+            {
+                objectZort.GetComponent<DecorationObject>().Move();
             }
         }
         
