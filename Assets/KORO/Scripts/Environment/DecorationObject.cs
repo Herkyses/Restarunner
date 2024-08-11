@@ -6,9 +6,20 @@ using UnityEngine;
 public class DecorationObject : MonoBehaviour,IInterectableObject
 {
     private bool isDecorationMove;
+    private bool isDecorationCanSet;
 
     private int layerMask;
     private int layerToIgnore;
+    public int groundLayer;
+    public int decorationLayer;
+
+
+
+    private void Start()
+    {
+        groundLayer = LayerMask.NameToLayer("Ground");
+        decorationLayer = LayerMask.NameToLayer("Decoration");
+    }
 
     private void Update()
     {
@@ -51,7 +62,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
         {
             
             //gameObject.layer = LayerMask.NameToLayer("Ground");
-            GetComponent<BoxCollider>().enabled = false;
+            //GetComponent<BoxCollider>().enabled = false;
             Player.Instance.PlayerTakedObject = gameObject;
             Player.Instance.PlayerStateType = Enums.PlayerStateType.DecorationMove;
             Player.Instance.ActivatedRaycast(false);
@@ -110,6 +121,32 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
 
         }
         
+    }
+    public void CheckGround()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.8f);
+        var checkControl = false;
+        foreach (Collider collider in colliders)
+        {
+            if (collider.gameObject != gameObject && collider.gameObject.layer == decorationLayer)
+            {
+                return;
+            }
+           
+        }
+        foreach (Collider collider in colliders)
+        {
+            
+            if (collider.gameObject != gameObject && collider.gameObject.layer == groundLayer) 
+            {
+                isDecorationCanSet = true;
+                return;
+            }
+        }
+
+       
+
+        isDecorationCanSet = false;
     }
     public void Open()
     {

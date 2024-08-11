@@ -14,7 +14,7 @@ public class TableSet : MonoBehaviour
     void Start()
     {
         groundLayer = LayerMask.NameToLayer("Ground");
-        tableIndexLayer = LayerMask.NameToLayer("TableSet");
+        tableIndexLayer = LayerMask.NameToLayer("Decoration");
         //transform.position = MapManager.Instance.
     }
 
