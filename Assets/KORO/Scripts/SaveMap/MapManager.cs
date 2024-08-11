@@ -10,10 +10,10 @@ public class MapManager : MonoBehaviour
     private MapData mapData;
 
     [FormerlySerializedAs("treePrefab")] public GameObject tableSetPrefab;
-    public GameObject[] tableSets;
     public GameObject rockPrefab;
     public GameObject orderBoxPf;
-    public ShopItemData[] orderBoxShopItemDatas;
+    public ShopItemData[] tableShopItemDatas;
+    public ShopItemData[] decorationShopItemDatas;
     public static MapManager Instance;
     private void Awake()
     {
@@ -88,6 +88,27 @@ public class MapManager : MonoBehaviour
         }
         
     }
+    public void SetDecorationTransformFromMapData()
+    {
+        GameObject[] decorationObjects = GameObject.FindGameObjectsWithTag("Decoration");
+        if (decorationObjects.Length > 0)
+        {
+            foreach (GameObject decor in decorationObjects)
+            {
+                MapObject decorationObject = new MapObject();
+                decorationObject.type = "Decoration";
+                decorationObject.posX = decor.transform.position.x;
+                decorationObject.posY = decor.transform.position.y;
+                decorationObject.posZ = decor.transform.position.z;
+                decorationObject.rotX = decor.transform.rotation.eulerAngles.x;
+                decorationObject.rotY = decor.transform.rotation.eulerAngles.y;
+                decorationObject.rotZ = decor.transform.rotation.eulerAngles.z;
+                decorationObject.decorationID = decor.GetComponent<DecorationObject>().decorationID;
+                mapData.objects.Add(decorationObject);
+            }
+        }
+        
+    }
     public void SaveMap()
     {
         // Mevcut sahnede bulunan objelerin bilgilerini alıp kaydedelim
@@ -95,19 +116,8 @@ public class MapManager : MonoBehaviour
 
         SetTableTransformFromMapData();
         SetOrderBoxTransformFromMapData();
-        /*GameObject[] rockObjects = GameObject.FindGameObjectsWithTag("Rock");
-        foreach (GameObject rock in rockObjects)
-        {
-            MapObject rockObject = new MapObject();
-            rockObject.type = "Rock";
-            rockObject.posX = rock.transform.position.x;
-            rockObject.posY = rock.transform.position.y;
-            rockObject.posZ = rock.transform.position.z;
-            rockObject.rotX = rock.transform.rotation.eulerAngles.x;
-            rockObject.rotY = rock.transform.rotation.eulerAngles.y;
-            rockObject.rotZ = rock.transform.rotation.eulerAngles.z;
-            mapData.objects.Add(rockObject);
-        }*/
+        SetDecorationTransformFromMapData();
+        
 
         // JSON olarak kaydetme
         string json = JsonUtility.ToJson(mapData);
@@ -126,7 +136,7 @@ public class MapManager : MonoBehaviour
             // Yükleme işlemi
             foreach (MapObject mapObject in mapData.objects)
             {
-                GameObject prefab = GetPrefabByType(mapObject.type,mapObject.tableID);
+                GameObject prefab = GetPrefabByType(mapObject.type,mapObject.tableID,mapObject.decorationID);
                 if (mapObject.type == "TableSet")
                 {
                     if (prefab != null)
@@ -147,7 +157,16 @@ public class MapManager : MonoBehaviour
                         orderBox.gameObject.GetComponent<OrderBox>().SetShopItemData(mapObject.shopItemData); 
                     }
                 }
-                
+                if (mapObject.type == "Decoration")
+                {
+                    if (prefab != null)
+                    {
+                        Vector3 position = new Vector3(mapObject.posX, mapObject.posY, mapObject.posZ);
+                        Quaternion rotation = Quaternion.Euler(mapObject.rotX, mapObject.rotY, mapObject.rotZ);
+                        var decorationObject = Instantiate(prefab, position, rotation);
+                        decorationObject.gameObject.GetComponent<DecorationObject>().decorationID = mapObject.decorationID; 
+                    }
+                }
             }
 
             Debug.Log("Map loaded.");
@@ -171,16 +190,20 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    private GameObject GetPrefabByType(string type,int tableID = -1)
+    private GameObject GetPrefabByType(string type,int tableID = -1,int decorationID = -1)
     {
         if (type == "TableSet")
         {
-            return tableSets[tableID];
+            return tableShopItemDatas[tableID].ItemObject;
         }
 
         if (type == "OrderBox")
         {
             return orderBoxPf;
+        }
+        if (type == "Decoration")
+        {
+            return decorationShopItemDatas[decorationID].ItemObject;
         }
         return null;
     }

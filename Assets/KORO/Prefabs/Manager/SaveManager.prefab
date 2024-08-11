@@ -136,18 +136,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tableSetPrefab: {fileID: 4564751280442413612, guid: cde83d22065814b4aad7f9525f6a111e, type: 3}
-  tableSets:
-  - {fileID: 4564751280442413612, guid: efa1f3ccf52096e42afff2384dd7581b, type: 3}
-  - {fileID: 4564751280442413612, guid: cde83d22065814b4aad7f9525f6a111e, type: 3}
-  - {fileID: 4564751280442413612, guid: 6ce3fc94f4db0d44999390b2dd81c5ef, type: 3}
-  - {fileID: 4564751280442413612, guid: 536f992acef7e3b4391f1e39264a18df, type: 3}
   rockPrefab: {fileID: 0}
   orderBoxPf: {fileID: 1314875780808778542, guid: 47d06f3aefd283c49a0efb88312d42cf, type: 3}
-  orderBoxShopItemDatas:
+  tableShopItemDatas:
   - {fileID: 11400000, guid: 01cb5d0719d543f41bebc3ebbd5f767c, type: 2}
   - {fileID: 11400000, guid: 56a97bbe5ce0e49459e8bda2f468cf6d, type: 2}
   - {fileID: 11400000, guid: 7ccdee3a54bf93b4d9dd2d92eb559379, type: 2}
   - {fileID: 11400000, guid: 3b64d7d1759a5f7418e23d28c66a55bf, type: 2}
+  decorationShopItemDatas:
+  - {fileID: 11400000, guid: 6a786060c0102f4498973416eafc1e28, type: 2}
+  - {fileID: 11400000, guid: 4e579709ac3b2ca498392b4d4bb1483a, type: 2}
+  - {fileID: 11400000, guid: 211a0a1ab943d944685cdc5ac2a617a5, type: 2}
+  - {fileID: 11400000, guid: 135eea2e6f742e54192bec1ac623a5e5, type: 2}
 --- !u!1 &8107396114056587651
 GameObject:
   m_ObjectHideFlags: 0

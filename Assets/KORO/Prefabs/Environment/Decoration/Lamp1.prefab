@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -5774770460343335827}
   m_Layer: 0
   m_Name: Lamp1
-  m_TagString: Untagged
+  m_TagString: Decoration
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136b67f5037ab024cbb7bca0bd574c87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundLayer: 0
+  decorationLayer: 0
+  decorationID: 0
 --- !u!65 &-5774770460343335827
 BoxCollider:
   m_ObjectHideFlags: 0

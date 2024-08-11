@@ -4,17 +4,7 @@ using UnityEngine;
 
 public class SaveDatas : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
 [System.Serializable]
 public class MapObject
@@ -27,6 +17,7 @@ public class MapObject
     public float rotY;
     public float rotZ;
     public int tableID;
+    public int decorationID;
     public ShopItemData shopItemData;
 } 
 [System.Serializable]

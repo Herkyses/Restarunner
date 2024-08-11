@@ -12,6 +12,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
     private int layerToIgnore;
     public int groundLayer;
     public int decorationLayer;
+    public int decorationID;
 
 
 
@@ -62,7 +63,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
         {
             
             //gameObject.layer = LayerMask.NameToLayer("Ground");
-            //GetComponent<BoxCollider>().enabled = false;
+            GetComponent<BoxCollider>().enabled = false;
             Player.Instance.PlayerTakedObject = gameObject;
             Player.Instance.PlayerStateType = Enums.PlayerStateType.DecorationMove;
             Player.Instance.ActivatedRaycast(false);
@@ -118,6 +119,8 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
             }*/
             isDecorationMove = false;
             Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
+            MapManager.Instance.SaveMap();
+
 
         }
         
