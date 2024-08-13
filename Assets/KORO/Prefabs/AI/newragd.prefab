@@ -2016,6 +2016,7 @@ GameObject:
   - component: {fileID: 6436366087363938100}
   - component: {fileID: 1747700887071992929}
   - component: {fileID: 364665135249311421}
+  - component: {fileID: 1811521618354549228}
   m_Layer: 8
   m_Name: newragd
   m_TagString: Untagged
@@ -2091,7 +2092,7 @@ Animator:
   m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 0370c0c3b755f7e42a5d563ed688110a, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -2357,6 +2358,30 @@ MonoBehaviour:
   AIChildObjectRot: {x: 0, y: 0, z: 0}
   aAIChildObjectPos: []
   aAIChildObjectRot: []
+--- !u!205 &1811521618354549228
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7262918143254985358}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.7727483
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.67428833
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.5684659
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
 --- !u!1 &7262918143274460853
 GameObject:
   m_ObjectHideFlags: 0
