@@ -184,7 +184,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     
     public void InterectableObjectRun()
     {
-        if (TryGetComponent(out AIRagdollController aiRagdollController) && IsBadGuy && PlayerPrefsManager.Instance.LoadPlayerTutorialStep() != 4)
+        if (TryGetComponent(out AIRagdollController aiRagdollController) && IsBadGuy)
         {
             if (aiRagdollController)
             {
