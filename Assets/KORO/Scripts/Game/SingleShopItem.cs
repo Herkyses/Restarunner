@@ -84,7 +84,7 @@ public class SingleShopItem : MonoBehaviour
     {
         // Price = shopItem.ShopItemPrice;
         ItemType = Enums.ShopItemType.FoodIngredient;
-        Icon.sprite = GetFoodSprite(orderType);
+        Icon.sprite = GameDataManager.Instance.GetFoodSprite(orderType);
         // _shopItemData = shopItem;
         OrderType = orderType;
         PriceText.text = foodGredientvalue.ToString();
@@ -97,27 +97,5 @@ public class SingleShopItem : MonoBehaviour
         }
         ShopManager.Instance.CreateShopItem(_shopItemData,this);
     }
-    public Sprite GetFoodSprite(Enums.OrderType orderType)
-    {
-        
-        switch (orderType)
-        {
-            case Enums.OrderType.Burger:
-                return ShopManager.Instance.FoodIngradientShopItemDatas[0].ShopItemIcon;
-            case Enums.OrderType.Pizza:
-                return ShopManager.Instance.FoodIngradientShopItemDatas[1].ShopItemIcon;
-            case Enums.OrderType.Taco:
-                return ShopManager.Instance.FoodIngradientShopItemDatas[2].ShopItemIcon;
-            case Enums.OrderType.Croissant:
-                return ShopManager.Instance.FoodIngradientShopItemDatas[3].ShopItemIcon;
-            case Enums.OrderType.HotDog:
-                return ShopManager.Instance.FoodIngradientShopItemDatas[4].ShopItemIcon;
-            case Enums.OrderType.Sandwich:
-                return ShopManager.Instance.FoodIngradientShopItemDatas[5].ShopItemIcon;
-            case Enums.OrderType.Chicken:
-                return ShopManager.Instance.FoodIngradientShopItemDatas[6].ShopItemIcon;
-        }
-
-        return null;
-    }
+    
 }
