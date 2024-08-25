@@ -11,4 +11,5 @@ public class OrderData : ScriptableObject
     public Sprite FoodIcon;
     public Food Food;
     public MeshRenderer FoodMesh;
+    public List<Enums.FoodIngredientType> FoodIngredientTypes;
 }

@@ -86,6 +86,12 @@ public class PlayerPrefsManager : MonoBehaviour
         PlayerPrefs.SetString("MealsData", jsonData);
         PlayerPrefs.Save();
     }
+    public void SaveMealIngredients(MealIngredientsList mealIngredientsList)
+    {
+        string jsonData = JsonUtility.ToJson(mealIngredientsList);
+        PlayerPrefs.SetString("MealIngredientsData", jsonData);
+        PlayerPrefs.Save();
+    }
 
     public MealsList LoadMeals()
     {
@@ -93,6 +99,16 @@ public class PlayerPrefsManager : MonoBehaviour
         {
             string jsonData = PlayerPrefs.GetString("MealsData");
             MealsList mealsList = JsonUtility.FromJson<MealsList>(jsonData);
+            return mealsList;
+        }
+        return null;
+    }
+    public MealIngredientsList LoadMealIngredients()
+    {
+        if (PlayerPrefs.HasKey("MealIngredientsData"))
+        {
+            string jsonData = PlayerPrefs.GetString("MealIngredientsData");
+            MealIngredientsList mealsList = JsonUtility.FromJson<MealIngredientsList>(jsonData);
             return mealsList;
         }
         return null;

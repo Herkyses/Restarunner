@@ -4,17 +4,7 @@ using UnityEngine;
 
 public class Enums : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     public enum AreaStateType
     {
         Door = 0,
@@ -30,6 +20,20 @@ public class Enums : MonoBehaviour
         HotDog,
         Sandwich,
         Chicken,
+    }
+    public enum FoodIngredientType
+    {
+        Cheese,
+        Meat,
+        Lettuce,
+        Tomato,
+        Onion,
+        ChickenBreast,
+        Bread,
+        Flour,
+        Eggs,
+        Milk,
+        OtherVegetables,
     }
     public enum SingleOrderUIType
     {

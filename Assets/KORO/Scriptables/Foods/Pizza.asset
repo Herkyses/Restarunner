@@ -17,3 +17,4 @@ MonoBehaviour:
   FoodIcon: {fileID: 21300000, guid: d3d0e79100bfef544872049eaf3666ef, type: 3}
   Food: {fileID: 8767659208763897503, guid: 07dc7a42c07328a41a4a375f9aeb6a90, type: 3}
   FoodMesh: {fileID: -7511558181221131132, guid: 5f3ea75668cc7da47b28b2c37fa769fb, type: 3}
+  FoodIngredientTypes: 0300000004000000080000000900000007000000

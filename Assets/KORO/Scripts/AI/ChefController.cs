@@ -71,10 +71,13 @@ public class ChefController : MonoBehaviour,IInterectableObject
                     food.CreateFood(foodData.Food.OrderType);
                     food.transform.position = _chefOrderTable.FoodTransformList[_chefOrderTableIndex].position;
                     food.transform.localRotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
+                    //MealManager.Instance.MakeMealIngredient(foodData.Food.OrderType,-1);
+
                     if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() > 4)
                     {
                         PlacePanelController.Instance.DecreeseIngredient(food.OrderType);
                         MealManager.Instance.MakeMeal(foodData.Food.OrderType,-1);
+                        //MealManager.Instance.MakeMealIngredient(foodData.Food.OrderType,-1);
                     }
                     else
                     {

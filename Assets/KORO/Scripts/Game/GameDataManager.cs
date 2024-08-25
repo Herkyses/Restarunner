@@ -44,6 +44,19 @@ public class GameDataManager : MonoBehaviour
         return -1;
     }
 
+    public OrderData GetFoodData(Enums.OrderType orderType)
+    {
+        for (int i = 0; i < FoodDatas.Count; i++)
+        {
+            if (FoodDatas[i].OrderType == orderType)
+            {
+                return FoodDatas[i];
+            }
+        }
+
+        return null;
+    }
+
     public Sprite GetFoodSprite(Enums.OrderType orderType)
     {
         return FoodDatas[GetFoodDataIndex(orderType)].FoodIcon;

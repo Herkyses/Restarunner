@@ -31,6 +31,20 @@ public class Meal
         this.mealName = mealName;
         this.ingredientQuantity = ingredientQuantity;
     }
+    
+}
+[System.Serializable]
+public class MealIngredient
+{
+    public Enums.FoodIngredientType mealName;
+    public int ingredientQuantity;
+
+    public MealIngredient(Enums.FoodIngredientType mealName, int ingredientQuantity)
+    {
+        this.mealName = mealName;
+        this.ingredientQuantity = ingredientQuantity;
+    }
+    
 }
 
 [System.Serializable]
@@ -39,6 +53,16 @@ public class MealsList
     public List<Meal> meals;
 
     public MealsList(List<Meal> meals)
+    {
+        this.meals = meals;
+    }
+}
+[System.Serializable]
+public class MealIngredientsList
+{
+    public List<MealIngredient> meals;
+
+    public MealIngredientsList(List<MealIngredient> meals)
     {
         this.meals = meals;
     }

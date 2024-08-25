@@ -8,6 +8,9 @@ public class MealManager : MonoBehaviour
     public static MealManager Instance;
     public static Action UpdateFoodIngredient;
     
+    private SaveManager saveManager;
+    private MealsList mealsList;
+    [SerializeField]private MealIngredientsList mealIngredientsList;
     private void Awake()
     {
         if (Instance == null)
@@ -20,13 +23,13 @@ public class MealManager : MonoBehaviour
         }
         
     }
-    private SaveManager saveManager;
-    private MealsList mealsList;
+    
 
     public void Initiliaze()
     {
         saveManager = new SaveManager();
         LoadMeals();
+        LoadMealsSecondWay();
 
         // Test: Burger yapma işlemi
         //MakeMeal("Burger");
@@ -53,6 +56,33 @@ public class MealManager : MonoBehaviour
             PlayerPrefsManager.Instance.SaveMeals(mealsList);
         }
     }
+    public void LoadMealsSecondWay()
+    {
+        
+        mealIngredientsList = PlayerPrefsManager.Instance.LoadMealIngredients();
+        if (mealIngredientsList == null)
+        {
+            // Eğer veriler yoksa, başlangıç verilerini yükle
+            List<MealIngredient> meals = new List<MealIngredient>
+            {
+                
+                new MealIngredient(Enums.FoodIngredientType.Bread, 5),
+                new MealIngredient(Enums.FoodIngredientType.Cheese, 5),
+                new MealIngredient(Enums.FoodIngredientType.Eggs, 5),
+                new MealIngredient(Enums.FoodIngredientType.Flour, 5),
+                new MealIngredient(Enums.FoodIngredientType.Lettuce, 5),
+                new MealIngredient(Enums.FoodIngredientType.Meat, 5),
+                new MealIngredient(Enums.FoodIngredientType.Milk, 5),
+                new MealIngredient(Enums.FoodIngredientType.Onion, 5),
+                new MealIngredient(Enums.FoodIngredientType.Tomato, 5),
+                new MealIngredient(Enums.FoodIngredientType.ChickenBreast, 5),
+                new MealIngredient(Enums.FoodIngredientType.OtherVegetables, 5),
+            };
+
+            mealIngredientsList = new MealIngredientsList(meals);
+            PlayerPrefsManager.Instance.SaveMealIngredients(mealIngredientsList);
+        }
+    }
 
     public void MakeMeal(Enums.OrderType mealName,int value)
     {
@@ -75,6 +105,33 @@ public class MealManager : MonoBehaviour
             Debug.Log("Cannot make " + mealName + ". Not enough ingredients.");
         }
         UpdateFoodIngredient?.Invoke();
+    }
+    public void MakeMealIngredient(Enums.OrderType orderType,int value)
+    {
+        var foodData = GameDataManager.Instance.GetFoodData(orderType);
+
+        for (int i = 0; i < foodData.FoodIngredientTypes.Count; i++)
+        {
+            MealIngredient meal = mealIngredientsList.meals.Find(m => m.mealName == foodData.FoodIngredientTypes[i]);
+            if (meal != null )
+            {
+                if (value < 0 && meal.ingredientQuantity > 0)
+                {
+                    meal.ingredientQuantity += value;
+                }
+                else if(value > 0)
+                {
+                    meal.ingredientQuantity += value;
+                }
+                PlayerPrefsManager.Instance.SaveMealIngredients(mealIngredientsList);
+                Debug.Log("Made " + foodData.FoodIngredientTypes[i] + ". Remaining quantity: " + meal.ingredientQuantity);
+            }
+            else
+            {
+                Debug.Log("Cannot make " + foodData.FoodIngredientTypes[i] + ". Not enough ingredients.");
+            }
+        }
+        
     }
 
     public int GetMealIngredient(Enums.OrderType mealName)
