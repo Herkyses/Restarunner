@@ -28,49 +28,7 @@ public class GameDataManager : MonoBehaviour
 
     public Food GetFood(Enums.OrderType orderType)
     {
-        switch (orderType)
-        {
-            case Enums.OrderType.Pizza:
-                return FoodDatas[0].Food;
-            case Enums.OrderType.Burger:
-                return FoodDatas[1].Food;
-            case Enums.OrderType.Chicken:
-                return FoodDatas[2].Food;
-            case Enums.OrderType.Croissant:
-                return FoodDatas[3].Food;
-            case Enums.OrderType.HotDog:
-                return FoodDatas[4].Food;
-            case Enums.OrderType.Sandwich:
-                return FoodDatas[5].Food;
-            case Enums.OrderType.Taco:
-                return FoodDatas[6].Food;
-            
-        }
-
-        return null;
-    }
-    public MeshRenderer GetFoodMesh(Enums.OrderType orderType)
-    {
-        switch (orderType)
-        {
-            case Enums.OrderType.Pizza:
-                return FoodDatas[0].FoodMesh;
-            case Enums.OrderType.Burger:
-                return FoodDatas[1].FoodMesh;
-            case Enums.OrderType.Chicken:
-                return FoodDatas[2].FoodMesh;
-            case Enums.OrderType.Croissant:
-                return FoodDatas[3].FoodMesh;
-            case Enums.OrderType.HotDog:
-                return FoodDatas[4].FoodMesh;
-            case Enums.OrderType.Sandwich:
-                return FoodDatas[5].FoodMesh;
-            case Enums.OrderType.Taco:
-                return FoodDatas[6].FoodMesh;
-            
-        }
-
-        return null;
+        return FoodDatas[GetFoodDataIndex(orderType)].Food;
     }
 
     public float GetOrderBill(Enums.OrderType orderType)
@@ -88,64 +46,23 @@ public class GameDataManager : MonoBehaviour
 
     public Sprite GetFoodSprite(Enums.OrderType orderType)
     {
-        
-        switch (orderType)
-        {
-            case Enums.OrderType.Pizza:
-                return FoodDatas[0].FoodIcon;
-                break;
-            case Enums.OrderType.Burger:
-                return FoodDatas[1].FoodIcon;
-                break;
-            case Enums.OrderType.Chicken:
-                return FoodDatas[2].FoodIcon;
-                break;
-            case Enums.OrderType.Croissant:
-                return FoodDatas[3].FoodIcon;
-                break;
-            case Enums.OrderType.HotDog:
-                return FoodDatas[4].FoodIcon;
-                break;
-            case Enums.OrderType.Sandwich:
-                return FoodDatas[5].FoodIcon;
-                break;
-            case Enums.OrderType.Taco:
-                return FoodDatas[6].FoodIcon;
-                break;
-            
-        }
-
-        return null;
+        return FoodDatas[GetFoodDataIndex(orderType)].FoodIcon;
     }
     public float GetFoodPrice(Enums.OrderType orderType)
     {
+        return FoodDatas[GetFoodDataIndex(orderType)].OrderPrice;
         
-        switch (orderType)
-        {
-            case Enums.OrderType.Pizza:
-                return FoodDatas[0].OrderPrice;
-                break;
-            case Enums.OrderType.Burger:
-                return FoodDatas[1].OrderPrice;
-                break;
-            case Enums.OrderType.Chicken:
-                return FoodDatas[2].OrderPrice;
-                break;
-            case Enums.OrderType.Croissant:
-                return FoodDatas[3].OrderPrice;
-                break;
-            case Enums.OrderType.HotDog:
-                return FoodDatas[4].OrderPrice;
-                break;
-            case Enums.OrderType.Sandwich:
-                return FoodDatas[5].OrderPrice;
-                break;
-            case Enums.OrderType.Taco:
-                return FoodDatas[6].OrderPrice;
-                break;
-            
-        }
+    }
 
-        return 0;
+    public int GetFoodDataIndex(Enums.OrderType orderType)
+    {
+        for (int i = 0; i < FoodDatas.Count; i++)
+        {
+            if (orderType == FoodDatas[i].OrderType)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 }
