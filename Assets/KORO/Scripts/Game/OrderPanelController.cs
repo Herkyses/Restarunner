@@ -67,11 +67,12 @@ public class OrderPanelController : MonoBehaviour
     public void RemoveOrderFromLPayer(SingleOrder singleOrder)
     {
         SelectedOrderList.Remove(singleOrder);
-        for (int i = 0; i < PlayerOrderController.Instance.OrderList[OpenedTableNumber].OrderDataStructs.Count; i++)
+        var openedOrderList = PlayerOrderController.Instance.OrderList[OpenedTableNumber];
+        for (int i = 0; i < openedOrderList.OrderDataStructs.Count; i++)
         {
-            if (PlayerOrderController.Instance.OrderList[OpenedTableNumber].OrderDataStructs[i].OrderType == singleOrder.OrderType)
+            if (openedOrderList.OrderDataStructs[i].OrderType == singleOrder.OrderType)
             {
-                PlayerOrderController.Instance.OrderList[OpenedTableNumber].OrderDataStructs.Remove(PlayerOrderController.Instance.OrderList[OpenedTableNumber].OrderDataStructs[i]);
+                openedOrderList.OrderDataStructs.Remove(openedOrderList.OrderDataStructs[i]);
                 Destroy(singleOrder.gameObject);
                 return;
             }
