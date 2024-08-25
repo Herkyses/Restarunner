@@ -95,14 +95,15 @@ public class OrderPanelController : MonoBehaviour
     }
     public void CreateSelectedOrders()
     {
-        for (int i = 0; i < PlayerOrderController.Instance.OrderList.Count; i++)
+        var orderList = PlayerOrderController.Instance.OrderList;
+        for (int i = 0; i < orderList.Count; i++)
         {
-            if (OpenedTableNumber == PlayerOrderController.Instance.OrderList[i].TableNumber)
+            if (OpenedTableNumber == orderList[i].TableNumber)
             {
-                for (int j = 0; j < PlayerOrderController.Instance.OrderList[i].OrderDataStructs.Count; j++)
+                for (int j = 0; j < orderList[i].OrderDataStructs.Count; j++)
                 {
                     var order = Instantiate(_singlePf, _singlePfParentForSelectedFoodList);
-                    order.OrderType = PlayerOrderController.Instance.OrderList[i].OrderDataStructs[j].OrderType;
+                    order.OrderType = orderList[i].OrderDataStructs[j].OrderType;
                     order.Initialize();
                     _tableOrderList.Add(order);
                 }
