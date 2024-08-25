@@ -60,20 +60,21 @@ public class ChefController : MonoBehaviour,IInterectableObject
         {
             for (int j = 0; j < GameDataManager.Instance.FoodDatas.Count; j++)
             {
-                if (ChefOwnerStructData[i].OrderType == GameDataManager.Instance.FoodDatas[j].OrderType && MealManager.Instance.GetMealIngredient(GameDataManager.Instance.FoodDatas[j].OrderType) > 0)
+                var foodData = GameDataManager.Instance.FoodDatas[j];
+                if (ChefOwnerStructData[i].OrderType == foodData.OrderType && MealManager.Instance.GetMealIngredient(foodData.OrderType) > 0)
                 {
                     //var food = Instantiate(GameDataManager.Instance.FoodTablePf);
                     var food = PoolManager.Instance.GetFromPool().GetComponent<FoodTable>();
                     food.IsFoodFinished = false;
                     food.QualityTimeStarted = false;
                     RemovedOrderDataStructs.Add(ChefOwnerStructData[i]);
-                    food.CreateFood(GameDataManager.Instance.FoodDatas[j].Food.OrderType);
+                    food.CreateFood(foodData.Food.OrderType);
                     food.transform.position = _chefOrderTable.FoodTransformList[_chefOrderTableIndex].position;
                     food.transform.localRotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
                     if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() > 4)
                     {
                         PlacePanelController.Instance.DecreeseIngredient(food.OrderType);
-                        MealManager.Instance.MakeMeal(GameDataManager.Instance.FoodDatas[j].Food.OrderType,-1);
+                        MealManager.Instance.MakeMeal(foodData.Food.OrderType,-1);
                     }
                     else
                     {
