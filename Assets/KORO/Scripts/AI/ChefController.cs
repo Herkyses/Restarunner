@@ -64,7 +64,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
                 if (ChefOwnerStructData[i].OrderType == foodData.OrderType && MealManager.Instance.GetMealIngredient(foodData.OrderType) > 0)
                 {
                     //var food = Instantiate(GameDataManager.Instance.FoodTablePf);
-                    var food = PoolManager.Instance.GetFromPool().GetComponent<FoodTable>();
+                    var food = PoolManager.Instance.GetFromPoolForFoodTable().GetComponent<FoodTable>();
                     food.IsFoodFinished = false;
                     food.QualityTimeStarted = false;
                     RemovedOrderDataStructs.Add(ChefOwnerStructData[i]);

@@ -73,120 +73,73 @@ public class PoolManager : MonoBehaviour
             poolList.Enqueue(obj);
         }
     }
-    
-    public GameObject GetFromPoolForOrderBill()
+    public GameObject GetFromPool(Queue<GameObject> pool, GameObject prefab)
     {
-        if (OrderBillPool.Count == 0)
+        if (pool.Count == 0)
         {
-            GameObject obj = Instantiate(OrderBill);
+            GameObject obj = Instantiate(prefab);
             obj.SetActive(false);
-            OrderBillPool.Enqueue(obj);
+            pool.Enqueue(obj);
         }
 
-        GameObject pooledObject = OrderBillPool.Dequeue();
+        GameObject pooledObject = pool.Dequeue();
         pooledObject.SetActive(true);
         return pooledObject;
     }
-    public GameObject GetFromPool()
+    public GameObject GetFromPoolForOrderBill()
     {
-        if (FoodTablePool.Count == 0)
-        {
-            GameObject obj = Instantiate(FoodTableObject);
-            obj.SetActive(false);
-            FoodTablePool.Enqueue(obj);
-        }
-
-        GameObject pooledObject = FoodTablePool.Dequeue();
-        pooledObject.SetActive(true);
-        return pooledObject;
+        return GetFromPool(OrderBillPool, OrderBill);
+    }
+    public GameObject GetFromPoolForFoodTable()
+    {
+        return GetFromPool(FoodTablePool, FoodTableObject);
     }
     public GameObject GetFromPoolForFood()
     {
-        if (FoodPool.Count == 0)
-        {
-            GameObject obj = Instantiate(FoodObject);
-            obj.SetActive(false);
-            FoodPool.Enqueue(obj);
-        }
-
-        GameObject pooledObject = FoodPool.Dequeue();
-        pooledObject.SetActive(true);
-        return pooledObject;
+        return GetFromPool(FoodPool, FoodObject);
     }
     public GameObject GetCustomerAI()
     {
-        if (CustomerAIPool.Count == 0)
-        {
-            GameObject obj = Instantiate(CustomerAIObject);
-            obj.SetActive(false);
-            CustomerAIPool.Enqueue(obj);
-        }
-
-        GameObject pooledObject = CustomerAIPool.Dequeue();
-        pooledObject.SetActive(true);
-        return pooledObject;
+        return GetFromPool(CustomerAIPool, CustomerAIObject);
     }
     public GameObject GetCustomerRagdollAI()
     {
-        if (CustomerRagdollAIPool.Count == 0)
-        {
-            GameObject obj = Instantiate(CustomerRagdollAIObject);
-            obj.SetActive(false);
-            CustomerRagdollAIPool.Enqueue(obj);
-        }
-
-        GameObject pooledObject = CustomerRagdollAIPool.Dequeue();
-        pooledObject.SetActive(true);
-        return pooledObject;
+        return GetFromPool(CustomerRagdollAIPool, CustomerRagdollAIObject);
     }
     public GameObject GetFromPoolForOrderBox()
     {
-        if (OrderBoxPool.Count == 0)
-        {
-            GameObject obj = Instantiate(OrderBoxObject);
-            obj.SetActive(false);
-            OrderBoxPool.Enqueue(obj);
-        }
-
-        GameObject pooledObject = OrderBoxPool.Dequeue();
-        pooledObject.SetActive(true);
-        return pooledObject;
+        return GetFromPool(OrderBoxPool, OrderBoxObject);
     }
 
-    public void ReturnToPool(GameObject obj)
+    public void ReturnToPoolForTrays(GameObject obj)
     {
-        obj.transform.SetParent(TableFoodParent);
-        obj.SetActive(false);
-        FoodTablePool.Enqueue(obj);
+        ReturnToPool(obj,FoodTablePool,TableFoodParent);
     }
     public void ReturnToPoolForFood(GameObject obj)
     {
-        obj.transform.SetParent(FoodParent);
-        obj.SetActive(false);
-        FoodPool.Enqueue(obj);
+        ReturnToPool(obj,FoodPool,FoodParent);
     }
     public void ReturnToPoolForOrderBill(GameObject obj)
     {
-        obj.transform.SetParent(OrderBillParent);
-        obj.SetActive(false);
-        OrderBillPool.Enqueue(obj);
+        ReturnToPool(obj,OrderBillPool,OrderBillParent);
     }
     public void ReturnToPoolForCustomerAI(GameObject obj)
     {
-        obj.transform.SetParent(CustomerAIObjectParent);
-        obj.SetActive(false);
-        CustomerAIPool.Enqueue(obj);
+        ReturnToPool(obj,CustomerAIPool,CustomerAIObjectParent);
     }
     public void ReturnToPoolForRagdollCustomerAI(GameObject obj)
     {
-        obj.transform.SetParent(CustomerRagdollAIObjectParent);
-        obj.SetActive(false);
-        CustomerRagdollAIPool.Enqueue(obj);
+        ReturnToPool(obj,CustomerRagdollAIPool,CustomerRagdollAIObjectParent);
     }
     public void ReturnToPoolForOrderBox(GameObject obj)
     {
-        obj.transform.SetParent(OrderBoxParent);
+        ReturnToPool(obj,OrderBoxPool,OrderBoxParent);
+    }
+
+    public void ReturnToPool(GameObject obj,Queue<GameObject> pool, Transform parentTransform)
+    {
+        obj.transform.SetParent(parentTransform);
         obj.SetActive(false);
-        OrderBoxPool.Enqueue(obj);
+        pool.Enqueue(obj);
     }
 }

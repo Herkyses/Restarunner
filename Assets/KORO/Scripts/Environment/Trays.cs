@@ -20,7 +20,7 @@ public class Trays : MonoBehaviour,IInterectableObject
     {
         if (PlayerOrderController.Instance.FoodTable.gameObject)
         {
-            PoolManager.Instance.ReturnToPool(PlayerOrderController.Instance.FoodTable.gameObject);
+            PoolManager.Instance.ReturnToPoolForTrays(PlayerOrderController.Instance.FoodTable.gameObject);
             Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
         }
     }
