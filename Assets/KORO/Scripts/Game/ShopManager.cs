@@ -63,7 +63,7 @@ public class ShopManager : MonoBehaviour
 
                     BuyPlaceUpgrade();
                     PlacePanelController.Instance.UpdateShopItems();
-
+                    GameDataManager.Instance.UpdateOpenFoodDatas();
                 }
                 break;
             case Enums.ShopItemType.Decoration:

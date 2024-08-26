@@ -105,11 +105,11 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
                 stateMAchineController.AIChangeState(stateMAchineController.AISitState);
                 AIArea.gameObject.GetComponent<AIAreaController>().InteractabelControl();
                 _aiControllerList.Add(AIArea.gameObject.GetComponent<AIController>());
-                var orderIndex = Random.Range(0, GameDataManager.Instance.FoodDatas.Count);
+                var orderIndex = Random.Range(0, GameDataManager.Instance.OpenFoodDatas.Count);
                 AIArea.AIController.AIOwnerTable = this;
                 AIArea.AIController.AIOwnerChair = chair;
                 AIArea.AIController.IsSitting = true;
-                SetOrderTable(AIArea.AIController,orderIndex);
+                SetOrderTable(AIArea.AIController,GameDataManager.Instance.OpenFoodDatas[orderIndex].OrderType);
                 TableController.GivedOrderForAIWaiter?.Invoke(this);
                 if (OrderPanelController.Instance.OpenedTableNumber == TableNumber)
                 {
@@ -124,12 +124,12 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         
         
     }
-    public void SetOrderTable(AIController aiController,int orderIndex)
+    public void SetOrderTable(AIController aiController,Enums.OrderType orderType)
     {
         
         var newOrder = new OrderDataStruct()
         {
-            OrderType = (Enums.OrderType) orderIndex,
+            OrderType = orderType,
         };
         aiController.FoodDataStruct = newOrder;
         SetOrder(newOrder);

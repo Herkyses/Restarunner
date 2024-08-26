@@ -18,3 +18,4 @@ MonoBehaviour:
   Food: {fileID: 5008637789223367219, guid: c38d98bb7c74e1b41bb8111f11b5cd44, type: 3}
   FoodMesh: {fileID: -7511558181221131132, guid: 8076be940cc68c141b2a8218f5bbb631, type: 3}
   FoodIngredientTypes: 0000000001000000030000000200000006000000
+  FoodLevel: 3

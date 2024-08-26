@@ -12,4 +12,5 @@ public class OrderData : ScriptableObject
     public Food Food;
     public MeshRenderer FoodMesh;
     public List<Enums.FoodIngredientType> FoodIngredientTypes;
+    public int FoodLevel;
 }

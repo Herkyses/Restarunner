@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class GameDataManager : MonoBehaviour
     
     
     public List<OrderData> FoodDatas;
+    public List<OrderData> OpenFoodDatas = new List<OrderData>();
     public FoodTable FoodTablePf;
 
     public static GameDataManager Instance;
@@ -24,6 +26,26 @@ public class GameDataManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    public void Start()
+    {
+        UpdateOpenFoodDatas();
+    }
+
+    public List<OrderData> UpdateOpenFoodDatas()
+    {
+        OpenFoodDatas.Clear();
+
+        for (int i = 0; i < FoodDatas.Count; i++)
+        {
+            if (FoodDatas[i].FoodLevel <= PlayerPrefsManager.Instance.LoadPlaceLevel())
+            {
+                OpenFoodDatas.Add(FoodDatas[i]);
+            }
+        }
+
+        return OpenFoodDatas;
     }
 
     public Food GetFood(Enums.OrderType orderType)
