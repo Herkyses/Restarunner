@@ -15,6 +15,8 @@ using UnityEngine;
     public Transform _ownerFoodIngredients;
     [FormerlySerializedAs("_singlePlaceItemParentTransform")] public Transform SingleShopItemParentTransform;
     public SingleShopItem SingleShopItemPf;
+    public Transform SingleShopingCardItemParentTransform;
+    public SingleShopingCardItem SingleShopingCardItemPf;
     private void Awake()
     {
         if (Instance == null)

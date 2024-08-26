@@ -12,6 +12,9 @@ public class ShopManager : MonoBehaviour
     public List<ShopItemData> FoodIngradientShopItemDatas;
     public List<ShopItemData> PlaceUpgradeDatas;
     public List<ShopItemData> DecorationDatas;
+    public List<ShopItemData> ShoppingBasket;
+
+    public float ShoppingBasketPrice;
     public GameObject OrderBoxObject;
     public Transform ShopOrderTransform;
     // Start is called before the first frame update
@@ -125,6 +128,13 @@ public class ShopManager : MonoBehaviour
     {
         PlaceController.Instance.Initialize();
     }
+
+    public void BuyShoppingBasketButtonPressed()
+    {
+        
+    }
+
+    
 
     private void Update()
     {
