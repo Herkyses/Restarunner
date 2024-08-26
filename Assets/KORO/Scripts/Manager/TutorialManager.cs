@@ -32,71 +32,68 @@ public class TutorialManager : MonoBehaviour
         PlayerPrefsManager.TutorialStepUpdated -= Initiliaze;
     }
 
-    private void Start()
+    private List<TutorialStep> tutorialSteps;
+
+    
+
+    public void SetTutorialTexts()
     {
-        totalStepCount = 5;
+        tutorialSteps = new List<TutorialStep>
+        {
+            new TutorialStep("To clean the restaurant, pick up the broom. <color=green>Press 'P'</color>  to pick up the broom.", true, true, () => TutorialPanelController.Instance.SetRubbishCount()),
+            new TutorialStep("Purchase the table set from the store using the computer."),
+            new TutorialStep("Bring the order box from outside into the restaurant and open it."),
+            new TutorialStep("Move and set up the table set."),
+            new TutorialStep("Open the restaurant and guide customers from the waiting area to their tables."),
+            new TutorialStep("Take orders from the table."),
+            new TutorialStep("You can add items to your order inventory by using the plus button next to the food."),
+            new TutorialStep("Give the order to the chef."),
+            new TutorialStep("Pick up the food and serve it."),
+            new TutorialStep("If the customer has finished their meal, select the corresponding table from the billing desk and bring the bill to the table."),
+            new TutorialStep("", false)
+        };
     }
 
     public void Initiliaze()
     {
-        totalStepCount = 5;
+        SetTutorialTexts();
         SetTutorialInfo(PlayerPrefsManager.Instance.LoadPlayerTutorialStep());
     }
 
     public void SetTutorialInfo(int step)
     {
-        switch (step)
+        if (step < 0 || step >= tutorialSteps.Count)
         {
-            case 0:
-                TutorialPanelController.Instance.ActivateTutorialPanel(true);
-                TutorialPanelController.Instance.ActivateRemainingText(true);
-                
-                TutorialPanelController.Instance.SetTutorialInfoText("To clean the restaurant, pick up the broom. <color=green>Press 'P'</color>  to pick up the broom.");
-                TutorialPanelController.Instance.SetRubbishCount();
-                break;
-            case 1:
-                TutorialPanelController.Instance.ActivateTutorialPanel(true);
-                TutorialPanelController.Instance.SetTutorialInfoText("Purchase the table set from the store using the computer.");
-                break;
-            case 2:
-                TutorialPanelController.Instance.ActivateTutorialPanel(true);
-                TutorialPanelController.Instance.SetTutorialInfoText("Bring the order box from outside into the restaurant and open it.");
-                break;
-            case 3:
-                TutorialPanelController.Instance.ActivateTutorialPanel(true);
-                TutorialPanelController.Instance.SetTutorialInfoText("Move and set up the table set.");
-                break;
-            case 4:
-                TutorialPanelController.Instance.ActivateTutorialPanel(true);
-                TutorialPanelController.Instance.SetTutorialInfoText("Open the restaurant and guide customers from the waiting area to their tables.");
-                break;
-            case 5:
-                TutorialPanelController.Instance.ActivateTutorialPanel(true);
-                TutorialPanelController.Instance.SetTutorialInfoText("Take orders from the table.");
-                break;
-            case 6:
-                TutorialPanelController.Instance.ActivateTutorialPanel(true);
-                TutorialPanelController.Instance.SetTutorialInfoText("You can add items to your order inventory by using the plus button next to the food.");
-                break;
-            case 7:
-                TutorialPanelController.Instance.ActivateTutorialPanel(true);
-                TutorialPanelController.Instance.SetTutorialInfoText("Give the order to the chef.");
-                break;
-            case 8:
-                TutorialPanelController.Instance.ActivateTutorialPanel(true);
-                TutorialPanelController.Instance.SetTutorialInfoText("Pick up the food and serve it.");
-                break;
-            case 9:
-                TutorialPanelController.Instance.ActivateTutorialPanel(true);
-                TutorialPanelController.Instance.SetTutorialInfoText("If the customer has finished their meal, select the corresponding table from the billing desk and bring the bill to the table.");
-                break;
-            case 10:
-                TutorialPanelController.Instance.ActivateTutorialPanel(false);
-                break;
-            default:
-                TutorialPanelController.Instance.ActivateTutorialPanel(false);
-                break;
-            
+            TutorialPanelController.Instance.ActivateTutorialPanel(false);
+            return;
         }
+
+        var currentStep = tutorialSteps[step];
+
+        TutorialPanelController.Instance.ActivateTutorialPanel(currentStep.ShowPanel);
+
+        if (currentStep.ShowPanel)
+        {
+            TutorialPanelController.Instance.SetTutorialInfoText(currentStep.InfoText);
+            if (currentStep.ShowRemainingText)
+                TutorialPanelController.Instance.ActivateRemainingText(true);
+
+            currentStep.CustomAction?.Invoke();
+        }
+    }
+}
+public class TutorialStep
+{
+    public string InfoText { get; set; }
+    public bool ShowPanel { get; set; }
+    public bool ShowRemainingText { get; set; }
+    public Action CustomAction { get; set; }
+
+    public TutorialStep(string infoText, bool showPanel = true, bool showRemainingText = false, Action customAction = null)
+    {
+        InfoText = infoText;
+        ShowPanel = showPanel;
+        ShowRemainingText = showRemainingText;
+        CustomAction = customAction;
     }
 }
