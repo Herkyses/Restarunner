@@ -25,6 +25,7 @@ public class SingleCrate : MonoBehaviour
             singleIngredient.transform.position = _ingredientTransformsList[i].position;
             singleIngredient.transform.localScale = Vector3.one;
             singleIngredient.GetComponent<MeshFilter>().sharedMesh = GameDataManager.Instance.GetFoodIngredientMeshFilter(_shopItemDataIngredientType).sharedMesh;
+            singleIngredient.GetComponent<SingleCrate>()._shopItemDataIngredientType = _shopItemDataIngredientType;
             //singleIngredient.Get
         }
     }
