@@ -55,4 +55,5 @@ MonoBehaviour:
   OpenFoodDatas: []
   FoodIngredients:
   - {fileID: 4715030341137099813, guid: eef03087674ad144eb6a7e2ca3fd38a1, type: 3}
+  - {fileID: 4715030341137099813, guid: 091b0d023fa57c34cb6afe053b9df094, type: 3}
   FoodTablePf: {fileID: 3412080890901677963, guid: 3265c903c47d73b4bb2463bd6201a7cb, type: 3}

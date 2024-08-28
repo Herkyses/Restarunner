@@ -16,9 +16,10 @@ MonoBehaviour:
   ShopItemUIType: 0
   ShopItemPrice: 3
   ShopItemIcon: {fileID: 21300000, guid: b6cb4125f6ee17b4fa9af55dbd7eb4d6, type: 3}
-  ItemObject: {fileID: 0}
+  ItemObject: {fileID: 2936313745050993523, guid: 9e7f3384b9dea1d4c82c8f80a97e7801, type: 3}
   ItemOrderType: 1
   FoodIngredientType: 8
   TableSetID: 0
   PlaceLevel: 0
   DecorationID: 0
+  ItemCount: 12

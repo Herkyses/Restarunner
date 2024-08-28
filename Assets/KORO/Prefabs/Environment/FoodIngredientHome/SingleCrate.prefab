@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3728731705691021990}
   - component: {fileID: 4838398689826387588}
   m_Layer: 0
-  m_Name: Tomato
+  m_Name: SingleCrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
