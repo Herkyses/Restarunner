@@ -97,7 +97,6 @@ public class OrderBox : MonoBehaviour,IInterectableObject
         {
             var objectZort = Instantiate(_shopItemData.ItemObject);
             objectZort.transform.position = new Vector3(objectZort.transform.position.x, 0, objectZort.transform.position.z);
-            PoolManager.Instance.ReturnToPoolForOrderBox(gameObject);
             if (_shopItemData.ItemType == Enums.ShopItemType.Table)
             {
                 objectZort.GetComponent<TableSet>().table.Move();
@@ -110,6 +109,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
             {
                 TutorialManager.Instance.SetTutorialInfo(3);
             }
+            PoolManager.Instance.ReturnToPoolForOrderBox(gameObject);
 
             
         }
