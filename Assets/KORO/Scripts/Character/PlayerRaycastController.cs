@@ -88,7 +88,6 @@ public class PlayerRaycastController : MonoBehaviour
                                 gameScene.UnShowAreaInfo();
                     
                             }
-                            // Raycast sonucunu işle
                             Debug.Log("Raycast isabet etti: " + hit.collider.gameObject.name);
                             Debug.DrawRay(ray.origin, hit.point - ray.origin, Color.green, 2f);
                         
@@ -129,8 +128,6 @@ public class PlayerRaycastController : MonoBehaviour
 
                         GameSceneCanvas.Instance.UnShowAreaInfo();
                     }
-                    // Raycast hiçbir şeye isabet etmedi
-                    Debug.Log("Raycast hiçbir şeye isabet etmedi.");
                     Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 2f);
 
                 }

@@ -16,7 +16,6 @@ public class AIRagdollController : MonoBehaviour
     public Vector3 AIChildObjectRot;
     public List<Vector3> aAIChildObjectPos;
     public List<Vector3> aAIChildObjectRot;
-    // Start is called before the first frame update
 
 
     private void Start()
@@ -62,7 +61,6 @@ public class AIRagdollController : MonoBehaviour
         var elapsedTime = 0f;
         while (elapsedTime < 1)
         {
-            // Kuvvet uygulama işlemi
             transform.position += direction * 10f * Time.deltaTime;
             elapsedTime += Time.deltaTime;
         }
@@ -74,7 +72,6 @@ public class AIRagdollController : MonoBehaviour
 
         while (elapsedTime < 0.1)
         {
-            // Kuvvet uygulama işlemi
             ragdollRigidbodies[4].AddForce(direction*20f,ForceMode.Impulse);
             //transform.position += direction * 25f * Time.deltaTime;
             elapsedTime += Time.deltaTime;

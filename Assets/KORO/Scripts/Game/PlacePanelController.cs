@@ -162,6 +162,11 @@ using UnityEngine;
             }
         }
     }
+
+    public void BuyButtonPressed()
+    {
+        ShopManager.Instance.BuyShoppingBasketButtonPressed();
+    }
 }
 [System.Serializable]
  public class FoodIngredient

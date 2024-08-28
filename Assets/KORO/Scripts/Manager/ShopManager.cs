@@ -17,6 +17,8 @@ public class ShopManager : MonoBehaviour
     public float ShoppingBasketPrice;
     public GameObject OrderBoxObject;
     public Transform ShopOrderTransform;
+
+    [SerializeField] private float _shoppingCardCost;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -40,9 +42,10 @@ public class ShopManager : MonoBehaviour
             case Enums.ShopItemType.Table:
                 if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
                 {
-                    GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
-                    //CreateTable(shopItemData);
-                    CreateOrderBox(shopItemData);
+                    //GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
+                    //CreateOrderBox(shopItemData);
+                    _shoppingCardCost += shopItemData.ShopItemPrice;
+                    ShoppingBasket.Add(shopItemData);
                 }
                 break;
             case Enums.ShopItemType.Waiter:
@@ -51,8 +54,10 @@ public class ShopManager : MonoBehaviour
             case Enums.ShopItemType.FoodIngredient:
                 if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
                 {
-                    GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
+                    //GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
+                    _shoppingCardCost += shopItemData.ShopItemPrice;
                     BuyFoodIngredient(shopItemData);
+                    ShoppingBasket.Add(shopItemData);
                 }
                 break;
             case Enums.ShopItemType.PlaceUpgrade:
@@ -72,7 +77,10 @@ public class ShopManager : MonoBehaviour
             case Enums.ShopItemType.Decoration:
                 if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
                 {
-                    CreateOrderBox(shopItemData);
+                    //CreateOrderBox(shopItemData);
+                    _shoppingCardCost += shopItemData.ShopItemPrice;
+
+                    ShoppingBasket.Add(shopItemData);
                 }
                 break;
             
@@ -112,6 +120,7 @@ public class ShopManager : MonoBehaviour
     public void CreateOrderBox(ShopItemData shopItemData)
     {
         //var item = Instantiate(OrderBoxObject);
+        GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
         var item = PoolManager.Instance.GetFromPoolForOrderBox();
         item.GetComponent<OrderBox>().SetShopItemData(shopItemData);
         item.transform.position = ShopOrderTransform.position;
@@ -131,6 +140,13 @@ public class ShopManager : MonoBehaviour
 
     public void BuyShoppingBasketButtonPressed()
     {
+        if (_shoppingCardCost <= PlayerPrefsManager.Instance.LoadPlayerMoney())
+        {
+            for (int i = 0; i < ShoppingBasket.Count; i++)
+            {
+                CreateOrderBox(ShoppingBasket[i]);
+            }
+        }
         
     }
 
