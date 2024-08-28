@@ -52,4 +52,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f3f83b3a83415d64eb370736c58953dd, type: 2}
   - {fileID: 11400000, guid: 2d538b18ac81d9845bef9e23e9a8bd50, type: 2}
   - {fileID: 11400000, guid: b35d16357113b0c45b69eda4ac66e8c8, type: 2}
+  OpenFoodDatas: []
+  FoodIngredients:
+  - {fileID: 4715030341137099813, guid: eef03087674ad144eb6a7e2ca3fd38a1, type: 3}
   FoodTablePf: {fileID: 3412080890901677963, guid: 3265c903c47d73b4bb2463bd6201a7cb, type: 3}

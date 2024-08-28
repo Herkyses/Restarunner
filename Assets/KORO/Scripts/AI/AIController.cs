@@ -12,7 +12,6 @@ public class AIController : MonoBehaviour,IInterectableObject
     
     
     public NavMeshAgent _agent;
-
     
     [SerializeField] private string[] texts = new [] {"Take OrderBox"};
     [SerializeField] private string[] textsButtons = new [] {"E"};

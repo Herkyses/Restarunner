@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5970419040548006638}
   - component: {fileID: 4715030341137099813}
   m_Layer: 0
-  m_Name: TomatoPrefab
+  m_Name: Mil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5322071737363860283}
-  m_Mesh: {fileID: -7044439984512812306, guid: 47bac006259cea7459ec5d2348d355c1, type: 3}
+  m_Mesh: {fileID: -6883962210654344412, guid: 0a6cf4ba29d75614689b95b845a7668f, type: 3}
 --- !u!23 &5970419040548006638
 MeshRenderer:
   m_ObjectHideFlags: 0

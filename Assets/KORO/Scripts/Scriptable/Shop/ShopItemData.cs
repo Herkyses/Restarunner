@@ -16,5 +16,6 @@ public class ShopItemData : ScriptableObject
     public int TableSetID;
     public int PlaceLevel;
     public int DecorationID;
+    public int ItemCount;
 
 }

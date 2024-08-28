@@ -96,7 +96,8 @@ public class OrderBox : MonoBehaviour,IInterectableObject
         if (!Player.Instance.PlayerTakedObject && _isOrderBoxOpenAvailable)
         {
             var objectZort = Instantiate(_shopItemData.ItemObject);
-            objectZort.transform.position = new Vector3(objectZort.transform.position.x, 0, objectZort.transform.position.z);
+            //objectZort.transform.position = new Vector3(objectZort.transform.position.x, 0, objectZort.transform.position.z);
+            objectZort.transform.position = transform.position;
             if (_shopItemData.ItemType == Enums.ShopItemType.Table)
             {
                 objectZort.GetComponent<TableSet>().table.Move();
@@ -104,6 +105,10 @@ public class OrderBox : MonoBehaviour,IInterectableObject
             if (_shopItemData.ItemType == Enums.ShopItemType.Decoration)
             {
                 objectZort.GetComponent<DecorationObject>().Move();
+            }
+            if (_shopItemData.ItemType == Enums.ShopItemType.FoodIngredient)
+            {
+                objectZort.GetComponent<SingleCrate>().Initiliaze(_shopItemData);
             }
             if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 2)
             {

@@ -10,6 +10,7 @@ public class GameDataManager : MonoBehaviour
     
     public List<OrderData> FoodDatas;
     public List<OrderData> OpenFoodDatas = new List<OrderData>();
+    public List<SingleIngredient> FoodIngredients = new List<SingleIngredient>();
     public FoodTable FoodTablePf;
 
     public static GameDataManager Instance;
@@ -99,5 +100,18 @@ public class GameDataManager : MonoBehaviour
             }
         }
         return -1;
+    }
+
+    public MeshFilter GetFoodIngredientMeshFilter(Enums.FoodIngredientType foodIngredientType)
+    {
+        for (int i = 0; i < FoodIngredients.Count; i++)
+        {
+            if (foodIngredientType == FoodIngredients[i].IngredientType)
+            {
+                return FoodIngredients[i].GetComponent<MeshFilter>();
+            }
+        }
+
+        return null;
     }
 }

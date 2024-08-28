@@ -16,6 +16,7 @@ public class PoolManager : MonoBehaviour
     public GameObject CustomerAIObject;
     public GameObject CustomerRagdollAIObject;
     public GameObject OrderBoxObject;
+    public GameObject FoodIngredientObject;
     
     
     [FormerlySerializedAs("FoodParent")] public Transform TableFoodParent;
@@ -24,6 +25,7 @@ public class PoolManager : MonoBehaviour
     public Transform CustomerAIObjectParent;
     public Transform CustomerRagdollAIObjectParent;
     public Transform OrderBoxParent;
+    public Transform FoodIngredientParent;
     
     
     
@@ -35,6 +37,7 @@ public class PoolManager : MonoBehaviour
     private Queue<GameObject> CustomerAIPool= new Queue<GameObject>();
     private Queue<GameObject> CustomerRagdollAIPool= new Queue<GameObject>();
     private Queue<GameObject> OrderBoxPool= new Queue<GameObject>();
+    private Queue<GameObject> FoodIngredientPool = new Queue<GameObject>();
     
     private void Awake()
     {
@@ -57,6 +60,7 @@ public class PoolManager : MonoBehaviour
         CreatePoolObject(CustomerAIPool,CustomerAIObjectParent,CustomerAIObject);
         CreatePoolObject(OrderBoxPool,OrderBoxParent,OrderBoxObject);
         CreatePoolObject(CustomerRagdollAIPool,CustomerRagdollAIObjectParent,CustomerRagdollAIObject);
+        CreatePoolObject(FoodIngredientPool,FoodIngredientParent,FoodIngredientObject);
         IsPoolManagerInitiliazed?.Invoke();
     }
 
@@ -89,6 +93,10 @@ public class PoolManager : MonoBehaviour
     public GameObject GetFromPoolForOrderBill()
     {
         return GetFromPool(OrderBillPool, OrderBill);
+    }
+    public GameObject GetFromPoolForFoodIngredient()
+    {
+        return GetFromPool(FoodIngredientPool, FoodIngredientObject);
     }
     public GameObject GetFromPoolForFoodTable()
     {
@@ -134,6 +142,10 @@ public class PoolManager : MonoBehaviour
     public void ReturnToPoolForOrderBox(GameObject obj)
     {
         ReturnToPool(obj,OrderBoxPool,OrderBoxParent);
+    }
+    public void ReturnToPoolForFoodIngredient(GameObject obj)
+    {
+        ReturnToPool(FoodIngredientObject,FoodIngredientPool,FoodIngredientParent);
     }
 
     public void ReturnToPool(GameObject obj,Queue<GameObject> pool, Transform parentTransform)
