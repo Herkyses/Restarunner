@@ -12,6 +12,7 @@ public class ShopItemData : ScriptableObject
     public Sprite ShopItemIcon;
     public GameObject ItemObject;
     public Enums.OrderType ItemOrderType;
+    public Enums.FoodIngredientType FoodIngredientType;
     public int TableSetID;
     public int PlaceLevel;
     public int DecorationID;

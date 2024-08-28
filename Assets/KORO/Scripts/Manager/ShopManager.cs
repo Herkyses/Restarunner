@@ -56,7 +56,7 @@ public class ShopManager : MonoBehaviour
                 {
                     //GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
                     _shoppingCardCost += shopItemData.ShopItemPrice;
-                    BuyFoodIngredient(shopItemData);
+                    //BuyFoodIngredient(shopItemData);
                     ShoppingBasket.Add(shopItemData);
                 }
                 break;
@@ -142,6 +142,7 @@ public class ShopManager : MonoBehaviour
     {
         if (_shoppingCardCost <= PlayerPrefsManager.Instance.LoadPlayerMoney())
         {
+            _shoppingCardCost = 0;
             for (int i = 0; i < ShoppingBasket.Count; i++)
             {
                 CreateOrderBox(ShoppingBasket[i]);
