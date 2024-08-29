@@ -87,4 +87,9 @@ public class SingleCrate : MonoBehaviour,IInterectableObject
         return Enums.PlayerStateType.Free;
 
     }
+
+    public Enums.FoodIngredientType GetIngredientType()
+    {
+        return _shopItemDataIngredientType;
+    }
 }
