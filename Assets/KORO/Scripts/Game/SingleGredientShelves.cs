@@ -5,6 +5,7 @@ using UnityEngine;
 public class SingleGredientShelves : MonoBehaviour,IInterectableObject
 {
     public Enums.FoodIngredientType shelveIngredientType;
+    [SerializeField] private List<Transform> _ingredientTransformList;
 
     public void InterectableObjectRun()
     {
