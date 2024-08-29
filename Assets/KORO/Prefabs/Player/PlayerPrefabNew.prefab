@@ -5122,8 +5122,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerData: {fileID: 0}
+  _playerRaycastController: {fileID: 0}
   _canTakeMoney: 0
   CanCleanRubbish: 0
+  CanFight: 0
   PlayerMoney: 0
   PlayerInventory: []
   PlayerTakedObject: {fileID: 0}
@@ -5158,7 +5160,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.19, y: 1.1934671, z: 0.3716669}
+  m_Size: {x: 0.35, y: 1.1934671, z: 0.3716669}
   m_Center: {x: 0.00010204315, y: 0.6109326, z: 0.071994305}
 --- !u!114 &8578709897593811357
 MonoBehaviour:
@@ -5195,6 +5197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetPrice: {fileID: 0}
   InterectabelOutline: {fileID: 0}
+  IsRaycastActive: 1
 --- !u!114 &7253160799843244457
 MonoBehaviour:
   m_ObjectHideFlags: 0
