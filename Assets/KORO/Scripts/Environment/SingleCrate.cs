@@ -22,6 +22,7 @@ public class SingleCrate : MonoBehaviour,IInterectableObject
         for (int i = 0; i < _shopItemData.ItemCount; i++)
         {
             var singleIngredient = PoolManager.Instance.GetFromPoolForFoodIngredient(); //getfrom pool 
+            _ingredientList.Add(singleIngredient);
             singleIngredient.transform.SetParent(transform);
             singleIngredient.transform.position = _ingredientTransformsList[i].position;
             singleIngredient.transform.localScale = Vector3.one;
