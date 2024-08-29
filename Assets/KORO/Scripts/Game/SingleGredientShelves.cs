@@ -45,6 +45,6 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
     }
     public Enums.PlayerStateType GetStateType()
     {
-        return Enums.PlayerStateType.Free;
+        return Enums.PlayerStateType.TakeFoodIngredient;
     }
 }
