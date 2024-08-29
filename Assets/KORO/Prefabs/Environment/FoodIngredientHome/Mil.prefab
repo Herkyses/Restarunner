@@ -97,4 +97,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IngredientMeshFilter: {fileID: 8448690460478103076}
-  IngredientType: 3
+  IngredientType: 9
