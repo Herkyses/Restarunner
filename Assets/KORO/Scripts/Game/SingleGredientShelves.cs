@@ -6,14 +6,23 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
 {
     public Enums.FoodIngredientType shelveIngredientType;
     [SerializeField] private List<Transform> _ingredientTransformList;
+    [SerializeField] private int _count;
 
     public void InterectableObjectRun()
     {
-        if (Player.Instance.PlayerTakedObject.GetComponent<SingleCrate>().GetIngredientType() == shelveIngredientType)
+        var takedObject = Player.Instance.PlayerTakedObject;
+        if (takedObject)
         {
-            MealManager.Instance.MakeSingleMealIngredient(shelveIngredientType,1);
-
+            if (takedObject.GetComponent<SingleCrate>().GetIngredientType() == shelveIngredientType)
+            {
+                MealManager.Instance.MakeSingleMealIngredient(shelveIngredientType,1);
+                var singleIngredient = Player.Instance.PlayerTakedObject.GetComponent<SingleCrate>().GetIngredientObject();
+                singleIngredient.transform.SetParent(transform);
+                singleIngredient.transform.position = _ingredientTransformList[_count].position;
+                _count++;
+            }
         }
+        
     }
 
     public void ShowOutline(bool active)

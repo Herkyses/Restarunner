@@ -92,4 +92,11 @@ public class SingleCrate : MonoBehaviour,IInterectableObject
     {
         return _shopItemDataIngredientType;
     }
+
+    public GameObject GetIngredientObject()
+    {
+        var ingredientObject = _ingredientList[_ingredientList.Count-1];
+        _ingredientList.Remove(ingredientObject);
+        return ingredientObject;
+    }
 }
