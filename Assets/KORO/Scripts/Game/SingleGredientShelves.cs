@@ -8,7 +8,7 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
 
     public void InterectableObjectRun()
     {
-        
+        MealManager.Instance.MakeSingleMealIngredient(shelveIngredientType,1);
     }
 
     public void ShowOutline(bool active)

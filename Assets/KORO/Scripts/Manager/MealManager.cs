@@ -133,6 +133,32 @@ public class MealManager : MonoBehaviour
         }
         
     }
+    public void MakeSingleMealIngredient(Enums.FoodIngredientType orderType,int value)
+    {
+        //var foodData = GameDataManager.Instance.GetFoodData(orderType);
+
+        
+            MealIngredient meal = mealIngredientsList.meals.Find(m => m.mealName == orderType);
+            if (meal != null )
+            {
+                if (value < 0 && meal.ingredientQuantity > 0)
+                {
+                    meal.ingredientQuantity += value;
+                }
+                else if(value > 0)
+                {
+                    meal.ingredientQuantity += value;
+                }
+                PlayerPrefsManager.Instance.SaveMealIngredients(mealIngredientsList);
+                //Debug.Log("Made " + foodData.FoodIngredientTypes[i] + ". Remaining quantity: " + meal.ingredientQuantity);
+            }
+            else
+            {
+                //Debug.Log("Cannot make " + foodData.FoodIngredientTypes[i] + ". Not enough ingredients.");
+            }
+        
+        
+    }
 
     public int GetMealIngredient(Enums.OrderType mealName)
     {
