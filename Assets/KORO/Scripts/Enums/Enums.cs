@@ -75,5 +75,6 @@ public class Enums : MonoBehaviour
         Fight,
         None,
         DecorationMove,
+        TakeFoodIngredient,
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5970419040548006638}
   - component: {fileID: 4715030341137099813}
   m_Layer: 0
-  m_Name: TomatoPrefab
+  m_Name: SingleIngredient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

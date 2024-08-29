@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
-public class SingleCrate : MonoBehaviour
+public class SingleCrate : MonoBehaviour,IInterectableObject
 {
     [SerializeField] private Transform _ingredientTransform;
     [SerializeField] private int _ingredientColumnCount;
@@ -25,8 +26,64 @@ public class SingleCrate : MonoBehaviour
             singleIngredient.transform.position = _ingredientTransformsList[i].position;
             singleIngredient.transform.localScale = Vector3.one;
             singleIngredient.GetComponent<MeshFilter>().sharedMesh = GameDataManager.Instance.GetFoodIngredientMeshFilter(_shopItemDataIngredientType).sharedMesh;
-            singleIngredient.GetComponent<SingleCrate>()._shopItemDataIngredientType = _shopItemDataIngredientType;
+            singleIngredient.GetComponent<SingleIngredient>().IngredientType = _shopItemDataIngredientType;
             //singleIngredient.Get
         }
+    }
+
+    public void InterectableObjectRun()
+    {
+        transform.DOLocalMove(new Vector3(-0.1f,-0.2f,0f), 0.2f);
+        transform.DOLocalRotate(new Vector3(0,0,-11f), 0.2f);
+        transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
+        GetComponent<Rigidbody>().useGravity = false;
+        GetComponent<BoxCollider>().enabled = false;
+        Player.Instance.PlayerTakedObject = gameObject;
+        Player.Instance.PlayerStateType = Enums.PlayerStateType.TakeFoodIngredient;
+        //GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTake);
+        //GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTake);
+        //_isOrderBoxOpenAvailable = false;
+    }
+    public void ShowOutline(bool active)
+    {
+        return;    
+    }
+
+    public Outline GetOutlineComponent()
+    {
+        return null;
+    }
+
+    public string GetInterectableText()
+    {
+        return null;
+    }
+
+    public string[] GetInterectableTexts()
+    {
+        return null;
+
+    }
+
+    public string[] GetInterectableButtons()
+    {
+        return null;
+
+    }
+
+    public void Move()
+    {
+        
+    }
+
+    public void Open()
+    {
+        
+    }
+
+    public Enums.PlayerStateType GetStateType()
+    {
+        return Enums.PlayerStateType.Free;
+
     }
 }

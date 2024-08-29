@@ -177,19 +177,20 @@ public class PlayerRaycastController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.J))
         {
-            if (Player.Instance.PlayerStateType == Enums.PlayerStateType.TakeBox)
+            if (Player.Instance.PlayerStateType == Enums.PlayerStateType.TakeBox || Player.Instance.PlayerStateType == Enums.PlayerStateType.TakeFoodIngredient)
             {
                 var takenObject = Player.Instance.PlayerTakedObject;
                 if (takenObject)
                 {
                     takenObject.transform.SetParent(null);
-                    if (takenObject.GetComponent<Rigidbody>())
+                    takenObject.transform.position = transform.position + Vector3.up;
+                    if (takenObject.TryGetComponent(out Rigidbody objectRigid))
                     {
-                        takenObject.GetComponent<Rigidbody>().useGravity = true;
+                        objectRigid.useGravity = true;
                     }
-                    if (takenObject.GetComponent<BoxCollider>())
+                    if (takenObject.TryGetComponent(out BoxCollider objectCollider))
                     {
-                        takenObject.GetComponent<BoxCollider>().enabled = true;
+                        objectCollider.enabled = true;
                     }
 
                     var playerInstance = Player.Instance;
