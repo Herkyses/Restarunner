@@ -27,7 +27,16 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
 
     public void Initiliaze()
     {
-        
+        Debug.Log("aynen öylee bee" + MealManager.Instance.GetFoodIngredient(shelveIngredientType));
+        for (int i = 0; i < MealManager.Instance.GetFoodIngredient(shelveIngredientType); i++)
+        {
+            var singleIngredient = PoolManager.Instance.GetFromPoolForFoodIngredient(); //getfrom pool 
+            singleIngredient.transform.SetParent(transform);
+            singleIngredient.transform.position = _ingredientTransformList[i].position;
+            singleIngredient.GetComponent<MeshFilter>().sharedMesh = GameDataManager.Instance.GetFoodIngredientMeshFilter(shelveIngredientType).sharedMesh;
+            singleIngredient.GetComponent<SingleIngredient>().IngredientType = shelveIngredientType;
+            //singleIngredient.Get
+        }
     }
     public void ShowOutline(bool active)
     {

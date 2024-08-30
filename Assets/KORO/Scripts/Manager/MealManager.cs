@@ -171,5 +171,20 @@ public class MealManager : MonoBehaviour
             return -1;
         }
     }
+    public int GetFoodIngredient(Enums.FoodIngredientType mealName)
+    {
+        var mealsList = PlayerPrefsManager.Instance.LoadMealIngredients();
+
+        MealIngredient meal = mealsList.meals.Find(m => m.mealName == mealName);
+        if (meal != null && meal.ingredientQuantity > 0)
+        {
+            return meal.ingredientQuantity;
+            
+        }
+        else
+        {
+            return -1;
+        }
+    }
     
 }

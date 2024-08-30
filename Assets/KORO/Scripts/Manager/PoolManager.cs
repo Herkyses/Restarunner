@@ -51,7 +51,7 @@ public class PoolManager : MonoBehaviour
         }
 
     }
-    void Start()
+    public void Initiliaze()
     {
         
         CreatePoolObject(FoodTablePool,TableFoodParent,FoodTableObject);
