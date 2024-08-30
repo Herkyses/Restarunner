@@ -25,6 +25,10 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
         
     }
 
+    public void Initiliaze()
+    {
+        
+    }
     public void ShowOutline(bool active)
     {
         

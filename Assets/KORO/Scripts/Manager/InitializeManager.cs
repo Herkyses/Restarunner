@@ -45,6 +45,7 @@ public class InitializeManager : MonoBehaviour
         PlacePanelController.Instance.Initialize();
         PlaceController.Instance.Initialize();
         RubbishManager.Instance.Initiliaze();
+        IngredientShelvesController.Instance.Initiliaze();
         TutorialManager.Instance.Initiliaze();
     }
 
