@@ -27,7 +27,6 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
 
     public void Initiliaze()
     {
-        Debug.Log("aynen öylee bee" + MealManager.Instance.GetFoodIngredient(shelveIngredientType));
         for (int i = 0; i < MealManager.Instance.GetFoodIngredient(shelveIngredientType); i++)
         {
             var singleIngredient = PoolManager.Instance.GetFromPoolForFoodIngredient(); //getfrom pool 
