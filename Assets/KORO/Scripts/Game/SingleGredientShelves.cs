@@ -32,6 +32,7 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
             var singleIngredient = PoolManager.Instance.GetFromPoolForFoodIngredient(); //getfrom pool 
             singleIngredient.transform.SetParent(transform);
             singleIngredient.transform.position = _ingredientTransformList[i].position;
+            singleIngredient.transform.localScale = Vector3.one*2;
             singleIngredient.GetComponent<MeshFilter>().sharedMesh = GameDataManager.Instance.GetFoodIngredientMeshFilter(shelveIngredientType).sharedMesh;
             singleIngredient.GetComponent<SingleIngredient>().IngredientType = shelveIngredientType;
             //singleIngredient.Get
