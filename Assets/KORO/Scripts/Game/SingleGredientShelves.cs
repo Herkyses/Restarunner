@@ -36,6 +36,7 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
             singleIngredient.GetComponent<MeshFilter>().sharedMesh = GameDataManager.Instance.GetFoodIngredientMeshFilter(shelveIngredientType).sharedMesh;
             singleIngredient.GetComponent<SingleIngredient>().IngredientType = shelveIngredientType;
             //singleIngredient.Get
+            _count++;
         }
     }
     public void ShowOutline(bool active)
