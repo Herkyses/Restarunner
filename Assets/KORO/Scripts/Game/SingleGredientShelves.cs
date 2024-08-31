@@ -19,6 +19,7 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
                 var singleIngredient = Player.Instance.PlayerTakedObject.GetComponent<SingleCrate>().GetIngredientObject();
                 singleIngredient.transform.SetParent(transform);
                 singleIngredient.transform.position = _ingredientTransformList[_count].position;
+                singleIngredient.transform.rotation = _ingredientTransformList[_count].rotation;
                 _count++;
             }
         }
@@ -32,6 +33,7 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
             var singleIngredient = PoolManager.Instance.GetFromPoolForFoodIngredient(); //getfrom pool 
             singleIngredient.transform.SetParent(transform);
             singleIngredient.transform.position = _ingredientTransformList[i].position;
+            singleIngredient.transform.rotation = _ingredientTransformList[i].rotation;
             singleIngredient.transform.localScale = Vector3.one;
             singleIngredient.GetComponent<MeshFilter>().sharedMesh = GameDataManager.Instance.GetFoodIngredientMeshFilter(shelveIngredientType).sharedMesh;
             singleIngredient.GetComponent<SingleIngredient>().IngredientType = shelveIngredientType;
