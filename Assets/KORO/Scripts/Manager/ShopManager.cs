@@ -147,6 +147,7 @@ public class ShopManager : MonoBehaviour
             {
                 CreateOrderBox(ShoppingBasket[i]);
             }
+            ShoppingBasket.Clear();
         }
         
     }
