@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,21 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
     public Enums.FoodIngredientType shelveIngredientType;
     [SerializeField] private List<Transform> _ingredientTransformList;
     [SerializeField] private int _count;
+
+
+    private void OnEnable()
+    {
+        ChefController.FoodIngredientIncreese += CheckIngredients;
+    }
+    private void OnDisable()
+    {
+        ChefController.FoodIngredientIncreese -= CheckIngredients;
+    }
+
+    public void CheckIngredients(OrderData orderData)
+    {
+        
+    }
 
     public void InterectableObjectRun()
     {
