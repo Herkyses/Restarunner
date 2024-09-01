@@ -45,14 +45,11 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
         _count = mealManager.GetFoodIngredient(shelveIngredientType);
         for (int i = 0; i < firstCount; i++)
         {
-            if (i < _count)
-            {
-                
-            }
-            else
+            if (i >= _count)
             {
                 PoolManager.Instance.ReturnToPoolForFoodIngredient(_ingredientList[i]);
             }
+            
         }
     }
 
