@@ -101,6 +101,20 @@ public class ChefController : MonoBehaviour,IInterectableObject
         }
         RemovedOrderDataStructs.Clear();
     }
+
+    public bool CheckFoodIngredientCount(OrderData foodOrderData)
+    {
+
+        for (int i = 0; i < foodOrderData.FoodIngredientTypes.Count; i++)
+        {
+            var ingredientCount = MealManager.Instance.GetFoodIngredient(foodOrderData.FoodIngredientTypes[i]);
+            if (ingredientCount > 0)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     public void InterectableObjectRun()
     {
         var orderPanel = GiveChefOrderPanelController.Instance;
