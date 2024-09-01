@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class SingleGredientShelves : MonoBehaviour,IInterectableObject
@@ -64,9 +65,15 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
                 var singleIngredient = Player.Instance.PlayerTakedObject.GetComponent<SingleCrate>().GetIngredientObject();
                 _ingredientList.Add(singleIngredient);
                 singleIngredient.transform.SetParent(transform);
-                singleIngredient.transform.position = _ingredientTransformList[_count].position;
-                singleIngredient.transform.rotation = _ingredientTransformList[_count].rotation;
-                _count++;
+                singleIngredient.transform.DOLocalMove(singleIngredient.transform.localPosition + Vector3.up*0.2f, 0.15f).OnComplete(() =>
+                {
+                    singleIngredient.transform.DOMove(_ingredientTransformList[_count].position, 0.2f);
+                    singleIngredient.transform.DORotate(_ingredientTransformList[_count].rotation.eulerAngles, 0.2f);
+                    /*singleIngredient.transform.position = _ingredientTransformList[_count].position;
+                    singleIngredient.transform.rotation = _ingredientTransformList[_count].rotation;*/
+                    _count++;
+                });            
+                
             }
         }
         
