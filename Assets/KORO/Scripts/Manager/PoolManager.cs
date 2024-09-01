@@ -145,7 +145,7 @@ public class PoolManager : MonoBehaviour
     }
     public void ReturnToPoolForFoodIngredient(GameObject obj)
     {
-        ReturnToPool(FoodIngredientObject,FoodIngredientPool,FoodIngredientParent);
+        ReturnToPool(obj,FoodIngredientPool,FoodIngredientParent);
     }
 
     public void ReturnToPool(GameObject obj,Queue<GameObject> pool, Transform parentTransform)

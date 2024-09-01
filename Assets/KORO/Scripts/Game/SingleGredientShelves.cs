@@ -7,6 +7,7 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
 {
     public Enums.FoodIngredientType shelveIngredientType;
     [SerializeField] private List<Transform> _ingredientTransformList;
+    [SerializeField] private List<GameObject> _ingredientList;
     [SerializeField] private int _count;
 
 
@@ -21,7 +22,37 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
 
     public void CheckIngredients(OrderData orderData)
     {
+        var ingredientHere = false;
+        for (int i = 0; i < orderData.FoodIngredientTypes.Count; i++)
+        {
+            if (orderData.FoodIngredientTypes[i] == shelveIngredientType)
+            {
+                IngredientCount();
+                return;
+            }
+        }
         
+        
+        
+        
+        
+    }
+
+    public void IngredientCount()
+    {
+        var firstCount = _count;
+        _count = MealManager.Instance.GetFoodIngredient(shelveIngredientType);
+        for (int i = 0; i < firstCount; i++)
+        {
+            if (MealManager.Instance.GetFoodIngredient(shelveIngredientType) < _count)
+            {
+                
+            }
+            else
+            {
+                PoolManager.Instance.ReturnToPoolForFoodIngredient(_ingredientList[i]);
+            }
+        }
     }
 
     public void InterectableObjectRun()
@@ -33,6 +64,7 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
             {
                 MealManager.Instance.MakeSingleMealIngredient(shelveIngredientType,1);
                 var singleIngredient = Player.Instance.PlayerTakedObject.GetComponent<SingleCrate>().GetIngredientObject();
+                _ingredientList.Add(singleIngredient);
                 singleIngredient.transform.SetParent(transform);
                 singleIngredient.transform.position = _ingredientTransformList[_count].position;
                 singleIngredient.transform.rotation = _ingredientTransformList[_count].rotation;
@@ -47,6 +79,7 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
         for (int i = 0; i < MealManager.Instance.GetFoodIngredient(shelveIngredientType); i++)
         {
             var singleIngredient = PoolManager.Instance.GetFromPoolForFoodIngredient(); //getfrom pool 
+            _ingredientList.Add(singleIngredient);
             singleIngredient.transform.SetParent(transform);
             singleIngredient.transform.position = _ingredientTransformList[i].position;
             singleIngredient.transform.rotation = _ingredientTransformList[i].rotation;
