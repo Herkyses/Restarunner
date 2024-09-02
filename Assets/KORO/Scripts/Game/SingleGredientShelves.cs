@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SingleGredientShelves : MonoBehaviour,IInterectableObject
 {
@@ -10,6 +11,7 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
     [SerializeField] private List<Transform> _ingredientTransformList;
     [SerializeField] private List<GameObject> _ingredientList;
     [SerializeField] private int _count;
+    [SerializeField] private Image _ingredientIcon;
 
 
     private void OnEnable()
@@ -94,6 +96,16 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
             //singleIngredient.Get
             _count++;
         }
+
+        var ingredientDatas = ShopManager.Instance.FoodIngradientShopItemDatas;
+        for (int i = 0; i < ingredientDatas.Count; i++)
+        {
+            if (ingredientDatas[i].FoodIngredientType == shelveIngredientType)
+            {
+                _ingredientIcon.sprite = ingredientDatas[i].ShopItemIcon;
+            }
+        }
+        
     }
     public void ShowOutline(bool active)
     {

@@ -590,6 +590,7 @@ MonoBehaviour:
   - {fileID: 5462859526878999087}
   _ingredientList: []
   _count: 0
+  _ingredientIcon: {fileID: 2949538903975600172}
 --- !u!1 &5418124697497932984
 GameObject:
   m_ObjectHideFlags: 0
