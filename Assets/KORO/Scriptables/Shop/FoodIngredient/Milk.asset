@@ -15,7 +15,7 @@ MonoBehaviour:
   ItemType: 3
   ShopItemUIType: 0
   ShopItemPrice: 3
-  ShopItemIcon: {fileID: 21300000, guid: 86918a36793c80845b8a5717301d8f7c, type: 3}
+  ShopItemIcon: {fileID: 21300000, guid: 8a98e4df9acf237429601485044a4d77, type: 3}
   ItemObject: {fileID: 2936313745050993523, guid: 9e7f3384b9dea1d4c82c8f80a97e7801, type: 3}
   ItemOrderType: 1
   FoodIngredientType: 9

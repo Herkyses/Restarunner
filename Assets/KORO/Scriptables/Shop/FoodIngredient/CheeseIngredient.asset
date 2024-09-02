@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03a3a0940f7786142a1350d09d68e0ca, type: 3}
-  m_Name: ChickenIngredient
+  m_Name: CheeseIngredient
   m_EditorClassIdentifier: 
   ItemType: 3
   ShopItemUIType: 0
   ShopItemPrice: 3
-  ShopItemIcon: {fileID: 21300000, guid: 75f5df7ae96a88b498400f406d3d655b, type: 3}
+  ShopItemIcon: {fileID: 21300000, guid: 356e863284584bb418e785e47c5a2be8, type: 3}
   ItemObject: {fileID: 2936313745050993523, guid: 9e7f3384b9dea1d4c82c8f80a97e7801, type: 3}
   ItemOrderType: 1
-  FoodIngredientType: 5
+  FoodIngredientType: 0
   TableSetID: 0
   PlaceLevel: 0
   DecorationID: 0
