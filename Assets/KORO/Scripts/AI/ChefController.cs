@@ -62,6 +62,11 @@ public class ChefController : MonoBehaviour,IInterectableObject
             for (int j = 0; j < GameDataManager.Instance.FoodDatas.Count; j++)
             {
                 var foodData = GameDataManager.Instance.FoodDatas[j];
+                if (!CheckFoodIngredientCount(foodData))
+                {
+                    continue;
+                }
+
                 if (ChefOwnerStructData[i].OrderType == foodData.OrderType && MealManager.Instance.GetMealIngredient(foodData.OrderType) > 0)
                 {
                     //var food = Instantiate(GameDataManager.Instance.FoodTablePf);
