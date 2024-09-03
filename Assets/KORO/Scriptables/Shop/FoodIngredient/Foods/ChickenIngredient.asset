@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: ChickenIngredient
   m_EditorClassIdentifier: 
   ItemType: 3
+  ShopItemUIType: 0
   ShopItemPrice: 3
   ShopItemIcon: {fileID: 21300000, guid: 94d4c885082ee454e89a2006efb1b596, type: 3}
   ItemObject: {fileID: 0}
   ItemOrderType: 6
+  FoodIngredientType: 5
   TableSetID: 0
   PlaceLevel: 4
+  DecorationID: 0
+  ItemCount: 0

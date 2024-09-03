@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,8 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
     [SerializeField] private List<GameObject> _ingredientList;
     [SerializeField] private int _count;
     [SerializeField] private Image _ingredientIcon;
+    [SerializeField] private TextMeshProUGUI _ingredientCount;
+    [SerializeField] private MealManager _mealManager;
 
 
     private void OnEnable()
@@ -34,18 +37,14 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
                 return;
             }
         }
-        
-        
-        
-        
-        
+
     }
 
     public void IngredientCount()
     {
         var firstCount = _count;
-        var mealManager = MealManager.Instance;
-        _count = mealManager.GetFoodIngredient(shelveIngredientType);
+        _mealManager = MealManager.Instance;
+        _count = _mealManager.GetFoodIngredient(shelveIngredientType);
         for (int i = 0; i < firstCount; i++)
         {
             if (i >= _count)
@@ -63,7 +62,7 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
         {
             if (takedObject.GetComponent<SingleCrate>().GetIngredientType() == shelveIngredientType)
             {
-                MealManager.Instance.MakeSingleMealIngredient(shelveIngredientType,1);
+                _mealManager.MakeSingleMealIngredient(shelveIngredientType,1);
                 var singleIngredient = Player.Instance.PlayerTakedObject.GetComponent<SingleCrate>().GetIngredientObject();
                 _ingredientList.Add(singleIngredient);
                 singleIngredient.transform.SetParent(transform);
@@ -78,12 +77,15 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
                 
             }
         }
+        _ingredientCount.text = MealManager.Instance.GetFoodIngredient(shelveIngredientType).ToString();
+
         
     }
 
     public void Initiliaze()
     {
-        for (int i = 0; i < MealManager.Instance.GetFoodIngredient(shelveIngredientType); i++)
+        _mealManager = MealManager.Instance;
+        for (int i = 0; i < _mealManager.GetFoodIngredient(shelveIngredientType); i++)
         {
             var singleIngredient = PoolManager.Instance.GetFromPoolForFoodIngredient(); //getfrom pool 
             _ingredientList.Add(singleIngredient);
@@ -97,15 +99,9 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
             _count++;
         }
 
-        var ingredientDatas = ShopManager.Instance.FoodIngradientShopItemDatas;
-        for (int i = 0; i < ingredientDatas.Count; i++)
-        {
-            if (ingredientDatas[i].FoodIngredientType == shelveIngredientType)
-            {
-                _ingredientIcon.sprite = ingredientDatas[i].ShopItemIcon;
-            }
-        }
-        
+        _ingredientCount.text = _mealManager.GetFoodIngredient(shelveIngredientType).ToString();
+        _ingredientIcon.sprite = GameDataManager.Instance.GetFoodIngredientIcon(shelveIngredientType);
+
     }
     public void ShowOutline(bool active)
     {

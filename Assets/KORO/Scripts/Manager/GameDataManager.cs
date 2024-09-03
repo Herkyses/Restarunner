@@ -114,4 +114,17 @@ public class GameDataManager : MonoBehaviour
 
         return null;
     }
+    public Sprite GetFoodIngredientIcon(Enums.FoodIngredientType foodIngredientType)
+    {
+        var ingredientDatas = ShopManager.Instance.FoodIngradientShopItemDatas;
+        for (int i = 0; i < ingredientDatas.Count; i++)
+        {
+            if (ingredientDatas[i].FoodIngredientType == foodIngredientType)
+            {
+                return ingredientDatas[i].ShopItemIcon;
+            }
+        }
+
+        return null;
+    }
 }
