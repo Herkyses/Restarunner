@@ -58,6 +58,7 @@ using UnityEngine;
     public void Initialize()
     {
         DeleteChilds();
+        OrderPanelController.Instance.DeleteChilds(SingleShopingCardItemParentTransform);
         InitializeShopPanel(ShopManager.Instance.FirstShopItemDatas);
         for (int i = 0; i < FoodIngredients.Count; i++)
         {

@@ -18,6 +18,8 @@ public class ShopManager : MonoBehaviour
     public GameObject OrderBoxObject;
     public Transform ShopOrderTransform;
 
+    public static Action UpdateShopBasket;
+
     [SerializeField] private float _shoppingCardCost;
     // Start is called before the first frame update
     private void Awake()
@@ -32,7 +34,7 @@ public class ShopManager : MonoBehaviour
         }
 
     }
-
+    
     public void CreateShopItem(ShopItemData shopItemData,SingleShopItem singleShopItem)
     {
         switch (shopItemData.ItemType)

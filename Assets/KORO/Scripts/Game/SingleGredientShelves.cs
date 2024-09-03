@@ -58,7 +58,7 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
     public void InterectableObjectRun()
     {
         var takedObject = Player.Instance.PlayerTakedObject;
-        if (takedObject)
+        if (takedObject && _count > _ingredientTransformList.Count)
         {
             if (takedObject.GetComponent<SingleCrate>().GetIngredientType() == shelveIngredientType)
             {
