@@ -18,7 +18,7 @@ public class ShopManager : MonoBehaviour
     public GameObject OrderBoxObject;
     public Transform ShopOrderTransform;
 
-    public static Action UpdateShopBasket;
+    public static Action<ShopItemData> UpdateShopBasket;
 
     public float _shoppingCardCost;
     // Start is called before the first frame update
@@ -50,8 +50,12 @@ public class ShopManager : MonoBehaviour
                     {
                         _shoppingCardCost += shopItemData.ShopItemPrice;
                         ShoppingBasket.Add(shopItemData);
-                        UpdateShopBasket?.Invoke();
+                        UpdateShopBasket?.Invoke(shopItemData);
 
+                    }
+                    else
+                    {
+                        PlacePanelController.Instance.CheckShopBasket(shopItemData);
                     }
 
                 }
@@ -68,10 +72,13 @@ public class ShopManager : MonoBehaviour
                     {
                         _shoppingCardCost += shopItemData.ShopItemPrice;
                         ShoppingBasket.Add(shopItemData);
-                        UpdateShopBasket?.Invoke();
+                        UpdateShopBasket?.Invoke(shopItemData);
 
                     }
-
+                    else
+                    {
+                        PlacePanelController.Instance.CheckShopBasket(shopItemData);
+                    }
                 }
                 break;
             case Enums.ShopItemType.PlaceUpgrade:
@@ -96,10 +103,13 @@ public class ShopManager : MonoBehaviour
                     {
                         _shoppingCardCost += shopItemData.ShopItemPrice;
                         ShoppingBasket.Add(shopItemData);
-                        UpdateShopBasket?.Invoke();
+                        UpdateShopBasket?.Invoke(shopItemData);
 
                     }
-
+                    else
+                    {
+                        PlacePanelController.Instance.CheckShopBasket(shopItemData);
+                    }
                 }
                 break;
             

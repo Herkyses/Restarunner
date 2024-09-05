@@ -10,6 +10,7 @@ using UnityEngine;
     public List<FoodIngredient> FoodIngredients;
     public List<SingleShopItem> OwnerFoodIngredients;
     public List<SingleShopItem> OpeningShopItems;
+    public List<SingleShopingCardItem> ShopCardItems;
     //public List<FoodIngredient> FoodIngredients;
     public Transform _panel;
     public Transform _ownerFoodIngredients;
@@ -163,16 +164,28 @@ using UnityEngine;
     {
         ShopManager.Instance.BuyShoppingBasketButtonPressed();
     }
-    public void UpdateShopingBasket()
+    public void UpdateShopingBasket(ShopItemData shopItemData)
     {
-        Utilities.DeleteTransformchilds(SingleShopingCardItemParentTransform);
+        //Utilities.DeleteTransformchilds(SingleShopingCardItemParentTransform);
+        //ShopCardItems.Clear();
         var shopManager = ShopManager.Instance;
-        shopManager._shoppingCardCost = 0;
-        for (int i = 0; i < shopManager.ShoppingBasket.Count; i++)
+        //shopManager._shoppingCardCost = 0;
+        var shopingCard = Instantiate(SingleShopingCardItemPf, SingleShopingCardItemParentTransform);
+        ShopCardItems.Add(shopingCard);
+        shopingCard.Initliaze(shopItemData);
+        shopManager._shoppingCardCost += shopItemData.ShopItemPrice;
+    }
+
+    public void CheckShopBasket(ShopItemData shopItemData)
+    {
+        var shopManager = ShopManager.Instance;
+        for (int i = 0; i < ShopCardItems.Count; i++)
         {
-            var shopingCard = Instantiate(SingleShopingCardItemPf, SingleShopingCardItemParentTransform);
-            shopingCard.GetComponent<SingleShopingCardItem>().Initliaze(shopManager.ShoppingBasket[i]);
-            shopManager._shoppingCardCost += shopManager.ShoppingBasket[i].ShopItemPrice;
+            if (shopItemData == ShopCardItems[i].ShopItem)
+            {
+                shopManager._shoppingCardCost += shopManager.ShoppingBasket[i].ShopItemPrice;
+                ShopCardItems[i].count++;
+            }
         }
     }
 }

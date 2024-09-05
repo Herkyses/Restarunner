@@ -14,7 +14,8 @@ public class SingleShopingCardItem : MonoBehaviour
     public void RemoveButtonPressed()
     {
         ShopManager.Instance.ShoppingBasket.Remove(ShopItem);
-        ShopManager.UpdateShopBasket?.Invoke();
+        PlacePanelController.Instance.ShopCardItems.Remove(this);
+        //ShopManager.UpdateShopBasket?.Invoke();
     }
 
     public void Initliaze(ShopItemData shopItemData)
