@@ -13,8 +13,17 @@ public class SingleShopingCardItem : MonoBehaviour
 
     public void RemoveButtonPressed()
     {
-        ShopManager.Instance.ShoppingBasket.Remove(ShopItem);
-        PlacePanelController.Instance.ShopCardItems.Remove(this);
+        if (count + 1 > 1)
+        {
+            count--;
+        }
+        else
+        {
+            ShopManager.Instance.ShoppingBasket.Remove(ShopItem);
+            PlacePanelController.Instance.ShopCardItems.Remove(this);
+            Destroy(gameObject);
+        }
+        
         //ShopManager.UpdateShopBasket?.Invoke();
     }
 
