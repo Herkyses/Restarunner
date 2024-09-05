@@ -33,10 +33,13 @@ using UnityEngine;
     private void OnEnable()
     {
         MealManager.UpdateFoodIngredient += UpdateFoodIngredient;
+        ShopManager.UpdateShopBasket += UpdateShopingBasket;
     }
     private void OnDisable()
     {
         MealManager.UpdateFoodIngredient -= UpdateFoodIngredient;
+        ShopManager.UpdateShopBasket -= UpdateShopingBasket;
+
     }
 
     public void ActivePlacePanel()
@@ -159,6 +162,18 @@ using UnityEngine;
     public void BuyButtonPressed()
     {
         ShopManager.Instance.BuyShoppingBasketButtonPressed();
+    }
+    public void UpdateShopingBasket()
+    {
+        Utilities.DeleteTransformchilds(SingleShopingCardItemParentTransform);
+        var shopManager = ShopManager.Instance;
+        shopManager._shoppingCardCost = 0;
+        for (int i = 0; i < shopManager.ShoppingBasket.Count; i++)
+        {
+            var shopingCard = Instantiate(SingleShopingCardItemPf, SingleShopingCardItemParentTransform);
+            shopingCard.GetComponent<SingleShopingCardItem>().ShopItem = shopManager.ShoppingBasket[i];
+            shopManager._shoppingCardCost += shopManager.ShoppingBasket[i].ShopItemPrice;
+        }
     }
 }
 [System.Serializable]

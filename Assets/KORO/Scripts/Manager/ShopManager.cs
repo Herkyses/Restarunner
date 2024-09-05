@@ -20,7 +20,7 @@ public class ShopManager : MonoBehaviour
 
     public static Action UpdateShopBasket;
 
-    [SerializeField] private float _shoppingCardCost;
+    public float _shoppingCardCost;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -48,6 +48,8 @@ public class ShopManager : MonoBehaviour
                     //CreateOrderBox(shopItemData);
                     _shoppingCardCost += shopItemData.ShopItemPrice;
                     ShoppingBasket.Add(shopItemData);
+                    UpdateShopBasket?.Invoke();
+
                 }
                 break;
             case Enums.ShopItemType.Waiter:
@@ -60,6 +62,8 @@ public class ShopManager : MonoBehaviour
                     _shoppingCardCost += shopItemData.ShopItemPrice;
                     //BuyFoodIngredient(shopItemData);
                     ShoppingBasket.Add(shopItemData);
+                    UpdateShopBasket?.Invoke();
+
                 }
                 break;
             case Enums.ShopItemType.PlaceUpgrade:
@@ -81,8 +85,9 @@ public class ShopManager : MonoBehaviour
                 {
                     //CreateOrderBox(shopItemData);
                     _shoppingCardCost += shopItemData.ShopItemPrice;
-
                     ShoppingBasket.Add(shopItemData);
+                    UpdateShopBasket?.Invoke();
+
                 }
                 break;
             
@@ -154,8 +159,8 @@ public class ShopManager : MonoBehaviour
         
     }
 
-    
 
+    
     private void Update()
     {
         if (Input.GetKey(KeyCode.L))
