@@ -72,7 +72,7 @@ public class GiveChefOrderPanelController : MonoBehaviour
 
     public void InitiliazeGiveChefOrderPanel()
     {
-        DeleteChilds(_singlePfParent);
+        Utilities.DeleteTransformchilds(_singlePfParent);
         if (OrderList.Count > 0)
         {
             for (int i = 0; i < OrderList[SelectedOrderListCount].OrderDataStructs.Count; i++)
@@ -83,17 +83,6 @@ public class GiveChefOrderPanelController : MonoBehaviour
             }
         }
         
-    }
-    public void DeleteChilds(Transform parentTransform)
-    {
-        var orderArray = parentTransform.GetComponentsInChildren<SingleOrder>();
-        if (orderArray.Length > 0)
-        {
-            for (int i = 0; i < orderArray.Length; i++)
-            {
-                Destroy(orderArray[i].gameObject);
-            }
-        }
     }
 
     public void DeactivePanel()

@@ -42,14 +42,14 @@ public class TableAvailablePanel : MonoBehaviour
     public void Initialize()
     {
         InitializeAvailabilityPanel();
-        DeleteCustomerChilds();
+        Utilities.DeleteTransformchilds(_customerParent);
         //CheckOrderBillsPanel.Instance.Initialize();
     }
 
     public void InitializeAvailabilityPanel()
     {
         _availabilityList.Clear();
-        DeleteChilds();
+        Utilities.DeleteTransformchilds(_contentParent);
         var availabilityArray = _tablesParent.GetComponentsInChildren<Table>();
 
         for (int i = 0; i < availabilityArray.Length; i++)
@@ -153,28 +153,7 @@ public class TableAvailablePanel : MonoBehaviour
             }
         }
     }
-    public void DeleteChilds()
-    {
-        var orderArray = _contentParent.GetComponentsInChildren<SingleAvailability>();
-        if (orderArray.Length > 0)
-        {
-            for (int i = 0; i < orderArray.Length; i++)
-            {
-                Destroy(orderArray[i].gameObject);
-            }
-        }
-    }
-    public void DeleteCustomerChilds()
-    {
-        var orderArray = _customerParent.GetComponentsInChildren<SingleCustomer>();
-        if (orderArray.Length > 0)
-        {
-            for (int i = 0; i < orderArray.Length; i++)
-            {
-                Destroy(orderArray[i].gameObject);
-            }
-        }
-    }
+    
 
     public void SetCustomerSelected(int customerIndex)
     {

@@ -42,7 +42,8 @@ public class BillTable : MonoBehaviour,IInterectableObject
 
     public void CreateTableBill(Table ownerTable)
     {
-        DeleteChilds();
+        
+        Utilities.DeleteTransformchilds(_tableBillParent);
         /*if (!_tableBillTemp)
         {
             _tableBillTemp = Instantiate(_tableBillPf, _tableBillParent);
@@ -92,17 +93,7 @@ public class BillTable : MonoBehaviour,IInterectableObject
     {
         
     }
-    public void DeleteChilds()
-    {
-        var orderArray = _tableBillParent.GetComponentsInChildren<TableBill>();
-        if (orderArray.Length > 0)
-        {
-            for (int i = 0; i < orderArray.Length; i++)
-            {
-                Destroy(orderArray[i].gameObject);
-            }
-        }
-    }
+    
     public void Open()
     {
         

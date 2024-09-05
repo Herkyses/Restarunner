@@ -57,8 +57,8 @@ using UnityEngine;
 
     public void Initialize()
     {
-        DeleteChilds();
-        OrderPanelController.Instance.DeleteChilds(SingleShopingCardItemParentTransform);
+        Utilities.DeleteTransformchilds(SingleShopItemParentTransform);
+        Utilities.DeleteTransformchilds(SingleShopingCardItemParentTransform);
         InitializeShopPanel(ShopManager.Instance.FirstShopItemDatas);
         for (int i = 0; i < FoodIngredients.Count; i++)
         {
@@ -90,7 +90,9 @@ using UnityEngine;
         {
             return;
         }
-        DeleteChilds();
+        
+        Utilities.DeleteTransformchilds(SingleShopItemParentTransform);
+
         switch (index)
         {
             case 0:
@@ -152,17 +154,7 @@ using UnityEngine;
             }
         }
     }
-    public void DeleteChilds()
-    {
-        var orderArray = SingleShopItemParentTransform.GetComponentsInChildren<SingleShopItem>();
-        if (orderArray.Length > 0)
-        {
-            for (int i = 0; i < orderArray.Length; i++)
-            {
-                Destroy(orderArray[i].gameObject);
-            }
-        }
-    }
+   
 
     public void BuyButtonPressed()
     {

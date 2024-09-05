@@ -34,8 +34,8 @@ public class OrderPanelController : MonoBehaviour
 
     public void Initialize()
     {
-        DeleteChilds(_singlePfParentForSelectedFoodList);
-        DeleteChilds(_singlePfParentForFoodList);
+        Utilities.DeleteTransformchilds(_singlePfParentForSelectedFoodList);
+        Utilities.DeleteTransformchilds(_singlePfParentForFoodList);
         for (int i = 0; i < GameDataManager.Instance.FoodDatas.Count; i++)
         {
             
@@ -81,7 +81,7 @@ public class OrderPanelController : MonoBehaviour
     public void ShowOrder(List<OrderDataStruct> _orderList,int tableNumber)
     {
         SelectedOrderList.Clear();
-        DeleteChilds(_singlePfParentForSelectedFoodList);
+        Utilities.DeleteTransformchilds(_singlePfParentForSelectedFoodList);
         OpenedTableNumber = tableNumber;
         CreateSelectedOrders();
 
@@ -123,7 +123,7 @@ public class OrderPanelController : MonoBehaviour
     
     public void CreateOrders(List<OrderDataStruct> _orderList)
     {
-        DeleteChilds(_singlePfParent);
+        Utilities.DeleteTransformchilds(_singlePfParent);
         _tableOrderList.Clear();
         for (int i = 0; i < _orderList.Count; i++)
         {
@@ -134,15 +134,5 @@ public class OrderPanelController : MonoBehaviour
         }
     }
 
-    public void DeleteChilds(Transform parentTransform)
-    {
-        var orderArray = parentTransform.GetComponentsInChildren<SingleOrder>();
-        if (orderArray.Length > 0)
-        {
-            for (int i = 0; i < orderArray.Length; i++)
-            {
-                Destroy(orderArray[i].gameObject);
-            }
-        }
-    }
+    
 }

@@ -66,7 +66,7 @@ public class FoodTable : MonoBehaviour,IInterectableObject
 
     public void CreateFood(Enums.OrderType orderType)
     {
-        DeleteChilds(FoodSpawnTransform);
+        Utilities.DeleteTransformchilds(FoodSpawnTransform);
         //var food = Instantiate(GameDataManager.Instance.GetFood(orderType),FoodSpawnTransform);
         var food = PoolManager.Instance.GetFromPoolForFood().GetComponent<Food>();
         food.transform.SetParent(FoodSpawnTransform);
@@ -86,17 +86,7 @@ public class FoodTable : MonoBehaviour,IInterectableObject
         _foodQualityCanvasObject.SetActive(false);
     }
     
-    public void DeleteChilds(Transform parent)
-    {
-        var orderArray = parent.GetComponentsInChildren<FoodTable>();
-        if (orderArray.Length > 0)
-        {
-            for (int i = 0; i < orderArray.Length; i++)
-            {
-                Destroy(orderArray[i].gameObject);
-            }
-        }
-    }
+    
 
     public void EatedFood()
     {

@@ -26,7 +26,7 @@ public class CheckOrderBillsPanel : MonoBehaviour
     }
     public void Initialize()
     {
-        DeleteChilds(_billParent);
+        Utilities.DeleteTransformchilds(_billParent);
         CreateBills();
     }
 
@@ -92,17 +92,7 @@ public class CheckOrderBillsPanel : MonoBehaviour
         _panel.gameObject.SetActive(false);
 
     }
-    public void DeleteChilds(Transform parent)
-    {
-        var orderArray = parent.GetComponentsInChildren<SingleBill>();
-        if (orderArray.Length > 0)
-        {
-            for (int i = 0; i < orderArray.Length; i++)
-            {
-                Destroy(orderArray[i].gameObject);
-            }
-        }
-    }
+   
 
     public void SelectedOrderBillforInducator(int tableNumber)
     {
