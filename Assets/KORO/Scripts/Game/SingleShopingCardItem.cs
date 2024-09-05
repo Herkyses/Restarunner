@@ -9,6 +9,7 @@ public class SingleShopingCardItem : MonoBehaviour
     public Image ShopingCarItemIcon;
     public float ShopingCarItemPrice;
     public ShopItemData ShopItem;
+    public int count;
 
     public void RemoveButtonPressed()
     {

@@ -46,9 +46,13 @@ public class ShopManager : MonoBehaviour
                 {
                     //GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
                     //CreateOrderBox(shopItemData);
-                    _shoppingCardCost += shopItemData.ShopItemPrice;
-                    ShoppingBasket.Add(shopItemData);
-                    UpdateShopBasket?.Invoke();
+                    if (!ShoppingBasket.Contains(shopItemData))
+                    {
+                        _shoppingCardCost += shopItemData.ShopItemPrice;
+                        ShoppingBasket.Add(shopItemData);
+                        UpdateShopBasket?.Invoke();
+
+                    }
 
                 }
                 break;
@@ -59,10 +63,14 @@ public class ShopManager : MonoBehaviour
                 if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
                 {
                     //GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
-                    _shoppingCardCost += shopItemData.ShopItemPrice;
                     //BuyFoodIngredient(shopItemData);
-                    ShoppingBasket.Add(shopItemData);
-                    UpdateShopBasket?.Invoke();
+                    if (!ShoppingBasket.Contains(shopItemData))
+                    {
+                        _shoppingCardCost += shopItemData.ShopItemPrice;
+                        ShoppingBasket.Add(shopItemData);
+                        UpdateShopBasket?.Invoke();
+
+                    }
 
                 }
                 break;
@@ -84,9 +92,13 @@ public class ShopManager : MonoBehaviour
                 if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
                 {
                     //CreateOrderBox(shopItemData);
-                    _shoppingCardCost += shopItemData.ShopItemPrice;
-                    ShoppingBasket.Add(shopItemData);
-                    UpdateShopBasket?.Invoke();
+                    if (!ShoppingBasket.Contains(shopItemData))
+                    {
+                        _shoppingCardCost += shopItemData.ShopItemPrice;
+                        ShoppingBasket.Add(shopItemData);
+                        UpdateShopBasket?.Invoke();
+
+                    }
 
                 }
                 break;
