@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22bb64f971391e244bf2f387cbdd3890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShopingCarItemIcon: {fileID: 0}
+  ShopingCarItemIcon: {fileID: 9181354328956877648}
   ShopingCarItemPrice: 0
   ShopItem: {fileID: 0}
 --- !u!1 &6446257265400580241

@@ -15,4 +15,12 @@ public class SingleShopingCardItem : MonoBehaviour
         ShopManager.Instance.ShoppingBasket.Remove(ShopItem);
         ShopManager.UpdateShopBasket?.Invoke();
     }
+
+    public void Initliaze(ShopItemData shopItemData)
+    {
+        ShopItem = shopItemData;
+        ShopingCarItemIcon.sprite = shopItemData.ShopItemIcon;
+        ShopingCarItemPrice = shopItemData.ShopItemPrice;
+        
+    }
 }

@@ -171,7 +171,7 @@ using UnityEngine;
         for (int i = 0; i < shopManager.ShoppingBasket.Count; i++)
         {
             var shopingCard = Instantiate(SingleShopingCardItemPf, SingleShopingCardItemParentTransform);
-            shopingCard.GetComponent<SingleShopingCardItem>().ShopItem = shopManager.ShoppingBasket[i];
+            shopingCard.GetComponent<SingleShopingCardItem>().Initliaze(shopManager.ShoppingBasket[i]);
             shopManager._shoppingCardCost += shopManager.ShoppingBasket[i].ShopItemPrice;
         }
     }
