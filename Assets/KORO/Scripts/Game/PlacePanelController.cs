@@ -184,8 +184,8 @@ using UnityEngine;
         {
             if (shopItemData == ShopCardItems[i].ShopItem)
             {
-                shopManager._shoppingCardCost += shopManager.ShoppingBasket[i].ShopItemPrice;
                 ShopCardItems[i].count++;
+                shopManager._shoppingCardCost += shopManager.ShoppingBasket[i].ShopItemPrice*(ShopCardItems[i].count+1);
             }
         }
     }
