@@ -173,12 +173,13 @@ using UnityEngine;
         var shopingCard = Instantiate(SingleShopingCardItemPf, SingleShopingCardItemParentTransform);
         ShopCardItems.Add(shopingCard);
         shopingCard.Initliaze(shopItemData);
-        shopManager._shoppingCardCost += shopItemData.ShopItemPrice;
+        //shopManager._shoppingCardCost += shopItemData.ShopItemPrice;
     }
 
     public void CheckShopBasket(ShopItemData shopItemData)
     {
         var shopManager = ShopManager.Instance;
+        shopManager._shoppingCardCost = 0;
         for (int i = 0; i < ShopCardItems.Count; i++)
         {
             if (shopItemData == ShopCardItems[i].ShopItem)

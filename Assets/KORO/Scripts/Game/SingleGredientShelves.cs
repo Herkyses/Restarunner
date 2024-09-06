@@ -45,6 +45,7 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
         var firstCount = _count;
         _mealManager = MealManager.Instance;
         _count = _mealManager.GetFoodIngredient(shelveIngredientType);
+
         for (int i = 0; i < firstCount; i++)
         {
             if (i >= _count)
@@ -53,6 +54,8 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
             }
             
         }
+        _ingredientCount.text = _count.ToString();
+
     }
 
     public void InterectableObjectRun()
