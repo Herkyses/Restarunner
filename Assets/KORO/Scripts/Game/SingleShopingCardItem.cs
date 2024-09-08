@@ -16,14 +16,18 @@ public class SingleShopingCardItem : MonoBehaviour
         if (count + 1 > 1)
         {
             count--;
+            ShopManager.Instance.UpdateShopingBasket();
+
         }
         else
         {
             ShopManager.Instance.ShoppingBasket.Remove(ShopItem);
             PlacePanelController.Instance.ShopCardItems.Remove(this);
+            ShopManager.Instance.UpdateShopingBasket();
+
             Destroy(gameObject);
         }
-        
+
         //ShopManager.UpdateShopBasket?.Invoke();
     }
 

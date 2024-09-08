@@ -48,7 +48,7 @@ public class ShopManager : MonoBehaviour
                     //CreateOrderBox(shopItemData);
                     if (!ShoppingBasket.Contains(shopItemData))
                     {
-                        _shoppingCardCost += shopItemData.ShopItemPrice;
+                        //_shoppingCardCost += shopItemData.ShopItemPrice;
                         ShoppingBasket.Add(shopItemData);
                         UpdateShopBasket?.Invoke(shopItemData);
 
@@ -70,7 +70,7 @@ public class ShopManager : MonoBehaviour
                     //BuyFoodIngredient(shopItemData);
                     if (!ShoppingBasket.Contains(shopItemData))
                     {
-                        _shoppingCardCost += shopItemData.ShopItemPrice;
+                        //_shoppingCardCost += shopItemData.ShopItemPrice;
                         ShoppingBasket.Add(shopItemData);
                         UpdateShopBasket?.Invoke(shopItemData);
 
@@ -101,7 +101,7 @@ public class ShopManager : MonoBehaviour
                     //CreateOrderBox(shopItemData);
                     if (!ShoppingBasket.Contains(shopItemData))
                     {
-                        _shoppingCardCost += shopItemData.ShopItemPrice;
+                        //_shoppingCardCost += shopItemData.ShopItemPrice;
                         ShoppingBasket.Add(shopItemData);
                         UpdateShopBasket?.Invoke(shopItemData);
 
@@ -114,6 +114,7 @@ public class ShopManager : MonoBehaviour
                 break;
             
         }
+        UpdateShopingBasket();
     }
 
     public void BuyFoodIngredient(ShopItemData shopItemData)
@@ -179,6 +180,15 @@ public class ShopManager : MonoBehaviour
             ShoppingBasket.Clear();
         }
         
+    }
+
+    public void UpdateShopingBasket()
+    {
+        _shoppingCardCost = 0;
+        for (int i = 0; i < PlacePanelController.Instance.ShopCardItems.Count; i++)
+        {
+            _shoppingCardCost += PlacePanelController.Instance.ShopCardItems[i].ShopItem.ShopItemPrice * (PlacePanelController.Instance.ShopCardItems[i].count+1);
+        }
     }
 
 

@@ -18,6 +18,8 @@ using UnityEngine;
     public SingleShopItem SingleShopItemPf;
     public Transform SingleShopingCardItemParentTransform;
     public SingleShopingCardItem SingleShopingCardItemPf;
+
+    private ShopManager _shopManager;
     private void Awake()
     {
         if (Instance == null)
@@ -29,6 +31,11 @@ using UnityEngine;
             Destroy(gameObject);
         }
 
+    }
+
+    private void Start()
+    {
+        _shopManager = ShopManager.Instance;
     }
 
     private void OnEnable()
@@ -178,14 +185,13 @@ using UnityEngine;
 
     public void CheckShopBasket(ShopItemData shopItemData)
     {
-        var shopManager = ShopManager.Instance;
-        shopManager._shoppingCardCost = 0;
+        //_shopManager._shoppingCardCost = 0;
         for (int i = 0; i < ShopCardItems.Count; i++)
         {
             if (shopItemData == ShopCardItems[i].ShopItem)
             {
                 ShopCardItems[i].count++;
-                shopManager._shoppingCardCost += shopManager.ShoppingBasket[i].ShopItemPrice*(ShopCardItems[i].count+1);
+                //_shopManager._shoppingCardCost += _shopManager.ShoppingBasket[i].ShopItemPrice*(ShopCardItems[i].count+1);
             }
         }
     }
