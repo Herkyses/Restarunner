@@ -191,6 +191,7 @@ using UnityEngine;
             if (shopItemData == ShopCardItems[i].ShopItem)
             {
                 ShopCardItems[i].count++;
+                ShopCardItems[i].UpdateCountText();
                 //_shopManager._shoppingCardCost += _shopManager.ShoppingBasket[i].ShopItemPrice*(ShopCardItems[i].count+1);
             }
         }

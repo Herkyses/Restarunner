@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class SingleShopingCardItem : MonoBehaviour
     public Image ShopingCarItemIcon;
     public float ShopingCarItemPrice;
     public ShopItemData ShopItem;
+    public TextMeshProUGUI ShopItemCountText;
     public int count;
 
     public void RemoveButtonPressed()
@@ -17,6 +19,7 @@ public class SingleShopingCardItem : MonoBehaviour
         {
             count--;
             ShopManager.Instance.UpdateShopingBasket();
+            UpdateCountText();
 
         }
         else
@@ -36,6 +39,11 @@ public class SingleShopingCardItem : MonoBehaviour
         ShopItem = shopItemData;
         ShopingCarItemIcon.sprite = shopItemData.ShopItemIcon;
         ShopingCarItemPrice = shopItemData.ShopItemPrice;
-        
+        UpdateCountText();
+    }
+
+    public void UpdateCountText()
+    {
+        ShopItemCountText.text = (count+1).ToString();
     }
 }
