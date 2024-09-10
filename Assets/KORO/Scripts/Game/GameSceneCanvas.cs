@@ -12,10 +12,12 @@ public class GameSceneCanvas : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _ownedMoneyText;
     [SerializeField] private TextMeshProUGUI _popularityText;
     [SerializeField] private TextMeshProUGUI _infoText;
+    [SerializeField] private TextMeshProUGUI _cleanRateText;
     [SerializeField] private TextMeshProUGUI[] _infoTexts;
     [SerializeField] private TextMeshProUGUI[] _infoButtonsTexts;
     [SerializeField] private GameObject _infoObject;
     [SerializeField] private GameObject _objectInfoTextsParent;
+    
     public OrderPanelController _orderPanel;
     public CatchNonPayerPanelController _catchNonPayerPanel;
     public MusicController _musicController;
@@ -169,6 +171,11 @@ public class GameSceneCanvas : MonoBehaviour
         {
             Debug.Log("No data found.");
         }
+    }
+
+    public void SetCleanRateText(float rate)
+    {
+        _cleanRateText.text = "% " + ((int)(rate*100)).ToString();
     }
     
 }

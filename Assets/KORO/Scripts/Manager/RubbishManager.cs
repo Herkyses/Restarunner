@@ -85,6 +85,7 @@ public class RubbishManager : MonoBehaviour
             }
         }
         _cleanRate = (float)_allRubbishCount/_rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceRubbishLevel()].childCount;
+        GameSceneCanvas.Instance.SetCleanRateText(_cleanRate);
     }
     // Update is called once per frame
     void Update()
