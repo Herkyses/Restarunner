@@ -16,6 +16,7 @@ public class Rubbish : MonoBehaviour,IInterectableObject
         //{
             gameObject.SetActive(false);
             Player.Instance.StartClean();
+            RubbishManager.Instance.CheckRubbishRate();
         //}
     }
 

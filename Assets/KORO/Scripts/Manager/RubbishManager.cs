@@ -6,7 +6,10 @@ public class RubbishManager : MonoBehaviour
 {
     public static RubbishManager Instance;
     [SerializeField] private int _rubbishLevel;
+    [SerializeField] private float _cleanRate;
+    [SerializeField] private int _allRubbishCount;
     [SerializeField] private List<Transform> _rubbishLevelsParents;
+    
     private void Awake()
     {
         if (Instance == null)
@@ -66,7 +69,23 @@ public class RubbishManager : MonoBehaviour
     public void ActivateRubbishes()
     {
         _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceRubbishLevel()].gameObject.SetActive(true);
-    } 
+        _allRubbishCount = _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceRubbishLevel()].childCount;
+        CheckRubbishRate();
+    }
+
+    public void CheckRubbishRate()
+    {
+        _allRubbishCount = 0;
+
+        foreach (Transform child in _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceRubbishLevel()])
+        {
+            if (child.gameObject.activeInHierarchy)
+            {
+                _allRubbishCount++;
+            }
+        }
+        _cleanRate = (float)_allRubbishCount/_rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceRubbishLevel()].childCount;
+    }
     // Update is called once per frame
     void Update()
     {
