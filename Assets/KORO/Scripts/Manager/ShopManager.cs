@@ -173,6 +173,8 @@ public class ShopManager : MonoBehaviour
         if (_shoppingCardCost <= PlayerPrefsManager.Instance.LoadPlayerMoney())
         {
             _shoppingCardCost = 0;
+            PlacePanelController.Instance.ShopCardItems.Clear();
+            Utilities.DeleteTransformchilds(PlacePanelController.Instance.SingleShopingCardItemParentTransform);
             for (int i = 0; i < ShoppingBasket.Count; i++)
             {
                 CreateOrderBox(ShoppingBasket[i]);
