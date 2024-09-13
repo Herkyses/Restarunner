@@ -99,17 +99,20 @@ public class GameSceneCanvas : MonoBehaviour
             if (!_objectInfoTextsParent.activeSelf)
             {
                 _objectInfoTextsParent.SetActive(true);
-                
+                _objectInfoTextsParent.GetComponent<RectTransform>().sizeDelta = new Vector2(200f,areaInfo.Length*85f);
             }
             for (int i = 0; i < _infoTexts.Length; i++)
             {
                 if (i < areaInfo.Length)
                 {
+                    _infoTexts[i].gameObject.SetActive(true);
                     _infoTexts[i].text = areaInfo[i];
 
                 }
                 else
                 {
+                    _infoTexts[i].gameObject.SetActive(false);
+
                     _infoTexts[i].text = null;
                     _infoButtonsTexts[i].text = null;
                 }
