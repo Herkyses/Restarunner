@@ -15276,6 +15276,10 @@ MonoBehaviour:
   - {fileID: 7086192610382002579}
   - {fileID: 2681440366117466939}
   - {fileID: 6153747558769161782}
+  _infoButtonsParent:
+  - {fileID: 5880679970900213071}
+  - {fileID: 2157279170605766884}
+  - {fileID: 2499449663045525124}
   _infoObject: {fileID: 6436319220034316563}
   _objectInfoTextsParent: {fileID: 2923400432141393436}
   _orderPanel: {fileID: 6436319220097357180}

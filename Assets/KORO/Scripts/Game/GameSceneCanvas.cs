@@ -15,6 +15,7 @@ public class GameSceneCanvas : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _cleanRateText;
     [SerializeField] private TextMeshProUGUI[] _infoTexts;
     [SerializeField] private TextMeshProUGUI[] _infoButtonsTexts;
+    [SerializeField] private GameObject[] _infoButtonsParent;
     [SerializeField] private GameObject _infoObject;
     [SerializeField] private GameObject _objectInfoTextsParent;
     
@@ -106,12 +107,14 @@ public class GameSceneCanvas : MonoBehaviour
                 if (i < areaInfo.Length)
                 {
                     _infoTexts[i].gameObject.SetActive(true);
+                    _infoButtonsParent[i].gameObject.SetActive(true);
                     _infoTexts[i].text = areaInfo[i];
 
                 }
                 else
                 {
                     _infoTexts[i].gameObject.SetActive(false);
+                    _infoButtonsParent[i].gameObject.SetActive(false);
 
                     _infoTexts[i].text = null;
                     _infoButtonsTexts[i].text = null;
