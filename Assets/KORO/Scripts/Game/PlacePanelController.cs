@@ -1,7 +1,8 @@
  using System;
  using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+ using DG.Tweening;
+ using UnityEngine;
  using UnityEngine.Serialization;
 
  public class PlacePanelController : MonoBehaviour
@@ -14,11 +15,13 @@ using UnityEngine;
     //public List<FoodIngredient> FoodIngredients;
     public Transform _panel;
     public Transform _ownerFoodIngredients;
+    public Transform TabButtonParent;
+    public RectTransform[] TabButtonsRecttransforms;
     [FormerlySerializedAs("_singlePlaceItemParentTransform")] public Transform SingleShopItemParentTransform;
     public SingleShopItem SingleShopItemPf;
     public Transform SingleShopingCardItemParentTransform;
     public SingleShopingCardItem SingleShopingCardItemPf;
-
+    private Vector2 firstSizeDelta;
     private ShopManager _shopManager;
     private void Awake()
     {
@@ -36,6 +39,14 @@ using UnityEngine;
     private void Start()
     {
         _shopManager = ShopManager.Instance;
+        var rectTransforms = TabButtonParent.GetComponentsInChildren<SingleTabButton>();
+        TabButtonsRecttransforms = new RectTransform[rectTransforms.Length];
+        for (int i = 0; i < rectTransforms.Length; i++)
+        {
+            TabButtonsRecttransforms[i] = rectTransforms[i].GetComponent<RectTransform>();
+        }
+
+        firstSizeDelta = TabButtonsRecttransforms[0].sizeDelta;
     }
 
     private void OnEnable()
@@ -97,9 +108,24 @@ using UnityEngine;
 
     public void InitializeWithButton(int index)
     {
+        
         if (index != 1 && PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 1)
         {
+            TabButtonsRecttransforms[1].DOSizeDelta(firstSizeDelta * 1.1f, 0.2f);
             return;
+        }
+        for (int i = 0; i < TabButtonsRecttransforms.Length; i++)
+        {
+            if (i != index)
+            {
+                TabButtonsRecttransforms[i].DOSizeDelta(firstSizeDelta, 0.2f);
+ 
+            }
+            else
+            {
+                TabButtonsRecttransforms[i].DOSizeDelta(firstSizeDelta * 1.1f, 0.2f);
+ 
+            }
         }
         
         Utilities.DeleteTransformchilds(SingleShopItemParentTransform);
