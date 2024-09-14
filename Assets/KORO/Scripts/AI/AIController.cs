@@ -209,7 +209,8 @@ public class AIController : MonoBehaviour,IInterectableObject
             foodTable.transform.DORotate(AIOwnerChair.ChairFoodTransform.rotation.eulerAngles,0.2f);
             foodTable.transform.DOMove(AIOwnerChair.ChairFoodTransform.position,0.2f);
             foodTable = null;
-            playerOrderController.FoodTable = null;
+            playerOrderController.ResetOrder();
+            
             Player.Instance.DropTakenObject();
             AIStateMachineController.AIChangeState(AIStateMachineController.AIEatState);
             if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)

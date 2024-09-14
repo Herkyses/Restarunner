@@ -114,4 +114,11 @@ public class PlayerOrderController : MonoBehaviour
     {
         
     }
+
+    public void ResetOrder()
+    {
+        FoodTable = null;
+        Food = null;
+        OrderFoodList.Clear();
+    }
 }
