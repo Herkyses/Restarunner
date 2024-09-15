@@ -181,6 +181,7 @@ public class ShopManager : MonoBehaviour
             }
             ShoppingBasket.Clear();
         }
+        PlacePanelController.Instance.UpdateCostText();
         
     }
 
