@@ -11,6 +11,7 @@ public class SingleShopingCardItem : MonoBehaviour
     public float ShopingCarItemPrice;
     public ShopItemData ShopItem;
     public TextMeshProUGUI ShopItemCountText;
+    public TextMeshProUGUI TotalCost;
     public int count;
 
     public void RemoveButtonPressed()
@@ -55,5 +56,6 @@ public class SingleShopingCardItem : MonoBehaviour
     public void UpdateCountText()
     {
         ShopItemCountText.text = (count+1).ToString();
+        TotalCost.text = ((count + 1) * ShopingCarItemPrice).ToString()+ "$";
     }
 }

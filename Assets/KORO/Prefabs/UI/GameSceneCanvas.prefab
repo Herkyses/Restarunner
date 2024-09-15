@@ -7082,7 +7082,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Total: 15422222222$'
+  m_text: 'Total: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4b9c996ee886d6b47866a29b1d952b9f, type: 2}
   m_sharedMaterial: {fileID: -1721352540230844532, guid: 4b9c996ee886d6b47866a29b1d952b9f, type: 2}
