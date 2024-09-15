@@ -34,6 +34,16 @@ public class SingleShopingCardItem : MonoBehaviour
         //ShopManager.UpdateShopBasket?.Invoke();
     }
 
+    public void PlusButtonPressed()
+    {
+       
+        count++;
+        UpdateCountText();
+        //ShopManager.Instance.ShoppingBasket.Add(ShopItem);
+        ShopManager.Instance.UpdateShopingBasket();
+
+    }
+
     public void Initliaze(ShopItemData shopItemData)
     {
         ShopItem = shopItemData;
