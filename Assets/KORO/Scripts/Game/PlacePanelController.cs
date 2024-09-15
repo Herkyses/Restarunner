@@ -2,6 +2,7 @@
  using System.Collections;
 using System.Collections.Generic;
  using DG.Tweening;
+ using TMPro;
  using UnityEngine;
  using UnityEngine.Serialization;
 
@@ -23,6 +24,7 @@ using System.Collections.Generic;
     public SingleShopingCardItem SingleShopingCardItemPf;
     private Vector2 firstSizeDelta;
     private ShopManager _shopManager;
+    [SerializeField] private TextMeshProUGUI _totalCostText;
     private void Awake()
     {
         if (Instance == null)
@@ -61,6 +63,10 @@ using System.Collections.Generic;
 
     }
 
+    public void UpdateCostText()
+    {
+        _totalCostText.text = "Total: " +  "<color=green>" + _shopManager._shoppingCardCost.ToString() +"$" +"</color>";
+    }
     public void ActivePlacePanel()
     {
         GameSceneCanvas.Instance.CanMove = false;
@@ -87,7 +93,7 @@ using System.Collections.Generic;
             FoodIngredients[i].IngredientValue = 5;
         }
 
-        for (int i = 0; i < PlayerPrefsManager.Instance.LoadMeals().meals.Count; i++)
+        /*for (int i = 0; i < PlayerPrefsManager.Instance.LoadMeals().meals.Count; i++)
         {
             var singleOwnerfoodGredient = Instantiate(SingleShopItemPf, _ownerFoodIngredients);
             singleOwnerfoodGredient.CheckShopItem();
@@ -95,7 +101,7 @@ using System.Collections.Generic;
             singleOwnerfoodGredient.InitializeFoodIngredient(PlayerPrefsManager.Instance.LoadMeals().meals[i].mealName,PlayerPrefsManager.Instance.LoadMeals().meals[i].ingredientQuantity);
             OwnerFoodIngredients.Add(singleOwnerfoodGredient);
 
-        }
+        }*/
     }
 
     public void UpdateFoodIngredient()

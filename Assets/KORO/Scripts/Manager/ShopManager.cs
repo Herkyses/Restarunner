@@ -191,6 +191,7 @@ public class ShopManager : MonoBehaviour
         {
             _shoppingCardCost += PlacePanelController.Instance.ShopCardItems[i].ShopItem.ShopItemPrice * (PlacePanelController.Instance.ShopCardItems[i].count+1);
         }
+        PlacePanelController.Instance.UpdateCostText();
     }
 
 
