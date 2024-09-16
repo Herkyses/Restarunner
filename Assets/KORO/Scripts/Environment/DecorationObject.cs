@@ -64,9 +64,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
             
             //gameObject.layer = LayerMask.NameToLayer("Ground");
             GetComponent<BoxCollider>().enabled = false;
-            Player.Instance.PlayerTakedObject = gameObject;
-            Player.Instance.PlayerStateType = Enums.PlayerStateType.DecorationMove;
-            Player.Instance.ActivatedRaycast(false);
+            Player.Instance.MoveObject(gameObject,Enums.PlayerStateType.DecorationMove);
             isDecorationMove = true;
 
 

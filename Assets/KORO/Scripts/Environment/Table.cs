@@ -33,6 +33,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
     private Outline _outline;
     private Player _player;
+    private TableController tableController;
     private void OnEnable()
     {
         Chair.GivedOrder += CreateOrdersWithAction;
@@ -138,10 +139,8 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
         aiArea.InteractabelControl();
         _aiControllerList.Add(aiArea.GetComponent<AIController>());
-
-        aiArea.AIController.AIOwnerTable = this;
-        aiArea.AIController.AIOwnerChair = chair;
-        aiArea.AIController.IsSitting = true;
+        
+        aiArea.AIController.SetTableInfo(this, chair);
     }
     private void SetAIOrder(AIAreaController aiArea)
     {
@@ -200,6 +199,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         TableNumberText.text = (TableNumber+1).ToString();
         _outline = GetComponent<Outline>();
         _player = Player.Instance;
+        tableController = TableController.Instance;
     }
 
     public void TableInitialize()
@@ -292,14 +292,12 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     {
         if (!IsTableMove && !PlaceController.RestaurantIsOpen && CustomerCount == 0)
         {
-            Player.Instance.ActivatedRaycast(false);
             IsTableMove = true;
-            Player.Instance.PlayerTakedObject = gameObject;
-            Player.Instance.PlayerStateType = Enums.PlayerStateType.MoveTable;
+            _player.MoveObject(gameObject,Enums.PlayerStateType.MoveTable);
             GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTable);
             GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTable);
             TableSet.GetComponent<BoxCollider>().enabled = false;
-            TableController.Instance.EnableTableSetCollider(true);
+            tableController.EnableTableSetCollider(true);
 
         }
         
@@ -340,7 +338,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
                 Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
                 //if(colliders.Length )
                 TableSet.GetComponent<BoxCollider>().enabled = false;
-                TableController.Instance.EnableTableSetCollider(false);
+                tableController.EnableTableSetCollider(false);
                 IsTableSetTransform = false;
                 IsTableMove = false;
                 Player.Instance.PlayerTakedObject = null;
@@ -357,17 +355,17 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     public void TableControl()
     {
         var isTableHere = false;
-        for (int i = 0; i < TableController.Instance.TableSets.Count; i++)
+        for (int i = 0; i < tableController.TableSets.Count; i++)
         {
-            if (TableSet == TableController.Instance.TableSets[i])
+            if (TableSet == tableController.TableSets[i])
             {
                 return;
             }
         }
-        TableSet.transform.SetParent(TableController.Instance.TableTransform);
-        TableController.Instance.TableSetCapacity++;
-        TableController.Instance.TableSets.Add(TableSet);
-        TableController.Instance.UpdateTables();
+        TableSet.transform.SetParent(tableController.TableTransform);
+        tableController.TableSetCapacity++;
+        tableController.TableSets.Add(TableSet);
+        tableController.UpdateTables();
         TableAvailablePanel.Instance.AddNewTable(this);
         CheckOrderBillsPanel.Instance.UpdatePanel(TableNumber,TotalBills);
     }

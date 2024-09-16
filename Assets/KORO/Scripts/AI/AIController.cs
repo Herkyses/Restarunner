@@ -247,6 +247,13 @@ public class AIController : MonoBehaviour,IInterectableObject
     {
         
     }
+
+    public void SetTableInfo(Table table, Chair chair)
+    {
+        AIOwnerTable = table;
+        AIOwnerChair = chair;
+        IsSitting = true;
+    }
     public void SetModel(int modelIndex)
     {
         for (int i = 0; i < AIModels.Count; i++)

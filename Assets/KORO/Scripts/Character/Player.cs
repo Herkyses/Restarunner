@@ -113,6 +113,13 @@ public class Player : MonoBehaviour
     {
         CameraController.Instance.MoveFightTool();
     }
+
+    public void MoveObject(GameObject moveObject,Enums.PlayerStateType playerStateType)
+    {
+        ActivatedRaycast(false);
+        PlayerTakedObject = moveObject;
+        PlayerStateType = playerStateType;
+    }
     
 }
 [Serializable]
