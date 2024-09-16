@@ -336,12 +336,14 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
                 Player.Instance.ActivatedRaycast(true);
 
                 Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
+                
+                Player.Instance.PlayerTakedObject = null;
+
                 //if(colliders.Length )
                 TableSet.GetComponent<BoxCollider>().enabled = false;
                 tableController.EnableTableSetCollider(false);
                 IsTableSetTransform = false;
                 IsTableMove = false;
-                Player.Instance.PlayerTakedObject = null;
                 if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 2)
                 {
                     PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(4);
