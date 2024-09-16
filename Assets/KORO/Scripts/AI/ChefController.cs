@@ -80,13 +80,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
                     
                     HandleMealIngredient(foodData);
                     TutorialSte(foodData);
-                    
-                    _chefOrderTableIndex++;
-                    _tableFoodList.Add(food);
-                    if (_chefOrderTableIndex >= _chefOrderTable.FoodTransformList.Count)
-                    {
-                        _chefOrderTableIndex = 0;
-                    }
+                    UpdateChefOrderTableIndex(food);
                 }
             }
 
@@ -140,6 +134,16 @@ public class ChefController : MonoBehaviour,IInterectableObject
             }
         }
         return false;
+    }
+
+    public void UpdateChefOrderTableIndex(FoodTable foodTable)
+    {
+        _chefOrderTableIndex++;
+        _tableFoodList.Add(foodTable);
+        if (_chefOrderTableIndex >= _chefOrderTable.FoodTransformList.Count)
+        {
+            _chefOrderTableIndex = 0;
+        }
     }
     public void InterectableObjectRun()
     {
