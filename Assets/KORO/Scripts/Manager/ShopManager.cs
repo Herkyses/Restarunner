@@ -20,6 +20,8 @@ public class ShopManager : MonoBehaviour
     public Transform ShopOrderTransform;
 
     public static Action<ShopItemData> UpdateShopBasket;
+    
+    private const int TutorialStepPlaceUpgrade = 2;
 
     public float _shoppingCardCost;
     // Start is called before the first frame update
@@ -143,7 +145,7 @@ public class ShopManager : MonoBehaviour
         MapManager.Instance.SaveMap();
         if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 1)
         {
-            PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(2);
+            PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(TutorialStepPlaceUpgrade);
             TutorialManager.Instance.Initiliaze();
         }
         
@@ -182,10 +184,12 @@ public class ShopManager : MonoBehaviour
     
     private void Update()
     {
+        #if UNITY_EDITOR
         if (Input.GetKey(KeyCode.L))
         {
             Player.Instance.GainMoney(10f);
         }
+        #endif
     }
 }
 [System.Serializable]
