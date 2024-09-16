@@ -32,6 +32,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     public Transform BillPanel;
 
     private Outline _outline;
+    private Player _player;
     private void OnEnable()
     {
         Chair.GivedOrder += CreateOrdersWithAction;
@@ -52,6 +53,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         }
         
     }
+    
 
     public List<OrderDataStruct> GetOrders()
     {
@@ -197,6 +199,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         IsTableAvailable = true;
         TableNumberText.text = (TableNumber+1).ToString();
         _outline = GetComponent<Outline>();
+        _player = Player.Instance;
     }
 
     public void TableInitialize()
@@ -220,7 +223,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     }
     public void InterectableObjectRun()
     {
-        if (!PlayerOrderController.Instance.TakedFood && !PlayerOrderController.Instance.TakedTableBill)
+        if (!_player.PlayerOrdersController.TakedFood && !_player.PlayerOrdersController.TakedTableBill)
         {
             if (CustomerCount > 0)
             {
@@ -230,7 +233,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             
         }
 
-        if (PlayerOrderController.Instance.TakedTableBill && PlayerOrderController.Instance.TableBill.OwnerTable == this)
+        if (_player.PlayerOrdersController.TakedTableBill && _player.PlayerOrdersController.TableBill.OwnerTable == this)
         {
             if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
             {
@@ -241,10 +244,10 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             {
                 _aiControllerList[i].AIStateMachineController.SetMoveStateFromOrderBill();
             } 
-            PlayerOrderController.Instance.TakedTableBill = false;
-            Player.Instance.PlayerTakedObject = null;
+            _player.PlayerOrdersController.TakedTableBill = false;
+            _player.PlayerTakedObject = null;
             BillTable.Instance.UpdateTableBill(PlayerOrderController.Instance.TableBill);
-            Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
+            _player.PlayerStateType = Enums.PlayerStateType.Free;
             
             ResetTable();
         }
