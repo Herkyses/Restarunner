@@ -335,9 +335,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
                 TableControl();
                 Player.Instance.ActivatedRaycast(true);
 
-                Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
-                
-                Player.Instance.PlayerTakedObject = null;
+                Player.Instance.TakedObjectNull();
 
                 //if(colliders.Length )
                 TableSet.GetComponent<BoxCollider>().enabled = false;

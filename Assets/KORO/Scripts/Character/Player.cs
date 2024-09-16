@@ -124,6 +124,11 @@ public class Player : MonoBehaviour
     public void FreePlayerStart()
     {
         PlayerOrdersController.TakedTableBill = false;
+        TakedObjectNull();
+    }
+
+    public void TakedObjectNull()
+    {
         PlayerTakedObject = null;
         PlayerStateType = Enums.PlayerStateType.Free;
     }
