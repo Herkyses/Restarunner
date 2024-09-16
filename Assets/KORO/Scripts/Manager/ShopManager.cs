@@ -44,19 +44,7 @@ public class ShopManager : MonoBehaviour
             case Enums.ShopItemType.Table:
                 if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
                 {
-                    //GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
-                    //CreateOrderBox(shopItemData);
-                    if (!ShoppingBasket.Contains(shopItemData))
-                    {
-                        //_shoppingCardCost += shopItemData.ShopItemPrice;
-                        ShoppingBasket.Add(shopItemData);
-                        UpdateShopBasket?.Invoke(shopItemData);
-
-                    }
-                    else
-                    {
-                        PlacePanelController.Instance.CheckShopBasket(shopItemData);
-                    }
+                    AddShoppingToBasket(shopItemData);
 
                 }
                 break;
@@ -66,19 +54,7 @@ public class ShopManager : MonoBehaviour
             case Enums.ShopItemType.FoodIngredient:
                 if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
                 {
-                    //GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
-                    //BuyFoodIngredient(shopItemData);
-                    if (!ShoppingBasket.Contains(shopItemData))
-                    {
-                        //_shoppingCardCost += shopItemData.ShopItemPrice;
-                        ShoppingBasket.Add(shopItemData);
-                        UpdateShopBasket?.Invoke(shopItemData);
-
-                    }
-                    else
-                    {
-                        PlacePanelController.Instance.CheckShopBasket(shopItemData);
-                    }
+                    AddShoppingToBasket(shopItemData);
                 }
                 break;
             case Enums.ShopItemType.PlaceUpgrade:
@@ -99,22 +75,27 @@ public class ShopManager : MonoBehaviour
                 if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
                 {
                     //CreateOrderBox(shopItemData);
-                    if (!ShoppingBasket.Contains(shopItemData))
-                    {
-                        //_shoppingCardCost += shopItemData.ShopItemPrice;
-                        ShoppingBasket.Add(shopItemData);
-                        UpdateShopBasket?.Invoke(shopItemData);
-
-                    }
-                    else
-                    {
-                        PlacePanelController.Instance.CheckShopBasket(shopItemData);
-                    }
+                    AddShoppingToBasket(shopItemData);
                 }
                 break;
             
         }
         UpdateShopingBasket();
+    }
+
+    public void AddShoppingToBasket(ShopItemData shopItemData)
+    {
+        if (!ShoppingBasket.Contains(shopItemData))
+        {
+            //_shoppingCardCost += shopItemData.ShopItemPrice;
+            ShoppingBasket.Add(shopItemData);
+            UpdateShopBasket?.Invoke(shopItemData);
+
+        }
+        else
+        {
+            PlacePanelController.Instance.CheckShopBasket(shopItemData);
+        }
     }
 
     public void BuyFoodIngredient(ShopItemData shopItemData)
