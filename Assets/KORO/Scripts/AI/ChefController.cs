@@ -19,6 +19,10 @@ public class ChefController : MonoBehaviour,IInterectableObject
     public static Action<OrderData> FoodIngredientIncreese;
     private FoodTable _tableFood;
     private List<FoodTable> _tableFoodList = new List<FoodTable>();
+    
+    private const float FOOD_ROTATION_Y = 90f;
+    private const int TUTORIAL_STEP_THRESHOLD = 4;
+    private const int TUTORIAL_UPDATE_STEP = 8;
 
     private void OnEnable()
     {
@@ -57,11 +61,12 @@ public class ChefController : MonoBehaviour,IInterectableObject
 
     public void CreateFoods(bool withWaiter)
     {
+        var foodDatas = GameDataManager.Instance.FoodDatas;
         for (int i = 0; i < ChefOwnerStructData.Count; i++)
         {
-            for (int j = 0; j < GameDataManager.Instance.FoodDatas.Count; j++)
+            for (int j = 0; j < foodDatas.Count; j++)
             {
-                var foodData = GameDataManager.Instance.FoodDatas[j];
+                var foodData = foodDatas[j];
                 if (!CheckFoodIngredientCount(foodData))
                 {
                     continue;
@@ -69,26 +74,13 @@ public class ChefController : MonoBehaviour,IInterectableObject
 
                 if (ChefOwnerStructData[i].OrderType == foodData.OrderType && MealManager.Instance.GetMealIngredient(foodData.OrderType) > 0)
                 {
-                    //var food = Instantiate(GameDataManager.Instance.FoodTablePf);
-                    var food = PoolManager.Instance.GetFromPoolForFoodTable().GetComponent<FoodTable>();
-                    food.IsFoodFinished = false;
-                    food.QualityTimeStarted = false;
+                    
+                    var food = InitiliazeFood(foodData);
                     RemovedOrderDataStructs.Add(ChefOwnerStructData[i]);
-                    food.CreateFood(foodData.Food.OrderType);
-                    food.transform.position = _chefOrderTable.FoodTransformList[_chefOrderTableIndex].position;
-                    food.transform.localRotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
-                    MealManager.Instance.MakeMealIngredient(foodData.Food.OrderType,-1);
-                    FoodIngredientIncreese?.Invoke(foodData);
-                    if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() > 4)
-                    {
-                        PlacePanelController.Instance.DecreeseIngredient(food.OrderType);
-                        //MealManager.Instance.MakeMeal(foodData.Food.OrderType,-1);
-                        //MealManager.Instance.MakeMealIngredient(foodData.Food.OrderType,-1);
-                    }
-                    else
-                    {
-                        TutorialManager.Instance.SetTutorialInfo(8);
-                    }
+                    
+                    HandleMealIngredient(foodData);
+                    TutorialSte(foodData);
+                    
                     _chefOrderTableIndex++;
                     _tableFoodList.Add(food);
                     if (_chefOrderTableIndex >= _chefOrderTable.FoodTransformList.Count)
@@ -105,6 +97,35 @@ public class ChefController : MonoBehaviour,IInterectableObject
             ChefOwnerStructData.Remove(RemovedOrderDataStructs[j]);
         }
         RemovedOrderDataStructs.Clear();
+    }
+
+    public FoodTable InitiliazeFood(OrderData orderData)
+    {
+        var food = PoolManager.Instance.GetFromPoolForFoodTable().GetComponent<FoodTable>();
+        food.IsFoodFinished = false;
+        food.QualityTimeStarted = false;
+        food.CreateFood(orderData.Food.OrderType);
+        food.transform.position = _chefOrderTable.FoodTransformList[_chefOrderTableIndex].position;
+        food.transform.localRotation = Quaternion.Euler(new Vector3(0f, FOOD_ROTATION_Y, 0f));
+        return food;
+    }
+    
+    public void HandleMealIngredient(OrderData orderData)
+    {
+        MealManager.Instance.MakeMealIngredient(orderData.Food.OrderType,-1);
+        FoodIngredientIncreese?.Invoke(orderData);
+    }
+
+    public void TutorialSte(OrderData orderData)
+    {
+        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() > TUTORIAL_STEP_THRESHOLD)
+        {
+            PlacePanelController.Instance.DecreeseIngredient(orderData.OrderType);
+        }
+        else
+        {
+            TutorialManager.Instance.SetTutorialInfo(TUTORIAL_UPDATE_STEP);
+        }
     }
 
     public bool CheckFoodIngredientCount(OrderData foodOrderData)
