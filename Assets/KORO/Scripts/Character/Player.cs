@@ -120,6 +120,13 @@ public class Player : MonoBehaviour
         PlayerTakedObject = moveObject;
         PlayerStateType = playerStateType;
     }
+
+    public void FreePlayerStart()
+    {
+        PlayerOrdersController.TakedTableBill = false;
+        PlayerTakedObject = null;
+        PlayerStateType = Enums.PlayerStateType.Free;
+    }
     
 }
 [Serializable]

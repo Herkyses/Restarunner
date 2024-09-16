@@ -243,11 +243,11 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             for (int i = 0; i < _aiControllerList.Count; i++)
             {
                 _aiControllerList[i].AIStateMachineController.SetMoveStateFromOrderBill();
-            } 
-            _player.PlayerOrdersController.TakedTableBill = false;
-            _player.PlayerTakedObject = null;
-            BillTable.Instance.UpdateTableBill(PlayerOrderController.Instance.TableBill);
-            _player.PlayerStateType = Enums.PlayerStateType.Free;
+            }
+
+            _player.FreePlayerStart();
+
+            BillTable.Instance.UpdateTableBill(_player.PlayerOrdersController.TableBill);
             
             ResetTable();
         }
