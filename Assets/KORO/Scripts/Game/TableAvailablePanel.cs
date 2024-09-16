@@ -32,12 +32,7 @@ public class TableAvailablePanel : MonoBehaviour
             Destroy(gameObject);
         }    
     }
-    void Start()
-    {
-        //InitializeAvailabilityPanel();
-        //DeleteCustomerChilds();
-
-    }
+    
 
     public void Initialize()
     {
@@ -162,13 +157,15 @@ public class TableAvailablePanel : MonoBehaviour
             if (customerIndex == _customerList[i].aiIndex)
             {
                 _customerList[i].GetComponent<Image>().color = Color.green;
-                TableAvailablePanel.Instance.IsCustomerSelected = true;
+                IsCustomerSelected = true;
 
             }
             else
             {
-                if(_customerList[i])
-                _customerList[i].GetComponent<Image>().color = Color.white;
+                if (_customerList[i])
+                {
+                    _customerList[i].GetComponent<Image>().color = Color.white;
+                }
             }
         }
     }

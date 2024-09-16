@@ -39,7 +39,8 @@ public class AIController : MonoBehaviour,IInterectableObject
     public Chair AIOwnerChair;
     public FoodTable AIOwnerFood;
     public OrderDataStruct FoodDataStruct;
-
+    private Player _player;
+    
     private Outline _outline;
 
 
@@ -60,6 +61,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     {
         texts = new [] {"Serv the food"};
         textsButtons = new [] {"E"};
+        _player = Player.Instance;
     }
 
     /////////// SIT STATE ///////////
@@ -144,42 +146,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     }
     // Update is called once per frame
     
-    void CheckForObstacles()
-    {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position+ Vector3.up, transform.right, out hit, 2f, obstacleMask))
-            {
-                var player = hit.collider.gameObject.GetComponent<Player>();
-                if (player._canTakeMoney)
-                {
-                    player.GainMoney(1f);
-                    _playerPosition = hit.collider.gameObject.GetComponent<Player>().transform;
-
-                    AIStateMachineController.AIChangeState(AIStateMachineController.AIClapState);
-
-                }
-                Debug.DrawRay(transform.position + Vector3.up, transform.right * 2f, Color.blue);
-
-            }
-        
-        
-            if (Physics.Raycast(transform.position+ Vector3.up, -transform.right, out hit, 2f, obstacleMask))
-            {
-                var player = hit.collider.gameObject.GetComponent<Player>();
-                if (player._canTakeMoney)
-                {
-                    player.GainMoney(1f);
-                    _playerPosition = hit.collider.gameObject.GetComponent<Player>().transform;
-
-                    AIStateMachineController.AIChangeState(AIStateMachineController.AIClapState);
-                }   
-
-                Debug.DrawRay(transform.position + Vector3.up, -transform.right * 2f, Color.red);
-
-            }
-            
-        
-    }
+    
     
     public void InterectableObjectRun()
     {
@@ -187,36 +154,26 @@ public class AIController : MonoBehaviour,IInterectableObject
         {
             if (aiRagdollController)
             {
-                StartCoroutine(aiRagdollController.AddForceToAICor(PlayerOrderController.Instance.transform.forward));
-                Player.Instance.StartFight();
+                StartCoroutine(aiRagdollController.AddForceToAICor(_player.PlayerOrdersController.transform.forward));
+                _player.StartFight();
                 aiRagdollController.SetRagdollState(true);
                 //aiRagdollController.AddForceToAI(PlayerOrderController.Instance.transform.forward);
             }
         }
-        if (PlayerOrderController.Instance.TakedFood && PlayerOrderController.Instance.Food.OrderType == FoodDataStruct.OrderType && IsSitting)
+        if (_player.PlayerOrdersController.TakedFood && _player.PlayerOrdersController.Food.OrderType == FoodDataStruct.OrderType && IsSitting)
         {
             IsTakedFood = true;
-            AIOwnerFood = PlayerOrderController.Instance.FoodTable;
+            AIOwnerFood = _player.PlayerOrdersController.FoodTable;
             AIOwnerFood.FoodGivedCustomer();
-            var playerOrderController = PlayerOrderController.Instance;
-            var foodTable = playerOrderController.FoodTable;
-            playerOrderController.TakedFood = false;
-            Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
-            //PlayerOrderController.Instance.FoodTable.transform.position = AIOwnerChair.ChairFoodTransform.position;
-            //PlayerOrderController.Instance.FoodTable.transform.rotation = AIOwnerChair.ChairFoodTransform.rotation;
-            foodTable.transform.SetParent(AIOwnerChair.ChairFoodTransform);
-
-            foodTable.transform.DORotate(AIOwnerChair.ChairFoodTransform.rotation.eulerAngles,0.2f);
-            foodTable.transform.DOMove(AIOwnerChair.ChairFoodTransform.position,0.2f);
-            foodTable = null;
-            playerOrderController.ResetOrder();
             
-            Player.Instance.DropTakenObject();
+            AssignFoodToAI(AIOwnerChair);
+            
+            _player.PlayerOrdersController.TakedFood = false;
+            _player.PlayerStateType = Enums.PlayerStateType.Free;
+            _player.PlayerOrdersController.ResetOrder();
+            _player.DropTakenObject();
             AIStateMachineController.AIChangeState(AIStateMachineController.AIEatState);
-            if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
-            {
-                TutorialManager.Instance.SetTutorialInfo(9);
-            }
+            HandleTutorialStep();
         }
     }
     public void InterectableObjectRunforWaiter(FoodTable foodTable)
@@ -229,6 +186,33 @@ public class AIController : MonoBehaviour,IInterectableObject
             
         AIStateMachineController.AIChangeState(AIStateMachineController.AIEatState);
         
+    }
+    
+    
+    private void AssignFoodToAI(Chair aiOwnerChair)
+    {
+        IsTakedFood = true;
+        AIOwnerFood = PlayerOrderController.Instance.FoodTable;
+        AIOwnerFood.FoodGivedCustomer();
+    
+        var foodTable = PlayerOrderController.Instance.FoodTable;
+        MoveFoodToAIChair(foodTable, aiOwnerChair);
+        foodTable = null;
+    }
+    private void MoveFoodToAIChair(FoodTable foodTable, Chair aiOwnerChair)
+    {
+        const float moveDuration = 0.2f;
+
+        foodTable.transform.SetParent(aiOwnerChair.ChairFoodTransform);
+        foodTable.transform.DORotate(aiOwnerChair.ChairFoodTransform.rotation.eulerAngles, moveDuration);
+        foodTable.transform.DOMove(aiOwnerChair.ChairFoodTransform.position, moveDuration);
+    }
+    private void HandleTutorialStep()
+    {
+        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
+        {
+            TutorialManager.Instance.SetTutorialInfo(9);
+        }
     }
 
     public void ShowOutline(bool active)

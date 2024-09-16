@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerData _playerData;
     [SerializeField] private PlayerRaycastController _playerRaycastController;
+    public PlayerOrderController PlayerOrdersController;
     public bool _canTakeMoney;
     public bool CanCleanRubbish;
     public bool CanFight;
@@ -44,6 +45,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         gameObject.TryGetComponent(out _playerRaycastController);
+        gameObject.TryGetComponent(out PlayerOrdersController);
         PlayerMoney = PlayerPrefsManager.Instance.LoadPlayerMoney();
         CameraController.Instance.PlayerTransform = transform;
     }
