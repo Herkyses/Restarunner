@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
@@ -45,7 +46,6 @@ public class ShopManager : MonoBehaviour
                 if (shopItemData.ShopItemPrice <= PlayerPrefsManager.Instance.LoadPlayerMoney())
                 {
                     AddShoppingToBasket(shopItemData);
-
                 }
                 break;
             case Enums.ShopItemType.Waiter:
@@ -61,14 +61,7 @@ public class ShopManager : MonoBehaviour
                 var playerPrefs = PlayerPrefsManager.Instance;
                 if (shopItemData.ShopItemPrice <= playerPrefs.LoadPlayerMoney() && playerPrefs.LoadPlaceLevel() < playerPrefs.LoadPlaceRubbishLevel() && playerPrefs.LoadPlaceLevel() == shopItemData.PlaceLevel)
                 {
-                    singleShopItem.IsButtonActive = false;
-                    GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
-                    var level = PlayerPrefsManager.Instance.LoadPlaceLevel() +1;
-                    PlayerPrefsManager.Instance.SavePlaceLevel(level);
-
-                    BuyPlaceUpgrade();
-                    PlacePanelController.Instance.UpdateShopItems();
-                    GameDataManager.Instance.UpdateOpenFoodDatas();
+                    HandlePlaceUpgrade(shopItemData,singleShopItem);
                 }
                 break;
             case Enums.ShopItemType.Decoration:
@@ -81,6 +74,18 @@ public class ShopManager : MonoBehaviour
             
         }
         UpdateShopingBasket();
+    }
+
+    public void HandlePlaceUpgrade(ShopItemData shopItemData,SingleShopItem singleShopItem)
+    {
+        singleShopItem.IsButtonActive = false;
+        GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
+        var level = PlayerPrefsManager.Instance.LoadPlaceLevel() +1;
+        PlayerPrefsManager.Instance.SavePlaceLevel(level);
+
+        BuyPlaceUpgrade();
+        PlacePanelController.Instance.UpdateShopItems();
+        GameDataManager.Instance.UpdateOpenFoodDatas();
     }
 
     public void AddShoppingToBasket(ShopItemData shopItemData)
@@ -168,11 +173,8 @@ public class ShopManager : MonoBehaviour
 
     public void UpdateShopingBasket()
     {
-        _shoppingCardCost = 0;
-        for (int i = 0; i < PlacePanelController.Instance.ShopCardItems.Count; i++)
-        {
-            _shoppingCardCost += PlacePanelController.Instance.ShopCardItems[i].ShopItem.ShopItemPrice * (PlacePanelController.Instance.ShopCardItems[i].count+1);
-        }
+        _shoppingCardCost = PlacePanelController.Instance.ShopCardItems
+            .Sum(item => item.ShopItem.ShopItemPrice * (item.count + 1));
         PlacePanelController.Instance.UpdateCostText();
     }
 

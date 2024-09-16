@@ -15083,7 +15083,7 @@ MonoBehaviour:
   _objectInfoTextsParent: {fileID: 2923400432141393436}
   _orderPanel: {fileID: 6436319220097357180}
   _catchNonPayerPanel: {fileID: 8589168685464643569}
-  _musicController: {fileID: 6436319220872949723}
+  _musicController: {fileID: 0}
   _orderPanelImage: {fileID: 0}
   CanShowCanvas: 1
   CanMove: 0
@@ -17314,7 +17314,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6436319220872949716}
-  - component: {fileID: 6436319220872949723}
   - component: {fileID: 6436319220872949722}
   - component: {fileID: 892412444196968215}
   m_Layer: 5
@@ -17323,7 +17322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6436319220872949716
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17345,35 +17344,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6436319220872949723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6436319220872949717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad8a427728d8853418205b421eb79c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CorrectAreaRect: {fileID: 6436319220137297772}
-  AreaInducatorRect: {fileID: 6436319220215690877}
-  DownArea: {fileID: 6436319219330891959}
-  MusicControllerPanel: {fileID: 6436319220717888409}
-  ArrowImages:
-  - {fileID: 21300000, guid: 2f69ddff00adc374cb9192d3a8473eea, type: 3}
-  - {fileID: 21300000, guid: 6c20791ac60cc7d4a9a3b8c6be6fa3bc, type: 3}
-  - {fileID: 21300000, guid: 41c6f460f7c7fdd47aa24b6d08b15f0a, type: 3}
-  - {fileID: 21300000, guid: 836f5de951b48c743b9a6c76d6b4c843, type: 3}
-  AnswerControlBg: {fileID: 6436319220348238290}
-  IsCorrectable: 0
-  Isplayable: 0
-  IsRightArrow: 0
-  IsLeftArrow: 0
-  IsUpArrow: 0
-  IsDownArrow: 0
-  AreaInducatorPosition: {x: 0, y: 0}
 --- !u!114 &6436319220872949722
 MonoBehaviour:
   m_ObjectHideFlags: 0
