@@ -293,11 +293,11 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         if (!IsTableMove && !PlaceController.RestaurantIsOpen && CustomerCount == 0)
         {
             IsTableMove = true;
-            _player.MoveObject(gameObject,Enums.PlayerStateType.MoveTable);
+            Player.Instance.MoveObject(gameObject,Enums.PlayerStateType.MoveTable);
             GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTable);
             GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTable);
             TableSet.GetComponent<BoxCollider>().enabled = false;
-            tableController.EnableTableSetCollider(true);
+            TableController.Instance.EnableTableSetCollider(true);
 
         }
         
