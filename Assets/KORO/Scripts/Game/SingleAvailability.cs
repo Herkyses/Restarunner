@@ -17,7 +17,7 @@ public class SingleAvailability : MonoBehaviour
 
     public void SingleAvailabilityInitialize(int tableNumber, Table ownerTable)
     {
-        AvailabilityText.text = tableNumber.ToString();
+        AvailabilityText.text = (tableNumber+1).ToString();
         OwnerTable = ownerTable;
         TableNumber = ownerTable.TableNumber;
         CustomerCountText.text = OwnerTable.TableCapacity.ToString();
