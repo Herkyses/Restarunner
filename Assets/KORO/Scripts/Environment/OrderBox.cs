@@ -55,8 +55,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
         transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
         GetComponent<Rigidbody>().useGravity = false;
         GetComponent<BoxCollider>().enabled = false;
-        Player.Instance.PlayerTakedObject = gameObject;
-        Player.Instance.PlayerStateType = Enums.PlayerStateType.TakeBox;
+        Player.Instance.TakedObject(gameObject,Enums.PlayerStateType.TakeBox);
         GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTake);
         GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTake);
         _isOrderBoxOpenAvailable = false;

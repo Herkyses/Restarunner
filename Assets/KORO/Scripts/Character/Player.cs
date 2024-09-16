@@ -132,6 +132,12 @@ public class Player : MonoBehaviour
         PlayerTakedObject = null;
         PlayerStateType = Enums.PlayerStateType.Free;
     }
+
+    public void TakedObject(GameObject takeObject,Enums.PlayerStateType stateType)
+    {
+        PlayerTakedObject = takeObject;
+        PlayerStateType = stateType;
+    }
     
 }
 [Serializable]

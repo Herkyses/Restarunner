@@ -39,8 +39,7 @@ public class SingleCrate : MonoBehaviour,IInterectableObject
         transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
         GetComponent<Rigidbody>().useGravity = false;
         GetComponent<BoxCollider>().enabled = false;
-        Player.Instance.PlayerTakedObject = gameObject;
-        Player.Instance.PlayerStateType = Enums.PlayerStateType.TakeFoodIngredient;
+        Player.Instance.TakedObject(gameObject,Enums.PlayerStateType.TakeFoodIngredient);
         //GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTake);
         //GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTake);
         //_isOrderBoxOpenAvailable = false;
