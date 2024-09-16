@@ -92,37 +92,61 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
     public void StartState(AIAreaController AIArea, Enums.AIStateType aiStateType)
     {
-        if (aiStateType == Enums.AIStateType.Customer)
+        switch (aiStateType)
         {
-            AvailabilityControl();
-            var chair = CheckChairAvailable();
-            if (chair)
-            {
-                chair.isChairAvailable = false;
-                AIArea.transform.position = chair.transform.position;
-                AIArea.transform.rotation = chair.transform.rotation;
-                var stateMAchineController = AIArea.gameObject.GetComponent<AIStateMachineController>();
-                stateMAchineController.AIChangeState(stateMAchineController.AISitState);
-                AIArea.gameObject.GetComponent<AIAreaController>().InteractabelControl();
-                _aiControllerList.Add(AIArea.gameObject.GetComponent<AIController>());
-                var orderIndex = Random.Range(0, GameDataManager.Instance.OpenFoodDatas.Count);
-                AIArea.AIController.AIOwnerTable = this;
-                AIArea.AIController.AIOwnerChair = chair;
-                AIArea.AIController.IsSitting = true;
-                SetOrderTable(AIArea.AIController,GameDataManager.Instance.OpenFoodDatas[orderIndex].OrderType);
-                TableController.GivedOrderForAIWaiter?.Invoke(this);
-                if (OrderPanelController.Instance.OpenedTableNumber == TableNumber)
-                {
-                    Chair.GivedOrder?.Invoke(TableNumber);
-                }
-            }
-        }
-        else if(aiStateType == Enums.AIStateType.Waiter)
-        {
-            AIArea.WaiterController.AddOrder(_orderList);
+            case Enums.AIStateType.Customer:
+                HandleCustomerState(AIArea);
+                break;
+            case Enums.AIStateType.Waiter:
+                HandleWaiterState(AIArea);
+                break;
         }
         
         
+    }
+
+    private void HandleCustomerState(AIAreaController aiArea)
+    {
+        AvailabilityControl();
+        var chair = CheckChairAvailable();
+        if (chair == null) return;
+
+        AssignAIToChair(aiArea, chair);
+        SetAIOrder(aiArea);
+    
+        TableController.GivedOrderForAIWaiter?.Invoke(this);
+        if (OrderPanelController.Instance.OpenedTableNumber == TableNumber)
+        {
+            Chair.GivedOrder?.Invoke(TableNumber);
+        }
+    }
+    private void HandleWaiterState(AIAreaController aiArea)
+    {
+        aiArea.WaiterController.AddOrder(_orderList);
+    }
+    
+    private void AssignAIToChair(AIAreaController aiArea, Chair chair)
+    {
+        chair.isChairAvailable = false;
+        aiArea.transform.position = chair.transform.position;
+        aiArea.transform.rotation = chair.transform.rotation;
+
+        var stateMachineController = aiArea.GetComponent<AIStateMachineController>();
+        stateMachineController.AIChangeState(stateMachineController.AISitState);
+
+        aiArea.InteractabelControl();
+        _aiControllerList.Add(aiArea.GetComponent<AIController>());
+
+        aiArea.AIController.AIOwnerTable = this;
+        aiArea.AIController.AIOwnerChair = chair;
+        aiArea.AIController.IsSitting = true;
+    }
+    private void SetAIOrder(AIAreaController aiArea)
+    {
+        var orderIndex = Random.Range(0, GameDataManager.Instance.OpenFoodDatas.Count);
+        var orderType = GameDataManager.Instance.OpenFoodDatas[orderIndex].OrderType;
+
+        SetOrderTable(aiArea.AIController, orderType);
     }
     public void SetOrderTable(AIController aiController,Enums.OrderType orderType)
     {
