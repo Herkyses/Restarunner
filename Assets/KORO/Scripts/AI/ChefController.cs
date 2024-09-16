@@ -114,7 +114,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
     {
         if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() > TUTORIAL_STEP_THRESHOLD)
         {
-            PlacePanelController.Instance.DecreeseIngredient(orderData.OrderType);
+            //PlacePanelController.Instance.DecreeseIngredient(orderData.OrderType);
         }
         else
         {
