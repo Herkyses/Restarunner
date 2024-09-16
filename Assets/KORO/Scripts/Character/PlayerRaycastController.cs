@@ -200,9 +200,8 @@ public class PlayerRaycastController : MonoBehaviour
                     }
 
                     var playerInstance = Player.Instance;
-                    playerInstance.PlayerTakedObject = null;
                     _gameSceneCanvas.UnShowAreaInfo();
-                    playerInstance.PlayerStateType = Enums.PlayerStateType.Free;
+                    playerInstance.TakedObjectNull();
                 }
             }
             
