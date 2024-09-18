@@ -30,7 +30,7 @@ public class PopularityManager : MonoBehaviour
     public void CalculateSinglePopularityValue(float customerPatienceRate,float serviceSpeed,float tableQuality)
     {
         float customerPopularity = ((serviceSpeed/_rate) * PopularityData.FoodQualityMultiplier) 
-                                   + ((cleanliness/_rate) * PopularityData.CleanlinessMultiplier)
+                                   + ((cleanliness) * PopularityData.CleanlinessMultiplier)
                                    + ((tableQuality/_rate) * PopularityData.TableQualityMultiplier)
                                    + ((decorationQuality/_rate) * PopularityData.DecorationQualityMultiplier)
                                    + ((customerPatienceRate/_rate) * PopularityData.CustomerPatienceMultiplier);

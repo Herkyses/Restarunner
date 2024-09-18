@@ -77,14 +77,14 @@ public class RubbishManager : MonoBehaviour
     {
         _allRubbishCount = 0;
 
-        foreach (Transform child in _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceRubbishLevel()])
+        foreach (Transform child in _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceLevel()])
         {
             if (child.gameObject.activeInHierarchy)
             {
                 _allRubbishCount++;
             }
         }
-        _cleanRate = (float)_allRubbishCount/_rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceRubbishLevel()].childCount;
+        _cleanRate = (float)_allRubbishCount/_rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceLevel()].childCount;
         GameSceneCanvas.Instance.SetCleanRateText(_cleanRate);
     }
     // Update is called once per frame

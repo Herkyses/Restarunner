@@ -35,7 +35,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     public int obstacleMaskValue;
     public int AgentID;
     public int destinationValue = -1;
-    public float CustomerPatienceRate;
+    public float CustomerPatienceRate = 7;
     public Table AIOwnerTable;
     public Chair AIOwnerChair;
     public FoodTable AIOwnerFood;
@@ -251,7 +251,7 @@ public class AIController : MonoBehaviour,IInterectableObject
 
     public void CalculatePopularityRate()
     {
-        PopularityManager.Instance.CalculateSinglePopularityValue(CustomerPatienceRate,AIOwnerFood.Food.QualityWaitTime,AIOwnerTable.TableQuality);
+        PopularityManager.Instance.CalculateSinglePopularityValue(7,AIOwnerFood.Food.QualityWaitTime,AIOwnerTable.TableQuality);
     }
     public void SetTableInfo(Table table, Chair chair)
     {
