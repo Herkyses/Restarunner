@@ -123,4 +123,13 @@ public class PlayerPrefsManager : MonoBehaviour
     {
         return PlayerPrefs.GetInt("PlaceRubbishLevel", 0);
     }
+    public void SavePopularity(float popularity)
+    {
+        PlayerPrefs.SetFloat("Popularity", popularity);
+        PlayerPrefs.Save();
+    }
+    public float LoadPopularity()
+    {
+        return PlayerPrefs.GetFloat("Popularity", 0);
+    }
 }

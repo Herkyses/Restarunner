@@ -11,6 +11,7 @@ public class GameSceneCanvas : MonoBehaviour
     public static GameSceneCanvas Instance;
     [SerializeField] private TextMeshProUGUI _ownedMoneyText;
     [SerializeField] private TextMeshProUGUI _popularityText;
+    [SerializeField] private TextMeshProUGUI _totalCustomerText;
     [SerializeField] private TextMeshProUGUI _infoText;
     [SerializeField] private TextMeshProUGUI _cleanRateText;
     [SerializeField] private TextMeshProUGUI[] _infoTexts;
@@ -44,7 +45,7 @@ public class GameSceneCanvas : MonoBehaviour
     private void Start()
     {
         UpdateMoneyText(PlayerPrefsManager.Instance.LoadPlayerMoney());
-        UpdatePopularityText(PlayerPrefsManager.Instance.LoadCustomerCount());
+        CustomerCountUpdate(PlayerPrefsManager.Instance.LoadCustomerCount());
 
     }
 
@@ -57,7 +58,7 @@ public class GameSceneCanvas : MonoBehaviour
             UpdateAISpawnController?.Invoke();
         }
         PlayerPrefsManager.Instance.SaveCustomerCount(popularity);
-        UpdatePopularityText(popularity);
+        CustomerCountUpdate(popularity);
     }
 
     private void OnEnable()
@@ -75,9 +76,15 @@ public class GameSceneCanvas : MonoBehaviour
     {
         _ownedMoneyText.text = gain.ToString("F2");
     }
-    public void UpdatePopularityText(int popularity)
+    public void CustomerCountUpdate(float popularity)
     {
-        _popularityText.text = popularity.ToString();
+        _totalCustomerText.text = ((float)popularity).ToString();
+    }
+
+    public void UpdatePopularity(float popularity)
+    {
+        _popularityText.text = ((float)popularity).ToString("F2");
+
     }
 
     public void ShowAreaInfo(string areaInfo)

@@ -93,4 +93,9 @@ public class RubbishManager : MonoBehaviour
     {
         
     }
+
+    public float GetCleanRateValue()
+    {
+        return _cleanRate;
+    }
 }

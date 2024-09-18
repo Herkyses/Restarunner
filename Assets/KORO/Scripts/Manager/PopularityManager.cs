@@ -12,6 +12,7 @@ public class PopularityManager : MonoBehaviour
     private float cleanliness;
     private float decorationQuality;
     private float _rate = 10f;
+    private RubbishManager _rubbishManager;
     
 
     private void Awake()
@@ -27,22 +28,46 @@ public class PopularityManager : MonoBehaviour
 
     }
 
+    public void Initiliaze()
+    {
+        _rubbishManager = RubbishManager.Instance;
+        GameSceneCanvas.Instance.UpdatePopularity(PlayerPrefsManager.Instance.LoadPopularity());
+    }
+
     public void CalculateSinglePopularityValue(float customerPatienceRate,float serviceSpeed,float tableQuality)
     {
         float customerPopularity = ((serviceSpeed/_rate) * PopularityData.FoodQualityMultiplier) 
-                                   + ((cleanliness) * PopularityData.CleanlinessMultiplier)
+                                   + ((1-_rubbishManager.GetCleanRateValue()) * PopularityData.CleanlinessMultiplier)
                                    + ((tableQuality/_rate) * PopularityData.TableQualityMultiplier)
                                    + ((decorationQuality/_rate) * PopularityData.DecorationQualityMultiplier)
                                    + ((customerPatienceRate/_rate) * PopularityData.CustomerPatienceMultiplier);
         
         // Yeni popülariteyi ortalama ile birleştir
-        //totalPopularity = ((totalPopularity * (totalCustomers - 1)) + customerPopularity) / totalCustomers;
-
+        // totalPopularity = ((totalPopularity * (totalCustomers - 1)) + customerPopularity) / totalCustomers;
+        Debug.Log("servicespeed" + (serviceSpeed/_rate) * PopularityData.FoodQualityMultiplier);
+        Debug.Log("clean" + (_rubbishManager.GetCleanRateValue()) * PopularityData.CleanlinessMultiplier);
+        Debug.Log("table" + (tableQuality/_rate) * PopularityData.TableQualityMultiplier);
+        Debug.Log("decorationQuality" + (decorationQuality/_rate) * PopularityData.DecorationQualityMultiplier);
+        Debug.Log("customerPatienceRate" + (customerPatienceRate/_rate) * PopularityData.CustomerPatienceMultiplier);
+        CalculatePopularityRatio(customerPopularity);
     }
 
     public void CalculatePopularityRatio(float newCustomerPopularity)
     {
         var customerCount = PlayerPrefsManager.Instance.LoadCustomerCount();
-        averagePopularity = ((averagePopularity * (customerCount - 1)) + newCustomerPopularity) / customerCount;
+        
+        if (customerCount > 1)
+        {
+            averagePopularity = PlayerPrefsManager.Instance.LoadPopularity();
+            averagePopularity = ((averagePopularity * (customerCount - 1)) + newCustomerPopularity) / customerCount;
+            PlayerPrefsManager.Instance.SavePopularity(averagePopularity);
+        }
+        else
+        {
+            averagePopularity = newCustomerPopularity;
+            PlayerPrefsManager.Instance.SavePopularity(newCustomerPopularity);
+        }
+        GameSceneCanvas.Instance.UpdatePopularity(averagePopularity);
+        Debug.Log("pop " + newCustomerPopularity);
     }
 }

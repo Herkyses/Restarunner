@@ -172,7 +172,7 @@ public class AIStateMachineController : MonoBehaviour
         if (AIController.AIOwnerTable.CheckAllCustomerFinishedFood())
         {
             AIController.AIOwnerTable.AllFoodfinished();
-            if (Random.value < 0.5f && PlayerPrefsManager.Instance.LoadPlayerTutorialStep() != 4)
+            /*if (Random.value < 0.5f && PlayerPrefsManager.Instance.LoadPlayerTutorialStep() != 4)
             {
                 AIController.AIOwnerTable.ResetTable();
                 AIChangeState(AIRunFromRestaurantState);
@@ -186,7 +186,7 @@ public class AIStateMachineController : MonoBehaviour
                         Friends[i].AIStateMachineController.ResetAI();
                     }
                 }
-            }
+            }*/
             
         }
         //AIController.AIOwnerChair.isChairAvailable = true;
@@ -213,8 +213,9 @@ public class AIStateMachineController : MonoBehaviour
     public void SetMoveStateFromOrderBill()
     {
         //AIController.AIOwnerTable._aiControllerList.Remove(AIController);
-        
         GameSceneCanvas.Instance.AddPopularity();
+        AIController.CalculatePopularityRate();
+
         GameManager.PayedOrderBill?.Invoke(GameDataManager.Instance.GetFoodPrice(AIController.FoodDataStruct.OrderType));
         ResetAI();
         AIChangeState(AIMoveState);

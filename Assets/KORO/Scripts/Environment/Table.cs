@@ -23,7 +23,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     public int TableCapacity;
     public int CustomerCount;
     public int groundLayer;
-    public int TableQuality;
+    public float TableQuality = 5;
     public float TotalBills;
     public TextMeshProUGUI TableNumberText;
     public TableSet TableSet;
@@ -201,6 +201,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         _outline = GetComponent<Outline>();
         _player = Player.Instance;
         tableController = TableController.Instance;
+        TableQuality = 5f;
     }
 
     public void TableInitialize()

@@ -15,5 +15,6 @@ MonoBehaviour:
   FoodQualityMultiplier: 0.4
   CleanlinessMultiplier: 0.2
   CatchUpTimeMultiplier: 0.15
-  DecorationQualityMultiplier: 0.15
+  DecorationQualityMultiplier: 0.1
   TableQualityMultiplier: 0.1
+  CustomerPatienceMultiplier: 0.05

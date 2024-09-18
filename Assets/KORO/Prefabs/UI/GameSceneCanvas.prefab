@@ -15064,7 +15064,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ownedMoneyText: {fileID: 6436319220558845957}
-  _popularityText: {fileID: 6436319220159317512}
+  _popularityText: {fileID: 6436319219743010502}
+  _totalCustomerText: {fileID: 6436319220159317512}
   _infoText: {fileID: 6436319220940361016}
   _cleanRateText: {fileID: 160578553399221281}
   _infoTexts:
