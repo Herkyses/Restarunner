@@ -80,7 +80,7 @@ public class AISpawnController : MonoBehaviour
     }
     public IEnumerator Initialize()
     {
-        for (int i = 0; i < ActiveAiCount + (PlayerPrefsManager.Instance.LoadPopularity()/2); i++)
+        for (int i = 0; i < ActiveAiCount + (PlayerPrefsManager.Instance.LoadCustomerCount()/2); i++)
         {
             var ranDomTime = Random.Range(1, 3);
             yield return new WaitForSeconds(ranDomTime);

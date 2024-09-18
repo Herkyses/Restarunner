@@ -44,19 +44,19 @@ public class GameSceneCanvas : MonoBehaviour
     private void Start()
     {
         UpdateMoneyText(PlayerPrefsManager.Instance.LoadPlayerMoney());
-        UpdatePopularityText(PlayerPrefsManager.Instance.LoadPopularity());
+        UpdatePopularityText(PlayerPrefsManager.Instance.LoadCustomerCount());
 
     }
 
     public void AddPopularity()
     {
-        var popularity = PlayerPrefsManager.Instance.LoadPopularity();
+        var popularity = PlayerPrefsManager.Instance.LoadCustomerCount();
         popularity++;
         if (popularity % 2 == 0)
         {
             UpdateAISpawnController?.Invoke();
         }
-        PlayerPrefsManager.Instance.SavePopularity(popularity);
+        PlayerPrefsManager.Instance.SaveCustomerCount(popularity);
         UpdatePopularityText(popularity);
     }
 

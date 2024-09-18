@@ -71,14 +71,14 @@ public class PlayerPrefsManager : MonoBehaviour
     {
         return PlayerPrefs.GetInt("PlaceLevel", 0); 
     }
-    public void SavePopularity(int money)
+    public void SaveCustomerCount(int customerCount)
     {
-        PlayerPrefs.SetInt("Popularity", money);
+        PlayerPrefs.SetInt("CustomerCount", customerCount);
         PlayerPrefs.Save();
     }
-    public int LoadPopularity()
+    public int LoadCustomerCount()
     {
-        return PlayerPrefs.GetInt("Popularity", 0); 
+        return PlayerPrefs.GetInt("CustomerCount", 0); 
     }
     public void SaveMeals(MealsList mealsList)
     {
