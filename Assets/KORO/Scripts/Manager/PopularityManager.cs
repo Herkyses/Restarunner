@@ -9,7 +9,9 @@ public class PopularityManager : MonoBehaviour
     public static PopularityManager Instance;
     public PopularityData PopularityData;
     private float averagePopularity;
-    
+    private float cleanliness;
+    private float decorationQuality;
+    private float _rate = 10f;
     
 
     private void Awake()
@@ -25,6 +27,18 @@ public class PopularityManager : MonoBehaviour
 
     }
 
+    public void CalculateSinglePopularityValue(float customerPatienceRate,float serviceSpeed,float tableQuality)
+    {
+        float customerPopularity = ((serviceSpeed/_rate) * PopularityData.FoodQualityMultiplier) 
+                                   + ((cleanliness/_rate) * PopularityData.CleanlinessMultiplier)
+                                   + ((tableQuality/_rate) * PopularityData.TableQualityMultiplier)
+                                   + ((decorationQuality/_rate) * PopularityData.DecorationQualityMultiplier)
+                                   + ((customerPatienceRate/_rate) * PopularityData.CustomerPatienceMultiplier);
+        
+        // Yeni popülariteyi ortalama ile birleştir
+        //totalPopularity = ((totalPopularity * (totalCustomers - 1)) + customerPopularity) / totalCustomers;
+
+    }
 
     public void CalculatePopularityRatio(float newCustomerPopularity)
     {

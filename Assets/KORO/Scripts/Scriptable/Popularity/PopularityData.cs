@@ -11,4 +11,5 @@ public class PopularityData : ScriptableObject
     public float CatchUpTimeMultiplier;
     public float DecorationQualityMultiplier;
     public float TableQualityMultiplier;
+    public float CustomerPatienceMultiplier;
 }

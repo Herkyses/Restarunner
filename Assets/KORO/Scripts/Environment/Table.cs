@@ -23,6 +23,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     public int TableCapacity;
     public int CustomerCount;
     public int groundLayer;
+    public int TableQuality;
     public float TotalBills;
     public TextMeshProUGUI TableNumberText;
     public TableSet TableSet;
