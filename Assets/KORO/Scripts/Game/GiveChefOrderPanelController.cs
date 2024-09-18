@@ -91,4 +91,12 @@ public class GiveChefOrderPanelController : MonoBehaviour
         GameSceneCanvas.Instance.CanMove = true;
 
     }
+    public void OrderPanelInitliaze()
+    {
+        Panel.gameObject.SetActive(true);
+        GameSceneCanvas.Instance.CanMove = false;
+        OrderList = PlayerOrderController.Instance.OrderList;
+        SelectedOrderListCount = 0;
+        OrderListIndexIncrease(true);
+    }
 }

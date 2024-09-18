@@ -147,12 +147,8 @@ public class ChefController : MonoBehaviour,IInterectableObject
     }
     public void InterectableObjectRun()
     {
-        var orderPanel = GiveChefOrderPanelController.Instance;
-        orderPanel.Panel.gameObject.SetActive(true);
-        GameSceneCanvas.Instance.CanMove = false;
-        orderPanel.OrderList = PlayerOrderController.Instance.OrderList;
-        orderPanel.SelectedOrderListCount = 0;
-        orderPanel.OrderListIndexIncrease(true);
+        GiveChefOrderPanelController.Instance.OrderPanelInitliaze();
+        
     }
 
     public void ShowOutline(bool active)
