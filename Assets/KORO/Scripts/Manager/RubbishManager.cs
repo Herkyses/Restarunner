@@ -84,6 +84,7 @@ public class RubbishManager : MonoBehaviour
                 _allRubbishCount++;
             }
         }
+        //TODO: mekan levele göre bütün çöplük oranı hesaplanması
         _cleanRate = (float)_allRubbishCount/_rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceLevel()].childCount;
         GameSceneCanvas.Instance.SetCleanRateText(_cleanRate);
     }
