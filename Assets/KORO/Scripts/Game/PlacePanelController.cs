@@ -70,6 +70,7 @@ using System.Collections.Generic;
     public void ActivePlacePanel()
     {
         GameSceneCanvas.Instance.CanMove = false;
+        GameSceneCanvas.IsCursorVisible?.Invoke(true);
         _panel.gameObject.SetActive(true);
         if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 1)
         {
@@ -79,6 +80,7 @@ using System.Collections.Generic;
     public void DeActivePlacePanel()
     {
         GameSceneCanvas.Instance.CanMove = true;
+        GameSceneCanvas.IsCursorVisible?.Invoke(false);
         _panel.gameObject.SetActive(false);
 
     }

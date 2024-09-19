@@ -86,6 +86,7 @@ public class OrderPanelController : MonoBehaviour
         CreateSelectedOrders();
 
         GameSceneCanvas.Instance.CanMove = false;
+        GameSceneCanvas.IsCursorVisible?.Invoke(true);
         _orderPanel.gameObject.SetActive(true);
         CreateOrders(_orderList);
         if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
@@ -115,6 +116,7 @@ public class OrderPanelController : MonoBehaviour
     public void CanFollowTrue()
     {
         GameSceneCanvas.Instance.CanMove = true;
+        GameSceneCanvas.IsCursorVisible?.Invoke(false);
         _orderPanel.gameObject.SetActive(false);
         OpenedTableNumber = -1;
 

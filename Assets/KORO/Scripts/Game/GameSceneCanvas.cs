@@ -29,6 +29,8 @@ public class GameSceneCanvas : MonoBehaviour
     public bool CanShowCanvas;
     public bool CanMove;
 
+    public static Action<bool> IsCursorVisible;
+
     private void Awake()
     {
         if (Instance == null)
@@ -64,11 +66,13 @@ public class GameSceneCanvas : MonoBehaviour
     private void OnEnable()
     {
         PlayerPrefsManager.GainedMoney += UpdateMoneyText;
+        IsCursorVisible += CursorActive;
     }
 
     private void OnDisable()
     {
         PlayerPrefsManager.GainedMoney -= UpdateMoneyText;
+        IsCursorVisible -= CursorActive;
 
     }
 
@@ -99,6 +103,11 @@ public class GameSceneCanvas : MonoBehaviour
         }
         
 
+    }
+
+    public void CursorActive(bool active)
+    {
+        Cursor.visible = active;
     }
     public void ShowAreaInfoForTexts(string[] areaInfo)
     {

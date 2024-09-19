@@ -84,11 +84,13 @@ public class CheckOrderBillsPanel : MonoBehaviour
     public void ActiveBillsPanel()
     {
         GameSceneCanvas.Instance.CanMove = false;
+        GameSceneCanvas.IsCursorVisible?.Invoke(true);
         _panel.gameObject.SetActive(true);
     }
     public void DeActiveBillsPanel()
     {
         GameSceneCanvas.Instance.CanMove = true;
+        GameSceneCanvas.IsCursorVisible?.Invoke(false);
         _panel.gameObject.SetActive(false);
 
     }

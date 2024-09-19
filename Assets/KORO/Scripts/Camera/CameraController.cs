@@ -70,10 +70,14 @@ public class CameraController : MonoBehaviour
         var localRotforClean = CleanToolChild.transform.localRotation.eulerAngles;
         CleanToolFirstRotation = new Vector3(localRotforClean.x, localRotforClean.y, localRotforClean.z);
         _canFollow = true;
+        
         GameSceneCanvas.Instance.CanMove = true;
+        GameSceneCanvas.IsCursorVisible?.Invoke(false);
         firstPlayerState = Enums.PlayerStateType.None;
 
     }
+    
+    
 
     public void CanFollowController(bool zort)
     {

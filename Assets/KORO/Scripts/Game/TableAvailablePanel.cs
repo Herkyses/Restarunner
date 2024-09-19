@@ -107,11 +107,13 @@ public class TableAvailablePanel : MonoBehaviour
     public void ActiveAbilityPanel()
     {
         GameSceneCanvas.Instance.CanMove = false;
+        GameSceneCanvas.IsCursorVisible?.Invoke(true);
         _availabilityPanel.gameObject.SetActive(true);
     }
     public void DeActiveAbilityPanel()
     {
         GameSceneCanvas.Instance.CanMove = true;
+        GameSceneCanvas.IsCursorVisible?.Invoke(false);
         _availabilityPanel.gameObject.SetActive(false);
 
     }
