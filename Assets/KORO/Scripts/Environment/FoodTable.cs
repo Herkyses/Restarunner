@@ -89,6 +89,7 @@ public class FoodTable : MonoBehaviour,IInterectableObject
     public void FoodGivedCustomer()
     {
         _foodQualityCanvasObject.SetActive(false);
+        QualityTimeStarted = false;
     }
     
     

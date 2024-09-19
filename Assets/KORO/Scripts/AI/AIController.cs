@@ -251,7 +251,8 @@ public class AIController : MonoBehaviour,IInterectableObject
 
     public void CalculatePopularityRate()
     {
-        PopularityManager.Instance.CalculateSinglePopularityValue(7f,10 - AIOwnerFood.GetWaitFoodTime(),AIOwnerTable.TableQuality);
+        var customerPatienceRate = Random.Range(1, 11);
+        PopularityManager.Instance.CalculateSinglePopularityValue(customerPatienceRate,AIOwnerFood.GetWaitFoodTime(),AIOwnerTable.TableQuality);
     }
     public void SetTableInfo(Table table, Chair chair)
     {
