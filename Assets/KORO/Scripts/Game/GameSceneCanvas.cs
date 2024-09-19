@@ -108,6 +108,15 @@ public class GameSceneCanvas : MonoBehaviour
     public void CursorActive(bool active)
     {
         Cursor.visible = active;
+        if (!active)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+
+        }
     }
     public void ShowAreaInfoForTexts(string[] areaInfo)
     {
