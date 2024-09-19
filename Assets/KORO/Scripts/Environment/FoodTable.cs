@@ -117,12 +117,12 @@ public class FoodTable : MonoBehaviour,IInterectableObject
                 {
                     _foodQualityImage.fillAmount = WaitTime / 10f;
                 }
-                Debug.Log("zortingsbuyukzero " + WaitTime);
+                //Debug.Log("zortingsbuyukzero " + WaitTime);
                 WaitTimeTempValue = (int) WaitTime;
             }
             else
             {
-                Debug.Log("zortingskucukzero " + WaitTime);
+                //Debug.Log("zortingskucukzero " + WaitTime);
 
                 QualityTimeStarted = false;
                 

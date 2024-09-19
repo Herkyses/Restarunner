@@ -71,7 +71,7 @@ public class MealManager : MonoBehaviour
                 new MealIngredient(Enums.FoodIngredientType.Eggs, 5),
                 new MealIngredient(Enums.FoodIngredientType.Flour, 5),
                 new MealIngredient(Enums.FoodIngredientType.Lettuce, 5),
-                new MealIngredient(Enums.FoodIngredientType.Meat, 5),
+                new MealIngredient(Enums.FoodIngredientType.Meat, 1),
                 new MealIngredient(Enums.FoodIngredientType.Milk, 5),
                 new MealIngredient(Enums.FoodIngredientType.Onion, 5),
                 new MealIngredient(Enums.FoodIngredientType.Tomato, 5),
@@ -188,7 +188,7 @@ public class MealManager : MonoBehaviour
         }
         else
         {
-            return -1;
+            return 0;
         }
     }
     

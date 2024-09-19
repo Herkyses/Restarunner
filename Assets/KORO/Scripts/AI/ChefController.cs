@@ -41,6 +41,26 @@ public class ChefController : MonoBehaviour,IInterectableObject
         _chefOutline = GetComponent<Outline>();
 
     }
+    
+    #if UNITY_EDITOR
+    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            var zort = new OrderDataStruct()
+            {
+                OrderPrice =  5,
+                OrderType = Enums.OrderType.Sandwich
+            };
+            var listo = new List<OrderDataStruct>();
+            listo.Add(zort);
+            SetOrders(listo);
+        }
+    }
+    
+    #endif
+    
 
     public void SetOrders(List<OrderDataStruct> orderDataStruct,bool isPlayerGive = true,WaiterController ownerWaiter = null)
     {
@@ -66,20 +86,18 @@ public class ChefController : MonoBehaviour,IInterectableObject
         {
             for (int j = 0; j < foodDatas.Count; j++)
             {
-                var foodData = foodDatas[j];
-                if (!CheckFoodIngredientCount(foodData))
+                
+                if (ChefOwnerStructData[i].OrderType == foodDatas[j].OrderType && MealManager.Instance.GetMealIngredient(foodDatas[j].OrderType) > 0)
                 {
-                    continue;
-                }
-
-                if (ChefOwnerStructData[i].OrderType == foodData.OrderType && MealManager.Instance.GetMealIngredient(foodData.OrderType) > 0)
-                {
-                    
-                    var food = InitiliazeFood(foodData);
+                    if (!CheckFoodIngredientCount(foodDatas[j]))
+                    {
+                        continue;
+                    }
+                    var food = InitiliazeFood(foodDatas[j]);
                     RemovedOrderDataStructs.Add(ChefOwnerStructData[i]);
                     
-                    HandleMealIngredient(foodData);
-                    TutorialSte(foodData);
+                    HandleMealIngredient(foodDatas[j]);
+                    TutorialSte(foodDatas[j]);
                     UpdateChefOrderTableIndex(food);
                 }
             }
@@ -124,16 +142,16 @@ public class ChefController : MonoBehaviour,IInterectableObject
 
     public bool CheckFoodIngredientCount(OrderData foodOrderData)
     {
-
+        var mealManager = MealManager.Instance;
         for (int i = 0; i < foodOrderData.FoodIngredientTypes.Count; i++)
         {
-            var ingredientCount = MealManager.Instance.GetFoodIngredient(foodOrderData.FoodIngredientTypes[i]);
-            if (ingredientCount > 0)
+            var ingredientCount = mealManager.GetFoodIngredient(foodOrderData.FoodIngredientTypes[i]);
+            if (ingredientCount == 0)
             {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     public void UpdateChefOrderTableIndex(FoodTable foodTable)

@@ -59,14 +59,21 @@ public class PopularityManager : MonoBehaviour
         if (customerCount > 1)
         {
             averagePopularity = PlayerPrefsManager.Instance.LoadPopularity();
-            averagePopularity = ((averagePopularity * (customerCount - 1)) + newCustomerPopularity) / customerCount;
-            PlayerPrefsManager.Instance.SavePopularity(averagePopularity);
+            if (customerCount < 10)
+            {
+                averagePopularity = ((averagePopularity * (customerCount - 1)) + newCustomerPopularity) / customerCount;
+            }
+            else
+            {
+                averagePopularity = (averagePopularity * 0.9f) + (newCustomerPopularity * 0.1f);
+            }
         }
         else
         {
             averagePopularity = newCustomerPopularity;
-            PlayerPrefsManager.Instance.SavePopularity(newCustomerPopularity);
         }
+        PlayerPrefsManager.Instance.SavePopularity(averagePopularity);
+
         GameSceneCanvas.Instance.UpdatePopularity(averagePopularity);
         Debug.Log("pop " + newCustomerPopularity);
     }
