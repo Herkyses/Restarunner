@@ -44,7 +44,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
     
     #if UNITY_EDITOR
     
-    private void Update()
+    /*private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -57,7 +57,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
             listo.Add(zort);
             SetOrders(listo);
         }
-    }
+    }*/
     
     #endif
     
