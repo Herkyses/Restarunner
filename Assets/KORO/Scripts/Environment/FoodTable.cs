@@ -108,25 +108,20 @@ public class FoodTable : MonoBehaviour,IInterectableObject
     }
     void Update()
     {
-        if (QualityTimeStarted)
-        {
-            if (WaitTime > 0)
-            {
-                WaitTime -= Time.deltaTime;
-                if (WaitTimeTempValue != (int)WaitTime)
-                {
-                    _foodQualityImage.fillAmount = WaitTime / 10f;
-                }
-                //Debug.Log("zortingsbuyukzero " + WaitTime);
-                WaitTimeTempValue = (int) WaitTime;
-            }
-            else
-            {
-                //Debug.Log("zortingskucukzero " + WaitTime);
+        if (!QualityTimeStarted || WaitTime <= 0) return;
 
-                QualityTimeStarted = false;
-                
-            }
+        WaitTime -= Time.deltaTime;
+
+        int currentWaitTimeInt = (int)WaitTime;
+        if (WaitTimeTempValue != currentWaitTimeInt)
+        {
+            _foodQualityImage.fillAmount = WaitTime / 10f;
+            WaitTimeTempValue = currentWaitTimeInt;
+        }
+
+        if (WaitTime <= 0)
+        {
+            QualityTimeStarted = false;
         }
     }
 }
