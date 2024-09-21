@@ -21,6 +21,7 @@ public class FoodTable : MonoBehaviour,IInterectableObject
     public Transform FoodSpawnTransform;
     public float WaitTime;
     public int WaitTimeTempValue;
+    public int currentWaitTimeInt;
 
     public WaiterController OwnerWaiterCotroller;
 
@@ -112,7 +113,7 @@ public class FoodTable : MonoBehaviour,IInterectableObject
 
         WaitTime -= Time.deltaTime;
 
-        int currentWaitTimeInt = (int)WaitTime;
+        currentWaitTimeInt = (int)WaitTime;
         if (WaitTimeTempValue != currentWaitTimeInt)
         {
             _foodQualityImage.fillAmount = WaitTime / 10f;

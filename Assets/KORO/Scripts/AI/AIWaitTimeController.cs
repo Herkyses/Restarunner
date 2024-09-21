@@ -10,6 +10,7 @@ public class AIWaitTimeController : MonoBehaviour
     public int WaitTimeTempValue;
     public AIStateMachineController AIStateMachineController;
 
+    public Coroutine WaitCoroutine;
 
     private void Start()
     {
@@ -19,36 +20,67 @@ public class AIWaitTimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (WaitTimeStarted)
+        if (!WaitTimeStarted)
         {
-            if (WaitTimeValue > 0)
-            {
-                WaitTimeValue -= Time.deltaTime;
-                if ((int)WaitTimeTempValue != (int)WaitTimeValue)
-                {
-                    Debug.Log("timeendededed : " +(int)WaitTimeValue);
-
-                }
-
-                WaitTimeTempValue = (int) WaitTimeValue;
-            }
-            else
-            {
-                WaitTimeStarted = false;
-                AIStateMachineController.AIChangeState(AIStateMachineController.AIMoveState);
-                if (AIStateMachineController.Friends.Count > 0)
-                {
-                    for (int i = 0; i < AIStateMachineController.Friends.Count; i++)
-                    {
-                        //PoolManager.Instance.ReturnToPoolForCustomerAI(AIStateMachineController.Friends[i].gameObject);
-                        PoolManager.Instance.ReturnToPoolForRagdollCustomerAI(AIStateMachineController.Friends[i].gameObject);
-                    }
-                    AIStateMachineController.Friends.Clear();
-                }
-                TableAvailablePanel.Instance.RemoveFromCustomerList(AIStateMachineController.AIController.AgentID);
-                AIWaitStateController.Instance.RemoveFromAiControllersList(AIStateMachineController.AIController);
-            }
+            return;
         }
+       
+        if (WaitTimeValue > 0)
+        {
+            WaitTimeValue -= Time.deltaTime;
+
+            WaitTimeTempValue = (int) WaitTimeValue;
+        }
+        else
+        {
+            WaitTimeStarted = false;
+            AIStateMachineController.AIChangeState(AIStateMachineController.AIMoveState);
+            if (AIStateMachineController.Friends.Count > 0)
+            {
+                for (int i = 0; i < AIStateMachineController.Friends.Count; i++)
+                {
+                    //PoolManager.Instance.ReturnToPoolForCustomerAI(AIStateMachineController.Friends[i].gameObject);
+                    PoolManager.Instance.ReturnToPoolForRagdollCustomerAI(AIStateMachineController.Friends[i].gameObject);
+                }
+                AIStateMachineController.Friends.Clear();
+            }
+            TableAvailablePanel.Instance.RemoveFromCustomerList(AIStateMachineController.AIController.AgentID);
+            AIWaitStateController.Instance.RemoveFromAiControllersList(AIStateMachineController.AIController);
+        }
+        
+    }
+
+    public IEnumerator StartWaitTime()
+    {
+        yield return new WaitForSeconds(10f);
+        WaitTimeStarted = false;
+        AIStateMachineController.AIChangeState(AIStateMachineController.AIMoveState);
+        if (AIStateMachineController.Friends.Count > 0)
+        {
+            for (int i = 0; i < AIStateMachineController.Friends.Count; i++)
+            {
+                //PoolManager.Instance.ReturnToPoolForCustomerAI(AIStateMachineController.Friends[i].gameObject);
+                PoolManager.Instance.ReturnToPoolForRagdollCustomerAI(AIStateMachineController.Friends[i].gameObject);
+            }
+            AIStateMachineController.Friends.Clear();
+        }
+        TableAvailablePanel.Instance.RemoveFromCustomerList(AIStateMachineController.AIController.AgentID);
+        AIWaitStateController.Instance.RemoveFromAiControllersList(AIStateMachineController.AIController);
+        
+    }
+
+    public void StartWaitTimeCoroutine()
+    {
+        if (WaitCoroutine != null)
+        {
+            StopCoroutine(WaitCoroutine);
+        }
+        WaitCoroutine = StartCoroutine(StartWaitTime());
+    }
+
+    public void StopWaitTimeCoroutine()
+    {
+        
     }
 
     public void TimeCountStarted(float waitTime)
