@@ -161,14 +161,19 @@ public class ShopManager : MonoBehaviour
         if (_shoppingCardCost <= PlayerPrefsManager.Instance.LoadPlayerMoney())
         {
             _shoppingCardCost = 0;
-            PlacePanelController.Instance.ShopCardItems.Clear();
-            Utilities.DeleteTransformchilds(PlacePanelController.Instance.SingleShopingCardItemParentTransform);
-            for (int i = 0; i < ShoppingBasket.Count; i++)
+            
+            for (int i = 0; i < PlacePanelController.Instance.ShopCardItems.Count; i++)
             {
-                CreateOrderBox(ShoppingBasket[i]);
+                for (int j = 0; j < PlacePanelController.Instance.ShopCardItems[i].count+1; j++)
+                {
+                    CreateOrderBox(PlacePanelController.Instance.ShopCardItems[i].ShopItem);
+
+                }
             }
             ShoppingBasket.Clear();
         }
+        PlacePanelController.Instance.ShopCardItems.Clear();
+        Utilities.DeleteTransformchilds(PlacePanelController.Instance.SingleShopingCardItemParentTransform);
         PlacePanelController.Instance.UpdateCostText();
         
     }
