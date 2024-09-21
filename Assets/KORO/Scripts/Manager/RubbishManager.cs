@@ -62,7 +62,7 @@ public class RubbishManager : MonoBehaviour
 
     public int GetRubbishCount()
     {
-        var rubbishList = _rubbishLevelsParents[_rubbishLevel].GetComponentsInChildren<Rubbish>();
+        var rubbishList = _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceLevel()].GetComponentsInChildren<Rubbish>();
         return rubbishList.Length;
     }
 
@@ -75,7 +75,7 @@ public class RubbishManager : MonoBehaviour
 
     public void CheckRubbishRate()
     {
-        _allRubbishCount = 0;
+        /*_allRubbishCount = 0;
 
         foreach (Transform child in _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceLevel()])
         {
@@ -83,15 +83,21 @@ public class RubbishManager : MonoBehaviour
             {
                 _allRubbishCount++;
             }
-        }
+        }*/
         //TODO: mekan levele göre bütün çöplük oranı hesaplanması
-        _cleanRate = (float)_allRubbishCount/_rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceLevel()].childCount;
+        _cleanRate = (float)GetRubbishCount()/(float)GetRubbishChildDenominator();
         GameSceneCanvas.Instance.SetCleanRateText(_cleanRate);
     }
-    // Update is called once per frame
-    void Update()
+
+    public int GetRubbishChildDenominator()
     {
-        
+        var count = 0;
+        for (int i = 0; i <= PlayerPrefsManager.Instance.LoadPlaceLevel(); i++)
+        {
+            count +=_rubbishLevelsParents[i].childCount;
+        }
+
+        return count;
     }
 
     public float GetCleanRateValue()
