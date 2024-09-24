@@ -16,7 +16,7 @@ public class AIWaitPlayerState : AIBaseState
         AIStateMachineController.AIController.AIAnimationController.PlayIdleAnimation();
         AIStateMachineController.AIController._agent.speed = 0;
 
-        var AIWaitStateController = Places.Instance.DoorTransform.gameObject.GetComponent<AIWaitStateController>();
+        var AIWaitStateController = global::AIWaitStateController.Instance;
         AIStateMachineController.AIWaitTimeController.WaitTimeValue = 10f;
         AIStateMachineController.AIWaitTimeController.WaitTimeStarted = true;
         AISpawnController.Instance.CreateAIForGroup(AIStateMachineController.Friends,AIStateMachineController.transform);

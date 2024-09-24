@@ -10,7 +10,8 @@ public class PlaceController : MonoBehaviour,IInterectableObject
 
     public List<PlaceLevel> PlaceLevels;
     private Outline _pcOutline;
-
+    
+    public Transform DoorTransform;
 
     [SerializeField] private string[] texts = new [] {"Take OrderBox"};
     [SerializeField] private string[] textsButtons = new [] {"E"};

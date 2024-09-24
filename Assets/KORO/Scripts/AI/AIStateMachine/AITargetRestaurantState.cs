@@ -15,14 +15,14 @@ public class AITargetRestaurantState : AIBaseState
     public override void EnterState()
     {
         //AIStateMachineController.AIController.StartTargetDestination();
-        AIStateMachineController.AIController._agent.destination = Places.Instance.DoorTransform.position;
+        AIStateMachineController.AIController._agent.destination = AIWaitStateController.Instance.transform.position;
         AIStateMachineController.AIAnimationController.PlayMoveAnimation();
 
     }
 
     public override void UpdateState()
     {
-        if (Vector3.Distance(AIStateMachineController.transform.position, Places.Instance.DoorTransform.position) < 1f)
+        if (Vector3.Distance(AIStateMachineController.transform.position, AIWaitStateController.Instance.transform.position) < 1f)
         {
             if (PlaceController.RestaurantIsOpen)
             {
