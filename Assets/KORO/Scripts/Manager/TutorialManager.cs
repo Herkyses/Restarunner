@@ -41,7 +41,7 @@ public class TutorialManager : MonoBehaviour
         tutorialSteps = new List<TutorialStep>
         {
             new TutorialStep("To clean the restaurant, pick up the broom. <color=green>Press 'P'</color>  to pick up the broom.", true, true, () => TutorialPanelController.Instance.SetRubbishCount()),
-            new TutorialStep("Purchase the table set from the store using the computer."),
+            new TutorialStep("Press the <color=green>Press 'I'</color> key and use the tablet to purchase a table set."),
             new TutorialStep("Bring the order box from outside into the restaurant and open it."),
             new TutorialStep("Move and set up the table set."),
             new TutorialStep("Open the restaurant and guide customers from the waiting area to their tables."),
