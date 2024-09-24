@@ -13,7 +13,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
     public int groundLayer;
     public int decorationLayer;
     public int decorationID;
-    private Outline _outline;
+    [SerializeField] private Outline _outline;
 
 
 
@@ -39,7 +39,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
     }
     public void ShowOutline(bool active)
     {
-        
+        _outline.enabled = active;
     }
     public Outline GetOutlineComponent()
     {

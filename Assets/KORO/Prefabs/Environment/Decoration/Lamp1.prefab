@@ -101,6 +101,7 @@ MonoBehaviour:
   groundLayer: 0
   decorationLayer: 0
   decorationID: 0
+  _outline: {fileID: 521915219040297375}
 --- !u!65 &-5774770460343335827
 BoxCollider:
   m_ObjectHideFlags: 0
