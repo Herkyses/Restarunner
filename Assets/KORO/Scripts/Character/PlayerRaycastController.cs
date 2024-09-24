@@ -14,13 +14,18 @@ public class PlayerRaycastController : MonoBehaviour
     public IInterectableObject Izort;
 
     public bool IsRaycastActive = true;
-    
+    public int layerMask = ~LayerMask.GetMask("Ground");
+    private Vector3 screenCenter;
+    private Ray ray ;
+    private RaycastHit hit;
     
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(SendRaycastCoroutine());
         _gameSceneCanvas = GameSceneCanvas.Instance;
+        layerMask = ~LayerMask.GetMask("Ground");
+
 
     }
 
@@ -29,122 +34,88 @@ public class PlayerRaycastController : MonoBehaviour
 
     public IEnumerator SendRaycastCoroutine()
     {
-        int layerToIgnore = LayerMask.NameToLayer("Ground"); 
-        int layerMask = 1 << layerToIgnore;
-        layerMask = ~layerMask;
         
-        
-        if(IsRaycastActive)
+        if (IsRaycastActive)
         {
             while (true)
-        {
-            
-            yield return new WaitForSeconds(0.05f);
-            //if (!Player.Instance.PlayerTakedObject)
-            //{
-                Vector3 screenCenter = new Vector3(Screen.width / 2f, Screen.height / 2f, 0);
-
-
-                Ray ray = Camera.main.ScreenPointToRay(screenCenter);
-            
-                RaycastHit hit;
-                
-                if (Physics.Raycast(ray, out hit,10f,layerMask))
-                {
-                    var hitObject = hit.collider.gameObject;
-                    if(/*(hitObject.TryGetComponent(out Rubbish rubbish) && Player.Instance.CanCleanRubbish)
-                       ||(!Player.Instance.CanCleanRubbish&& !PlayerOrderController.Instance.TakedFood)
-                       ||(hitObject.TryGetComponent(out AIController aicon) && PlayerOrderController.Instance.TakedFood)*/ hitObject.TryGetComponent(out IInterectableObject interact))
-                    {
-                        if (interact.GetStateType() == Player.Instance.PlayerStateType)
-                        {
-                            
-                            //var gameScene = GameSceneCanvas.Instance;
-
-                            Izort = hit.collider.gameObject.GetComponent<IInterectableObject>();
-                            if (Izort != null)
-                            {
-                    
-                                if (InterectabelOutline)
-                                {
-                                    InterectabelOutline.enabled = false;
-                                    _gameSceneCanvas.CanShowCanvas = false;
-
-                                    _gameSceneCanvas.UnShowAreaInfo();
-                                }
-
-                                InterectabelOutline = Izort.GetOutlineComponent();
-                                Izort.ShowOutline(true);
-                                _gameSceneCanvas.CanShowCanvas = true;
-                                _gameSceneCanvas.ShowAreaInfo(Izort.GetInterectableText());
-                                _gameSceneCanvas.ShowAreaInfoForTexts(Izort.GetInterectableTexts());
-                                _gameSceneCanvas.ShowAreaInfoForTextsButtons(Izort.GetInterectableButtons());
-                                //place.ShowPlacePrice();
-                            }
-                            else
-                            {
-                                _gameSceneCanvas.CanShowCanvas = false;
-                                if (Izort != null)
-                                {
-                                    Izort.ShowOutline(false);
-                                }
-
-                                DeactivateOutline();
-
-                                _gameSceneCanvas.UnShowAreaInfo();
-                    
-                            }
-                            Debug.Log("Raycast isabet etti: " + hit.collider.gameObject.name);
-                            Debug.DrawRay(ray.origin, hit.point - ray.origin, Color.green, 2f);
-                        
-                        }
-                        else
-                        {
-                            if (Player.Instance.PlayerStateType != Enums.PlayerStateType.TakeBox)
-                            {
-                                _gameSceneCanvas.UnShowAreaInfo();
-
-                            }
-                            Izort = null;
-                            DeactivateOutline();
-                        }
-                        
-                    }
-                    else
-                    {
-                        if (Player.Instance.PlayerStateType != Enums.PlayerStateType.TakeBox && Player.Instance.PlayerStateType != Enums.PlayerStateType.MoveTable)
-                        {
-                            _gameSceneCanvas.UnShowAreaInfo();
-                        }
-                        Izort = null;
-                        DeactivateOutline();
-                        InterectabelOutline = null;
-                    }
-                    
-
-                }
-                else
-                {
-                    if (InterectabelOutline)
-                    {
-                        InterectabelOutline.enabled = false;
-                        _gameSceneCanvas.CanShowCanvas = false;
-                        if(Izort != null)
-                            Izort.ShowOutline(false);
-
-                        _gameSceneCanvas.UnShowAreaInfo();
-                    }
-                    Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 2f);
-
-                }
-            //}
-           
-
-            
-        }
-            
+            {
+                yield return new WaitForSeconds(0.05f);
+                ProcessRaycast();
+            }
         }
         
+        
+    }
+    private void ProcessRaycast()
+    {
+        screenCenter = new Vector3(Screen.width / 2f, Screen.height / 2f, 0);
+        ray = Camera.main.ScreenPointToRay(screenCenter);
+
+        if (Physics.Raycast(ray, out hit, 10f, layerMask))
+        {
+            HandleHit(hit, ray);
+        }
+        else
+        {
+            HandleNoHit(ray);
+        }
+    }
+    private void HandleHit(RaycastHit hit, Ray ray)
+    {
+        var hitObject = hit.collider.gameObject;
+
+        if (hitObject.TryGetComponent(out IInterectableObject interact) &&
+            interact.GetStateType() == Player.Instance.PlayerStateType)
+        {
+            UpdateInterectable(hitObject, interact);
+            Debug.Log("Raycast hit: " + hitObject.name);
+            Debug.DrawRay(ray.origin, hit.point - ray.origin, Color.green, 2f);
+        }
+        else
+        {
+            HandleNonMatchingState();
+        }
+    }
+    private void HandleNoHit(Ray ray)
+    {
+        if (InterectabelOutline)
+        {
+            InterectabelOutline.enabled = false;
+            _gameSceneCanvas.CanShowCanvas = false;
+
+            if (Izort != null)
+                Izort.ShowOutline(false);
+
+            _gameSceneCanvas.UnShowAreaInfo();
+        }
+        Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 2f);
+    }
+    private void UpdateInterectable(GameObject hitObject, IInterectableObject interact)
+    {
+        Izort = interact;
+        if (InterectabelOutline != null)
+        {
+            InterectabelOutline.enabled = false;
+            _gameSceneCanvas.CanShowCanvas = false;
+            _gameSceneCanvas.UnShowAreaInfo();
+        }
+
+        InterectabelOutline = Izort.GetOutlineComponent();
+        Izort.ShowOutline(true);
+        _gameSceneCanvas.CanShowCanvas = true;
+        _gameSceneCanvas.ShowAreaInfo(Izort.GetInterectableText());
+        _gameSceneCanvas.ShowAreaInfoForTexts(Izort.GetInterectableTexts());
+        _gameSceneCanvas.ShowAreaInfoForTextsButtons(Izort.GetInterectableButtons());
+    }
+
+    private void HandleNonMatchingState()
+    {
+        if (Player.Instance.PlayerStateType != Enums.PlayerStateType.TakeBox)
+        {
+            _gameSceneCanvas.UnShowAreaInfo();
+        }
+        Izort = null;
+        DeactivateOutline();
     }
 
     public void DeactivateOutline()

@@ -14,6 +14,7 @@ public class PlaceController : MonoBehaviour,IInterectableObject
 
     [SerializeField] private string[] texts = new [] {"Take OrderBox"};
     [SerializeField] private string[] textsButtons = new [] {"E"};
+    [SerializeField] private GameObject decorationPlane;
     public int LevelValue;
     // Start is called before the first frame update
     void Start()
@@ -57,6 +58,11 @@ public class PlaceController : MonoBehaviour,IInterectableObject
                 PlaceLevels[i].DeActiveObject[j].SetActive(false);
             }
         }   
+    }
+
+    public void ActivateDecorationPlane(bool active)
+    {
+        decorationPlane.GetComponent<MeshRenderer>().enabled = active;
     }
     
     public void InterectableObjectRun()

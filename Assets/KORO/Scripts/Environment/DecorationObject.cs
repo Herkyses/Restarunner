@@ -13,6 +13,8 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
     public int groundLayer;
     public int decorationLayer;
     public int decorationID;
+    private Outline _outline;
+
 
 
 
@@ -20,6 +22,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
     {
         groundLayer = LayerMask.NameToLayer("Ground");
         decorationLayer = LayerMask.NameToLayer("Decoration");
+        _outline = GetComponent<Outline>();
     }
 
     private void Update()
@@ -40,7 +43,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
     }
     public Outline GetOutlineComponent()
     {
-        return null;
+        return _outline;
     }
     public string GetInterectableText()
     {
@@ -66,7 +69,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
             GetComponent<BoxCollider>().enabled = false;
             Player.Instance.MoveObject(gameObject,Enums.PlayerStateType.DecorationMove);
             isDecorationMove = true;
-
+            PlaceController.Instance.ActivateDecorationPlane(true);
 
             //GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTable);
             //GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTable);
@@ -119,6 +122,9 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
             Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
             MapManager.Instance.SaveMap();
             gameObject.transform.SetParent(DecorationController.Instance.transform);
+            PlaceController.Instance.ActivateDecorationPlane(false);
+            GetComponent<BoxCollider>().enabled = true;
+
 
         }
         

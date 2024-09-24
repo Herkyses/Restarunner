@@ -300,7 +300,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTable);
             TableSet.GetComponent<BoxCollider>().enabled = false;
             TableController.Instance.EnableTableSetCollider(true);
-
+            PlaceController.Instance.ActivateDecorationPlane(true);
         }
         
     }
@@ -344,6 +344,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
                 tableController.EnableTableSetCollider(false);
                 IsTableSetTransform = false;
                 IsTableMove = false;
+                PlaceController.Instance.ActivateDecorationPlane(false);
                 if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 2)
                 {
                     PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(4);
