@@ -127,55 +127,87 @@ public class PlayerRaycastController : MonoBehaviour
     }
     private void Update()
     {
-        
-        if(Input.GetKeyUp(KeyCode.E))
-        {
-            if (Izort != null)
-            {
-                Izort.InterectableObjectRun();
+        HandleInteractionInput();
+        HandleObjectMovement();
+        HandleObjectDrop();
+    }
 
-            }
-        }
-        if(Input.GetKeyUp(KeyCode.T))
+    private void HandleInteractionInput()
+    {
+        if (Input.GetKeyUp(KeyCode.E))
         {
-            if (Izort != null)
-            {
-                Izort.Open();
-
-            }
+            RunInteractableObject();
         }
 
-        if (Input.GetKey(KeyCode.H))
+        if (Input.GetKeyUp(KeyCode.T))
         {
-            if (Izort != null)
-            {
-                Izort.Move();
-            }
+            OpenInteractableObject();
         }
-        if (Input.GetKey(KeyCode.J))
-        {
-            if (Player.Instance.PlayerStateType == Enums.PlayerStateType.TakeBox || Player.Instance.PlayerStateType == Enums.PlayerStateType.TakeFoodIngredient)
-            {
-                var takenObject = Player.Instance.PlayerTakedObject;
-                if (takenObject)
-                {
-                    takenObject.transform.SetParent(null);
-                    takenObject.transform.position = transform.position + Vector3.up;
-                    if (takenObject.TryGetComponent(out Rigidbody objectRigid))
-                    {
-                        objectRigid.useGravity = true;
-                    }
-                    if (takenObject.TryGetComponent(out BoxCollider objectCollider))
-                    {
-                        objectCollider.enabled = true;
-                    }
+    }
 
-                    var playerInstance = Player.Instance;
-                    _gameSceneCanvas.UnShowAreaInfo();
-                    playerInstance.TakedObjectNull();
-                }
-            }
-            
+    private void RunInteractableObject()
+    {
+        if (Izort != null)
+        {
+            Izort.InterectableObjectRun();
+        }
+    }
+
+    private void OpenInteractableObject()
+    {
+        if (Izort != null)
+        {
+            Izort.Open();
+        }
+    }
+
+    private void HandleObjectMovement()
+    {
+        if (Input.GetKey(KeyCode.H) && Izort != null)
+        {
+            Izort.Move();
+        }
+    }
+
+    private void HandleObjectDrop()
+    {
+        if (Input.GetKey(KeyCode.J) && IsPlayerInStateForObjectDrop())
+        {
+            DropPlayerObject();
+        }
+    }
+
+    private bool IsPlayerInStateForObjectDrop()
+    {
+        return Player.Instance.PlayerStateType == Enums.PlayerStateType.TakeBox ||
+               Player.Instance.PlayerStateType == Enums.PlayerStateType.TakeFoodIngredient;
+    }
+
+    private void DropPlayerObject()
+    {
+        var takenObject = Player.Instance.PlayerTakedObject;
+
+        if (takenObject)
+        {
+            DetachAndDropObject(takenObject);
+            Player.Instance.TakedObjectNull();
+            _gameSceneCanvas.UnShowAreaInfo();
+        }
+    }
+
+    private void DetachAndDropObject(GameObject takenObject)
+    {
+        takenObject.transform.SetParent(null);
+        takenObject.transform.position = transform.position + Vector3.up;
+
+        if (takenObject.TryGetComponent(out Rigidbody objectRigid))
+        {
+            objectRigid.useGravity = true;
+        }
+
+        if (takenObject.TryGetComponent(out BoxCollider objectCollider))
+        {
+            objectCollider.enabled = true;
         }
     }
 }
