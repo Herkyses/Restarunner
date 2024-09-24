@@ -16140,6 +16140,7 @@ MonoBehaviour:
   _orderPanelImage: {fileID: 0}
   CanShowCanvas: 1
   CanMove: 0
+  CheckShowInfoText: 1
 --- !u!1 &6436319220348238284
 GameObject:
   m_ObjectHideFlags: 0
@@ -21891,14 +21892,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e7d02ac2b54fa99469208d3e6a0a48ed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7d0f86532cf279f46a6dae54e997bd33, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
