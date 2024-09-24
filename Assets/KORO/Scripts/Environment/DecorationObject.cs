@@ -17,7 +17,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
     [SerializeField] private string[] textsForInteractable = new [] {"Move"};
     [SerializeField] private string[] textsForMove = new [] {"Drop","Rotate"};
     [SerializeField] private string[] textsButtons = new [] {"H"};
-    [SerializeField] private string[] textsButtonsForTable = new [] {"M0","R"};
+    [SerializeField] private string[] textsButtonsForMove = new [] {"M0","R"};
 
     private GameSceneCanvas _gameSceneCanvas;
     
@@ -34,7 +34,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
         textsForMove = new [] {"Set up","Rotate"};
         textsForInteractable = new [] {"Move"};
         textsButtons = new [] {"H"};
-        textsButtonsForTable = new [] {"M0","R"};
+        textsButtonsForMove = new [] {"M0","R"};
         _outline = GetComponent<Outline>();
         _gameSceneCanvas = GameSceneCanvas.Instance;
     }
@@ -81,15 +81,8 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
             
             //gameObject.layer = LayerMask.NameToLayer("Ground");
             GetComponent<BoxCollider>().enabled = false;
-            _gameSceneCanvas.CheckShowInfoText = false;
-            _gameSceneCanvas.ShowAreaInfoForTexts(textsForMove);
-            _gameSceneCanvas.ShowAreaInfoForTextsButtons(textsButtonsForTable);
-            Player.Instance.MoveObject(gameObject,Enums.PlayerStateType.DecorationMove);
+            _gameSceneCanvas.MoveObjectInfo(textsForMove,textsButtonsForMove,Enums.PlayerStateType.DecorationMove);
             isDecorationMove = true;
-            
-            
-            PlaceController.Instance.ActivateDecorationPlane(true);
-
             
         }
     }

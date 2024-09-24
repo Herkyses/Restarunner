@@ -150,6 +150,15 @@ public class GameSceneCanvas : MonoBehaviour
             
         }
     }
+    public void MoveObjectInfo(string[] textsForMove,string[] textsForButtons, Enums.PlayerStateType playerStateType)
+    {
+
+        CheckShowInfoText = false;
+        ShowAreaInfoForTexts(textsForMove);
+        ShowAreaInfoForTextsButtons(textsForButtons);
+        Player.Instance.MoveObject(gameObject,playerStateType);
+        PlaceController.Instance.ActivateDecorationPlane(true);
+    }
     public void ShowAreaInfoForTextsButtons(string[] areaInfoButton)
     {
         if (areaInfoButton != null)

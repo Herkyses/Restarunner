@@ -300,13 +300,9 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         if (!IsTableMove && !PlaceController.RestaurantIsOpen && CustomerCount == 0)
         {
             IsTableMove = true;
-            Player.Instance.MoveObject(gameObject,Enums.PlayerStateType.MoveTable);
-            _gameSceneCanvas.CheckShowInfoText = false;
-            _gameSceneCanvas.ShowAreaInfoForTexts(textsForTable);
-            _gameSceneCanvas.ShowAreaInfoForTextsButtons(textsButtonsForTable);
+            _gameSceneCanvas.MoveObjectInfo(textsForTable,textsButtonsForTable,Enums.PlayerStateType.MoveTable);
             TableSet.GetComponent<BoxCollider>().enabled = false;
             TableController.Instance.EnableTableSetCollider(true);
-            PlaceController.Instance.ActivateDecorationPlane(true);
         }
         
     }
