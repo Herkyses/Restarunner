@@ -300,6 +300,10 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         if (!IsTableMove && !PlaceController.RestaurantIsOpen && CustomerCount == 0)
         {
             IsTableMove = true;
+            if (!_gameSceneCanvas)
+            {
+                _gameSceneCanvas = GameSceneCanvas.Instance;
+            }
             _gameSceneCanvas.MoveObjectInfo(textsForTable,textsButtonsForTable,Enums.PlayerStateType.MoveTable);
             TableSet.GetComponent<BoxCollider>().enabled = false;
             TableController.Instance.EnableTableSetCollider(true);
