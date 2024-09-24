@@ -13,6 +13,13 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
     public int groundLayer;
     public int decorationLayer;
     public int decorationID;
+    
+    [SerializeField] private string[] textsForInteractable = new [] {"Move"};
+    [SerializeField] private string[] textsForMove = new [] {"Drop","Rotate"};
+    [SerializeField] private string[] textsButtons = new [] {"H"};
+    [SerializeField] private string[] textsButtonsForTable = new [] {"M0","R"};
+    
+    
     [SerializeField] private Outline _outline;
 
 
@@ -22,6 +29,9 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
     {
         groundLayer = LayerMask.NameToLayer("Ground");
         decorationLayer = LayerMask.NameToLayer("Decoration");
+        textsForMove = new [] {"Set up","Rotate"};
+        textsForInteractable = new [] {"Move"};
+        textsButtons = new [] {"H"};
         _outline = GetComponent<Outline>();
     }
 
@@ -52,12 +62,12 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
     }
     public string[] GetInterectableTexts()
     {
-        return null;
+        return textsForInteractable;
 
     }
     public string[] GetInterectableButtons()
     {
-        return null;
+        return textsButtons;
 
     }
     public void Move()
@@ -71,7 +81,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
             isDecorationMove = true;
             PlaceController.Instance.ActivateDecorationPlane(true);
 
-            //GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTable);
+            GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForMove);
             //GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTable);
         }
     }
@@ -98,26 +108,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
         }
         if (Input.GetMouseButton(0))
         {
-            //TableSet.CheckGround();
-            /*if (IsTableSetTransform)
-            {
-                MapManager.Instance.SaveMap();
-                TableControl();
-                Player.Instance.ActivatedRaycast(true);
-
-                Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
-                //if(colliders.Length )
-                TableSet.GetComponent<BoxCollider>().enabled = false;
-                TableController.Instance.EnableTableSetCollider(false);
-                IsTableSetTransform = false;
-                IsTableMove = false;
-                Player.Instance.PlayerTakedObject = null;
-                if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 2)
-                {
-                    PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(4);
-                    TutorialManager.Instance.Initiliaze();
-                }
-            }*/
+            
             isDecorationMove = false;
             Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
             MapManager.Instance.SaveMap();
