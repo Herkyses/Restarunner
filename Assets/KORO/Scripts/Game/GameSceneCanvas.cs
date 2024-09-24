@@ -28,6 +28,7 @@ public class GameSceneCanvas : MonoBehaviour
     
     public bool CanShowCanvas;
     public bool CanMove;
+    public bool CheckShowInfoText  = true;
 
     public static Action<bool> IsCursorVisible;
 
@@ -48,7 +49,7 @@ public class GameSceneCanvas : MonoBehaviour
     {
         UpdateMoneyText(PlayerPrefsManager.Instance.LoadPlayerMoney());
         CustomerCountUpdate(PlayerPrefsManager.Instance.LoadCustomerCount());
-
+        CheckShowInfoText  = true;
     }
 
     public void AddPopularity()
@@ -122,11 +123,11 @@ public class GameSceneCanvas : MonoBehaviour
     {
         if (areaInfo != null)
         {
-            if (!_objectInfoTextsParent.activeSelf)
-            {
+            //if (!_objectInfoTextsParent.activeSelf)
+            //{
                 _objectInfoTextsParent.SetActive(true);
                 _objectInfoTextsParent.GetComponent<RectTransform>().sizeDelta = new Vector2(200f,areaInfo.Length*85f);
-            }
+            //}
             for (int i = 0; i < _infoTexts.Length; i++)
             {
                 if (i < areaInfo.Length)
@@ -163,15 +164,22 @@ public class GameSceneCanvas : MonoBehaviour
     }
     public void UnShowAreaInfo()
     {
-        if (_infoObject.activeSelf)
+        if (CheckShowInfoText)
         {
-            _infoObject.SetActive(false);
-        }
-        if (_objectInfoTextsParent.activeSelf)
-        {
-            _objectInfoTextsParent.SetActive(false);
+            if (_infoObject.activeSelf)
+            {
+                _infoObject.SetActive(false);
+            }
+            if (_objectInfoTextsParent.activeSelf)
+            {
+                _objectInfoTextsParent.SetActive(false);
             
+            }
         }
+        
+        Debug.Log("nohitçalışıyorbe");
+
+        
     }
     
 

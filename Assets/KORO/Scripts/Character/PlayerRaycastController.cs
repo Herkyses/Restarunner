@@ -9,12 +9,14 @@ public class PlayerRaycastController : MonoBehaviour
 
     public Outline InterectabelOutline;
 
+    public bool CanCheckHit;
+    
     private GameSceneCanvas _gameSceneCanvas;
 
     public IInterectableObject Izort;
 
     public bool IsRaycastActive = true;
-    public int layerMask = ~LayerMask.GetMask("Ground");
+    public int layerMask ;
     private Vector3 screenCenter;
     private Ray ray ;
     private RaycastHit hit;
@@ -58,6 +60,7 @@ public class PlayerRaycastController : MonoBehaviour
         else
         {
             HandleNoHit(ray);
+            
         }
     }
     private void HandleHit(RaycastHit hit, Ray ray)

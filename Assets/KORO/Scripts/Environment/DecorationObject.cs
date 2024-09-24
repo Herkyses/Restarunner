@@ -18,6 +18,8 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
     [SerializeField] private string[] textsForMove = new [] {"Drop","Rotate"};
     [SerializeField] private string[] textsButtons = new [] {"H"};
     [SerializeField] private string[] textsButtonsForTable = new [] {"M0","R"};
+
+    private GameSceneCanvas _gameSceneCanvas;
     
     
     [SerializeField] private Outline _outline;
@@ -32,7 +34,9 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
         textsForMove = new [] {"Set up","Rotate"};
         textsForInteractable = new [] {"Move"};
         textsButtons = new [] {"H"};
+        textsButtonsForTable = new [] {"M0","R"};
         _outline = GetComponent<Outline>();
+        _gameSceneCanvas = GameSceneCanvas.Instance;
     }
 
     private void Update()
@@ -77,12 +81,16 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
             
             //gameObject.layer = LayerMask.NameToLayer("Ground");
             GetComponent<BoxCollider>().enabled = false;
+            _gameSceneCanvas.CheckShowInfoText = false;
+            _gameSceneCanvas.ShowAreaInfoForTexts(textsForMove);
+            _gameSceneCanvas.ShowAreaInfoForTextsButtons(textsButtonsForTable);
             Player.Instance.MoveObject(gameObject,Enums.PlayerStateType.DecorationMove);
             isDecorationMove = true;
+            
+            
             PlaceController.Instance.ActivateDecorationPlane(true);
 
-            GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForMove);
-            //GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTable);
+            
         }
     }
     public void MoveStart()
@@ -111,6 +119,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
             
             isDecorationMove = false;
             Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
+            _gameSceneCanvas.CheckShowInfoText = true;
             MapManager.Instance.SaveMap();
             gameObject.transform.SetParent(DecorationController.Instance.transform);
             PlaceController.Instance.ActivateDecorationPlane(false);

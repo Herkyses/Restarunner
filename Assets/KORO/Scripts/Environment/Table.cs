@@ -35,6 +35,9 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     private Outline _outline;
     private Player _player;
     private TableController tableController;
+    
+    private GameSceneCanvas _gameSceneCanvas;
+
     private void OnEnable()
     {
         Chair.GivedOrder += CreateOrdersWithAction;
@@ -46,7 +49,22 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
     }
     
+    private void Start()
+    {
+        groundLayer = LayerMask.NameToLayer("Ground");
+        texts = new []{"Check Order","Move"};
+        textsButtons = new []{"E","H"};
+        textsForTable = new [] {"Set up","Rotate"};
+        textsButtonsForTable = new [] {"M0","R"};
+        IsTableAvailable = true;
+        TableNumberText.text = (TableNumber+1).ToString();
+        _outline = GetComponent<Outline>();
+        _player = Player.Instance;
+        tableController = TableController.Instance;
+        TableQuality = 5f;
+        _gameSceneCanvas = GameSceneCanvas.Instance;
 
+    }
     private void Update()
     {
         if (IsTableMove)
@@ -189,20 +207,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         }
     }
 
-    private void Start()
-    {
-        groundLayer = LayerMask.NameToLayer("Ground");
-        texts = new []{"Check Order","Move"};
-        textsButtons = new []{"E","H"};
-        textsForTable = new [] {"Set up","Rotate"};
-        textsButtonsForTable = new [] {"M0","R"};
-        IsTableAvailable = true;
-        TableNumberText.text = (TableNumber+1).ToString();
-        _outline = GetComponent<Outline>();
-        _player = Player.Instance;
-        tableController = TableController.Instance;
-        TableQuality = 5f;
-    }
+    
 
     public void TableInitialize()
     {
@@ -296,8 +301,9 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         {
             IsTableMove = true;
             Player.Instance.MoveObject(gameObject,Enums.PlayerStateType.MoveTable);
-            GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTable);
-            GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTable);
+            _gameSceneCanvas.CheckShowInfoText = false;
+            _gameSceneCanvas.ShowAreaInfoForTexts(textsForTable);
+            _gameSceneCanvas.ShowAreaInfoForTextsButtons(textsButtonsForTable);
             TableSet.GetComponent<BoxCollider>().enabled = false;
             TableController.Instance.EnableTableSetCollider(true);
             PlaceController.Instance.ActivateDecorationPlane(true);
@@ -344,6 +350,8 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
                 tableController.EnableTableSetCollider(false);
                 IsTableSetTransform = false;
                 IsTableMove = false;
+                _gameSceneCanvas.CheckShowInfoText = true;
+
                 PlaceController.Instance.ActivateDecorationPlane(false);
                 if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 2)
                 {
