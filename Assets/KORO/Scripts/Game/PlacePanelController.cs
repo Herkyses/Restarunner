@@ -85,6 +85,18 @@ using System.Collections.Generic;
 
     }
 
+    public void OpenPlacePanel()
+    {
+        if (_panel.gameObject.activeSelf)
+        {
+            DeActivePlacePanel();
+        }
+        else
+        {
+            ActivePlacePanel();
+        }
+    }
+
     public void Initialize()
     {
         Utilities.DeleteTransformchilds(SingleShopItemParentTransform);

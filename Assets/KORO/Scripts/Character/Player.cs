@@ -68,6 +68,13 @@ public class Player : MonoBehaviour
             //CanFight = !CanFight;
             CameraController.Instance.StateInitiliazeForTakeObject(Enums.PlayerStateType.Fight);
         }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() > 0)
+            {
+                PlacePanelController.Instance.OpenPlacePanel();
+            }
+        }
     }
 
     public void DropTakenObject()
