@@ -4260,8 +4260,6 @@ GameObject:
   - component: {fileID: 974545871469757426}
   - component: {fileID: 974545871472667764}
   - component: {fileID: 974545871471582342}
-  - component: {fileID: 5906157860167225355}
-  - component: {fileID: 1349769103059368031}
   - component: {fileID: 3832013830517397525}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (4)
@@ -4300,7 +4298,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974545871469456934}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4335,35 +4333,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5906157860167225355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 974545871469456934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &1349769103059368031
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 974545871469456934}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
-  m_Center: {x: -0.0078825345, y: -0.09918504, z: -0.029020844}
 --- !u!114 &3832013830517397525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4587,8 +4556,6 @@ GameObject:
   - component: {fileID: 1106238368642870783}
   - component: {fileID: 1106238368643629689}
   - component: {fileID: 1106238368644723339}
-  - component: {fileID: 4848907127932268418}
-  - component: {fileID: 6725605153392252516}
   - component: {fileID: 3574235607570735451}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (3)
@@ -4627,7 +4594,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106238368642514987}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4662,35 +4629,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4848907127932268418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106238368642514987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &6725605153392252516
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106238368642514987}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
-  m_Center: {x: -0.0078825345, y: -0.09918504, z: -0.029020844}
 --- !u!114 &3574235607570735451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11071,8 +11009,6 @@ GameObject:
   - component: {fileID: 2269290140045273923}
   - component: {fileID: 2269290140042326105}
   - component: {fileID: 2269290140043402821}
-  - component: {fileID: 1099754031636024610}
-  - component: {fileID: 6966782395805551018}
   - component: {fileID: 5100045597501846857}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (1)
@@ -11111,7 +11047,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2269290140045634217}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -11146,35 +11082,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1099754031636024610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2269290140045634217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &6966782395805551018
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2269290140045634217}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.30053717, y: 0.19, z: 0.45871747}
-  m_Center: {x: 0, y: 3.3087225e-24, z: -0.000003814698}
 --- !u!114 &5100045597501846857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13252,8 +13159,6 @@ GameObject:
   - component: {fileID: 2660764436273567917}
   - component: {fileID: 2660764436274411307}
   - component: {fileID: 2660764436275415001}
-  - component: {fileID: 7106116980684465888}
-  - component: {fileID: 5382199408594078076}
   - component: {fileID: 1888320629922645363}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (9)
@@ -13292,7 +13197,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2660764436273427833}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -13327,35 +13232,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7106116980684465888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2660764436273427833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &5382199408594078076
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2660764436273427833}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
-  m_Center: {x: -0.0078825345, y: -0.09918504, z: -0.029020844}
 --- !u!114 &1888320629922645363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14067,8 +13943,6 @@ GameObject:
   - component: {fileID: 2802504224326645642}
   - component: {fileID: 2802504224329460880}
   - component: {fileID: 2802504224328499852}
-  - component: {fileID: 5785204017681644113}
-  - component: {fileID: 1124525292303038347}
   - component: {fileID: 4653055735093924591}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (3)
@@ -14107,7 +13981,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2802504224326547040}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -14142,35 +14016,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5785204017681644113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2802504224326547040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &1124525292303038347
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2802504224326547040}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
-  m_Center: {x: -0.0000019073486, y: 3.3087225e-24, z: -0.000002861023}
 --- !u!114 &4653055735093924591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14771,8 +14616,6 @@ GameObject:
   - component: {fileID: 2979653386792857997}
   - component: {fileID: 2979653386794114571}
   - component: {fileID: 2979653386795200249}
-  - component: {fileID: 3529311508116433177}
-  - component: {fileID: 8569320311779927306}
   - component: {fileID: 4480374643073632521}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (6)
@@ -14811,7 +14654,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2979653386793000025}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -14846,35 +14689,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3529311508116433177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2979653386793000025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &8569320311779927306
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2979653386793000025}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
-  m_Center: {x: -0.007884442, y: -0.09918504, z: -0.02901989}
 --- !u!114 &4480374643073632521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15781,8 +15595,6 @@ GameObject:
   - component: {fileID: 3251245275931428065}
   - component: {fileID: 3251245275934337895}
   - component: {fileID: 3251245275933252501}
-  - component: {fileID: 2923742992945467739}
-  - component: {fileID: 160875012218823518}
   - component: {fileID: 4728001263169041297}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05
@@ -15856,35 +15668,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2923742992945467739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3251245275931126069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &160875012218823518
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3251245275931126069}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.34788644, y: 0.13130899, z: 0.31467593}
-  m_Center: {x: -0.007880628, y: -0.09918504, z: -0.029020846}
 --- !u!114 &4728001263169041297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19456,8 +19239,6 @@ GameObject:
   - component: {fileID: 3853839291611184114}
   - component: {fileID: 3853839291609813534}
   - component: {fileID: 3853839291608730630}
-  - component: {fileID: 7969692643954174690}
-  - component: {fileID: 5350796569421714589}
   - component: {fileID: 3287836027631736766}
   m_Layer: 0
   m_Name: SM_Prop_Paper_03
@@ -19496,7 +19277,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3853839291610921604}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -19531,35 +19312,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7969692643954174690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3853839291610921604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &5350796569421714589
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3853839291610921604}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.30052185, y: 0.19, z: 0.45871735}
-  m_Center: {x: -0.0000076293945, y: 3.3087225e-24, z: -0.0000038146973}
 --- !u!114 &3287836027631736766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24491,8 +24243,6 @@ GameObject:
   - component: {fileID: 4545979709712047587}
   - component: {fileID: 4545979709714985573}
   - component: {fileID: 4545979709713891991}
-  - component: {fileID: 1498298192637921807}
-  - component: {fileID: 8923701004091921983}
   - component: {fileID: 194919952524922902}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (2)
@@ -24531,7 +24281,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4545979709711773751}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -24566,35 +24316,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1498298192637921807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4545979709711773751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &8923701004091921983
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4545979709711773751}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
-  m_Center: {x: -0.007880627, y: -0.09918504, z: -0.029020844}
 --- !u!114 &194919952524922902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25589,8 +25310,6 @@ GameObject:
   - component: {fileID: 5320311628550781097}
   - component: {fileID: 9113685485605697292}
   - component: {fileID: 6457783497388573638}
-  - component: {fileID: 7641176923214997434}
-  - component: {fileID: 5721045312433130680}
   - component: {fileID: 6679725919977394408}
   m_Layer: 0
   m_Name: SM_Props_Street_Garbage_Bag_03 (1)
@@ -25629,7 +25348,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4800374928745849363}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -25664,35 +25383,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7641176923214997434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4800374928745849363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &5721045312433130680
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4800374928745849363}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.470091, y: 0.674114, z: 0.4766893}
-  m_Center: {x: 0.0068828687, y: 0.32620633, z: -0.06482835}
 --- !u!114 &6679725919977394408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28315,8 +28005,6 @@ GameObject:
   - component: {fileID: 5261923094185095559}
   - component: {fileID: 5261923094186384897}
   - component: {fileID: 5261923094187470579}
-  - component: {fileID: 3524162605093779450}
-  - component: {fileID: 3476879615492323231}
   - component: {fileID: 2806014839166117814}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (5)
@@ -28355,7 +28043,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5261923094185270355}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -28390,35 +28078,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3524162605093779450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5261923094185270355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &3476879615492323231
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5261923094185270355}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
-  m_Center: {x: -0.007880627, y: -0.09918504, z: -0.029020844}
 --- !u!114 &2806014839166117814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30805,8 +30464,6 @@ GameObject:
   - component: {fileID: 6514988638253908608}
   - component: {fileID: 7910071588506799397}
   - component: {fileID: 5342060233706142191}
-  - component: {fileID: 7016031571232849024}
-  - component: {fileID: 5498787880256133231}
   - component: {fileID: 1467757220573836013}
   m_Layer: 0
   m_Name: SM_Props_Street_Garbage_Bag_01
@@ -30845,7 +30502,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5846291386745542714}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -30880,35 +30537,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7016031571232849024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5846291386745542714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &5498787880256133231
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5846291386745542714}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5538589, y: 0.5494354, z: 0.5240203}
-  m_Center: {x: 0.029474892, y: 0.2653497, z: -0.08106592}
 --- !u!114 &1467757220573836013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31763,8 +31391,6 @@ GameObject:
   - component: {fileID: 6168208136820133569}
   - component: {fileID: 6168208136820908359}
   - component: {fileID: 6168208136821985717}
-  - component: {fileID: 6007931847780040475}
-  - component: {fileID: 6973382290527582406}
   - component: {fileID: 7253782048029143579}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (1)
@@ -31803,7 +31429,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6168208136819925781}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -31838,35 +31464,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6007931847780040475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6168208136819925781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &6973382290527582406
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6168208136819925781}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
-  m_Center: {x: -0.007880627, y: -0.09918504, z: -0.02901989}
 --- !u!114 &7253782048029143579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31994,8 +31591,6 @@ GameObject:
   - component: {fileID: 6190220295835267041}
   - component: {fileID: 6190220295833912745}
   - component: {fileID: 6190220295833367415}
-  - component: {fileID: 452803092011112995}
-  - component: {fileID: 5513933695940628867}
   - component: {fileID: 4901523605386244816}
   m_Layer: 0
   m_Name: SM_Prop_CardboardBox_04
@@ -32034,7 +31629,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6190220295835052267}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -32069,35 +31664,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &452803092011112995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6190220295835052267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &5513933695940628867
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6190220295835052267}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.8364258, y: 0.7018579, z: 1.0492964}
-  m_Center: {x: -0.000015258789, y: 0.35092896, z: 0.0000023841858}
 --- !u!114 &4901523605386244816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34686,8 +34252,6 @@ GameObject:
   - component: {fileID: 6055996373911374788}
   - component: {fileID: 7180113333495104609}
   - component: {fileID: 4917953062898069675}
-  - component: {fileID: 1822006519451666579}
-  - component: {fileID: 5054557865157782930}
   - component: {fileID: 6463090296755499939}
   m_Layer: 0
   m_Name: SM_Props_Street_Garbage_Bag_03
@@ -34726,7 +34290,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6863741130047672702}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -34761,35 +34325,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1822006519451666579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6863741130047672702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &5054557865157782930
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6863741130047672702}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.470091, y: 0.674114, z: 0.4766893}
-  m_Center: {x: 0.0068828687, y: 0.32620633, z: -0.06482835}
 --- !u!114 &6463090296755499939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35118,8 +34653,6 @@ GameObject:
   - component: {fileID: 6908057127852465694}
   - component: {fileID: 6908057127855932676}
   - component: {fileID: 6908057127854861080}
-  - component: {fileID: 7886440347641716827}
-  - component: {fileID: 2423744472555712234}
   - component: {fileID: 7272470209119171239}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (2)
@@ -35158,7 +34691,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6908057127852892148}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -35193,35 +34726,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7886440347641716827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6908057127852892148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &2423744472555712234
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6908057127852892148}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.30053714, y: 0.19, z: 0.4587174}
-  m_Center: {x: 0.0000038146973, y: 3.3087225e-24, z: -0.0000061988835}
 --- !u!114 &7272470209119171239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35935,8 +35439,6 @@ GameObject:
   - component: {fileID: 7351776042306807047}
   - component: {fileID: 7351776042305473153}
   - component: {fileID: 7351776042304469619}
-  - component: {fileID: 950576813296722573}
-  - component: {fileID: 809411777461123361}
   - component: {fileID: 6808143893121868299}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (8)
@@ -35975,7 +35477,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7351776042306586835}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -36010,35 +35512,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &950576813296722573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7351776042306586835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &809411777461123361
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7351776042306586835}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
-  m_Center: {x: -0.007884442, y: -0.09918504, z: -0.02901989}
 --- !u!114 &6808143893121868299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37270,8 +36743,6 @@ GameObject:
   - component: {fileID: 7136247648785609815}
   - component: {fileID: 6099792509177314290}
   - component: {fileID: 8305244308199100216}
-  - component: {fileID: 5783214107734208927}
-  - component: {fileID: 2165700240519844155}
   - component: {fileID: 8632363728205333089}
   m_Layer: 0
   m_Name: SM_Props_Street_Garbage_Bag_02
@@ -37310,7 +36781,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7512808753832750829}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -37345,35 +36816,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5783214107734208927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7512808753832750829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &2165700240519844155
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7512808753832750829}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.63014376, y: 0.6801947, z: 0.58549666}
-  m_Center: {x: -0.003498733, y: 0.3291135, z: -0.06564316}
 --- !u!114 &8632363728205333089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39405,8 +38847,6 @@ GameObject:
   - component: {fileID: 7966951815963545611}
   - component: {fileID: 7966951815962692369}
   - component: {fileID: 7966951815961748749}
-  - component: {fileID: 7242673815858822469}
-  - component: {fileID: 3119206775801681204}
   - component: {fileID: 5635997934445209769}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (4)
@@ -39445,7 +38885,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7966951815963972065}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -39480,35 +38920,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7242673815858822469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7966951815963972065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &3119206775801681204
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7966951815963972065}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
-  m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
 --- !u!114 &5635997934445209769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39538,8 +38949,6 @@ GameObject:
   - component: {fileID: 8191342173818523808}
   - component: {fileID: 8191342173817725518}
   - component: {fileID: 8191342173816688302}
-  - component: {fileID: 1073647104891801024}
-  - component: {fileID: 1644522759332685235}
   - component: {fileID: 208722695675476573}
   m_Layer: 0
   m_Name: SM_Prop_CardboardBox_01
@@ -39578,7 +38987,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8191342173818930698}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -39613,35 +39022,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1073647104891801024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8191342173818930698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &1644522759332685235
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8191342173818930698}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.59747314, y: 0.5052583, z: 0.5974655}
-  m_Center: {x: -0.000015258789, y: 0.25262916, z: -0.0000038146973}
 --- !u!114 &208722695675476573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39671,8 +39051,6 @@ GameObject:
   - component: {fileID: 8220565731956652700}
   - component: {fileID: 8220565731959543066}
   - component: {fileID: 8220565731958466024}
-  - component: {fileID: 7231045005450577352}
-  - component: {fileID: 7782441922973974562}
   - component: {fileID: 6124585386047192523}
   m_Layer: 0
   m_Name: SM_Prop_Paper_05 (7)
@@ -39711,7 +39089,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8220565731956463432}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -39746,35 +39124,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7231045005450577352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8220565731956463432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &7782441922973974562
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8220565731956463432}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
-  m_Center: {x: -0.0078825345, y: -0.09918504, z: -0.02901989}
 --- !u!114 &6124585386047192523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44898,8 +44247,6 @@ GameObject:
   - component: {fileID: 8644430836553882080}
   - component: {fileID: 8644430836551058170}
   - component: {fileID: 8644430836552084710}
-  - component: {fileID: 5474839476880368483}
-  - component: {fileID: 1982899053114939066}
   - component: {fileID: 7095651284933635829}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (5)
@@ -44938,7 +44285,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8644430836554045450}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -44973,35 +44320,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5474839476880368483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8644430836554045450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &1982899053114939066
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8644430836554045450}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
-  m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
 --- !u!114 &7095651284933635829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47269,8 +46587,6 @@ GameObject:
   - component: {fileID: 8994161979098508184}
   - component: {fileID: 8994161979095036034}
   - component: {fileID: 8994161979096112798}
-  - component: {fileID: 8800073293006320522}
-  - component: {fileID: 4909186258328934448}
   - component: {fileID: 3890191638972237409}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02 (6)
@@ -47309,7 +46625,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8994161979098344050}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -47344,35 +46660,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8800073293006320522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8994161979098344050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &4909186258328934448
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8994161979098344050}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3005371, y: 6.673064e-17, z: 0.45871735}
-  m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
 --- !u!114 &3890191638972237409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49399,8 +48686,6 @@ GameObject:
   - component: {fileID: 9164990254254052042}
   - component: {fileID: 9164990254251231696}
   - component: {fileID: 9164990254252189644}
-  - component: {fileID: 2285167901346547500}
-  - component: {fileID: 1880576526787892943}
   - component: {fileID: 3805528649515181749}
   m_Layer: 0
   m_Name: SM_Prop_Paper_02
@@ -49439,7 +48724,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9164990254254150432}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -49474,35 +48759,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2285167901346547500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9164990254254150432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &1880576526787892943
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9164990254254150432}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
-  m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
 --- !u!114 &3805528649515181749
 MonoBehaviour:
   m_ObjectHideFlags: 0

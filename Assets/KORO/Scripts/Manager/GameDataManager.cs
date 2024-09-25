@@ -11,6 +11,7 @@ public class GameDataManager : MonoBehaviour
     public List<OrderData> FoodDatas;
     public List<OrderData> OpenFoodDatas = new List<OrderData>();
     public List<SingleIngredient> FoodIngredients = new List<SingleIngredient>();
+    public List<MeshRenderer> RubbishMeshes = new List<MeshRenderer>();
     public FoodTable FoodTablePf;
 
     public static GameDataManager Instance;

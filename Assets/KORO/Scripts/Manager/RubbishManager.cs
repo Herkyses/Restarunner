@@ -9,6 +9,7 @@ public class RubbishManager : MonoBehaviour
     [SerializeField] private float _cleanRate;
     [SerializeField] private int _allRubbishCount;
     [SerializeField] private List<Transform> _rubbishLevelsParents;
+    [SerializeField] private List<Transform> rubbishChilds;
     
     private void Awake()
     {
@@ -45,7 +46,7 @@ public class RubbishManager : MonoBehaviour
 
     public bool CheckRubbishLevel()
     {
-        var rubbishList = _rubbishLevelsParents[_rubbishLevel].GetComponentsInChildren<Rubbish>();
+        var rubbishList = GetComponentsInChildren<Rubbish>();
         if (rubbishList.Length > 0)
         {
             for (int i = 0; i < rubbishList.Length; i++)
@@ -62,22 +63,35 @@ public class RubbishManager : MonoBehaviour
 
     public int GetRubbishCount()
     {
-        if (_rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceLevel()].gameObject.activeSelf)
-        {
-            var rubbishList = _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceLevel()].GetComponentsInChildren<Rubbish>();
-            return rubbishList.Length;
-        }
-        else
-        {
-            return 0;
-        }
+        return transform.childCount;
     }
 
     public void ActivateRubbishes()
     {
-        _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceRubbishLevel()].gameObject.SetActive(true);
-        _allRubbishCount = _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceRubbishLevel()].childCount;
+        var playerprefsManager = PlayerPrefsManager.Instance;
+        _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].gameObject.SetActive(true);
+        //var rubbishChilds = _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceRubbishLevel()].GetComponentsInChildren<Transform>();
+        
+        
+        foreach (Transform child in _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].GetComponentsInChildren<Transform>())
+        {
+            // Kendisi de dahil olabilir, ayıklamak için:
+            if (child.gameObject != _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].gameObject)
+            {
+                rubbishChilds.Add(child);
+            }
+        }
+        
+        for (int i = 0; i < rubbishChilds.Count; i++)
+        {
+            var rubbish = PoolManager.Instance.GetFromPoolForRubbish();
+            //rubbish.transform.position = rubbishChilds[i].position;
+            rubbish.transform.position = new Vector3(rubbishChilds[i].position.x,0.32f,rubbishChilds[i].position.z);
+            rubbish.transform.SetParent(transform);
+        }
+        _allRubbishCount = _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].childCount;
         CheckRubbishRate();
+        
     }
 
     public void CheckRubbishRate()
@@ -105,6 +119,17 @@ public class RubbishManager : MonoBehaviour
         }
 
         return count;
+    }
+
+    public void CreateRubbishFromAI()
+    {
+        var rubbish = PoolManager.Instance.GetFromPoolForRubbish();
+        rubbish.transform.position = _rubbishLevelsParents[0].position;
+    }
+
+    public void ReturnRubbish(GameObject rubbishObject)
+    {
+        PoolManager.Instance.ReturnToPoolForRubbish(rubbishObject);
     }
 
     public float GetCleanRateValue()
