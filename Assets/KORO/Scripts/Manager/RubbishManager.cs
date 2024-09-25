@@ -62,8 +62,15 @@ public class RubbishManager : MonoBehaviour
 
     public int GetRubbishCount()
     {
-        var rubbishList = _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceLevel()].GetComponentsInChildren<Rubbish>();
-        return rubbishList.Length;
+        if (_rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceLevel()].gameObject.activeSelf)
+        {
+            var rubbishList = _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceLevel()].GetComponentsInChildren<Rubbish>();
+            return rubbishList.Length;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     public void ActivateRubbishes()
