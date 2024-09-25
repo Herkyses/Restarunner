@@ -1,10 +1,12 @@
  using System;
  using System.Collections;
 using System.Collections.Generic;
+ using System.Numerics;
  using DG.Tweening;
  using TMPro;
  using UnityEngine;
  using UnityEngine.Serialization;
+ using Vector2 = UnityEngine.Vector2;
 
  public class PlacePanelController : MonoBehaviour
 {
@@ -24,6 +26,7 @@ using System.Collections.Generic;
     public SingleShopingCardItem SingleShopingCardItemPf;
     private Vector2 firstSizeDelta;
     private ShopManager _shopManager;
+    private Tween _shopPanelMove;
     [SerializeField] private TextMeshProUGUI _totalCostText;
     private void Awake()
     {
@@ -89,13 +92,31 @@ using System.Collections.Generic;
     {
         if (_panel.gameObject.activeSelf)
         {
-            DeActivePlacePanel();
+            //DeActivePlacePanel();
+            if (_shopPanelMove != null)
+            {
+                _shopPanelMove.Kill();
+            }
+            var panelRect = _panel.GetComponent<RectTransform>();
+            _shopPanelMove = panelRect.DOLocalMoveY( - 1200f, 0.3f).OnComplete(DeActivePlacePanel);
         }
         else
         {
             ActivePlacePanel();
+            var panelRect = _panel.GetComponent<RectTransform>();
+            panelRect.anchoredPosition += Vector2.down*600f; 
+            if (_shopPanelMove != null)
+            {
+                _shopPanelMove.Kill();
+            }
+            _shopPanelMove = panelRect.DOLocalMoveY(0f, 0.3f);
+
+
         }
     }
+
+    
+    
 
     public void Initialize()
     {
