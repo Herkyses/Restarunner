@@ -95,7 +95,7 @@ public class RubbishManager : MonoBehaviour
     public void ActivateRubbishes()
     {
         var playerprefsManager = PlayerPrefsManager.Instance;
-        if (playerprefsManager.LoadPlaceRubbishLevel() == playerprefsManager.LoadPlaceLevel())
+        if (playerprefsManager.LoadPlaceRubbishLevel() <= playerprefsManager.LoadPlaceLevel())
         {
             _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].gameObject.SetActive(true);
             //var rubbishChilds = _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceRubbishLevel()].GetComponentsInChildren<Transform>();
@@ -103,7 +103,6 @@ public class RubbishManager : MonoBehaviour
             rubbishChilds.Clear();
             foreach (Transform child in _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].GetComponentsInChildren<Transform>())
             {
-                // Kendisi de dahil olabilir, ayıklamak için:
                 if (child.gameObject != _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].gameObject)
                 {
                     rubbishChilds.Add(child);
