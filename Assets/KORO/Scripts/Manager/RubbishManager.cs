@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,24 @@ public class RubbishManager : MonoBehaviour
     [SerializeField] private int _allRubbishCount;
     [SerializeField] private List<Transform> _rubbishLevelsParents;
     [SerializeField] private List<Transform> rubbishChilds;
-    
+
+    public static Action CheckedRubbishes;
+    public static Action CheckedRubbishesForTutorial;
+
+
+    private void OnEnable()
+    {
+        CheckedRubbishes += CheckRubbishRate;
+        CheckedRubbishesForTutorial += CheckRubbishesForTutorial;
+    }
+
+    private void OnDisable()
+    {
+        CheckedRubbishes -= CheckRubbishRate;
+        CheckedRubbishesForTutorial -= CheckRubbishesForTutorial;
+
+    }
+
     private void Awake()
     {
         if (Instance == null)
@@ -69,27 +87,32 @@ public class RubbishManager : MonoBehaviour
     public void ActivateRubbishes()
     {
         var playerprefsManager = PlayerPrefsManager.Instance;
-        _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].gameObject.SetActive(true);
-        //var rubbishChilds = _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceRubbishLevel()].GetComponentsInChildren<Transform>();
-        
-        
-        foreach (Transform child in _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].GetComponentsInChildren<Transform>())
+        if (playerprefsManager.LoadPlaceRubbishLevel() == playerprefsManager.LoadPlaceLevel())
         {
-            // Kendisi de dahil olabilir, ayıklamak için:
-            if (child.gameObject != _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].gameObject)
+            _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].gameObject.SetActive(true);
+            //var rubbishChilds = _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceRubbishLevel()].GetComponentsInChildren<Transform>();
+        
+        
+            foreach (Transform child in _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].GetComponentsInChildren<Transform>())
             {
-                rubbishChilds.Add(child);
+                // Kendisi de dahil olabilir, ayıklamak için:
+                if (child.gameObject != _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].gameObject)
+                {
+                    rubbishChilds.Add(child);
+                }
             }
-        }
         
-        for (int i = 0; i < rubbishChilds.Count; i++)
-        {
-            var rubbish = PoolManager.Instance.GetFromPoolForRubbish();
-            //rubbish.transform.position = rubbishChilds[i].position;
-            rubbish.transform.position = new Vector3(rubbishChilds[i].position.x,0.32f,rubbishChilds[i].position.z);
-            rubbish.transform.SetParent(transform);
+            for (int i = 0; i < rubbishChilds.Count; i++)
+            {
+                var rubbish = PoolManager.Instance.GetFromPoolForRubbish();
+                //rubbish.transform.position = rubbishChilds[i].position;
+                rubbish.transform.position = new Vector3(rubbishChilds[i].position.x,0.32f,rubbishChilds[i].position.z);
+                rubbish.transform.SetParent(transform);
+            }
+            _allRubbishCount = _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].childCount;
         }
-        _allRubbishCount = _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].childCount;
+
+        
         CheckRubbishRate();
         
     }
@@ -107,6 +130,7 @@ public class RubbishManager : MonoBehaviour
         }*/
         //TODO: mekan levele göre bütün çöplük oranı hesaplanması
         _cleanRate = (float)GetRubbishCount()/(float)GetRubbishChildDenominator();
+        Debug.Log("getrubco: " + GetRubbishCount() + "GetRubbishChildDenominator: " + GetRubbishChildDenominator());
         GameSceneCanvas.Instance.SetCleanRateText(_cleanRate);
     }
 
@@ -119,6 +143,14 @@ public class RubbishManager : MonoBehaviour
         }
 
         return count;
+    }
+
+    public void CheckRubbishesForTutorial()
+    {
+        if (PlayerPrefsManager.Instance.LoadPlaceRubbishLevel() == 0)
+        {
+            TutorialPanelController.Instance.SetRubbishCount();
+        }
     }
 
     public void CreateRubbishFromAI()

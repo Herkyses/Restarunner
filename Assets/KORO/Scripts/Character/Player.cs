@@ -105,10 +105,7 @@ public class Player : MonoBehaviour
     public void StartClean()
     {
         CameraController.Instance.MoveCleanTool();
-        if (PlayerPrefsManager.Instance.LoadPlaceRubbishLevel() == 0)
-        {
-            TutorialPanelController.Instance.SetRubbishCount();
-        }
+        
         if (RubbishManager.Instance.CheckRubbishLevel())
         {
             RubbishManager.Instance.UpdateRubbishLevel();
