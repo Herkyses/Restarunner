@@ -62,6 +62,14 @@ public class RubbishManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            ActivateRubbishes();
+        }
+    }
+
     public bool CheckRubbishLevel()
     {
         var rubbishList = GetComponentsInChildren<Rubbish>();
@@ -92,7 +100,7 @@ public class RubbishManager : MonoBehaviour
             _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].gameObject.SetActive(true);
             //var rubbishChilds = _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceRubbishLevel()].GetComponentsInChildren<Transform>();
         
-        
+            rubbishChilds.Clear();
             foreach (Transform child in _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].GetComponentsInChildren<Transform>())
             {
                 // Kendisi de dahil olabilir, ayıklamak için:
@@ -101,7 +109,7 @@ public class RubbishManager : MonoBehaviour
                     rubbishChilds.Add(child);
                 }
             }
-        
+            
             for (int i = 0; i < rubbishChilds.Count; i++)
             {
                 var rubbish = PoolManager.Instance.GetFromPoolForRubbish();
