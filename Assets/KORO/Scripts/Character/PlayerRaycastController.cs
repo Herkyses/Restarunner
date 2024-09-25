@@ -201,7 +201,7 @@ public class PlayerRaycastController : MonoBehaviour
     private void DetachAndDropObject(GameObject takenObject)
     {
         takenObject.transform.SetParent(null);
-        takenObject.transform.position = transform.position + Vector3.up;
+        takenObject.transform.position = CameraController.Instance.PlayerTakedObjectTransformParent.position;
 
         if (takenObject.TryGetComponent(out Rigidbody objectRigid))
         {
