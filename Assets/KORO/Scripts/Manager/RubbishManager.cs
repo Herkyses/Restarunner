@@ -95,7 +95,7 @@ public class RubbishManager : MonoBehaviour
     public void ActivateRubbishes()
     {
         var playerprefsManager = PlayerPrefsManager.Instance;
-        if (playerprefsManager.LoadPlaceRubbishLevel() <= playerprefsManager.LoadPlaceLevel())
+        if (playerprefsManager.LoadPlaceRubbishLevel() == playerprefsManager.LoadPlaceLevel())
         {
             _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].gameObject.SetActive(true);
             //var rubbishChilds = _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceRubbishLevel()].GetComponentsInChildren<Transform>();
