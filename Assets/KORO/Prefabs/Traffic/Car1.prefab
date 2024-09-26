@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2860987458568278510}
   - component: {fileID: 7551313833258267517}
   - component: {fileID: -5705976680073003791}
+  - component: {fileID: 7363228477318954794}
   m_Layer: 0
   m_Name: Car1
   m_TagString: Untagged
@@ -141,6 +142,28 @@ MonoBehaviour:
   - {fileID: 3561112422109268393}
   - {fileID: 615110361706310322}
   - {fileID: 5989453566269669313}
+--- !u!195 &7363228477318954794
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573895847616925524}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.528586
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 3.0334737
+  m_BaseOffset: 1.5167369
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1811675991030450283
 GameObject:
   m_ObjectHideFlags: 0
