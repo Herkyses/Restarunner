@@ -32,9 +32,11 @@ public class InitializeManager : MonoBehaviour
     // Start is called before the first frame update
     public void Initialize()
     {
+
         MapManager.Instance.LoadMap();
-        PoolManager.Instance.Initiliaze();
         TrafficManager.Instance.Initiliaze();
+
+        PoolManager.Instance.Initiliaze();
         MealManager.Instance.Initiliaze();
         TableController.Instance.SetTableNumbers();
         TableController.Instance.Initialize();
@@ -50,6 +52,7 @@ public class InitializeManager : MonoBehaviour
         IngredientShelvesController.Instance.Initiliaze();
         PopularityManager.Instance.Initiliaze();
         TutorialManager.Instance.Initiliaze();
+
     }
 
     // Update is called once per frame
