@@ -37,6 +37,11 @@ public class SingleCar : MonoBehaviour
         {
             setss();
         }
+        if (CarWayPoint.TrafficLights[0] != null && CarWayPoint.TrafficLights[0].currentState == TrafficLight.LightState.Red && IsNear())
+        {
+            // Kırmızı ışıkta dur
+            return;
+        }
         MoveToNextWaypoint();
     }
 
@@ -90,5 +95,10 @@ public class SingleCar : MonoBehaviour
             currentWaypointIndex++;
             transform.DOLookAt(CarWayPoint.WayPoints[currentWaypointIndex].position, 0.8f);
         }
+    }
+    bool IsNear()
+    {
+        // Işıkla araç arasındaki mesafeyi kontrol et
+        return Vector3.Distance(transform.position, CarWayPoint.TrafficLights[0].transform.position) < 5f;
     }
 }
