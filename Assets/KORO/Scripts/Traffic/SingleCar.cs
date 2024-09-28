@@ -88,6 +88,7 @@ public class SingleCar : MonoBehaviour
         if (Vector3.Distance(transform.position, targetPosition) < 1f)
         {
             currentWaypointIndex++;
+            transform.DOLookAt(CarWayPoint.WayPoints[currentWaypointIndex].position, 0.8f);
         }
     }
 }
