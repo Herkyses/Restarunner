@@ -18,6 +18,7 @@ public class SingleCar : MonoBehaviour
     public int currentWaypointIndex = 0;
     public bool checkable = true;
     public bool rotateable = false;
+    public bool startedRotation = false;
     public Vector3 targetPosition ;
     // Start is called before the first frame update
     public void Initiliaze(WayPoint wayPoint)
@@ -29,54 +30,59 @@ public class SingleCar : MonoBehaviour
 
     private void Start()
     {
-        CarNavMeshAgent = GetComponent<NavMeshAgent>();
         StartWheelRotation();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            setss();
-        }
-        if (CarWayPoint.TrafficLights[0] != null && CarWayPoint.TrafficLights[0].currentState == TrafficLight.LightState.Red && IsNear())
+        
+        if (CarWayPoint.TrafficLights[0] && CarWayPoint.TrafficLights[0].currentState == TrafficLight.LightState.Red && IsNear())
         {
             // Kırmızı ışıkta dur
+            StopWheelRotation();
             return;
         }
+        StartWheelRotation();
         MoveToNextWaypoint();
     }
 
     public void StartWheelRotation()
     {
-        _wheelTweens.Clear();
-        for (int i = 0; i < _wheels.Count; i++)
+        if (!startedRotation)
         {
-            _wheelTweens.Add(_wheels[i].DOLocalRotate(new Vector3(360f, 0, 0), 0.3f, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1));
+            startedRotation = true;
+            _wheelTweens.Clear();
+            for (int i = 0; i < _wheels.Count; i++)
+            {
+                _wheelTweens.Add(_wheels[i].DOLocalRotate(new Vector3(360f, 0, 0), 0.3f, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1));
+            }
+            Debug.Log("name" + gameObject.name);
         }
-        Debug.Log("name" + gameObject.name);
-       
-
     }
-
-    public void setss()
-    {
-        CarNavMeshAgent.destination = TrafficManager.Instance._carSpawnTransforms[1].position;
-    }
+    
     
 
     public void StopWheelRotation()
     {
-        if (_wheelTweens.Count > 0)
+        if (startedRotation)
         {
-            for (int i = 0; i < _wheelTweens.Count; i++)
+            startedRotation = false;
+            if (_wheelTweens.Count > 0)
             {
-                //_wheelTweens[i].SetLoops(0);
-                _wheelTweens[i].Pause();
-                _wheels[i].DOLocalRotate(new Vector3(_wheels[i].eulerAngles.x + 360f, 0, 0), 0.5f, RotateMode.FastBeyond360);
-            }  
+                Debug.Log("StopwheelRots");
+
+                for (int i = 0; i < _wheelTweens.Count; i++)
+                {
+                    //_wheelTweens[i].SetLoops(0);
+                    _wheelTweens[i].Pause();
+                    _wheels[i].DOLocalRotate(new Vector3(_wheels[i].eulerAngles.x + 360f, 0, 0), 0.5f, RotateMode.FastBeyond360);
+                }
+
+                //startedRotation = false;
+            }
         }
+        
         
     }
     public void MoveToNextWaypoint()
