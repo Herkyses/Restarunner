@@ -70,7 +70,6 @@ public class SingleCar : MonoBehaviour
             startedRotation = false;
             if (_wheelTweens.Count > 0)
             {
-                Debug.Log("StopwheelRots");
 
                 for (int i = 0; i < _wheelTweens.Count; i++)
                 {
