@@ -16,6 +16,9 @@ public class SingleCar : MonoBehaviour
     
     public float speed = 5f;
     public int currentWaypointIndex = 0;
+    public bool checkable = true;
+    public bool rotateable = false;
+    public Vector3 targetPosition ;
     // Start is called before the first frame update
     public void Initiliaze(WayPoint wayPoint)
     {
@@ -52,15 +55,8 @@ public class SingleCar : MonoBehaviour
         {
             _wheelTweens.Add(_wheels[i].DOLocalRotate(new Vector3(360f, 0, 0), 0.3f, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1));
         }
-        //TrafficManager.Instance.SetDestination(CarNavMeshAgent);
         Debug.Log("name" + gameObject.name);
-        /*if (CarNavMeshAgent.isActiveAndEnabled)
-        {
-            Debug.Log("CarNavMeshAgent" + CarNavMeshAgent + "sss " + TrafficManager.Instance._carSpawnTransforms[1] );
-            CarNavMeshAgent = GetComponent<NavMeshAgent>();
-            CarNavMeshAgent.destination = TrafficManager.Instance._carSpawnTransforms[1].position;
-
-        }*/
+       
 
     }
 
@@ -87,14 +83,71 @@ public class SingleCar : MonoBehaviour
     {
         if (currentWaypointIndex >= CarWayPoint.WayPoints.Count) return;
 
-        Vector3 targetPosition = CarWayPoint.WayPoints[currentWaypointIndex].position;
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, targetPosition) < 1f)
+        targetPosition = CarWayPoint.WayPoints[currentWaypointIndex].position;
+        
+        
+        MoveToTarget();
+        
+        if (HasReachedTarget())
         {
             currentWaypointIndex++;
-            transform.DOLookAt(CarWayPoint.WayPoints[currentWaypointIndex].position, 0.8f);
+            HandleWaypointReached();
         }
+        
+    }
+    
+    private bool HasReachedTarget()
+    {
+        return Vector3.Distance(transform.position, targetPosition) < 1f;
+    }
+    private void HandleWaypointReached()
+    {
+        if (checkable)
+        {
+            rotateable = true;
+            checkable = false;
+            if (currentWaypointIndex <= CarWayPoint.WayPoints.Count - 1)
+            {
+                PerformWaypointTransition(CarWayPoint.WayPoints[currentWaypointIndex].position);
+            }
+        }
+        else
+        {
+            ResetSpeedIfNecessary();
+        }
+    }
+    private void PerformWaypointTransition(Vector3 nextWaypointPosition)
+    {
+        DOTween.To(() => speed, x => speed = x, 2f, 1.2f);
+        transform.DOLookAt(nextWaypointPosition, 1.2f).OnComplete(SetSpeed);
+    }
+
+    private void ResetSpeedIfNecessary()
+    {
+        if (speed != 5f)
+        {
+            speed = 5f;
+            rotateable = false;
+        }
+    }
+
+    public void MoveToTarget()
+    {
+        if (!rotateable)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+
+        }
+        else
+        {
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        }
+    }
+    public void SetSpeed()
+    {
+        speed = 5f;
+        checkable = true;
+        rotateable = false;
     }
     bool IsNear()
     {

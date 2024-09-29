@@ -148,6 +148,7 @@ MonoBehaviour:
     TrafficLights: []
   speed: 5
   currentWaypointIndex: 0
+  checkable: 1
 --- !u!65 &9156326446224019644
 BoxCollider:
   m_ObjectHideFlags: 0
