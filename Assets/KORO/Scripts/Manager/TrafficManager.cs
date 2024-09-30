@@ -38,9 +38,13 @@ public class TrafficManager : MonoBehaviour
 
     public void Initiliaze()
     {
-        var car = Instantiate(_cars[0], transform);
-        car.transform.position = WayPoints[0].WayPoints[0].transform.position;
-        car.Initiliaze(WayPoints[0]);
+        for (int i = 0; i < WayPoints.Count; i++)
+        {
+            var car = Instantiate(_cars[i], transform);
+            car.transform.position = WayPoints[i].WayPoints[0].transform.position;
+            car.Initiliaze(WayPoints[i]);
+        }
+        
         /*NavMesh.RemoveAllNavMeshData();
         NavMeshSurfaceMap.BuildNavMesh();*/
     }
