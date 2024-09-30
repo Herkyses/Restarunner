@@ -11047,7 +11047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3127482830290819054
 Transform:
   m_ObjectHideFlags: 0
@@ -18822,8 +18822,6 @@ GameObject:
   - component: {fileID: 4496400715810009797}
   - component: {fileID: 705296257331363168}
   - component: {fileID: 3327386602723150250}
-  - component: {fileID: 3465771742954714814}
-  - component: {fileID: 7490502452879530264}
   m_Layer: 0
   m_Name: SM_Props_Street_Dustbin_02 (28)
   m_TagString: Untagged
@@ -18896,32 +18894,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3465771742954714814
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3831925619082045567}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1373078, y: 1.451483, z: 0.17039073}
-  m_Center: {x: -0.0005485229, y: 0.7257415, z: 0.0029408932}
---- !u!65 &7490502452879530264
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3831925619082045567}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5494629, y: 0.9705944, z: 0.5340339}
-  m_Center: {x: -0.36785805, y: 0.9661858, z: -0.006223917}
 --- !u!1 &3853839291610921604
 GameObject:
   m_ObjectHideFlags: 0
@@ -31292,7 +31264,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6667057716568225592
 Transform:
   m_ObjectHideFlags: 0
