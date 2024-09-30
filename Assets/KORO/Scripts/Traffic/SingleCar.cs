@@ -23,8 +23,14 @@ public class SingleCar : MonoBehaviour
     // Start is called before the first frame update
     public void Initiliaze(WayPoint wayPoint)
     {
+        speed = 8f;
+        checkable = true;
+        rotateable = false;
+        startedRotation = false;
         //StartWheelRotation();
         CarWayPoint = wayPoint;
+        currentWaypointIndex = 0;
+        transform.position = wayPoint.WayPoints[0].transform.position;
         transform.rotation = Quaternion.Euler(transform.forward);
     }
 
@@ -115,6 +121,10 @@ public class SingleCar : MonoBehaviour
             {
                 PerformWaypointTransition(CarWayPoint.WayPoints[currentWaypointIndex].position);
             }
+            else
+            {
+                Initiliaze(CarWayPoint);
+            }
         }
         else
         {
@@ -141,7 +151,7 @@ public class SingleCar : MonoBehaviour
         if (!rotateable)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-
+            transform.LookAt(targetPosition);
         }
         else
         {

@@ -41,7 +41,7 @@ public class TrafficManager : MonoBehaviour
         for (int i = 0; i < WayPoints.Count; i++)
         {
             var car = Instantiate(_cars[i], transform);
-            car.transform.position = WayPoints[i].WayPoints[0].transform.position;
+            //car.transform.position = WayPoints[i].WayPoints[0].transform.position;
             car.Initiliaze(WayPoints[i]);
         }
         
