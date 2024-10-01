@@ -26,7 +26,7 @@ public class SingleCar : MonoBehaviour
     // Start is called before the first frame update
     public void Initiliaze(WayPoint wayPoint)
     {
-        speed = 8f;
+        speed = 5f;
         checkable = true;
         rotateable = false;
         startedRotation = false;
@@ -147,8 +147,8 @@ public class SingleCar : MonoBehaviour
     }
     private void PerformWaypointTransition(Vector3 nextWaypointPosition)
     {
-        DOTween.To(() => speed, x => speed = x, 2f, 1.2f);
-        transform.DOLookAt(nextWaypointPosition, 1.2f).OnComplete(SetSpeed);
+        DOTween.To(() => speed, x => speed = x, 3f, 0.6f);
+        transform.DOLookAt(nextWaypointPosition, 0.6f).OnComplete(SetSpeed);
     }
 
     private void ResetSpeedIfNecessary()
@@ -165,7 +165,7 @@ public class SingleCar : MonoBehaviour
         if (!rotateable)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-            transform.LookAt(targetPosition);
+            //transform.DOLookAt(targetPosition,0.2f);
         }
         else
         {
@@ -174,9 +174,10 @@ public class SingleCar : MonoBehaviour
     }
     public void SetSpeed()
     {
-        speed = 5f;
         checkable = true;
         rotateable = false;
+        speed = 5f;
+
     }
     bool IsNear()
     {
@@ -216,7 +217,7 @@ public class SingleCar : MonoBehaviour
         
         if (stopped)
         {
-            DOTween.To(() => speed, x => speed = x, 5f, 1f);
+            DOTween.To(() => speed, x => speed = x, 5f, 0.8f);
             startedRotation = false;
             stopped = false;
         }
