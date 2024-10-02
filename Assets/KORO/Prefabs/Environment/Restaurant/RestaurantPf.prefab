@@ -13742,12 +13742,12 @@ GameObject:
   - component: {fileID: 5835611136925660226}
   - component: {fileID: 1215406686923028040}
   m_Layer: 0
-  m_Name: SM_Props_Street_Dustbin_02 (29)
+  m_Name: Dustbin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3264319371843209057
 Transform:
   m_ObjectHideFlags: 0
@@ -18823,12 +18823,12 @@ GameObject:
   - component: {fileID: 705296257331363168}
   - component: {fileID: 3327386602723150250}
   m_Layer: 0
-  m_Name: SM_Props_Street_Dustbin_02 (28)
+  m_Name: Dustbin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4496400715810009797
 Transform:
   m_ObjectHideFlags: 0
