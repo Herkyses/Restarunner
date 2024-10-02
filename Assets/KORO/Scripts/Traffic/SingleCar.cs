@@ -177,7 +177,7 @@ public class SingleCar : MonoBehaviour
         checkable = true;
         rotateable = false;
         speed = 5f;
-
+        transform.DOLookAt(targetPosition,0.2f);
     }
     bool IsNear()
     {
