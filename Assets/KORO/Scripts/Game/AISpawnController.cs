@@ -60,12 +60,31 @@ public class AISpawnController : MonoBehaviour
     }
     public void NewAISpawn()
     {
-        var singleAi = Instantiate(AlPfRagdoll,transform);
-        var index = Random.Range(0, 7);
-        singleAi.SetModel(index);
+        var singleAi = PoolManager.Instance.GetCustomerRagdollAI().GetComponent<AIController>(); 
+        
+        InitializeSingleAI(singleAi,ActiveAiCount);
+    }
+    private void InitializeSingleAI(AIController singleAi, int agentId, List<AIController> friends = null, Transform spawnTransform = null)
+    {
+        singleAi.transform.SetParent(transform);
+        singleAi.AgentID = agentId;
+
+        var modelIndex = Random.Range(0, 7);
+        singleAi.SetModel(modelIndex);
         AllAIList.Add(singleAi);
-        singleAi.AgentID = ActiveAiCount;
-        SetTransformToAI(singleAi);
+
+        if (friends != null)
+        {
+            friends.Add(singleAi);
+            singleAi.transform.position = spawnTransform.position + Vector3.back * 0.2f;
+            SetTransformToAI(singleAi, true);
+        }
+        else
+        {
+            SetTransformToAI(singleAi);
+        }
+
+        singleAi.Initiliaze(friends != null);
     }
 
     public void SetTransformForAI(AIController singleAi)
@@ -80,110 +99,68 @@ public class AISpawnController : MonoBehaviour
     }
     public IEnumerator Initialize()
     {
-        for (int i = 0; i < ActiveAiCount + (PlayerPrefsManager.Instance.LoadCustomerCount()/2); i++)
+        int initialAiCount = ActiveAiCount + PlayerPrefsManager.Instance.LoadCustomerCount() / 2;
+        for (int i = 0; i < initialAiCount; i++)
         {
             var ranDomTime = Random.Range(1, 5);
             yield return new WaitForSeconds(ranDomTime);
             //var singleAi = Instantiate(AlPf,transform);
             var singleAi = new AIController();
-            singleAi = PoolManager.Instance.GetCustomerRagdollAI().GetComponent<AIController>(); 
-
-            /*if (Random.value < 0.2f)
-            {
-                singleAi = PoolManager.Instance.GetCustomerAI().GetComponent<AIController>(); 
-            }
-            else
-            {
-                singleAi = PoolManager.Instance.GetCustomerRagdollAI().GetComponent<AIController>(); 
-
-            }*/
-            singleAi.transform.SetParent(transform);
-            var index = Random.Range(0, 7);
-            singleAi.SetModel(index);
-            AllAIList.Add(singleAi);
-            singleAi.AgentID = i;
-            SetTransformToAI(singleAi);
-            singleAi.Initiliaze();
+            singleAi = PoolManager.Instance.GetCustomerRagdollAI().GetComponent<AIController>();
+            
+            InitializeSingleAI(singleAi, i);
 
         }
     }
 
     public void CreateAIForGroup(List<AIController> friends,Transform spawnTransform)
     {
-        /*var singleAi = Instantiate(AlPf,transform);
-        var index = Random.Range(0, 7);
-        singleAi.SetModel(index);
-        singleAi.transform.position = spawnTransform.position + Vector3.back * 0.2f;
-        singleAi.AgentID = AllAIList.Count;
-        AllAIList.Add(singleAi);
-        singleAi.Initiliaze(true);*/
-        var randomTable = 0;
-        var table = new Table();
-        for (int i = 0; i < TableController.Instance.TableSets.Count; i++)
-        {
-            if (TableController.Instance.TableSets[i].table.IsTableAvailable)
-            {
-                randomTable = TableController.Instance.TableSets[i].table.TableNumber;
-                table = TableController.Instance.TableSets[i].table;
-                break;
-            }
-            
-            randomTable = -1;
-            
-        }
 
-        if (randomTable != -1)
+
+        var table = GetAvailableTable();
+
+        if (table != null)
         {
-            for (int i = 0; i < table.TableCapacity-1; i++)
+            for (int i = 0; i < table.TableCapacity - 1; i++)
             {
-                var ranDomTime = Random.Range(1, 3);
-                //var singleAi = Instantiate(AlPf,transform);
-                //var singleAi = PoolManager.Instance.GetCustomerAI().GetComponent<AIController>();
                 var singleAi = PoolManager.Instance.GetCustomerRagdollAI().GetComponent<AIController>();
-                singleAi.transform.SetParent(transform);
-                var index = Random.Range(0, 7);
-                singleAi.SetModel(index);
-                singleAi.transform.position = spawnTransform.position + Vector3.back * 0.2f;
-                AllAIList.Add(singleAi);
-                friends.Add(singleAi);
-                singleAi.AgentID = AllAIList.Count;
-                singleAi.Initiliaze(true);
-                SetTransformToAI(singleAi,true);
+                InitializeSingleAI(singleAi, AllAIList.Count, friends, spawnTransform);
             }
         }
         
     }
-
+    // Uygun masa bulur, yoksa null döner
+    private Table GetAvailableTable()
+    {
+        foreach (var tableSet in TableController.Instance.TableSets)
+        {
+            if (tableSet.table.IsTableAvailable)
+            {
+                return tableSet.table;
+            }
+        }
+        return null;
+    }
     public void GetAvailableAI(int aiCount)
     {
         
     }
     public void SetTransformToAI(AIController singleAi,bool isFriend = false)
     {
-        var randomValue = Random.Range(-2, 2);
+        
+        var randomOffset = Random.Range(-2, 2);
+        var primaryTarget = Random.value < 0.5f ? TargetList[0] : TargetList[1];
+        var secondaryTarget = primaryTarget == TargetList[0] ? TargetList[1] : TargetList[0];
 
-        if (Random.value < 0.5f)
+        if (!isFriend)
         {
-            if (!isFriend)
-            {
-                singleAi.transform.position = TargetList[0].transform.position + Vector3.right*randomValue;
-            }
-            singleAi._targetTransform = TargetList[1].transform;
-            singleAi._targetFirstPosition = TargetList[0].transform;
-            singleAi._targetPositions[1] = TargetList[0].transform;
-            singleAi._targetPositions[2] = TargetList[1].transform;        
+            singleAi.transform.position = primaryTarget.position + Vector3.right * randomOffset;
         }
-        else
-        {
-            if (!isFriend)
-            {
-                singleAi.transform.position = TargetList[1].transform.position + Vector3.right*randomValue;;
-            }
-            singleAi._targetTransform = TargetList[0].transform;
-            singleAi._targetFirstPosition = TargetList[1].transform;
-            singleAi._targetPositions[1] = TargetList[1].transform;
-            singleAi._targetPositions[2] = TargetList[0].transform;        
-        }
+
+        singleAi._targetTransform = secondaryTarget;
+        singleAi._targetFirstPosition = primaryTarget;
+        singleAi._targetPositions[1] = primaryTarget;
+        singleAi._targetPositions[2] = secondaryTarget;
     }
     
 }
