@@ -18,6 +18,7 @@ public class PoolManager : MonoBehaviour
     public GameObject OrderBoxObject;
     public GameObject FoodIngredientObject;
     public GameObject RubbishObject;
+    public GameObject PedestrianObject;
     
     
     [FormerlySerializedAs("FoodParent")] public Transform TableFoodParent;
@@ -28,6 +29,7 @@ public class PoolManager : MonoBehaviour
     public Transform OrderBoxParent;
     public Transform FoodIngredientParent;
     public Transform RubbishParent;
+    public Transform PedestrianAIParent;
     
     
     
@@ -41,6 +43,7 @@ public class PoolManager : MonoBehaviour
     private Queue<GameObject> OrderBoxPool= new Queue<GameObject>();
     private Queue<GameObject> FoodIngredientPool = new Queue<GameObject>();
     private Queue<GameObject> RubbishPool = new Queue<GameObject>();
+    private Queue<GameObject> PedestrianAIPool = new Queue<GameObject>();
     
     private void Awake()
     {
@@ -65,6 +68,7 @@ public class PoolManager : MonoBehaviour
         CreatePoolObject(CustomerRagdollAIPool,CustomerRagdollAIObjectParent,CustomerRagdollAIObject);
         CreatePoolObject(FoodIngredientPool,FoodIngredientParent,FoodIngredientObject);
         CreatePoolObject(RubbishPool,RubbishParent,RubbishObject);
+        CreatePoolObject(PedestrianAIPool,PedestrianAIParent,PedestrianObject);
         IsPoolManagerInitiliazed?.Invoke();
     }
 
@@ -126,6 +130,10 @@ public class PoolManager : MonoBehaviour
     {
         return GetFromPool(RubbishPool, RubbishObject);
     }
+    public GameObject GetFromPoolForPedestrianAI()
+    {
+        return GetFromPool(PedestrianAIPool, PedestrianObject);
+    }
 
     public void ReturnToPoolForTrays(GameObject obj)
     {
@@ -158,6 +166,10 @@ public class PoolManager : MonoBehaviour
     public void ReturnToPoolForRubbish(GameObject obj)
     {
         ReturnToPool(obj,RubbishPool,RubbishParent);
+    }
+    public void ReturnToPoolForPedestrianAI(GameObject obj)
+    {
+        ReturnToPool(obj,PedestrianAIPool,PedestrianAIParent);
     }
 
     public void ReturnToPool(GameObject obj,Queue<GameObject> pool, Transform parentTransform)
