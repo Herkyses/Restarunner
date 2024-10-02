@@ -323,7 +323,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             float xValue = hit.point.x;
             float zValue = hit.point.z;
             //TableSet.GetComponent<BoxCollider>().enabled = true;
-            TableSet.transform.position = new Vector3(xValue,0,zValue); // Objenin pozisyonunu fare ile tıklanan noktaya taşı
+            TableSet.transform.position = new Vector3(xValue,0.14f,zValue); // Objenin pozisyonunu fare ile tıklanan noktaya taşı
             //TableController.Instance.EnableTableSetCollider(true);
         }
 

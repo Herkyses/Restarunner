@@ -82,7 +82,7 @@ public class AISpawnController : MonoBehaviour
     {
         for (int i = 0; i < ActiveAiCount + (PlayerPrefsManager.Instance.LoadCustomerCount()/2); i++)
         {
-            var ranDomTime = Random.Range(1, 3);
+            var ranDomTime = Random.Range(1, 5);
             yield return new WaitForSeconds(ranDomTime);
             //var singleAi = Instantiate(AlPf,transform);
             var singleAi = new AIController();
@@ -160,12 +160,13 @@ public class AISpawnController : MonoBehaviour
     }
     public void SetTransformToAI(AIController singleAi,bool isFriend = false)
     {
-        
+        var randomValue = Random.Range(-2, 2);
+
         if (Random.value < 0.5f)
         {
             if (!isFriend)
             {
-                singleAi.transform.position = TargetList[0].transform.position;
+                singleAi.transform.position = TargetList[0].transform.position + Vector3.right*randomValue;
             }
             singleAi._targetTransform = TargetList[1].transform;
             singleAi._targetFirstPosition = TargetList[0].transform;
@@ -176,7 +177,7 @@ public class AISpawnController : MonoBehaviour
         {
             if (!isFriend)
             {
-                singleAi.transform.position = TargetList[1].transform.position;
+                singleAi.transform.position = TargetList[1].transform.position + Vector3.right*randomValue;;
             }
             singleAi._targetTransform = TargetList[0].transform;
             singleAi._targetFirstPosition = TargetList[1].transform;
