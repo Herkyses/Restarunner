@@ -8,7 +8,6 @@ public class AIPedestarianManager : MonoBehaviour
     public static AIPedestarianManager Instance;
 
     
-    [SerializeField] private GameObject _padestrianPF;
     [SerializeField] private List<Transform> _padestrianParents;
 
     private int pedestrianCount;

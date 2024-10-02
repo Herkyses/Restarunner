@@ -35,7 +35,8 @@ public class InitializeManager : MonoBehaviour
 
         MapManager.Instance.LoadMap();
         TrafficManager.Instance.Initiliaze();
-
+        AIPedestarianManager.Instance.Initiliaze();
+        
         PoolManager.Instance.Initiliaze();
         MealManager.Instance.Initiliaze();
         TableController.Instance.SetTableNumbers();
