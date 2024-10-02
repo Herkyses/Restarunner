@@ -5,11 +5,26 @@ using UnityEngine;
 
 public class AIPedestarianManager : MonoBehaviour
 {
+    public static AIPedestarianManager Instance;
+
+    
     [SerializeField] private GameObject _padestrianPF;
     [SerializeField] private List<Transform> _padestrianParents;
 
     private int pedestrianCount;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void Initiliaze()
     {
