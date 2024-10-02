@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIPedestarianController : MonoBehaviour
+public class AIPedestarianManager : MonoBehaviour
 {
     [SerializeField] private GameObject _padestrianPF;
     [SerializeField] private List<Transform> _padestrianParents;
@@ -15,7 +15,8 @@ public class AIPedestarianController : MonoBehaviour
     {
         for (int i = 0; i < _padestrianParents.Count; i++)
         {
-            
+            var pedestr = PoolManager.Instance.GetFromPoolForPedestrianAI();
+            pedestr.transform.position = _padestrianParents[i].GetChild(0).position;
         }
     }
 }
