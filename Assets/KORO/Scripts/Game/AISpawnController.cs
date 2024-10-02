@@ -62,7 +62,7 @@ public class AISpawnController : MonoBehaviour
     {
         var singleAi = Instantiate(AlPfRagdoll,transform);
         var index = Random.Range(0, 7);
-        //singleAi.SetModel(index);
+        singleAi.SetModel(index);
         AllAIList.Add(singleAi);
         singleAi.AgentID = ActiveAiCount;
         SetTransformToAI(singleAi);
@@ -99,7 +99,7 @@ public class AISpawnController : MonoBehaviour
             }*/
             singleAi.transform.SetParent(transform);
             var index = Random.Range(0, 7);
-            //singleAi.SetModel(index);
+            singleAi.SetModel(index);
             AllAIList.Add(singleAi);
             singleAi.AgentID = i;
             SetTransformToAI(singleAi);
@@ -142,7 +142,7 @@ public class AISpawnController : MonoBehaviour
                 var singleAi = PoolManager.Instance.GetCustomerRagdollAI().GetComponent<AIController>();
                 singleAi.transform.SetParent(transform);
                 var index = Random.Range(0, 7);
-                //singleAi.SetModel(index);
+                singleAi.SetModel(index);
                 singleAi.transform.position = spawnTransform.position + Vector3.back * 0.2f;
                 AllAIList.Add(singleAi);
                 friends.Add(singleAi);
