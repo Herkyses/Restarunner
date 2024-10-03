@@ -11,10 +11,15 @@ public class SingleCar : MonoBehaviour
     [SerializeField] private List<Tween> _wheelTweens = new List<Tween>();
 
     public NavMeshAgent CarNavMeshAgent;
-
     public WayPoint CarWayPoint;
     
     public float speed = 5f;
+    private const float maxSpeed = 5f;
+    private const float wheelRotationDuration = 0.2f;
+    private const float slowDownDuration = 0.5f;
+    private const float raycastDistance = 4f;
+    private const float stopDistanceFromLight = 5f;
+    
     public int currentWaypointIndex = 0;
     public bool checkable = true;
     public bool rotateable = false;
@@ -26,10 +31,7 @@ public class SingleCar : MonoBehaviour
     // Start is called before the first frame update
     public void Initiliaze(WayPoint wayPoint)
     {
-        speed = 5f;
-        checkable = true;
-        rotateable = false;
-        startedRotation = false;
+        ResetCarState();
         //StartWheelRotation();
         CarWayPoint = wayPoint;
         currentWaypointIndex = 0;
@@ -45,66 +47,58 @@ public class SingleCar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsObjectInFrontOf(Player.Instance.gameObject, gameObject))
+        if (IsObjectInFrontOf(Player.Instance.gameObject)) return;
+
+        if (IsNearTrafficLight() && IsRedLight())
         {
-            return;
+            StopCar();
+        }
+        else
+        {
+            ToggleWheelRotation(true);
+            MoveToNextWaypoint();
         }
         
-        if ((CarWayPoint.TrafficLights[0] && CarWayPoint.TrafficLights[0].currentState == TrafficLight.LightState.Red && IsNear())  )
-        {
-            // Kırmızı ışıkta dur
-            StopWheelRotation();
-            return;
-        }
-        StartWheelRotation();
-        MoveToNextWaypoint();
     }
 
-    public void StartWheelRotation()
+    
+    private void StartWheelRotation()
     {
-        if (!startedRotation)
+        if (startedRotation) return;
+        
+        startedRotation = true;
+        KillWheelTweens();
+        AdjustSpeed(maxSpeed,0.8f);
+        foreach (var wheel in _wheels)
         {
-            startedRotation = true;
-            for (int i = 0; i < _wheelTweens.Count; i++)
-            {
-                _wheelTweens[i].Pause();
-                _wheelTweens[i].Kill();
-            }
-            _wheelTweens.Clear();
-            
-            for (int i = 0; i < _wheels.Count; i++)
-            {
-                _wheelTweens.Add(_wheels[i].DOLocalRotate(new Vector3(_wheels[i].eulerAngles.x + 360f, 0, 0), 0.2f, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1));
-            }
-            Debug.Log("name" + gameObject.name);
+            var tween = wheel.DOLocalRotate(new Vector3(wheel.eulerAngles.x + 360f, 0, 0), wheelRotationDuration, RotateMode.FastBeyond360)
+                .SetEase(Ease.Linear)
+                .SetLoops(-1);
+            _wheelTweens.Add(tween);
         }
+    }
+    private void KillWheelTweens()
+    {
+        foreach (var tween in _wheelTweens)
+        {
+            tween.Kill();
+        }
+        _wheelTweens.Clear();
     }
     
-    
-
-    public void StopWheelRotation()
+    private void StopWheelRotation()
     {
-        if (startedRotation)
-        {
-            startedRotation = false;
-            if (_wheelTweens.Count > 0)
-            {
+        if (!startedRotation) return;
 
-                for (int i = 0; i < _wheelTweens.Count; i++)
-                {
-                    //_wheelTweens[i].SetLoops(0);
-                    _wheelTweens[i].Pause();
-                    _wheels[i].DOLocalRotate(new Vector3(_wheels[i].eulerAngles.x + 180, 0, 0), 0.5f, RotateMode.FastBeyond360);
-                    //_wheelTweens[i].Kill();
-                }
-                _wheelTweens.Clear();
-                //startedRotation = false;
-            }
+        startedRotation = false;
+        foreach (var tween in _wheelTweens)
+        {
+            tween.Pause();
         }
-        
-        
+
+        _wheelTweens.Clear();
     }
-    public void MoveToNextWaypoint()
+    private void MoveToNextWaypoint()
     {
         if (currentWaypointIndex >= CarWayPoint.WayPoints.Count) return;
 
@@ -116,38 +110,66 @@ public class SingleCar : MonoBehaviour
         if (HasReachedTarget())
         {
             currentWaypointIndex++;
-            HandleWaypointReached();
-        }
-        
-    }
-    
-    private bool HasReachedTarget()
-    {
-        return Vector3.Distance(transform.position, targetPosition) < 1f;
-    }
-    private void HandleWaypointReached()
-    {
-        if (checkable)
-        {
-            rotateable = true;
-            checkable = false;
             if (currentWaypointIndex <= CarWayPoint.WayPoints.Count - 1)
             {
-                PerformWaypointTransition(CarWayPoint.WayPoints[currentWaypointIndex].position);
+                HandleWaypointReached();
             }
             else
             {
                 Initiliaze(CarWayPoint);
             }
         }
+        
+    }
+    private bool IsNearTrafficLight()
+    {
+        return Vector3.Distance(transform.position, CarWayPoint.TrafficLights[0].transform.position) < stopDistanceFromLight;
+    }
+    private bool IsRedLight()
+    {
+        return CarWayPoint.TrafficLights[0].currentState == TrafficLight.LightState.Red;
+    }
+
+    private void StopCar()
+    {
+        ToggleWheelRotation(false);
+        AdjustSpeed(0f,slowDownDuration);
+
+    }
+    private bool HasReachedTarget()
+    {
+        return Vector3.Distance(transform.position, targetPosition) < 1f;
+    }
+   
+    private void HandleWaypointReached()
+    {
+        if (checkable)
+        {
+            StartWaypointTransition(CarWayPoint.WayPoints[currentWaypointIndex].position);
+        }
         else
         {
             ResetSpeedIfNecessary();
         }
     }
+
+    private void StartWaypointTransition(Vector3 nextWaypointPosition)
+    {
+        checkable = false;
+        rotateable = true;
+        AdjustSpeed(3f,0.6f);
+        transform.DOLookAt(nextWaypointPosition, 0.6f).OnComplete(ResetAfterRotation);
+    }
+    private void ResetAfterRotation()
+    {
+        checkable = true;
+        rotateable = false;
+        speed = maxSpeed;
+        transform.DOLookAt(targetPosition, 0.2f);
+    }
     private void PerformWaypointTransition(Vector3 nextWaypointPosition)
     {
-        DOTween.To(() => speed, x => speed = x, 3f, 0.6f);
+        AdjustSpeed(3f,0.6f);
         transform.DOLookAt(nextWaypointPosition, 0.6f).OnComplete(SetSpeed);
     }
 
@@ -172,6 +194,7 @@ public class SingleCar : MonoBehaviour
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
     }
+    
     public void SetSpeed()
     {
         checkable = true;
@@ -184,45 +207,73 @@ public class SingleCar : MonoBehaviour
         // Işıkla araç arasındaki mesafeyi kontrol et
         return Vector3.Distance(transform.position, CarWayPoint.TrafficLights[0].transform.position) < 5f;
     }
-    bool IsObjectInFrontOf(GameObject objA, GameObject objB)
+    
+    
+    private bool PerformRaycast(Transform raycastTransform, GameObject targetObject)
     {
-        for (int i = 0; i < RaycastTransforms.Length; i++)
+        Ray ray = new Ray(raycastTransform.position, transform.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, raycastDistance) && hit.collider.gameObject == targetObject)
         {
-            Ray ray = new Ray(RaycastTransforms[i].position, objB.transform.forward);
-            RaycastHit hit;
-
-            Debug.DrawRay(ray.origin, ray.direction * 4f, Color.magenta);
-
-            if (Physics.Raycast(ray, out hit, 4f))
+            StopCarIfNeeded();
+            return true;
+        }
+        return false;
+    }
+    private bool IsObjectInFrontOf(GameObject objA)
+    {
+        foreach (var raycastTransform in RaycastTransforms)
+        {
+            if (PerformRaycast(raycastTransform, objA))
             {
-                if (hit.collider.gameObject == objA)
-                {
-                    Debug.Log("ObjA tam önünde!");
-                    if (!stopped)
-                    {
-                        stopped = true;
-                        DOTween.To(() => speed, x => speed = x, 0f, 0.5f);
-                        StopWheelRotation();
-                    }
-
-                    if (speed != 0)
-                    {
-                        transform.Translate(Vector3.forward * speed * Time.deltaTime);
-                    }
-                    return true;
-                }
+                return true;
             }
         }
-        
-        
+
+        ResumeMovementIfStopped();
+        return false;
+    }
+    private void AdjustSpeed(float targetSpeed, float duration)
+    {
+        DOTween.To(() => speed, x => speed = x, targetSpeed, duration);
+    }
+    private void ResumeMovementIfStopped()
+    {
         if (stopped)
         {
-            DOTween.To(() => speed, x => speed = x, 5f, 0.8f);
-            startedRotation = false;
             stopped = false;
+            AdjustSpeed(maxSpeed,0.8f);
         }
-        
+    }
 
-        return false;
+    private void StopCarIfNeeded()
+    {
+        if (!stopped)
+        {
+            stopped = true;
+            AdjustSpeed(0f,slowDownDuration);
+            ToggleWheelRotation(false);
+        }
+    }
+    private void ToggleWheelRotation(bool shouldRotate)
+    {
+        if (shouldRotate)
+        {
+            StartWheelRotation();
+        }
+        else
+        {
+            StopWheelRotation();
+        }
+    }
+    
+    private void ResetCarState()
+    {
+        speed = maxSpeed;
+        checkable = true;
+        rotateable = false;
+        startedRotation = false;
+        stopped = false;
     }
 }
