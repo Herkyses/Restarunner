@@ -31,9 +31,9 @@ public class AIPedestarianManager : MonoBehaviour
         for (int i = 0; i < _padestrianParents.Count; i++)
         {
             var pedestr = PoolManager.Instance.GetFromPoolForPedestrianAI();
-            var transformList = _padestrianParents[i].GetComponentsInChildren<Transform>();
-            pedestr.transform.position = _padestrianParents[i].GetChild(0).position;
-            pedestr.GetComponent<SingleAIPedestrianController>().SetTargetDestination(_padestrianParents[i].GetChild(1));
+            var transformList = _padestrianParents[i].GetComponentsInChildren<Transform>().ToList();
+            transformList.Remove(_padestrianParents[i]);
+            //pedestr.GetComponent<SingleAIPedestrianController>().SetTargetDestination(_padestrianParents[i].GetChild(1));
             pedestr.GetComponent<SingleAIPedestrianController>().Initiliaze(transformList.ToList());
         }
     }

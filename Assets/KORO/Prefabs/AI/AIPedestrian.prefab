@@ -1848,6 +1848,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _wayPoints: []
   _target: {fileID: 0}
+  _agent: {fileID: 0}
+  _animator: {fileID: 0}
 --- !u!195 &5434500979465271192
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1858,7 +1860,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.17
-  m_Speed: 3.5
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
