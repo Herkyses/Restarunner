@@ -30,11 +30,21 @@ public class AIPedestarianManager : MonoBehaviour
     {
         for (int i = 0; i < _padestrianParents.Count; i++)
         {
-            var pedestr = PoolManager.Instance.GetFromPoolForPedestrianAI();
+            //var pedestr = PoolManager.Instance.GetFromPoolForPedestrianAI();
             var transformList = _padestrianParents[i].GetComponentsInChildren<Transform>().ToList();
             transformList.Remove(_padestrianParents[i]);
             //pedestr.GetComponent<SingleAIPedestrianController>().SetTargetDestination(_padestrianParents[i].GetChild(1));
-            pedestr.GetComponent<SingleAIPedestrianController>().Initiliaze(transformList.ToList());
+            for (int j = 0; j < transformList.Count; j++)
+            {
+                var pedestr = PoolManager.Instance.GetFromPoolForPedestrianAI();
+                pedestr.GetComponent<SingleAIPedestrianController>().Initiliaze(transformList,j);
+
+            }
         }
+    }
+
+    public IEnumerator SpawnAIWithDelay()
+    {
+        yield return new WaitForSeconds(2f);
     }
 }
