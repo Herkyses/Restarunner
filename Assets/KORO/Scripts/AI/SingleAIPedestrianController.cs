@@ -32,10 +32,15 @@ public class SingleAIPedestrianController : MonoBehaviour
         transform.position = wayPointTransforms[transformIndex].position + Vector3.right*randomValue;
 
 
-        if (transformIndex == wayPointTransforms.Count - 1)
+        if (transformIndex > ((float)(wayPointTransforms.Count - 1)/2))
         {
             wayPointTransforms.Reverse();
-            transformIndex = 1;
+            var z = transformIndex;
+            transformIndex = wayPointTransforms.Count - z;
+        }
+        else
+        {
+            transformIndex++;
         }
         currentPointIndex = transformIndex;
         _wayPoints = wayPointTransforms;
