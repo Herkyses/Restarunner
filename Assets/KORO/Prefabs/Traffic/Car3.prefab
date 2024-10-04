@@ -275,6 +275,9 @@ MonoBehaviour:
   RaycastTransforms: []
   stopped: 0
   _raycastsParent: {fileID: 6074334056410643807}
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 69636
 --- !u!1 &1067067084334097232
 GameObject:
   m_ObjectHideFlags: 0

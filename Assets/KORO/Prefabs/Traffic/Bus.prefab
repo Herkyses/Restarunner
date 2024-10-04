@@ -790,3 +790,19 @@ MonoBehaviour:
   - {fileID: 1167130355645919166}
   - {fileID: 5409979947061969914}
   - {fileID: 3838488024325579918}
+  CarNavMeshAgent: {fileID: 0}
+  CarWayPoint:
+    WayPoints: []
+    TrafficLights: []
+  speed: 5
+  currentWaypointIndex: 0
+  checkable: 1
+  rotateable: 0
+  startedRotation: 0
+  targetPosition: {x: 0, y: 0, z: 0}
+  RaycastTransforms: []
+  stopped: 0
+  _raycastsParent: {fileID: 0}
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 69636

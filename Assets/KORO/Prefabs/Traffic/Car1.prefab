@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: 2860987458568278510}
   - component: {fileID: 7551313833258267517}
   - component: {fileID: -5705976680073003791}
-  - component: {fileID: 9156326446224019644}
   m_Layer: 17
   m_Name: Car1
   m_TagString: Untagged
@@ -237,20 +236,11 @@ MonoBehaviour:
   startedRotation: 0
   targetPosition: {x: 0, y: 0, z: 0}
   RaycastTransforms: []
+  stopped: 0
   _raycastsParent: {fileID: 7710511021272123825}
---- !u!65 &9156326446224019644
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 573895847616925524}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.9898281, y: 1.251318, z: 5.0272985}
-  m_Center: {x: -0.00000020861631, y: 0.8910779, z: 0.01493657}
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 69636
 --- !u!1 &1811675991030450283
 GameObject:
   m_ObjectHideFlags: 0

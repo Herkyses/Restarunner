@@ -1923,4 +1923,8 @@ MonoBehaviour:
   startedRotation: 0
   targetPosition: {x: 0, y: 0, z: 0}
   RaycastTransforms: []
+  stopped: 0
   _raycastsParent: {fileID: 8701619491763822941}
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 69636

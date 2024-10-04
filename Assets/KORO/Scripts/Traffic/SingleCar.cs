@@ -28,6 +28,7 @@ public class SingleCar : MonoBehaviour
     public Transform[] RaycastTransforms ;
     public bool stopped = false;
     [SerializeField] private Transform _raycastsParent;
+    public LayerMask ignoreLayer;
     // Start is called before the first frame update
     public void Initiliaze(WayPoint wayPoint)
     {
@@ -214,11 +215,15 @@ public class SingleCar : MonoBehaviour
         Ray ray = new Ray(raycastTransform.position, transform.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, raycastDistance) && hit.collider.gameObject == targetObject)
+        if (Physics.Raycast(ray, out hit, raycastDistance,~ignoreLayer) && (hit.collider.gameObject && hit.collider.gameObject != gameObject ))
         {
+            Debug.DrawRay(ray.origin, ray.direction * 4f, Color.magenta);
+            Debug.Log("burdakiobje" + hit.collider.gameObject);
             StopCarIfNeeded();
             return true;
         }
+        Debug.DrawRay(ray.origin, ray.direction * 4f, Color.magenta);
+
         return false;
     }
     private bool IsObjectInFrontOf(GameObject objA)

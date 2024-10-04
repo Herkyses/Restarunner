@@ -1307,6 +1307,22 @@ MonoBehaviour:
   - {fileID: 6777378810760702650}
   - {fileID: 236422831010241195}
   - {fileID: 3192746226125223297}
+  CarNavMeshAgent: {fileID: 0}
+  CarWayPoint:
+    WayPoints: []
+    TrafficLights: []
+  speed: 5
+  currentWaypointIndex: 0
+  checkable: 1
+  rotateable: 0
+  startedRotation: 0
+  targetPosition: {x: 0, y: 0, z: 0}
+  RaycastTransforms: []
+  stopped: 0
+  _raycastsParent: {fileID: 0}
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 69636
 --- !u!1 &7883077677430923123
 GameObject:
   m_ObjectHideFlags: 0
