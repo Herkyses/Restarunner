@@ -217,12 +217,11 @@ public class SingleCar : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, raycastDistance,~ignoreLayer) && (hit.collider.gameObject && hit.collider.gameObject != gameObject ))
         {
-            Debug.DrawRay(ray.origin, ray.direction * 4f, Color.magenta);
-            Debug.Log("burdakiobje" + hit.collider.gameObject);
+            //Debug.DrawRay(ray.origin, ray.direction * 4f, Color.magenta);
             StopCarIfNeeded();
             return true;
         }
-        Debug.DrawRay(ray.origin, ray.direction * 4f, Color.magenta);
+        //Debug.DrawRay(ray.origin, ray.direction * 4f, Color.magenta);
 
         return false;
     }
