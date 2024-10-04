@@ -63,6 +63,6 @@ public class DayNightCycle : MonoBehaviour
     public void InitiliazeCycle()
     {
         StartCycle = true;
-        currentTime = dayDuration / 3;
+        currentTime = dayDuration / 2;
     }
 }
