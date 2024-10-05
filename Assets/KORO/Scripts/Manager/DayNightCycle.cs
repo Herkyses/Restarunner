@@ -47,8 +47,9 @@ public class DayNightCycle : MonoBehaviour
             colorGrading.temperature.value = Mathf.Lerp(-10f, 10f, timePercent);
             colorGrading.saturation.value = Mathf.Lerp(-30f, 20f, timePercent);
         }
-        if (timePercent > 0.5f)
+        if (timePercent > 0.5f && timePercent < 0.9f)
         {
+            //RenderSettings.ambientLight = Color.Lerp(ambientDayColor, ambientNightColor, (timePercent - 0.5f) * 2f);
             RenderSettings.ambientLight = Color.Lerp(ambientDayColor, ambientNightColor, (timePercent - 0.5f) * 2f);
         }
         else
@@ -62,7 +63,7 @@ public class DayNightCycle : MonoBehaviour
 
     public void InitiliazeCycle()
     {
-        StartCycle = true;
         currentTime = dayDuration / 2;
+        StartCycle = true;
     }
 }
