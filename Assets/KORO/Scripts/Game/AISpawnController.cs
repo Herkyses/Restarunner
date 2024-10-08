@@ -154,7 +154,7 @@ public class AISpawnController : MonoBehaviour
 
         if (!isFriend)
         {
-            singleAi.transform.position = primaryTarget.position + Vector3.right * randomOffset;
+            singleAi.transform.position = primaryTarget.position /*+ Vector3.right * randomOffset*/;
         }
 
         singleAi._targetTransform = secondaryTarget;
