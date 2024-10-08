@@ -85,7 +85,7 @@ using System.Collections.Generic;
         GameSceneCanvas.Instance.CanMove = true;
         GameSceneCanvas.IsCursorVisible?.Invoke(false);
         _panel.gameObject.SetActive(false);
-
+        //OpenPlacePanel();
     }
 
     public void OpenPlacePanel()
