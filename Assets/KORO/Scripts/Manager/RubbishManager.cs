@@ -46,6 +46,7 @@ public class RubbishManager : MonoBehaviour
     {
         _rubbishLevel = PlayerPrefsManager.Instance.LoadPlaceRubbishLevel();
         ActivateRubbishes();
+        CheckRubbishRate();
     }
 
     public void UpdateRubbishLevel()

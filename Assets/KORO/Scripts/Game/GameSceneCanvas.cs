@@ -88,7 +88,7 @@ public class GameSceneCanvas : MonoBehaviour
 
     public void UpdatePopularity(float popularity)
     {
-        _popularityText.text = ((float)popularity).ToString("F2");
+        _popularityText.text = ((float)popularity*5).ToString("F2");
 
     }
 
