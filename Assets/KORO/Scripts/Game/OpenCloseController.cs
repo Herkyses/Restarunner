@@ -22,7 +22,7 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
     {
         if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() < 3)
         {
-            return;
+            //return;
         }
         if (CanMove)
         {
@@ -44,6 +44,7 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
                     Append(Parent.DORotate(new Vector3(-90, 0, 0), 0.2f,RotateMode.LocalAxisAdd));
                 // Y ekseni etrafında döndür
                 //OpenCloseSequence.Append(transform.DORotate(new Vector3(0, 90, 0), 0.2f));
+                Debug.Log("animbasladi" + OpenCloseSequence);
 
             
                 OpenCloseSequence.OnComplete(() =>
