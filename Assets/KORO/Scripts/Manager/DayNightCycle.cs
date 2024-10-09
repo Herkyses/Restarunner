@@ -31,6 +31,11 @@ public class DayNightCycle : MonoBehaviour
         {
             InitiliazeCycle();
         }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            StartCycleTrue();
+        }
+        
         if (!StartCycle)
         {
             return;
@@ -77,14 +82,20 @@ public class DayNightCycle : MonoBehaviour
             StartCoroutine(WeightResetAndChangeProfile(postProcessNightProfile));
             isNight = true;  // Gece oldu
         }
-        // Geceden gündüze geçiş
+        /*// Geceden gündüze geçiş
         else if (isNight && timeOfDay >= 60f) // 60 saniye gece
         {
             StartCoroutine(WeightResetAndChangeProfile(postProcessDayProfile));
             timeOfDay = 0f; // Yeni gün başlasın
             isNight = false;  // Gündüz oldu
-        }
+        }*/
         
+    }
+
+    public void ResetDay()
+    {
+        timeOfDay = 0f; // Yeni gün başlasın
+        isNight = false;  // Gündüz oldu
     }
     // İki profil arasında yumuşak geçiş yapar
     // Weight sıfırlayıp profili değiştirme, ardından tekrar 1'e çıkarma
@@ -119,7 +130,17 @@ public class DayNightCycle : MonoBehaviour
 
     public void InitiliazeCycle()
     {
+        ResetDay();
+        postProcessVolume.profile = postProcessDayProfile;
         currentTime = dayDuration / 2;
         StartCycle = true;
+        
+    }
+
+    public void StartCycleTrue()
+    {
+        timeOfDay = 0f;
+        postProcessVolume.profile = postProcessDayProfile;
+        currentTime = dayDuration / 2;
     }
 }
