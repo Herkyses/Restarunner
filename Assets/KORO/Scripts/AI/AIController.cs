@@ -159,6 +159,10 @@ public class AIController : MonoBehaviour,IInterectableObject
                 StartCoroutine(aiRagdollController.AddForceToAICor(_player.PlayerOrdersController.transform.forward));
                 _player.StartFight();
                 aiRagdollController.SetRagdollState(true);
+                if (IsBadGuy)
+                {
+                    IsBadGuy = false;
+                }
                 //aiRagdollController.AddForceToAI(PlayerOrderController.Instance.transform.forward);
             }
         }
