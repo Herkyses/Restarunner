@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 using UnityEngine.Rendering.PostProcessing;
@@ -21,9 +22,25 @@ public class DayNightCycle : MonoBehaviour
     public bool StartCycle = false; 
     
     private float timeOfDay = 0f;
+    public float timeOfDayTEmp = 0f;
     private bool isNight = false;   
     
     private float currentTime = 0f;
+    
+    // Saat başlangıcı ve bitişi
+    public int startHour = 9;   // Sabah 9
+    public int endHour = 21;    // Akşam 9 (24 saat diliminde 21)
+
+    // Zaman ilerleme hızı
+    public float timeSpeed = 60.0f; // 60 saniyede 1 oyun saati
+    private float timeCounter = 0f;
+
+    // Şu anki saat ve dakika
+    private int currentHour;
+    private int currentMinute;
+
+    // UI Text eklerseniz saati göstermek için kullanabilirsiniz
+    public TextMeshProUGUI timeText;
     
     void Update()
     {
@@ -40,42 +57,10 @@ public class DayNightCycle : MonoBehaviour
         {
             return;
         }
-        /*currentTime += Time.deltaTime;
-        float timePercent = (currentTime % dayDuration) / dayDuration;
-
-        // Directional light rengi ve yoğunluğu
-        directionalLight.color = lightColor.Evaluate(timePercent);
-        directionalLight.intensity = lightIntensity.Evaluate(timePercent);
-
-        // Ortam ışığını değiştirme
-        /*if (timePercent < 0.5f)
-        {
-            RenderSettings.ambientLight = Color.Lerp(ambientNightColor, ambientDayColor, timePercent * 2f);
-        }
-        else
-        {
-            RenderSettings.ambientLight = Color.Lerp(ambientDayColor, ambientNightColor, (timePercent - 0.5f) * 2f);
-        }#1#
-        if (postProcessVolume.profile.TryGetSettings(out ColorGrading colorGrading))
-        {
-            colorGrading.temperature.value = Mathf.Lerp(-10f, 10f, timePercent);
-            colorGrading.saturation.value = Mathf.Lerp(-30f, 20f, timePercent);
-        }
-        if (timePercent > 0.5f && timePercent < 0.9f)
-        {
-            //RenderSettings.ambientLight = Color.Lerp(ambientDayColor, ambientNightColor, (timePercent - 0.5f) * 2f);
-            RenderSettings.ambientLight = Color.Lerp(ambientDayColor, ambientNightColor, (timePercent - 0.5f) * 2f);
-        }
-        else
-        {
-            StartCycle = false;
-        }
-
-        // Post Process ayarlarını değiştir*/
-        // Zamanı ilerlet
-        // Zamanı ilerlet
+        StartTime();
+        
+        
         timeOfDay += Time.deltaTime;
-
         // Gündüzden geceye geçiş
         if (!isNight && timeOfDay >= 30f) // 60 saniye gündüz
         {
@@ -133,6 +118,9 @@ public class DayNightCycle : MonoBehaviour
 
     public void InitiliazeCycle()
     {
+        // Başlangıç saatini ve dakikasını ayarla
+        currentHour = startHour;
+        currentMinute = 0;
         ResetDay();
         postProcessVolume.profile = postProcessDayProfile;
         currentTime = dayDuration / 2;
@@ -147,5 +135,39 @@ public class DayNightCycle : MonoBehaviour
         postProcessVolume.profile = postProcessDayProfile;
         currentTime = dayDuration / 2;
         Debug.Log("Sabaholdu");
+    }
+
+    public void StartTime()
+    {
+        // Zamanı güncelle
+        timeCounter += Time.deltaTime * timeSpeed*17;
+
+        // Dakikaları hesapla (Her 60 birimde bir dakika artar)
+        if (timeCounter >= 60f)
+        {
+            currentMinute++;
+            timeCounter = 0f;
+
+            // Eğer dakika 60'a ulaştıysa, bir saat ekle ve dakikayı sıfırla
+            if (currentMinute >= 60)
+            {
+                currentMinute = 0;
+                currentHour++;
+            }
+
+            // Saat akşam 9'u geçtiğinde başa döner (sabah 9)
+            if (currentHour == endHour)
+            {
+                currentHour = endHour;
+                currentMinute = 0;
+            }
+        }
+
+        // UI Text kullanıyorsanız, saati ve dakikayı güncelle
+        if (timeText != null)
+        {
+            // Dakikanın çift haneli olmasını sağlamak için string formatı kullanıyoruz
+            timeText.text = string.Format("Time: {0:00}:{1:00}", currentHour, currentMinute);
+        }
     }
 }
