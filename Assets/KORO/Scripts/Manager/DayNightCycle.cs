@@ -90,6 +90,7 @@ public class DayNightCycle : MonoBehaviour
             isNight = false;  // Gündüz oldu
         }*/
         
+        
     }
 
     public void ResetDay()
@@ -126,6 +127,8 @@ public class DayNightCycle : MonoBehaviour
             postProcessVolume.weight = Mathf.Lerp(0.05f, 0.6f, t);
             yield return null;  // Bir sonraki frame'e kadar bekle
         }
+        Debug.Log("geceoldu");
+        StartCycle = false;
     }
 
     public void InitiliazeCycle()
@@ -134,6 +137,7 @@ public class DayNightCycle : MonoBehaviour
         postProcessVolume.profile = postProcessDayProfile;
         currentTime = dayDuration / 2;
         StartCycle = true;
+        Debug.Log("GunBasladi");
         
     }
 
@@ -142,5 +146,6 @@ public class DayNightCycle : MonoBehaviour
         timeOfDay = 0f;
         postProcessVolume.profile = postProcessDayProfile;
         currentTime = dayDuration / 2;
+        Debug.Log("Sabaholdu");
     }
 }
