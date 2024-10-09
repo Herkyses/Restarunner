@@ -96,4 +96,11 @@ public class AIRagdollController : MonoBehaviour
         AIStateMachineController.AIChangeState(AIStateMachineController.AIMoveState);
         GameSceneCanvas.Instance._catchNonPayerPanel.StopCatchPanel();
     }
+
+    public void ResetBadGuy()
+    {
+        AIStateMachineController.AIController.IsBadGuy = false;
+        GetComponent<Outline>().OutlineColor = Color.green;
+        GetComponent<Outline>().enabled = false;
+    }
 }

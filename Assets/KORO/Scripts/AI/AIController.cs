@@ -161,7 +161,7 @@ public class AIController : MonoBehaviour,IInterectableObject
                 aiRagdollController.SetRagdollState(true);
                 if (IsBadGuy)
                 {
-                    IsBadGuy = false;
+                    aiRagdollController.ResetBadGuy();
                 }
                 //aiRagdollController.AddForceToAI(PlayerOrderController.Instance.transform.forward);
             }
