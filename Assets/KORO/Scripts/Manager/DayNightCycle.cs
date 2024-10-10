@@ -16,23 +16,23 @@ public class DayNightCycle : MonoBehaviour
     public AnimationCurve lightIntensity;  // Zamanla değişen ışık yoğunluğu
     public Color ambientDayColor;
     public Color ambientNightColor;
-    public float dayDuration = 10f;  // Bir gün kaç saniye sürecek
-    public float elapsedTime = 0f;  // Bir gün kaç saniye sürecek
-    public float transitionDuration = 15f;  // Bir gün kaç saniye sürecek
+    public float elapsedTime = 0f;  
+    public float transitionDuration;  
+    public float TransitionDurationDelay;  
+    public float TwelvehoursSecond;  
     public bool StartCycle = false; 
     
     private float timeOfDay = 0f;
     public float timeOfDayTEmp = 0f;
     private bool isNight = false;   
     
-    private float currentTime = 0f;
     
     // Saat başlangıcı ve bitişi
-    public int startHour = 9;   // Sabah 9
-    public int endHour = 21;    // Akşam 9 (24 saat diliminde 21)
+    public int startHour = 9;   
+    public int endHour = 21;    
 
     // Zaman ilerleme hızı
-    public float timeSpeed = 60.0f; // 60 saniyede 1 oyun saati
+    public float timeSpeed = 60.0f; 
     private float timeCounter = 0f;
 
     // Şu anki saat ve dakika
@@ -62,7 +62,7 @@ public class DayNightCycle : MonoBehaviour
         
         timeOfDay += Time.deltaTime;
         // Gündüzden geceye geçiş
-        if (!isNight && timeOfDay >= 30f) // 60 saniye gündüz
+        if (!isNight && timeOfDay >= TransitionDurationDelay) // 60 saniye gündüz
         {
             StartCoroutine(WeightResetAndChangeProfile(postProcessNightProfile));
             isNight = true;  // Gece oldu
@@ -123,7 +123,6 @@ public class DayNightCycle : MonoBehaviour
         currentMinute = 0;
         ResetDay();
         postProcessVolume.profile = postProcessDayProfile;
-        currentTime = dayDuration / 2;
         StartCycle = true;
         Debug.Log("GunBasladi");
         
@@ -133,14 +132,13 @@ public class DayNightCycle : MonoBehaviour
     {
         timeOfDay = 0f;
         postProcessVolume.profile = postProcessDayProfile;
-        currentTime = dayDuration / 2;
         Debug.Log("Sabaholdu");
     }
 
     public void StartTime()
     {
         // Zamanı güncelle
-        timeCounter += Time.deltaTime * timeSpeed*17;
+        timeCounter += Time.deltaTime * timeSpeed*(((TwelvehoursSecond/(transitionDuration+TransitionDurationDelay))/60f)+1f);
 
         // Dakikaları hesapla (Her 60 birimde bir dakika artar)
         if (timeCounter >= 60f)
@@ -167,7 +165,7 @@ public class DayNightCycle : MonoBehaviour
         if (timeText != null)
         {
             // Dakikanın çift haneli olmasını sağlamak için string formatı kullanıyoruz
-            timeText.text = string.Format("Time: {0:00}:{1:00}", currentHour, currentMinute);
+            timeText.text = string.Format("{0:00}:{1:00}", currentHour, currentMinute);
         }
     }
 }
