@@ -62,7 +62,6 @@ public class PlayerRaycastController : MonoBehaviour
             if (!Player.Instance.PlayerTakedObject)
             {
                 HandleNoHit(ray);
-
             }
             
         }

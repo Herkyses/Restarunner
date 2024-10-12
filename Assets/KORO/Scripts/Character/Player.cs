@@ -57,13 +57,13 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             //CanCleanRubbish = !CanCleanRubbish;
             CameraController.Instance.StateInitiliazeForTakeObject(Enums.PlayerStateType.Cleaner);
 
         }
-        if (Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             //CanFight = !CanFight;
             CameraController.Instance.StateInitiliazeForTakeObject(Enums.PlayerStateType.Fight);
