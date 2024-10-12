@@ -244,7 +244,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         {
             if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
             {
-                PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(10);
+                PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(100);
                 TutorialManager.Instance.SetTutorialInfo(PlayerPrefsManager.Instance.LoadPlayerTutorialStep());
             }
             for (int i = 0; i < _aiControllerList.Count; i++)
