@@ -92,7 +92,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     }
     public void Open()
     {
-        if (!Player.Instance.PlayerTakedObject && _isOrderBoxOpenAvailable)
+        if (!Player.Instance.PlayerTakedObject/* && _isOrderBoxOpenAvailable*/)
         {
             var objectZort = Instantiate(_shopItemData.ItemObject);
             //objectZort.transform.position = new Vector3(objectZort.transform.position.x, 0, objectZort.transform.position.z);
@@ -108,16 +108,26 @@ public class OrderBox : MonoBehaviour,IInterectableObject
             if (_shopItemData.ItemType == Enums.ShopItemType.FoodIngredient)
             {
                 objectZort.GetComponent<SingleCrate>().Initiliaze(_shopItemData);
+                objectZort.GetComponent<SingleCrate>().InterectableObjectRun();
             }
             if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 2)
             {
                 TutorialManager.Instance.SetTutorialInfo(3);
             }
+            ResetOrderBox();
             PoolManager.Instance.ReturnToPoolForOrderBox(gameObject);
-
             
+
         }
         
+    }
+
+    public void ResetOrderBox()
+    {
+        GetComponent<Rigidbody>().useGravity = true;
+        GetComponent<BoxCollider>().enabled = true;
+        _isOrderBoxOpenAvailable = true;
+
     }
     public string[] GetInterectableButtons()
     {

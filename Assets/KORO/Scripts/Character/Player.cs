@@ -75,6 +75,14 @@ public class Player : MonoBehaviour
                 PlacePanelController.Instance.OpenPlacePanel();
             }
         }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            if (PlayerTakedObject.TryGetComponent(out OrderBox orderBox))
+            {
+                PlayerTakedObject = null;
+                orderBox.Open();
+            }
+        }
     }
 
     public void DropTakenObject()
