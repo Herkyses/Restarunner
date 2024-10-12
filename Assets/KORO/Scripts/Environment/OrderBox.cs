@@ -26,9 +26,9 @@ public class OrderBox : MonoBehaviour,IInterectableObject
         textsBefore = new [] {"Take OrderBox"};
         
         textsButtons = new [] {"E","T"};
-        textsButtonsForTake = new [] {"J"};
+        textsButtonsForTake = new [] {"J","O"};
         textsButtonsBefore = new [] {"E"};
-        textsForTake = new [] {"Drop"};
+        textsForTake = new [] {"Drop","Open"};
         _outline = GetComponent<Outline>();
     }
 

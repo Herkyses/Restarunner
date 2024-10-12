@@ -59,7 +59,11 @@ public class PlayerRaycastController : MonoBehaviour
         }
         else
         {
-            HandleNoHit(ray);
+            if (!Player.Instance.PlayerTakedObject)
+            {
+                HandleNoHit(ray);
+
+            }
             
         }
     }
@@ -90,6 +94,7 @@ public class PlayerRaycastController : MonoBehaviour
                 Izort.ShowOutline(false);
 
             _gameSceneCanvas.UnShowAreaInfo();
+            Debug.Log("unshowedwithraycast");
         }
         Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 2f);
     }
