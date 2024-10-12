@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
-            if (PlayerTakedObject.TryGetComponent(out OrderBox orderBox))
+            if (PlayerTakedObject && PlayerTakedObject.TryGetComponent(out OrderBox orderBox))
             {
                 PlayerTakedObject = null;
                 orderBox.Open();
