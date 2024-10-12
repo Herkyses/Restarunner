@@ -146,6 +146,11 @@ public class TableAvailablePanel : MonoBehaviour
             {
                 var zort = _customerList[i];
                 _customerList.Remove(zort);
+                if (SelectedCustomerIndex == AIIndex)
+                {
+                    SelectedCustomerIndex = -1;
+                    IsCustomerSelected = false;
+                }
                 Destroy(zort.gameObject);
             }
         }
