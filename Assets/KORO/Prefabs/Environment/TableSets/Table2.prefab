@@ -1002,7 +1002,7 @@ MonoBehaviour:
   texts:
   - 'Check Order '
   textsForTable:
-  - Drop
+  - Set up
   - Rotate
   textsButtons:
   - E
@@ -1020,6 +1020,7 @@ MonoBehaviour:
   TableCapacity: 2
   CustomerCount: 0
   groundLayer: 0
+  TableQuality: 5
   TotalBills: 0
   TableNumberText: {fileID: 7631984830139377871}
   TableSet: {fileID: 0}
