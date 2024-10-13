@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RubbishManager : MonoBehaviour
 {
@@ -115,6 +116,7 @@ public class RubbishManager : MonoBehaviour
                 var rubbish = PoolManager.Instance.GetFromPoolForRubbish();
                 //rubbish.transform.position = rubbishChilds[i].position;
                 rubbish.transform.position = new Vector3(rubbishChilds[i].position.x,0.32f,rubbishChilds[i].position.z);
+                rubbish.GetComponent<MeshFilter>().sharedMesh = GameDataManager.Instance.RubbishMeshes[Random.Range(0, GameDataManager.Instance.RubbishMeshes.Count)].sharedMesh;
                 rubbish.transform.SetParent(transform);
             }
             _allRubbishCount = _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].childCount;

@@ -15,6 +15,7 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
     [SerializeField] private Image _ingredientIcon;
     [SerializeField] private TextMeshProUGUI _ingredientCount;
     [SerializeField] private MealManager _mealManager;
+    [SerializeField] private Outline _outline;
 
 
     private void OnEnable()
@@ -24,6 +25,11 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
     private void OnDisable()
     {
         ChefController.FoodIngredientIncreese -= CheckIngredients;
+    }
+
+    private void Awake()
+    {
+        _outline = GetComponent<Outline>();
     }
 
     public void CheckIngredients(OrderData orderData)
@@ -112,12 +118,12 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
     }
     public void ShowOutline(bool active)
     {
-        
+        _outline.enabled = active;
     }
 
     public Outline GetOutlineComponent()
     {
-        return null;
+        return _outline;
 
     }
     public string GetInterectableText()

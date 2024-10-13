@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 {
     [SerializeField] private string[] texts = new [] {"Check Order "};
-    [SerializeField] private string[] textsForTable = new [] {"Drop","Rotate"};
+    [SerializeField] private string[] textsForTable = new [] {"Set up","Rotate"};
     [SerializeField] private string[] textsButtons = new [] {"E"};
     [SerializeField] private string[] textsButtonsForTable = new [] {"M0","R"};
     [SerializeField] private string checkOrder = "Check Order";

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ChefOrderTable : MonoBehaviour//IInterectableObject
 {
-    [SerializeField] private string[] texts = new [] {"Give Order "};
+    [SerializeField] private string[] texts = new [] {"Order to chef! "};
     [SerializeField] private string[] textsButtons = new [] {"E"};
     public List<Transform> FoodTransformList = new List<Transform>();
     
@@ -20,7 +20,7 @@ public class ChefOrderTable : MonoBehaviour//IInterectableObject
 
     private void Start()
     {
-        texts = new []{"Give Order "};
+        texts = new []{"Order to chef! "};
         textsButtons = new []{"E"};
     }
 
@@ -36,7 +36,7 @@ public class ChefOrderTable : MonoBehaviour//IInterectableObject
 
     public string GetInterectableText()
     {
-        return "GiveOrder";
+        return "Order to chef!";
     }
 
     public void SetOrderToChef(int orderIndex)

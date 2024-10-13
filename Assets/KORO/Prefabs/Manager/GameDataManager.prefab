@@ -63,4 +63,10 @@ MonoBehaviour:
   - {fileID: 7504236557384694017, guid: 67ff4c35e2d280147aeb9ccd03a533d3, type: 3}
   - {fileID: 4715030341137099813, guid: ec2554b45f7613a4d969e6616b472bdf, type: 3}
   - {fileID: 4715030341137099813, guid: 3edce3b769cae7f45a01025c36922286, type: 3}
+  RubbishMeshes:
+  - {fileID: 3351348, guid: 97d18204e4538e64f9bdf47d8db7c5e5, type: 3}
+  - {fileID: 3379712, guid: bbe271edc5b4fd04589440e05e4a0ff8, type: 3}
+  - {fileID: 3333530, guid: 9e7b9a5d5dab450459315a75ec16fa02, type: 3}
+  - {fileID: 3309096, guid: fc189f6b0af3f6843b28de731f5b15e1, type: 3}
+  - {fileID: 3330464, guid: 1bc6dc700e247464a9f5a53bd3213bea, type: 3}
   FoodTablePf: {fileID: 3412080890901677963, guid: 3265c903c47d73b4bb2463bd6201a7cb, type: 3}
