@@ -8,6 +8,12 @@ using UnityEngine.UI;
 
 public class SingleGredientShelves : MonoBehaviour,IInterectableObject
 {
+    
+    [SerializeField] private string[] texts = new [] {"Place Ingredient "};
+    [SerializeField] private string[] textsButtons = new [] {"E"};
+    [SerializeField] private string checkOrder = "Place Ingredient";
+    
+    
     public Enums.FoodIngredientType shelveIngredientType;
     [SerializeField] private List<Transform> _ingredientTransformList;
     [SerializeField] private List<GameObject> _ingredientList;
@@ -30,6 +36,8 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
     private void Awake()
     {
         _outline = GetComponent<Outline>();
+        texts = new []{"Place Ingredient"};
+        textsButtons = new []{"E"};
     }
 
     public void CheckIngredients(OrderData orderData)
@@ -133,12 +141,12 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
     }
     public string[] GetInterectableTexts()
     {
-        return null;
+        return texts;
 
     }
     public string[] GetInterectableButtons()
     {
-        return null;
+        return textsButtons;
     }
     public void Move()
     {
