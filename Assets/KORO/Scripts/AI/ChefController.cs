@@ -82,7 +82,10 @@ public class ChefController : MonoBehaviour,IInterectableObject
             }
             else
             {
-                _chefCreateFoodDuringIcon.fillAmount = 0f;
+                if (_chefCreateFoodDuringIcon.fillAmount != 0f)
+                {
+                    _chefCreateFoodDuringIcon.fillAmount = 0f;
+                }
 
             }
         }
