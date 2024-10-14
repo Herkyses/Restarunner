@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChefController : MonoBehaviour,IInterectableObject
 {
@@ -18,6 +19,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
     [SerializeField] private int _chefOrderTableIndex;
     [SerializeField] private bool _chefCreateFood;
     [SerializeField] private float _chefCreateFoodDuring;
+    [SerializeField] private Image _chefCreateFoodDuringIcon;
     public static Action<WaiterController> FoodCreated;
     public static Action<OrderData> FoodIngredientIncreese;
     private FoodTable _tableFood;
@@ -42,6 +44,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
         texts = new []{"Give Order "};
         textsButtons = new []{"E"};
         _chefOutline = GetComponent<Outline>();
+        _chefCreateFoodDuringIcon.fillAmount = 0f;
 
     }
     
@@ -68,6 +71,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
             if (ChefOwnerStructData.Count > 0)
             {
                 _chefCreateFoodDuring += Time.deltaTime;
+                CreateFoodFill();
                 if (_chefCreateFoodDuring > 5)
                 {
                     CurrentFoodData = ChefOwnerStructData[0];
@@ -76,10 +80,18 @@ public class ChefController : MonoBehaviour,IInterectableObject
                     _chefCreateFoodDuring = 0;
                 }
             }
+            else
+            {
+                _chefCreateFoodDuringIcon.fillAmount = 0f;
+
+            }
         }
     }
-    
-    
+
+    private void CreateFoodFill()
+    {
+        _chefCreateFoodDuringIcon.fillAmount = _chefCreateFoodDuring / 5f;
+    }
 
     public void SetOrders(List<OrderDataStruct> orderDataStruct,bool isPlayerGive = true,WaiterController ownerWaiter = null)
     {
