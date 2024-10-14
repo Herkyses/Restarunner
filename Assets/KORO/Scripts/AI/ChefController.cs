@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -76,6 +77,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
     {
         if (!_chefCreateFoodDuringIcon.sprite)
         {
+            transform.DOLocalRotate(new Vector3(0,90f,0f),0.2f);
             CurrentFoodData = ChefOwnerStructData[0];
             _chefCreateFoodDuringIcon.sprite = GameDataManager.Instance.GetFoodSprite(CurrentFoodData.OrderType);
         }
@@ -86,8 +88,6 @@ public class ChefController : MonoBehaviour,IInterectableObject
             if (_chefCreateFoodDuring > 5)
             {
                 CurrentFoodData = ChefOwnerStructData[0];
-
-                    
                 CreateFood();
                 ChefOwnerStructData.Remove(CurrentFoodData);
                 _chefCreateFoodDuring = 0;
@@ -98,6 +98,9 @@ public class ChefController : MonoBehaviour,IInterectableObject
             if (_chefCreateFoodDuringIcon.fillAmount != 0f)
             {
                 _chefCreateFoodDuringIcon.fillAmount = 0f;
+                transform.localRotation = Quaternion.Euler(new Vector3(0,-90f,0f));
+                _chefCreateFoodDuringIcon.sprite = null;
+                _chefCreateFood = false;
             }
 
         }
