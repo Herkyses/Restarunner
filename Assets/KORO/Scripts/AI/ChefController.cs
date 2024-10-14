@@ -7,6 +7,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
 {
     [SerializeField] private List<OrderDataStruct> ChefOwnerStructData;
     [SerializeField] private List<OrderDataStruct> RemovedOrderDataStructs;
+    [SerializeField] private OrderDataStruct CurrentFoodData;
     
     [SerializeField] private string[] texts = new [] {"Give Order "};
     [SerializeField] private string[] textsButtons = new [] {"E"};
@@ -15,6 +16,8 @@ public class ChefController : MonoBehaviour,IInterectableObject
     [SerializeField] private Transform FoodParent;
     [SerializeField] private ChefOrderTable _chefOrderTable;
     [SerializeField] private int _chefOrderTableIndex;
+    [SerializeField] private bool _chefCreateFood;
+    [SerializeField] private float _chefCreateFoodDuring;
     public static Action<WaiterController> FoodCreated;
     public static Action<OrderData> FoodIngredientIncreese;
     private FoodTable _tableFood;
@@ -42,10 +45,11 @@ public class ChefController : MonoBehaviour,IInterectableObject
 
     }
     
-    #if UNITY_EDITOR
     
-    /*private void Update()
+    
+    private void Update()
     {
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.T))
         {
             var zort = new OrderDataStruct()
@@ -55,16 +59,39 @@ public class ChefController : MonoBehaviour,IInterectableObject
             };
             var listo = new List<OrderDataStruct>();
             listo.Add(zort);
+            listo.Add(zort);
             SetOrders(listo);
         }
-    }*/
+#endif
+        if (_chefCreateFood)
+        {
+            if (ChefOwnerStructData.Count > 0)
+            {
+                _chefCreateFoodDuring += Time.deltaTime;
+                if (_chefCreateFoodDuring > 5)
+                {
+                    CurrentFoodData = ChefOwnerStructData[0];
+                    CreateFood();
+                    ChefOwnerStructData.Remove(CurrentFoodData);
+                    _chefCreateFoodDuring = 0;
+                }
+            }
+        }
+    }
     
-    #endif
     
 
     public void SetOrders(List<OrderDataStruct> orderDataStruct,bool isPlayerGive = true,WaiterController ownerWaiter = null)
     {
-        ChefOwnerStructData = orderDataStruct;
+        //ChefOwnerStructData = orderDataStruct;
+        for (int i = 0; i < orderDataStruct.Count; i++)
+        {
+            ChefOwnerStructData.Add(orderDataStruct[i]);
+        }
+
+        _chefCreateFood = true;
+        
+        
         if (!isPlayerGive)
         {
             CreateFoods(true);
@@ -73,8 +100,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
         }
         else
         {
-            CreateFoods(false);
-
+            //CreateFoods(false);
         }
         //orderDataStruct.Clear();        ////////////önemliiiiii yapılanları çıkar sadece
     }
@@ -104,6 +130,37 @@ public class ChefController : MonoBehaviour,IInterectableObject
 
             
         }
+        //ResetChefOwner();
+    }
+
+    public void CreateFood()
+    {
+        var foodDatas = GameDataManager.Instance.FoodDatas;
+        
+        for (int j = 0; j < foodDatas.Count; j++)
+        {
+                
+            if (CurrentFoodData.OrderType == foodDatas[j].OrderType && MealManager.Instance.GetMealIngredient(foodDatas[j].OrderType) > 0)
+            {
+                if (!CheckFoodIngredientCount(foodDatas[j]))
+                {
+                    continue;
+                }
+                var food = InitiliazeFood(foodDatas[j]);
+                RemovedOrderDataStructs.Add(CurrentFoodData);
+                    
+                HandleMealIngredient(foodDatas[j]);
+                TutorialSte(foodDatas[j]);
+                UpdateChefOrderTableIndex(food);
+            }
+        }
+
+            
+        
+    }
+
+    private void ResetChefOwner()
+    {
         for (int j = 0; j < RemovedOrderDataStructs.Count; j++)
         {
             ChefOwnerStructData.Remove(RemovedOrderDataStructs[j]);
