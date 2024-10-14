@@ -68,26 +68,38 @@ public class ChefController : MonoBehaviour,IInterectableObject
 #endif
         if (_chefCreateFood)
         {
-            if (ChefOwnerStructData.Count > 0)
-            {
-                _chefCreateFoodDuring += Time.deltaTime;
-                CreateFoodFill();
-                if (_chefCreateFoodDuring > 5)
-                {
-                    CurrentFoodData = ChefOwnerStructData[0];
-                    CreateFood();
-                    ChefOwnerStructData.Remove(CurrentFoodData);
-                    _chefCreateFoodDuring = 0;
-                }
-            }
-            else
-            {
-                if (_chefCreateFoodDuringIcon.fillAmount != 0f)
-                {
-                    _chefCreateFoodDuringIcon.fillAmount = 0f;
-                }
+            StartFoodDuring();
+        }
+    }
 
+    private void StartFoodDuring()
+    {
+        if (!_chefCreateFoodDuringIcon.sprite)
+        {
+            CurrentFoodData = ChefOwnerStructData[0];
+            _chefCreateFoodDuringIcon.sprite = GameDataManager.Instance.GetFoodSprite(CurrentFoodData.OrderType);
+        }
+        if (ChefOwnerStructData.Count > 0)
+        {
+            _chefCreateFoodDuring += Time.deltaTime;
+            CreateFoodFill();
+            if (_chefCreateFoodDuring > 5)
+            {
+                CurrentFoodData = ChefOwnerStructData[0];
+
+                    
+                CreateFood();
+                ChefOwnerStructData.Remove(CurrentFoodData);
+                _chefCreateFoodDuring = 0;
             }
+        }
+        else
+        {
+            if (_chefCreateFoodDuringIcon.fillAmount != 0f)
+            {
+                _chefCreateFoodDuringIcon.fillAmount = 0f;
+            }
+
         }
     }
 
