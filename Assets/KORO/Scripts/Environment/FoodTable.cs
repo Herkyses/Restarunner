@@ -36,6 +36,7 @@ public class FoodTable : MonoBehaviour,IInterectableObject
     public void InterectableObjectRun()
     {
         PlayerOrderController.Instance.TakeFood(GetComponent<FoodTable>(),IsFoodFinished);
+        ChefController.Instance.IsAvailableFoodTable();
     }
 
     public void ShowOutline(bool active)

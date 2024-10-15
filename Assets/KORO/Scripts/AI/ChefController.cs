@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class ChefController : MonoBehaviour,IInterectableObject
 {
+    public static ChefController Instance;
     [SerializeField] private List<OrderDataStruct> ChefOwnerStructData;
     [SerializeField] private List<OrderDataStruct> RemovedOrderDataStructs;
     [SerializeField] private OrderDataStruct CurrentFoodData;
@@ -40,6 +41,19 @@ public class ChefController : MonoBehaviour,IInterectableObject
         GiveChefOrderPanelController.IsGivedToChef -= SetOrders;
     }
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
     private void Start()
     {
         texts = new []{"Give Order "};
@@ -69,7 +83,10 @@ public class ChefController : MonoBehaviour,IInterectableObject
 #endif
         if (_chefCreateFood)
         {
-            StartFoodDuring();
+            if (IsAvailableFoodTable())
+            {
+                StartFoodDuring();
+            }
         }
     }
 
@@ -189,6 +206,23 @@ public class ChefController : MonoBehaviour,IInterectableObject
         
     }
 
+    public bool IsAvailableFoodTable()
+    {
+        _chefOrderTableIndex = -1;
+        for (int i = 0; i < _chefOrderTable.FoodTransformList.Count; i++)
+        {
+            if (_chefOrderTable.FoodTransformList[i].childCount == 0)
+            {
+                _chefOrderTableIndex = i;
+                _chefCreateFood = true;
+                return true;
+            }
+        }
+
+        _chefCreateFood = false;
+        return false;
+    }
+
     private void ResetChefOwner()
     {
         for (int j = 0; j < RemovedOrderDataStructs.Count; j++)
@@ -205,6 +239,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
         food.QualityTimeStarted = false;
         food.CreateFood(orderData.Food.OrderType);
         food.transform.position = _chefOrderTable.FoodTransformList[_chefOrderTableIndex].position;
+        food.transform.SetParent(_chefOrderTable.FoodTransformList[_chefOrderTableIndex]);
         food.transform.localRotation = Quaternion.Euler(new Vector3(0f, FOOD_ROTATION_Y, 0f));
         return food;
     }
