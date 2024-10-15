@@ -26,11 +26,11 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
 
     private void OnEnable()
     {
-        ChefController.FoodIngredientIncreese += CheckIngredients;
+        ChefController.OnFoodIngredientDecreased += CheckIngredients;
     }
     private void OnDisable()
     {
-        ChefController.FoodIngredientIncreese -= CheckIngredients;
+        ChefController.OnFoodIngredientDecreased -= CheckIngredients;
     }
 
     private void Awake()

@@ -22,12 +22,12 @@ public class WaiterController : MonoBehaviour
 
     private void OnEnable()
     {
-        ChefController.FoodCreated += WaiterMoveFoodStateStart;
+        ChefController.OnFoodCreated += WaiterMoveFoodStateStart;
     }
 
     private void OnDisable()
     {
-        ChefController.FoodCreated -= WaiterMoveFoodStateStart;
+        ChefController.OnFoodCreated -= WaiterMoveFoodStateStart;
     }
     
     public void WaiterMoveStateStart(Table table)
