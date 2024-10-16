@@ -7,6 +7,7 @@ public class CheckOrderBillsPanel : MonoBehaviour
 {
     [SerializeField] private Transform _panel;
     [SerializeField] private Transform _billParent;
+    [SerializeField] private Transform _numberButtonParent;
     [SerializeField] private SingleBill _singleBill;
     public List<SingleBill> BillList;
     public static CheckOrderBillsPanel Instance;
@@ -28,6 +29,7 @@ public class CheckOrderBillsPanel : MonoBehaviour
     {
         Utilities.DeleteTransformchilds(_billParent);
         CreateBills();
+        CreateButtonNumbers();
     }
 
     public void UpdatePanel(int tableNumber,float totalBill)
@@ -68,6 +70,15 @@ public class CheckOrderBillsPanel : MonoBehaviour
             {
                 BillList[i].Initialize(BillList[i].TableNumber,0);
             }
+        }
+    }
+
+    public void CreateButtonNumbers()
+    {
+        var buttons = _numberButtonParent.GetComponentsInChildren<SingleNumberButton>();
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            buttons[i].Initiliaze(i);
         }
     }
 
