@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.Rendering.PostProcessing;
 
 public class DayNightCycle : MonoBehaviour
@@ -24,9 +24,10 @@ public class DayNightCycle : MonoBehaviour
     
     private float timeOfDay = 0f;
     public float timeOfDayTEmp = 0f;
-    private bool isNight = false;   
-    
-    
+    private bool isNight = false;
+    [SerializeField] private Transform _lightParents;
+
+
     // Saat başlangıcı ve bitişi
     public int startHour = 9;   
     public int endHour = 21;    
@@ -113,6 +114,11 @@ public class DayNightCycle : MonoBehaviour
             yield return null;  // Bir sonraki frame'e kadar bekle
         }
         Debug.Log("geceoldu");
+        var lights = _lightParents.GetComponentsInChildren<Light>();
+        for (int i = 0; i < lights.Length; i++)
+        {
+            lights[i].gameObject.GetComponent<Light>().enabled = true;
+        }
         StartCycle = false;
     }
 
@@ -125,6 +131,11 @@ public class DayNightCycle : MonoBehaviour
         postProcessVolume.profile = postProcessDayProfile;
         StartCycle = true;
         Debug.Log("GunBasladi");
+        var lights = _lightParents.GetComponentsInChildren<Light>();
+        for (int i = 0; i < lights.Length; i++)
+        {
+            lights[i].gameObject.GetComponent<Light>().enabled = true;
+        }
         
     }
 
