@@ -98,6 +98,11 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
                 
             }
         }
+
+        if (ChefController.Instance.GetOrderData().Count > 0 && !ChefController.Instance.GetIsCreating())
+        {
+            ChefController.Instance.SetIsCreating(true);
+        }
         _ingredientCount.text = MealManager.Instance.GetFoodIngredient(shelveIngredientType).ToString();
 
         

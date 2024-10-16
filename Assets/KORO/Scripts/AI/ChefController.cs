@@ -80,7 +80,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
 #endif
         
         
-        if (isCreatingFood && chefOrderData.Count > 0 && IsAvailableFoodTable())
+        if (isCreatingFood && chefOrderData.Count > 0 && IsAvailableFoodTable() && CheckIngredient())
         {
             ProcessFoodCreation();
         }
@@ -147,7 +147,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
         {
             foreach (var foodData in GameDataManager.Instance.FoodDatas)
             {
-                if (order.OrderType == foodData.OrderType && MealManager.Instance.GetMealIngredient(foodData.OrderType) > 0 && CheckFoodIngredientCount(foodData))
+                if (order.OrderType == foodData.OrderType  && CheckFoodIngredientCount(foodData))
                 {
                     var food = InitializeFood(foodData);
                     removedOrderData.Add(order);
@@ -163,7 +163,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
     {
         foreach (var foodData in GameDataManager.Instance.FoodDatas)
         {
-            if (currentFoodData.OrderType == foodData.OrderType && MealManager.Instance.GetMealIngredient(foodData.OrderType) > 0 && CheckFoodIngredientCount(foodData))
+            if (currentFoodData.OrderType == foodData.OrderType && CheckFoodIngredientCount(foodData))
             {
                 var food = InitializeFood(foodData);
                 removedOrderData.Add(currentFoodData);
@@ -172,6 +172,21 @@ public class ChefController : MonoBehaviour,IInterectableObject
                 UpdateFoodTableIndex(food);
             }
         }
+    }
+
+    private bool CheckIngredient()
+    {
+        currentFoodData = chefOrderData[0];
+        foreach (var foodData in GameDataManager.Instance.FoodDatas)
+        {
+            if (currentFoodData.OrderType == foodData.OrderType && CheckFoodIngredientCount(foodData))
+            {
+                return true;
+            }
+        }
+
+        isCreatingFood = false;
+        return false;
     }
     public bool IsAvailableFoodTable()
     {
@@ -245,8 +260,22 @@ public class ChefController : MonoBehaviour,IInterectableObject
         }
         removedOrderData.Clear();
     }
-    
-    
+
+    public List<OrderDataStruct> GetOrderData()
+    {
+        return chefOrderData;
+    }
+
+    public bool GetIsCreating()
+    {
+        return isCreatingFood;
+    }
+    public void SetIsCreating(bool creating)
+    {
+        isCreatingFood = creating;
+    }
+
+
     public void InterectableObjectRun()
     {
         GiveChefOrderPanelController.Instance.OrderPanelInitliaze();
