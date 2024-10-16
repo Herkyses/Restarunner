@@ -10,6 +10,7 @@ public class SingleBill : MonoBehaviour
     public float TableOrderBill;
     public Color DefaultColor;
     public TextMeshProUGUI BillText;
+    public TextMeshProUGUI TableNumberText;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public class SingleBill : MonoBehaviour
         TableNumber = tableNumber;
         TableOrderBill = totalBill;
         BillText.text = TableOrderBill.ToString();
+        TableNumberText.text = (TableNumber+1).ToString();
     }
 
     public void SingleBillSelected()
