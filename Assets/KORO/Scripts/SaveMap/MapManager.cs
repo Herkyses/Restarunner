@@ -45,136 +45,85 @@ public class MapManager : MonoBehaviour
             ResetMap();
         }*/
     }
-
-    public void SetTableTransformFromMapData()
+    
+    private void CollectObjects(string tag, string type, System.Action<GameObject, MapObject> additionalDataAction = null)
     {
-        GameObject[] tableObjects = GameObject.FindGameObjectsWithTag("TableSet");
-        if (tableObjects.Length > 0)
+        GameObject[] objects = GameObject.FindGameObjectsWithTag(tag);
+        foreach (GameObject obj in objects)
         {
-            foreach (GameObject table in tableObjects)
+            MapObject mapObject = new MapObject
             {
-                MapObject tableSet = new MapObject();
-                tableSet.type = "TableSet";
-                tableSet.posX = table.transform.position.x;
-                tableSet.posY = table.transform.position.y;
-                tableSet.posZ = table.transform.position.z;
-                tableSet.rotX = table.transform.rotation.eulerAngles.x;
-                tableSet.rotY = table.transform.rotation.eulerAngles.y;
-                tableSet.rotZ = table.transform.rotation.eulerAngles.z;
-                tableSet.tableID = table.GetComponent<TableSet>().tableTypeID;
-                mapData.objects.Add(tableSet);
-            }
+                type = type,
+                posX = obj.transform.position.x,
+                posY = obj.transform.position.y,
+                posZ = obj.transform.position.z,
+                rotX = obj.transform.rotation.eulerAngles.x,
+                rotY = obj.transform.rotation.eulerAngles.y,
+                rotZ = obj.transform.rotation.eulerAngles.z
+            };
+            additionalDataAction?.Invoke(obj, mapObject);  // Ek veri işlemesi (tableID, shopItemData gibi)
+            mapData.objects.Add(mapObject);
         }
-        
-    }
-    public void SetOrderBoxTransformFromMapData()
-    {
-        GameObject[] orderBoxObjects = GameObject.FindGameObjectsWithTag("OrderBox");
-        if (orderBoxObjects.Length > 0)
-        {
-            foreach (GameObject orderBoxObject in orderBoxObjects)
-            {
-                MapObject orderBox = new MapObject();
-                orderBox.type = "OrderBox";
-                orderBox.posX = orderBoxObject.transform.position.x;
-                orderBox.posY = orderBoxObject.transform.position.y;
-                orderBox.posZ = orderBoxObject.transform.position.z;
-                orderBox.rotX = orderBoxObject.transform.rotation.eulerAngles.x;
-                orderBox.rotY = orderBoxObject.transform.rotation.eulerAngles.y;
-                orderBox.rotZ = orderBoxObject.transform.rotation.eulerAngles.z;
-                orderBox.shopItemData = orderBoxObject.gameObject.GetComponent<OrderBox>().GetShopItemData();
-                mapData.objects.Add(orderBox);
-            }
-        }
-        
-    }
-    public void SetDecorationTransformFromMapData()
-    {
-        GameObject[] decorationObjects = GameObject.FindGameObjectsWithTag("Decoration");
-        if (decorationObjects.Length > 0)
-        {
-            foreach (GameObject decor in decorationObjects)
-            {
-                MapObject decorationObject = new MapObject();
-                decorationObject.type = "Decoration";
-                decorationObject.posX = decor.transform.position.x;
-                decorationObject.posY = decor.transform.position.y;
-                decorationObject.posZ = decor.transform.position.z;
-                decorationObject.rotX = decor.transform.rotation.eulerAngles.x;
-                decorationObject.rotY = decor.transform.rotation.eulerAngles.y;
-                decorationObject.rotZ = decor.transform.rotation.eulerAngles.z;
-                decorationObject.decorationID = decor.GetComponent<DecorationObject>().decorationID;
-                mapData.objects.Add(decorationObject);
-            }
-        }
-        
     }
     public void SaveMap()
     {
-        // Mevcut sahnede bulunan objelerin bilgilerini alıp kaydedelim
         mapData.objects.Clear(); // Önceki verileri temizleyelim
 
-        SetTableTransformFromMapData();
-        SetOrderBoxTransformFromMapData();
-        SetDecorationTransformFromMapData();
-        
+        CollectObjects("TableSet", "TableSet", (obj, mapObject) =>
+        {
+            mapObject.tableID = obj.GetComponent<TableSet>().tableTypeID;
+        });
+        CollectObjects("OrderBox", "OrderBox", (obj, mapObject) =>
+        {
+            mapObject.shopItemData = obj.GetComponent<OrderBox>().GetShopItemData();
+        });
+        CollectObjects("Decoration", "Decoration", (obj, mapObject) =>
+        {
+            mapObject.decorationID = obj.GetComponent<DecorationObject>().decorationID;
+        });
 
         // JSON olarak kaydetme
         string json = JsonUtility.ToJson(mapData);
         File.WriteAllText(filePath, json);
-
         Debug.Log("Map saved.");
     }
-
+    
     public void LoadMap()
     {
-        if (File.Exists(filePath))
-        {
-            string json = File.ReadAllText(filePath);
-            mapData = JsonUtility.FromJson<MapData>(json);
-
-            // Yükleme işlemi
-            foreach (MapObject mapObject in mapData.objects)
-            {
-                GameObject prefab = GetPrefabByType(mapObject.type,mapObject.tableID,mapObject.decorationID);
-                if (mapObject.type == "TableSet")
-                {
-                    if (prefab != null)
-                    {
-                        Vector3 position = new Vector3(mapObject.posX, mapObject.posY, mapObject.posZ);
-                        Quaternion rotation = Quaternion.Euler(mapObject.rotX, mapObject.rotY, mapObject.rotZ);
-                        var table = Instantiate(prefab, position, rotation);
-                        table.transform.SetParent(TableController.Instance.TableTransform);
-                    }
-                }
-                if (mapObject.type == "OrderBox")
-                {
-                    if (prefab != null)
-                    {
-                        Vector3 position = new Vector3(mapObject.posX, mapObject.posY, mapObject.posZ);
-                        Quaternion rotation = Quaternion.Euler(mapObject.rotX, mapObject.rotY, mapObject.rotZ);
-                        var orderBox = Instantiate(prefab, position, rotation);
-                        orderBox.gameObject.GetComponent<OrderBox>().SetShopItemData(mapObject.shopItemData); 
-                    }
-                }
-                if (mapObject.type == "Decoration")
-                {
-                    if (prefab != null)
-                    {
-                        Vector3 position = new Vector3(mapObject.posX, mapObject.posY, mapObject.posZ);
-                        Quaternion rotation = Quaternion.Euler(mapObject.rotX, mapObject.rotY, mapObject.rotZ);
-                        var decorationObject = Instantiate(prefab, position, rotation);
-                        decorationObject.gameObject.GetComponent<DecorationObject>().decorationID = mapObject.decorationID; 
-                    }
-                }
-            }
-
-            Debug.Log("Map loaded.");
-        }
-        else
+        if (!File.Exists(filePath))
         {
             Debug.LogWarning("Map file not found.");
+            return;
         }
+
+        string json = File.ReadAllText(filePath);
+        mapData = JsonUtility.FromJson<MapData>(json);
+
+        // Yükleme işlemi
+        foreach (MapObject mapObject in mapData.objects)
+        {
+            GameObject prefab = GetPrefabByType(mapObject.type, mapObject.tableID, mapObject.decorationID);
+            if (prefab != null)
+            {
+                Vector3 position = new Vector3(mapObject.posX, mapObject.posY, mapObject.posZ);
+                Quaternion rotation = Quaternion.Euler(mapObject.rotX, mapObject.rotY, mapObject.rotZ);
+                GameObject instantiatedObj = Instantiate(prefab, position, rotation);
+
+                if (mapObject.type == "TableSet")
+                {
+                    instantiatedObj.transform.SetParent(TableController.Instance.TableTransform);
+                }
+                else if (mapObject.type == "OrderBox")
+                {
+                    instantiatedObj.GetComponent<OrderBox>().SetShopItemData(mapObject.shopItemData);
+                }
+                else if (mapObject.type == "Decoration")
+                {
+                    instantiatedObj.GetComponent<DecorationObject>().decorationID = mapObject.decorationID;
+                }
+            }
+        }
+        Debug.Log("Map loaded.");
     }
 
     public void ResetMap()
@@ -189,23 +138,17 @@ public class MapManager : MonoBehaviour
             Debug.LogWarning("No map file to delete.");
         }
     }
-
-    private GameObject GetPrefabByType(string type,int tableID = -1,int decorationID = -1)
+    
+    
+    private GameObject GetPrefabByType(string type, int tableID = -1, int decorationID = -1)
     {
-        if (type == "TableSet")
+        switch (type)
         {
-            return tableShopItemDatas[tableID].ItemObject;
+            case "TableSet": return tableShopItemDatas[tableID].ItemObject;
+            case "OrderBox": return orderBoxPf;
+            case "Decoration": return decorationShopItemDatas[decorationID].ItemObject;
+            default: return null;
         }
-
-        if (type == "OrderBox")
-        {
-            return orderBoxPf;
-        }
-        if (type == "Decoration")
-        {
-            return decorationShopItemDatas[decorationID].ItemObject;
-        }
-        return null;
     }
 }
 
