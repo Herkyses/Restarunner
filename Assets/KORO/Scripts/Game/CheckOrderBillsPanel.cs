@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class CheckOrderBillsPanel : MonoBehaviour
 {
@@ -9,6 +12,13 @@ public class CheckOrderBillsPanel : MonoBehaviour
     [SerializeField] private Transform _billParent;
     [SerializeField] private Transform _numberButtonParent;
     [SerializeField] private SingleBill _singleBill;
+    
+    public TMP_InputField billInputField; // Fatura değerini gösterecek alan
+    public Button[] numberButtons;        // 0-9 arası sayı butonları
+    public Button clearButton;            // Sil butonu
+    public Button confirmButton;          // Onayla butonu
+    
+    
     public List<SingleBill> BillList;
     public static CheckOrderBillsPanel Instance;
     public int SelectedTable;
@@ -24,6 +34,60 @@ public class CheckOrderBillsPanel : MonoBehaviour
         {
             Destroy(gameObject);
         }    
+    }
+    private void Start()
+    {
+        foreach (Button button in numberButtons)
+        {
+            //button.onClick.AddListener(() => OnNumberButtonClick(button.GetComponentInChildren<TMP_Text>().text));
+        }
+        billInputField.text = String.Empty;
+        //clearButton.onClick.AddListener(ClearInput);
+        //confirmButton.onClick.AddListener(ConfirmBill);
+    }
+    // Sayı butonuna tıklandığında çağrılacak fonksiyon
+    public void OnNumberButtonClick(string number)
+    {
+        billInputField.text += number;
+    }
+
+    // Girdi alanını temizleme
+    void ClearInput()
+    {
+        billInputField.text = "";
+    }
+
+    // Fatura doğrulama
+    void ConfirmBill()
+    {
+        if (ValidateBill(billInputField.text))
+        {
+            Debug.Log("Fatura kabul edildi: " + billInputField.text);
+            // İşlemleri burada yapabilirsiniz
+        }
+        else
+        {
+            Debug.Log("Geçersiz fatura değeri!");
+            // Kullanıcıya hata mesajı gösterebilirsiniz
+        }
+    }
+
+    // Fatura değerinin doğru olup olmadığını kontrol edin (Örneğin pozitif sayı mı)
+    bool ValidateBill(string billValue)
+    {
+        if (int.TryParse(billValue, out int result) && result > 0)
+        {
+            return true;
+        }
+        return false;
+    }
+    public int ValidateBillValue(string billValue)
+    {
+        if (int.TryParse(billValue, out int result) && result > 0)
+        {
+            return result;
+        }
+        return -1;
     }
     public void Initialize()
     {
@@ -75,18 +139,19 @@ public class CheckOrderBillsPanel : MonoBehaviour
 
     public void CreateButtonNumbers()
     {
-        var buttons = _numberButtonParent.GetComponentsInChildren<SingleNumberButton>();
-        for (int i = 0; i < buttons.Length; i++)
+        //var buttons = _numberButtonParent.GetComponentsInChildren<SingleNumberButton>();
+        for (int i = 0; i < numberButtons.Length; i++)
         {
-            buttons[i].Initiliaze(i);
+            numberButtons[i].GetComponent<SingleNumberButton>().Initiliaze(i);
         }
     }
 
     public void CreateTableBill()
     {
+        Debug.Log("createBill");
         if (TableController.Instance.TableSets[SelectedTable].table.CheckAllCustomerFinishedFood())
         {
-            BillTable.Instance.CreateTableBill(TableController.Instance.TableSets[SelectedTable].table);
+            BillTable.Instance.CreateTableBill(TableController.Instance.TableSets[SelectedTable].table,ValidateBillValue(billInputField.text));
             DeActiveBillsPanel();
         }
         

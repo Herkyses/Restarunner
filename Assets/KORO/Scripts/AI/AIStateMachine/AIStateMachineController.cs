@@ -216,7 +216,7 @@ public class AIStateMachineController : MonoBehaviour
         GameSceneCanvas.Instance.AddPopularity();
         AIController.CalculatePopularityRate();
 
-        GameManager.PayedOrderBill?.Invoke(GameDataManager.Instance.GetFoodPrice(AIController.FoodDataStruct.OrderType));
+        //GameManager.PayedOrderBill?.Invoke(GameDataManager.Instance.GetFoodPrice(AIController.FoodDataStruct.OrderType));
         ResetAI();
         AIChangeState(AIMoveState);
         

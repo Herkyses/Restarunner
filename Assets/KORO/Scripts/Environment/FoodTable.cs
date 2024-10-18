@@ -80,6 +80,7 @@ public class FoodTable : MonoBehaviour,IInterectableObject
         Food = food;
         _foodQualityCanvasObject.SetActive(true);
         WaitTime = food.QualityWaitTime;
+        IsFoodFinished = false;
         QualityTimeStarted = true;
     }
 

@@ -75,7 +75,7 @@ public class PlaceController : MonoBehaviour,IInterectableObject
     }
     public void ShowOutline(bool active)
     {
-        _pcOutline.enabled = active;
+        //_pcOutline.enabled = active;
     }
     public Outline GetOutlineComponent()
     {

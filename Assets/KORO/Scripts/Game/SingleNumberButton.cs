@@ -10,7 +10,12 @@ public class SingleNumberButton : MonoBehaviour
 
     public void Initiliaze(int number)
     {
-        NumberValue = number;
-        NumberValueText.text = (NumberValue + 1).ToString();
+        NumberValue = number+1;
+        NumberValueText.text = (NumberValue).ToString();
+    }
+
+    public void ButtonPressed()
+    {
+        CheckOrderBillsPanel.Instance.OnNumberButtonClick(NumberValue.ToString());
     }
 }

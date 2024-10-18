@@ -40,7 +40,7 @@ public class BillTable : MonoBehaviour,IInterectableObject
         
     }
 
-    public void CreateTableBill(Table ownerTable)
+    public void CreateTableBill(Table ownerTable,int billValue)
     {
         
         Utilities.DeleteTransformchilds(_tableBillParent);
@@ -58,7 +58,7 @@ public class BillTable : MonoBehaviour,IInterectableObject
         _tableBillTemp.transform.localPosition = Vector3.zero;
         var zort = _tableBillParent.transform.rotation.eulerAngles;
         _tableBillTemp.transform.localRotation = Quaternion.Euler(zort);
-        _tableBillTemp.BillValue = ownerTable.TotalBills;
+        _tableBillTemp.BillValue = billValue;
         _tableBillTemp.OwnerTable = ownerTable;
     }
     public void UpdateTableBill(TableBill tableBill)

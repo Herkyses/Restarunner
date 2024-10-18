@@ -251,6 +251,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             {
                 _aiControllerList[i].AIStateMachineController.SetMoveStateFromOrderBill();
             }
+            GameManager.PayedOrderBill?.Invoke(_player.PlayerOrdersController.TableBill.BillValue);
 
             _player.FreePlayerStart();
 

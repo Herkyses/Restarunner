@@ -42,7 +42,8 @@ public class GiveChefOrderPanelController : MonoBehaviour
             orderStructs = TableController.Instance.TableSets[0].table.GetOrders();
         }
         OnOrderGivenToChef?.Invoke(orderStructs,true,null);
-        PlayerOrderController.Instance.OrderList.Remove(Orders);
+        //PlayerOrderController.Instance.OrderList.Remove(Orders);
+        OrderList[SelectedOrderListCount].OrderDataStructs.Clear();
         DeactivePanel();
     }
 
