@@ -15,6 +15,7 @@ public class DayNightCycle : MonoBehaviour
     public Gradient lightColor;  // Sabah, öğle, akşam için farklı renkler
     public AnimationCurve lightIntensity;  // Zamanla değişen ışık yoğunluğu
     public Material lightMaterialNight;  // Zamanla değişen ışık yoğunluğu
+    public Material lightMaterialDay;  // Zamanla değişen ışık yoğunluğu
     public List<GameObject> lightMaterialObject;  // Zamanla değişen ışık yoğunluğu
     public Color ambientDayColor;
     public Color ambientNightColor;
@@ -121,7 +122,11 @@ public class DayNightCycle : MonoBehaviour
         {
             lights[i].gameObject.GetComponent<Light>().enabled = true;
         }
-        lightMaterialObject[0].gameObject.GetComponent<MeshRenderer>().material = lightMaterialNight;
+
+        for (int i = 0; i < lightMaterialObject.Count; i++)
+        {
+            lightMaterialObject[i].gameObject.GetComponent<MeshRenderer>().material = lightMaterialNight;
+        }
 
         StartCycle = false;
     }
@@ -138,9 +143,12 @@ public class DayNightCycle : MonoBehaviour
         var lights = _lightParents.GetComponentsInChildren<Light>();
         for (int i = 0; i < lights.Length; i++)
         {
-            lights[i].gameObject.GetComponent<Light>().enabled = true;
+            lights[i].gameObject.GetComponent<Light>().enabled = false;
         }
-        
+        for (int i = 0; i < lightMaterialObject.Count; i++)
+        {
+            lightMaterialObject[i].gameObject.GetComponent<MeshRenderer>().material = lightMaterialDay;
+        }
     }
 
     public void StartCycleTrue()
