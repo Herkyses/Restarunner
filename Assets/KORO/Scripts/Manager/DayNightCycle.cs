@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,45 +8,57 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class DayNightCycle : MonoBehaviour
 {
+    
+    [Header("Lighting Settings")]
     public Light directionalLight;
-    public PostProcessVolume postProcessVolume;
-    public PostProcessVolume postProcessVolumeNight;
-    public PostProcessProfile postProcessDayProfile;
-    public PostProcessProfile postProcessNightProfile;
     public Gradient lightColor;  // Sabah, öğle, akşam için farklı renkler
     public AnimationCurve lightIntensity;  // Zamanla değişen ışık yoğunluğu
-    public Material lightMaterialNight;  // Zamanla değişen ışık yoğunluğu
-    public Material lightMaterialDay;  // Zamanla değişen ışık yoğunluğu
-    public List<GameObject> lightMaterialObject;  // Zamanla değişen ışık yoğunluğu
-    public Color ambientDayColor;
-    public Color ambientNightColor;
+    
+    [Header("Materials")]
+    public Material lightMaterialNight;
+    public Material lightMaterialDay;
+    
+    [Header("Post Processing")]
+    public PostProcessVolume postProcessVolume;
+    public PostProcessProfile postProcessDayProfile;
+    public PostProcessProfile postProcessNightProfile;
+
+    [Header("Time Settings")]
     public float elapsedTime = 0f;  
     public float transitionDuration;  
-    public float TransitionDurationDelay;  
-    public float TwelvehoursSecond;  
-    public bool StartCycle = false; 
-    
-    private float timeOfDay = 0f;
-    public float timeOfDayTEmp = 0f;
-    private bool isNight = false;
-    [SerializeField] private Transform _lightParents;
-
-
-    // Saat başlangıcı ve bitişi
+    public float transitionDelay;  
+    public float twelveHoursInSeconds;  
     public int startHour = 9;   
     public int endHour = 21;    
-
-    // Zaman ilerleme hızı
     public float timeSpeed = 60.0f; 
-    private float timeCounter = 0f;
+    
+    [Header("UI")]
+    public TextMeshProUGUI timeText;
 
-    // Şu anki saat ve dakika
+    [SerializeField] private Transform _lightParents;
+
+    private float timeOfDay = 0f;
+    private bool isNight = false;
+    private bool startCycle = false;
+
     private int currentHour;
     private int currentMinute;
-
-    // UI Text eklerseniz saati göstermek için kullanabilirsiniz
-    public TextMeshProUGUI timeText;
+    private float timeCounter = 0f;
     
+    public List<GameObject> lightMaterialObjects;  // Zamanla değişen ışık yoğunluğu
+    public Color ambientDayColor;
+    public Color ambientNightColor;
+    public float TransitionDurationDelay;  
+    public float TwelvehoursSecond;  
+    
+    public float timeOfDayTEmp = 0f;
+
+
+    private void Start()
+    {
+        twelveHoursInSeconds = 43200;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Z))
@@ -54,141 +67,129 @@ public class DayNightCycle : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
-            StartCycleTrue();
+            StartCycle();
         }
         
-        if (!StartCycle)
+        if (!startCycle)
         {
             return;
         }
-        StartTime();
         
-        
-        timeOfDay += Time.deltaTime;
-        // Gündüzden geceye geçiş
-        if (!isNight && timeOfDay >= TransitionDurationDelay) // 60 saniye gündüz
-        {
-            StartCoroutine(WeightResetAndChangeProfile(postProcessNightProfile));
-            isNight = true;  // Gece oldu
-        }
-        /*// Geceden gündüze geçiş
-        else if (isNight && timeOfDay >= 60f) // 60 saniye gece
-        {
-            StartCoroutine(WeightResetAndChangeProfile(postProcessDayProfile));
-            timeOfDay = 0f; // Yeni gün başlasın
-            isNight = false;  // Gündüz oldu
-        }*/
+        UpdateTime();
+        UpdateLightingCycle();
         
         
     }
-
-    public void ResetDay()
-    {
-        timeOfDay = 0f; // Yeni gün başlasın
-        isNight = false;  // Gündüz oldu
-    }
-    // İki profil arasında yumuşak geçiş yapar
-    // Weight sıfırlayıp profili değiştirme, ardından tekrar 1'e çıkarma
-    IEnumerator WeightResetAndChangeProfile(PostProcessProfile targetProfile)
-    {
-        float elapsedTime = 0f;
-
-        // Fade-out (Mevcut profilin weight'ini 1'den 0'a düşür)
-        while (elapsedTime < transitionDuration / 2f)
-        {
-            elapsedTime += Time.deltaTime;
-            float t = elapsedTime / (transitionDuration / 2f);
-            postProcessVolume.weight = Mathf.Lerp(0.6f, 0.05f, t);
-            yield return null;  // Bir sonraki frame'e kadar bekle
-        }
-
-        // Profil değiştirme
-        postProcessVolume.profile = targetProfile;
-
-        // Zamanı sıfırla ve fade-in başlat
-        elapsedTime = 0f;
-
-        // Fade-in (Yeni profilin weight'ini 0'dan 1'e çıkar)
-        while (elapsedTime < transitionDuration / 2f)
-        {
-            elapsedTime += Time.deltaTime;
-            float t = elapsedTime / (transitionDuration / 2f);
-            postProcessVolume.weight = Mathf.Lerp(0.05f, 0.6f, t);
-            yield return null;  // Bir sonraki frame'e kadar bekle
-        }
-        Debug.Log("geceoldu");
-        var lights = _lightParents.GetComponentsInChildren<Light>();
-        for (int i = 0; i < lights.Length; i++)
-        {
-            lights[i].gameObject.GetComponent<Light>().enabled = true;
-        }
-
-        for (int i = 0; i < lightMaterialObject.Count; i++)
-        {
-            lightMaterialObject[i].gameObject.GetComponent<MeshRenderer>().material = lightMaterialNight;
-        }
-
-        StartCycle = false;
-    }
-
     public void InitiliazeCycle()
     {
-        // Başlangıç saatini ve dakikasını ayarla
-        currentHour = startHour;
-        currentMinute = 0;
-        ResetDay();
-        postProcessVolume.profile = postProcessDayProfile;
-        StartCycle = true;
-        Debug.Log("GunBasladi");
-        var lights = _lightParents.GetComponentsInChildren<Light>();
-        for (int i = 0; i < lights.Length; i++)
-        {
-            lights[i].gameObject.GetComponent<Light>().enabled = false;
-        }
-        for (int i = 0; i < lightMaterialObject.Count; i++)
-        {
-            lightMaterialObject[i].gameObject.GetComponent<MeshRenderer>().material = lightMaterialDay;
-        }
+        ResetTime();
+        ApplyDayProfile();
+        ToggleLights(false);
+        UpdateMaterials(lightMaterialDay);
+        startCycle = true;
     }
-
-    public void StartCycleTrue()
+    
+    private void StartCycle()
     {
         timeOfDay = 0f;
-        postProcessVolume.profile = postProcessDayProfile;
-        Debug.Log("Sabaholdu");
+        ApplyDayProfile();
+        Debug.Log("Day cycle started.");
     }
-
-    public void StartTime()
+    
+    private void ResetTime()
     {
-        // Zamanı güncelle
-        timeCounter += Time.deltaTime * timeSpeed*(((TwelvehoursSecond/(transitionDuration+TransitionDurationDelay))/60f)+1f);
+        currentHour = startHour;
+        currentMinute = 0;
+        timeOfDay = 0f;
+        isNight = false;
+        postProcessVolume.profile = postProcessDayProfile;
+    }
+    
+    private void UpdateTime()
+    {
+        timeCounter += Time.deltaTime * timeSpeed * (twelveHoursInSeconds / (transitionDuration + transitionDelay) / 60f + 1f);
 
-        // Dakikaları hesapla (Her 60 birimde bir dakika artar)
         if (timeCounter >= 60f)
         {
             currentMinute++;
             timeCounter = 0f;
 
-            // Eğer dakika 60'a ulaştıysa, bir saat ekle ve dakikayı sıfırla
             if (currentMinute >= 60)
             {
                 currentMinute = 0;
                 currentHour++;
             }
 
-            // Saat akşam 9'u geçtiğinde başa döner (sabah 9)
-            if (currentHour == endHour)
+            if (currentHour >= endHour)
             {
                 currentHour = endHour;
                 currentMinute = 0;
             }
         }
 
-        // UI Text kullanıyorsanız, saati ve dakikayı güncelle
+        UpdateTimeUI();
+    }
+    
+    private void UpdateTimeUI()
+    {
         if (timeText != null)
-        {
-            // Dakikanın çift haneli olmasını sağlamak için string formatı kullanıyoruz
             timeText.text = string.Format("{0:00}:{1:00}", currentHour, currentMinute);
+    }
+    private void UpdateLightingCycle()
+    {
+        timeOfDay += Time.deltaTime;
+
+        if (!isNight && timeOfDay >= transitionDelay)
+        {
+            StartCoroutine(SwitchToNight());
+            isNight = true;
         }
     }
+    
+    private IEnumerator SwitchToNight()
+    {
+        yield return TransitionPostProcessingProfile(postProcessNightProfile);
+        ToggleLights(true);
+        UpdateMaterials(lightMaterialNight);
+        startCycle = false;
+    }
+    private IEnumerator TransitionPostProcessingProfile(PostProcessProfile targetProfile)
+    {
+        yield return ChangePostProcessWeight(0.6f, 0.05f);
+        postProcessVolume.profile = targetProfile;
+        yield return ChangePostProcessWeight(0.05f, 0.6f);
+    }
+    private IEnumerator ChangePostProcessWeight(float startWeight, float endWeight)
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < transitionDuration / 2f)
+        {
+            elapsedTime += Time.deltaTime;
+            postProcessVolume.weight = Mathf.Lerp(startWeight, endWeight, elapsedTime / (transitionDuration / 2f));
+            yield return null;
+        }
+    }
+    private void ToggleLights(bool state)
+    {
+        foreach (Light light in _lightParents.GetComponentsInChildren<Light>())
+            light.enabled = state;
+    }
+    private void ApplyDayProfile()
+    {
+        postProcessVolume.profile = postProcessDayProfile;
+    
+        ToggleLights(false);
+
+        UpdateMaterials(lightMaterialDay);
+
+        Debug.Log("Day profile applied.");
+    }
+    
+    private void UpdateMaterials(Material newMaterial)
+    {
+        foreach (GameObject obj in lightMaterialObjects)
+            obj.GetComponent<MeshRenderer>().material = newMaterial;
+    }
+    
 }
