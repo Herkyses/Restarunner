@@ -23,6 +23,7 @@ public class SingleNumberButton : MonoBehaviour
                 CheckOrderBillsPanel.Instance.ClearInput();
                 break;
             case Enums.BillButtonType.Delete:
+                CheckOrderBillsPanel.Instance.Backspace();
                 break;
             case Enums.BillButtonType.Number:
                 CheckOrderBillsPanel.Instance.OnNumberButtonClick(NumberValue.ToString());

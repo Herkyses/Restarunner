@@ -71,6 +71,15 @@ public class CheckOrderBillsPanel : MonoBehaviour
             // Kullanıcıya hata mesajı gösterebilirsiniz
         }
     }
+    // Son karakteri silme (backspace)
+    public void Backspace()
+    {
+        if (billInputField.text.Length > 0)
+        {
+            // Mevcut metnin son karakterini siler
+            billInputField.text = billInputField.text.Substring(0, billInputField.text.Length - 1);
+        }
+    }
 
     // Fatura değerinin doğru olup olmadığını kontrol edin (Örneğin pozitif sayı mı)
     bool ValidateBill(string billValue)
