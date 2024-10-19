@@ -65,6 +65,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
     {
         _chefOutline = GetComponent<Outline>();
         chefCreateFoodProgressIcon.fillAmount = 0f;
+        chefCreateFoodProgressIcon.gameObject.SetActive(false);
     }
     
     
@@ -102,6 +103,10 @@ public class ChefController : MonoBehaviour,IInterectableObject
             InitializeFoodCreation();
         }
 
+        if (!chefCreateFoodProgressIcon.gameObject.activeSelf)
+        {
+            chefCreateFoodProgressIcon.gameObject.SetActive(true);
+        }
         foodCreationDuration += Time.deltaTime;
         UpdateFoodCreationProgress();
 
@@ -109,6 +114,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
         {
             CreateFood();
             foodCreationDuration = 0f;
+            chefCreateFoodProgressIcon.gameObject.SetActive(false);
             chefOrderData.Remove(currentFoodData);
         }
     }
