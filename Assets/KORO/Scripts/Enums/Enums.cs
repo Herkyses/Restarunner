@@ -77,4 +77,11 @@ public class Enums : MonoBehaviour
         DecorationMove,
         TakeFoodIngredient,
     }
+    public enum BillButtonType
+    {
+        Clear,
+        Delete,
+        Number,
+        Zero,
+    }
 }

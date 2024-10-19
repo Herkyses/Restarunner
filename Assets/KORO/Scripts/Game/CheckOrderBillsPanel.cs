@@ -52,7 +52,7 @@ public class CheckOrderBillsPanel : MonoBehaviour
     }
 
     // Girdi alanını temizleme
-    void ClearInput()
+    public void ClearInput()
     {
         billInputField.text = "";
     }

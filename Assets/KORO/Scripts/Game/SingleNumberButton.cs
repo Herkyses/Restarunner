@@ -7,6 +7,7 @@ public class SingleNumberButton : MonoBehaviour
 {
     public int NumberValue;
     public TextMeshProUGUI NumberValueText;
+    public Enums.BillButtonType ButtonType;
 
     public void Initiliaze(int number)
     {
@@ -16,6 +17,23 @@ public class SingleNumberButton : MonoBehaviour
 
     public void ButtonPressed()
     {
-        CheckOrderBillsPanel.Instance.OnNumberButtonClick(NumberValue.ToString());
+        switch (ButtonType)
+        {
+            case Enums.BillButtonType.Clear:
+                CheckOrderBillsPanel.Instance.ClearInput();
+                break;
+            case Enums.BillButtonType.Delete:
+                break;
+            case Enums.BillButtonType.Number:
+                CheckOrderBillsPanel.Instance.OnNumberButtonClick(NumberValue.ToString());
+                break;
+            case Enums.BillButtonType.Zero:
+                break;
+        }
+    }
+
+    public void ClearButtonPressed(Enums.BillButtonType billButtonType)
+    {
+        
     }
 }
