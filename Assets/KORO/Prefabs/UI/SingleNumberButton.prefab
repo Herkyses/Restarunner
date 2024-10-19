@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NumberValue: 0
   NumberValueText: {fileID: 8002036343021554948}
+  ButtonType: 0
 --- !u!114 &1818107898601719814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +216,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2
+  m_text: 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4b9c996ee886d6b47866a29b1d952b9f, type: 2}
   m_sharedMaterial: {fileID: -1721352540230844532, guid: 4b9c996ee886d6b47866a29b1d952b9f, type: 2}
@@ -242,10 +243,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 62.1
-  m_fontSizeBase: 62.1
+  m_fontSize: 69.15
+  m_fontSizeBase: 33
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 17

@@ -148,10 +148,10 @@ public class CheckOrderBillsPanel : MonoBehaviour
 
     public void CreateButtonNumbers()
     {
-        //var buttons = _numberButtonParent.GetComponentsInChildren<SingleNumberButton>();
-        for (int i = 0; i < numberButtons.Length; i++)
+        var buttons = _numberButtonParent.GetComponentsInChildren<SingleNumberButton>();
+        for (int i = 0; i < buttons.Length; i++)
         {
-            numberButtons[i].GetComponent<SingleNumberButton>().Initiliaze(i);
+            buttons[i].GetComponent<SingleNumberButton>().Initiliaze(i);
         }
     }
 
