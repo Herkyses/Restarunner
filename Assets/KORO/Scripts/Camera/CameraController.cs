@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
     public static CameraController Instance;
     public Transform PlayerTransform;
     public Transform PlayerTakedObjectTransformParent;
+    public Transform BoomVFXTransformParent;
     public GameObject CleanTool;
     public GameObject FightTool;
     public GameObject CleanToolChild;

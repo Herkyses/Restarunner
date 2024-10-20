@@ -64,6 +64,7 @@ public class AIController : MonoBehaviour,IInterectableObject
         texts = new [] {"Serv the food"};
         textsButtons = new [] {"E"};
         _player = Player.Instance;
+        IsBadGuy = true;
     }
 
     /////////// SIT STATE ///////////
@@ -158,6 +159,7 @@ public class AIController : MonoBehaviour,IInterectableObject
             {
                 StartCoroutine(aiRagdollController.AddForceToAICor(_player.PlayerOrdersController.transform.forward));
                 _player.StartFight();
+                GameVfxManager.Instance.SpawnVFX(GameVfxManager.Instance.vfxPools[0].vfxPrefab, CameraController.Instance.BoomVFXTransformParent.position, CameraController.Instance.BoomVFXTransformParent.rotation);
                 aiRagdollController.SetRagdollState(true);
                 if (IsBadGuy)
                 {
