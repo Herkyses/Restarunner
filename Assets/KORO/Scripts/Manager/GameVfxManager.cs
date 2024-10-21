@@ -60,14 +60,22 @@ public class GameVfxManager : MonoBehaviour
             vfxToSpawn.SetActive(true);
             vfxToSpawn.transform.position = position;
             vfxToSpawn.transform.rotation = rotation;
+            StartCoroutine(DelayDeactiveVfx(vfxToSpawn));
             return vfxToSpawn;
         }
         else
         {
             GameObject newVFX = Instantiate(vfxPrefab, position, rotation);
             newVFX.SetActive(true);
+            StartCoroutine(DelayDeactiveVfx(newVFX));
             return newVFX;
         }
+    }
+
+    public IEnumerator DelayDeactiveVfx(GameObject vfxPrefab)
+    {
+        yield return new WaitForSeconds(0.5f);
+        ReturnVFX(vfxPools[1].vfxPrefab,vfxPrefab);
     }
 
     public void ReturnVFX(GameObject vfxPrefab, GameObject vfxToReturn)

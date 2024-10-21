@@ -20,6 +20,7 @@ public class ShopManager : MonoBehaviour
     public Transform ShopOrderTransform;
 
     public static Action<ShopItemData> UpdateShopBasket;
+    public static Action UpgradedRestaurant;
     
     private const int TutorialStepPlaceUpgrade = 2;
 
@@ -61,7 +62,7 @@ public class ShopManager : MonoBehaviour
                 break;
             case Enums.ShopItemType.PlaceUpgrade:
                 var playerPrefs = PlayerPrefsManager.Instance;
-                if (shopItemData.ShopItemPrice <= playerPrefs.LoadPlayerMoney() && playerPrefs.LoadPlaceLevel() < playerPrefs.LoadPlaceRubbishLevel() && playerPrefs.LoadPlaceLevel() == shopItemData.PlaceLevel)
+                if (shopItemData.ShopItemPrice <= playerPrefs.LoadPlayerMoney()  && playerPrefs.LoadPlaceLevel() == shopItemData.PlaceLevel)
                 {
                     HandlePlaceUpgrade(shopItemData,singleShopItem);
                 }
@@ -84,7 +85,7 @@ public class ShopManager : MonoBehaviour
         GameManager.PayedOrderBill?.Invoke(-shopItemData.ShopItemPrice);
         var level = PlayerPrefsManager.Instance.LoadPlaceLevel() +1;
         PlayerPrefsManager.Instance.SavePlaceLevel(level);
-
+        UpgradedRestaurant?.Invoke();
         BuyPlaceUpgrade();
         PlacePanelController.Instance.UpdateShopItems();
         GameDataManager.Instance.UpdateOpenFoodDatas();

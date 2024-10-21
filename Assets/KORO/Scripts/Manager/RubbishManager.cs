@@ -21,13 +21,19 @@ public class RubbishManager : MonoBehaviour
     {
         CheckedRubbishes += CheckRubbishRate;
         CheckedRubbishesForTutorial += CheckRubbishesForTutorial;
+        ShopManager.UpgradedRestaurant += CreateRubbishesForUpgraded;
     }
 
     private void OnDisable()
     {
         CheckedRubbishes -= CheckRubbishRate;
         CheckedRubbishesForTutorial -= CheckRubbishesForTutorial;
+        ShopManager.UpgradedRestaurant -= CreateRubbishesForUpgraded;
+    }
 
+    public void CreateRubbishesForUpgraded()
+    {
+        ActivateRubbishes();
     }
 
     private void Awake()
@@ -52,16 +58,19 @@ public class RubbishManager : MonoBehaviour
 
     public void UpdateRubbishLevel()
     {
-        PlayerPrefsManager.Instance.SavePlaceRubbishLevel(_rubbishLevel+1);
-        _rubbishLevel ++;
-        if (_rubbishLevel == 1)
+        _rubbishLevel = PlayerPrefsManager.Instance.LoadPlaceLevel();
+        if (_rubbishLevel+1 == 1)
         {
+            Debug.Log("rubbishlev" + _rubbishLevel);
+
             //var tutorialStep = PlayerPrefsManager.Instance.LoadPlayerTutorialStep();
             PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(1);
             TutorialPanelController.Instance.ActivateRemainingText(false);
             TutorialManager.Instance.Initiliaze();
 
         }
+        PlayerPrefsManager.Instance.SavePlaceRubbishLevel(_rubbishLevel+1);
+
     }
 
     private void Update()
@@ -75,8 +84,10 @@ public class RubbishManager : MonoBehaviour
     public bool CheckRubbishLevel()
     {
         var rubbishList = GetComponentsInChildren<Rubbish>();
-        if (rubbishList.Length > 0)
+        if (GetRubbishCount() > 0)
         {
+            return false;
+
             for (int i = 0; i < rubbishList.Length; i++)
             {
                 if (rubbishList[i].gameObject.activeSelf)
@@ -91,15 +102,74 @@ public class RubbishManager : MonoBehaviour
 
     public int GetRubbishCount()
     {
-        return transform.childCount;
+        var count = 0;
+        for (int i = 0; i <= PlayerPrefsManager.Instance.LoadPlaceLevel(); i++)
+        {
+            for (int j = 0; j < _rubbishLevelsParents[i].GetComponentsInChildren<Rubbish>().Length; j++)
+            {
+                count += 1;
+
+            }
+        }
+
+        return count;
+        //return transform.childCount;
     }
 
     public void ActivateRubbishes()
     {
         var playerprefsManager = PlayerPrefsManager.Instance;
-        if (playerprefsManager.LoadPlaceRubbishLevel() == playerprefsManager.LoadPlaceLevel())
+        
+        for (int i = 0; i <= playerprefsManager.LoadPlaceLevel(); i++)
         {
-            _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].gameObject.SetActive(true);
+            _rubbishLevelsParents[i].gameObject.SetActive(true);
+        }
+
+
+        for (int i = playerprefsManager.LoadPlaceRubbishLevel(); i <= playerprefsManager.LoadPlaceLevel(); i++)
+        {
+            var rubbishParents = _rubbishLevelsParents[i].GetComponentsInChildren<SingleRubbishParent>();
+            for (int j = 0; j < rubbishParents.Length; j++)
+            {
+                if (rubbishParents[i].enabled)
+                {
+                    if (rubbishParents[j].transform.GetComponentsInChildren<Rubbish>().Length > 0)
+                    {
+                        continue;
+                    }
+                    var rubbish = PoolManager.Instance.GetFromPoolForRubbish();
+                    //rubbish.transform.position = rubbishChilds[i].position;
+                    rubbish.transform.position = new Vector3(rubbishParents[j].transform.position.x,0.32f,rubbishParents[j].transform.position.z);
+                    rubbish.GetComponent<MeshFilter>().sharedMesh = GameDataManager.Instance.RubbishMeshes[Random.Range(0, GameDataManager.Instance.RubbishMeshes.Count)].sharedMesh;
+                    rubbish.transform.SetParent(rubbishParents[j].transform);
+                }
+                
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*if (playerprefsManager.LoadPlaceRubbishLevel() == playerprefsManager.LoadPlaceLevel())
+        {
+        _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].gameObject.SetActive(true);
             //var rubbishChilds = _rubbishLevelsParents[PlayerPrefsManager.Instance.LoadPlaceRubbishLevel()].GetComponentsInChildren<Transform>();
         
             rubbishChilds.Clear();
@@ -110,6 +180,7 @@ public class RubbishManager : MonoBehaviour
                     rubbishChilds.Add(child);
                 }
             }
+
             
             for (int i = 0; i < rubbishChilds.Count; i++)
             {
@@ -117,10 +188,10 @@ public class RubbishManager : MonoBehaviour
                 //rubbish.transform.position = rubbishChilds[i].position;
                 rubbish.transform.position = new Vector3(rubbishChilds[i].position.x,0.32f,rubbishChilds[i].position.z);
                 rubbish.GetComponent<MeshFilter>().sharedMesh = GameDataManager.Instance.RubbishMeshes[Random.Range(0, GameDataManager.Instance.RubbishMeshes.Count)].sharedMesh;
-                rubbish.transform.SetParent(transform);
+                rubbish.transform.SetParent(rubbishChilds[i]);
             }
             _allRubbishCount = _rubbishLevelsParents[playerprefsManager.LoadPlaceRubbishLevel()].childCount;
-        }
+        //}//*/
 
         
         CheckRubbishRate();

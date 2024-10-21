@@ -762,9 +762,7 @@ GameObject:
   - component: {fileID: 9210732544773116110}
   - component: {fileID: 2017821918709344417}
   - component: {fileID: 8925417365945257691}
-  - component: {fileID: 2895397664626220689}
-  - component: {fileID: 8311888087604209995}
-  - component: {fileID: 5150674458706691589}
+  - component: {fileID: 3661994071294085789}
   m_Layer: 18
   m_Name: SM_Prop_Paper_05 (1)
   m_TagString: Untagged
@@ -802,7 +800,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26475462990683926}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -837,7 +835,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2895397664626220689
+--- !u!114 &3661994071294085789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -846,44 +844,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 26475462990683926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &8311888087604209995
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 26475462990683926}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
-  m_Center: {x: -0.007880627, y: -0.09918504, z: -0.02901989}
---- !u!114 &5150674458706691589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 26475462990683926}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &56036353203217288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2624,6 +2587,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6477768461239643632}
+  - component: {fileID: 1963108915533476638}
   m_Layer: 18
   m_Name: SM_Props_Street_Garbage_Bag_01
   m_TagString: Untagged
@@ -2646,6 +2610,18 @@ Transform:
   m_Father: {fileID: 4043356637262480793}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1963108915533476638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411225743414910172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &558533662076759280
 GameObject:
   m_ObjectHideFlags: 0
@@ -3173,9 +3149,7 @@ GameObject:
   - component: {fileID: 6013893856703038612}
   - component: {fileID: 5052529922422535197}
   - component: {fileID: 1561012426747061837}
-  - component: {fileID: 2709630420959376432}
-  - component: {fileID: 2501382426542563525}
-  - component: {fileID: 5785159120507974870}
+  - component: {fileID: 2019786891772518988}
   m_Layer: 18
   m_Name: SM_Prop_Paper_02 (5)
   m_TagString: Untagged
@@ -3213,7 +3187,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678161847755853831}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3248,7 +3222,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2709630420959376432
+--- !u!114 &2019786891772518988
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3257,44 +3231,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 678161847755853831}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &2501382426542563525
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678161847755853831}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
-  m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
---- !u!114 &5785159120507974870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678161847755853831}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &785646839037090415
 GameObject:
   m_ObjectHideFlags: 0
@@ -3306,9 +3245,7 @@ GameObject:
   - component: {fileID: 8745203447717317405}
   - component: {fileID: 3355154499536364833}
   - component: {fileID: 4577733458264472093}
-  - component: {fileID: 4729220681329665567}
-  - component: {fileID: 3680739788465623035}
-  - component: {fileID: 1122216692858302204}
+  - component: {fileID: 5868757287197167352}
   m_Layer: 18
   m_Name: SM_Props_Street_Garbage_Bag_01
   m_TagString: Untagged
@@ -3346,7 +3283,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785646839037090415}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3381,7 +3318,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4729220681329665567
+--- !u!114 &5868757287197167352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3390,44 +3327,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 785646839037090415}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &3680739788465623035
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785646839037090415}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5538589, y: 0.5494354, z: 0.5240203}
-  m_Center: {x: 0.029474892, y: 0.2653497, z: -0.08106592}
---- !u!114 &1122216692858302204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785646839037090415}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &810790615024030289
 GameObject:
   m_ObjectHideFlags: 0
@@ -4159,13 +4061,14 @@ GameObject:
   - component: {fileID: 974545871472667764}
   - component: {fileID: 974545871471582342}
   - component: {fileID: 3832013830517397525}
+  - component: {fileID: 8962889071178897890}
   m_Layer: 18
   m_Name: SM_Prop_Paper_05 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &974545871469757426
 Transform:
   m_ObjectHideFlags: 0
@@ -4249,6 +4152,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &8962889071178897890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974545871469456934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1044333275525097362
 GameObject:
   m_ObjectHideFlags: 0
@@ -4455,13 +4370,14 @@ GameObject:
   - component: {fileID: 1106238368643629689}
   - component: {fileID: 1106238368644723339}
   - component: {fileID: 3574235607570735451}
+  - component: {fileID: 7416820739307982789}
   m_Layer: 18
   m_Name: SM_Prop_Paper_05 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1106238368642870783
 Transform:
   m_ObjectHideFlags: 0
@@ -4545,6 +4461,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &7416820739307982789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106238368642514987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1130979972808326129
 GameObject:
   m_ObjectHideFlags: 0
@@ -5781,9 +5709,7 @@ GameObject:
   - component: {fileID: 8921286456264097335}
   - component: {fileID: 8088404796428119064}
   - component: {fileID: 8024524278468207562}
-  - component: {fileID: 5432387399911431126}
-  - component: {fileID: 8061723781093152533}
-  - component: {fileID: 8824306137967912493}
+  - component: {fileID: 3064619668080796470}
   m_Layer: 18
   m_Name: SM_Prop_CardboardBox_01
   m_TagString: Untagged
@@ -5821,7 +5747,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460917193234440062}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5856,7 +5782,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5432387399911431126
+--- !u!114 &3064619668080796470
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5865,44 +5791,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1460917193234440062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &8061723781093152533
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1460917193234440062}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.59747314, y: 0.5052583, z: 0.5974655}
-  m_Center: {x: -0.000015258789, y: 0.25262916, z: -0.0000038146973}
---- !u!114 &8824306137967912493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1460917193234440062}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &1468011788288429798
 GameObject:
   m_ObjectHideFlags: 0
@@ -6044,6 +5935,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9137636377046177638}
+  - component: {fileID: 527981344007080212}
   m_Layer: 18
   m_Name: SM_Prop_Paper_02 (5)
   m_TagString: Untagged
@@ -6066,6 +5958,18 @@ Transform:
   m_Father: {fileID: 4043356637262480793}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &527981344007080212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500627769944910687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1508041636092273682
 GameObject:
   m_ObjectHideFlags: 0
@@ -10806,13 +10710,14 @@ GameObject:
   - component: {fileID: 2269290140042326105}
   - component: {fileID: 2269290140043402821}
   - component: {fileID: 5100045597501846857}
+  - component: {fileID: 8648464160030404982}
   m_Layer: 18
   m_Name: SM_Prop_Paper_02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2269290140045273923
 Transform:
   m_ObjectHideFlags: 0
@@ -10896,6 +10801,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &8648464160030404982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2269290140045634217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2271935468493731923
 GameObject:
   m_ObjectHideFlags: 0
@@ -10907,9 +10824,7 @@ GameObject:
   - component: {fileID: 2279688344025609285}
   - component: {fileID: 6579996166986417151}
   - component: {fileID: 5417705861130651514}
-  - component: {fileID: 1985689395645614793}
-  - component: {fileID: 2511160343375264113}
-  - component: {fileID: 7493297674670209803}
+  - component: {fileID: 997383781466238417}
   m_Layer: 18
   m_Name: SM_Props_Street_Garbage_Bag_03 (1)
   m_TagString: Untagged
@@ -10947,7 +10862,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2271935468493731923}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -10982,7 +10897,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1985689395645614793
+--- !u!114 &997383781466238417
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10991,44 +10906,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2271935468493731923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &2511160343375264113
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2271935468493731923}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.470091, y: 0.674114, z: 0.4766893}
-  m_Center: {x: 0.0068828687, y: 0.32620633, z: -0.06482835}
---- !u!114 &7493297674670209803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2271935468493731923}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &2318471711977000276
 GameObject:
   m_ObjectHideFlags: 0
@@ -11137,9 +11017,7 @@ GameObject:
   - component: {fileID: 2524613883974560066}
   - component: {fileID: 6625180338774277155}
   - component: {fileID: 8340265477849103567}
-  - component: {fileID: 2482959898888938838}
-  - component: {fileID: 7742539900984041185}
-  - component: {fileID: 3908205142548035551}
+  - component: {fileID: 5660399560048022226}
   m_Layer: 18
   m_Name: SM_Prop_Paper_02 (5)
   m_TagString: Untagged
@@ -11177,7 +11055,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2354775717712504871}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -11212,7 +11090,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2482959898888938838
+--- !u!114 &5660399560048022226
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11221,44 +11099,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2354775717712504871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &7742539900984041185
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2354775717712504871}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
-  m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
---- !u!114 &3908205142548035551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2354775717712504871}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &2403373329227788217
 GameObject:
   m_ObjectHideFlags: 0
@@ -11953,6 +11796,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1933957076734023501}
+  - component: {fileID: 4242547184081005869}
   m_Layer: 18
   m_Name: SM_Prop_CardboardBox_01
   m_TagString: Untagged
@@ -11975,6 +11819,18 @@ Transform:
   m_Father: {fileID: 4043356637262480793}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4242547184081005869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2495265480845063120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2520132148794144202
 GameObject:
   m_ObjectHideFlags: 0
@@ -11986,9 +11842,7 @@ GameObject:
   - component: {fileID: 4094564345734055801}
   - component: {fileID: 8183662294338148962}
   - component: {fileID: 4697449572292454575}
-  - component: {fileID: 1302827016078496238}
-  - component: {fileID: 9069111641639646200}
-  - component: {fileID: 3849233835683707679}
+  - component: {fileID: 7970289461537125913}
   m_Layer: 18
   m_Name: SM_Prop_CardboardBox_01
   m_TagString: Untagged
@@ -12026,7 +11880,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2520132148794144202}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -12061,7 +11915,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1302827016078496238
+--- !u!114 &7970289461537125913
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12070,44 +11924,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2520132148794144202}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &9069111641639646200
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2520132148794144202}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.59747314, y: 0.5052583, z: 0.5974655}
-  m_Center: {x: -0.000015258789, y: 0.25262916, z: -0.0000038146973}
---- !u!114 &3849233835683707679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2520132148794144202}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &2530549350216751917
 GameObject:
   m_ObjectHideFlags: 0
@@ -12854,13 +12673,14 @@ GameObject:
   - component: {fileID: 2660764436274411307}
   - component: {fileID: 2660764436275415001}
   - component: {fileID: 1888320629922645363}
+  - component: {fileID: 3792369406130616953}
   m_Layer: 18
   m_Name: SM_Prop_Paper_05 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2660764436273567917
 Transform:
   m_ObjectHideFlags: 0
@@ -12944,6 +12764,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &3792369406130616953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2660764436273427833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2771395429189996601
 GameObject:
   m_ObjectHideFlags: 0
@@ -13638,13 +13470,14 @@ GameObject:
   - component: {fileID: 2802504224329460880}
   - component: {fileID: 2802504224328499852}
   - component: {fileID: 4653055735093924591}
+  - component: {fileID: 8771546848171692450}
   m_Layer: 18
   m_Name: SM_Prop_Paper_02 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2802504224326645642
 Transform:
   m_ObjectHideFlags: 0
@@ -13728,6 +13561,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &8771546848171692450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2802504224326547040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2803403418953757438
 GameObject:
   m_ObjectHideFlags: 0
@@ -14311,13 +14156,14 @@ GameObject:
   - component: {fileID: 2979653386794114571}
   - component: {fileID: 2979653386795200249}
   - component: {fileID: 4480374643073632521}
+  - component: {fileID: 2706530514014682030}
   m_Layer: 18
   m_Name: SM_Prop_Paper_05 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2979653386792857997
 Transform:
   m_ObjectHideFlags: 0
@@ -14401,6 +14247,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &2706530514014682030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2979653386793000025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2989377844049044075
 GameObject:
   m_ObjectHideFlags: 0
@@ -15290,13 +15148,14 @@ GameObject:
   - component: {fileID: 3251245275934337895}
   - component: {fileID: 3251245275933252501}
   - component: {fileID: 4728001263169041297}
+  - component: {fileID: 4932048323915800080}
   m_Layer: 18
   m_Name: SM_Prop_Paper_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3251245275931428065
 Transform:
   m_ObjectHideFlags: 0
@@ -15380,6 +15239,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &4932048323915800080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3251245275931126069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3253200298799725373
 GameObject:
   m_ObjectHideFlags: 0
@@ -16989,9 +16860,7 @@ GameObject:
   - component: {fileID: 1366774418312534730}
   - component: {fileID: 6361566935175008686}
   - component: {fileID: 374231961319803354}
-  - component: {fileID: 8132908047754591251}
-  - component: {fileID: 46437516748848443}
-  - component: {fileID: 3705172705350140279}
+  - component: {fileID: 8378681301015504055}
   m_Layer: 18
   m_Name: SM_Prop_Paper_02 (5)
   m_TagString: Untagged
@@ -17029,7 +16898,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3422611518591926977}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -17064,7 +16933,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8132908047754591251
+--- !u!114 &8378681301015504055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17073,44 +16942,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3422611518591926977}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &46437516748848443
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3422611518591926977}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
-  m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
---- !u!114 &3705172705350140279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3422611518591926977}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &3462703850816038323
 GameObject:
   m_ObjectHideFlags: 0
@@ -17673,9 +17507,7 @@ GameObject:
   - component: {fileID: 6976958209440118237}
   - component: {fileID: 7594677191719804125}
   - component: {fileID: 2091523792579971374}
-  - component: {fileID: 2023774718119480713}
-  - component: {fileID: 1399713485556954117}
-  - component: {fileID: 4495420740904995354}
+  - component: {fileID: 2405626303154192871}
   m_Layer: 18
   m_Name: SM_Props_Street_Garbage_Bag_01
   m_TagString: Untagged
@@ -17713,7 +17545,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3535265421033687036}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -17748,7 +17580,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2023774718119480713
+--- !u!114 &2405626303154192871
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17757,44 +17589,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3535265421033687036}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &1399713485556954117
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3535265421033687036}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5538589, y: 0.5494354, z: 0.5240203}
-  m_Center: {x: 0.029474892, y: 0.2653497, z: -0.08106592}
---- !u!114 &4495420740904995354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3535265421033687036}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &3603836663881398810
 GameObject:
   m_ObjectHideFlags: 0
@@ -18689,9 +18486,7 @@ GameObject:
   - component: {fileID: 1552164239437707689}
   - component: {fileID: 5683580870985550602}
   - component: {fileID: 3866748268248233725}
-  - component: {fileID: 7741869687762544585}
-  - component: {fileID: 161191309929007360}
-  - component: {fileID: 5392497064939178375}
+  - component: {fileID: 40576420933012197}
   m_Layer: 18
   m_Name: SM_Props_Street_Garbage_Bag_01
   m_TagString: Untagged
@@ -18729,7 +18524,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3774812490699606359}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -18764,7 +18559,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7741869687762544585
+--- !u!114 &40576420933012197
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18773,44 +18568,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3774812490699606359}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &161191309929007360
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3774812490699606359}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5538589, y: 0.5494354, z: 0.5240203}
-  m_Center: {x: 0.029474892, y: 0.2653497, z: -0.08106592}
---- !u!114 &5392497064939178375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3774812490699606359}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &3831925619082045567
 GameObject:
   m_ObjectHideFlags: 0
@@ -18906,13 +18666,14 @@ GameObject:
   - component: {fileID: 3853839291609813534}
   - component: {fileID: 3853839291608730630}
   - component: {fileID: 3287836027631736766}
+  - component: {fileID: 2080149933344298042}
   m_Layer: 18
   m_Name: SM_Prop_Paper_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3853839291611184114
 Transform:
   m_ObjectHideFlags: 0
@@ -18996,6 +18757,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &2080149933344298042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3853839291610921604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3866129272299556399
 GameObject:
   m_ObjectHideFlags: 0
@@ -19007,9 +18780,7 @@ GameObject:
   - component: {fileID: 1817448436893834446}
   - component: {fileID: 5840325376358525444}
   - component: {fileID: 6419433199258115259}
-  - component: {fileID: 1446468034363238159}
-  - component: {fileID: 2094820484392898556}
-  - component: {fileID: 6433473518642895677}
+  - component: {fileID: 1025917351345105660}
   m_Layer: 18
   m_Name: SM_Prop_Paper_05 (1)
   m_TagString: Untagged
@@ -19047,7 +18818,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3866129272299556399}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -19082,7 +18853,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1446468034363238159
+--- !u!114 &1025917351345105660
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19091,44 +18862,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3866129272299556399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &2094820484392898556
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3866129272299556399}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
-  m_Center: {x: -0.007880627, y: -0.09918504, z: -0.02901989}
---- !u!114 &6433473518642895677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3866129272299556399}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &3938117481514565295
 GameObject:
   m_ObjectHideFlags: 0
@@ -19140,9 +18876,7 @@ GameObject:
   - component: {fileID: 4367255810285355948}
   - component: {fileID: 4719643056672215004}
   - component: {fileID: 6020703705798550369}
-  - component: {fileID: 3391305219898561776}
-  - component: {fileID: 1259673494463143995}
-  - component: {fileID: 7404428191159888472}
+  - component: {fileID: 2331749875438736130}
   m_Layer: 18
   m_Name: SM_Prop_Paper_02 (4)
   m_TagString: Untagged
@@ -19180,7 +18914,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3938117481514565295}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -19215,7 +18949,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3391305219898561776
+--- !u!114 &2331749875438736130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19224,44 +18958,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3938117481514565295}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &1259673494463143995
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3938117481514565295}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
-  m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
---- !u!114 &7404428191159888472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3938117481514565295}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &3988668031422619052
 GameObject:
   m_ObjectHideFlags: 0
@@ -21557,9 +21256,7 @@ GameObject:
   - component: {fileID: 3353308146199687548}
   - component: {fileID: 7132359423768476461}
   - component: {fileID: 897244851319118739}
-  - component: {fileID: 357012004913669990}
-  - component: {fileID: 8409509802738133402}
-  - component: {fileID: 8616769158086588422}
+  - component: {fileID: 1077864681026108013}
   m_Layer: 18
   m_Name: SM_Prop_Paper_02 (4)
   m_TagString: Untagged
@@ -21597,7 +21294,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4285923858520044725}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -21632,7 +21329,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &357012004913669990
+--- !u!114 &1077864681026108013
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21641,44 +21338,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4285923858520044725}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &8409509802738133402
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4285923858520044725}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
-  m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
---- !u!114 &8616769158086588422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4285923858520044725}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &4291072072106929447
 GameObject:
   m_ObjectHideFlags: 0
@@ -23910,13 +23572,14 @@ GameObject:
   - component: {fileID: 4545979709714985573}
   - component: {fileID: 4545979709713891991}
   - component: {fileID: 194919952524922902}
+  - component: {fileID: 4779722185606386948}
   m_Layer: 18
   m_Name: SM_Prop_Paper_05 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4545979709712047587
 Transform:
   m_ObjectHideFlags: 0
@@ -24000,6 +23663,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &4779722185606386948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4545979709711773751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4635323659027406702
 GameObject:
   m_ObjectHideFlags: 0
@@ -24177,9 +23852,7 @@ GameObject:
   - component: {fileID: 4621618266927198938}
   - component: {fileID: 6918789861256392745}
   - component: {fileID: 7633987103989780757}
-  - component: {fileID: 5956916715069426164}
-  - component: {fileID: 1524492836232383585}
-  - component: {fileID: 6550137801983739884}
+  - component: {fileID: 5720567719408330548}
   m_Layer: 18
   m_Name: SM_Props_Street_Garbage_Bag_01
   m_TagString: Untagged
@@ -24217,7 +23890,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4714648731453850370}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -24252,7 +23925,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5956916715069426164
+--- !u!114 &5720567719408330548
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24261,44 +23934,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4714648731453850370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &1524492836232383585
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4714648731453850370}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5538589, y: 0.5494354, z: 0.5240203}
-  m_Center: {x: 0.029474892, y: 0.2653497, z: -0.08106592}
---- !u!114 &6550137801983739884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4714648731453850370}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &4775165148508065110
 GameObject:
   m_ObjectHideFlags: 0
@@ -24977,13 +24615,14 @@ GameObject:
   - component: {fileID: 9113685485605697292}
   - component: {fileID: 6457783497388573638}
   - component: {fileID: 6679725919977394408}
+  - component: {fileID: 5084539444321559284}
   m_Layer: 18
   m_Name: SM_Props_Street_Garbage_Bag_03 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5320311628550781097
 Transform:
   m_ObjectHideFlags: 0
@@ -25067,6 +24706,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &5084539444321559284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800374928745849363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4821751271362928601
 GameObject:
   m_ObjectHideFlags: 0
@@ -25570,9 +25221,7 @@ GameObject:
   - component: {fileID: 70967773408347626}
   - component: {fileID: 378948625298384449}
   - component: {fileID: 3896518373360245741}
-  - component: {fileID: 8638168379931146892}
-  - component: {fileID: 5495717090156112645}
-  - component: {fileID: 1860247819498938927}
+  - component: {fileID: 2537178889389793728}
   m_Layer: 18
   m_Name: SM_Props_Street_Garbage_Bag_03 (1)
   m_TagString: Untagged
@@ -25610,7 +25259,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4981991784376759576}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -25645,7 +25294,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8638168379931146892
+--- !u!114 &2537178889389793728
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25654,44 +25303,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4981991784376759576}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &5495717090156112645
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4981991784376759576}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.470091, y: 0.674114, z: 0.4766893}
-  m_Center: {x: 0.0068828687, y: 0.32620633, z: -0.06482835}
---- !u!114 &1860247819498938927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4981991784376759576}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &4993500949145768078
 GameObject:
   m_ObjectHideFlags: 0
@@ -26963,6 +26577,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1826362941782963008}
+  - component: {fileID: 1743308859123719314}
   m_Layer: 18
   m_Name: SM_Prop_Paper_02 (4)
   m_TagString: Untagged
@@ -26985,6 +26600,18 @@ Transform:
   m_Father: {fileID: 4043356637262480793}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 139.9, z: 0}
+--- !u!114 &1743308859123719314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5110480895994298205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5122068249710916876
 GameObject:
   m_ObjectHideFlags: 0
@@ -27570,13 +27197,14 @@ GameObject:
   - component: {fileID: 5261923094186384897}
   - component: {fileID: 5261923094187470579}
   - component: {fileID: 2806014839166117814}
+  - component: {fileID: 8893816728399810778}
   m_Layer: 18
   m_Name: SM_Prop_Paper_05 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5261923094185095559
 Transform:
   m_ObjectHideFlags: 0
@@ -27660,6 +27288,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &8893816728399810778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5261923094185270355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5304916855507800998
 GameObject:
   m_ObjectHideFlags: 0
@@ -30029,6 +29669,7 @@ GameObject:
   - component: {fileID: 7910071588506799397}
   - component: {fileID: 5342060233706142191}
   - component: {fileID: 1467757220573836013}
+  - component: {fileID: 8271019166957745022}
   m_Layer: 18
   m_Name: SM_Props_Street_Garbage_Bag_01
   m_TagString: Untagged
@@ -30119,6 +29760,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &8271019166957745022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5846291386745542714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5874141253458373906
 GameObject:
   m_ObjectHideFlags: 0
@@ -30130,9 +29783,7 @@ GameObject:
   - component: {fileID: 2459020417775927677}
   - component: {fileID: 6352563531861934837}
   - component: {fileID: 6496600426124149243}
-  - component: {fileID: 6397549996451292373}
-  - component: {fileID: 7317331007865971547}
-  - component: {fileID: 4889894000351056102}
+  - component: {fileID: 5450973347633893475}
   m_Layer: 18
   m_Name: SM_Prop_Paper_05 (1)
   m_TagString: Untagged
@@ -30170,7 +29821,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5874141253458373906}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -30205,7 +29856,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6397549996451292373
+--- !u!114 &5450973347633893475
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30214,44 +29865,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5874141253458373906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &7317331007865971547
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5874141253458373906}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
-  m_Center: {x: -0.007880627, y: -0.09918504, z: -0.02901989}
---- !u!114 &4889894000351056102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5874141253458373906}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &5897452495172435743
 GameObject:
   m_ObjectHideFlags: 0
@@ -30956,13 +30572,14 @@ GameObject:
   - component: {fileID: 6168208136820908359}
   - component: {fileID: 6168208136821985717}
   - component: {fileID: 7253782048029143579}
+  - component: {fileID: 2870735331920780695}
   m_Layer: 18
   m_Name: SM_Prop_Paper_05 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6168208136820133569
 Transform:
   m_ObjectHideFlags: 0
@@ -31046,6 +30663,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &2870735331920780695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168208136819925781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6184121436875869439
 GameObject:
   m_ObjectHideFlags: 0
@@ -31156,13 +30785,14 @@ GameObject:
   - component: {fileID: 6190220295833912745}
   - component: {fileID: 6190220295833367415}
   - component: {fileID: 4901523605386244816}
+  - component: {fileID: 2492748949650237481}
   m_Layer: 18
   m_Name: SM_Prop_CardboardBox_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6190220295835267041
 Transform:
   m_ObjectHideFlags: 0
@@ -31246,6 +30876,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &2492748949650237481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6190220295835052267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6326982466093657474
 GameObject:
   m_ObjectHideFlags: 0
@@ -33114,9 +32756,7 @@ GameObject:
   - component: {fileID: 8034016116157043565}
   - component: {fileID: 3314226982022591868}
   - component: {fileID: 7774772424942222073}
-  - component: {fileID: 2950300492390404509}
-  - component: {fileID: 6550388277606574073}
-  - component: {fileID: 90628377716469723}
+  - component: {fileID: 567545361938494437}
   m_Layer: 18
   m_Name: SM_Prop_Paper_02 (5)
   m_TagString: Untagged
@@ -33154,7 +32794,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6777952256495625270}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -33189,7 +32829,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2950300492390404509
+--- !u!114 &567545361938494437
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -33198,44 +32838,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6777952256495625270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &6550388277606574073
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6777952256495625270}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
-  m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
---- !u!114 &90628377716469723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6777952256495625270}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &6795816946173825312
 GameObject:
   m_ObjectHideFlags: 0
@@ -33817,13 +33422,14 @@ GameObject:
   - component: {fileID: 7180113333495104609}
   - component: {fileID: 4917953062898069675}
   - component: {fileID: 6463090296755499939}
+  - component: {fileID: 5127614704832791728}
   m_Layer: 18
   m_Name: SM_Props_Street_Garbage_Bag_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6055996373911374788
 Transform:
   m_ObjectHideFlags: 0
@@ -33907,6 +33513,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &5127614704832791728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6863741130047672702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6864434845290516036
 GameObject:
   m_ObjectHideFlags: 0
@@ -34084,9 +33702,7 @@ GameObject:
   - component: {fileID: 5805904476955145890}
   - component: {fileID: 3569277317342148890}
   - component: {fileID: 7558381238065057768}
-  - component: {fileID: 6220530714881974531}
-  - component: {fileID: 8702605047168723665}
-  - component: {fileID: 3974455455405000215}
+  - component: {fileID: 4069819786900243147}
   m_Layer: 18
   m_Name: SM_Props_Street_Garbage_Bag_03 (1)
   m_TagString: Untagged
@@ -34124,7 +33740,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6901287253528243400}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -34159,7 +33775,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6220530714881974531
+--- !u!114 &4069819786900243147
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -34168,44 +33784,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6901287253528243400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &8702605047168723665
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6901287253528243400}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.470091, y: 0.674114, z: 0.4766893}
-  m_Center: {x: 0.0068828687, y: 0.32620633, z: -0.06482835}
---- !u!114 &3974455455405000215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6901287253528243400}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &6908057127852892148
 GameObject:
   m_ObjectHideFlags: 0
@@ -34218,13 +33799,14 @@ GameObject:
   - component: {fileID: 6908057127855932676}
   - component: {fileID: 6908057127854861080}
   - component: {fileID: 7272470209119171239}
+  - component: {fileID: 1721924184399531451}
   m_Layer: 18
   m_Name: SM_Prop_Paper_02 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6908057127852465694
 Transform:
   m_ObjectHideFlags: 0
@@ -34308,6 +33890,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &1721924184399531451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6908057127852892148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6986202147913296103
 GameObject:
   m_ObjectHideFlags: 0
@@ -35004,13 +34598,14 @@ GameObject:
   - component: {fileID: 7351776042305473153}
   - component: {fileID: 7351776042304469619}
   - component: {fileID: 6808143893121868299}
+  - component: {fileID: 1421182887655736156}
   m_Layer: 18
   m_Name: SM_Prop_Paper_05 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7351776042306807047
 Transform:
   m_ObjectHideFlags: 0
@@ -35094,6 +34689,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &1421182887655736156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7351776042306586835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7391610211614144411
 GameObject:
   m_ObjectHideFlags: 0
@@ -36308,6 +35915,7 @@ GameObject:
   - component: {fileID: 6099792509177314290}
   - component: {fileID: 8305244308199100216}
   - component: {fileID: 8632363728205333089}
+  - component: {fileID: 1269639791840252974}
   m_Layer: 18
   m_Name: SM_Props_Street_Garbage_Bag_02
   m_TagString: Untagged
@@ -36398,6 +36006,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &1269639791840252974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7512808753832750829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7544665979222663644
 GameObject:
   m_ObjectHideFlags: 0
@@ -36409,9 +36029,7 @@ GameObject:
   - component: {fileID: 1527391673364304362}
   - component: {fileID: 2555173520531000628}
   - component: {fileID: 7502246234570850907}
-  - component: {fileID: 2919865052911504450}
-  - component: {fileID: 2623453881662187243}
-  - component: {fileID: 185746398414431783}
+  - component: {fileID: 806480646345604109}
   m_Layer: 18
   m_Name: SM_Prop_Paper_02 (4)
   m_TagString: Untagged
@@ -36449,7 +36067,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7544665979222663644}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -36484,7 +36102,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2919865052911504450
+--- !u!114 &806480646345604109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -36493,44 +36111,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7544665979222663644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &2623453881662187243
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7544665979222663644}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
-  m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
---- !u!114 &185746398414431783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7544665979222663644}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &7549174617061975829
 GameObject:
   m_ObjectHideFlags: 0
@@ -37306,6 +36889,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9123374273429628951}
+  - component: {fileID: 6398111093511250350}
   m_Layer: 18
   m_Name: SM_Props_Street_Garbage_Bag_03 (1)
   m_TagString: Untagged
@@ -37328,6 +36912,18 @@ Transform:
   m_Father: {fileID: 4043356637262480793}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6398111093511250350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7828670722719579337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7879140886649762168
 GameObject:
   m_ObjectHideFlags: 0
@@ -38310,13 +37906,14 @@ GameObject:
   - component: {fileID: 7966951815962692369}
   - component: {fileID: 7966951815961748749}
   - component: {fileID: 5635997934445209769}
+  - component: {fileID: 4945405740352714091}
   m_Layer: 18
   m_Name: SM_Prop_Paper_02 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7966951815963545611
 Transform:
   m_ObjectHideFlags: 0
@@ -38400,6 +37997,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &4945405740352714091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966951815963972065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8191342173818930698
 GameObject:
   m_ObjectHideFlags: 0
@@ -38412,13 +38021,14 @@ GameObject:
   - component: {fileID: 8191342173817725518}
   - component: {fileID: 8191342173816688302}
   - component: {fileID: 208722695675476573}
+  - component: {fileID: 8985285886969000629}
   m_Layer: 18
   m_Name: SM_Prop_CardboardBox_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8191342173818523808
 Transform:
   m_ObjectHideFlags: 0
@@ -38502,6 +38112,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &8985285886969000629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191342173818930698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8220565731956463432
 GameObject:
   m_ObjectHideFlags: 0
@@ -38514,13 +38136,14 @@ GameObject:
   - component: {fileID: 8220565731959543066}
   - component: {fileID: 8220565731958466024}
   - component: {fileID: 6124585386047192523}
+  - component: {fileID: 3971924783093149426}
   m_Layer: 18
   m_Name: SM_Prop_Paper_05 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8220565731956652700
 Transform:
   m_ObjectHideFlags: 0
@@ -38604,6 +38227,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &3971924783093149426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8220565731956463432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8235958357233076396
 GameObject:
   m_ObjectHideFlags: 0
@@ -41845,6 +41480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5582408976618195368}
+  - component: {fileID: 8901269951243320113}
   m_Layer: 18
   m_Name: SM_Prop_Paper_05 (1)
   m_TagString: Untagged
@@ -41867,6 +41503,18 @@ Transform:
   m_Father: {fileID: 4043356637262480793}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -56.98, z: 0}
+--- !u!114 &8901269951243320113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385486646554219265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8463608825131376315
 GameObject:
   m_ObjectHideFlags: 0
@@ -41878,9 +41526,7 @@ GameObject:
   - component: {fileID: 4938190356376399225}
   - component: {fileID: 8831471930834963906}
   - component: {fileID: 7670551954962765454}
-  - component: {fileID: 6715999504040558030}
-  - component: {fileID: 4519524909674867978}
-  - component: {fileID: 4428836690722170269}
+  - component: {fileID: 716612142662137485}
   m_Layer: 18
   m_Name: SM_Prop_CardboardBox_01
   m_TagString: Untagged
@@ -41918,7 +41564,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8463608825131376315}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -41953,7 +41599,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6715999504040558030
+--- !u!114 &716612142662137485
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41962,44 +41608,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8463608825131376315}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &4519524909674867978
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8463608825131376315}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.59747314, y: 0.5052583, z: 0.5974655}
-  m_Center: {x: -0.000015258789, y: 0.25262916, z: -0.0000038146973}
---- !u!114 &4428836690722170269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8463608825131376315}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &8477988270351450638
 GameObject:
   m_ObjectHideFlags: 0
@@ -42302,9 +41913,7 @@ GameObject:
   - component: {fileID: 6162837968781347026}
   - component: {fileID: 5210392407508469811}
   - component: {fileID: 1038542477703408614}
-  - component: {fileID: 4257933110155300379}
-  - component: {fileID: 8044477678382619290}
-  - component: {fileID: 1690214091933191548}
+  - component: {fileID: 826213535354203368}
   m_Layer: 18
   m_Name: SM_Props_Street_Garbage_Bag_03 (1)
   m_TagString: Untagged
@@ -42342,7 +41951,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8536553496292402351}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -42377,7 +41986,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4257933110155300379
+--- !u!114 &826213535354203368
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42386,44 +41995,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8536553496292402351}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &8044477678382619290
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8536553496292402351}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.470091, y: 0.674114, z: 0.4766893}
-  m_Center: {x: 0.0068828687, y: 0.32620633, z: -0.06482835}
---- !u!114 &1690214091933191548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8536553496292402351}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &8541173963584974731
 GameObject:
   m_ObjectHideFlags: 0
@@ -43608,13 +43182,14 @@ GameObject:
   - component: {fileID: 8644430836551058170}
   - component: {fileID: 8644430836552084710}
   - component: {fileID: 7095651284933635829}
+  - component: {fileID: 587890374113394184}
   m_Layer: 18
   m_Name: SM_Prop_Paper_02 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8644430836553882080
 Transform:
   m_ObjectHideFlags: 0
@@ -43698,6 +43273,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &587890374113394184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8644430836554045450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8774367358567230986
 GameObject:
   m_ObjectHideFlags: 0
@@ -45948,13 +45535,14 @@ GameObject:
   - component: {fileID: 8994161979095036034}
   - component: {fileID: 8994161979096112798}
   - component: {fileID: 3890191638972237409}
+  - component: {fileID: 1615058227961083924}
   m_Layer: 18
   m_Name: SM_Prop_Paper_02 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8994161979098508184
 Transform:
   m_ObjectHideFlags: 0
@@ -46038,6 +45626,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &1615058227961083924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8994161979098344050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9001811683335765668
 GameObject:
   m_ObjectHideFlags: 0
@@ -46506,9 +46106,7 @@ GameObject:
   - component: {fileID: 4357054744966473050}
   - component: {fileID: 9002831822118367672}
   - component: {fileID: 6877790805512535565}
-  - component: {fileID: 6184663131120681514}
-  - component: {fileID: 5786566869804399162}
-  - component: {fileID: 8589362565017324721}
+  - component: {fileID: 9114990384659114920}
   m_Layer: 18
   m_Name: SM_Prop_Paper_02 (4)
   m_TagString: Untagged
@@ -46546,7 +46144,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9103702016902036115}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -46581,7 +46179,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6184663131120681514
+--- !u!114 &9114990384659114920
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46590,44 +46188,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9103702016902036115}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &5786566869804399162
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9103702016902036115}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3005371, y: 0.19, z: 0.45871735}
-  m_Center: {x: 0, y: 3.3087225e-24, z: -0.0000038146973}
---- !u!114 &8589362565017324721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9103702016902036115}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &9160049987757911489
 GameObject:
   m_ObjectHideFlags: 0
@@ -47815,9 +47378,7 @@ GameObject:
   - component: {fileID: 4548828690450230451}
   - component: {fileID: 2506024344797567116}
   - component: {fileID: 920306387026391383}
-  - component: {fileID: 7537127101105050381}
-  - component: {fileID: 6961902131322716631}
-  - component: {fileID: 5419704716419503401}
+  - component: {fileID: 5680829423839529054}
   m_Layer: 18
   m_Name: SM_Prop_Paper_05 (1)
   m_TagString: Untagged
@@ -47855,7 +47416,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9160444672859460362}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -47890,7 +47451,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7537127101105050381
+--- !u!114 &5680829423839529054
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47899,44 +47460,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9160444672859460362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &6961902131322716631
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9160444672859460362}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3478864, y: 0.13130899, z: 0.3146759}
-  m_Center: {x: -0.007880627, y: -0.09918504, z: -0.02901989}
---- !u!114 &5419704716419503401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9160444672859460362}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &9163360495963533015
 GameObject:
   m_ObjectHideFlags: 0
@@ -48047,13 +47573,14 @@ GameObject:
   - component: {fileID: 9164990254251231696}
   - component: {fileID: 9164990254252189644}
   - component: {fileID: 3805528649515181749}
+  - component: {fileID: 73389141905472221}
   m_Layer: 18
   m_Name: SM_Prop_Paper_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9164990254254052042
 Transform:
   m_ObjectHideFlags: 0
@@ -48137,6 +47664,18 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &73389141905472221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9164990254254150432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9178295231318144877
 GameObject:
   m_ObjectHideFlags: 0
@@ -48148,9 +47687,7 @@ GameObject:
   - component: {fileID: 4456935907703537525}
   - component: {fileID: 2041114654643251278}
   - component: {fileID: 2544640282897240658}
-  - component: {fileID: 7538504117813917768}
-  - component: {fileID: 5830120967027992492}
-  - component: {fileID: 1830881482421156310}
+  - component: {fileID: 7962039217596189165}
   m_Layer: 18
   m_Name: SM_Prop_CardboardBox_01
   m_TagString: Untagged
@@ -48188,7 +47725,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9178295231318144877}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -48223,7 +47760,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7538504117813917768
+--- !u!114 &7962039217596189165
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48232,44 +47769,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9178295231318144877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e037899f8993664e9707fe4ae1bdecd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bc05044e5da1444bb07727e26730899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - Take OrderBox
-  textsButtons:
-  - E
---- !u!65 &5830120967027992492
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9178295231318144877}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.59747314, y: 0.5052583, z: 0.5974655}
-  m_Center: {x: -0.000015258789, y: 0.25262916, z: -0.0000038146973}
---- !u!114 &1830881482421156310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9178295231318144877}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.15686275, g: 0.7647059, b: 0, a: 1}
-  outlineWidth: 5.75
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1001 &123853638113858684
 PrefabInstance:
   m_ObjectHideFlags: 0
