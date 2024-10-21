@@ -80,6 +80,8 @@ public class PlayerRaycastController : MonoBehaviour
         else
         {
             HandleNonMatchingState();
+            Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 2f);
+            Debug.Log("objectname:" + hit.collider.gameObject);
         }
     }
     private void HandleNoHit(Ray ray)
