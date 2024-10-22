@@ -64,7 +64,7 @@ public class AIController : MonoBehaviour,IInterectableObject
         texts = new [] {"Serv the food"};
         textsButtons = new [] {"E"};
         _player = Player.Instance;
-        IsBadGuy = true;
+        //IsBadGuy = true;
     }
 
     /////////// SIT STATE ///////////

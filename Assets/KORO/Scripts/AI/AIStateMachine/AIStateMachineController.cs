@@ -169,6 +169,8 @@ public class AIStateMachineController : MonoBehaviour
         AIController.AIOwnerFood.EatedFood();
         AIController.AIOwnerFood.IsFoodFinished = true;
         AIController.AIOwnerTable.RemoveOrder(AIController.FoodDataStruct);
+        RubbishManager.Instance.CreateRubbishFromAI();
+
         if (AIController.AIOwnerTable.CheckAllCustomerFinishedFood())
         {
             AIController.AIOwnerTable.AllFoodfinished();

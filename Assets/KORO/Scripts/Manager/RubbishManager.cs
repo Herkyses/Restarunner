@@ -146,26 +146,7 @@ public class RubbishManager : MonoBehaviour
                 
             }
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         
         /*if (playerprefsManager.LoadPlaceRubbishLevel() == playerprefsManager.LoadPlaceLevel())
         {
@@ -236,8 +217,32 @@ public class RubbishManager : MonoBehaviour
 
     public void CreateRubbishFromAI()
     {
+        var playerprefsManager = PlayerPrefsManager.Instance;
+        var transformList = new List<GameObject>();
+        for (int i = 0; i <= playerprefsManager.LoadPlaceLevel(); i++)
+        {
+            var rubbishParents = _rubbishLevelsParents[i].GetComponentsInChildren<SingleRubbishParent>();
+            for (int j = 0; j < rubbishParents.Length; j++)
+            {
+                if (rubbishParents[i].enabled)
+                {
+                    if (rubbishParents[j].transform.GetComponentsInChildren<Rubbish>().Length > 0)
+                    {
+                        continue;
+                    }
+                    
+                    transformList.Add(rubbishParents[j].gameObject);
+                }
+                
+            }
+        }
+
+        var randomIndex = Random.Range(0, transformList.Count);
         var rubbish = PoolManager.Instance.GetFromPoolForRubbish();
-        rubbish.transform.position = _rubbishLevelsParents[0].position;
+        rubbish.transform.position = transformList[randomIndex].transform.position;
+        rubbish.transform.SetParent(transform);
+        /*var rubbish = PoolManager.Instance.GetFromPoolForRubbish();
+        rubbish.transform.position = _rubbishLevelsParents[0].position;*/
     }
 
     public void ReturnRubbish(GameObject rubbishObject)

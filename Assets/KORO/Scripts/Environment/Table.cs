@@ -354,9 +354,12 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
                 _gameSceneCanvas.CheckShowInfoText = true;
 
                 PlaceController.Instance.ActivateDecorationPlane(false);
+                Debug.Log("tutorial:" + PlayerPrefsManager.Instance.LoadPlayerTutorialStep());
+
                 if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 2)
                 {
                     PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(4);
+                    Debug.Log("tutorial:" + PlayerPrefsManager.Instance.LoadPlayerTutorialStep());
                     TutorialManager.Instance.Initiliaze();
                 }
             }
