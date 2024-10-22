@@ -111,6 +111,13 @@ public class RubbishManager : MonoBehaviour
 
             }
         }
+        var rubbishesFromGameobject = GetComponentsInChildren<Rubbish>();
+        
+        for (int j = 0; j < rubbishesFromGameobject.Length; j++)
+        {
+            count += 1;
+                
+        }
 
         return count;
         //return transform.childCount;
@@ -146,6 +153,8 @@ public class RubbishManager : MonoBehaviour
                 
             }
         }
+
+        
 
         
         /*if (playerprefsManager.LoadPlaceRubbishLevel() == playerprefsManager.LoadPlaceLevel())
@@ -203,7 +212,7 @@ public class RubbishManager : MonoBehaviour
         {
             count +=_rubbishLevelsParents[i].childCount;
         }
-
+        
         return count;
     }
 
@@ -241,6 +250,7 @@ public class RubbishManager : MonoBehaviour
         var rubbish = PoolManager.Instance.GetFromPoolForRubbish();
         rubbish.transform.position = transformList[randomIndex].transform.position;
         rubbish.transform.SetParent(transform);
+        CheckRubbishRate();
         /*var rubbish = PoolManager.Instance.GetFromPoolForRubbish();
         rubbish.transform.position = _rubbishLevelsParents[0].position;*/
     }
