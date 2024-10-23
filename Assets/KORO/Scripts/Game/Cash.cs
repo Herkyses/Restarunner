@@ -5,19 +5,20 @@ using UnityEngine;
 public class Cash : MonoBehaviour,IInterectableObject
 {
     public float CashValue;
+    public Outline CashOutline;
 
     public void InterectableObjectRun()
     {
-        PlayerPrefsManager.GainedMoney?.Invoke(CashValue);
+        GameManager.PayedOrderBill?.Invoke(CashValue);
         PoolManager.Instance.ReturnToPoolForCash(gameObject);
     }
     public void ShowOutline(bool active)
     {
-        
+        CashOutline.enabled = active;
     }
     public Outline GetOutlineComponent()
     {
-        return null;
+        return CashOutline;
 
     }
     public string GetInterectableText()
