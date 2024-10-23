@@ -7,7 +7,7 @@ public class Cash : MonoBehaviour,IInterectableObject
 
     public void InterectableObjectRun()
     {
-        
+        PoolManager.Instance.ReturnToPoolForCash(gameObject);
     }
     public void ShowOutline(bool active)
     {
