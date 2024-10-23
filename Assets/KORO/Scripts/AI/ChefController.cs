@@ -234,7 +234,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
         }
         else
         {
-            TutorialManager.Instance.SetTutorialInfo(TUTORIAL_STEP_THRESHOLD);
+            TutorialManager.Instance.SetTutorialInfo(TUTORIAL_UPDATE_STEP);
         }
     }
     

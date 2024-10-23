@@ -34,6 +34,7 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
             PlaceController.Instance.RestaurantIsOpen = !PlaceController.Instance.RestaurantIsOpen;
             if (PlaceController.Instance.RestaurantIsOpen)
             {
+                Debug.Log("restaurantope" + PlayerPrefsManager.Instance.LoadPlayerTutorialStep());
                 if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
                 {
                     RestaurantOpened?.Invoke();

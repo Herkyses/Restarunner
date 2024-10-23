@@ -13,6 +13,8 @@ public class RubbishManager : MonoBehaviour
     [SerializeField] private List<Transform> _rubbishLevelsParents;
     [SerializeField] private List<Transform> rubbishChilds;
 
+    private const int TUTORIAL_CHECK_STEP = 4;
+
     public static Action CheckedRubbishes;
     public static Action CheckedRubbishesForTutorial;
 
@@ -59,7 +61,7 @@ public class RubbishManager : MonoBehaviour
     public void UpdateRubbishLevel()
     {
         _rubbishLevel = PlayerPrefsManager.Instance.LoadPlaceLevel();
-        if (_rubbishLevel+1 == 1)
+        if (_rubbishLevel+1 == 1 && PlayerPrefsManager.Instance.LoadPlayerTutorialStep() < TUTORIAL_CHECK_STEP)
         {
             Debug.Log("rubbishlev" + _rubbishLevel);
 
