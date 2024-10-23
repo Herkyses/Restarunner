@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Cash : MonoBehaviour,IInterectableObject
 {
+    public float CashValue;
 
     public void InterectableObjectRun()
     {
+        PlayerPrefsManager.GainedMoney?.Invoke(CashValue);
         PoolManager.Instance.ReturnToPoolForCash(gameObject);
     }
     public void ShowOutline(bool active)
