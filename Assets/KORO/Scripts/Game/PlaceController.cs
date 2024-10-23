@@ -6,7 +6,7 @@ public class PlaceController : MonoBehaviour,IInterectableObject
 {
     public static PlaceController Instance;
 
-    public static bool RestaurantIsOpen;
+    public bool RestaurantIsOpen;
 
     public List<PlaceLevel> PlaceLevels;
     private Outline _pcOutline;
@@ -58,7 +58,9 @@ public class PlaceController : MonoBehaviour,IInterectableObject
             {
                 PlaceLevels[i].DeActiveObject[j].SetActive(false);
             }
-        }   
+        }
+
+        RestaurantIsOpen = false;
     }
 
     public void ActivateDecorationPlane(bool active)

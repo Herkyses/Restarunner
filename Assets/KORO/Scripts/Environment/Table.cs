@@ -298,7 +298,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
     public void Move()
     {
-        if (!IsTableMove && !PlaceController.RestaurantIsOpen && CustomerCount == 0)
+        if (!IsTableMove && !PlaceController.Instance.RestaurantIsOpen && CustomerCount == 0)
         {
             IsTableMove = true;
             if (!_gameSceneCanvas)

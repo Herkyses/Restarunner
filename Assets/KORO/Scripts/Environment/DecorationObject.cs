@@ -76,7 +76,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
     }
     public void Move()
     {
-        if (!isDecorationMove && !PlaceController.RestaurantIsOpen)
+        if (!isDecorationMove && !PlaceController.Instance.RestaurantIsOpen)
         {
             
             //gameObject.layer = LayerMask.NameToLayer("Ground");

@@ -57,6 +57,7 @@ public class TutorialManager : MonoBehaviour
     public void Initiliaze()
     {
         SetTutorialTexts();
+        Debug.Log("tutstep:" +PlayerPrefsManager.Instance.LoadPlayerTutorialStep() );
         SetTutorialInfo(PlayerPrefsManager.Instance.LoadPlayerTutorialStep());
     }
 
