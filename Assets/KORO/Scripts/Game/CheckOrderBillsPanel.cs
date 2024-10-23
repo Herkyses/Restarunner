@@ -48,7 +48,14 @@ public class CheckOrderBillsPanel : MonoBehaviour
     // Sayı butonuna tıklandığında çağrılacak fonksiyon
     public void OnNumberButtonClick(string number)
     {
-        billInputField.text += number;
+        if (billInputField.text != "0")
+        {
+            billInputField.text += number;
+        }
+        else
+        {
+            billInputField.text = number;
+        }
     }
 
     // Girdi alanını temizleme
