@@ -250,7 +250,8 @@ public class RubbishManager : MonoBehaviour
 
         var randomIndex = Random.Range(0, transformList.Count);
         var rubbish = PoolManager.Instance.GetFromPoolForRubbish();
-        rubbish.transform.position = transformList[randomIndex].transform.position;
+        var rubbishPos = transformList[randomIndex].transform.position;
+        rubbish.transform.position = new Vector3(rubbishPos.x,0.32f,rubbishPos.z);
         rubbish.transform.SetParent(transform);
         CheckRubbishRate();
         /*var rubbish = PoolManager.Instance.GetFromPoolForRubbish();
