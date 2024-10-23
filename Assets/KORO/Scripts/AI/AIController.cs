@@ -164,6 +164,9 @@ public class AIController : MonoBehaviour,IInterectableObject
                 if (IsBadGuy)
                 {
                     aiRagdollController.ResetBadGuy();
+                    var cash = PoolManager.Instance.GetFromPoolForCash();
+                    cash.GetComponent<Cash>().Initiliaze(GameDataManager.Instance.GetFoodPrice(AIOwnerFood.OrderType));
+                    cash.transform.position = transform.position;
                 }
                 //aiRagdollController.AddForceToAI(PlayerOrderController.Instance.transform.forward);
             }

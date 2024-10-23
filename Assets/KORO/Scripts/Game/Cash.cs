@@ -7,9 +7,15 @@ public class Cash : MonoBehaviour,IInterectableObject
     public float CashValue;
     public Outline CashOutline;
 
+
+    public void Initiliaze(float cashValue)
+    {
+        CashValue = cashValue;
+    }
     public void InterectableObjectRun()
     {
         GameManager.PayedOrderBill?.Invoke(CashValue);
+        GameVfxManager.Instance.SpawnVFX(GameVfxManager.Instance.vfxPools[2].vfxPrefab, transform.position + transform.up*0.25f, transform.rotation);
         PoolManager.Instance.ReturnToPoolForCash(gameObject);
     }
     public void ShowOutline(bool active)
