@@ -19,6 +19,7 @@ public class PoolManager : MonoBehaviour
     public GameObject FoodIngredientObject;
     public GameObject RubbishObject;
     public GameObject PedestrianObject;
+    public GameObject CashObject;
     
     
     [FormerlySerializedAs("FoodParent")] public Transform TableFoodParent;
@@ -30,6 +31,7 @@ public class PoolManager : MonoBehaviour
     public Transform FoodIngredientParent;
     public Transform RubbishParent;
     public Transform PedestrianAIParent;
+    public Transform CashParent;
     
     
     
@@ -44,6 +46,7 @@ public class PoolManager : MonoBehaviour
     private Queue<GameObject> FoodIngredientPool = new Queue<GameObject>();
     private Queue<GameObject> RubbishPool = new Queue<GameObject>();
     private Queue<GameObject> PedestrianAIPool = new Queue<GameObject>();
+    private Queue<GameObject> CashPool = new Queue<GameObject>();
     
     private void Awake()
     {
@@ -69,6 +72,7 @@ public class PoolManager : MonoBehaviour
         CreatePoolObject(FoodIngredientPool,FoodIngredientParent,FoodIngredientObject);
         CreatePoolObject(RubbishPool,RubbishParent,RubbishObject);
         CreatePoolObject(PedestrianAIPool,PedestrianAIParent,PedestrianObject);
+        CreatePoolObject(CashPool,CashParent,CashObject);
         IsPoolManagerInitiliazed?.Invoke();
     }
 
@@ -134,6 +138,10 @@ public class PoolManager : MonoBehaviour
     {
         return GetFromPool(PedestrianAIPool, PedestrianObject);
     }
+    public GameObject GetFromPoolForCash()
+    {
+        return GetFromPool(CashPool, CashObject);
+    }
 
     public void ReturnToPoolForTrays(GameObject obj)
     {
@@ -166,6 +174,10 @@ public class PoolManager : MonoBehaviour
     public void ReturnToPoolForRubbish(GameObject obj)
     {
         ReturnToPool(obj,RubbishPool,RubbishParent);
+    }
+    public void ReturnToPoolForCash(GameObject obj)
+    {
+        ReturnToPool(obj,CashPool,CashParent);
     }
     public void ReturnToPoolForPedestrianAI(GameObject obj)
     {
