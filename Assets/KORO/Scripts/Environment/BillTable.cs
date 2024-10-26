@@ -58,8 +58,8 @@ public class BillTable : MonoBehaviour,IInterectableObject
         _tableBillTemp.transform.localPosition = Vector3.zero;
         var zort = _tableBillParent.transform.rotation.eulerAngles;
         _tableBillTemp.transform.localRotation = Quaternion.Euler(zort);
-        _tableBillTemp.BillValue = billValue;
-        _tableBillTemp.OwnerTable = ownerTable;
+        _tableBillTemp.Initiliaze(ownerTable,billValue);
+        
     }
     public void UpdateTableBill(TableBill tableBill)
     {
