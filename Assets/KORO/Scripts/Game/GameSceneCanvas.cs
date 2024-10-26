@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -66,13 +67,15 @@ public class GameSceneCanvas : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerPrefsManager.GainedMoney += UpdateMoneyText;
+        //PlayerPrefsManager.GainedMoney += UpdateMoneyText;
+        PlayerPrefsManager.GainedMoney += AddValue;
         IsCursorVisible += CursorActive;
     }
 
     private void OnDisable()
     {
-        PlayerPrefsManager.GainedMoney -= UpdateMoneyText;
+        //PlayerPrefsManager.GainedMoney -= UpdateMoneyText;
+        PlayerPrefsManager.GainedMoney -= AddValue;
         IsCursorVisible -= CursorActive;
 
     }
@@ -80,6 +83,22 @@ public class GameSceneCanvas : MonoBehaviour
     public void UpdateMoneyText(float gain)
     {
         _ownedMoneyText.text = gain.ToString("F2");
+    }
+    public void AddValue(float amount,float currentValue)
+    {
+        
+        float newTarget = currentValue + amount;
+        
+        DOTween.To(() => currentValue, x => 
+        {
+            currentValue = x;         // Güncel değeri güncelle
+            UpdateText(currentValue); // Text'i güncelle
+        }, newTarget, 0.3f); // 1 saniyede hedefe ulaşır, süreyi ayarlayabilirsiniz.
+    }
+
+    void UpdateText(float value)
+    {
+        _ownedMoneyText.text = value.ToString("F2"); // Virgülden sonrası için F0 kullanabilirsiniz.
     }
     public void CustomerCountUpdate(float popularity)
     {

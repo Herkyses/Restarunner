@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerPrefsManager : MonoBehaviour
 {
     public static PlayerPrefsManager Instance;
-    public static Action<float> GainedMoney;
+    public static Action<float,float> GainedMoney;
     public static Action<int> GainedPopularity;
 
     public static Action TutorialStepUpdated;

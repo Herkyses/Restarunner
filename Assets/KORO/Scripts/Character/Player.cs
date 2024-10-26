@@ -99,9 +99,10 @@ public class Player : MonoBehaviour
             PlayerStructData.Money += gainValue*(PlayInputController.Instance.score/100)*PlayInputController.Instance.CorrectAnswerCount;
             //GameSceneCanvas.Instance.UpdateMoneyText(PlayerStructData.Money,PlayerStructData.Popularity);
         }*/
+        PlayerPrefsManager.GainedMoney?.Invoke(gainValue,PlayerMoney);
         PlayerMoney += gainValue;
         PlayerPrefsManager.Instance.SavePlayerMoney(PlayerMoney);
-        PlayerPrefsManager.GainedMoney?.Invoke(PlayerMoney);
+        //PlayerPrefsManager.GainedMoney?.Invoke(PlayerMoney);
 
     }
 
