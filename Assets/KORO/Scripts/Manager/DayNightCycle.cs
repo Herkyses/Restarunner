@@ -40,6 +40,7 @@ public class DayNightCycle : MonoBehaviour
     private float timeOfDay = 0f;
     private bool isNight = false;
     private bool startCycle = false;
+    private bool canStartable = false;
 
     private int currentHour;
     private int currentMinute;
@@ -53,7 +54,17 @@ public class DayNightCycle : MonoBehaviour
     
     public float timeOfDayTEmp = 0f;
 
+    
+    private void OnEnable()
+    {
+        OpenCloseController.RestaurantOpened += InitiliazeCycle;
+    }
+    private void OnDisable()
+    {
+        OpenCloseController.RestaurantOpened -= InitiliazeCycle;
 
+    }
+    
     private void Start()
     {
         twelveHoursInSeconds = 43200;
@@ -82,11 +93,16 @@ public class DayNightCycle : MonoBehaviour
     }
     public void InitiliazeCycle()
     {
-        ResetTime();
-        ApplyDayProfile();
-        ToggleLights(false);
-        UpdateMaterials(lightMaterialDay);
-        startCycle = true;
+        if (!startCycle && !canStartable)
+        {
+            ResetTime();
+            ApplyDayProfile();
+            ToggleLights(false);
+            UpdateMaterials(lightMaterialDay);
+            startCycle = true;
+            canStartable = true;
+        }
+        
     }
     
     private void StartCycle()
