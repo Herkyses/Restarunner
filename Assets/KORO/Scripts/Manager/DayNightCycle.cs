@@ -198,7 +198,7 @@ public class DayNightCycle : MonoBehaviour
         ToggleLights(false);
 
         UpdateMaterials(lightMaterialDay);
-
+        canStartable = false;
         Debug.Log("Day profile applied.");
     }
     
