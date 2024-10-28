@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OrderBox : MonoBehaviour,IInterectableObject
 {
@@ -13,6 +14,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     [SerializeField] private string[] textsButtons = new [] {"E"};
     [SerializeField] private string[] textsButtonsBefore = new [] {"E"};
     [SerializeField] private string[] textsButtonsForTake = new [] {"J"};
+    [SerializeField] private Image ordeBoxItemIcon;
     [SerializeField] private ShopItemData _shopItemData;
     [SerializeField] private bool _isOrderBoxOpenAvailable;
     private Outline _outline;
@@ -45,6 +47,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     public void SetShopItemData(ShopItemData shopItemData)
     {
         _shopItemData = shopItemData;
+        ordeBoxItemIcon.sprite = shopItemData.ShopItemIcon;
     }
 
     public void InterectableObjectRun()
