@@ -67,6 +67,7 @@ public class TableController : MonoBehaviour
         for (int i = 0; i < TableSets.Count; i++)
         {
             TableSets[i].table.TableNumber = i;
+            Debug.Log("tablenumberiii" + i);
             TableSets[i].table.TableInitialize();
         }
         PlayerOrderController.Instance.SetOrderList();  /// Oturan olmaması lazımmmmmm

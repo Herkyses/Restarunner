@@ -57,6 +57,15 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         InitializeTable();
 
     }
+    private void Update()
+    {
+        if (IsTableMove)
+        {
+            //MoveStart();
+            MoveTable();
+        }
+        
+    }
     private void InitializeTable()
     {
         groundLayer = LayerMask.NameToLayer("Ground");
@@ -72,37 +81,16 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         TableQuality = 5f;
         _gameSceneCanvas = GameSceneCanvas.Instance;
     }
-    private void Update()
-    {
-        if (IsTableMove)
-        {
-            MoveStart();
-        }
-        
-    }
+    
     
 
     public List<OrderDataStruct> GetOrders()
     {
         return _orderList;
     }
-
-    public bool CheckAllCustomerFinishedFood()
-    {
-        if (_aiControllerList.Count > 0)
-        {
-            for (int i = 0; i < _aiControllerList.Count; i++)
-            {
-                if (!_aiControllerList[i].IsFinishedFood)
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-        return false;
-    }
+    
+    public bool CheckAllCustomerFinishedFood() =>
+        _aiControllerList.Count > 0 && _aiControllerList.TrueForAll(ai => ai.IsFinishedFood);
 
     public void AllFoodfinished()
     {
@@ -318,23 +306,30 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         }
         
     }
-
     
-    public void MoveStart()
+    public void MoveTable()
     {
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-        RaycastHit hit;
-        
-        
-        if (Physics.Raycast(ray, out hit))
+        if (!IsTableMove && !PlaceController.Instance.RestaurantIsOpen && CustomerCount == 0)
         {
-            float xValue = hit.point.x;
-            float zValue = hit.point.z;
-            //TableSet.GetComponent<BoxCollider>().enabled = true;
-            TableSet.transform.position = new Vector3(xValue,0.14f,zValue); // Objenin pozisyonunu fare ile tıklanan noktaya taşı
-            //TableController.Instance.EnableTableSetCollider(true);
+            InitiateTableMovement();
         }
-
+        SetTablePosition();
+        
+    }
+    private void InitiateTableMovement()
+    {
+        IsTableMove = true;
+        _gameSceneCanvas = _gameSceneCanvas ?? GameSceneCanvas.Instance;
+        _gameSceneCanvas.MoveObjectInfo(textsForTable, textsButtonsForTable, Enums.PlayerStateType.MoveTable);
+        TableSet.GetComponent<BoxCollider>().enabled = false;
+        TableController.Instance.EnableTableSetCollider(true);
+    }
+    public void SetTablePosition()
+    {
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)), out var hit))
+        {
+            TableSet.transform.position = new Vector3(hit.point.x, 0.14f, hit.point.z);
+        }
         if (Input.GetKeyDown(KeyCode.R))
         {
             var tableRotat = TableSet.transform.rotation;
@@ -342,41 +337,33 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
             TableSet.transform.rotation = tableRotatTemp;
         }
-        if (Input.GetMouseButton(0))
+        PlaceTable();
+    }
+    public void PlaceTable()
+    {
+        if (Input.GetMouseButtonDown(0))
         {
             TableSet.CheckGround();
             if (IsTableSetTransform)
             {
-                MapManager.Instance.SaveMap();
-                TableControl();
-                Player.Instance.ActivatedRaycast(true);
-
-                Player.Instance.TakedObjectNull();
-
-                //if(colliders.Length )
-                TableSet.GetComponent<BoxCollider>().enabled = false;
-                tableController.EnableTableSetCollider(false);
-                IsTableSetTransform = false;
-                IsTableMove = false;
-                _gameSceneCanvas.CheckShowInfoText = true;
-
-                PlaceController.Instance.ActivateDecorationPlane(false);
-                Debug.Log("tutorial:" + PlayerPrefsManager.Instance.LoadPlayerTutorialStep());
-
-                if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 2)
-                {
-                    PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(4);
-                    Debug.Log("tutorial:" + PlayerPrefsManager.Instance.LoadPlayerTutorialStep());
-                    TutorialManager.Instance.Initiliaze();
-                }
+                FinalizeTablePlacement();
             }
-            
         }
-        
     }
-    public void TableControl()
+    private void FinalizeTablePlacement()
     {
-        var isTableHere = false;
+        MapManager.Instance.SaveMap();
+        UpdateTableStatus();
+        ResetPlayerState();
+        TableController.Instance.EnableTableSetCollider(false);
+        IsTableSetTransform = false;
+        IsTableMove = false;
+        _gameSceneCanvas.CheckShowInfoText = true;
+        PlaceController.Instance.ActivateDecorationPlane(false);
+        HandleTutorialProgression();
+    }
+    private void UpdateTableStatus()
+    {
         for (int i = 0; i < tableController.TableSets.Count; i++)
         {
             if (TableSet == tableController.TableSets[i])
@@ -389,8 +376,25 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         tableController.TableSets.Add(TableSet);
         tableController.UpdateTables();
         TableAvailablePanel.Instance.AddNewTable(this);
-        PanelManager.Instance._checkOrderBillsPanel.UpdatePanel(TableNumber,TotalBills);
+        Debug.Log("tablenumber:" + TableNumber);
+
+        PanelManager.Instance._checkOrderBillsPanel.UpdatePanel(TableNumber, TotalBills);
     }
+
+    private void ResetPlayerState()
+    {
+        _player.ActivatedRaycast(true);
+        _player.TakedObjectNull();
+    }
+    private void HandleTutorialProgression()
+    {
+        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 2)
+        {
+            PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(4);
+            TutorialManager.Instance.Initiliaze();
+        }
+    }
+  
     /*private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer != groundLayer)
