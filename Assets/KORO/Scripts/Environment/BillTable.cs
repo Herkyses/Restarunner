@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class BillTable : MonoBehaviour,IInterectableObject
 {
@@ -14,6 +15,7 @@ public class BillTable : MonoBehaviour,IInterectableObject
     [SerializeField] private TableBill _tableBillPf;
     [SerializeField] private TableBill _tableBillTemp;
     [SerializeField] private Outline _tableBillOutline;
+    [Inject] private CheckOrderBillsPanel _checkOrderBillsPanel;
 
     private void Awake()
     {
@@ -71,7 +73,7 @@ public class BillTable : MonoBehaviour,IInterectableObject
 
     public void InterectableObjectRun()
     {
-        CheckOrderBillsPanel.Instance.ActiveBillsPanel();
+        _checkOrderBillsPanel.ActiveBillsPanel();
     }
 
     public void ShowOutline(bool active)

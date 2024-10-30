@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class SingleBill : MonoBehaviour
 {
@@ -33,8 +34,8 @@ public class SingleBill : MonoBehaviour
 
     public void SingleBillSelected()
     {
-        CheckOrderBillsPanel.Instance.SelectedTable = TableNumber;
-        CheckOrderBillsPanel.Instance.SelectedOrderBillforInducator(TableNumber);
+        PanelManager.Instance._checkOrderBillsPanel.SelectedTable = TableNumber;
+        PanelManager.Instance._checkOrderBillsPanel.SelectedOrderBillforInducator(TableNumber);
     }
 
     public void SelectInducator()

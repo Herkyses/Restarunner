@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class SingleOrder : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class SingleOrder : MonoBehaviour
     public Image SingleOrderPlusImage;
     public Image SingleOrderMinusImage;
     public Image FoodImage;
-
+    [Inject] private OrderPanelController _orderPanelController; 
     public void Initialize()
     {
         OrderText.text = OrderType.ToString();
@@ -40,7 +41,7 @@ public class SingleOrder : MonoBehaviour
         {
             if (TableController.Instance.TableSets[0].table.GetOrders()[0].OrderType == OrderType && PlayerOrderController.Instance.OrderList[0].OrderDataStructs.Count == 0)
             {
-                OrderPanelController.Instance.PlayerOrderInventory(this);
+                PanelManager.Instance._orderPanelController.PlayerOrderInventory(this);
                 TutorialManager.Instance.SetTutorialInfo(7);
                 return;
             }
@@ -49,11 +50,11 @@ public class SingleOrder : MonoBehaviour
                 return;
             }
         }
-        OrderPanelController.Instance.PlayerOrderInventory(this);
+        PanelManager.Instance._orderPanelController.PlayerOrderInventory(this);
     }
     public void MinusButtonPressed()
     {
-        OrderPanelController.Instance.RemoveOrderFromLPayer(this);
+        PanelManager.Instance._orderPanelController.RemoveOrderFromLPayer(this);
 
     }
 }

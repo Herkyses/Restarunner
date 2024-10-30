@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 public class OrderPanelController : MonoBehaviour
 {
-    public static OrderPanelController Instance;
+    //public static OrderPanelController Instance;
     [SerializeField] private GameObject _orderPanel;
     [SerializeField] private SingleOrder _singlePf;
     [SerializeField] private Transform _singlePfParent;
@@ -19,7 +19,7 @@ public class OrderPanelController : MonoBehaviour
 
     public int OpenedTableNumber;
     
-    private void Awake()
+    /*private void Awake()
     {
         if (Instance == null)
         {
@@ -30,7 +30,7 @@ public class OrderPanelController : MonoBehaviour
             Destroy(gameObject);
         }
 
-    }
+    }*/
 
     public void Initialize()
     {

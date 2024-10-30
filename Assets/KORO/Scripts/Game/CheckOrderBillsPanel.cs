@@ -5,8 +5,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Zenject;
 
-public class CheckOrderBillsPanel : MonoBehaviour
+public class CheckOrderBillsPanel : MonoBehaviour,IPanel
 {
     [SerializeField] private Transform _panel;
     [SerializeField] private Transform _billParent;
@@ -20,11 +21,12 @@ public class CheckOrderBillsPanel : MonoBehaviour
     
     
     public List<SingleBill> BillList;
-    public static CheckOrderBillsPanel Instance;
+    //public static CheckOrderBillsPanel Instance;
     public int SelectedTable;
 
-    
-    private void Awake()
+    public void Show() => ActiveBillsPanel();
+    public void Hide() => gameObject.SetActive(false);
+    /*private void Awake()
     {
         if (Instance == null)
         {
@@ -34,7 +36,7 @@ public class CheckOrderBillsPanel : MonoBehaviour
         {
             Destroy(gameObject);
         }    
-    }
+    }*/
     private void Start()
     {
         foreach (Button button in numberButtons)
@@ -42,6 +44,7 @@ public class CheckOrderBillsPanel : MonoBehaviour
             //button.onClick.AddListener(() => OnNumberButtonClick(button.GetComponentInChildren<TMP_Text>().text));
         }
         billInputField.text = String.Empty;
+        PanelManager.Instance.RegisterPanel("CheckOrderBillsPanel", this);
         //clearButton.onClick.AddListener(ClearInput);
         //confirmButton.onClick.AddListener(ConfirmBill);
     }

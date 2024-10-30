@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 
 
@@ -37,6 +38,8 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     private TableController tableController;
     
     private GameSceneCanvas _gameSceneCanvas;
+    
+
 
     private void OnEnable()
     {
@@ -51,6 +54,11 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     
     private void Start()
     {
+        InitializeTable();
+
+    }
+    private void InitializeTable()
+    {
         groundLayer = LayerMask.NameToLayer("Ground");
         texts = new []{"Check Order","Move"};
         textsButtons = new []{"E","H"};
@@ -63,7 +71,6 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         tableController = TableController.Instance;
         TableQuality = 5f;
         _gameSceneCanvas = GameSceneCanvas.Instance;
-
     }
     private void Update()
     {
@@ -105,7 +112,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
     public void ResetTable()
     {
-        CheckOrderBillsPanel.Instance.UpdateBillList(TableNumber);
+        PanelManager.Instance._checkOrderBillsPanel.UpdateBillList(TableNumber);
         TotalBills = 0;
         _aiControllerList.Clear();
         IsTableFoodFinished = false;
@@ -137,7 +144,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         SetAIOrder(aiArea);
     
         TableController.GivedOrderForAIWaiter?.Invoke(this);
-        if (OrderPanelController.Instance.OpenedTableNumber == TableNumber)
+        if (PanelManager.Instance._orderPanelController.OpenedTableNumber == TableNumber)
         {
             Chair.GivedOrder?.Invoke(TableNumber);
         }
@@ -234,7 +241,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         {
             if (CustomerCount > 0)
             {
-                OrderPanelController.Instance.ShowOrder(_orderList,TableNumber);
+                PanelManager.Instance._orderPanelController.ShowOrder(_orderList,TableNumber);
                 OpenOrderPanels();
             }
             
@@ -382,7 +389,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         tableController.TableSets.Add(TableSet);
         tableController.UpdateTables();
         TableAvailablePanel.Instance.AddNewTable(this);
-        CheckOrderBillsPanel.Instance.UpdatePanel(TableNumber,TotalBills);
+        PanelManager.Instance._checkOrderBillsPanel.UpdatePanel(TableNumber,TotalBills);
     }
     /*private void OnTriggerEnter(Collider other)
     {

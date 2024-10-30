@@ -6,9 +6,10 @@ using System.Collections.Generic;
  using TMPro;
  using UnityEngine;
  using UnityEngine.Serialization;
+ using Zenject;
  using Vector2 = UnityEngine.Vector2;
 
- public class PlacePanelController : MonoBehaviour
+ public class PlacePanelController : MonoBehaviour,IPanel
 {
     public static PlacePanelController Instance;
     public List<FoodIngredient> FoodIngredients;
@@ -28,6 +29,9 @@ using System.Collections.Generic;
     private ShopManager _shopManager;
     private Tween _shopPanelMove;
     [SerializeField] private TextMeshProUGUI _totalCostText;
+    
+    public void Show() => gameObject.SetActive(true);
+    public void Hide() => gameObject.SetActive(false);
     private void Awake()
     {
         if (Instance == null)

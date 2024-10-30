@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 
 public class AIStateMachineController : MonoBehaviour
@@ -47,6 +48,7 @@ public class AIStateMachineController : MonoBehaviour
     [SerializeField] private Animator _playerAnimator;
     [SerializeField] private bool _isAIChef;
     [SerializeField] private bool _isAIWaiter;
+
 
 
     
@@ -164,7 +166,7 @@ public class AIStateMachineController : MonoBehaviour
         
         AIController.AIOwnerTable.TotalBills += GameDataManager.Instance.GetOrderBill(AIController.FoodDataStruct.OrderType);
         AIController.IsFinishedFood = true;
-        CheckOrderBillsPanel.Instance.UpdatePanel(AIController.AIOwnerTable.TableNumber,AIController.AIOwnerTable.TotalBills);    
+        PanelManager.Instance._checkOrderBillsPanel.UpdatePanel(AIController.AIOwnerTable.TableNumber,AIController.AIOwnerTable.TotalBills);    
         //Destroy(AIController.AIOwnerFood.Food.gameObject);
         AIController.AIOwnerFood.EatedFood();
         AIController.AIOwnerFood.IsFoodFinished = true;

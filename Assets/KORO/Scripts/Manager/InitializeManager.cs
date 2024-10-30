@@ -2,10 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class InitializeManager : MonoBehaviour
 {
     public static InitializeManager Instance;
+    [Inject] private CheckOrderBillsPanel _checkOrderBillsPanel;
+    [Inject] private OrderPanelController _orderPanelController;
+
     private void Awake()
     {
         if (Instance == null)
@@ -42,11 +46,11 @@ public class InitializeManager : MonoBehaviour
         TableController.Instance.SetTableNumbers();
         TableController.Instance.Initialize();
         TableAvailablePanel.Instance.Initialize();
-        CheckOrderBillsPanel.Instance.Initialize();
+        _checkOrderBillsPanel.Initialize();
 
 
         //StartCoroutine(AISpawnController.Instance.Initialize());
-        OrderPanelController.Instance.Initialize();
+        _orderPanelController.Initialize();
         PlacePanelController.Instance.Initialize();
         PlaceController.Instance.Initialize();
         RubbishManager.Instance.Initiliaze();

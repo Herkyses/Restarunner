@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 public class SingleNumberButton : MonoBehaviour
 {
     public int NumberValue;
     public TextMeshProUGUI NumberValueText;
     public Enums.BillButtonType ButtonType;
+    [Inject] private CheckOrderBillsPanel _checkOrderBillsPanel;
+
 
     public void Initiliaze(int number)
     {
@@ -42,16 +45,16 @@ public class SingleNumberButton : MonoBehaviour
         switch (ButtonType)
         {
             case Enums.BillButtonType.Clear:
-                CheckOrderBillsPanel.Instance.ClearInput();
+                _checkOrderBillsPanel.ClearInput();
                 break;
             case Enums.BillButtonType.Delete:
-                CheckOrderBillsPanel.Instance.Backspace();
+                _checkOrderBillsPanel.Backspace();
                 break;
             case Enums.BillButtonType.Number:
-                CheckOrderBillsPanel.Instance.OnNumberButtonClick(NumberValue.ToString());
+                _checkOrderBillsPanel.OnNumberButtonClick(NumberValue.ToString());
                 break;
             case Enums.BillButtonType.Zero:
-                CheckOrderBillsPanel.Instance.OnNumberButtonClick(0.ToString());
+                _checkOrderBillsPanel.OnNumberButtonClick(0.ToString());
 
                 break;
         }
