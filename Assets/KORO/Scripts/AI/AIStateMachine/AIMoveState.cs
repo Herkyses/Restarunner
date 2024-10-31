@@ -18,7 +18,7 @@ public class AIMoveState : AIBaseState
 
     public override void UpdateState()
     {
-        if (Vector3.Distance(AIStateMachineController.transform.position, AIStateMachineController.AIController._targetTransform.position) < 1f)
+        if (Vector3.Distance(AIStateMachineController.transform.position, AIStateMachineController.AIController.TargetTransform.position) < 1f)
         {
             AISpawnController.Instance.SetTransformForAI(AIStateMachineController.AIController);
         }

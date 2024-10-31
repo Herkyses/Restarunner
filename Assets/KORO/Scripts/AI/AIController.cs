@@ -12,38 +12,41 @@ public class AIController : MonoBehaviour,IInterectableObject
     
     
     public NavMeshAgent _agent;
-    
-    [SerializeField] private string[] texts = new [] {"Take OrderBox"};
-    [SerializeField] private string[] textsButtons = new [] {"E"};
-    public Transform _targetTransform;
-    public Transform _targetFirstPosition;
+    public Transform TargetTransform;
+    public Transform TargetFirstPosition;
     public bool IsFinishedFood;
     public bool IsSitting;
     public bool IsTakedFood;
     public bool IsBadGuy;
+    
     [SerializeField] private Transform _playerPosition;
     [SerializeField] private Transform _chairPosition;
     [SerializeField] private AICanvas _aıCanvas_;
+    [SerializeField] private string[] texts = new [] {"Take OrderBox"};
+    [SerializeField] private string[] textsButtons = new [] {"E"};
+    
+    
     public List<Transform> _targetPositions;
     public List<GameObject> AIModels;
-    //public List<AIController>
     [FormerlySerializedAs("_playerAnimator")] public Animator AiAnimator;
     public AIAnimationController AIAnimationController;
     public AIStateMachineController AIStateMachineController;
     
-    public LayerMask obstacleMask;
-    public int obstacleMaskValue;
     public int AgentID;
-    public int destinationValue = -1;
+    public int DestinationValue = -1;
     public int customerPatienceRate = -1;
     public float CustomerPatienceRate = 7;
+    private Player _player;
+    private Outline _outline;
+    
+    public LayerMask ObstacleMask;
+    public int ObstacleMaskValue;
+    
     public Table AIOwnerTable;
     public Chair AIOwnerChair;
     public FoodTable AIOwnerFood;
     public OrderDataStruct FoodDataStruct;
-    private Player _player;
     
-    private Outline _outline;
 
 
     
@@ -51,7 +54,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     // Start is called before the first frame update
     public void Initiliaze(bool isFriend = false)
     {
-        destinationValue = -1;
+        DestinationValue = -1;
         gameObject.TryGetComponent(out AIStateMachineController);
         gameObject.TryGetComponent(out AIAnimationController);
         AIStateMachineController.Initialize(isFriend);
@@ -87,25 +90,18 @@ public class AIController : MonoBehaviour,IInterectableObject
         SetDestinationTarget(targetPosition);
         float randomTime = Random.Range(0f, 1f);
         AiAnimator.Play("Walk",0,randomTime);
-        //obstacleMaskValue = LayerMask.NameToLayer("Player");
-        //InvokeRepeating("CheckForObstacles", 0f, 0.3f);
-        //_targetFirstPosition = transform.position;
     }
     /////////// RUN STATE ///////////
     
     public void StartTargetDestinationForRun(Vector3 targetPosition)
     {
-        var aiOutline = GetComponent<Outline>();
-        aiOutline.enabled = true;
-        aiOutline.OutlineColor = Color.red;
+        _outline.enabled = true;
+        _outline.OutlineColor = Color.red;
         _agent.speed = 3.5f;
         SetDestinationTarget(targetPosition);
         float randomTime = Random.Range(0f, 1f);
         AiAnimator.Play("Run",0,randomTime);
         AISpawnController.CatchNonPayer?.Invoke();
-        //obstacleMaskValue = LayerMask.NameToLayer("Player");
-        //InvokeRepeating("CheckForObstacles", 0f, 0.3f);
-        //_targetFirstPosition = transform.position;
     }
     
     /////////// CLAP STATE ///////////
@@ -155,37 +151,40 @@ public class AIController : MonoBehaviour,IInterectableObject
     {
         if (TryGetComponent(out AIRagdollController aiRagdollController) && IsBadGuy)
         {
-            if (aiRagdollController)
-            {
-                StartCoroutine(aiRagdollController.AddForceToAICor(_player.PlayerOrdersController.transform.forward));
-                _player.StartFight();
-                GameVfxManager.Instance.SpawnVFX(GameVfxManager.Instance.vfxPools[0].vfxPrefab, CameraController.Instance.BoomVFXTransformParent.position, CameraController.Instance.BoomVFXTransformParent.rotation);
-                aiRagdollController.SetRagdollState(true);
-                if (IsBadGuy)
-                {
-                    aiRagdollController.ResetBadGuy();
-                    var cash = PoolManager.Instance.GetFromPoolForCash();
-                    cash.GetComponent<Cash>().Initiliaze(GameDataManager.Instance.GetFoodPrice(AIOwnerFood.OrderType));
-                    cash.transform.position = transform.position;
-                }
-                //aiRagdollController.AddForceToAI(PlayerOrderController.Instance.transform.forward);
-            }
+            HandleBadGuyInteraction(aiRagdollController);
         }
         if (_player.PlayerOrdersController.TakedFood && _player.PlayerOrdersController.Food.OrderType == FoodDataStruct.OrderType && IsSitting)
         {
-            IsTakedFood = true;
-            AIOwnerFood = _player.PlayerOrdersController.FoodTable;
-            AIOwnerFood.FoodGivedCustomer();
-            
-            AssignFoodToAI(AIOwnerChair);
-            
-            _player.PlayerOrdersController.TakedFood = false;
-            _player.PlayerStateType = Enums.PlayerStateType.Free;
-            _player.PlayerOrdersController.ResetOrder();
-            _player.DropTakenObject();
-            AIStateMachineController.AIChangeState(AIStateMachineController.AIEatState);
-            HandleTutorialStep();
+            HandleFoodInteraction();
         }
+    }
+    private void HandleBadGuyInteraction(AIRagdollController ragdollController)
+    {
+        StartCoroutine(ragdollController.AddForceToAICor(_player.PlayerOrdersController.transform.forward));
+        _player.StartFight();
+        GameVfxManager.Instance.SpawnVFX(GameVfxManager.Instance.vfxPools[0].vfxPrefab, CameraController.Instance.BoomVFXTransformParent.position, CameraController.Instance.BoomVFXTransformParent.rotation);
+        ragdollController.SetRagdollState(true);
+        
+        if (IsBadGuy)
+        {
+            ragdollController.ResetBadGuy();
+            var cash = PoolManager.Instance.GetFromPoolForCash();
+            cash.GetComponent<Cash>().Initiliaze(GameDataManager.Instance.GetFoodPrice(AIOwnerFood.OrderType));
+            cash.transform.position = transform.position;
+        }
+    }
+    private void HandleFoodInteraction()
+    {
+        IsTakedFood = true;
+        AIOwnerFood = _player.PlayerOrdersController.FoodTable;
+        AIOwnerFood.FoodGivedCustomer();
+        AssignFoodToAI(AIOwnerChair);
+        _player.PlayerOrdersController.TakedFood = false;
+        _player.PlayerStateType = Enums.PlayerStateType.Free;
+        _player.PlayerOrdersController.ResetOrder();
+        _player.DropTakenObject();
+        AIStateMachineController.AIChangeState(AIStateMachineController.AIEatState);
+        HandleTutorialStep();
     }
     public void InterectableObjectRunforWaiter(FoodTable foodTable)
     {
@@ -206,9 +205,7 @@ public class AIController : MonoBehaviour,IInterectableObject
         AIOwnerFood = PlayerOrderController.Instance.FoodTable;
         AIOwnerFood.FoodGivedCustomer();
     
-        var foodTable = PlayerOrderController.Instance.FoodTable;
-        MoveFoodToAIChair(foodTable, aiOwnerChair);
-        foodTable = null;
+        MoveFoodToAIChair(AIOwnerFood, aiOwnerChair);
     }
     private void MoveFoodToAIChair(FoodTable foodTable, Chair aiOwnerChair)
     {

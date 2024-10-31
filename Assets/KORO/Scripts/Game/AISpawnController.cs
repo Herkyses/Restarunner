@@ -157,8 +157,8 @@ public class AISpawnController : MonoBehaviour
             singleAi.transform.position = primaryTarget.position + Vector3.right * randomOffset;
         }
 
-        singleAi._targetTransform = secondaryTarget;
-        singleAi._targetFirstPosition = primaryTarget;
+        singleAi.TargetTransform = secondaryTarget;
+        singleAi.TargetFirstPosition = primaryTarget;
         singleAi._targetPositions[1] = primaryTarget;
         singleAi._targetPositions[2] = secondaryTarget;
     }
