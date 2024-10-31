@@ -14,27 +14,7 @@ public class TableController : MonoBehaviour
     public int TableSetCapacity;
     
 
-    public void Initialize()
-    {
-        //SettableNumbers();
-    }
-
-    private void Start()
-    {
-        
-    }
-
-    /*public void SettableNumbers()
-    {
-        for (int i = 0; i < TableSetCapacity; i++)
-        {
-            var set = Instantiate(TableSetPf, TableTransform);
-            TableSets.Add(set);
-            set.transform.position = TableSetsTransforms[i].position;
-            set.table.TableNumber = i + 1;
-        }
-    }*/
-
+    
     public void SetTableNumbers()
     {
         GameObject[] tableObjects = GameObject.FindGameObjectsWithTag("TableSet");
