@@ -9,6 +9,7 @@ public class PanelManager : MonoBehaviour
     
     [Inject] public CheckOrderBillsPanel _checkOrderBillsPanel;
     [Inject] public OrderPanelController _orderPanelController;
+    [Inject] public ShopManager ShopManagerPanel;
 
     public static PanelManager Instance;
     

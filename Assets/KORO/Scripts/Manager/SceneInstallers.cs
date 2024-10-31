@@ -10,6 +10,7 @@ public class SceneInstallers : MonoInstaller
     {
         Container.Bind<CheckOrderBillsPanel>().FromComponentInHierarchy().AsSingle();
         Container.Bind<OrderPanelController>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<ShopManager>().FromComponentInHierarchy().AsSingle();
 
         Container.Bind<PanelManager>().FromComponentInHierarchy().AsSingle();
         //Container.BindInstance(shoppingManagerPanel).AsSingle();

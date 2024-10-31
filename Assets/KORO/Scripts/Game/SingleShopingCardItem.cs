@@ -19,15 +19,15 @@ public class SingleShopingCardItem : MonoBehaviour
         if (count + 1 > 1)
         {
             count--;
-            ShopManager.Instance.UpdateShopingBasket();
+            PanelManager.Instance.ShopManagerPanel.UpdateShopingBasket();
             UpdateCountText();
 
         }
         else
         {
-            ShopManager.Instance.ShoppingBasket.Remove(ShopItem);
+            PanelManager.Instance.ShopManagerPanel.ShoppingBasket.Remove(ShopItem);
             PlacePanelController.Instance.ShopCardItems.Remove(this);
-            ShopManager.Instance.UpdateShopingBasket();
+            PanelManager.Instance.ShopManagerPanel.UpdateShopingBasket();
 
             Destroy(gameObject);
         }
@@ -41,7 +41,7 @@ public class SingleShopingCardItem : MonoBehaviour
         count++;
         UpdateCountText();
         //ShopManager.Instance.ShoppingBasket.Add(ShopItem);
-        ShopManager.Instance.UpdateShopingBasket();
+        PanelManager.Instance.ShopManagerPanel.UpdateShopingBasket();
 
     }
 

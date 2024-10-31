@@ -117,7 +117,7 @@ public class GameDataManager : MonoBehaviour
     }
     public Sprite GetFoodIngredientIcon(Enums.FoodIngredientType foodIngredientType)
     {
-        var ingredientDatas = ShopManager.Instance.FoodIngradientShopItemDatas;
+        var ingredientDatas = PanelManager.Instance.ShopManagerPanel.FoodIngradientShopItemDatas;
         for (int i = 0; i < ingredientDatas.Count; i++)
         {
             if (ingredientDatas[i].FoodIngredientType == foodIngredientType)

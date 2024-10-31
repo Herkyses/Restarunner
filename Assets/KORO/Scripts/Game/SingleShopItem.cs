@@ -95,7 +95,7 @@ public class SingleShopItem : MonoBehaviour
         {
             return;
         }
-        ShopManager.Instance.CreateShopItem(_shopItemData,this);
+        PanelManager.Instance.ShopManagerPanel.CreateShopItem(_shopItemData,this);
     }
     
 }
