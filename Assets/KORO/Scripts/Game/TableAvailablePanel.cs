@@ -18,10 +18,10 @@ public class TableAvailablePanel : MonoBehaviour
     public int SelectedCustomerIndex;
     public bool IsCustomerSelected;
 
-    public static TableAvailablePanel Instance;
+    //public static TableAvailablePanel Instance;
     // Start is called before the first frame update
     
-    private void Awake()
+    /*private void Awake()
     {
         if (Instance == null)
         {
@@ -31,7 +31,7 @@ public class TableAvailablePanel : MonoBehaviour
         {
             Destroy(gameObject);
         }    
-    }
+    }*/
     
 
     public void Initialize()

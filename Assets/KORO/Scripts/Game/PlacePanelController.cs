@@ -47,7 +47,7 @@ using System.Collections.Generic;
 
     private void Start()
     {
-        _shopManager = PanelManager.Instance.ShopManagerPanel;
+        _shopManager = ControllerManager.Instance.ShopManagerPanel;
         var rectTransforms = TabButtonParent.GetComponentsInChildren<SingleTabButton>();
         TabButtonsRecttransforms = new RectTransform[rectTransforms.Length];
         for (int i = 0; i < rectTransforms.Length; i++)
@@ -126,7 +126,7 @@ using System.Collections.Generic;
     {
         Utilities.DeleteTransformchilds(SingleShopItemParentTransform);
         Utilities.DeleteTransformchilds(SingleShopingCardItemParentTransform);
-        InitializeShopPanel(PanelManager.Instance.ShopManagerPanel.FirstShopItemDatas);
+        InitializeShopPanel(ControllerManager.Instance.ShopManagerPanel.FirstShopItemDatas);
         for (int i = 0; i < FoodIngredients.Count; i++)
         {
             FoodIngredients[i].IngredientValue = 5;
@@ -178,19 +178,19 @@ using System.Collections.Generic;
         switch (index)
         {
             case 0:
-                InitializeShopPanel(PanelManager.Instance.ShopManagerPanel.FirstShopItemDatas);
+                InitializeShopPanel(ControllerManager.Instance.ShopManagerPanel.FirstShopItemDatas);
                 break;
             case 1:
-                InitializeShopPanel(PanelManager.Instance.ShopManagerPanel.EnvironmentShopItemDatas);
+                InitializeShopPanel(ControllerManager.Instance.ShopManagerPanel.EnvironmentShopItemDatas);
                 break;
             case 2:
-                InitializeShopPanel(PanelManager.Instance.ShopManagerPanel.FoodIngradientShopItemDatas);
+                InitializeShopPanel(ControllerManager.Instance.ShopManagerPanel.FoodIngradientShopItemDatas);
                 break;
             case 3:
-                InitializeShopPanel(PanelManager.Instance.ShopManagerPanel.PlaceUpgradeDatas);
+                InitializeShopPanel(ControllerManager.Instance.ShopManagerPanel.PlaceUpgradeDatas);
                 break;
             case 4:
-                InitializeShopPanel(PanelManager.Instance.ShopManagerPanel.DecorationDatas);
+                InitializeShopPanel(ControllerManager.Instance.ShopManagerPanel.DecorationDatas);
                 break;
         }
     }
@@ -240,13 +240,13 @@ using System.Collections.Generic;
 
     public void BuyButtonPressed()
     {
-        PanelManager.Instance.ShopManagerPanel.BuyShoppingBasketButtonPressed();
+        ControllerManager.Instance.ShopManagerPanel.BuyShoppingBasketButtonPressed();
     }
     public void UpdateShopingBasket(ShopItemData shopItemData)
     {
         //Utilities.DeleteTransformchilds(SingleShopingCardItemParentTransform);
         //ShopCardItems.Clear();
-        var shopManager = PanelManager.Instance.ShopManagerPanel;
+        var shopManager = ControllerManager.Instance.ShopManagerPanel;
         //shopManager._shoppingCardCost = 0;
         var shopingCard = Instantiate(SingleShopingCardItemPf, SingleShopingCardItemParentTransform);
         ShopCardItems.Add(shopingCard);

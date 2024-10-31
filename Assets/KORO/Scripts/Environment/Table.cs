@@ -79,7 +79,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         TableNumberText.text = (TableNumber+1).ToString();
         _outline = GetComponent<Outline>();
         _player = Player.Instance;
-        tableController = TableController.Instance;
+        tableController = ControllerManager.Instance.Tablecontroller;
         TableQuality = 5f;
         _gameSceneCanvas = GameSceneCanvas.Instance;
     }
@@ -102,7 +102,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
     public void ResetTable()
     {
-        PanelManager.Instance._checkOrderBillsPanel.UpdateBillList(TableNumber);
+        ControllerManager.Instance._checkOrderBillsPanel.UpdateBillList(TableNumber);
         TotalBills = 0;
         _aiControllerList.Clear();
         IsTableFoodFinished = false;
@@ -134,7 +134,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         SetAIOrder(aiArea);
     
         TableController.GivedOrderForAIWaiter?.Invoke(this);
-        if (PanelManager.Instance._orderPanelController.OpenedTableNumber == TableNumber)
+        if (ControllerManager.Instance._orderPanelController.OpenedTableNumber == TableNumber)
         {
             Chair.GivedOrder?.Invoke(TableNumber);
         }
@@ -231,7 +231,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         {
             if (CustomerCount > 0)
             {
-                PanelManager.Instance._orderPanelController.ShowOrder(_orderList,TableNumber);
+                ControllerManager.Instance._orderPanelController.ShowOrder(_orderList,TableNumber);
                 OpenOrderPanels();
             }
             
@@ -307,7 +307,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         _gameSceneCanvas = _gameSceneCanvas ?? GameSceneCanvas.Instance;
         _gameSceneCanvas.MoveObjectInfo(textsForTable, textsButtonsForTable, Enums.PlayerStateType.MoveTable);
         TableSet.GetComponent<BoxCollider>().enabled = false;
-        TableController.Instance.EnableTableSetCollider(true);
+        ControllerManager.Instance.Tablecontroller.EnableTableSetCollider(true);
     }
     public void SetTablePosition()
     {
@@ -340,7 +340,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         MapManager.Instance.SaveMap();
         UpdateTableStatus();
         ResetPlayerState();
-        TableController.Instance.EnableTableSetCollider(false);
+        tableController.EnableTableSetCollider(false);
         IsTableSetTransform = false;
         IsTableMove = false;
         _gameSceneCanvas.CheckShowInfoText = true;
@@ -360,10 +360,10 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         tableController.TableSetCapacity++;
         tableController.TableSets.Add(TableSet);
         tableController.UpdateTables();
-        TableAvailablePanel.Instance.AddNewTable(this);
+        ControllerManager.Instance.TableAvailablePanel.AddNewTable(this);
         Debug.Log("tablenumber:" + TableNumber);
 
-        PanelManager.Instance._checkOrderBillsPanel.UpdatePanel(TableNumber, TotalBills);
+        ControllerManager.Instance._checkOrderBillsPanel.UpdatePanel(TableNumber, TotalBills);
     }
 
     private void ResetPlayerState()

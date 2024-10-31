@@ -26,8 +26,8 @@ public class SingleCustomer : MonoBehaviour
 
     public void SetCustomerId()
     {
-        TableAvailablePanel.Instance.SelectedCustomerIndex = aiIndex;
-        TableAvailablePanel.Instance.SetCustomerSelected(aiIndex);
+        ControllerManager.Instance.TableAvailablePanel.SelectedCustomerIndex = aiIndex;
+        ControllerManager.Instance.TableAvailablePanel.SetCustomerSelected(aiIndex);
     }
     // Update is called once per frame
     void Update()

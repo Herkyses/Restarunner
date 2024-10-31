@@ -39,9 +39,9 @@ public class SingleOrder : MonoBehaviour
     {
         if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
         {
-            if (TableController.Instance.TableSets[0].table.GetOrders()[0].OrderType == OrderType && PlayerOrderController.Instance.OrderList[0].OrderDataStructs.Count == 0)
+            if (ControllerManager.Instance.Tablecontroller.TableSets[0].table.GetOrders()[0].OrderType == OrderType && PlayerOrderController.Instance.OrderList[0].OrderDataStructs.Count == 0)
             {
-                PanelManager.Instance._orderPanelController.PlayerOrderInventory(this);
+                ControllerManager.Instance._orderPanelController.PlayerOrderInventory(this);
                 TutorialManager.Instance.SetTutorialInfo(7);
                 return;
             }
@@ -50,11 +50,11 @@ public class SingleOrder : MonoBehaviour
                 return;
             }
         }
-        PanelManager.Instance._orderPanelController.PlayerOrderInventory(this);
+        ControllerManager.Instance._orderPanelController.PlayerOrderInventory(this);
     }
     public void MinusButtonPressed()
     {
-        PanelManager.Instance._orderPanelController.RemoveOrderFromLPayer(this);
+        ControllerManager.Instance._orderPanelController.RemoveOrderFromLPayer(this);
 
     }
 }

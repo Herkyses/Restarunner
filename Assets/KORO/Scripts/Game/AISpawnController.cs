@@ -132,7 +132,7 @@ public class AISpawnController : MonoBehaviour
     // Uygun masa bulur, yoksa null döner
     private Table GetAvailableTable()
     {
-        foreach (var tableSet in TableController.Instance.TableSets)
+        foreach (var tableSet in ControllerManager.Instance.Tablecontroller.TableSets)
         {
             if (tableSet.table.IsTableAvailable)
             {

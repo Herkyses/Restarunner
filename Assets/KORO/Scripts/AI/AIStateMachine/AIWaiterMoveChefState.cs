@@ -12,7 +12,7 @@ public class AIWaiterMoveChefState : AIBaseState
     }
     public override void EnterState()
     {
-        AIStateMachineController.AIController._agent.destination = TableController.Instance.ChefController.transform.position;
+        AIStateMachineController.AIController._agent.destination = ControllerManager.Instance.Tablecontroller.ChefController.transform.position;
         AIStateMachineController.AIController._agent.speed = 1;
         AIStateMachineController.AIController.AIAnimationController.PlayMoveAnimation();
 
@@ -20,7 +20,7 @@ public class AIWaiterMoveChefState : AIBaseState
 
     public override void UpdateState()
     {
-        if (Vector3.Distance(AIStateMachineController.transform.position, TableController.Instance.ChefController.transform.position) < 1f)
+        if (Vector3.Distance(AIStateMachineController.transform.position, ControllerManager.Instance.Tablecontroller.ChefController.transform.position) < 1f)
         {
             AIStateMachineController.AIController._agent.speed = 0;
             AIStateMachineController.AIChangeState(AIStateMachineController.AIWaiterGiveOrderState);

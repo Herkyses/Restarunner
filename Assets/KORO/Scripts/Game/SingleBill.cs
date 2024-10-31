@@ -34,8 +34,8 @@ public class SingleBill : MonoBehaviour
 
     public void SingleBillSelected()
     {
-        PanelManager.Instance._checkOrderBillsPanel.SelectedTable = TableNumber;
-        PanelManager.Instance._checkOrderBillsPanel.SelectedOrderBillforInducator(TableNumber);
+        ControllerManager.Instance._checkOrderBillsPanel.SelectedTable = TableNumber;
+        ControllerManager.Instance._checkOrderBillsPanel.SelectedOrderBillforInducator(TableNumber);
     }
 
     public void SelectInducator()

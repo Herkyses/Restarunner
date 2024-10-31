@@ -34,7 +34,7 @@ public class AIWaitStateController : MonoBehaviour,IInterectableObject
     public void AddList(AIController aiController,int friendCount)
     {
         AiControllers.Add(aiController);
-        TableAvailablePanel.Instance.SetCustomerList(aiController.AgentID,friendCount);
+        ControllerManager.Instance.TableAvailablePanel.SetCustomerList(aiController.AgentID,friendCount);
     }
 
     public void RemoveFromAiControllersList(AIController aiController)
@@ -63,7 +63,7 @@ public class AIWaitStateController : MonoBehaviour,IInterectableObject
                 AiControllers[i]._agent.destination = table.transform.position;
                 AiControllers[i]._agent.speed = 1f;
                 AiControllers[i].AIStateMachineController.SetFriendsState();
-                TableAvailablePanel.Instance.RemoveFromCustomerList(index);
+                ControllerManager.Instance.TableAvailablePanel.RemoveFromCustomerList(index);
                 if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
                 {
                     TutorialManager.Instance.SetTutorialInfo(5);

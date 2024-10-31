@@ -19,7 +19,7 @@ public class ReservationTable : MonoBehaviour,IInterectableObject
 
     public void InterectableObjectRun()
     {
-        TableAvailablePanel.Instance.ActiveAbilityPanel();
+        ControllerManager.Instance.TableAvailablePanel.ActiveAbilityPanel();
 
     }
 

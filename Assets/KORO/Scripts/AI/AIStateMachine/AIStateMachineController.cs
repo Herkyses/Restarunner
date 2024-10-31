@@ -166,7 +166,7 @@ public class AIStateMachineController : MonoBehaviour
         
         AIController.AIOwnerTable.TotalBills += GameDataManager.Instance.GetOrderBill(AIController.FoodDataStruct.OrderType);
         AIController.IsFinishedFood = true;
-        PanelManager.Instance._checkOrderBillsPanel.UpdatePanel(AIController.AIOwnerTable.TableNumber,AIController.AIOwnerTable.TotalBills);    
+        ControllerManager.Instance._checkOrderBillsPanel.UpdatePanel(AIController.AIOwnerTable.TableNumber,AIController.AIOwnerTable.TotalBills);    
         //Destroy(AIController.AIOwnerFood.Food.gameObject);
         AIController.AIOwnerFood.EatedFood();
         AIController.AIOwnerFood.IsFoodFinished = true;
@@ -233,8 +233,8 @@ public class AIStateMachineController : MonoBehaviour
 
     public void ResetAI()
     {
-        TableAvailablePanel.Instance.RedAvailability(AIController.AIOwnerTable.TableNumber);
-        TableAvailablePanel.Instance.CheckTable(AIController.AIOwnerTable.TableNumber);
+        ControllerManager.Instance.TableAvailablePanel.RedAvailability(AIController.AIOwnerTable.TableNumber);
+        ControllerManager.Instance.TableAvailablePanel.CheckTable(AIController.AIOwnerTable.TableNumber);
        
         AIController.AIOwnerChair.isChairAvailable = true;
         AIController.IsSitting = false;

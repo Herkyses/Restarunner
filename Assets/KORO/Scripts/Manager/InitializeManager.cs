@@ -36,21 +36,21 @@ public class InitializeManager : MonoBehaviour
     // Start is called before the first frame update
     public void Initialize()
     {
-
+        var controllerManager = ControllerManager.Instance;
         MapManager.Instance.LoadMap();
         TrafficManager.Instance.Initiliaze();
         AIPedestarianManager.Instance.Initiliaze();
         
         PoolManager.Instance.Initiliaze();
         MealManager.Instance.Initiliaze();
-        TableController.Instance.SetTableNumbers();
-        TableController.Instance.Initialize();
-        TableAvailablePanel.Instance.Initialize();
-        _checkOrderBillsPanel.Initialize();
+        controllerManager.Tablecontroller.SetTableNumbers();
+        controllerManager.Tablecontroller.Initialize();
+        controllerManager.TableAvailablePanel.Initialize();
+        controllerManager._checkOrderBillsPanel.Initialize();
 
 
         //StartCoroutine(AISpawnController.Instance.Initialize());
-        _orderPanelController.Initialize();
+        controllerManager._orderPanelController.Initialize();
         PlacePanelController.Instance.Initialize();
         PlaceController.Instance.Initialize();
         RubbishManager.Instance.Initiliaze();

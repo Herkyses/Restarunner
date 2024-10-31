@@ -12,10 +12,10 @@ public class TableController : MonoBehaviour
     public TableSet TableSetPf;
     public ChefController ChefController;
     public int TableSetCapacity;
-    public static TableController Instance;
+    //public static TableController Instance;
 
     
-    private void Awake()
+    /*private void Awake()
     {
         if (Instance == null)
         {
@@ -26,7 +26,7 @@ public class TableController : MonoBehaviour
             Destroy(gameObject);
         }
 
-    }
+    }*/
 
     public void Initialize()
     {

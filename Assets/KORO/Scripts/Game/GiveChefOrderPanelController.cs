@@ -39,7 +39,7 @@ public class GiveChefOrderPanelController : MonoBehaviour
         
         if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 7)
         {
-            orderStructs = TableController.Instance.TableSets[0].table.GetOrders();
+            orderStructs = ControllerManager.Instance.Tablecontroller.TableSets[0].table.GetOrders();
         }
         OnOrderGivenToChef?.Invoke(orderStructs,true,null);
         //PlayerOrderController.Instance.OrderList.Remove(Orders);
@@ -49,11 +49,11 @@ public class GiveChefOrderPanelController : MonoBehaviour
 
     public void OrderListIndexIncrease(bool isIncrease)
     {
-        if (TableController.Instance.TableSets.Count > 1)
+        if (ControllerManager.Instance.Tablecontroller.TableSets.Count > 1)
         {
             if (isIncrease)
             {
-                if (SelectedOrderListCount < TableController.Instance.TableSets.Count-1)
+                if (SelectedOrderListCount < ControllerManager.Instance.Tablecontroller.TableSets.Count-1)
                 {
                     SelectedOrderListCount++;
                 }

@@ -44,7 +44,7 @@ public class AIWaitTimeController : MonoBehaviour
                 }
                 AIStateMachineController.Friends.Clear();
             }
-            TableAvailablePanel.Instance.RemoveFromCustomerList(AIStateMachineController.AIController.AgentID);
+            ControllerManager.Instance.TableAvailablePanel.RemoveFromCustomerList(AIStateMachineController.AIController.AgentID);
             AIWaitStateController.Instance.RemoveFromAiControllersList(AIStateMachineController.AIController);
         }
         
@@ -64,7 +64,7 @@ public class AIWaitTimeController : MonoBehaviour
             }
             AIStateMachineController.Friends.Clear();
         }
-        TableAvailablePanel.Instance.RemoveFromCustomerList(AIStateMachineController.AIController.AgentID);
+        ControllerManager.Instance.TableAvailablePanel.RemoveFromCustomerList(AIStateMachineController.AIController.AgentID);
         AIWaitStateController.Instance.RemoveFromAiControllersList(AIStateMachineController.AIController);
         
     }

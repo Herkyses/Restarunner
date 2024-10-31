@@ -21,22 +21,11 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
     
     
     public List<SingleBill> BillList;
-    //public static CheckOrderBillsPanel Instance;
     public int SelectedTable;
 
     public void Show() => ActiveBillsPanel();
     public void Hide() => gameObject.SetActive(false);
-    /*private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }    
-    }*/
+   
     private void Start()
     {
         foreach (Button button in numberButtons)
@@ -44,7 +33,7 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
             //button.onClick.AddListener(() => OnNumberButtonClick(button.GetComponentInChildren<TMP_Text>().text));
         }
         billInputField.text = String.Empty;
-        PanelManager.Instance.RegisterPanel("CheckOrderBillsPanel", this);
+        ControllerManager.Instance.RegisterPanel("CheckOrderBillsPanel", this);
         //clearButton.onClick.AddListener(ClearInput);
         //confirmButton.onClick.AddListener(ConfirmBill);
     }
@@ -126,7 +115,7 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
                 return;
             }
         }
-        var availabilityArray = TableAvailablePanel.Instance._tablesParent.GetComponentsInChildren<Table>();
+        var availabilityArray = ControllerManager.Instance.TableAvailablePanel._tablesParent.GetComponentsInChildren<Table>();
 
         var bill = Instantiate(_singleBill, _billParent);
         bill.Initialize(availabilityArray[tableNumber].TableNumber,availabilityArray[tableNumber].TotalBills);
@@ -135,7 +124,7 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
 
     public void CreateBills()
     {
-        var availabilityArray = TableAvailablePanel.Instance._tablesParent.GetComponentsInChildren<Table>();
+        var availabilityArray = ControllerManager.Instance.TableAvailablePanel._tablesParent.GetComponentsInChildren<Table>();
 
         for (int i = 0; i < availabilityArray.Length; i++)
         {
@@ -168,9 +157,9 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
     public void CreateTableBill()
     {
         Debug.Log("createBill");
-        if (TableController.Instance.TableSets[SelectedTable].table.CheckAllCustomerFinishedFood())
+        if (ControllerManager.Instance.Tablecontroller.TableSets[SelectedTable].table.CheckAllCustomerFinishedFood())
         {
-            BillTable.Instance.CreateTableBill(TableController.Instance.TableSets[SelectedTable].table,ValidateBillValue(billInputField.text));
+            BillTable.Instance.CreateTableBill(ControllerManager.Instance.Tablecontroller.TableSets[SelectedTable].table,ValidateBillValue(billInputField.text));
             DeActiveBillsPanel();
         }
         

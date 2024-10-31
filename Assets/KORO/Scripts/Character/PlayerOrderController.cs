@@ -99,11 +99,11 @@ public class PlayerOrderController : MonoBehaviour
     public void SetOrderList()
     {
         OrderList.Clear();
-        for (int i = 0; i < TableController.Instance.TableSets.Count; i++)
+        for (int i = 0; i < ControllerManager.Instance.Tablecontroller.TableSets.Count; i++)
         {
             var order = new Orders();
             order.OrderDataStructs = new List<OrderDataStruct>();
-            order.TableNumber = TableController.Instance.TableSets[i].table.TableNumber;
+            order.TableNumber = ControllerManager.Instance.Tablecontroller.TableSets[i].table.TableNumber;
             OrderList.Add(order);
         }
     }

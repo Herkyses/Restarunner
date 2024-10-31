@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
-    //public static ShopManager Instance;
     public List<ShopItem> FirstShopItems;
     public List<ShopItemData> FirstShopItemDatas;
     public List<ShopItemData> EnvironmentShopItemDatas;
@@ -25,19 +24,7 @@ public class ShopManager : MonoBehaviour
     private const int TutorialStepPlaceUpgrade = 2;
 
     public float _shoppingCardCost;
-    // Start is called before the first frame update
-    /*private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
 
-    }*/
     
     public void CreateShopItem(ShopItemData shopItemData,SingleShopItem singleShopItem)
     {

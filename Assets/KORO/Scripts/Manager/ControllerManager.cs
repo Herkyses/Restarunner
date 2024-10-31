@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class PanelManager : MonoBehaviour
+public class ControllerManager : MonoBehaviour
 {
     private readonly Dictionary<string, IPanel> _panels = new Dictionary<string, IPanel>();
     
     [Inject] public CheckOrderBillsPanel _checkOrderBillsPanel;
     [Inject] public OrderPanelController _orderPanelController;
     [Inject] public ShopManager ShopManagerPanel;
+    [Inject] public TableController Tablecontroller;
+    [Inject] public TableAvailablePanel TableAvailablePanel;
+    [Inject] public PlacePanelController PlacePanelController;
 
-    public static PanelManager Instance;
+    public static ControllerManager Instance;
     
     private void Awake()
     {
