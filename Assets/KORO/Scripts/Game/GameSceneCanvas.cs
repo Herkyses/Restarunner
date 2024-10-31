@@ -172,6 +172,7 @@ public class GameSceneCanvas : MonoBehaviour
     public void MoveObjectInfo(string[] textsForMove,string[] textsForButtons, Enums.PlayerStateType playerStateType)
     {
 
+        UnShowAreaInfo();
         CheckShowInfoText = false;
         ShowAreaInfoForTexts(textsForMove);
         ShowAreaInfoForTextsButtons(textsForButtons);
@@ -204,6 +205,7 @@ public class GameSceneCanvas : MonoBehaviour
             
             }
         }
+        
         
         Debug.Log("nohitçalışıyorbe");
 

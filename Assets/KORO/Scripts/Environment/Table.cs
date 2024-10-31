@@ -14,7 +14,9 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     [SerializeField] private string[] textsButtons = new [] {"E"};
     [SerializeField] private string[] textsButtonsForTable = new [] {"M0","R"};
     [SerializeField] private string checkOrder = "Check Order";
+    
     [SerializeField] private List<OrderDataStruct> _orderList ;
+    
     public List<AIController> _aiControllerList ;
     public bool IsTableAvailable ;
     public bool IsTableMove ;
@@ -24,6 +26,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     public int TableCapacity;
     public int CustomerCount;
     public int groundLayer;
+    
     public float TableQuality = 5;
     public float TotalBills;
     public TextMeshProUGUI TableNumberText;
@@ -61,8 +64,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     {
         if (IsTableMove)
         {
-            //MoveStart();
-            MoveTable();
+            SetTablePosition();
         }
         
     }
@@ -242,10 +244,9 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
                 PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(100);
                 TutorialManager.Instance.SetTutorialInfo(PlayerPrefsManager.Instance.LoadPlayerTutorialStep());
             }
-            for (int i = 0; i < _aiControllerList.Count; i++)
-            {
-                _aiControllerList[i].AIStateMachineController.SetMoveStateFromOrderBill();
-            }
+            foreach (var aiController in _aiControllerList)
+                aiController.AIStateMachineController.SetMoveStateFromOrderBill();
+            
             GameManager.PayedOrderBill?.Invoke(_player.PlayerOrdersController.TableBill.BillValue);
 
             _player.FreePlayerStart();
@@ -255,13 +256,11 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             ResetTable();
         }
     }
-
+    
     public void OpenOrderPanels()
     {
-        for (int i = 0; i < _aiControllerList.Count; i++)
-        {
-            StartCoroutine(_aiControllerList[i].FoodIcon());
-        }
+        foreach (var aiController in _aiControllerList)
+            StartCoroutine(aiController.FoodIcon());
     }
 
     public void ShowOutline(bool active)
@@ -291,23 +290,9 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         }
     }
 
-    public void Move()
-    {
-        if (!IsTableMove && !PlaceController.Instance.RestaurantIsOpen && CustomerCount == 0)
-        {
-            IsTableMove = true;
-            if (!_gameSceneCanvas)
-            {
-                _gameSceneCanvas = GameSceneCanvas.Instance;
-            }
-            _gameSceneCanvas.MoveObjectInfo(textsForTable,textsButtonsForTable,Enums.PlayerStateType.MoveTable);
-            TableSet.GetComponent<BoxCollider>().enabled = false;
-            TableController.Instance.EnableTableSetCollider(true);
-        }
-        
-    }
     
-    public void MoveTable()
+    
+    public void Move()
     {
         if (!IsTableMove && !PlaceController.Instance.RestaurantIsOpen && CustomerCount == 0)
         {
@@ -394,21 +379,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             TutorialManager.Instance.Initiliaze();
         }
     }
-  
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer != groundLayer)
-        {
-            IsTableSetTransform = false;
-        }
-        else
-        {
-            Debug.Log("asdadasddas");
-
-            IsTableSetTransform = true;
-
-        }
-    }*/
+    
     public void Open()
     {
         
