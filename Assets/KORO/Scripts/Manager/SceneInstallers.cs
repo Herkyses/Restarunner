@@ -14,8 +14,8 @@ public class SceneInstallers : MonoInstaller
         Container.Bind<TableController>().FromComponentInHierarchy().AsSingle();
         Container.Bind<TableAvailablePanel>().FromComponentInHierarchy().AsSingle();
         Container.Bind<PlacePanelController>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<PlaceController>().FromComponentInHierarchy().AsSingle();
     
-        Container.Bind<ControllerManager>().FromComponentInHierarchy().AsSingle();
         //Container.BindInstance(shoppingManagerPanel).AsSingle();
     }
 }

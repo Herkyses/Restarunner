@@ -141,7 +141,7 @@ public class ShopManager : MonoBehaviour
 
     public void BuyPlaceUpgrade()
     {
-        PlaceController.Instance.Initialize();
+        ControllerManager.Instance.PlaceController.Initialize();
     }
 
     public void BuyShoppingBasketButtonPressed()

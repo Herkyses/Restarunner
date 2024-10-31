@@ -104,7 +104,7 @@ public class AIStateMachineController : MonoBehaviour
         }
         if (!_isAIChef && !_isAIWaiter)
         {
-            if (PlaceController.Instance.RestaurantIsOpen)
+            if (ControllerManager.Instance.PlaceController.RestaurantIsOpen)
             {
                 //AIChangeState(AITargetRestaurantState);
 

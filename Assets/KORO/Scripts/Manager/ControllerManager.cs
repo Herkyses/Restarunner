@@ -13,6 +13,7 @@ public class ControllerManager : MonoBehaviour
     [Inject] public TableController Tablecontroller;
     [Inject] public TableAvailablePanel TableAvailablePanel;
     [Inject] public PlacePanelController PlacePanelController;
+    [Inject] public PlaceController PlaceController;
 
     public static ControllerManager Instance;
     

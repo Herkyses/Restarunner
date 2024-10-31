@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlaceController : MonoBehaviour,IInterectableObject
 {
-    public static PlaceController Instance;
 
     public bool RestaurantIsOpen;
 
@@ -26,23 +25,6 @@ public class PlaceController : MonoBehaviour,IInterectableObject
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-        
-    }
 
     public void Initialize()
     {

@@ -76,7 +76,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
     }
     public void Move()
     {
-        if (!isDecorationMove && !PlaceController.Instance.RestaurantIsOpen)
+        if (!isDecorationMove && !ControllerManager.Instance.PlaceController.RestaurantIsOpen)
         {
             
             //gameObject.layer = LayerMask.NameToLayer("Ground");
@@ -115,7 +115,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
             _gameSceneCanvas.CheckShowInfoText = true;
             MapManager.Instance.SaveMap();
             gameObject.transform.SetParent(DecorationController.Instance.transform);
-            PlaceController.Instance.ActivateDecorationPlane(false);
+            ControllerManager.Instance.PlaceController.ActivateDecorationPlane(false);
             GetComponent<BoxCollider>().enabled = true;
 
 

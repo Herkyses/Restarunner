@@ -177,7 +177,7 @@ public class GameSceneCanvas : MonoBehaviour
         ShowAreaInfoForTexts(textsForMove);
         ShowAreaInfoForTextsButtons(textsForButtons);
         Player.Instance.MoveObject(gameObject,playerStateType);
-        PlaceController.Instance.ActivateDecorationPlane(true);
+        ControllerManager.Instance.PlaceController.ActivateDecorationPlane(true);
     }
     public void ShowAreaInfoForTextsButtons(string[] areaInfoButton)
     {

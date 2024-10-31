@@ -294,7 +294,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     
     public void Move()
     {
-        if (!IsTableMove && !PlaceController.Instance.RestaurantIsOpen && CustomerCount == 0)
+        if (!IsTableMove && !ControllerManager.Instance.PlaceController.RestaurantIsOpen && CustomerCount == 0)
         {
             InitiateTableMovement();
         }
@@ -344,7 +344,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         IsTableSetTransform = false;
         IsTableMove = false;
         _gameSceneCanvas.CheckShowInfoText = true;
-        PlaceController.Instance.ActivateDecorationPlane(false);
+        ControllerManager.Instance.PlaceController.ActivateDecorationPlane(false);
         HandleTutorialProgression();
     }
     private void UpdateTableStatus()
