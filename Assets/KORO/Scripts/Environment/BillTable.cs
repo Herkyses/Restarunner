@@ -36,24 +36,13 @@ public class BillTable : MonoBehaviour,IInterectableObject
         textsButtons = new []{"E"};
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 
     public void CreateTableBill(Table ownerTable,int billValue)
     {
         
         Utilities.DeleteTransformchilds(_tableBillParent);
-        /*if (!_tableBillTemp)
-        {
-            _tableBillTemp = Instantiate(_tableBillPf, _tableBillParent);
-        }
-        else
-        {
-            _tableBillTemp.gameObject.SetActive(true);
-        }*/
+     
 
         _tableBillTemp = PoolManager.Instance.GetFromPoolForOrderBill().GetComponent<TableBill>();
         _tableBillTemp.transform.SetParent(_tableBillParent);
@@ -66,9 +55,7 @@ public class BillTable : MonoBehaviour,IInterectableObject
     public void UpdateTableBill(TableBill tableBill)
     {
         PoolManager.Instance.ReturnToPoolForOrderBill(tableBill.gameObject);
-        /*tableBill.gameObject.SetActive(false);
-        tableBill.transform.SetParent(_tableBillParent);
-        tableBill.transform.localPosition = Vector3.zero;*/
+
     }
 
     public void InterectableObjectRun()
