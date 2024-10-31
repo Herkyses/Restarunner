@@ -227,32 +227,35 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     }
     public void InterectableObjectRun()
     {
+        HandleOrder();
+        HandlePayment();
+    }
+    private void HandleOrder()
+    {
         if (!_player.PlayerOrdersController.TakedFood && !_player.PlayerOrdersController.TakedTableBill)
         {
             if (CustomerCount > 0)
             {
-                ControllerManager.Instance._orderPanelController.ShowOrder(_orderList,TableNumber);
+                ControllerManager.Instance._orderPanelController.ShowOrder(_orderList, TableNumber);
                 OpenOrderPanels();
             }
-            
         }
-
+    }
+    private void HandlePayment()
+    {
         if (_player.PlayerOrdersController.TakedTableBill && _player.PlayerOrdersController.TableBill.OwnerTable == this)
         {
-            if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
-            {
-                PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(100);
-                TutorialManager.Instance.SetTutorialInfo(PlayerPrefsManager.Instance.LoadPlayerTutorialStep());
-            }
+            GameManager.Instance.CheckAndProgressTutorialStep(4, 100);
+
             foreach (var aiController in _aiControllerList)
+            {
                 aiController.AIStateMachineController.SetMoveStateFromOrderBill();
-            
-            GameManager.PayedOrderBill?.Invoke(_player.PlayerOrdersController.TableBill.BillValue);
+            }
+
+            GameManager.Instance.ProcessOrderPayment(_player.PlayerOrdersController.TableBill.BillValue);
 
             _player.FreePlayerStart();
-
             BillTable.Instance.UpdateTableBill(_player.PlayerOrdersController.TableBill);
-            
             ResetTable();
         }
     }
@@ -337,14 +340,12 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     }
     private void FinalizeTablePlacement()
     {
-        MapManager.Instance.SaveMap();
         UpdateTableStatus();
         ResetPlayerState();
         tableController.EnableTableSetCollider(false);
         IsTableSetTransform = false;
         IsTableMove = false;
-        _gameSceneCanvas.CheckShowInfoText = true;
-        ControllerManager.Instance.PlaceController.ActivateDecorationPlane(false);
+        GameManager.Instance.HandleTablePlacementCompletion();
         HandleTutorialProgression();
     }
     private void UpdateTableStatus()
