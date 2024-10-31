@@ -133,50 +133,60 @@ public class AIStateMachineController : MonoBehaviour
         
     }
     // TargetSitState//
-    public void EatStateStart()
+    public void StartEatState()
     {
-        StartCoroutine(EatDuring());
+        StartCoroutine(EatCoroutine());
     }
 
-    public IEnumerator EatDuring()
+    public IEnumerator EatCoroutine()
     {
         yield return new WaitForSeconds(5f);
         AIController.DeactivatedFoodIcon();
         
-        AIController.AIOwnerTable.TotalBills += GameDataManager.Instance.GetOrderBill(AIController.FoodDataStruct.OrderType);
-        AIController.IsFinishedFood = true;
-        ControllerManager.Instance._checkOrderBillsPanel.UpdatePanel(AIController.AIOwnerTable.TableNumber,AIController.AIOwnerTable.TotalBills);    
-        //Destroy(AIController.AIOwnerFood.Food.gameObject);
+        UpdateOrderBill();    
+        ProcessFoodCompletion();
+    }
+    private void UpdateOrderBill()
+    {
+        var orderBill = GameDataManager.Instance.GetOrderBill(AIController.FoodDataStruct.OrderType);
+        AIController.AIOwnerTable.TotalBills += orderBill;
+        ControllerManager.Instance._checkOrderBillsPanel.UpdatePanel(AIController.AIOwnerTable.TableNumber, AIController.AIOwnerTable.TotalBills);
+    }
+    private void ProcessFoodCompletion()
+    {
         AIController.AIOwnerFood.EatedFood();
         AIController.AIOwnerFood.IsFoodFinished = true;
+        AIController.IsFinishedFood = true;
         AIController.AIOwnerTable.RemoveOrder(AIController.FoodDataStruct);
         RubbishManager.Instance.CreateRubbishFromAI();
 
         if (AIController.AIOwnerTable.CheckAllCustomerFinishedFood())
         {
-            AIController.AIOwnerTable.AllFoodfinished();
-            if (Random.value < 0.5f && PlayerPrefsManager.Instance.LoadPlayerTutorialStep() != 4)
-            {
-                AIController.AIOwnerTable.ResetTable();
-                AIChangeState(AIRunFromRestaurantState);
-                AIController.IsBadGuy = true;
-                ResetAI();
-                if (Friends.Count > 0)
-                {
-                    for (int i = 0; i < Friends.Count; i++)
-                    {
-                        Friends[i].AIStateMachineController.AIChangeState(Friends[i].AIStateMachineController.AIRunFromRestaurantState);
-                        Friends[i].AIStateMachineController.ResetAI();
-                    }
-                }
-            }
-            
+            HandleTableCompletion();
         }
-        //AIController.AIOwnerChair.isChairAvailable = true;
-        //AIController.AIOwnerTable.CustomerCount--;
-        //AIChangeState(AIMoveState);
     }
-    
+
+    private void HandleTableCompletion()
+    {
+        AIController.AIOwnerTable.AllFoodfinished();
+        
+        if (Random.value < 0.5f && PlayerPrefsManager.Instance.LoadPlayerTutorialStep() != 4)
+        {
+            AIController.AIOwnerTable.ResetTable();
+            AIController.IsBadGuy = true;
+            ResetAI();
+            AIChangeState(AIRunFromRestaurantState);
+            SetFriendsStateForRunFromRestaurant(AIRunFromRestaurantState);
+        }
+    }
+    private void SetFriendsStateForRunFromRestaurant(AIBaseState state)
+    {
+        foreach (var friend in Friends)
+        {
+            friend.AIStateMachineController.AIChangeState(state);
+            friend.AIStateMachineController.ResetAI();
+        }
+    }
     public void SetFriendsState()
     {
         Friends.ForEach(friend =>

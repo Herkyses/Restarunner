@@ -15,7 +15,7 @@ public class AIEatState : AIBaseState
         //AIStateMachineController.AIController.StartSitState();
         Debug.Log("EAT State Enter");
         AIStateMachineController.AIAnimationController.PlayEatAnimation();
-        AIStateMachineController.EatStateStart();
+        AIStateMachineController.StartEatState();
     }
 
     public override void UpdateState()
