@@ -51,7 +51,7 @@ public class InitializeManager : MonoBehaviour
         //StartCoroutine(AISpawnController.Instance.Initialize());
         controllerManager._orderPanelController.Initialize();
         controllerManager.PlacePanelController.Initialize();
-        ControllerManager.Instance.PlaceController.Initialize();
+        controllerManager.PlaceController.Initialize();
         RubbishManager.Instance.Initiliaze();
         IngredientShelvesController.Instance.Initiliaze();
         PopularityManager.Instance.Initiliaze();
