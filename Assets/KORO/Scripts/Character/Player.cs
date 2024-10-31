@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
         {
             if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() > 0)
             {
-                PlacePanelController.Instance.OpenPlacePanel();
+                ControllerManager.Instance.PlacePanelController.OpenPlacePanel();
             }
         }
         if (Input.GetKeyDown(KeyCode.O))

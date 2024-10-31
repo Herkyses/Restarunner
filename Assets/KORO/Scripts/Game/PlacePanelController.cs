@@ -11,7 +11,6 @@ using System.Collections.Generic;
 
  public class PlacePanelController : MonoBehaviour,IPanel
 {
-    public static PlacePanelController Instance;
     public List<FoodIngredient> FoodIngredients;
     public List<SingleShopItem> OwnerFoodIngredients;
     public List<SingleShopItem> OpeningShopItems;
@@ -32,18 +31,7 @@ using System.Collections.Generic;
     
     public void Show() => gameObject.SetActive(true);
     public void Hide() => gameObject.SetActive(false);
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-    }
+    
 
     private void Start()
     {

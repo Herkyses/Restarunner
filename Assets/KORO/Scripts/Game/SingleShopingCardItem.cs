@@ -26,7 +26,7 @@ public class SingleShopingCardItem : MonoBehaviour
         else
         {
             ControllerManager.Instance.ShopManagerPanel.ShoppingBasket.Remove(ShopItem);
-            PlacePanelController.Instance.ShopCardItems.Remove(this);
+            ControllerManager.Instance.PlacePanelController.ShopCardItems.Remove(this);
             ControllerManager.Instance.ShopManagerPanel.UpdateShopingBasket();
 
             Destroy(gameObject);

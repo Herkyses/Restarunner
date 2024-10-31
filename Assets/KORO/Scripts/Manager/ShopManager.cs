@@ -74,7 +74,7 @@ public class ShopManager : MonoBehaviour
         PlayerPrefsManager.Instance.SavePlaceLevel(level);
         UpgradedRestaurant?.Invoke();
         BuyPlaceUpgrade();
-        PlacePanelController.Instance.UpdateShopItems();
+        ControllerManager.Instance.PlacePanelController.UpdateShopItems();
         GameDataManager.Instance.UpdateOpenFoodDatas();
     }
 
@@ -89,7 +89,7 @@ public class ShopManager : MonoBehaviour
         }
         else
         {
-            PlacePanelController.Instance.CheckShopBasket(shopItemData);
+            ControllerManager.Instance.PlacePanelController.CheckShopBasket(shopItemData);
         }
     }
 
@@ -146,31 +146,32 @@ public class ShopManager : MonoBehaviour
 
     public void BuyShoppingBasketButtonPressed()
     {
+        var placepanelController = ControllerManager.Instance.PlacePanelController;
         if (_shoppingCardCost <= PlayerPrefsManager.Instance.LoadPlayerMoney())
         {
             _shoppingCardCost = 0;
             
-            for (int i = 0; i < PlacePanelController.Instance.ShopCardItems.Count; i++)
+            for (int i = 0; i < placepanelController.ShopCardItems.Count; i++)
             {
-                for (int j = 0; j < PlacePanelController.Instance.ShopCardItems[i].count+1; j++)
+                for (int j = 0; j < placepanelController.ShopCardItems[i].count+1; j++)
                 {
-                    CreateOrderBox(PlacePanelController.Instance.ShopCardItems[i].ShopItem);
+                    CreateOrderBox(placepanelController.ShopCardItems[i].ShopItem);
 
                 }
             }
             ShoppingBasket.Clear();
         }
-        PlacePanelController.Instance.ShopCardItems.Clear();
-        Utilities.DeleteTransformchilds(PlacePanelController.Instance.SingleShopingCardItemParentTransform);
-        PlacePanelController.Instance.UpdateCostText();
+        placepanelController.ShopCardItems.Clear();
+        Utilities.DeleteTransformchilds(placepanelController.SingleShopingCardItemParentTransform);
+        placepanelController.UpdateCostText();
         
     }
 
     public void UpdateShopingBasket()
     {
-        _shoppingCardCost = PlacePanelController.Instance.ShopCardItems
+        _shoppingCardCost = ControllerManager.Instance.PlacePanelController.ShopCardItems
             .Sum(item => item.ShopItem.ShopItemPrice * (item.count + 1));
-        PlacePanelController.Instance.UpdateCostText();
+        ControllerManager.Instance.PlacePanelController.UpdateCostText();
     }
 
 
