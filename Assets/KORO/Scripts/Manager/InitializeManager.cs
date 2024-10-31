@@ -43,7 +43,6 @@ public class InitializeManager : MonoBehaviour
         
         PoolManager.Instance.Initiliaze();
         MealManager.Instance.Initiliaze();
-        controllerManager.Tablecontroller.SetTableNumbers();
         controllerManager.Tablecontroller.Initialize();
         controllerManager.TableAvailablePanel.Initialize();
         controllerManager._checkOrderBillsPanel.Initialize();

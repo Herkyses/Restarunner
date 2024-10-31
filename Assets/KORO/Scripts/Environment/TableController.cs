@@ -12,9 +12,12 @@ public class TableController : MonoBehaviour
     public TableSet TableSetPf;
     public ChefController ChefController;
     public int TableSetCapacity;
-    
 
-    
+
+    public void Initialize()
+    {
+        SetTableNumbers();
+    }
     public void SetTableNumbers()
     {
         GameObject[] tableObjects = GameObject.FindGameObjectsWithTag("TableSet");
