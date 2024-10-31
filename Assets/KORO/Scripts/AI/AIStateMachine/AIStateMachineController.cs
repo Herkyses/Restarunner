@@ -58,10 +58,7 @@ public class AIStateMachineController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CurrentState != null)
-        {
-            CurrentState.UpdateState();
-        }
+        CurrentState?.UpdateState();
     }
 
     public void Initialize(bool isFriend = false)
@@ -92,44 +89,26 @@ public class AIStateMachineController : MonoBehaviour
         AIWaiterGiveFoodState = new AIWaiterGiveFoodState(this);
         AIRunFromRestaurantState = new AIRunFromRestaurantState(this);
         IsFriend = isFriend;
-        AIInitialize();
-
+        if (!IsFriend) AIInitialize();
     }
-
+    
     public void AIInitialize()
     {
-        if (IsFriend)
-        {
-            return;
-        }
-        if (!_isAIChef && !_isAIWaiter)
-        {
-            if (ControllerManager.Instance.PlaceController.RestaurantIsOpen)
-            {
-                //AIChangeState(AITargetRestaurantState);
-
-                if (Random.value < 0.5f)
-                {
-                    AIChangeState(AITargetRestaurantState);
-                }
-                else
-                {
-                    AIChangeState(AIMoveState);
-                }
-            }
-            else
-            {
-                AIChangeState(AIMoveState);
-            }
-
-        }
-        else if(_isAIChef)
+        if (_isAIChef)
         {
             AIChangeState(AIChefState);
         }
-        else if(_isAIWaiter)
+        else if (_isAIWaiter)
         {
             AIChangeState(AIWaiterState);
+        }
+        else
+        {
+            AIBaseState initialState = ControllerManager.Instance.PlaceController.RestaurantIsOpen
+                ? (Random.value < 0.5f ? (AITargetRestaurantState) : (AIMoveState))
+                : (AIMoveState);
+            
+            AIChangeState(initialState);
         }
     }
 
@@ -197,21 +176,17 @@ public class AIStateMachineController : MonoBehaviour
         //AIController.AIOwnerTable.CustomerCount--;
         //AIChangeState(AIMoveState);
     }
-
+    
     public void SetFriendsState()
     {
-        if (Friends.Count > 0)
+        Friends.ForEach(friend =>
         {
-            for (int i = 0; i < Friends.Count; i++)
-            {
-                Friends[i].AIStateMachineController.AITargetSitTransform = OwnerTable.transform;
-                Friends[i].AIStateMachineController.OwnerTable = OwnerTable;
-                Friends[i].AIStateMachineController.AIChangeState(Friends[i].AIStateMachineController.AITargetSitState);
-                Friends[i]._agent.destination = OwnerTable.transform.position;
-                Friends[i]._agent.speed = 1f;
-                //TableAvailablePanel.Instance.RemoveFromCustomerList(Friends[i].AgentID);
-            }
-        }
+            friend.AIStateMachineController.AITargetSitTransform = OwnerTable.transform;
+            friend.AIStateMachineController.OwnerTable = OwnerTable;
+            friend.AIStateMachineController.AIChangeState(friend.AIStateMachineController.AITargetSitState);
+            friend._agent.destination = OwnerTable.transform.position;
+            friend._agent.speed = 1f;
+        });
     }
 
     public void SetMoveStateFromOrderBill()
