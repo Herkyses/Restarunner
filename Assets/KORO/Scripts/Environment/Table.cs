@@ -126,14 +126,29 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
     private void HandleCustomerState(AIAreaController aiArea)
     {
+        
+        if (!IsChairAvailable()) return;
+        AssignAIToChairAndOrder(aiArea);
+        NotifyOrderUpdates();
+    }
+    private bool IsChairAvailable()
+    {
         AvailabilityControl();
+        return CheckChairAvailable() != null;
+    }
+    private void AssignAIToChairAndOrder(AIAreaController aiArea)
+    {
         var chair = CheckChairAvailable();
         if (chair == null) return;
 
         AssignAIToChair(aiArea, chair);
         SetAIOrder(aiArea);
+    }
     
+    private void NotifyOrderUpdates()
+    {
         TableController.GivedOrderForAIWaiter?.Invoke(this);
+
         if (ControllerManager.Instance._orderPanelController.OpenedTableNumber == TableNumber)
         {
             Chair.GivedOrder?.Invoke(TableNumber);
