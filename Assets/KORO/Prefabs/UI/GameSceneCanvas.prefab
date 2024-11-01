@@ -3009,7 +3009,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &418618824225706261
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3126,7 +3126,7 @@ MonoBehaviour:
   GameStartTotalCustomer: 0
   GameStartGainedCash: 0
   GameStartPopularity: 0
-  _panelTransform: {fileID: 0}
+  _panelTransform: {fileID: 1140551332567421057}
 --- !u!1 &1356600322171549109
 GameObject:
   m_ObjectHideFlags: 0
@@ -3839,7 +3839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1140551332567421057
 RectTransform:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -39,9 +40,18 @@ public class GameEndPanelController : MonoBehaviour
         GameStartPopularity = _playerPrefsManager.LoadPopularity();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            SetGameEndTexts();
+        }
+    }
+
     public void SetGameEndTexts()
     {
-        TotalCustomerText.text = (_playerPrefsManager.LoadCustomerCount() - GameStartTotalCustomer).ToString();
+        _panelTransform.gameObject.SetActive(true);
+        TotalCustomerText.text = ((_playerPrefsManager.LoadCustomerCount() - GameStartTotalCustomer)).ToString();
         GainedCash.text = (_playerPrefsManager.LoadPlayerMoney() - GameStartGainedCash).ToString();
         Popularity.text = (_playerPrefsManager.LoadPopularity() - GameStartPopularity).ToString();
     }

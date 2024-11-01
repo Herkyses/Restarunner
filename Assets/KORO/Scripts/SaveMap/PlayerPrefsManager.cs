@@ -10,16 +10,7 @@ public class PlayerPrefsManager : MonoBehaviour
     public static Action<int> GainedPopularity;
 
     public static Action TutorialStepUpdated;
-    /*private void OnEnable()
-    {
-        AIStateMachineController.PayedOrderBill += SavePlayerMoney;
-    }
-
-    private void OnDisable()
-    {
-        AIStateMachineController.PayedOrderBill -= SavePlayerMoney;
-    }*/
-
+    
     private void Awake()
     {
         if (Instance == null)
