@@ -49,7 +49,6 @@ public class DayNightCycle : MonoBehaviour
     public List<GameObject> lightMaterialObjects;  // Zamanla değişen ışık yoğunluğu
     public Color ambientDayColor;
     public Color ambientNightColor;
-    public float TransitionDurationDelay;  
     public float TwelvehoursSecond;  
     
     public float timeOfDayTEmp = 0f;
@@ -123,12 +122,13 @@ public class DayNightCycle : MonoBehaviour
     
     private void UpdateTime()
     {
-        timeCounter += Time.deltaTime * timeSpeed * (twelveHoursInSeconds / (transitionDuration + transitionDelay) / 60f + 1f);
+        timeCounter += Time.deltaTime * twelveHoursInSeconds / (transitionDuration);
 
         if (timeCounter >= 60f)
         {
             currentMinute++;
-            timeCounter = 0f;
+            //timeCounter = 0f;
+            timeCounter -= 60f;
 
             if (currentMinute >= 60)
             {
