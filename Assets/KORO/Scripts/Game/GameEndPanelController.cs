@@ -1,0 +1,50 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+public class GameEndPanelController : MonoBehaviour
+{
+    public static GameEndPanelController Instance;
+
+    public TextMeshProUGUI TotalCustomerText;
+    public TextMeshProUGUI GainedCash;
+    public TextMeshProUGUI Popularity;
+    
+    public int GameStartTotalCustomer;
+    public float GameStartGainedCash;
+    public float GameStartPopularity;
+
+    [SerializeField] private Transform _panelTransform;
+    
+    private PlayerPrefsManager _playerPrefsManager;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        _playerPrefsManager = PlayerPrefsManager.Instance;
+        GameStartTotalCustomer = _playerPrefsManager.LoadCustomerCount();
+        GameStartGainedCash = _playerPrefsManager.LoadPlayerMoney();
+        GameStartPopularity = _playerPrefsManager.LoadPopularity();
+    }
+
+    public void SetGameEndTexts()
+    {
+        TotalCustomerText.text = (_playerPrefsManager.LoadCustomerCount() - GameStartTotalCustomer).ToString();
+        GainedCash.text = (_playerPrefsManager.LoadPlayerMoney() - GameStartGainedCash).ToString();
+        Popularity.text = (_playerPrefsManager.LoadPopularity() - GameStartPopularity).ToString();
+    }
+    // Update is called once per frame
+    
+}
