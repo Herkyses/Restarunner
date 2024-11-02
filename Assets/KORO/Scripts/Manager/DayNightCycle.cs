@@ -8,6 +8,7 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class DayNightCycle : MonoBehaviour
 {
+    public static DayNightCycle Instance;
     
     [Header("Lighting Settings")]
     public Light directionalLight;
@@ -41,6 +42,7 @@ public class DayNightCycle : MonoBehaviour
     private bool isNight = false;
     private bool startCycle = false;
     private bool canStartable = false;
+    public bool IsNightBegun = false;
 
     private int currentHour;
     private int currentMinute;
@@ -63,10 +65,24 @@ public class DayNightCycle : MonoBehaviour
         OpenCloseController.RestaurantOpened -= InitiliazeCycle;
 
     }
-    
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
     private void Start()
     {
         twelveHoursInSeconds = 43200;
+        IsNightBegun = false;
     }
 
     void Update()
@@ -100,6 +116,7 @@ public class DayNightCycle : MonoBehaviour
             UpdateMaterials(lightMaterialDay);
             startCycle = true;
             canStartable = true;
+            IsNightBegun = false;
         }
         
     }
@@ -168,6 +185,7 @@ public class DayNightCycle : MonoBehaviour
         ToggleLights(true);
         UpdateMaterials(lightMaterialNight);
         startCycle = false;
+        IsNightBegun = true;
     }
     private IEnumerator TransitionPostProcessingProfile(PostProcessProfile targetProfile)
     {
