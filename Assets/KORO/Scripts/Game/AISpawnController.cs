@@ -56,7 +56,10 @@ public class AISpawnController : MonoBehaviour
 
     public void SetRestaurantStateForTutorial()
     {
-        AllAIList[0].AIStateMachineController.AIChangeState(AllAIList[0].AIStateMachineController.AITargetRestaurantState);
+        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
+        {
+            AllAIList[0].AIStateMachineController.AIChangeState(AllAIList[0].AIStateMachineController.AITargetRestaurantState);
+        }
     }
     public void NewAISpawn()
     {

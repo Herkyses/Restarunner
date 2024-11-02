@@ -35,10 +35,9 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
             if (ControllerManager.Instance.PlaceController.RestaurantIsOpen)
             {
                 Debug.Log("restaurantope" + PlayerPrefsManager.Instance.LoadPlayerTutorialStep());
-                if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
-                {
-                    RestaurantOpened?.Invoke();
-                }
+               
+                RestaurantOpened?.Invoke();
+
                 OpenCloseSequence = DOTween.Sequence();
                 OpenCloseSequence.Append(Parent.DORotate(new Vector3(-90, 0, 0), 0.2f,RotateMode.LocalAxisAdd)).
                     Append(Parent.DORotate(new Vector3(0, 180, 0), 0.2f,RotateMode.LocalAxisAdd)).
