@@ -52,12 +52,14 @@ public class OrderBox : MonoBehaviour,IInterectableObject
 
     public void InterectableObjectRun()
     {
-        
+        GetComponent<Rigidbody>().useGravity = false;
+        GetComponent<Rigidbody>().freezeRotation = true;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        GetComponent<BoxCollider>().enabled = false;
         transform.DOLocalMove(new Vector3(-0.1f,-0.2f,0f), 0.2f);
         transform.DOLocalRotate(new Vector3(0,0,-11f), 0.2f);
         transform.SetParent(CameraController.Instance.PlayerTakedObjectTransformParent);
-        GetComponent<Rigidbody>().useGravity = false;
-        GetComponent<BoxCollider>().enabled = false;
+        
         Player.Instance.TakedObject(gameObject,Enums.PlayerStateType.TakeBox);
         GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTake);
         GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTake);

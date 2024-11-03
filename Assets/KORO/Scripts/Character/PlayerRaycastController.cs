@@ -212,6 +212,7 @@ public class PlayerRaycastController : MonoBehaviour
         if (takenObject.TryGetComponent(out Rigidbody objectRigid))
         {
             objectRigid.useGravity = true;
+            objectRigid.freezeRotation = false;
         }
 
         if (takenObject.TryGetComponent(out BoxCollider objectCollider))
