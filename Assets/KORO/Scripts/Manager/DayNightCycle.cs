@@ -93,7 +93,7 @@ public class DayNightCycle : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
-            StartCycle();
+            //StartCycle();
         }
         
         if (!startCycle)

@@ -162,7 +162,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     private void AssignAIToChair(AIAreaController aiArea, Chair chair)
     {
         chair.isChairAvailable = false;
-        aiArea.transform.position = chair.transform.position;
+        aiArea.transform.position = chair.transform.position + Vector3.up*0.5f;
         aiArea.transform.rotation = chair.transform.rotation;
 
         var stateMachineController = aiArea.GetComponent<AIStateMachineController>();
