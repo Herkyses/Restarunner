@@ -119,16 +119,7 @@ using System.Collections.Generic;
         {
             FoodIngredients[i].IngredientValue = 5;
         }
-
-        /*for (int i = 0; i < PlayerPrefsManager.Instance.LoadMeals().meals.Count; i++)
-        {
-            var singleOwnerfoodGredient = Instantiate(SingleShopItemPf, _ownerFoodIngredients);
-            singleOwnerfoodGredient.CheckShopItem();
-            singleOwnerfoodGredient.transform.SetParent(_ownerFoodIngredients);
-            singleOwnerfoodGredient.InitializeFoodIngredient(PlayerPrefsManager.Instance.LoadMeals().meals[i].mealName,PlayerPrefsManager.Instance.LoadMeals().meals[i].ingredientQuantity);
-            OwnerFoodIngredients.Add(singleOwnerfoodGredient);
-
-        }*/
+        
     }
 
     public void UpdateFoodIngredient()
@@ -214,17 +205,7 @@ using System.Collections.Generic;
             OpeningShopItems[i].UpdateShopItem();
         }
     }
-    public void DecreeseIngredient(Enums.OrderType orderType)
-    {
-        for (int i = 0; i < FoodIngredients.Count; i++)
-        {
-            if (orderType == FoodIngredients[i].OrderType)
-            {
-                FoodIngredients[i].IngredientValue--;
-            }
-        }
-    }
-   
+
 
     public void BuyButtonPressed()
     {
