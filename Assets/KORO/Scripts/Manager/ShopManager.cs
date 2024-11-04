@@ -116,6 +116,10 @@ public class ShopManager : MonoBehaviour
 
     public void BuyShoppingBasketButtonPressed()
     {
+        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 1 && ControllerManager.Instance.PlacePanelController.ShopCardItems[0].count != 1)
+        {
+            return;
+        }
         var placepanelController = ControllerManager.Instance.PlacePanelController;
         if (_shoppingCardCost <= PlayerPrefsManager.Instance.LoadPlayerMoney())
         {
