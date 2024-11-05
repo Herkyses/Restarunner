@@ -20,6 +20,7 @@ public class GameEndPanelController : MonoBehaviour
 
     [SerializeField] private Transform _panelTransform;
     [SerializeField] private Transform _dayFinishedInfoPanel;
+    [SerializeField] private Tween _dayFinishedInfoPanelTween;
     
     private PlayerPrefsManager _playerPrefsManager;
 
@@ -56,7 +57,7 @@ public class GameEndPanelController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K) && DayNightCycle.Instance.IsNightBegun)
+        if (Input.GetKeyDown(KeyCode.Return) && DayNightCycle.Instance.IsNightBegun)
         {
             SetGameEndTexts();
         }
@@ -65,7 +66,12 @@ public class GameEndPanelController : MonoBehaviour
     private void DayEndInfoStarted()
     {
         _dayFinishedInfoPanel.gameObject.SetActive(true);
-        _dayFinishedInfoPanel.gameObject.GetComponent<Image>().DOFade(0f, 0.5f).SetLoops(-1);
+        if (_dayFinishedInfoPanelTween != null)
+        {
+            _dayFinishedInfoPanelTween.Kill();
+            _dayFinishedInfoPanelTween = null;
+        }
+        _dayFinishedInfoPanelTween = _dayFinishedInfoPanel.gameObject.GetComponent<Image>().DOFade(0f, 0.5f).SetLoops(-1);
     }
     public void SetGameEndTexts()
     {
@@ -73,6 +79,17 @@ public class GameEndPanelController : MonoBehaviour
         TotalCustomerText.text = ((_playerPrefsManager.LoadCustomerCount() - GameStartTotalCustomer)).ToString();
         GainedCash.text = (_playerPrefsManager.LoadPlayerMoney() - GameStartGainedCash).ToString();
         Popularity.text = (_playerPrefsManager.LoadPopularity() - GameStartPopularity).ToString();
+        DayNightCycle.Instance.StartCycle();
+    }
+    public void CloseButtonPressed()
+    {
+        if (_dayFinishedInfoPanelTween != null)
+        {
+            _dayFinishedInfoPanelTween.Kill();
+            _dayFinishedInfoPanelTween = null;
+        }
+        _dayFinishedInfoPanel.gameObject.SetActive(false);
+        _panelTransform.gameObject.SetActive(false);
     }
     // Update is called once per frame
     

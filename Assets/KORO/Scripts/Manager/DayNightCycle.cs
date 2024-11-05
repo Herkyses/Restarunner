@@ -122,12 +122,13 @@ public class DayNightCycle : MonoBehaviour
         
     }
     
-    private void StartCycle()
+    public void StartCycle()
     {
         timeOfDay = 0f;
         ApplyDayProfile();
         Debug.Log("Day cycle started.");
     }
+
     
     private void ResetTime()
     {
