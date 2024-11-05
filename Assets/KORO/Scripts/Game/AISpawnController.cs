@@ -72,8 +72,7 @@ public class AISpawnController : MonoBehaviour
         singleAi.transform.SetParent(transform);
         singleAi.AgentID = agentId;
 
-        var modelIndex = Random.Range(0, 7);
-        singleAi.SetModel(modelIndex);
+        singleAi.SetModel();
         AllAIList.Add(singleAi);
 
         if (friends != null)

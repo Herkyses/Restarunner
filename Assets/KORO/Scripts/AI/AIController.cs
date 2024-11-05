@@ -269,8 +269,9 @@ public class AIController : MonoBehaviour,IInterectableObject
         AIOwnerChair = chair;
         IsSitting = true;
     }
-    public void SetModel(int modelIndex)
+    public void SetModel()
     {
+        var modelIndex = Random.Range(0, CustomerData.CharacterModels.Count);
         AIModel.GetComponent<SkinnedMeshRenderer>().sharedMesh = CustomerData.CharacterModels[modelIndex];
     }
     public void Open()
