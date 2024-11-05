@@ -10,6 +10,7 @@ public class DayNightCycle : MonoBehaviour
 {
     public static DayNightCycle Instance;
     public static Action IsNightStarted;
+    public static Action IsDayEnded;
     
     [Header("Lighting Settings")]
     public Light directionalLight;
@@ -60,11 +61,12 @@ public class DayNightCycle : MonoBehaviour
     private void OnEnable()
     {
         OpenCloseController.RestaurantOpened += InitiliazeCycle;
+        IsDayEnded += StartCycle;
     }
     private void OnDisable()
     {
         OpenCloseController.RestaurantOpened -= InitiliazeCycle;
-
+        IsDayEnded -= StartCycle;
     }
 
     private void Awake()
@@ -122,7 +124,7 @@ public class DayNightCycle : MonoBehaviour
         
     }
     
-    public void StartCycle()
+    private void StartCycle()
     {
         timeOfDay = 0f;
         ApplyDayProfile();

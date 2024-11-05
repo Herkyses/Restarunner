@@ -82,7 +82,7 @@ public class GameEndPanelController : MonoBehaviour
         Time.timeScale = 0f;         
         Cursor.visible = true;       
         Cursor.lockState = CursorLockMode.None; 
-        DayNightCycle.Instance.StartCycle();
+        DayNightCycle.IsDayEnded?.Invoke();
     }
     public void CloseButtonPressed()
     {
