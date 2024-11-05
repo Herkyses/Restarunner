@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class AISpawnController : MonoBehaviour
@@ -152,6 +153,7 @@ public class AISpawnController : MonoBehaviour
 
     public void DayEnded()
     {
+        SceneManager.LoadScene("SampleScene");
         /*for (int i = 0; i < AllAIList.Count; i++)
         {
             PoolManager.Instance.ReturnToPoolForRagdollCustomerAI(AllAIList[i].gameObject);
