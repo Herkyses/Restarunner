@@ -65,7 +65,7 @@ public class GameEndPanelController : MonoBehaviour
     private void DayEndInfoStarted()
     {
         _dayFinishedInfoPanel.gameObject.SetActive(true);
-        _dayFinishedInfoPanel.gameObject.GetComponent<Image>().DOFade(0.5f, 1f).SetLoops(-1);
+        _dayFinishedInfoPanel.gameObject.GetComponent<Image>().DOFade(0f, 0.5f).SetLoops(-1);
     }
     public void SetGameEndTexts()
     {
