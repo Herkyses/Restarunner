@@ -79,10 +79,16 @@ public class GameEndPanelController : MonoBehaviour
         TotalCustomerText.text = ((_playerPrefsManager.LoadCustomerCount() - GameStartTotalCustomer)).ToString();
         GainedCash.text = (_playerPrefsManager.LoadPlayerMoney() - GameStartGainedCash).ToString();
         Popularity.text = (_playerPrefsManager.LoadPopularity() - GameStartPopularity).ToString();
+        Time.timeScale = 0f;         
+        Cursor.visible = true;       
+        Cursor.lockState = CursorLockMode.None; 
         DayNightCycle.Instance.StartCycle();
     }
     public void CloseButtonPressed()
     {
+        Time.timeScale = 1f;          
+        Cursor.visible = false;       
+        Cursor.lockState = CursorLockMode.Locked; 
         if (_dayFinishedInfoPanelTween != null)
         {
             _dayFinishedInfoPanelTween.Kill();
