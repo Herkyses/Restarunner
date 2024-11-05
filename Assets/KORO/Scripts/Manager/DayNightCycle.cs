@@ -9,6 +9,7 @@ using UnityEngine.Rendering.PostProcessing;
 public class DayNightCycle : MonoBehaviour
 {
     public static DayNightCycle Instance;
+    public static Action IsNightStarted;
     
     [Header("Lighting Settings")]
     public Light directionalLight;
@@ -186,6 +187,7 @@ public class DayNightCycle : MonoBehaviour
         UpdateMaterials(lightMaterialNight);
         startCycle = false;
         IsNightBegun = true;
+        IsNightStarted?.Invoke();
     }
     private IEnumerator TransitionPostProcessingProfile(PostProcessProfile targetProfile)
     {

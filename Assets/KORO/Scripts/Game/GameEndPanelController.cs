@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameEndPanelController : MonoBehaviour
 {
@@ -17,8 +19,20 @@ public class GameEndPanelController : MonoBehaviour
     public float GameStartPopularity;
 
     [SerializeField] private Transform _panelTransform;
+    [SerializeField] private Transform _dayFinishedInfoPanel;
     
     private PlayerPrefsManager _playerPrefsManager;
+
+    private void OnEnable()
+    {
+        DayNightCycle.IsNightStarted += DayEndInfoStarted;
+    }
+
+    private void OnDisable()
+    {
+        DayNightCycle.IsNightStarted -= DayEndInfoStarted;
+    }
+
     private void Awake()
     {
         if (Instance == null)
@@ -48,6 +62,11 @@ public class GameEndPanelController : MonoBehaviour
         }
     }
 
+    private void DayEndInfoStarted()
+    {
+        _dayFinishedInfoPanel.gameObject.SetActive(true);
+        _dayFinishedInfoPanel.gameObject.GetComponent<Image>().DOFade(0.5f, 1f).SetLoops(-1);
+    }
     public void SetGameEndTexts()
     {
         _panelTransform.gameObject.SetActive(true);
