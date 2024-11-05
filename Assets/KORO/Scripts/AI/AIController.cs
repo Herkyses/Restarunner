@@ -27,7 +27,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     
     
     public List<Transform> _targetPositions;
-    public List<GameObject> AIModels;
+    public GameObject AIModel;
     [FormerlySerializedAs("_playerAnimator")] public Animator AiAnimator;
     public AIAnimationController AIAnimationController;
     public AIStateMachineController AIStateMachineController;
@@ -46,6 +46,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     public Chair AIOwnerChair;
     public FoodTable AIOwnerFood;
     public OrderDataStruct FoodDataStruct;
+    public CustomerData CustomerData;
     
 
 
@@ -270,17 +271,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     }
     public void SetModel(int modelIndex)
     {
-        for (int i = 0; i < AIModels.Count; i++)
-        {
-            if (modelIndex == i)
-            {
-                AIModels[i].SetActive(true);
-            }
-            else
-            {
-                AIModels[i].SetActive(false);
-            }
-        }
+        AIModel.GetComponent<SkinnedMeshRenderer>().sharedMesh = CustomerData.CharacterModels[modelIndex];
     }
     public void Open()
     {
