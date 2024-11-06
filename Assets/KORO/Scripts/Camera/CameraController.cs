@@ -72,8 +72,8 @@ public class CameraController : MonoBehaviour
         CleanToolFirstRotation = new Vector3(localRotforClean.x, localRotforClean.y, localRotforClean.z);
         _canFollow = true;
         
-        GameSceneCanvas.Instance.CanMove = true;
-        GameSceneCanvas.IsCursorVisible?.Invoke(false);
+        /*GameSceneCanvas.Instance.CanMove = true;
+        GameSceneCanvas.IsCursorVisible?.Invoke(false);*/
         firstPlayerState = Enums.PlayerStateType.None;
 
     }

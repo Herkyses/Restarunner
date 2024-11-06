@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameEndPanelController : MonoBehaviour
@@ -49,6 +50,8 @@ public class GameEndPanelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameSceneCanvas.Instance.CanMove = true;
+        GameSceneCanvas.IsCursorVisible?.Invoke(false);
         _playerPrefsManager = PlayerPrefsManager.Instance;
         GameStartTotalCustomer = _playerPrefsManager.LoadCustomerCount();
         GameStartGainedCash = _playerPrefsManager.LoadPlayerMoney();
@@ -85,14 +88,22 @@ public class GameEndPanelController : MonoBehaviour
         Cursor.visible = true;       
         Cursor.lockState = CursorLockMode.None; 
         
-        DayNightCycle.IsDayEnded?.Invoke();
+        DayEnded();
 
+    }
+    public void DayEnded()
+    {
+        SceneManager.LoadScene("SampleScene");
+        Cursor.visible = true;       
+        Cursor.lockState = CursorLockMode.None;
+        
     }
     public void CloseButtonPressed()
     {
         //Time.timeScale = 1f;          
         Cursor.visible = false;       
         Cursor.lockState = CursorLockMode.Locked; 
+        GameSceneCanvas.Instance.CanMove = true;
         if (_dayFinishedInfoPanelTween != null)
         {
             _dayFinishedInfoPanelTween.Kill();

@@ -20,14 +20,12 @@ public class AISpawnController : MonoBehaviour
         OpenCloseController.RestaurantOpened += SetRestaurantStateForTutorial;
         GameSceneCanvas.UpdateAISpawnController += UpdateAiSpawner;
         PoolManager.IsPoolManagerInitiliazed += InitiliazeAIS;
-        DayNightCycle.IsDayEnded += DayEnded;
     }
     private void OnDisable()
     {
         OpenCloseController.RestaurantOpened -= SetRestaurantStateForTutorial;
         GameSceneCanvas.UpdateAISpawnController -= UpdateAiSpawner;
         PoolManager.IsPoolManagerInitiliazed -= InitiliazeAIS;
-        DayNightCycle.IsDayEnded -= DayEnded;
 
     }
 
@@ -151,15 +149,7 @@ public class AISpawnController : MonoBehaviour
         
     }
 
-    public void DayEnded()
-    {
-        SceneManager.LoadScene("SampleScene");
-        /*for (int i = 0; i < AllAIList.Count; i++)
-        {
-            PoolManager.Instance.ReturnToPoolForRagdollCustomerAI(AllAIList[i].gameObject);
-        }
-        InitiliazeAIS();*/
-    }
+    
     public void SetTransformToAI(AIController singleAi,bool isFriend = false)
     {
         
