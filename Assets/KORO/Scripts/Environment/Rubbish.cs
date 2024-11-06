@@ -25,6 +25,7 @@ public class Rubbish : MonoBehaviour,IInterectableObject
             }
             
             RubbishManager.Instance.CheckRubbishRate();
+            Debug.Log("vfxobject:" + GameVfxManager.Instance.vfxPools[1].vfxPrefab);
             GameVfxManager.Instance.SpawnVFX(GameVfxManager.Instance.vfxPools[1].vfxPrefab, transform.position, transform.rotation);
             RubbishManager.Instance.ReturnRubbish(gameObject);
             

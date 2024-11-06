@@ -81,6 +81,10 @@ public class RubbishManager : MonoBehaviour
         {
             ActivateRubbishes();
         }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            CreateRubbishFromAI();
+        }
     }
 
     public bool CheckRubbishLevel()

@@ -51,6 +51,7 @@ public class GameSceneCanvas : MonoBehaviour
         UpdateMoneyText(PlayerPrefsManager.Instance.LoadPlayerMoney());
         CustomerCountUpdate(PlayerPrefsManager.Instance.LoadCustomerCount());
         CheckShowInfoText  = true;
+        CanMove = true;
     }
 
     public void AddPopularity()
