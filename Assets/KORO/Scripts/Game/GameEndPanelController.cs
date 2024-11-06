@@ -82,7 +82,6 @@ public class GameEndPanelController : MonoBehaviour
         Time.timeScale = 0f;         
         Cursor.visible = true;       
         Cursor.lockState = CursorLockMode.None; 
-        DayNightCycle.IsDayEnded?.Invoke();
     }
     public void CloseButtonPressed()
     {
@@ -96,6 +95,8 @@ public class GameEndPanelController : MonoBehaviour
         }
         _dayFinishedInfoPanel.gameObject.SetActive(false);
         _panelTransform.gameObject.SetActive(false);
+        DayNightCycle.IsDayEnded?.Invoke();
+
     }
     // Update is called once per frame
     
