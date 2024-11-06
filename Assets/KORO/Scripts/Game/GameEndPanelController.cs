@@ -45,6 +45,7 @@ public class GameEndPanelController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        DontDestroyOnLoad(gameObject);
 
     }
     // Start is called before the first frame update
@@ -56,7 +57,6 @@ public class GameEndPanelController : MonoBehaviour
         GameStartTotalCustomer = _playerPrefsManager.LoadCustomerCount();
         GameStartGainedCash = _playerPrefsManager.LoadPlayerMoney();
         GameStartPopularity = _playerPrefsManager.LoadPopularity();
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()
@@ -83,7 +83,7 @@ public class GameEndPanelController : MonoBehaviour
         _dayFinishedInfoPanel.gameObject.SetActive(false);
         TotalCustomerText.text = ((_playerPrefsManager.LoadCustomerCount() - GameStartTotalCustomer)).ToString();
         GainedCash.text = (_playerPrefsManager.LoadPlayerMoney() - GameStartGainedCash).ToString();
-        Popularity.text = (_playerPrefsManager.LoadPopularity() - GameStartPopularity).ToString();
+        Popularity.text = ((_playerPrefsManager.LoadPopularity() - GameStartPopularity)*5f).ToString();
         //Time.timeScale = 0f;         
         Cursor.visible = true;       
         Cursor.lockState = CursorLockMode.None; 
@@ -110,7 +110,7 @@ public class GameEndPanelController : MonoBehaviour
             _dayFinishedInfoPanelTween = null;
         }
         _panelTransform.gameObject.SetActive(false);
-
+        Start();
     }
     // Update is called once per frame
     
