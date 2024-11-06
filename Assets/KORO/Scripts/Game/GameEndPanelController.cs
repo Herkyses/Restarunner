@@ -53,6 +53,7 @@ public class GameEndPanelController : MonoBehaviour
         GameStartTotalCustomer = _playerPrefsManager.LoadCustomerCount();
         GameStartGainedCash = _playerPrefsManager.LoadPlayerMoney();
         GameStartPopularity = _playerPrefsManager.LoadPopularity();
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()
@@ -76,16 +77,20 @@ public class GameEndPanelController : MonoBehaviour
     public void SetGameEndTexts()
     {
         _panelTransform.gameObject.SetActive(true);
+        _dayFinishedInfoPanel.gameObject.SetActive(false);
         TotalCustomerText.text = ((_playerPrefsManager.LoadCustomerCount() - GameStartTotalCustomer)).ToString();
         GainedCash.text = (_playerPrefsManager.LoadPlayerMoney() - GameStartGainedCash).ToString();
         Popularity.text = (_playerPrefsManager.LoadPopularity() - GameStartPopularity).ToString();
-        Time.timeScale = 0f;         
+        //Time.timeScale = 0f;         
         Cursor.visible = true;       
         Cursor.lockState = CursorLockMode.None; 
+        
+        DayNightCycle.IsDayEnded?.Invoke();
+
     }
     public void CloseButtonPressed()
     {
-        Time.timeScale = 1f;          
+        //Time.timeScale = 1f;          
         Cursor.visible = false;       
         Cursor.lockState = CursorLockMode.Locked; 
         if (_dayFinishedInfoPanelTween != null)
@@ -93,9 +98,7 @@ public class GameEndPanelController : MonoBehaviour
             _dayFinishedInfoPanelTween.Kill();
             _dayFinishedInfoPanelTween = null;
         }
-        _dayFinishedInfoPanel.gameObject.SetActive(false);
         _panelTransform.gameObject.SetActive(false);
-        DayNightCycle.IsDayEnded?.Invoke();
 
     }
     // Update is called once per frame
