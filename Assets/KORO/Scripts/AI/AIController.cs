@@ -154,7 +154,7 @@ public class AIController : MonoBehaviour,IInterectableObject
         {
             HandleBadGuyInteraction(aiRagdollController);
         }
-        if (_player.PlayerOrdersController.TakedFood && _player.PlayerOrdersController.Food.OrderType == FoodDataStruct.OrderType && IsSitting)
+        if (_player.PlayerOrdersController.TakedFood && _player.PlayerOrdersController.Food.OrderType == FoodDataStruct.OrderType && IsSitting && !IsTakedFood)
         {
             HandleFoodInteraction();
         }
