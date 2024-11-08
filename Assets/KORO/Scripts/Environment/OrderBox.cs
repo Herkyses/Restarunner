@@ -18,6 +18,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     [SerializeField] private ShopItemData _shopItemData;
     [SerializeField] private bool _isOrderBoxOpenAvailable;
     private Outline _outline;
+    private Rigidbody _rigidbody;
     public string[] InteractableButtons;
     public int groundLayer;
     // Start is called before the first frame update
@@ -32,6 +33,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
         textsButtonsBefore = new [] {"E"};
         textsForTake = new [] {"Drop","Open"};
         _outline = GetComponent<Outline>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     public ShopItemData GetShopItemData()
@@ -52,9 +54,9 @@ public class OrderBox : MonoBehaviour,IInterectableObject
 
     public void InterectableObjectRun()
     {
-        GetComponent<Rigidbody>().useGravity = false;
-        GetComponent<Rigidbody>().freezeRotation = true;
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        _rigidbody.useGravity = false;
+        _rigidbody.freezeRotation = true;
+        _rigidbody.velocity = Vector3.zero;
         GetComponent<BoxCollider>().enabled = false;
         transform.DOLocalMove(new Vector3(-0.1f,-0.2f,0f), 0.2f);
         transform.DOLocalRotate(new Vector3(0,0,-11f), 0.2f);
@@ -129,7 +131,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
 
     public void ResetOrderBox()
     {
-        GetComponent<Rigidbody>().useGravity = true;
+        _rigidbody.useGravity = true;
         GetComponent<BoxCollider>().enabled = true;
         _isOrderBoxOpenAvailable = true;
 
