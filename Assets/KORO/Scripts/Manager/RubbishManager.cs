@@ -64,6 +64,7 @@ public class RubbishManager : MonoBehaviour
     {
         _placeLevel = PlayerPrefsManager.Instance.LoadPlaceLevel();
         _rubbishLevel = PlayerPrefsManager.Instance.LoadPlaceRubbishLevel();
+        spawnPoints.Clear();
         var listdeneme = new List<Transform>();
         var counter = 0; 
         Debug.Log("level_rubbish " +_rubbishLevel);
@@ -85,11 +86,14 @@ public class RubbishManager : MonoBehaviour
                 counter++;
             }
         }
+
         availablePoints = new List<Transform>(spawnPoints);  // İlk pozisyonları kuyrukta başlat
         spawnedRubbish = new List<GameObject>();
         
         for (int i = counter; i < spawnPoints.Count; i++)
         {
+            Debug.Log("counter " +counter + "spawnpointscount" + spawnPoints.Count);
+
             SpawnRubbish();
             
         }
@@ -104,9 +108,10 @@ public class RubbishManager : MonoBehaviour
     {
         if (CheckRubbishLevel())
         {
-            Debug.Log("rubbishlevel: " + PlayerPrefsManager.Instance.LoadPlaceRubbishLevel());
             UpdateRubbishLevel();
-            ActivateRubbishes();
+            //ActivateRubbishes();
+            Debug.Log("rubbishlevel: " + PlayerPrefsManager.Instance.LoadPlaceRubbishLevel());
+
         }
     }
 
