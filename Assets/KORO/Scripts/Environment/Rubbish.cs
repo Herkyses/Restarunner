@@ -8,6 +8,9 @@ public class Rubbish : MonoBehaviour,IInterectableObject
     
     [SerializeField] private string[] texts = new [] {"Take OrderBox"};
     [SerializeField] private string[] textsButtons = new [] {"E"};
+    
+    public event Action OnDestroyed;
+
     private Outline _rubbishOutline;
     public void InterectableObjectRun()
     {
@@ -27,7 +30,8 @@ public class Rubbish : MonoBehaviour,IInterectableObject
             RubbishManager.Instance.CheckRubbishRate();
             Debug.Log("vfxobject:" + GameVfxManager.Instance.vfxPools[1].vfxPrefab);
             GameVfxManager.Instance.SpawnVFX(GameVfxManager.Instance.vfxPools[1].vfxPrefab, transform.position, transform.rotation);
-            RubbishManager.Instance.ReturnRubbish(gameObject);
+            OnDestroyed?.Invoke();
+            //RubbishManager.Instance.ReturnRubbish(gameObject);
             
 
         //}
