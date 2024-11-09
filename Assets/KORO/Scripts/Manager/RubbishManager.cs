@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,7 +17,8 @@ public class RubbishManager : MonoBehaviour
 
     public GameObject rubbishPrefab;               // Çöp prefabı
     public List<Transform> spawnPoints;            // Belirlenen başlangıç transformları
-    private Queue<Transform> availablePoints;      // Boş olan transformları takip eden kuyruk
+    //private Queue<Transform> availablePoints;
+    private List<Transform> availablePoints;// Boş olan transformları takip eden kuyruk
     private List<GameObject> spawnedRubbish;       // Oluşan çöpleri takip eden liste
     
     
@@ -83,9 +85,15 @@ public class RubbishManager : MonoBehaviour
                 counter++;
             }
         }
-        availablePoints = new Queue<Transform>(spawnPoints);  // İlk pozisyonları kuyrukta başlat
+        availablePoints = new List<Transform>(spawnPoints);  // İlk pozisyonları kuyrukta başlat
         spawnedRubbish = new List<GameObject>();
-        for (int i = counter; i < spawnPoints.Count; i++)
+        
+        /*for (int i = counter; i < spawnPoints.Count; i++)
+        {
+            SpawnRubbish();
+            
+        }*/
+        for (int i = 0; i < spawnPoints.Count; i++)
         {
             SpawnRubbish();
             
@@ -260,7 +268,7 @@ public class RubbishManager : MonoBehaviour
     {
         if (availablePoints.Count > 0)
         {
-            Transform spawnPoint = availablePoints.Dequeue();
+            /*Transform spawnPoint = availablePoints.Dequeue();
             GameObject rubbish = PoolManager.Instance.GetFromPoolForRubbish();
             rubbish.transform.position = spawnPoint.position;
             rubbish.transform.rotation = spawnPoint.rotation;
@@ -271,6 +279,26 @@ public class RubbishManager : MonoBehaviour
                 availablePoints.Enqueue(spawnPoint); 
                 spawnedRubbish.Remove(rubbish); 
                 ReturnRubbish(rubbish);
+            };*/
+            
+            
+            
+            int lastIndex = availablePoints.Count - 1;  // Son pozisyonun indexi
+            Transform spawnPoint = availablePoints[lastIndex];  // Listenin sonundaki pozisyonu al
+            availablePoints.RemoveAt(lastIndex);  // Son pozisyonu listeden çıkar
+            
+            GameObject rubbish = PoolManager.Instance.GetFromPoolForRubbish();  // Çöpü oluştur
+            rubbish.transform.position = spawnPoint.position;
+            rubbish.transform.rotation = spawnPoint.rotation;
+            rubbish.transform.SetParent(gameObject.transform);
+            spawnedRubbish.Add(rubbish);  // Çöpler listesine ekle
+
+            // Çöp temizlendiğinde pozisyonu tekrar kullanılabilir hale getir
+            rubbish.GetComponent<Rubbish>().OnDestroyed += () => {
+                availablePoints.Add(spawnPoint);  // Pozisyonu listeye geri ekle (sonda olacak)
+                spawnedRubbish.Remove(rubbish);   // Çöpler listesinden kaldır
+                ReturnRubbish(rubbish);
+
             };
         }
     }
