@@ -8,6 +8,7 @@ public class Rubbish : MonoBehaviour,IInterectableObject
     
     [SerializeField] private string[] texts = new [] {"Take OrderBox"};
     [SerializeField] private string[] textsButtons = new [] {"E"};
+    public bool ForRubbishLevel;
     
     public event Action OnDestroyed;
 
@@ -21,7 +22,7 @@ public class Rubbish : MonoBehaviour,IInterectableObject
             transform.SetParent(null);
             
             Player.Instance.StartClean();
-
+            
             if (PlayerPrefsManager.Instance.LoadPlaceRubbishLevel() == 0)
             {
                 RubbishManager.CheckedRubbishesForTutorial?.Invoke();

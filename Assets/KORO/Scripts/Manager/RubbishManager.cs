@@ -32,14 +32,14 @@ public class RubbishManager : MonoBehaviour
     {
         CheckedRubbishes += CheckRubbishRate;
         CheckedRubbishesForTutorial += CheckRubbishesForTutorial;
-        //ShopManager.UpgradedRestaurant += CreateRubbishesForUpgraded;
+        ShopManager.UpgradedRestaurant += Initiliaze;
     }
 
     private void OnDisable()
     {
         CheckedRubbishes -= CheckRubbishRate;
         CheckedRubbishesForTutorial -= CheckRubbishesForTutorial;
-        //ShopManager.UpgradedRestaurant -= CreateRubbishesForUpgraded;
+        ShopManager.UpgradedRestaurant -= Initiliaze;
     }
 
     public void CreateRubbishesForUpgraded()
@@ -88,15 +88,25 @@ public class RubbishManager : MonoBehaviour
         availablePoints = new List<Transform>(spawnPoints);  // İlk pozisyonları kuyrukta başlat
         spawnedRubbish = new List<GameObject>();
         
-        /*for (int i = counter; i < spawnPoints.Count; i++)
+        for (int i = counter; i < spawnPoints.Count; i++)
+        {
+            SpawnRubbish();
+            
+        }
+        /*for (int i = 0; i < spawnPoints.Count; i++)
         {
             SpawnRubbish();
             
         }*/
-        for (int i = 0; i < spawnPoints.Count; i++)
+    }
+
+    public void CleanStarted()
+    {
+        if (CheckRubbishLevel())
         {
-            SpawnRubbish();
-            
+            Debug.Log("rubbishlevel: " + PlayerPrefsManager.Instance.LoadPlaceRubbishLevel());
+            UpdateRubbishLevel();
+            ActivateRubbishes();
         }
     }
 
@@ -291,6 +301,7 @@ public class RubbishManager : MonoBehaviour
             rubbish.transform.position = spawnPoint.position;
             rubbish.transform.rotation = spawnPoint.rotation;
             rubbish.transform.SetParent(gameObject.transform);
+            rubbish.GetComponent<MeshFilter>().sharedMesh = GameDataManager.Instance.RubbishMeshes[Random.Range(0, GameDataManager.Instance.RubbishMeshes.Count)].sharedMesh;
             spawnedRubbish.Add(rubbish);  // Çöpler listesine ekle
 
             // Çöp temizlendiğinde pozisyonu tekrar kullanılabilir hale getir

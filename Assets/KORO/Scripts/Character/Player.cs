@@ -114,12 +114,7 @@ public class Player : MonoBehaviour
     public void StartClean()
     {
         CameraController.Instance.MoveCleanTool();
-        
-        if (RubbishManager.Instance.CheckRubbishLevel())
-        {
-            RubbishManager.Instance.UpdateRubbishLevel();
-            RubbishManager.Instance.ActivateRubbishes();
-        }        
+        RubbishManager.Instance.CleanStarted();
     }
 
     public void StartFight()
