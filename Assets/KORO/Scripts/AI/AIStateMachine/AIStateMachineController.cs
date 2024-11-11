@@ -45,6 +45,7 @@ public class AIStateMachineController : MonoBehaviour
 
     public Table OwnerTable;
     //public static Action<float> PayedOrderBill; 
+    public static Action CreateRubbish; 
     [SerializeField] private Animator _playerAnimator;
     [SerializeField] private bool _isAIChef;
     [SerializeField] private bool _isAIWaiter;
@@ -158,8 +159,8 @@ public class AIStateMachineController : MonoBehaviour
         AIController.AIOwnerFood.IsFoodFinished = true;
         AIController.IsFinishedFood = true;
         AIController.AIOwnerTable.RemoveOrder(AIController.FoodDataStruct);
-        RubbishManager.Instance.CreateRubbishFromAI();
-
+        //RubbishManager.Instance.CreateRubbishFromAI();
+        CreateRubbish?.Invoke();
         if (AIController.AIOwnerTable.CheckAllCustomerFinishedFood())
         {
             HandleTableCompletion();

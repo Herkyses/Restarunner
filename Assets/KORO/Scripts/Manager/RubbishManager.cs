@@ -33,6 +33,7 @@ public class RubbishManager : MonoBehaviour
         CheckedRubbishes += CheckRubbishRate;
         CheckedRubbishesForTutorial += CheckRubbishesForTutorial;
         ShopManager.UpgradedRestaurant += Initiliaze;
+        AIStateMachineController.CreateRubbish += SpawnRubbish;
     }
 
     private void OnDisable()
@@ -40,6 +41,8 @@ public class RubbishManager : MonoBehaviour
         CheckedRubbishes -= CheckRubbishRate;
         CheckedRubbishesForTutorial -= CheckRubbishesForTutorial;
         ShopManager.UpgradedRestaurant -= Initiliaze;
+        AIStateMachineController.CreateRubbish -= SpawnRubbish;
+
     }
 
     public void CreateRubbishesForUpgraded()
@@ -148,10 +151,7 @@ public class RubbishManager : MonoBehaviour
         {
             ActivateRubbishes();
         }
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            CreateRubbishFromAI();
-        }
+        
         if (Input.GetKeyDown(KeyCode.B))
         {
             SpawnRubbish();
@@ -247,57 +247,12 @@ public class RubbishManager : MonoBehaviour
             TutorialPanelController.Instance.SetRubbishCount();
         }
     }
-
-    public void CreateRubbishFromAI()
-    {
-        var playerprefsManager = PlayerPrefsManager.Instance;
-        var transformList = new List<GameObject>();
-        for (int i = 0; i <= playerprefsManager.LoadPlaceLevel(); i++)
-        {
-            var rubbishParents = _rubbishLevelsParents[i].GetComponentsInChildren<SingleRubbishParent>();
-            for (int j = 0; j < rubbishParents.Length; j++)
-            {
-                if (rubbishParents[i].enabled)
-                {
-                    if (rubbishParents[j].transform.GetComponentsInChildren<Rubbish>().Length > 0)
-                    {
-                        continue;
-                    }
-                    
-                    transformList.Add(rubbishParents[j].gameObject);
-                }
-                
-            }
-        }
-
-        var randomIndex = Random.Range(0, transformList.Count);
-        var rubbish = PoolManager.Instance.GetFromPoolForRubbish();
-        var rubbishPos = transformList[randomIndex].transform.position;
-        rubbish.transform.position = new Vector3(rubbishPos.x,0.32f,rubbishPos.z);
-        rubbish.transform.SetParent(transform);
-        CheckRubbishRate();
-        /*var rubbish = PoolManager.Instance.GetFromPoolForRubbish();
-        rubbish.transform.position = _rubbishLevelsParents[0].position;*/
-    }
+    
     public void SpawnRubbish()
     {
         if (availablePoints.Count > 0)
         {
-            /*Transform spawnPoint = availablePoints.Dequeue();
-            GameObject rubbish = PoolManager.Instance.GetFromPoolForRubbish();
-            rubbish.transform.position = spawnPoint.position;
-            rubbish.transform.rotation = spawnPoint.rotation;
-            rubbish.transform.SetParent(gameObject.transform);
-            spawnedRubbish.Add(rubbish);  // Çöpler listesine ekle
 
-            rubbish.GetComponent<Rubbish>().OnDestroyed += () => {
-                availablePoints.Enqueue(spawnPoint); 
-                spawnedRubbish.Remove(rubbish); 
-                ReturnRubbish(rubbish);
-            };*/
-            
-            
-            
             int lastIndex = availablePoints.Count - 1;  // Son pozisyonun indexi
             Transform spawnPoint = availablePoints[lastIndex];  // Listenin sonundaki pozisyonu al
             availablePoints.RemoveAt(lastIndex);  // Son pozisyonu listeden çıkar
