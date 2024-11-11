@@ -147,10 +147,6 @@ public class RubbishManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            ActivateRubbishes();
-        }
         
         if (Input.GetKeyDown(KeyCode.B))
         {
@@ -185,41 +181,7 @@ public class RubbishManager : MonoBehaviour
         return count;
         //return transform.childCount;
     }
-
-    public void ActivateRubbishes()
-    {
-        var playerprefsManager = PlayerPrefsManager.Instance;
-        
-        for (int i = 0; i <= playerprefsManager.LoadPlaceLevel(); i++)
-        {
-            _rubbishLevelsParents[i].gameObject.SetActive(true);
-        }
-
-
-        for (int i = playerprefsManager.LoadPlaceRubbishLevel(); i <= playerprefsManager.LoadPlaceLevel(); i++)
-        {
-            var rubbishParents = _rubbishLevelsParents[i].GetComponentsInChildren<SingleRubbishParent>();
-            for (int j = 0; j < rubbishParents.Length; j++)
-            {
-                if (rubbishParents[i].enabled)
-                {
-                    if (rubbishParents[j].transform.GetComponentsInChildren<Rubbish>().Length > 0)
-                    {
-                        continue;
-                    }
-                    var rubbish = PoolManager.Instance.GetFromPoolForRubbish();
-                    //rubbish.transform.position = rubbishChilds[i].position;
-                    rubbish.transform.position = new Vector3(rubbishParents[j].transform.position.x,0.32f,rubbishParents[j].transform.position.z);
-                    rubbish.GetComponent<MeshFilter>().sharedMesh = GameDataManager.Instance.RubbishMeshes[Random.Range(0, GameDataManager.Instance.RubbishMeshes.Count)].sharedMesh;
-                    rubbish.transform.SetParent(rubbishParents[j].transform);
-                }
-                
-            }
-        }
-        
-        CheckRubbishRate();
-        
-    }
+    
 
     public void CheckRubbishRate()
     {
