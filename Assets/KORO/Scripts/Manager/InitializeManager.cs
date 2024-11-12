@@ -55,6 +55,7 @@ public class InitializeManager : MonoBehaviour
         RubbishManager.Instance.Initiliaze();
         IngredientShelvesController.Instance.Initiliaze();
         PopularityManager.Instance.Initiliaze();
+        RestaurantCanvasManager.Instance.Initiliaze();
         TutorialManager.Instance.Initiliaze();
 
     }

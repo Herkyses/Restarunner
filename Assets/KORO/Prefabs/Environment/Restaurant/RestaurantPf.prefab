@@ -6483,6 +6483,7 @@ GameObject:
   - component: {fileID: 4066065060729440428}
   - component: {fileID: 1442197635170135157}
   - component: {fileID: 8648329429000621263}
+  - component: {fileID: 8481880268823306290}
   m_Layer: 18
   m_Name: RestaurantCanvas
   m_TagString: Untagged
@@ -6573,6 +6574,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8481880268823306290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512486070056845255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 988fcffcf009e054187596d67bc6a7b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _foodsParent: {fileID: 3978999298501558468}
+  _uiSingleFoodPf: {fileID: 1295011332016359386, guid: 7db47167be7c06640aac7dd812631a7d, type: 3}
 --- !u!1 &1518611376901557487
 GameObject:
   m_ObjectHideFlags: 0
