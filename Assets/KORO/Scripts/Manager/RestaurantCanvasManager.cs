@@ -10,6 +10,7 @@ public class RestaurantCanvasManager : MonoBehaviour
     
     [SerializeField] private Transform _foodsParent;
     [SerializeField] private UISingleFood _uiSingleFoodPf;
+    [SerializeField] private List<UISingleFood> _uiSingleFoodList;
 
 
     private void Awake()
@@ -32,6 +33,7 @@ public class RestaurantCanvasManager : MonoBehaviour
 
     private void ClearChilds()
     {
+        _uiSingleFoodList.Clear();
         Utilities.DeleteTransformchilds(_foodsParent);
     }
 
@@ -41,7 +43,9 @@ public class RestaurantCanvasManager : MonoBehaviour
 
         for (int i = 0; i < foodDatas.Count; i++)
         {
-            Instantiate(_uiSingleFoodPf, _foodsParent);
+            var uiSingle = Instantiate(_uiSingleFoodPf, _foodsParent);
+            uiSingle.Initiliaze(foodDatas[i]);
+            _uiSingleFoodList.Add(uiSingle);
         }
     }
 }
