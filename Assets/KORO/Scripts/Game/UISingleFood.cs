@@ -24,7 +24,7 @@ public class UISingleFood : MonoBehaviour
         for (int i = 0; i < types.Count; i++)
         {
             var ingredient = Instantiate(_uiSingleFoodIngredientPf, _uiOrderImageBg.transform);
-            ingredient.Initiliaze(GameDataManager.Instance.GetFoodIngredientIcon(types[i]));
+            ingredient.Initiliaze(types[i]);
         }
     }
 }
