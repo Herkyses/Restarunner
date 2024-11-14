@@ -391,7 +391,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     {
         if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 2)
         {
-            PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(4);
+            PlayerPrefsManager.Instance.SavePlayerTutorialStep(4);
             TutorialManager.Instance.Initiliaze();
         }
     }

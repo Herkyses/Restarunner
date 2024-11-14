@@ -136,7 +136,7 @@ public class RubbishManager : MonoBehaviour
             Debug.Log("rubbishlev" + _rubbishLevel);
 
             //var tutorialStep = PlayerPrefsManager.Instance.LoadPlayerTutorialStep();
-            PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(1);
+            PlayerPrefsManager.Instance.SavePlayerTutorialStep(1);
             TutorialPanelController.Instance.ActivateRemainingText(false);
             TutorialManager.Instance.Initiliaze();
 

@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     {
         if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == currentStep)
         {
-            PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(nextStep);
+            PlayerPrefsManager.Instance.SavePlayerTutorialStep(nextStep);
             TutorialManager.Instance.SetTutorialInfo(nextStep);
         }
     }

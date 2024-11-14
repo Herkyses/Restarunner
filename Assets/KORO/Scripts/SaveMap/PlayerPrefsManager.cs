@@ -23,104 +23,72 @@ public class PlayerPrefsManager : MonoBehaviour
         }
         
     }
-    public void SavePlayerPlayerTutorialStep(int step)
+    private void SaveInt(string key, int value)
     {
-        PlayerPrefs.SetInt("PlayerTutorialStep", step);
+        PlayerPrefs.SetInt(key, value);
         PlayerPrefs.Save();
-        //TutorialStepUpdated?.Invoke();
     }
-    public int LoadDecorationCount()
+
+    private int LoadInt(string key, int defaultValue = 0)
     {
-        return PlayerPrefs.GetInt("DecorationCount", 0); 
+        return PlayerPrefs.GetInt(key, defaultValue);
     }
-    public void SaveDecorationCount(int decorationCount)
+
+    private void SaveFloat(string key, float value)
     {
-        PlayerPrefs.SetInt("DecorationCount", decorationCount);
+        PlayerPrefs.SetFloat(key, value);
         PlayerPrefs.Save();
-        //TutorialStepUpdated?.Invoke();
     }
-    public int LoadPlayerTutorialStep()
+
+    private float LoadFloat(string key, float defaultValue = 0f)
     {
-        return PlayerPrefs.GetInt("PlayerTutorialStep", 0); 
+        return PlayerPrefs.GetFloat(key, defaultValue);
+    }
+
+    private void SaveString(string key, string value)
+    {
+        PlayerPrefs.SetString(key, value);
+        PlayerPrefs.Save();
+    }
+
+    private string LoadString(string key, string defaultValue = "")
+    {
+        return PlayerPrefs.GetString(key, defaultValue);
     }
     
-    public void SavePlayerMoney(float money)
-    {
-        PlayerPrefs.SetFloat("PlayerMoney", money);
-        PlayerPrefs.Save();
-    }
-    public float LoadPlayerMoney()
-    {
-        return PlayerPrefs.GetFloat("PlayerMoney", 50); 
-    }
-    public void SavePlaceLevel(int level)
-    {
-        PlayerPrefs.SetInt("PlaceLevel", level);
-        PlayerPrefs.Save();
-    }
-    public int LoadPlaceLevel()
-    {
-        return PlayerPrefs.GetInt("PlaceLevel", 0); 
-    }
-    public void SaveCustomerCount(int customerCount)
-    {
-        PlayerPrefs.SetInt("CustomerCount", customerCount);
-        PlayerPrefs.Save();
-    }
-    public int LoadCustomerCount()
-    {
-        return PlayerPrefs.GetInt("CustomerCount", 0); 
-    }
-    public void SaveMeals(MealsList mealsList)
-    {
-        string jsonData = JsonUtility.ToJson(mealsList);
-        PlayerPrefs.SetString("MealsData", jsonData);
-        PlayerPrefs.Save();
-    }
+    public void SavePlayerTutorialStep(int step) => SaveInt("PlayerTutorialStep", step);
+    public int LoadPlayerTutorialStep() => LoadInt("PlayerTutorialStep");
+    public void SaveDecorationCount(int decorationCount) => SaveInt("DecorationCount", decorationCount);
+    public int LoadDecorationCount() => LoadInt("DecorationCount");
+    public void SavePlayerMoney(float money) => SaveFloat("PlayerMoney", money);
+    public float LoadPlayerMoney() => LoadFloat("PlayerMoney", 50);
+    public void SavePlaceLevel(int level) => SaveInt("PlaceLevel", level);
+    public int LoadPlaceLevel() => LoadInt("PlaceLevel");
+    public void SaveCustomerCount(int customerCount) => SaveInt("CustomerCount", customerCount);
+    public int LoadCustomerCount() => LoadInt("CustomerCount");
+    
     public void SaveMealIngredients(MealIngredientsList mealIngredientsList)
     {
         string jsonData = JsonUtility.ToJson(mealIngredientsList);
-        PlayerPrefs.SetString("MealIngredientsData", jsonData);
-        PlayerPrefs.Save();
+        SaveString("MealIngredientsData", jsonData);
+    }
+
+    public MealIngredientsList LoadMealIngredients()
+    {
+        string jsonData = LoadString("MealIngredientsData");
+        return !string.IsNullOrEmpty(jsonData) ? JsonUtility.FromJson<MealIngredientsList>(jsonData) : null;
     }
 
     public MealsList LoadMeals()
     {
-        if (PlayerPrefs.HasKey("MealsData"))
-        {
-            string jsonData = PlayerPrefs.GetString("MealsData");
-            MealsList mealsList = JsonUtility.FromJson<MealsList>(jsonData);
-            return mealsList;
-        }
-        return null;
-    }
-    public MealIngredientsList LoadMealIngredients()
-    {
-        if (PlayerPrefs.HasKey("MealIngredientsData"))
-        {
-            string jsonData = PlayerPrefs.GetString("MealIngredientsData");
-            MealIngredientsList mealsList = JsonUtility.FromJson<MealIngredientsList>(jsonData);
-            return mealsList;
-        }
-        return null;
+        string jsonData = LoadString("MealsData");
+        return !string.IsNullOrEmpty(jsonData) ? JsonUtility.FromJson<MealsList>(jsonData) : null;
     }
     
-    public void SavePlaceRubbishLevel(int level)
-    {
-        PlayerPrefs.SetInt("PlaceRubbishLevel", level);
-        PlayerPrefs.Save();
-    }
-    public int LoadPlaceRubbishLevel()
-    {
-        return PlayerPrefs.GetInt("PlaceRubbishLevel", 0);
-    }
-    public void SavePopularity(float popularity)
-    {
-        PlayerPrefs.SetFloat("Popularity", popularity);
-        PlayerPrefs.Save();
-    }
-    public float LoadPopularity()
-    {
-        return PlayerPrefs.GetFloat("Popularity", 0);
-    }
+    public void SavePlaceRubbishLevel(int level) => SaveInt("PlaceRubbishLevel", level);
+    public int LoadPlaceRubbishLevel() => LoadInt("PlaceRubbishLevel");
+    public void SavePopularity(float popularity) => SaveFloat("Popularity", popularity);
+    public float LoadPopularity() => LoadFloat("Popularity");
+    
+    
 }

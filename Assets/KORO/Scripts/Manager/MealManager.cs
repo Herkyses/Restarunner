@@ -63,28 +63,7 @@ public class MealManager : MonoBehaviour
         }
     }
 
-    public void MakeMeal(Enums.OrderType mealName,int value)
-    {
-        Meal meal = mealsList.meals.Find(m => m.mealName == mealName);
-        if (meal != null )
-        {
-            if (value < 0 && meal.ingredientQuantity > 0)
-            {
-                meal.ingredientQuantity += value;
-            }
-            else if(value > 0)
-            {
-                meal.ingredientQuantity += value;
-            }
-            PlayerPrefsManager.Instance.SaveMeals(mealsList);
-            Debug.Log("Made " + mealName + ". Remaining quantity: " + meal.ingredientQuantity);
-        }
-        else
-        {
-            Debug.Log("Cannot make " + mealName + ". Not enough ingredients.");
-        }
-        UpdateFoodIngredient?.Invoke();
-    }
+    
     public void MakeMealIngredient(Enums.OrderType orderType,int value)
     {
         var foodData = GameDataManager.Instance.GetFoodData(orderType);

@@ -103,7 +103,7 @@ public class ShopManager : MonoBehaviour
         MapManager.Instance.SaveMap();
         if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 1)
         {
-            PlayerPrefsManager.Instance.SavePlayerPlayerTutorialStep(TutorialStepPlaceUpgrade);
+            PlayerPrefsManager.Instance.SavePlayerTutorialStep(TutorialStepPlaceUpgrade);
             TutorialManager.Instance.Initiliaze();
         }
         
