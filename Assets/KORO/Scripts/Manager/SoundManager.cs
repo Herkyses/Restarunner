@@ -35,6 +35,10 @@ public class SoundManager : MonoBehaviour
     // Boş bir AudioSource bulup sesi çalma işlemi
     public void PlaySound(int clipIndex, float volume = 1f)
     {
+        if (volume == 0)
+        {
+            return;
+        }
         if (clipIndex < 0 || clipIndex >= audioClips.Count)
         {
             Debug.LogWarning("Geçersiz ses indeksi!");
