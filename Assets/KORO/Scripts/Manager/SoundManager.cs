@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,8 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
         // AudioSource listesi oluşturuluyor ve statik AudioSource nesneleri ekleniyor
+        DontDestroyOnLoad(this.gameObject);
+
         audioSources = new List<AudioSource>();
         for (int i = 0; i < maxAudioSources; i++)
         {
@@ -72,5 +75,13 @@ public class SoundManager : MonoBehaviour
     {
         yield return new WaitWhile(() => source.isPlaying);
         source.clip = null; // Ses tamamlandığında clip temizlenir
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            PlaySound(0,1f);
+        }
     }
 }
