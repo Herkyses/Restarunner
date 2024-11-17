@@ -31,6 +31,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
     
     public static Action<WaiterController> OnFoodCreated;
     public static Action<OrderData> OnFoodIngredientDecreased;
+    public static Action OnFoodIngredientUpdated;
     
     private List<FoodTable> createdFoodTables = new List<FoodTable>();
     

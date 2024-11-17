@@ -14,19 +14,25 @@ public class UISingleFoodIngredient : MonoBehaviour
     private void OnEnable()
     {
         ChefController.OnFoodIngredientDecreased += UpdateIngredient;
+        ChefController.OnFoodIngredientUpdated += UpdateIngredientInfo;
     }
     private void OnDisable()
     {
         ChefController.OnFoodIngredientDecreased -= UpdateIngredient;
+        ChefController.OnFoodIngredientUpdated -= UpdateIngredientInfo;
     }
     public void Initiliaze(Enums.FoodIngredientType ingredientType)
     {
         _uiIngredientType = ingredientType;
-        _uiIngredientImage.sprite = GameDataManager.Instance.GetFoodIngredientIcon(_uiIngredientType);
-        _uiIngredientText.text = MealManager.Instance.GetFoodIngredient(_uiIngredientType).ToString();
+        UpdateIngredientInfo();
     }
 
     public void UpdateIngredient(OrderData orderData)
+    {
+        UpdateIngredientInfo();
+    }
+
+    public void UpdateIngredientInfo()
     {
         _uiIngredientImage.sprite = GameDataManager.Instance.GetFoodIngredientIcon(_uiIngredientType);
         _uiIngredientText.text = MealManager.Instance.GetFoodIngredient(_uiIngredientType).ToString();

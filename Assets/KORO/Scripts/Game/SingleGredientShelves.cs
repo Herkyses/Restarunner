@@ -103,6 +103,7 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
         {
             ChefController.Instance.SetIsCreating(true);
         }
+        ChefController.OnFoodIngredientUpdated?.Invoke();
         _ingredientCount.text = MealManager.Instance.GetFoodIngredient(shelveIngredientType).ToString();
 
         
