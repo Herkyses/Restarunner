@@ -115,6 +115,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
         {
             CreateFood();
             foodCreationDuration = 0f;
+            chefCreateFoodProgressIcon.sprite = null;
             chefCreateFoodProgressIcon.gameObject.SetActive(false);
             chefOrderData.Remove(currentFoodData);
         }
