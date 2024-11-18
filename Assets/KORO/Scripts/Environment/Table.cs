@@ -326,6 +326,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         _gameSceneCanvas.MoveObjectInfo(textsForTable, textsButtonsForTable, Enums.PlayerStateType.MoveTable);
         TableSet.GetComponent<BoxCollider>().enabled = false;
         ControllerManager.Instance.Tablecontroller.EnableTableSetCollider(true);
+        GetComponent<BoxCollider>().isTrigger = true;
     }
     public void SetTablePosition()
     {
@@ -349,7 +350,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             TableSet.CheckGround();
             if (IsTableSetTransform)
             {
-                FinalizeTablePlacement();
+                FinalizeTablePlacement(); 
             }
         }
     }
@@ -360,6 +361,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         tableController.EnableTableSetCollider(false);
         IsTableSetTransform = false;
         IsTableMove = false;
+        GetComponent<BoxCollider>().isTrigger = false;
         GameManager.Instance.HandleTablePlacementCompletion();
         HandleTutorialProgression();
     }
