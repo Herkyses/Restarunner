@@ -84,9 +84,12 @@ public class AIController : MonoBehaviour,IInterectableObject
     {
         
         _agent.destination = targetPosition;
+        _agent.enabled = true;
+
     }
     public void StartTargetDestination(Vector3 targetPosition)
     {
+        _agent.enabled = true;
         _agent.speed = 1f;
         SetDestinationTarget(targetPosition);
         float randomTime = Random.Range(0f, 1f);
@@ -98,6 +101,8 @@ public class AIController : MonoBehaviour,IInterectableObject
     {
         _outline.enabled = true;
         _outline.OutlineColor = Color.red;
+        _agent.enabled = true;
+
         _agent.speed = 3.5f;
         SetDestinationTarget(targetPosition);
         float randomTime = Random.Range(0f, 1f);

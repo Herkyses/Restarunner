@@ -85,7 +85,7 @@ public class GameVfxManager : MonoBehaviour
             Debug.LogWarning("VFX prefab is not in the pool.");
             return;
         }
-
+        vfxToReturn.transform.SetParent(transform);
         vfxToReturn.SetActive(false);
         vfxPoolDictionary[vfxPrefab].vfxQueue.Enqueue(vfxToReturn);
     }
