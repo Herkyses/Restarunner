@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class SingleCrate : MonoBehaviour,IInterectableObject
 {
-    [SerializeField] private Transform _ingredientTransform;
-    [SerializeField] private int _ingredientColumnCount;
-    [SerializeField] private int _ingredientRowCount;
     [SerializeField] private List<GameObject> _ingredientList;
     [SerializeField] private List<Transform> _ingredientTransformsList;
     [SerializeField] private ShopItemData _shopItemData;
