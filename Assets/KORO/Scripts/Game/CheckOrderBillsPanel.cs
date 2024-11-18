@@ -13,6 +13,7 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
     [SerializeField] private Transform _billParent;
     [SerializeField] private Transform _numberButtonParent;
     [SerializeField] private SingleBill _singleBill;
+    private GameSceneCanvas _gameSceneCanvas;
     
     public TMP_InputField billInputField; // Fatura değerini gösterecek alan
     public Button[] numberButtons;        // 0-9 arası sayı butonları
@@ -28,14 +29,10 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
    
     private void Start()
     {
-        foreach (Button button in numberButtons)
-        {
-            //button.onClick.AddListener(() => OnNumberButtonClick(button.GetComponentInChildren<TMP_Text>().text));
-        }
+        _gameSceneCanvas = GameSceneCanvas.Instance;
         billInputField.text = String.Empty;
         ControllerManager.Instance.RegisterPanel("CheckOrderBillsPanel", this);
-        //clearButton.onClick.AddListener(ClearInput);
-        //confirmButton.onClick.AddListener(ConfirmBill);
+       
     }
     // Sayı butonuna tıklandığında çağrılacak fonksiyon
     public void OnNumberButtonClick(string number)
@@ -55,22 +52,7 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
     {
         billInputField.text = "";
     }
-
-    // Fatura doğrulama
-    void ConfirmBill()
-    {
-        if (ValidateBill(billInputField.text))
-        {
-            Debug.Log("Fatura kabul edildi: " + billInputField.text);
-            // İşlemleri burada yapabilirsiniz
-        }
-        else
-        {
-            Debug.Log("Geçersiz fatura değeri!");
-            // Kullanıcıya hata mesajı gösterebilirsiniz
-        }
-    }
-    // Son karakteri silme (backspace)
+    
     public void Backspace()
     {
         if (billInputField.text.Length > 0)
@@ -79,16 +61,7 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
             billInputField.text = billInputField.text.Substring(0, billInputField.text.Length - 1);
         }
     }
-
-    // Fatura değerinin doğru olup olmadığını kontrol edin (Örneğin pozitif sayı mı)
-    bool ValidateBill(string billValue)
-    {
-        if (int.TryParse(billValue, out int result) && result > 0)
-        {
-            return true;
-        }
-        return false;
-    }
+    
     public int ValidateBillValue(string billValue)
     {
         if (int.TryParse(billValue, out int result) && result > 0)
@@ -167,13 +140,13 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
     
     public void ActiveBillsPanel()
     {
-        GameSceneCanvas.Instance.CanMove = false;
+        _gameSceneCanvas.CanMove = false;
         GameSceneCanvas.IsCursorVisible?.Invoke(true);
         _panel.gameObject.SetActive(true);
     }
     public void DeActiveBillsPanel()
     {
-        GameSceneCanvas.Instance.CanMove = true;
+        _gameSceneCanvas.CanMove = true;
         GameSceneCanvas.IsCursorVisible?.Invoke(false);
         _panel.gameObject.SetActive(false);
 
