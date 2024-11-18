@@ -81,6 +81,10 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
             
             //gameObject.layer = LayerMask.NameToLayer("Ground");
             GetComponent<BoxCollider>().enabled = false;
+            if (!_gameSceneCanvas)
+            {
+                _gameSceneCanvas = GameSceneCanvas.Instance;
+            }
             _gameSceneCanvas.MoveObjectInfo(textsForMove,textsButtonsForMove,Enums.PlayerStateType.DecorationMove);
             isDecorationMove = true;
             
@@ -111,7 +115,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
         {
             
             isDecorationMove = false;
-            Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
+            Player.Instance.TakedObjectNull();
             _gameSceneCanvas.CheckShowInfoText = true;
             MapManager.Instance.SaveMap();
             gameObject.transform.SetParent(DecorationController.Instance.transform);
