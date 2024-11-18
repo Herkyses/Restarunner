@@ -185,10 +185,7 @@ public class AIController : MonoBehaviour,IInterectableObject
         AIOwnerFood = _player.PlayerOrdersController.FoodTable;
         AIOwnerFood.FoodGivedCustomer();
         AssignFoodToAI(AIOwnerChair);
-        _player.PlayerOrdersController.TakedFood = false;
-        _player.PlayerStateType = Enums.PlayerStateType.Free;
-        _player.PlayerOrdersController.ResetOrder();
-        _player.DropTakenObject();
+        AISpawnController.AITakedFood?.Invoke();
         AIStateMachineController.AIChangeState(AIStateMachineController.AIEatState);
         HandleTutorialStep();
     }

@@ -49,6 +49,10 @@ public class SingleCrate : MonoBehaviour,IInterectableObject
         return;    
     }
 
+    public int GetIngredientListCount()
+    {
+        return _ingredientList.Count;
+    }
     public Outline GetOutlineComponent()
     {
         return null;

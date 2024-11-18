@@ -35,11 +35,14 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         GameManager.PayedOrderBill += GainMoney;
+        AISpawnController.AITakedFood += AITakedTheFood;
     }
 
     private void OnDisable()
     {
         GameManager.PayedOrderBill -= GainMoney;
+        AISpawnController.AITakedFood -= AITakedTheFood;
+
     }
     
     void Start()
@@ -48,6 +51,14 @@ public class Player : MonoBehaviour
         gameObject.TryGetComponent(out PlayerOrdersController);
         PlayerMoney = PlayerPrefsManager.Instance.LoadPlayerMoney();
         CameraController.Instance.PlayerTransform = transform;
+    }
+
+    public void AITakedTheFood()
+    {
+        TakedObjectNull();
+        PlayerOrdersController.TakedFood = false;
+        PlayerOrdersController.ResetOrder();
+        DropTakenObject();
     }
 
     public void ActivatedRaycast(bool active)
