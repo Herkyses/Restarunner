@@ -84,6 +84,10 @@ public class Player : MonoBehaviour
             if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() > 0)
             {
                 ControllerManager.Instance.PlacePanelController.OpenPlacePanel();
+                if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 1)
+                {
+                    TutorialManager.Instance.SetTutorialInfo(2);
+                }
             }
         }
         if (Input.GetKeyDown(KeyCode.O))

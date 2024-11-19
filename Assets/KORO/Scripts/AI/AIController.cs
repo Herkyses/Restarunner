@@ -222,7 +222,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     {
         if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
         {
-            TutorialManager.Instance.SetTutorialInfo(9);
+            TutorialManager.Instance.SetTutorialInfo(10);
         }
     }
 

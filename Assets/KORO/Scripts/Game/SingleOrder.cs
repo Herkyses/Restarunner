@@ -40,7 +40,7 @@ public class SingleOrder : MonoBehaviour
         if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
         {
             ControllerManager.Instance._orderPanelController.PlayerOrderInventory(this);
-            TutorialManager.Instance.SetTutorialInfo(7);
+            TutorialManager.Instance.SetTutorialInfo(8);
             return;
         }
         ControllerManager.Instance._orderPanelController.PlayerOrderInventory(this);

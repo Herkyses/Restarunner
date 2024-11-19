@@ -79,7 +79,7 @@ public class OrderPanelController : MonoBehaviour
         CreateOrders(_orderList);
         if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
         {
-            TutorialManager.Instance.SetTutorialInfo(6);
+            TutorialManager.Instance.SetTutorialInfo(7);
         }
     }
     public void CreateSelectedOrders()

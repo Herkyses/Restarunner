@@ -21,7 +21,7 @@ public class ShopManager : MonoBehaviour
     public static Action<ShopItemData> UpdateShopBasket;
     public static Action UpgradedRestaurant;
     
-    private const int TutorialStepPlaceUpgrade = 2;
+    private const int TutorialStepPlaceUpgrade = 3;
 
     public float _shoppingCardCost;
 

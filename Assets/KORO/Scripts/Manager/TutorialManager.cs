@@ -42,6 +42,7 @@ public class TutorialManager : MonoBehaviour
         {
             new TutorialStep("To clean the restaurant, pick up the broom. <color=green>Press 'C'</color>  to pick up the broom.", true, true, () => TutorialPanelController.Instance.SetRubbishCount()),
             new TutorialStep("Press the <color=green>Press 'I'</color> key and use the tablet to purchase a table set."),
+            new TutorialStep("In the opened shop page, add 2 tables to the cart and then place the order."),
             new TutorialStep("Bring the order box from outside into the restaurant and open it."),
             new TutorialStep("Move and set up the table set."),
             new TutorialStep("Open the restaurant and guide customers from the waiting area to their tables."),

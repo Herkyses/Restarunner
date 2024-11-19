@@ -261,7 +261,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     {
         if (_player.PlayerOrdersController.TakedTableBill && _player.PlayerOrdersController.TableBill.OwnerTable == this)
         {
-            GameManager.Instance.CheckAndProgressTutorialStep(4, 100);
+            GameManager.Instance.CheckAndProgressTutorialStep(5, 100);
 
             foreach (var aiController in _aiControllerList)
             {
@@ -392,9 +392,9 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     }
     private void HandleTutorialProgression()
     {
-        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 2)
+        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 3)
         {
-            PlayerPrefsManager.Instance.SavePlayerTutorialStep(4);
+            PlayerPrefsManager.Instance.SavePlayerTutorialStep(5);
             TutorialManager.Instance.Initiliaze();
         }
     }

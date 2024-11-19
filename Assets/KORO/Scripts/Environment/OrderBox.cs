@@ -119,7 +119,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
             }
             if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 2)
             {
-                TutorialManager.Instance.SetTutorialInfo(3);
+                TutorialManager.Instance.SetTutorialInfo(4);
             }
             ResetOrderBox();
             PoolManager.Instance.ReturnToPoolForOrderBox(gameObject);
