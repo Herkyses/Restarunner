@@ -40,17 +40,17 @@ public class TutorialManager : MonoBehaviour
     {
         tutorialSteps = new List<TutorialStep>
         {
-            new TutorialStep("To clean the restaurant, pick up the broom. <color=green>Press 'C'</color>  to pick up the broom.", true, true, () => TutorialPanelController.Instance.SetRubbishCount()),
-            new TutorialStep("Press the <color=green>Press 'I'</color> key and use the tablet to purchase a table set."),
-            new TutorialStep("In the opened shop page, add 2 tables to the cart and then place the order."),
-            new TutorialStep("Bring the order box from outside into the restaurant and open it."),
-            new TutorialStep("Move and set up the table set."),
-            new TutorialStep("Open the restaurant and guide customers from the waiting area to their tables."),
-            new TutorialStep("Take orders from the table."),
-            new TutorialStep("You can add items to your order inventory by using the plus button next to the food."),
-            new TutorialStep("Give the order to the chef."),
-            new TutorialStep("Pick up the food and serve it."),
-            new TutorialStep("If the customer has finished their meal, select the corresponding table from the billing desk and bring the bill to the table."),
+            new TutorialStep("Key_Tut0", true, true, () => TutorialPanelController.Instance.SetRubbishCount()),
+            new TutorialStep("Key_Tut1"),
+            new TutorialStep("Key_Tut2"),
+            new TutorialStep("Key_Tut3"),
+            new TutorialStep("Key_Tut4"),
+            new TutorialStep("Key_Tut5"),
+            new TutorialStep("Key_Tut6"),
+            new TutorialStep("Key_Tut7"),
+            new TutorialStep("Key_Tut8"),
+            new TutorialStep("Key_Tut9"),
+            new TutorialStep("Key_Tut10"),
             new TutorialStep("", false)
         };
     }

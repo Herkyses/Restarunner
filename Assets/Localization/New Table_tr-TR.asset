@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: New Table_tr-TR
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: tr-TR
+  m_SharedData: {fileID: 11400000, guid: 1114c9e25d7acf747af8d771676e65cb, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 427972165632
+    m_Localized: Devam Et
+    m_Metadata:
+      m_Items: []
+  - m_Id: 662467313664
+    m_Localized: Yeni Oyun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 956374777856
+    m_Localized: Ayarlar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996799479808
+    m_Localized: "\xC7\u0131k\u0131\u015F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96392913682432
+    m_Localized: "Restoran\u0131 temizlemek i\xE7in s\xFCp\xFCrgeyi al\u0131n. <color=green>'C'</color>
+      tu\u015Funa basarak s\xFCp\xFCrgeyi al\u0131n."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96433539710976
+    m_Localized: "<color=green>'I'</color> tu\u015Funa basarak tableti kullan\u0131n
+      ve masa seti sat\u0131n al\u0131n."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96446583996416
+    m_Localized: "A\xE7\u0131lan ma\u011Faza sayfas\u0131nda, sepete 2 masa ekleyin
+      ve sipari\u015Fi verin."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96508416425984
+    m_Localized: "Sipari\u015F kutusunu d\u0131\u015Far\u0131dan al\u0131p restoran\u0131n
+      i\xE7ine getirin ve a\xE7\u0131n."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96616784658432
+    m_Localized: Masa setini hareket ettirip kurun.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96633805144064
+    m_Localized: "Restoran\u0131 a\xE7\u0131n ve m\xFC\u015Fterileri bekleme alan\u0131ndan
+      masalar\u0131na y\xF6nlendirin."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96656336945152
+    m_Localized: "Masadan sipari\u015F al\u0131n."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96715774427136
+    m_Localized: "Sipari\u015F envanterinize yemeklerin yan\u0131ndaki art\u0131
+      d\xFC\u011Fmesini kullanarak \xF6\u011Fe ekleyebilirsiniz."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97057916387328
+    m_Localized: "Sipari\u015Fi \u015Fefe verin."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97078279733248
+    m_Localized: "Yeme\u011Fi al\u0131p servis yap\u0131n."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97102833188864
+    m_Localized: "E\u011Fer m\xFC\u015Fteri yeme\u011Fini bitirdiyse, fatura masas\u0131ndan
+      ilgili masay\u0131 se\xE7in ve faturay\u0131 g\xF6t\xFCr\xFCn."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: New Table Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: New Table
+  m_TableCollectionNameGuidString: 1114c9e25d7acf747af8d771676e65cb
+  m_Entries:
+  - m_Id: 427972165632
+    m_Key: Key_Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 662467313664
+    m_Key: Key_NewGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 956374777856
+    m_Key: Key_Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996799479808
+    m_Key: Key_Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96392913682432
+    m_Key: Key_Tut0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96433539710976
+    m_Key: Key_Tut1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96446583996416
+    m_Key: Key_Tut2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96508416425984
+    m_Key: Key_Tut3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96616784658432
+    m_Key: Key_Tut4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96633805144064
+    m_Key: Key_Tut5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96656336945152
+    m_Key: Key_Tut6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96715774427136
+    m_Key: Key_Tut7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97057916387328
+    m_Key: Key_Tut8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97078279733248
+    m_Key: Key_Tut9
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97102833188864
+    m_Key: Key_Tut10
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 3007733236726497280
+  references:
+    version: 2
+    RefIds:
+    - rid: 3007733236726497280
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1732191502847

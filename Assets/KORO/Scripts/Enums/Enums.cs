@@ -84,4 +84,11 @@ public class Enums : MonoBehaviour
         Number,
         Zero,
     }
+    public enum LanguageType
+    {
+        English,
+        Spanish,
+        Turkish,
+        Chinesee,
+    }
 }

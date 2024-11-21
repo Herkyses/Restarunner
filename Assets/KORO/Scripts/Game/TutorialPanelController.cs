@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 
 public class TutorialPanelController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class TutorialPanelController : MonoBehaviour
     public Transform TutorialPanel;
     public TextMeshProUGUI TutorialText;
     public TextMeshProUGUI TutorialTextForRemainingRubbish;
+    public LocalizeStringEvent localizeStringEvent;
     
     private void Awake()
     {
@@ -29,9 +31,12 @@ public class TutorialPanelController : MonoBehaviour
         TutorialPanel.gameObject.SetActive(active);
     }
 
-    public void SetTutorialInfoText(string text)
+    public void SetTutorialInfoText(string textKey)
     {
-        TutorialText.text = text;
+        //TutorialText.text = textKey;
+        Debug.Log("textkey:" + textKey);
+        localizeStringEvent.StringReference.TableEntryReference = textKey;
+        localizeStringEvent.RefreshString();
     }
 
     public void SetRubbishCount()

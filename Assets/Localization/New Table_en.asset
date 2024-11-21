@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: New Table_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 1114c9e25d7acf747af8d771676e65cb, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 956374777856
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427972165632
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 662467313664
+    m_Localized: New Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996799479808
+    m_Localized: Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96392913682432
+    m_Localized: To clean the restaurant, pick up the broom. <color=green>Press 'C'</color> 
+      to pick up the broom.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96433539710976
+    m_Localized: Press the <color=green>Press 'I'</color> key and use the tablet
+      to purchase a table set.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96446583996416
+    m_Localized: In the opened shop page, add 2 tables to the cart and then place
+      the order.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96508416425984
+    m_Localized: Bring the order box from outside into the restaurant and open it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96616784658432
+    m_Localized: Move and set up the table set.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96633805144064
+    m_Localized: Open the restaurant and guide customers from the waiting area to
+      their tables.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96656336945152
+    m_Localized: Take orders from the table.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96715774427136
+    m_Localized: You can add items to your order inventory by using the plus button
+      next to the food.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97057916387328
+    m_Localized: Give the order to the chef.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97078279733248
+    m_Localized: Pick up the food and serve it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97102833188864
+    m_Localized: If the customer has finished their meal, select the corresponding
+      table from the billing desk and bring the bill to the table.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
