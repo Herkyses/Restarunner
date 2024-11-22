@@ -143,11 +143,12 @@ public class GameSceneCanvas : MonoBehaviour
     {
         if (areaInfo != null)
         {
-            //if (!_objectInfoTextsParent.activeSelf)
-            //{
+            if (!_objectInfoTextsParent.activeSelf)
+            {
                 _objectInfoTextsParent.SetActive(true);
-                _objectInfoTextsParent.GetComponent<RectTransform>().sizeDelta = new Vector2(200f,areaInfo.Length*85f);
-            //}
+            }
+            _objectInfoTextsParent.GetComponent<RectTransform>().sizeDelta = new Vector2(200f,areaInfo.Length*85f);
+
             for (int i = 0; i < _infoTexts.Length; i++)
             {
                 if (i < areaInfo.Length)
