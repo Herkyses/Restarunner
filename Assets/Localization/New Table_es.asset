@@ -34,6 +34,56 @@ MonoBehaviour:
     m_Localized: Salir
     m_Metadata:
       m_Items: []
+  - m_Id: 96392913682432
+    m_Localized: Para limpiar el restaurante, recoge la escoba. <color=green>Presiona
+      'C'</color> para recogerla.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96433539710976
+    m_Localized: Presiona la tecla <color=green>'I'</color> y utiliza la tableta
+      para comprar un conjunto de mesas.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96446583996416
+    m_Localized: "En la p\xE1gina de la tienda abierta, a\xF1ade 2 mesas al carrito
+      y realiza el pedido."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96508416425984
+    m_Localized: "Lleva la caja del pedido desde el exterior al restaurante y \xE1brela."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96616784658432
+    m_Localized: Mueve y coloca el conjunto de mesas.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96633805144064
+    m_Localized: "Abre el restaurante y gu\xEDa a los clientes desde la zona de espera
+      a sus mesas."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96656336945152
+    m_Localized: Toma pedidos de la mesa.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96715774427136
+    m_Localized: "Puedes a\xF1adir elementos a tu inventario de pedidos utilizando
+      el bot\xF3n m\xE1s junto a la comida."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97057916387328
+    m_Localized: Entrega el pedido al chef.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97078279733248
+    m_Localized: "Recoge la comida y s\xEDrvela."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97102833188864
+    m_Localized: "Si el cliente ha terminado su comida, selecciona la mesa correspondiente
+      del mostrador de facturaci\xF3n y lleva la cuenta."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
