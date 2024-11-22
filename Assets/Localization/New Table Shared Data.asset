@@ -75,6 +75,10 @@ MonoBehaviour:
     m_Key: Key_Tut10
     m_Metadata:
       m_Items: []
+  - m_Id: 468617705619456
+    m_Key: Key_Interactable_OB_Take
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

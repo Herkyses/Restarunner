@@ -25,8 +25,8 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     void Start()
     {
         groundLayer = LayerMask.NameToLayer("Ground");
-        texts = new [] {"Take OrderBox","Open"};
-        textsBefore = new [] {"Take OrderBox"};
+        texts = new [] {"Key_Interactable_OB_Take","Open"};
+        textsBefore = new [] {"Key_Interactable_OB_Take"};
         
         textsButtons = new [] {"E","T"};
         textsButtonsForTake = new [] {"J","O"};

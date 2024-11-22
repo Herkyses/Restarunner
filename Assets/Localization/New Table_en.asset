@@ -84,6 +84,10 @@ MonoBehaviour:
       table from the billing desk and bring the bill to the table.
     m_Metadata:
       m_Items: []
+  - m_Id: 468617705619456
+    m_Localized: Take OrderBox
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

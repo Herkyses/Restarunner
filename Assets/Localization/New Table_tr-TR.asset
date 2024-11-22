@@ -85,6 +85,10 @@ MonoBehaviour:
       ilgili masay\u0131 se\xE7in ve faturay\u0131 g\xF6t\xFCr\xFCn."
     m_Metadata:
       m_Items: []
+  - m_Id: 468617705619456
+    m_Localized: Siparis kutusunu al
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
