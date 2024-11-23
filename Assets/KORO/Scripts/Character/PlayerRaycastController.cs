@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerRaycastController : MonoBehaviour
 {
     public GameObject TargetPrice;
+    public GameObject TargetObject;
 
     public Outline InterectabelOutline;
 
@@ -69,10 +70,31 @@ public class PlayerRaycastController : MonoBehaviour
     private void HandleHit(RaycastHit hit, Ray ray)
     {
         var hitObject = hit.collider.gameObject;
+        if (TargetObject == hitObject)
+        {
+            if (hitObject.TryGetComponent(out IInterectableObject interactable))
+            {
+                if (interactable.GetStateType() == Player.Instance.PlayerStateType)
+                {
+                    return;
+                }
+                else
+                {
+                    Debug.Log("targetobjectnull");
+                    TargetObject = null;
+                }
+                //UpdateInterectable(hitObject, interactable);
+
+            }
+
+        }
+        
 
         if (hitObject.TryGetComponent(out IInterectableObject interact) &&
             interact.GetStateType() == Player.Instance.PlayerStateType)
         {
+            TargetObject = hitObject;
+
             UpdateInterectable(hitObject, interact);
             Debug.Log("Raycast hit: " + hitObject.name);
             Debug.DrawRay(ray.origin, hit.point - ray.origin, Color.green, 2f);
