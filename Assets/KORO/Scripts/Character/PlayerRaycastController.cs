@@ -86,7 +86,6 @@ public class PlayerRaycastController : MonoBehaviour
                 //UpdateInterectable(hitObject, interactable);
 
             }
-
         }
         
 
@@ -146,6 +145,7 @@ public class PlayerRaycastController : MonoBehaviour
             _gameSceneCanvas.UnShowAreaInfo();
         }
         Izort = null;
+        TargetObject = null;
         DeactivateOutline();
     }
 
