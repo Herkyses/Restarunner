@@ -14,7 +14,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
     [SerializeField] private OrderDataStruct currentFoodData;
     
     [Header("UI Elements")]
-    [SerializeField] private string[] interactionTexts = new[] { "Give Order" };
+    [SerializeField] private string[] interactionTexts = new[] { "Key_Give_Order_Chef" };
     [SerializeField] private string[] interactionButtons = new[] { "E" };
     [SerializeField] private Image chefCreateFoodProgressIcon;
     
@@ -302,7 +302,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
 
     public string GetInterectableText()
     {
-        return "GiveOrder";
+        return "Key_Give_Order_Chef";
     }
     public string[] GetInterectableTexts()
     {

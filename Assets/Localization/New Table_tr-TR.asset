@@ -98,11 +98,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1052992272924672
-    m_Localized: Close the restaurant.
+    m_Localized: "Restoran\u0131 kapat."
     m_Metadata:
       m_Items: []
   - m_Id: 1053142240264192
-    m_Localized: Give the order to the chef.
+    m_Localized: "Sipari\u015Fi \u015Fefe ver."
     m_Metadata:
       m_Items: []
   - m_Id: 1057434577731584
