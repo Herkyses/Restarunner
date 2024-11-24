@@ -137,6 +137,14 @@ MonoBehaviour:
     m_Localized: Temizle
     m_Metadata:
       m_Items: []
+  - m_Id: 1075318578282496
+    m_Localized: "B\u0131rak"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1075349578383360
+    m_Localized: "A\xE7"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

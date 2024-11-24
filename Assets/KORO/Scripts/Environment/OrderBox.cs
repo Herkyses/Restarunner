@@ -25,13 +25,13 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     void Start()
     {
         groundLayer = LayerMask.NameToLayer("Ground");
-        texts = new [] {"Key_Interactable_OB_Take","Open"};
+        texts = new [] {"Key_Interactable_OB_Take","Key_Open"};
         textsBefore = new [] {"Key_Interactable_OB_Take"};
         
         textsButtons = new [] {"E","T"};
         textsButtonsForTake = new [] {"J","O"};
         textsButtonsBefore = new [] {"E"};
-        textsForTake = new [] {"Drop","Open"};
+        textsForTake = new [] {"Key_Drop","Key_Open"};
         _outline = GetComponent<Outline>();
         _rigidbody = GetComponent<Rigidbody>();
     }

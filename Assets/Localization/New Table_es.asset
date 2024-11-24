@@ -136,6 +136,14 @@ MonoBehaviour:
     m_Localized: Limpiar
     m_Metadata:
       m_Items: []
+  - m_Id: 1075318578282496
+    m_Localized: Soltar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1075349578383360
+    m_Localized: Abrir
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
