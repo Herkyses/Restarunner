@@ -40,7 +40,7 @@ public class Rubbish : MonoBehaviour,IInterectableObject
 
     private void Start()
     {
-        texts = new [] {"Clean"};
+        texts = new [] {"Key_Clean"};
         textsButtons = new [] {"E"};
         _rubbishOutline = GetComponent<Outline>();
     }
@@ -59,7 +59,7 @@ public class Rubbish : MonoBehaviour,IInterectableObject
     {
         if (Player.Instance.CanCleanRubbish)
         {
-            return "Clean Rubbish";
+            return "Key_Clean";
         }
         return null;
 
