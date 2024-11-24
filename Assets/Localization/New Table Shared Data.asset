@@ -139,6 +139,18 @@ MonoBehaviour:
     m_Key: Key_Menu
     m_Metadata:
       m_Items: []
+  - m_Id: 1132001723744256
+    m_Key: Key_Tables
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1132222079893504
+    m_Key: Key_Customers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1132756681687040
+    m_Key: Key_Tutorial
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -148,6 +148,18 @@ MonoBehaviour:
     m_Localized: Menu
     m_Metadata:
       m_Items: []
+  - m_Id: 1132001723744256
+    m_Localized: Tables
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1132222079893504
+    m_Localized: Customers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1132756681687040
+    m_Localized: Tutorial
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

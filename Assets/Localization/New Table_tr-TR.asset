@@ -149,6 +149,18 @@ MonoBehaviour:
     m_Localized: "Men\xFC"
     m_Metadata:
       m_Items: []
+  - m_Id: 1132001723744256
+    m_Localized: Masalar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1132222079893504
+    m_Localized: "Muster\u0131ler"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1132756681687040
+    m_Localized: "E\u011Fitim"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
