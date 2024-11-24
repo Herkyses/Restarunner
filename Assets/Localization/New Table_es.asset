@@ -84,6 +84,54 @@ MonoBehaviour:
       del mostrador de facturaci\xF3n y lleva la cuenta."
     m_Metadata:
       m_Items: []
+  - m_Id: 1051248419733504
+    m_Localized: Revisa las cuentas.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 468617705619456
+    m_Localized: Recoge la caja de pedidos.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1052644233773056
+    m_Localized: Abre el restaurante.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1052992272924672
+    m_Localized: Cierra el restaurante.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1053142240264192
+    m_Localized: Entrega el pedido al chef.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1057434577731584
+    m_Localized: Revisa el pedido de la mesa.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1057753655214080
+    m_Localized: Revisa las mesas disponibles.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1058100364771328
+    m_Localized: Recoge la comida.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1058239275925504
+    m_Localized: Sirve la comida.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1060488760852480
+    m_Localized: "Mu\xE9velo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1062105014927360
+    m_Localized: Configurar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1062269335175168
+    m_Localized: Girar
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

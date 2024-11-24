@@ -89,6 +89,50 @@ MonoBehaviour:
     m_Localized: Siparis kutusunu al
     m_Metadata:
       m_Items: []
+  - m_Id: 1051248419733504
+    m_Localized: "Faturalar\u0131 kontrol et."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1052644233773056
+    m_Localized: "Restoran\u0131 a\xE7."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1052992272924672
+    m_Localized: Close the restaurant.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1053142240264192
+    m_Localized: Give the order to the chef.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1057434577731584
+    m_Localized: "Masa sipari\u015Fini kontrol et."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1057753655214080
+    m_Localized: "Uygun masalar\u0131 kontrol et."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1058100364771328
+    m_Localized: "Yeme\u011Fi al."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1058239275925504
+    m_Localized: "Yeme\u011Fi servis et."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1060488760852480
+    m_Localized: Hareket ettir.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1062105014927360
+    m_Localized: Kurma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1062269335175168
+    m_Localized: "D\xF6nd\xFCrme"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

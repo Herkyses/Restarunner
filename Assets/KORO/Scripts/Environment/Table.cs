@@ -71,9 +71,9 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     private void InitializeTable()
     {
         groundLayer = LayerMask.NameToLayer("Ground");
-        texts = new []{"Check Order","Move"};
+        texts = new []{"Key_Check_TableOrder","Key_Move"};
         textsButtons = new []{"E","H"};
-        textsForTable = new [] {"Set up","Rotate"};
+        textsForTable = new [] {"Key_SetUp","Key_Rotate"};
         textsButtonsForTable = new [] {"M0","R"};
         IsTableAvailable = true;
         TableNumberText.text = (TableNumber+1).ToString();

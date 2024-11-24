@@ -85,7 +85,51 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 468617705619456
-    m_Localized: Take OrderBox
+    m_Localized: Pick up the order box.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1051248419733504
+    m_Localized: Check the bills.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1052644233773056
+    m_Localized: Open the restaurant.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1052992272924672
+    m_Localized: "Restoran\u0131 kapat."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1053142240264192
+    m_Localized: Give the order to the chef.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1057434577731584
+    m_Localized: Check the table order.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1057753655214080
+    m_Localized: Check suitable tables.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1058100364771328
+    m_Localized: Pick up the food.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1058239275925504
+    m_Localized: "\u4E0A\u83DC\u3002"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1060488760852480
+    m_Localized: Move it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1062105014927360
+    m_Localized: Set up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1062269335175168
+    m_Localized: Rotate
     m_Metadata:
       m_Items: []
   references:

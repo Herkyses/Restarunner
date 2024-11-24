@@ -93,11 +93,11 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
     {
         if (ControllerManager.Instance.PlaceController.RestaurantIsOpen)
         {
-            return "Close Restaurant";
+            return "";
         }
         else
         {
-            return "Open Restaurant";
+            return "";
 
         }
     }
@@ -114,12 +114,12 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
     {
         if (ControllerManager.Instance.PlaceController.RestaurantIsOpen)
         {
-            texts[0] = "Close Restaurant";
+            texts[0] = "Key_Close_Restaurant";
             return texts;
         }
         else
         {
-            texts[0] = "Open Restaurant";
+            texts[0] = "Key_Open_Restaurant";
             return texts;
 
         }

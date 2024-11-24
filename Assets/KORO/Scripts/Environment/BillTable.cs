@@ -32,7 +32,7 @@ public class BillTable : MonoBehaviour,IInterectableObject
     // Start is called before the first frame update
     void Start()
     {
-        texts = new []{"Check Order Bills"};
+        texts = new []{"Key_Check_Bills"};
         textsButtons = new []{"E"};
     }
 
