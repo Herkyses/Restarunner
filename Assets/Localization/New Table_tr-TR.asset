@@ -161,6 +161,38 @@ MonoBehaviour:
     m_Localized: "E\u011Fitim"
     m_Metadata:
       m_Items: []
+  - m_Id: 1168419464478720
+    m_Localized: Yemek malzemeleri
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1168660267859968
+    m_Localized: Personel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1168837141659648
+    m_Localized: Yemekler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1168974752579584
+    m_Localized: "Y\xFCkseltme"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1169399140646912
+    m_Localized: Dekorasyon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1171603754909696
+    m_Localized: Sepete ekle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1171964985147392
+    m_Localized: "Sipari\u015Fi onayla"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1172890198278144
+    m_Localized: Toplam
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

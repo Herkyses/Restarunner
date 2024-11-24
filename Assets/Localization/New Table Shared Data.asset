@@ -151,6 +151,38 @@ MonoBehaviour:
     m_Key: Key_Tutorial
     m_Metadata:
       m_Items: []
+  - m_Id: 1168419464478720
+    m_Key: Key_Ingredients
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1168660267859968
+    m_Key: Key_Staff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1168837141659648
+    m_Key: Key_Foods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1168974752579584
+    m_Key: Key_Upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1169399140646912
+    m_Key: Key_Decoration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1171603754909696
+    m_Key: Key_AddToCart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1171964985147392
+    m_Key: Key_ConfirmOrder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1172890198278144
+    m_Key: Key_Total
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
