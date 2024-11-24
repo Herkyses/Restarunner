@@ -145,6 +145,10 @@ MonoBehaviour:
     m_Localized: "A\xE7"
     m_Metadata:
       m_Items: []
+  - m_Id: 1121986103279616
+    m_Localized: "Men\xFC"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

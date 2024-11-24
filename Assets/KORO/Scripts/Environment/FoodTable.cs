@@ -28,7 +28,7 @@ public class FoodTable : MonoBehaviour,IInterectableObject
     private void Start()
     {
         WaitTime = 10f;
-        texts = new [] {"Take Food"};
+        texts = new [] {"Key_PickUp_Food"};
         textsButtons = new [] {"E"};
         _outline = GetComponent<Outline>();
     }
@@ -51,7 +51,7 @@ public class FoodTable : MonoBehaviour,IInterectableObject
 
     public string GetInterectableText()
     {
-        return "Take Food";
+        return "Key_PickUp_Food";
     }
     public void Move()
     {

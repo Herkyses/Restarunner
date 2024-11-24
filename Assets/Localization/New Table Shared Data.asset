@@ -15,20 +15,80 @@ MonoBehaviour:
   m_TableCollectionName: New Table
   m_TableCollectionNameGuidString: 1114c9e25d7acf747af8d771676e65cb
   m_Entries:
-  - m_Id: 427972165632
-    m_Key: Key_Resume
+  - m_Id: 1051248419733504
+    m_Key: Key_Check_Bills
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1057753655214080
+    m_Key: Key_Check_SuitableTable
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1057434577731584
+    m_Key: Key_Check_TableOrder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1070781020831744
+    m_Key: Key_Clean
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1052992272924672
+    m_Key: Key_Close_Restaurant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1075318578282496
+    m_Key: Key_Drop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1053142240264192
+    m_Key: Key_Give_Order_Chef
+    m_Metadata:
+      m_Items: []
+  - m_Id: 468617705619456
+    m_Key: Key_Interactable_OB_Take
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1060488760852480
+    m_Key: Key_Move
     m_Metadata:
       m_Items: []
   - m_Id: 662467313664
     m_Key: Key_NewGame
     m_Metadata:
       m_Items: []
-  - m_Id: 956374777856
-    m_Key: Key_Settings
+  - m_Id: 1075349578383360
+    m_Key: Key_Open
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1052644233773056
+    m_Key: Key_Open_Restaurant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1058100364771328
+    m_Key: Key_PickUp_Food
     m_Metadata:
       m_Items: []
   - m_Id: 996799479808
     m_Key: Key_Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427972165632
+    m_Key: Key_Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1062269335175168
+    m_Key: Key_Rotate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1058239275925504
+    m_Key: Key_Serve_Food
+    m_Metadata:
+      m_Items: []
+  - m_Id: 956374777856
+    m_Key: Key_Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1062105014927360
+    m_Key: Key_SetUp
     m_Metadata:
       m_Items: []
   - m_Id: 96392913682432
@@ -37,6 +97,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 96433539710976
     m_Key: Key_Tut1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97102833188864
+    m_Key: Key_Tut10
     m_Metadata:
       m_Items: []
   - m_Id: 96446583996416
@@ -71,68 +135,8 @@ MonoBehaviour:
     m_Key: Key_Tut9
     m_Metadata:
       m_Items: []
-  - m_Id: 97102833188864
-    m_Key: Key_Tut10
-    m_Metadata:
-      m_Items: []
-  - m_Id: 468617705619456
-    m_Key: Key_Interactable_OB_Take
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1051248419733504
-    m_Key: Key_Check_Bills
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1052644233773056
-    m_Key: Key_Open_Restaurant
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1052992272924672
-    m_Key: Key_Close_Restaurant
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1053142240264192
-    m_Key: Key_Give_Order_Chef
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1057434577731584
-    m_Key: Key_Check_TableOrder
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1057753655214080
-    m_Key: Key_Check_SuitableTable
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1058100364771328
-    m_Key: Key_PickUp_Food
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1058239275925504
-    m_Key: Key_Serve_Food
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1060488760852480
-    m_Key: Key_Move
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1062105014927360
-    m_Key: Key_SetUp
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1062269335175168
-    m_Key: Key_Rotate
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1070781020831744
-    m_Key: Key_Clean
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1075318578282496
-    m_Key: Key_Drop
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1075349578383360
-    m_Key: Key_Open
+  - m_Id: 1121986103279616
+    m_Key: Key_Menu
     m_Metadata:
       m_Items: []
   m_Metadata:
