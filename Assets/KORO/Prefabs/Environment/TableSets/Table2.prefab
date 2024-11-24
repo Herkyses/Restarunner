@@ -1006,8 +1006,8 @@ MonoBehaviour:
   texts:
   - 'Check Order '
   textsForTable:
-  - Set up
-  - Rotate
+  - Key_SetUp
+  - Key_Rotate
   textsButtons:
   - E
   textsButtonsForTable:
