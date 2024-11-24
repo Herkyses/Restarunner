@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class ReservationTable : MonoBehaviour,IInterectableObject
 {
-    [SerializeField] private string[] texts = new [] {"Check Available "};
+    [SerializeField] private string[] texts = new [] {"Key_Check_SuitableTable"};
     [SerializeField] private string[] textsButtons = new [] {"E"};
     [SerializeField] private Outline outline;
 
 
     private void Start()
     {
-        texts = new []{"Check Available "};
+        texts = new []{"Key_Check_SuitableTable"};
         textsButtons = new []{"E"};
         outline = GetComponent<Outline>();
     }

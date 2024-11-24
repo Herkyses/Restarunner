@@ -2131,7 +2131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texts:
-  - 'Check Available '
+  - Key_Check_SuitableTable
   textsButtons:
   - E
   outline: {fileID: 0}
