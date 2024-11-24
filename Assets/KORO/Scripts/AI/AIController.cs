@@ -65,7 +65,7 @@ public class AIController : MonoBehaviour,IInterectableObject
 
     private void Start()
     {
-        texts = new [] {"Serv the food"};
+        texts = new [] {"Key_Serve_Food"};
         textsButtons = new [] {"E"};
         _player = Player.Instance;
         //IsBadGuy = true;
@@ -247,7 +247,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     {
         if (PlayerOrderController.Instance.TakedFood)
         {
-            return "Serv The Food";
+            return "Key_Serve_Food";
         }
         else
         {
