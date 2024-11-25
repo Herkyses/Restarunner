@@ -193,6 +193,18 @@ MonoBehaviour:
     m_Localized: Toplam
     m_Metadata:
       m_Items: []
+  - m_Id: 1419059952418816
+    m_Localized: "Sipari\u015Fler"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1422262953639936
+    m_Localized: "Hesap olu\u015Ftur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1433759037587456
+    m_Localized: Hesap defterini al
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
