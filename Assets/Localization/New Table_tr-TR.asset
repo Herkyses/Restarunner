@@ -205,6 +205,10 @@ MonoBehaviour:
     m_Localized: Hesap defterini al
     m_Metadata:
       m_Items: []
+  - m_Id: 1441757172662272
+    m_Localized: "Sipari\u015F listesi"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
