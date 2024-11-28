@@ -24,9 +24,16 @@ public class SettingsManager : MonoBehaviour
     private Resolution[] availableResolutions;    
     public GameObject settingsPanel;
     // Start is called before the first frame update
+    
+    private readonly Resolution[] customResolutions = new Resolution[]
+    {
+        new Resolution { width = 1920, height = 1080 },
+        new Resolution { width = 1280, height = 720 },
+        new Resolution { width = 1600, height = 900 }
+    };
     void Start()
     {
-        availableResolutions = Screen.resolutions;
+        //availableResolutions = Screen.resolutions;
         _sfxVolumeSlider.value = PlayerPrefsManager.Instance.LoadVolume();
         
         
@@ -36,7 +43,7 @@ public class SettingsManager : MonoBehaviour
 
     public void InitiliazeResolution()
     {
-        availableResolutions = Screen.resolutions;
+        availableResolutions = customResolutions;
         resolutionDropdown.ClearOptions(); 
 
         int currentResolutionIndex = 0;
@@ -76,8 +83,24 @@ public class SettingsManager : MonoBehaviour
         _muusicMixer.SetFloat("SFX", Mathf.Log10(_sfxVolume)*20);
     }
 
+    public void SetResolution()
+    {
+        SetResolution(resolutionDropdown.value);
+    }
     public void EndDragedd()
     {
         PlayerPrefsManager.Instance.SaveVolume(_sfxVolume);
+    }
+    public void SetResolution(int resolutionIndex)
+    {
+        // Seçilen çözünürlüğü uygula
+        Resolution resolution = availableResolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+
+    public void SetFullscreen(bool isFullscreen)
+    {
+        // Tam ekran/pencere modu değiştir
+        Screen.fullScreen = isFullscreen;
     }
 }
