@@ -21,19 +21,44 @@ public class SettingsManager : MonoBehaviour
     [Header("Game Settings")]
     public Dropdown languageDropdown;
     public Toggle tutorialToggle;
-    
+    private Resolution[] availableResolutions;    
     public GameObject settingsPanel;
     // Start is called before the first frame update
     void Start()
     {
+        availableResolutions = Screen.resolutions;
         _sfxVolumeSlider.value = PlayerPrefsManager.Instance.LoadVolume();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        
+        
+        InitiliazeResolution();
         
     }
+
+    public void InitiliazeResolution()
+    {
+        availableResolutions = Screen.resolutions;
+        resolutionDropdown.ClearOptions(); 
+
+        int currentResolutionIndex = 0;
+        var options = new System.Collections.Generic.List<string>();
+        for (int i = 0; i < availableResolutions.Length; i++)
+        {
+            string option = availableResolutions[i].width + " x " + availableResolutions[i].height;
+            options.Add(option);
+
+            if (availableResolutions[i].width == Screen.currentResolution.width &&
+                availableResolutions[i].height == Screen.currentResolution.height)
+            {
+                currentResolutionIndex = i;
+            }
+        }
+
+        resolutionDropdown.AddOptions(options); 
+        resolutionDropdown.value = currentResolutionIndex; 
+        resolutionDropdown.RefreshShownValue();
+    }
+
+    
     
     public void OpenSettings()
     {

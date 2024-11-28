@@ -1945,7 +1945,7 @@ MonoBehaviour:
   _sfxVolumeSlider: {fileID: 3509169760160313642}
   _muusicMixer: {fileID: 24100000, guid: 68b4d076cb1b29046b876a8d57b1b9d8, type: 2}
   _sfxVolume: 0
-  resolutionDropdown: {fileID: 0}
+  resolutionDropdown: {fileID: 2025614149407161257}
   qualityDropdown: {fileID: 0}
   fullscreenToggle: {fileID: 0}
   languageDropdown: {fileID: 0}
