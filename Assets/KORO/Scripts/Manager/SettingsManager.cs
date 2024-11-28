@@ -53,7 +53,6 @@ public class SettingsManager : MonoBehaviour
 
     public void EndDragedd()
     {
-        Debug.Log("endeddrag");
         PlayerPrefsManager.Instance.SaveVolume(_sfxVolume);
     }
 }
