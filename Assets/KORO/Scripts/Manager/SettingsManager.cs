@@ -35,10 +35,10 @@ public class SettingsManager : MonoBehaviour
     {
         //availableResolutions = Screen.resolutions;
         _sfxVolumeSlider.value = PlayerPrefsManager.Instance.LoadVolume();
-        
-        
         InitiliazeResolution();
-        
+        var resolution = PlayerPrefsManager.Instance.LoadResolution();
+        SetResolution(resolution);
+        resolutionDropdown.value = resolution;
     }
 
     public void InitiliazeResolution()
@@ -96,6 +96,7 @@ public class SettingsManager : MonoBehaviour
         // Seçilen çözünürlüğü uygula
         Resolution resolution = availableResolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        PlayerPrefsManager.Instance.SaveResolution(resolutionIndex);
     }
 
     public void SetFullscreen(bool isFullscreen)
