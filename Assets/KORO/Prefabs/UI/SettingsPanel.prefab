@@ -749,7 +749,7 @@ GameObject:
   - component: {fileID: 891140079852775269}
   - component: {fileID: 5978884362265553243}
   m_Layer: 5
-  m_Name: Dropdown (Legacy) (1)
+  m_Name: QualityDropDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1946,7 +1946,7 @@ MonoBehaviour:
   _muusicMixer: {fileID: 24100000, guid: 68b4d076cb1b29046b876a8d57b1b9d8, type: 2}
   _sfxVolume: 0
   resolutionDropdown: {fileID: 2025614149407161257}
-  qualityDropdown: {fileID: 0}
+  qualityDropdown: {fileID: 5978884362265553243}
   fullscreenToggle: {fileID: 0}
   languageDropdown: {fileID: 0}
   tutorialToggle: {fileID: 0}
@@ -3265,7 +3265,7 @@ GameObject:
   - component: {fileID: 7904935781213233392}
   - component: {fileID: 2025614149407161257}
   m_Layer: 5
-  m_Name: Dropdown (Legacy)
+  m_Name: ResolutionDropDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

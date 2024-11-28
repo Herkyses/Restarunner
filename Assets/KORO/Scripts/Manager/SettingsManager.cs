@@ -14,8 +14,8 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private float  _sfxVolume;
 
     [Header("Graphic Settings")]
-    public Dropdown resolutionDropdown;
-    public Dropdown qualityDropdown;
+    [SerializeField] private Dropdown resolutionDropdown;
+    [SerializeField] private Dropdown qualityDropdown;
     public Toggle fullscreenToggle;
 
     [Header("Game Settings")]
@@ -31,16 +31,21 @@ public class SettingsManager : MonoBehaviour
         new Resolution { width = 1280, height = 720 },
         new Resolution { width = 1600, height = 900 }
     };
+    private readonly int[] customQualityIndices = { 0, 2, 4 }; // Low, Medium, High
     void Start()
     {
         //availableResolutions = Screen.resolutions;
-        _sfxVolumeSlider.value = PlayerPrefsManager.Instance.LoadVolume();
+        InitiliazeSliders();
         InitiliazeResolution();
-        var resolution = PlayerPrefsManager.Instance.LoadResolution();
-        SetResolution(resolution);
-        resolutionDropdown.value = resolution;
+        
+        InitiliazeQuality();
+        
     }
 
+    public void InitiliazeSliders()
+    {
+        _sfxVolumeSlider.value = PlayerPrefsManager.Instance.LoadVolume();
+    }
     public void InitiliazeResolution()
     {
         availableResolutions = customResolutions;
@@ -63,6 +68,30 @@ public class SettingsManager : MonoBehaviour
         resolutionDropdown.AddOptions(options); 
         resolutionDropdown.value = currentResolutionIndex; 
         resolutionDropdown.RefreshShownValue();
+        var resolution = PlayerPrefsManager.Instance.LoadResolution();
+        SetResolution(resolution);
+        resolutionDropdown.value = resolution;
+    }
+
+    public void InitiliazeQuality()
+    {
+        qualityDropdown.ClearOptions();
+
+        // Özel kalite seviyeleri için adlar
+        var options = new System.Collections.Generic.List<string>();
+        foreach (var index in customQualityIndices)
+        {
+            options.Add(QualitySettings.names[index]);
+        }
+
+        // Dropdown'a özel seçenekleri ekle
+        qualityDropdown.AddOptions(options);
+
+        // Varsayılan kalite seviyesini ayarla
+        int currentQuality = QualitySettings.GetQualityLevel();
+        int dropdownIndex = System.Array.IndexOf(customQualityIndices, currentQuality);
+        qualityDropdown.value = dropdownIndex >= 0 ? dropdownIndex : 0; // Eğer mevcut kalite custom listede değilse ilk kaliteyi seç
+        qualityDropdown.RefreshShownValue();
     }
 
     
