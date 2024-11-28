@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bbfc92964a3464691f3a7c46867d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sfxMixerGroup: {fileID: 8887622029551930608, guid: 68b4d076cb1b29046b876a8d57b1b9d8, type: 2}
   audioClips:
   - {fileID: 8300000, guid: f9517356afb533a41b9e7cb6f155031e, type: 3}
   maxAudioSources: 10

@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour
 {
     [Header("Sound Settings")]
-    public Slider masterVolumeSlider;
-    public Slider musicVolumeSlider;
-    public Slider sfxVolumeSlider;
+    [SerializeField] private Slider _masterVolumeSlider;
+    [SerializeField] private Slider  _musicVolumeSlider;
+    [SerializeField] private Slider  _sfxVolumeSlider;
+    [SerializeField] private AudioMixer  _muusicMixer;
+    [SerializeField] private float  _sfxVolume;
 
     [Header("Graphic Settings")]
     public Dropdown resolutionDropdown;
@@ -23,7 +26,7 @@ public class SettingsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _sfxVolumeSlider.value = PlayerPrefsManager.Instance.LoadVolume();
     }
 
     // Update is called once per frame
@@ -40,5 +43,17 @@ public class SettingsManager : MonoBehaviour
     public void CloseSettings()
     {
         settingsPanel.SetActive(false);
+    }
+
+    public void ChangeSliderValue()
+    {
+        _sfxVolume = _sfxVolumeSlider.value;
+        _muusicMixer.SetFloat("SFX", Mathf.Log10(_sfxVolume)*20);
+    }
+
+    public void EndDragedd()
+    {
+        Debug.Log("endeddrag");
+        PlayerPrefsManager.Instance.SaveVolume(_sfxVolume);
     }
 }

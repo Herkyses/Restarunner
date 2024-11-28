@@ -56,17 +56,27 @@ public class PlayerPrefsManager : MonoBehaviour
         return PlayerPrefs.GetString(key, defaultValue);
     }
     
+    // TUTORIAL
     public void SavePlayerTutorialStep(int step) => SaveInt("PlayerTutorialStep", step);
     public int LoadPlayerTutorialStep() => LoadInt("PlayerTutorialStep");
     public void SaveDecorationCount(int decorationCount) => SaveInt("DecorationCount", decorationCount);
     public int LoadDecorationCount() => LoadInt("DecorationCount");
+    // MONEY
     public void SavePlayerMoney(float money) => SaveFloat("PlayerMoney", money);
     public float LoadPlayerMoney() => LoadFloat("PlayerMoney", 50);
+    
+    // PLACELEVEL
     public void SavePlaceLevel(int level) => SaveInt("PlaceLevel", level);
     public int LoadPlaceLevel() => LoadInt("PlaceLevel");
+    
+    // CUSTOMERCOUNT
     public void SaveCustomerCount(int customerCount) => SaveInt("CustomerCount", customerCount);
     public int LoadCustomerCount() => LoadInt("CustomerCount");
     
+    
+    // SFX
+    public void SaveVolume(float money) => SaveFloat("sfxVolume", money);
+    public float LoadVolume() => LoadFloat("sfxVolume", 50);
     public void SaveMealIngredients(MealIngredientsList mealIngredientsList)
     {
         string jsonData = JsonUtility.ToJson(mealIngredientsList);

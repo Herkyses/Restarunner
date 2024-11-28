@@ -2,10 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
+    [SerializeField] private AudioMixerGroup  _sfxMixerGroup;
+
     
     private void Awake()
     {
@@ -24,6 +27,7 @@ public class SoundManager : MonoBehaviour
         for (int i = 0; i < maxAudioSources; i++)
         {
             AudioSource newSource = gameObject.AddComponent<AudioSource>();
+            newSource.outputAudioMixerGroup = _sfxMixerGroup;
             audioSources.Add(newSource);
         }
 
@@ -50,6 +54,7 @@ public class SoundManager : MonoBehaviour
         {
             availableSource.clip = audioClips[clipIndex];
             availableSource.volume = volume;
+            availableSource.loop = true;
             availableSource.Play();
 
             // Ses tamamlandığında AudioSource'u temizlemek için coroutine başlatılıyor
