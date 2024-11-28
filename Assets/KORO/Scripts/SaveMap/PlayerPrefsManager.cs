@@ -74,8 +74,12 @@ public class PlayerPrefsManager : MonoBehaviour
     public int LoadCustomerCount() => LoadInt("CustomerCount");
     
     // PLACELEVEL
-    public void SaveResolution(int level) => SaveInt("Resolution", level);
+    public void SaveResolution(int index) => SaveInt("Resolution", index);
     public int LoadResolution() => LoadInt("Resolution");
+    
+    // QUALITY
+    public void SaveQuality(int index) => SaveInt("Quality", index);
+    public int LoadQuality() => LoadInt("Quality");
     
     
     // SFX

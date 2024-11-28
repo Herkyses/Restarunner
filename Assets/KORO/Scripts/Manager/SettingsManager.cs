@@ -77,21 +77,22 @@ public class SettingsManager : MonoBehaviour
     {
         qualityDropdown.ClearOptions();
 
-        // Özel kalite seviyeleri için adlar
         var options = new System.Collections.Generic.List<string>();
         foreach (var index in customQualityIndices)
         {
             options.Add(QualitySettings.names[index]);
         }
 
-        // Dropdown'a özel seçenekleri ekle
         qualityDropdown.AddOptions(options);
 
-        // Varsayılan kalite seviyesini ayarla
         int currentQuality = QualitySettings.GetQualityLevel();
         int dropdownIndex = System.Array.IndexOf(customQualityIndices, currentQuality);
         qualityDropdown.value = dropdownIndex >= 0 ? dropdownIndex : 0; // Eğer mevcut kalite custom listede değilse ilk kaliteyi seç
         qualityDropdown.RefreshShownValue();
+        
+        var quality = PlayerPrefsManager.Instance.LoadQuality();
+        SetQuality(quality);
+        qualityDropdown.value = quality;
     }
 
     
@@ -115,6 +116,17 @@ public class SettingsManager : MonoBehaviour
     public void SetResolution()
     {
         SetResolution(resolutionDropdown.value);
+    }
+
+    public void SetQualityNoIndex()
+    {
+        SetQuality(qualityDropdown.value);
+    }
+    public void SetQuality(int index)
+    {
+        int qualityIndex = customQualityIndices[index];
+        QualitySettings.SetQualityLevel(qualityIndex);
+        PlayerPrefsManager.Instance.SaveQuality(index);
     }
     public void EndDragedd()
     {
