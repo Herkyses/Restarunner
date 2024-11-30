@@ -10,10 +10,13 @@ using Zenject;
 public class CheckOrderBillsPanel : MonoBehaviour,IPanel
 {
     [SerializeField] private Transform _panel;
+    [SerializeField] private Transform _payedPanel;
     [SerializeField] private Transform _billParent;
     [SerializeField] private Transform _numberButtonParent;
     [SerializeField] private SingleBill _singleBill;
     private GameSceneCanvas _gameSceneCanvas;
+    private TableController _tableController;
+    private Table _openedTable;
     
     public TMP_InputField billInputField; // Fatura değerini gösterecek alan
     public Button[] numberButtons;        // 0-9 arası sayı butonları
@@ -32,7 +35,8 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
         _gameSceneCanvas = GameSceneCanvas.Instance;
         billInputField.text = String.Empty;
         ControllerManager.Instance.RegisterPanel("CheckOrderBillsPanel", this);
-       
+        _tableController = ControllerManager.Instance.Tablecontroller;
+
     }
     // Sayı butonuna tıklandığında çağrılacak fonksiyon
     public void OnNumberButtonClick(string number)
@@ -130,9 +134,10 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
     public void CreateTableBill()
     {
         Debug.Log("createBill");
-        if (ControllerManager.Instance.Tablecontroller.TableSets[SelectedTable].table.CheckAllCustomerFinishedFood())
+        if (_tableController.TableSets[SelectedTable].table.CheckAllCustomerFinishedFood())
         {
-            BillTable.Instance.CreateTableBill(ControllerManager.Instance.Tablecontroller.TableSets[SelectedTable].table,ValidateBillValue(billInputField.text));
+            //BillTable.Instance.CreateTableBill(_tableController.TableSets[SelectedTable].table,ValidateBillValue(billInputField.text));
+            BillTable.Instance.CreateTableBill(_tableController.TableSets[SelectedTable].table,(int)_tableController.TableSets[SelectedTable].table.TotalBills);
             DeActiveBillsPanel();
         }
         
@@ -143,6 +148,29 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
         _gameSceneCanvas.CanMove = false;
         GameSceneCanvas.IsCursorVisible?.Invoke(true);
         _panel.gameObject.SetActive(true);
+    }
+
+    public void ActivePayedPanel(Table table)
+    {
+        _payedPanel.gameObject.SetActive(true);
+        _gameSceneCanvas.CanMove = false;
+        GameSceneCanvas.IsCursorVisible?.Invoke(true);
+        _openedTable = table;
+    }
+
+    public void PayedButtonPressed()
+    {
+        if (_openedTable && ValidateBillValue(billInputField.text) == _openedTable.TotalBills)
+        {
+            _openedTable.AIPayed();
+        }
+    }
+    public void DeActivePayedPanel()
+    {
+        _payedPanel.gameObject.SetActive(false);
+        _gameSceneCanvas.CanMove = true;
+        GameSceneCanvas.IsCursorVisible?.Invoke(false);
+        //_openedTable = null;
     }
     public void DeActiveBillsPanel()
     {

@@ -261,20 +261,27 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     {
         if (_player.PlayerOrdersController.TakedTableBill && _player.PlayerOrdersController.TableBill.OwnerTable == this)
         {
-            GameManager.Instance.CheckAndProgressTutorialStep(5, 100);
-
-            foreach (var aiController in _aiControllerList)
-            {
-                aiController.AIStateMachineController.SetMoveStateFromOrderBill();
-            }
-
-            GameManager.Instance.ProcessOrderPayment(_player.PlayerOrdersController.TableBill.BillValue);
-
-            _player.FreePlayerStart();
-            BillTable.Instance.UpdateTableBill(_player.PlayerOrdersController.TableBill);
-            ResetTable();
+            ControllerManager.Instance._checkOrderBillsPanel.ActivePayedPanel(this);
+            //AIPayed();
         }
     }
+
+    public void AIPayed()
+    {
+        GameManager.Instance.CheckAndProgressTutorialStep(5, 100);
+
+        foreach (var aiController in _aiControllerList)
+        {
+            aiController.AIStateMachineController.SetMoveStateFromOrderBill();
+        }
+
+        GameManager.Instance.ProcessOrderPayment(_player.PlayerOrdersController.TableBill.BillValue);
+
+        _player.FreePlayerStart();
+        BillTable.Instance.UpdateTableBill(_player.PlayerOrdersController.TableBill);
+        ResetTable();
+    }
+    
     
     public void OpenOrderPanels()
     {
