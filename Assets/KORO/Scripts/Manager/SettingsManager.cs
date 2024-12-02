@@ -120,14 +120,7 @@ public class SettingsManager : MonoBehaviour
             var languageIndex = LocalizationSettings.SelectedLocale;
             languageDropdown.value = languageIndex.SortOrder;
         }
-        /*int currentQuality = QualitySettings.GetQualityLevel();
-        int dropdownIndex = System.Array.IndexOf(customQualityIndices, currentQuality);
-        qualityDropdown.value = dropdownIndex >= 0 ? dropdownIndex : 0; // Eğer mevcut kalite custom listede değilse ilk kaliteyi seç
-        qualityDropdown.RefreshShownValue();
         
-        var quality = PlayerPrefsManager.Instance.LoadQuality();
-        SetQuality(quality);
-        qualityDropdown.value = quality;*/
     }
     
     
