@@ -25,6 +25,7 @@ public class SettingsManager : MonoBehaviour
     public Toggle tutorialToggle;
     private Resolution[] availableResolutions;    
     public GameObject settingsPanel;
+    
     // Start is called before the first frame update
     
     private readonly Resolution[] customResolutions = new Resolution[]
@@ -108,8 +109,17 @@ public class SettingsManager : MonoBehaviour
         }
 
         languageDropdown.AddOptions(options);
-        var languageIndex = PlayerPrefsManager.Instance.LoadLanguage();
-        languageDropdown.value = languageIndex;
+        
+        if (PlayerPrefsManager.Instance.GetBool("Initiliazed"))
+        {
+            var languageIndex = PlayerPrefsManager.Instance.LoadLanguage();
+            languageDropdown.value = languageIndex;
+        }
+        else
+        {
+            var languageIndex = LocalizationSettings.SelectedLocale;
+            languageDropdown.value = languageIndex.SortOrder;
+        }
         /*int currentQuality = QualitySettings.GetQualityLevel();
         int dropdownIndex = System.Array.IndexOf(customQualityIndices, currentQuality);
         qualityDropdown.value = dropdownIndex >= 0 ? dropdownIndex : 0; // Eğer mevcut kalite custom listede değilse ilk kaliteyi seç

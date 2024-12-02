@@ -77,6 +77,10 @@ public class PlayerPrefsManager : MonoBehaviour
     public void SaveResolution(int index) => SaveInt("Resolution", index);
     public int LoadResolution() => LoadInt("Resolution");
     
+    // INITILIAZE CONTROL
+    public void SaveInitiliazed(int index) => SaveInt("Initliazed", index);
+    public int LoadInitiliazed() => LoadInt("Initliazed");
+    
     // LANGUAGE
     public void SaveLanguage(int index) => SaveInt("Language", index);
     public int LoadLanguage() => LoadInt("Language");
@@ -105,6 +109,14 @@ public class PlayerPrefsManager : MonoBehaviour
     {
         string jsonData = LoadString("MealsData");
         return !string.IsNullOrEmpty(jsonData) ? JsonUtility.FromJson<MealsList>(jsonData) : null;
+    }
+    public bool GetBool(string key, bool defaultValue = false)
+    {
+        if (PlayerPrefs.HasKey(key))
+        {
+            return PlayerPrefs.GetInt(key) == 1; // 1 -> true, 0 -> false
+        }
+        return defaultValue;
     }
     
     public void SavePlaceRubbishLevel(int level) => SaveInt("PlaceRubbishLevel", level);
