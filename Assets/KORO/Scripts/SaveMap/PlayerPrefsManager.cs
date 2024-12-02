@@ -77,6 +77,10 @@ public class PlayerPrefsManager : MonoBehaviour
     public void SaveResolution(int index) => SaveInt("Resolution", index);
     public int LoadResolution() => LoadInt("Resolution");
     
+    // LANGUAGE
+    public void SaveLanguage(int index) => SaveInt("Language", index);
+    public int LoadLanguage() => LoadInt("Language");
+    
     // QUALITY
     public void SaveQuality(int index) => SaveInt("Quality", index);
     public int LoadQuality() => LoadInt("Quality");
