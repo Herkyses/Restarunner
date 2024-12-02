@@ -3592,7 +3592,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1288231821611407404}
         m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
-        m_MethodName: SetQualityNoIndex
+        m_MethodName: SetLanguage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

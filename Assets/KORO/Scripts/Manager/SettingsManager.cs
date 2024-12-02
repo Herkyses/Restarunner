@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour
@@ -106,7 +108,8 @@ public class SettingsManager : MonoBehaviour
         }
 
         languageDropdown.AddOptions(options);
-
+        var languageIndex = PlayerPrefsManager.Instance.LoadLanguage();
+        languageDropdown.value = languageIndex;
         /*int currentQuality = QualitySettings.GetQualityLevel();
         int dropdownIndex = System.Array.IndexOf(customQualityIndices, currentQuality);
         qualityDropdown.value = dropdownIndex >= 0 ? dropdownIndex : 0; // Eğer mevcut kalite custom listede değilse ilk kaliteyi seç
@@ -138,6 +141,10 @@ public class SettingsManager : MonoBehaviour
     {
         SetResolution(resolutionDropdown.value);
     }
+    public void SetLanguage()
+    {
+        SetLanguageWithIndex(languageDropdown.value);
+    }
 
     public void SetQualityNoIndex()
     {
@@ -159,6 +166,36 @@ public class SettingsManager : MonoBehaviour
         Resolution resolution = availableResolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
         PlayerPrefsManager.Instance.SaveResolution(resolutionIndex);
+    }
+    public void SetLanguageWithIndex(int languageIndex)
+    {
+        PlayerPrefsManager.Instance.SaveLanguage(languageIndex);
+
+        Locale localeLanguage = null;
+        
+        LocalizationSettings.SelectedLocale = GetLocation();
+    }
+
+    public Locale GetLocation()
+    {
+        var selectedLocale = new Locale();
+        switch (PlayerPrefsManager.Instance.LoadLanguage())
+        {
+            case 0:
+                selectedLocale = LocalizationSettings.AvailableLocales.GetLocale("en");
+                break;
+            case 1:
+                selectedLocale = LocalizationSettings.AvailableLocales.GetLocale("es");
+                break;
+            case 2:
+                selectedLocale = LocalizationSettings.AvailableLocales.GetLocale("tr-TR");
+                break;
+            case 3:
+                selectedLocale = LocalizationSettings.AvailableLocales.GetLocale("zh");
+                break;
+        }
+
+        return selectedLocale;
     }
 
     public void SetFullscreen(bool isFullscreen)
