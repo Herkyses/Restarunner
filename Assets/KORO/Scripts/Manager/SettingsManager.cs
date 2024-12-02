@@ -19,7 +19,7 @@ public class SettingsManager : MonoBehaviour
     public Toggle fullscreenToggle;
 
     [Header("Game Settings")]
-    public Dropdown languageDropdown;
+    [SerializeField] private Dropdown languageDropdown;
     public Toggle tutorialToggle;
     private Resolution[] availableResolutions;    
     public GameObject settingsPanel;
@@ -32,12 +32,13 @@ public class SettingsManager : MonoBehaviour
         new Resolution { width = 1600, height = 900 }
     };
     private readonly int[] customQualityIndices = { 0, 2, 4 }; // Low, Medium, High
+    private readonly Enums.LanguageType[] languageIndices = { Enums.LanguageType.English, Enums.LanguageType.Spanish, Enums.LanguageType.Turkish,Enums.LanguageType.Chinesee }; // Low, Medium, High
     void Start()
     {
         //availableResolutions = Screen.resolutions;
         InitiliazeSliders();
         InitiliazeResolution();
-        
+        InitiliazeLanguage();
         InitiliazeQuality();
         
     }
@@ -94,7 +95,27 @@ public class SettingsManager : MonoBehaviour
         SetQuality(quality);
         qualityDropdown.value = quality;
     }
+    public void InitiliazeLanguage()
+    {
+        languageDropdown.ClearOptions();
 
+        var options = new System.Collections.Generic.List<string>();
+        foreach (var index in languageIndices)
+        {
+            options.Add(index.ToString());
+        }
+
+        languageDropdown.AddOptions(options);
+
+        /*int currentQuality = QualitySettings.GetQualityLevel();
+        int dropdownIndex = System.Array.IndexOf(customQualityIndices, currentQuality);
+        qualityDropdown.value = dropdownIndex >= 0 ? dropdownIndex : 0; // Eğer mevcut kalite custom listede değilse ilk kaliteyi seç
+        qualityDropdown.RefreshShownValue();
+        
+        var quality = PlayerPrefsManager.Instance.LoadQuality();
+        SetQuality(quality);
+        qualityDropdown.value = quality;*/
+    }
     
     
     public void OpenSettings()
