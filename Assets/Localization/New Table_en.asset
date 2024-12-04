@@ -248,6 +248,10 @@ MonoBehaviour:
     m_Localized: Full Screen
     m_Metadata:
       m_Items: []
+  - m_Id: 4807665882562560
+    m_Localized: Stop the non-payer
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

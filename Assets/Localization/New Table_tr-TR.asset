@@ -249,6 +249,10 @@ MonoBehaviour:
     m_Localized: Tam Ekran
     m_Metadata:
       m_Items: []
+  - m_Id: 4807665882562560
+    m_Localized: "\xD6deme yapmayan\u0131 durdur"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -248,6 +248,10 @@ MonoBehaviour:
     m_Localized: Pantalla Completa
     m_Metadata:
       m_Items: []
+  - m_Id: 4807665882562560
+    m_Localized: "Det\xE9n al que no pag\xF3"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

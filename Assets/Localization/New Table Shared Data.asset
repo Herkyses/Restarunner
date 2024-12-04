@@ -239,6 +239,10 @@ MonoBehaviour:
     m_Key: Key_FullScreen
     m_Metadata:
       m_Items: []
+  - m_Id: 4807665882562560
+    m_Key: Key_StopNonPayer
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
