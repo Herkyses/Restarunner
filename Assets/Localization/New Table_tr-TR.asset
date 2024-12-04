@@ -229,6 +229,26 @@ MonoBehaviour:
     m_Localized: "Y\xFCksek"
     m_Metadata:
       m_Items: []
+  - m_Id: 4762013005840384
+    m_Localized: Ayarlar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4762040629526528
+    m_Localized: "\xC7\xF6z\xFCn\xFCrl\xFCk"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4762360977883136
+    m_Localized: Kalite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4762400953794560
+    m_Localized: Dil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4762520478875648
+    m_Localized: Tam Ekran
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -228,6 +228,26 @@ MonoBehaviour:
     m_Localized: Alta
     m_Metadata:
       m_Items: []
+  - m_Id: 4762013005840384
+    m_Localized: "Configuraci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4762040629526528
+    m_Localized: "Resoluci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4762360977883136
+    m_Localized: Calidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4762400953794560
+    m_Localized: Idioma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4762520478875648
+    m_Localized: Pantalla Completa
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

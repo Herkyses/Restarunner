@@ -228,6 +228,26 @@ MonoBehaviour:
     m_Localized: High
     m_Metadata:
       m_Items: []
+  - m_Id: 4762013005840384
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4762040629526528
+    m_Localized: Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4762360977883136
+    m_Localized: Quality
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4762400953794560
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4762520478875648
+    m_Localized: Full Screen
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

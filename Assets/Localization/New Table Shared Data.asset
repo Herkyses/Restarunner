@@ -219,6 +219,26 @@ MonoBehaviour:
     m_Key: Key_High
     m_Metadata:
       m_Items: []
+  - m_Id: 4762013005840384
+    m_Key: Key_Setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4762040629526528
+    m_Key: Key_Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4762360977883136
+    m_Key: Key_Quality
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4762400953794560
+    m_Key: Key_Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4762520478875648
+    m_Key: Key_FullScreen
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
