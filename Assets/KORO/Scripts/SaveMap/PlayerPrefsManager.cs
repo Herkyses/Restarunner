@@ -89,6 +89,10 @@ public class PlayerPrefsManager : MonoBehaviour
     public void SaveQuality(int index) => SaveInt("Quality", index);
     public int LoadQuality() => LoadInt("Quality");
     
+    // FULLSCREEN
+    public void SaveFullScreen(int index) => SaveInt("FullScreen", index);
+    public int LoadFullScreen() => LoadInt("FullScreen");
+    
     
     // SFX
     public void SaveVolume(float money) => SaveFloat("sfxVolume", money);

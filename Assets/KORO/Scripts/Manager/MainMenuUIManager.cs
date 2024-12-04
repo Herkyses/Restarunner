@@ -16,4 +16,9 @@ public class MainMenuUIManager : MonoBehaviour
         MapManager.Instance.ResetMap();
         SceneManager.LoadScene("SampleScene");
     }
+
+    public void QuitMethod()
+    {
+        Application.Quit();
+    }
 }

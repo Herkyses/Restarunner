@@ -22,10 +22,12 @@ public class SettingsManager : MonoBehaviour
 
     [Header("Game Settings")]
     [SerializeField] private Dropdown languageDropdown;
+    [SerializeField] private GameObject tickObject;
     public Toggle tutorialToggle;
-    private Resolution[] availableResolutions;    
+    private Resolution[] availableResolutions;
+    private PlayerPrefsManager _playerPrefsManager;
     public GameObject settingsPanel;
-    
+
     // Start is called before the first frame update
     
     private readonly Resolution[] customResolutions = new Resolution[]
@@ -38,7 +40,9 @@ public class SettingsManager : MonoBehaviour
     private readonly Enums.LanguageType[] languageIndices = { Enums.LanguageType.English, Enums.LanguageType.Spanish, Enums.LanguageType.Turkish,Enums.LanguageType.Chinesee }; // Low, Medium, High
     void Start()
     {
+        _playerPrefsManager = PlayerPrefsManager.Instance;
         //availableResolutions = Screen.resolutions;
+        InitiliazeFullScreen();
         InitiliazeSliders();
         InitiliazeResolution();
         InitiliazeLanguage();
@@ -48,7 +52,7 @@ public class SettingsManager : MonoBehaviour
 
     public void InitiliazeSliders()
     {
-        _sfxVolumeSlider.value = PlayerPrefsManager.Instance.LoadVolume();
+        _sfxVolumeSlider.value = _playerPrefsManager.LoadVolume();
     }
     public void InitiliazeResolution()
     {
@@ -72,7 +76,7 @@ public class SettingsManager : MonoBehaviour
         resolutionDropdown.AddOptions(options); 
         resolutionDropdown.value = currentResolutionIndex; 
         resolutionDropdown.RefreshShownValue();
-        var resolution = PlayerPrefsManager.Instance.LoadResolution();
+        var resolution = _playerPrefsManager.LoadResolution();
         SetResolution(resolution);
         resolutionDropdown.value = resolution;
     }
@@ -94,7 +98,7 @@ public class SettingsManager : MonoBehaviour
         qualityDropdown.value = dropdownIndex >= 0 ? dropdownIndex : 0; // Eğer mevcut kalite custom listede değilse ilk kaliteyi seç
         qualityDropdown.RefreshShownValue();
         
-        var quality = PlayerPrefsManager.Instance.LoadQuality();
+        var quality = _playerPrefsManager.LoadQuality();
         SetQuality(quality);
         qualityDropdown.value = quality;
     }
@@ -110,7 +114,7 @@ public class SettingsManager : MonoBehaviour
 
         languageDropdown.AddOptions(options);
         
-        if (PlayerPrefsManager.Instance.GetBool("Initiliazed"))
+        if (_playerPrefsManager.GetBool("Initiliazed"))
         {
             var languageIndex = PlayerPrefsManager.Instance.LoadLanguage();
             languageDropdown.value = languageIndex;
@@ -157,22 +161,22 @@ public class SettingsManager : MonoBehaviour
     {
         int qualityIndex = customQualityIndices[index];
         QualitySettings.SetQualityLevel(qualityIndex);
-        PlayerPrefsManager.Instance.SaveQuality(index);
+        _playerPrefsManager.SaveQuality(index);
     }
     public void EndDragedd()
     {
-        PlayerPrefsManager.Instance.SaveVolume(_sfxVolume);
+        _playerPrefsManager.SaveVolume(_sfxVolume);
     }
     public void SetResolution(int resolutionIndex)
     {
         // Seçilen çözünürlüğü uygula
         Resolution resolution = availableResolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-        PlayerPrefsManager.Instance.SaveResolution(resolutionIndex);
+        _playerPrefsManager.SaveResolution(resolutionIndex);
     }
     public void SetLanguageWithIndex(int languageIndex)
     {
-        PlayerPrefsManager.Instance.SaveLanguage(languageIndex);
+        _playerPrefsManager.SaveLanguage(languageIndex);
 
         Locale localeLanguage = null;
         
@@ -182,7 +186,7 @@ public class SettingsManager : MonoBehaviour
     public Locale GetLocation()
     {
         var selectedLocale = new Locale();
-        switch (PlayerPrefsManager.Instance.LoadLanguage())
+        switch (_playerPrefsManager.LoadLanguage())
         {
             case 0:
                 selectedLocale = LocalizationSettings.AvailableLocales.GetLocale("en");
@@ -201,9 +205,37 @@ public class SettingsManager : MonoBehaviour
         return selectedLocale;
     }
 
-    public void SetFullscreen(bool isFullscreen)
+    public void SetFullscreen()
     {
         // Tam ekran/pencere modu değiştir
-        Screen.fullScreen = isFullscreen;
+        var isFullScreen = Screen.fullScreen;
+        if (isFullScreen)
+        {
+            _playerPrefsManager.SaveFullScreen(0);
+            tickObject.SetActive(false);
+
+        }
+        else
+        {
+            _playerPrefsManager.SaveFullScreen(1);
+            tickObject.SetActive(true);
+
+        }
+        Screen.fullScreen = !isFullScreen;
+    }
+
+    public void InitiliazeFullScreen()
+    {
+        if (_playerPrefsManager.LoadFullScreen() == 0)
+        {
+            Screen.fullScreen = false;
+            tickObject.SetActive(false);
+        }
+        else
+        {
+            Screen.fullScreen = true;
+            tickObject.SetActive(true);
+
+        }
     }
 }
