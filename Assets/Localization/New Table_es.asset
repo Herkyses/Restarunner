@@ -208,6 +208,26 @@ MonoBehaviour:
     m_Localized: Lista de pedidos
     m_Metadata:
       m_Items: []
+  - m_Id: 4700419207004160
+    m_Localized: Muy Baja
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4700476757049344
+    m_Localized: Media
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4700510764466176
+    m_Localized: Muy Alta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4715846809223168
+    m_Localized: Alta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4715950760853504
+    m_Localized: Alta
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

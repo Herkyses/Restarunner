@@ -36,8 +36,11 @@ public class SettingsManager : MonoBehaviour
         new Resolution { width = 1280, height = 720 },
         new Resolution { width = 1600, height = 900 }
     };
-    private readonly int[] customQualityIndices = { 0, 2, 4 }; // Low, Medium, High
+    private readonly int[] customQualityIndices = { 0,1,2,3,4 }; // Low, Medium, High
+    private readonly string[] qualityString = { "Key_VeryLow","Key_Low","Key_Medium","Key_High","Key_VeryHigh" }; // Low, Medium, High
     private readonly Enums.LanguageType[] languageIndices = { Enums.LanguageType.English, Enums.LanguageType.Spanish, Enums.LanguageType.Turkish,Enums.LanguageType.Chinesee }; // Low, Medium, High
+    [SerializeField] private LocalizedStringTable localizedStringTable;
+    
     void Start()
     {
         _playerPrefsManager = PlayerPrefsManager.Instance;
@@ -83,16 +86,19 @@ public class SettingsManager : MonoBehaviour
 
     public void InitiliazeQuality()
     {
+        var stringTable = localizedStringTable.GetTable();
         qualityDropdown.ClearOptions();
 
         var options = new System.Collections.Generic.List<string>();
         foreach (var index in customQualityIndices)
         {
-            options.Add(QualitySettings.names[index]);
+            //options.Add(QualitySettings.names[index]);
+
+            var localizedString = stringTable.GetEntry(qualityString[index]).GetLocalizedString();
+            options.Add(localizedString);
         }
-
         qualityDropdown.AddOptions(options);
-
+        
         int currentQuality = QualitySettings.GetQualityLevel();
         int dropdownIndex = System.Array.IndexOf(customQualityIndices, currentQuality);
         qualityDropdown.value = dropdownIndex >= 0 ? dropdownIndex : 0; // Eğer mevcut kalite custom listede değilse ilk kaliteyi seç
@@ -151,6 +157,7 @@ public class SettingsManager : MonoBehaviour
     public void SetLanguage()
     {
         SetLanguageWithIndex(languageDropdown.value);
+        InitiliazeQuality();
     }
 
     public void SetQualityNoIndex()
