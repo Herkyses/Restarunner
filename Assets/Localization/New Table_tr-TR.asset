@@ -253,6 +253,14 @@ MonoBehaviour:
     m_Localized: "\xD6deme yapmayan\u0131 durdur"
     m_Metadata:
       m_Items: []
+  - m_Id: 5073173018116096
+    m_Localized: "A\xE7\u0131k"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5073201090592768
+    m_Localized: "Kapal\u0131"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

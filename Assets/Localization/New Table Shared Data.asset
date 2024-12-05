@@ -243,6 +243,14 @@ MonoBehaviour:
     m_Key: Key_StopNonPayer
     m_Metadata:
       m_Items: []
+  - m_Id: 5073173018116096
+    m_Key: Key_OpenRestaurant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5073201090592768
+    m_Key: Key_Close
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
