@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4541095740750442946}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 190.15889, y: 528.8488, z: 2.4887438}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4541095740750442947
 MonoBehaviour:
@@ -65,7 +65,7 @@ MonoBehaviour:
   - {fileID: 4715030341137099813, guid: 3edce3b769cae7f45a01025c36922286, type: 3}
   RubbishMeshes:
   - {fileID: 3351348, guid: 97d18204e4538e64f9bdf47d8db7c5e5, type: 3}
-  - {fileID: 3379712, guid: bbe271edc5b4fd04589440e05e4a0ff8, type: 3}
+  - {fileID: -5754084199372789682, guid: beb8bdc31f89fa34588a15d1636f079b, type: 3}
   - {fileID: 3333530, guid: 9e7b9a5d5dab450459315a75ec16fa02, type: 3}
   - {fileID: 3309096, guid: fc189f6b0af3f6843b28de731f5b15e1, type: 3}
   - {fileID: 3330464, guid: 1bc6dc700e247464a9f5a53bd3213bea, type: 3}
