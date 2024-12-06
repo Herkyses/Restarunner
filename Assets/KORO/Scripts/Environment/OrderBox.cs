@@ -117,7 +117,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
                 objectZort.GetComponent<SingleCrate>().Initiliaze(_shopItemData);
                 objectZort.GetComponent<SingleCrate>().InterectableObjectRun();
             }
-            if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 2)
+            if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 3)
             {
                 TutorialManager.Instance.SetTutorialInfo(4);
             }
