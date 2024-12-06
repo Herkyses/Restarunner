@@ -171,7 +171,7 @@ public class AIStateMachineController : MonoBehaviour
     {
         AIController.AIOwnerTable.AllFoodfinished();
         
-        if (Random.value < 0.5f && PlayerPrefsManager.Instance.LoadPlayerTutorialStep() != 4)
+        if (Random.value < 0.5f && PlayerPrefsManager.Instance.LoadPlayerTutorialStep() != 5)
         {
             AIController.AIOwnerTable.ResetTable();
             AIController.IsBadGuy = true;
