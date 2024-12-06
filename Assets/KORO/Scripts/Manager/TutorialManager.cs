@@ -51,6 +51,7 @@ public class TutorialManager : MonoBehaviour
             new TutorialStep("Key_Tut8"),
             new TutorialStep("Key_Tut9"),
             new TutorialStep("Key_Tut10"),
+            new TutorialStep("Key_Tut11"),
             new TutorialStep("", false)
         };
     }

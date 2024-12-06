@@ -39,6 +39,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     private Outline _outline;
     private Player _player;
     private TableController tableController;
+    private PlayerPrefsManager playerPrefsManager;
     
     private GameSceneCanvas _gameSceneCanvas;
     
@@ -57,8 +58,8 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     
     private void Start()
     {
+        playerPrefsManager = PlayerPrefsManager.Instance;
         InitializeTable();
-
     }
     private void Update()
     {
@@ -266,6 +267,13 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         }
     }
 
+    private void CheckTutorial()
+    {
+        if (playerPrefsManager.LoadPlayerTutorialStep() == 5)
+        {
+            TutorialManager.Instance.SetTutorialInfo(11);
+        }
+    }
     public void AIPayed()
     {
         GameManager.Instance.CheckAndProgressTutorialStep(5, 100);
