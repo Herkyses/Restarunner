@@ -64,7 +64,7 @@ public class AIWaitStateController : MonoBehaviour,IInterectableObject
                 AiControllers[i]._agent.speed = 1f;
                 AiControllers[i].AIStateMachineController.SetFriendsState();
                 ControllerManager.Instance.TableAvailablePanel.RemoveFromCustomerList(index);
-                if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
+                if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 5)
                 {
                     TutorialManager.Instance.SetTutorialInfo(6);
                 }

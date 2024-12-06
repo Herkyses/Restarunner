@@ -37,7 +37,7 @@ public class SingleOrder : MonoBehaviour
 
     public void PlusButtonPressed()
     {
-        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 4)
+        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 5)
         {
             ControllerManager.Instance._orderPanelController.PlayerOrderInventory(this);
             TutorialManager.Instance.SetTutorialInfo(8);

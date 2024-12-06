@@ -20,10 +20,7 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
     public static Action RestaurantOpened;
     public void InterectableObjectRun()
     {
-        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() < 3)
-        {
-            //return;
-        }
+        
         if (CanMove)
         {
             CanMove = false;

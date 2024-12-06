@@ -36,7 +36,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
     private List<FoodTable> createdFoodTables = new List<FoodTable>();
     
     private const float FOOD_ROTATION_Y = 90f;
-    private const int TUTORIAL_STEP_THRESHOLD = 4;
+    private const int TUTORIAL_STEP_THRESHOLD = 5;
     private const int TUTORIAL_UPDATE_STEP = 9;
 
     private void OnEnable()
