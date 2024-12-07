@@ -248,7 +248,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3255834003585043375}
         m_TargetAssemblyTypeName: CheckOrderBillsPanel, Assembly-CSharp
-        m_MethodName: DeActivePayedPanel
+        m_MethodName: ClearInput
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
