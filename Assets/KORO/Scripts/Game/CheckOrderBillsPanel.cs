@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -14,6 +15,8 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
     [SerializeField] private Transform _billParent;
     [SerializeField] private Transform _numberButtonParent;
     [SerializeField] private SingleBill _singleBill;
+    private Tween _payedPanelMove;
+
     private GameSceneCanvas _gameSceneCanvas;
     private TableController _tableController;
     private Table _openedTable;
@@ -152,10 +155,43 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
 
     public void ActivePayedPanel(Table table)
     {
+        
+        OpenPayedPanel();
+        _openedTable = table;
+    }
+
+    public void OpenPayedPanel()
+    {
+        if (_payedPanel.gameObject.activeSelf)
+        {
+            //DeActivePlacePanel();
+            if (_payedPanelMove != null)
+            {
+                _payedPanelMove.Kill();
+            }
+            var panelRect = _payedPanel.GetComponent<RectTransform>();
+            _payedPanelMove = panelRect.DOLocalMoveY( - 1200f, 0.3f).OnComplete(DeactiveCanmoveCursor);
+        }
+        else
+        {
+            ActiveCanMoveCursor();
+            var panelRect = _payedPanel.GetComponent<RectTransform>();
+            panelRect.anchoredPosition += Vector2.down*600f; 
+            if (_payedPanelMove != null)
+            {
+                _payedPanelMove.Kill();
+            }
+            _payedPanelMove = panelRect.DOLocalMoveY(0f, 0.3f);
+
+
+        }
+    }
+
+    public void ActiveCanMoveCursor()
+    {
         _payedPanel.gameObject.SetActive(true);
         _gameSceneCanvas.CanMove = false;
         GameSceneCanvas.IsCursorVisible?.Invoke(true);
-        _openedTable = table;
     }
 
     public void PayedButtonPressed()
@@ -167,10 +203,16 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
     }
     public void DeActivePayedPanel()
     {
+        OpenPayedPanel();
+        
+        //_openedTable = null;
+    }
+
+    public void DeactiveCanmoveCursor()
+    {
         _payedPanel.gameObject.SetActive(false);
         _gameSceneCanvas.CanMove = true;
         GameSceneCanvas.IsCursorVisible?.Invoke(false);
-        //_openedTable = null;
     }
     public void DeActiveBillsPanel()
     {
