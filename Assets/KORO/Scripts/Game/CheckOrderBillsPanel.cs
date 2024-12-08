@@ -170,7 +170,7 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
                 _payedPanelMove.Kill();
             }
             var panelRect = _payedPanel.GetComponent<RectTransform>();
-            _payedPanelMove = panelRect.DOLocalMoveY( - 1200f, 0.3f).OnComplete(DeactiveCanmoveCursor);
+            _payedPanelMove = panelRect.DOLocalMoveY( - 1200f, 0.4f).OnComplete(DeactiveCanmoveCursor);
         }
         else
         {
@@ -199,6 +199,8 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
         if (_openedTable && ValidateBillValue(billInputField.text) == _openedTable.TotalBills)
         {
             _openedTable.AIPayed();
+            ClearInput();
+            OpenPayedPanel();
         }
     }
     public void DeActivePayedPanel()
