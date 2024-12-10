@@ -315,4 +315,19 @@ public class AIController : MonoBehaviour,IInterectableObject
             return Enums.PlayerStateType.GiveFood;
         }
     }
+    public void AssignToChair(AIAreaController aiArea, Chair chair)
+    {
+        chair.isChairAvailable = false;
+        aiArea.AIController._agent.enabled = false;
+        aiArea.transform.position = chair.transform.position;
+        aiArea.transform.rotation = chair.transform.rotation;
+
+        var stateMachineController = aiArea.GetComponent<AIStateMachineController>();
+        stateMachineController.AIChangeState(stateMachineController.AISitState);
+
+        aiArea.InteractabelControl();
+        //_aiControllerList.Add(aiArea.GetComponent<AIController>());
+        
+        //aiArea.AIController.SetTableInfo(this, chair);
+    }
 }
