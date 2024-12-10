@@ -162,7 +162,8 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     
     private void AssignAIToChair(AIAreaController aiArea, Chair chair)
     {
-        aiArea.AIController.AssignToChair(aiArea,chair);
+        chair.isChairAvailable = false;
+        aiArea.AIController.AssignToChair(aiArea,chair.transform);
         _aiControllerList.Add(aiArea.GetComponent<AIController>());
         aiArea.AIController.SetTableInfo(this, chair);
     }
