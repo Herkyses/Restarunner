@@ -44,7 +44,12 @@ public class GiveChefOrderPanelController : MonoBehaviour
         OnOrderGivenToChef?.Invoke(orderStructs,true,null);
         //PlayerOrderController.Instance.OrderList.Remove(Orders);
         OrderList[SelectedOrderListCount].OrderDataStructs.Clear();
-        DeactivePanel();
+        //TODO: check for tutorial
+        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 5)
+        {
+            DeactivePanel();
+        }
+        //
     }
 
     public void OrderListIndexIncrease(bool isIncrease)

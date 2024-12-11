@@ -74,7 +74,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     /////////// SIT STATE ///////////
     public void StartSitState()
     {
-        _agent.speed = 0f;
+        //_agent.speed = 0f;
         AiAnimator.Play("Sit",0);
         //StartCoroutine(FoodIcon());
 
@@ -317,6 +317,7 @@ public class AIController : MonoBehaviour,IInterectableObject
     }
     public void AssignToChair(AIAreaController aiArea, Transform chair)
     {
+        aiArea.AIController._agent.speed = 0;
         aiArea.AIController._agent.enabled = false;
         aiArea.transform.position = chair.position;
         aiArea.transform.rotation = chair.rotation;
