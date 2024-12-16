@@ -6589,6 +6589,7 @@ MonoBehaviour:
   _foodsParent: {fileID: 3978999298501558468}
   _uiSingleFoodPf: {fileID: 1295011332016359386, guid: 7db47167be7c06640aac7dd812631a7d, type: 3}
   _uiSingleFoodList: []
+  referanceObject: {fileID: 5772468943234408064}
 --- !u!1 &1518611376901557487
 GameObject:
   m_ObjectHideFlags: 0

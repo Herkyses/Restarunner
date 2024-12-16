@@ -11,6 +11,7 @@ public class RestaurantCanvasManager : MonoBehaviour
     [SerializeField] private Transform _foodsParent;
     [SerializeField] private UISingleFood _uiSingleFoodPf;
     [SerializeField] private List<UISingleFood> _uiSingleFoodList;
+    public GameObject referanceObject;
 
 
     private void Awake()

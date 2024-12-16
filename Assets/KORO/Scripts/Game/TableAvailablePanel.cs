@@ -2,13 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class TableAvailablePanel : MonoBehaviour
 {
+    [Inject] public TableController Tablecontroller;
+    
     [SerializeField] private Transform _availabilityPanel;
     public Transform _tablesParent;
     [SerializeField] private Transform _customerParent;
     [SerializeField] private Transform _contentParent;
+    
+    // MINIMAP
+    [Header("MINIMAP")]
+    public GameObject referenceObject; // Örneğin oyuncu
+    public RectTransform minimapBounds; // Minimap'in UI alanı
+    public float visibilityRadius = 20f; // İkonun görünür olması için mesafe limiti
+    private List<GameObject> activeIcons = new List<GameObject>(); // Aktif ikonları tutar
+    public Vector2 mapScale = new Vector2(50, 50); // Dünya -> minimap ölçeği
+    public List<Transform> tables; // Masaların Transform listesi
+    public GameObject tableIconPrefab; // Masa ikonu prefab
+    
     
     [SerializeField] private SingleAvailability _singleAvailabilityPf;
     [SerializeField] private SingleCustomer _customerPf;
@@ -38,6 +52,7 @@ public class TableAvailablePanel : MonoBehaviour
     {
         InitializeAvailabilityPanel();
         Utilities.DeleteTransformchilds(_customerParent);
+        referenceObject = RestaurantCanvasManager.Instance.referanceObject;
         //CheckOrderBillsPanel.Instance.Initialize();
     }
 
@@ -101,6 +116,10 @@ public class TableAvailablePanel : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.G))
         {
             _availabilityPanel.gameObject.SetActive(false);
+        }
+        if(Input.GetKeyUp(KeyCode.P))
+        {
+            UpdateMinimapIcons();
         }
     }
 
@@ -175,5 +194,37 @@ public class TableAvailablePanel : MonoBehaviour
                 }
             }
         }
+    }
+    private void UpdateMinimapIcons()
+    {
+        // Aktif ikonları temizle
+        foreach (var icon in activeIcons)
+        {
+            Destroy(icon);
+        }
+        activeIcons.Clear();
+
+        foreach (TableSet table in Tablecontroller.TableSets)
+        {
+            // Masanın referans objeye uzaklığını hesapla
+            float distance = Vector3.Distance(referenceObject.transform.position, table.gameObject.transform.position);
+            Vector3 distanceVector = referenceObject.transform.position - table.gameObject.transform.position;
+            if (distance <= visibilityRadius)
+            {
+                // İkon oluştur ve minimap'e ekle
+                GameObject icon = Instantiate(tableIconPrefab, minimapBounds);
+                icon.GetComponent<RectTransform>().anchoredPosition = WorldToMinimap(-distanceVector);
+                //icon.GetComponent<RectTransform>().anchoredPosition = new Vector2(distanceVector.x,distanceVector.z);
+                activeIcons.Add(icon);
+            }
+        }
+    }
+    private Vector2 WorldToMinimap(Vector3 worldPosition)
+    {
+        // Dünya pozisyonunu minimap pozisyonuna çevir
+        Vector2 normalizedPosition = new Vector2(worldPosition.x / mapScale.x, worldPosition.z / mapScale.y);
+        Vector2 minimapCenter = minimapBounds.sizeDelta / 2; // Minimap merkezine göre ayarla
+        Debug.Log("minimapcenter:" + minimapCenter);
+        return /*minimapCenter +*/ Vector2.Scale(normalizedPosition, minimapBounds.sizeDelta);
     }
 }
