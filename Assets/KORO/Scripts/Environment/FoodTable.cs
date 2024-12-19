@@ -17,6 +17,7 @@ public class FoodTable : MonoBehaviour,IInterectableObject
     public Food Food;
     public bool IsFoodFinished;
     public bool QualityTimeStarted;
+    public bool IsFoodServiced;
     
     public Transform FoodSpawnTransform;
     public float WaitTime;
@@ -35,22 +36,39 @@ public class FoodTable : MonoBehaviour,IInterectableObject
 
     public void InterectableObjectRun()
     {
+        if (IsFoodServiced)
+        {
+            return;
+        }
         PlayerOrderController.Instance.TakeFood(GetComponent<FoodTable>(),IsFoodFinished);
         ChefController.Instance.IsAvailableFoodTable();
     }
 
     public void ShowOutline(bool active)
     {
+        if (IsFoodServiced)
+        {
+            return;
+        }
         _outline.enabled = active;
     }
 
     public Outline GetOutlineComponent()
     {
-        return _outline;
+        if (!IsFoodServiced)
+        {
+            return _outline;
+        }
+
+        return null;
     }
 
     public string GetInterectableText()
     {
+        if (IsFoodServiced)
+        {
+            return null;
+        }
         return "Key_PickUp_Food";
     }
     public void Move()
@@ -81,6 +99,7 @@ public class FoodTable : MonoBehaviour,IInterectableObject
         _foodQualityCanvasObject.SetActive(true);
         WaitTime = food.QualityWaitTime;
         IsFoodFinished = false;
+        IsFoodServiced = false;
         QualityTimeStarted = true;
     }
 
@@ -93,6 +112,7 @@ public class FoodTable : MonoBehaviour,IInterectableObject
     {
         _foodQualityCanvasObject.SetActive(false);
         QualityTimeStarted = false;
+        IsFoodServiced = true;
     }
     
     

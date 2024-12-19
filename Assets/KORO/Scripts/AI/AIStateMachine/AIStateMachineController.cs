@@ -157,6 +157,7 @@ public class AIStateMachineController : MonoBehaviour
     {
         AIController.AIOwnerFood.EatedFood();
         AIController.AIOwnerFood.IsFoodFinished = true;
+        AIController.AIOwnerFood.IsFoodServiced = false;
         AIController.IsFinishedFood = true;
         AIController.AIOwnerTable.RemoveOrder(AIController.FoodDataStruct);
         //RubbishManager.Instance.CreateRubbishFromAI();
