@@ -13,7 +13,20 @@ public class GameManager : MonoBehaviour
 
 
     public static Action GameStarted;
-    
+    public static Action<bool> IsAnyPanelOpened;
+    public static bool IsPanelOpened;
+
+
+    private void OnEnable()
+    {
+        IsAnyPanelOpened += PanelOpened;
+    }
+
+    private void OnDisable()
+    {
+        IsAnyPanelOpened -= PanelOpened;
+    }
+
     private void Awake()
     {
         if (Instance == null)
@@ -31,6 +44,11 @@ public class GameManager : MonoBehaviour
     {
         CreatePlayer();
         GameStarted?.Invoke();
+    }
+
+    public void PanelOpened(bool isPanelOpened)
+    {
+        IsPanelOpened = isPanelOpened;
     }
 
     // Update is called once per frame

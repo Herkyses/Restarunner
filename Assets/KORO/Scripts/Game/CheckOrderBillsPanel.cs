@@ -151,6 +151,7 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
         _gameSceneCanvas.CanMove = false;
         GameSceneCanvas.IsCursorVisible?.Invoke(true);
         _panel.gameObject.SetActive(true);
+        GameManager.IsAnyPanelOpened?.Invoke(true);
     }
 
     public void ActivePayedPanel(Table table)
@@ -192,6 +193,7 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
         _payedPanel.gameObject.SetActive(true);
         _gameSceneCanvas.CanMove = false;
         GameSceneCanvas.IsCursorVisible?.Invoke(true);
+        GameManager.IsAnyPanelOpened?.Invoke(true);
     }
 
     public void PayedButtonPressed()
@@ -206,7 +208,7 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
     public void DeActivePayedPanel()
     {
         OpenPayedPanel();
-        
+        GameManager.IsAnyPanelOpened?.Invoke(false);
         //_openedTable = null;
     }
 
@@ -215,13 +217,14 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
         _payedPanel.gameObject.SetActive(false);
         _gameSceneCanvas.CanMove = true;
         GameSceneCanvas.IsCursorVisible?.Invoke(false);
+        GameManager.IsAnyPanelOpened?.Invoke(false);
     }
     public void DeActiveBillsPanel()
     {
         _gameSceneCanvas.CanMove = true;
         GameSceneCanvas.IsCursorVisible?.Invoke(false);
         _panel.gameObject.SetActive(false);
-
+        GameManager.IsAnyPanelOpened?.Invoke(false);
     }
    
 

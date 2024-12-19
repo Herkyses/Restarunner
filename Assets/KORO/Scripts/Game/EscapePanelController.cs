@@ -32,8 +32,12 @@ public class EscapePanelController : MonoBehaviour
 
     public void ResumeGame()
     {
-        escapePanel.SetActive(false); 
-        Time.timeScale = 1f;          
+        escapePanel.SetActive(false);
+        Time.timeScale = 1f;
+        if (GameManager.IsPanelOpened)
+        {
+            return;
+        }
         Cursor.visible = false;       
         Cursor.lockState = CursorLockMode.Locked; 
     }

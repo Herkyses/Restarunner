@@ -127,6 +127,7 @@ public class TableAvailablePanel : MonoBehaviour
     {
         GameSceneCanvas.Instance.CanMove = false;
         GameSceneCanvas.IsCursorVisible?.Invoke(true);
+        GameManager.IsAnyPanelOpened?.Invoke(true);
         _availabilityPanel.gameObject.SetActive(true);
     }
     public void DeActiveAbilityPanel()
@@ -134,7 +135,7 @@ public class TableAvailablePanel : MonoBehaviour
         GameSceneCanvas.Instance.CanMove = true;
         GameSceneCanvas.IsCursorVisible?.Invoke(false);
         _availabilityPanel.gameObject.SetActive(false);
-
+        GameManager.IsAnyPanelOpened?.Invoke(false);
     }
 
     public void RedAvailability(int tableIndex)

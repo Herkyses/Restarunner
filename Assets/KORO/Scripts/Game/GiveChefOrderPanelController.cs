@@ -103,6 +103,7 @@ public class GiveChefOrderPanelController : MonoBehaviour
         Panel.gameObject.SetActive(true);
         GameSceneCanvas.Instance.CanMove = false;
         GameSceneCanvas.IsCursorVisible?.Invoke(true);
+        GameManager.IsAnyPanelOpened?.Invoke(true);
         OrderList = PlayerOrderController.Instance.OrderList;
         SelectedOrderListCount = 0;
         OrderListIndexIncrease(true);

@@ -66,6 +66,7 @@ using System.Collections.Generic;
     {
         GameSceneCanvas.Instance.CanMove = false;
         GameSceneCanvas.IsCursorVisible?.Invoke(true);
+        GameManager.IsAnyPanelOpened?.Invoke(true);
         _panel.gameObject.SetActive(true);
         if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 1)
         {
@@ -77,6 +78,7 @@ using System.Collections.Generic;
         GameSceneCanvas.Instance.CanMove = true;
         GameSceneCanvas.IsCursorVisible?.Invoke(false);
         _panel.gameObject.SetActive(false);
+        GameManager.IsAnyPanelOpened?.Invoke(false);
         //OpenPlacePanel();
     }
 
