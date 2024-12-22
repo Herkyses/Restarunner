@@ -12,6 +12,7 @@ public class TableController : MonoBehaviour
     public TableSet TableSetPf;
     public ChefController ChefController;
     public int TableSetCapacity;
+    [SerializeField] private MaterialData _materialData;
 
 
     public void Initialize()
@@ -48,5 +49,14 @@ public class TableController : MonoBehaviour
         {
             TableSets[i].GetComponent<BoxCollider>().enabled = enabledValue;
         }
+    }
+
+    public Material GetSetableMaterial()
+    {
+        return _materialData.TrueMaterial;
+    }
+    public Material GetWrongMaterial()
+    {
+        return _materialData.WrongMaterial;
     }
 }

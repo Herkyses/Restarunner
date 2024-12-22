@@ -51,6 +51,9 @@ MonoBehaviour:
   groundLayer: 0
   tableIndexLayer: 0
   tableTypeID: 0
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 544579
 --- !u!65 &4985917389719943773
 BoxCollider:
   m_ObjectHideFlags: 0

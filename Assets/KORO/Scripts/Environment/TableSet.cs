@@ -9,6 +9,7 @@ public class TableSet : MonoBehaviour
     public int tableIndexLayer;
     public int tableTypeID;
     private Outline _outline;
+    [SerializeField] private LayerMask _layerMask;
 
     // Start is called before the first frame update
     void Start()
@@ -26,29 +27,34 @@ public class TableSet : MonoBehaviour
 
     public void CheckGround()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.8f);
-        var checkControl = false;
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.8f, _layerMask);
+
+        bool checkControl = false;
+
         foreach (Collider collider in colliders)
         {
-            if (collider.gameObject != gameObject && collider.gameObject.layer == tableIndexLayer)
+            if (collider.gameObject == gameObject) 
+                continue;
+
+            int layer = collider.gameObject.layer;
+
+            if (layer != groundLayer && layer == tableIndexLayer)
             {
+                table.IsTableSetTransform = false;
                 return;
             }
-           
-        }
-        foreach (Collider collider in colliders)
-        {
-            
-            if (collider.gameObject != gameObject && collider.gameObject.layer == groundLayer) 
+
+            if (layer == groundLayer && layer != tableIndexLayer)
             {
-                table.IsTableSetTransform = true;
-                return;
+                checkControl = true;
             }
         }
 
-       
-
-        table.IsTableSetTransform = false;
+        // Kontrol sonucunu belirle
+        if (table.IsTableSetTransform != checkControl)
+        {
+            table.IsTableSetTransform = checkControl;
+        }
     }
     /*private void OnTriggerEnter(Collider other)
     {

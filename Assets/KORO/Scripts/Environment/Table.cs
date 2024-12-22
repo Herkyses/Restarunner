@@ -42,6 +42,9 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     private PlayerPrefsManager playerPrefsManager;
     
     private GameSceneCanvas _gameSceneCanvas;
+    private Material _material;
+    private Material _currentMaterial;
+    private Renderer _renderer;
     
 
 
@@ -83,6 +86,8 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         tableController = ControllerManager.Instance.Tablecontroller;
         TableQuality = 5f;
         _gameSceneCanvas = GameSceneCanvas.Instance;
+        _renderer = GetComponent<Renderer>();
+        _material = _renderer.sharedMaterial;
     }
     
     
@@ -353,13 +358,26 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     }
     public void PlaceTable()
     {
+        // Mouse tıklamasını kontrol edin
+        TableSet.CheckGround();
+
         if (Input.GetMouseButtonDown(0))
         {
-            TableSet.CheckGround();
             if (IsTableSetTransform)
             {
-                FinalizeTablePlacement(); 
+                FinalizeTablePlacement();
             }
+            return;
+        }
+
+        Material newMaterial = IsTableSetTransform
+            ? tableController.GetSetableMaterial()
+            : tableController.GetWrongMaterial();
+
+        if (_currentMaterial != newMaterial)
+        {
+            _renderer.sharedMaterial = newMaterial;
+            _currentMaterial = newMaterial;
         }
     }
     private void FinalizeTablePlacement()
@@ -370,6 +388,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         IsTableSetTransform = false;
         IsTableMove = false;
         GetComponent<BoxCollider>().isTrigger = false;
+        GetComponent<Renderer>().sharedMaterial = _material;
         GameManager.Instance.HandleTablePlacementCompletion();
         HandleTutorialProgression();
     }
