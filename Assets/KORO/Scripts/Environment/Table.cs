@@ -68,7 +68,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         }
         
     }
-    public void InitializeTable()
+    private void InitializeTable()
     {
         groundLayer = LayerMask.NameToLayer("Ground");
         IsTableAvailable = true;
@@ -331,9 +331,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         _gameSceneCanvas = _gameSceneCanvas ?? GameSceneCanvas.Instance;
         if (tableSetData == null)
         {
-            tableController = ControllerManager.Instance.Tablecontroller;
-            tableSetData = tableController.GetTableSetData();
-            Debug.Log("tablesetdata:" + tableSetData.texts);
+            InitializeTable();
 
         }
         _gameSceneCanvas.MoveObjectInfo(tableSetData.textsForTable, tableSetData.textsButtonsForTable, Enums.PlayerStateType.MoveTable);
