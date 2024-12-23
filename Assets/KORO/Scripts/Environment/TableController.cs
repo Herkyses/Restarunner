@@ -13,11 +13,18 @@ public class TableController : MonoBehaviour
     public ChefController ChefController;
     public int TableSetCapacity;
     [SerializeField] private MaterialData _materialData;
+    [SerializeField] private TableSetData _tableSetData;
+
 
 
     public void Initialize()
     {
         SetTableNumbers();
+    }
+
+    public TableSetData GetTableSetData()
+    {
+        return _tableSetData;
     }
     public void SetTableNumbers()
     {

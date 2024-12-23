@@ -9,12 +9,8 @@ using Random = UnityEngine.Random;
 
 public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 {
-    [SerializeField] private string[] texts = new [] {"Check Order "};
-    [SerializeField] private string[] textsForTable = new [] {"Set up","Rotate"};
-    [SerializeField] private string[] textsButtons = new [] {"E"};
-    [SerializeField] private string[] textsButtonsForTable = new [] {"M0","R"};
-    [SerializeField] private string checkOrder = "Check Order";
     
+    [SerializeField] private TableSetData tableSetData;
     [SerializeField] private List<OrderDataStruct> _orderList ;
     
     public List<AIController> _aiControllerList ;
@@ -75,15 +71,12 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     private void InitializeTable()
     {
         groundLayer = LayerMask.NameToLayer("Ground");
-        texts = new []{"Key_Check_TableOrder","Key_Move"};
-        textsButtons = new []{"E","H"};
-        textsForTable = new [] {"Key_SetUp","Key_Rotate"};
-        textsButtonsForTable = new [] {"M0","R"};
         IsTableAvailable = true;
         TableNumberText.text = (TableNumber+1).ToString();
         _outline = GetComponent<Outline>();
         _player = Player.Instance;
         tableController = ControllerManager.Instance.Tablecontroller;
+        tableSetData = tableController.GetTableSetData();
         TableQuality = 5f;
         _gameSceneCanvas = GameSceneCanvas.Instance;
         _renderer = GetComponent<Renderer>();
@@ -313,7 +306,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
         if (!IsTableFoodFinished)
         {
-            return checkOrder;
+            return tableSetData.checkOrder;
         }
         else
         {
@@ -336,7 +329,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     {
         IsTableMove = true;
         _gameSceneCanvas = _gameSceneCanvas ?? GameSceneCanvas.Instance;
-        _gameSceneCanvas.MoveObjectInfo(textsForTable, textsButtonsForTable, Enums.PlayerStateType.MoveTable);
+        _gameSceneCanvas.MoveObjectInfo(tableSetData.textsForTable, tableSetData.textsButtonsForTable, Enums.PlayerStateType.MoveTable);
         TableSet.GetComponent<BoxCollider>().enabled = false;
         ControllerManager.Instance.Tablecontroller.EnableTableSetCollider(true);
         GetComponent<BoxCollider>().isTrigger = true;
@@ -431,11 +424,11 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     }
     public string[] GetInterectableTexts()
     {
-        return texts;
+        return tableSetData.texts;
     }
     public string[] GetInterectableButtons()
     {
-        return textsButtons;
+        return tableSetData.textsButtons;
     }
     public Enums.PlayerStateType GetStateType()
     {
