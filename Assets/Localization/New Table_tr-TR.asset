@@ -261,6 +261,10 @@ MonoBehaviour:
     m_Localized: "Kapal\u0131"
     m_Metadata:
       m_Items: []
+  - m_Id: 11561003198251008
+    m_Localized: "G\xFCn\xFC bitirmek i\xE7in Enter'a bas"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
