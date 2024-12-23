@@ -68,7 +68,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         }
         
     }
-    private void InitializeTable()
+    public void InitializeTable()
     {
         groundLayer = LayerMask.NameToLayer("Ground");
         IsTableAvailable = true;
@@ -329,6 +329,13 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     {
         IsTableMove = true;
         _gameSceneCanvas = _gameSceneCanvas ?? GameSceneCanvas.Instance;
+        if (tableSetData == null)
+        {
+            tableController = ControllerManager.Instance.Tablecontroller;
+            tableSetData = tableController.GetTableSetData();
+            Debug.Log("tablesetdata:" + tableSetData.texts);
+
+        }
         _gameSceneCanvas.MoveObjectInfo(tableSetData.textsForTable, tableSetData.textsButtonsForTable, Enums.PlayerStateType.MoveTable);
         TableSet.GetComponent<BoxCollider>().enabled = false;
         ControllerManager.Instance.Tablecontroller.EnableTableSetCollider(true);

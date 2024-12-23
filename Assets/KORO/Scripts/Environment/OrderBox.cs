@@ -97,6 +97,8 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     {
         
     }
+    
+    //TODO: hardcode
     public void Open()
     {
         
@@ -111,6 +113,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
                 {
                     return;
                 }
+                objectZort.GetComponent<TableSet>().table.InitializeTable();
                 objectZort.GetComponent<TableSet>().table.Move();
             }
             if (_shopItemData.ItemType == Enums.ShopItemType.Decoration)
