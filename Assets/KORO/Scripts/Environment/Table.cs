@@ -38,7 +38,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     private PlayerPrefsManager playerPrefsManager;
     
     private GameSceneCanvas _gameSceneCanvas;
-    private Material _material;
+    [SerializeField] private Material _material;
     private Material _currentMaterial;
     private Renderer _renderer;
     
@@ -70,6 +70,8 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     }
     private void InitializeTable()
     {
+        _renderer = GetComponent<Renderer>();
+        //_material = _renderer.sharedMaterial;
         groundLayer = LayerMask.NameToLayer("Ground");
         IsTableAvailable = true;
         TableNumberText.text = (TableNumber+1).ToString();
@@ -79,8 +81,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         tableSetData = tableController.GetTableSetData();
         TableQuality = 5f;
         _gameSceneCanvas = GameSceneCanvas.Instance;
-        _renderer = GetComponent<Renderer>();
-        _material = _renderer.sharedMaterial;
+        
     }
     
     

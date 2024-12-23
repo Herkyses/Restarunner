@@ -1003,17 +1003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51bfa36d3114b0b4780dc93ca80c3bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - 'Check Order '
-  textsForTable:
-  - Key_SetUp
-  - Key_Rotate
-  textsButtons:
-  - E
-  textsButtonsForTable:
-  - M0
-  - R
-  checkOrder: Check Order
+  tableSetData: {fileID: 0}
   _orderList: []
   _aiControllerList: []
   IsTableAvailable: 0
@@ -1033,6 +1023,9 @@ MonoBehaviour:
   - {fileID: 0}
   FoodTransformList: []
   BillPanel: {fileID: 6046867861851426603}
+  _material: {fileID: 2100000, guid: aa182e2d79875074aa26908ed9986040, type: 2}
+  _currentMaterial: {fileID: 0}
+  _renderer: {fileID: 7325185934482662146}
 --- !u!114 &3881764503258349044
 MonoBehaviour:
   m_ObjectHideFlags: 0
