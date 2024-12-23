@@ -102,38 +102,60 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     public void Open()
     {
         
-        if (!Player.Instance.PlayerTakedObject/* && _isOrderBoxOpenAvailable*/)
+        if (!Player.Instance.PlayerTakedObject)
         {
-            var objectZort = Instantiate(_shopItemData.ItemObject);
-            //objectZort.transform.position = new Vector3(objectZort.transform.position.x, 0, objectZort.transform.position.z);
-            objectZort.transform.position = transform.position;
-            if (_shopItemData.ItemType == Enums.ShopItemType.Table)
-            {
-                if (ControllerManager.Instance.PlaceController.IsRestaurantOpen)
-                {
-                    return;
-                }
-                objectZort.GetComponent<TableSet>().table.Move();
-            }
-            if (_shopItemData.ItemType == Enums.ShopItemType.Decoration)
-            {
-                objectZort.GetComponent<DecorationObject>().Move();
-            }
-            if (_shopItemData.ItemType == Enums.ShopItemType.FoodIngredient)
-            {
-                objectZort.GetComponent<SingleCrate>().Initiliaze(_shopItemData);
-                objectZort.GetComponent<SingleCrate>().InterectableObjectRun();
-            }
+            var instantiatedObject = Instantiate(_shopItemData.ItemObject);
+            instantiatedObject.transform.position = transform.position;
+
+            HandleShopItem(_shopItemData, instantiatedObject);
+
             if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 3)
             {
                 TutorialManager.Instance.SetTutorialInfo(4);
             }
+
             ResetOrderBox();
             PoolManager.Instance.ReturnToPoolForOrderBox(gameObject);
-            
-
         }
         
+    }
+    public void HandleShopItem(ShopItemData shopItemData, GameObject instantiatedObject)
+    {
+        switch (shopItemData.ItemType)
+        {
+            case Enums.ShopItemType.Table:
+                HandleTable(instantiatedObject);
+                break;
+            case Enums.ShopItemType.Decoration:
+                HandleDecoration(instantiatedObject);
+                break;
+            case Enums.ShopItemType.FoodIngredient:
+                HandleFoodIngredient(shopItemData, instantiatedObject);
+                break;
+        }
+    }
+
+    private void HandleTable(GameObject tableObject)
+    {
+        if (ControllerManager.Instance.PlaceController.IsRestaurantOpen)
+            return;
+
+        tableObject.GetComponent<TableSet>()?.table.Move();
+    }
+
+    private void HandleDecoration(GameObject decorationObject)
+    {
+        decorationObject.GetComponent<DecorationObject>()?.Move();
+    }
+
+    private void HandleFoodIngredient(ShopItemData shopItemData, GameObject crateObject)
+    {
+        var crate = crateObject.GetComponent<SingleCrate>();
+        if (crate != null)
+        {
+            crate.Initiliaze(shopItemData);
+            crate.InterectableObjectRun();
+        }
     }
 
     public void ResetOrderBox()
