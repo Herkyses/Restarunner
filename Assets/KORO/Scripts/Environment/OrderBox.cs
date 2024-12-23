@@ -99,10 +99,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     }
     public void Open()
     {
-        if (ControllerManager.Instance.PlaceController.IsRestaurantOpen)
-        {
-            return;
-        }
+        
         if (!Player.Instance.PlayerTakedObject/* && _isOrderBoxOpenAvailable*/)
         {
             var objectZort = Instantiate(_shopItemData.ItemObject);
@@ -110,6 +107,10 @@ public class OrderBox : MonoBehaviour,IInterectableObject
             objectZort.transform.position = transform.position;
             if (_shopItemData.ItemType == Enums.ShopItemType.Table)
             {
+                if (ControllerManager.Instance.PlaceController.IsRestaurantOpen)
+                {
+                    return;
+                }
                 objectZort.GetComponent<TableSet>().table.Move();
             }
             if (_shopItemData.ItemType == Enums.ShopItemType.Decoration)
