@@ -318,7 +318,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     
     public void Move()
     {
-        if (!IsTableMove && !ControllerManager.Instance.PlaceController.RestaurantIsOpen && CustomerCount == 0)
+        if (!IsTableMove && !ControllerManager.Instance.PlaceController.IsRestaurantOpen && CustomerCount == 0)
         {
             InitiateTableMovement();
         }

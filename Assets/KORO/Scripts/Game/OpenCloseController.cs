@@ -28,8 +28,8 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
             {
                 OpenCloseSequence.Kill();
             }
-            ControllerManager.Instance.PlaceController.RestaurantIsOpen = !ControllerManager.Instance.PlaceController.RestaurantIsOpen;
-            if (ControllerManager.Instance.PlaceController.RestaurantIsOpen)
+            ControllerManager.Instance.PlaceController.IsRestaurantOpen = !ControllerManager.Instance.PlaceController.IsRestaurantOpen;
+            if (ControllerManager.Instance.PlaceController.IsRestaurantOpen)
             {
                 Debug.Log("restaurantope" + PlayerPrefsManager.Instance.LoadPlayerTutorialStep());
                
@@ -88,7 +88,7 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
 
     public string GetInterectableText()
     {
-        if (ControllerManager.Instance.PlaceController.RestaurantIsOpen)
+        if (ControllerManager.Instance.PlaceController.IsRestaurantOpen)
         {
             return "";
         }
@@ -109,7 +109,7 @@ public class OpenCloseController : MonoBehaviour,IInterectableObject
     }
     public string[] GetInterectableTexts()
     {
-        if (ControllerManager.Instance.PlaceController.RestaurantIsOpen)
+        if (ControllerManager.Instance.PlaceController.IsRestaurantOpen)
         {
             texts[0] = "Key_Close_Restaurant";
             return texts;

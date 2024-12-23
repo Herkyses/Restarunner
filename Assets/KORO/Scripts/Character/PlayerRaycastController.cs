@@ -194,8 +194,13 @@ public class PlayerRaycastController : MonoBehaviour
 
     private void HandleObjectMovement()
     {
+        
         if (Input.GetKey(KeyCode.H) && Izort != null)
         {
+            if (ControllerManager.Instance.PlaceController.IsRestaurantOpen)
+            {
+                return;
+            }
             Izort.Move();
         }
     }

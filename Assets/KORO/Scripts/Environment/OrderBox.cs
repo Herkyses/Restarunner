@@ -99,6 +99,10 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     }
     public void Open()
     {
+        if (ControllerManager.Instance.PlaceController.IsRestaurantOpen)
+        {
+            return;
+        }
         if (!Player.Instance.PlayerTakedObject/* && _isOrderBoxOpenAvailable*/)
         {
             var objectZort = Instantiate(_shopItemData.ItemObject);

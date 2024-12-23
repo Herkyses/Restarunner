@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlaceController : MonoBehaviour,IInterectableObject
 {
 
-    public bool RestaurantIsOpen;
+    public bool IsRestaurantOpen;
 
     public List<PlaceLevel> PlaceLevels;
     private Outline _pcOutline;
@@ -42,7 +42,7 @@ public class PlaceController : MonoBehaviour,IInterectableObject
             }
         }
 
-        RestaurantIsOpen = false;
+        IsRestaurantOpen = false;
     }
 
     public void ActivateDecorationPlane(bool active)

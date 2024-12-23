@@ -105,7 +105,7 @@ public class AIStateMachineController : MonoBehaviour
         }
         else
         {
-            AIBaseState initialState = ControllerManager.Instance.PlaceController.RestaurantIsOpen
+            AIBaseState initialState = ControllerManager.Instance.PlaceController.IsRestaurantOpen
                 ? (Random.value < 0.5f ? (AITargetRestaurantState) : (AIMoveState))
                 : (AIMoveState);
             
