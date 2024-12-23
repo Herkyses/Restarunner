@@ -111,13 +111,14 @@ public class AISpawnController : MonoBehaviour
         int initialAiCount = ActiveAiCount + PlayerPrefsManager.Instance.LoadCustomerCount() / 2;
         for (int i = 0; i < initialAiCount; i++)
         {
-            var ranDomTime = Random.Range(1, 5);
-            yield return new WaitForSeconds(ranDomTime);
+            
             //var singleAi = Instantiate(AlPf,transform);
             var singleAi = new AIController();
             singleAi = PoolManager.Instance.GetCustomerRagdollAI().GetComponent<AIController>();
             
             InitializeSingleAI(singleAi, i);
+            var ranDomTime = Random.Range(1, 5);
+            yield return new WaitForSeconds(ranDomTime);
 
         }
     }
