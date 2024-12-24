@@ -377,6 +377,15 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         {
             _renderer.sharedMaterial = newMaterial;
             _currentMaterial = newMaterial;
+            SetChairMaterial(newMaterial);
+        }
+    }
+
+    public void SetChairMaterial(Material material)
+    {
+        for (int i = 0; i < ChairList.Count; i++)
+        {
+            ChairList[i].GetComponent<Renderer>().sharedMaterial = material;
         }
     }
     private void FinalizeTablePlacement()
@@ -388,6 +397,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         IsTableMove = false;
         GetComponent<BoxCollider>().isTrigger = false;
         GetComponent<Renderer>().sharedMaterial = _material;
+        SetChairMaterial(_material);
         GameManager.Instance.HandleTablePlacementCompletion();
         HandleTutorialProgression();
     }
