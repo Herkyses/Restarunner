@@ -137,7 +137,7 @@ public class CheckOrderBillsPanel : MonoBehaviour,IPanel
     public void CreateTableBill()
     {
         Debug.Log("createBill");
-        if (_tableController.TableSets[SelectedTable].table.CheckAllCustomerFinishedFood())
+        if (_tableController.TableSets[SelectedTable].table.GetCustomerStateManager().CheckAllCustomerFinishedFood())
         {
             //BillTable.Instance.CreateTableBill(_tableController.TableSets[SelectedTable].table,ValidateBillValue(billInputField.text));
             BillTable.Instance.CreateTableBill(_tableController.TableSets[SelectedTable].table,(int)_tableController.TableSets[SelectedTable].table.TotalBills);

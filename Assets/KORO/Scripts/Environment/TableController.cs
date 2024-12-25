@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class TableController : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class TableController : MonoBehaviour
     public int TableSetCapacity;
     [SerializeField] private MaterialData _materialData;
     [SerializeField] private TableSetData _tableSetData;
+    [Inject] private DiContainer _container;
 
 
 
@@ -58,6 +60,10 @@ public class TableController : MonoBehaviour
         }
     }
 
+    public void InjectTableObject(object table)
+    {
+        _container.Inject(table);
+    }
     public Material GetSetableMaterial()
     {
         return _materialData.TrueMaterial;

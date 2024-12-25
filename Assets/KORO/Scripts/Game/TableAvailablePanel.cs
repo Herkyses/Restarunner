@@ -87,7 +87,7 @@ public class TableAvailablePanel : MonoBehaviour
         {
             if (i == tableIndex)
             {
-                availabilityArray[i].CheckChairAvailable();
+                availabilityArray[i].GetCustomerStateManager().CheckChairAvailable();
             }
         }
     }

@@ -24,7 +24,7 @@ public class AIWaiterGiveFoodState : AIBaseState
         {
             if (Vector3.Distance(AIStateMachineController.transform.position, AIStateMachineController.AIWaiterController.OwnerTableForWaiter.transform.position) < 1f)
             {
-                var aiList = AIStateMachineController.AIWaiterController.OwnerTableForWaiter._aiControllerList;
+                var aiList = AIStateMachineController.AIWaiterController.OwnerTableForWaiter.GetCustomerStateManager()._aiControllerList;
 
                 for (int i = 0; i < aiList.Count; i++)
                 {

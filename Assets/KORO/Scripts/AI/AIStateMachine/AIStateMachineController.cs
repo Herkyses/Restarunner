@@ -105,10 +105,10 @@ public class AIStateMachineController : MonoBehaviour
         }
         else
         {
-            AIBaseState initialState = ControllerManager.Instance.PlaceController.IsRestaurantOpen
+            /*AIBaseState initialState = ControllerManager.Instance.PlaceController.IsRestaurantOpen
                 ? (Random.value < 0.5f ? (AITargetRestaurantState) : (AIMoveState))
-                : (AIMoveState);
-            
+                : (AIMoveState);*/
+            AIBaseState initialState = new AITargetRestaurantState(this); 
             AIChangeState(initialState);
         }
     }
@@ -159,10 +159,10 @@ public class AIStateMachineController : MonoBehaviour
         AIController.AIOwnerFood.IsFoodFinished = true;
         AIController.AIOwnerFood.IsFoodServiced = false;
         AIController.IsFinishedFood = true;
-        AIController.AIOwnerTable.RemoveOrder(AIController.FoodDataStruct);
+        AIController.AIOwnerTable.GetCustomerStateManager().RemoveOrder(AIController.FoodDataStruct);
         //RubbishManager.Instance.CreateRubbishFromAI();
         CreateRubbish?.Invoke();
-        if (AIController.AIOwnerTable.CheckAllCustomerFinishedFood())
+        if (AIController.AIOwnerTable.GetCustomerStateManager().CheckAllCustomerFinishedFood())
         {
             HandleTableCompletion();
         }

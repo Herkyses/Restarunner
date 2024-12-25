@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class OrderBox : MonoBehaviour,IInterectableObject
 {
@@ -17,6 +18,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     [SerializeField] private Image ordeBoxItemIcon;
     [SerializeField] private ShopItemData _shopItemData;
     [SerializeField] private bool _isOrderBoxOpenAvailable;
+    
     private Outline _outline;
     private Rigidbody _rigidbody;
     public string[] InteractableButtons;
@@ -106,7 +108,6 @@ public class OrderBox : MonoBehaviour,IInterectableObject
         {
             var instantiatedObject = Instantiate(_shopItemData.ItemObject);
             instantiatedObject.transform.position = transform.position;
-
             HandleShopItem(_shopItemData, instantiatedObject);
 
             if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 3)
@@ -135,12 +136,15 @@ public class OrderBox : MonoBehaviour,IInterectableObject
         }
     }
 
+    //TODO: TABLE A SİNGLERESPONSABİLİTY
     private void HandleTable(GameObject tableObject)
     {
-        if (ControllerManager.Instance.PlaceController.IsRestaurantOpen)
+        var controllerManager = ControllerManager.Instance;
+        if (controllerManager.PlaceController.IsRestaurantOpen)
             return;
-
-        tableObject.GetComponent<TableSet>()?.table.Move();
+        var tableObjectForInject = tableObject.GetComponent<TableSet>().table;
+        controllerManager.Tablecontroller.InjectTableObject(tableObjectForInject);
+        tableObjectForInject.Move();
     }
 
     private void HandleDecoration(GameObject decorationObject)

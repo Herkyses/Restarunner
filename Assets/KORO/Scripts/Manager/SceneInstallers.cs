@@ -8,6 +8,8 @@ public class SceneInstallers : MonoInstaller
 
     public override void InstallBindings()
     {
+        Container.Bind<MapManager>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<PlayerPrefsManager>().FromNewComponentOnNewGameObject().AsSingle();
         Container.Bind<CheckOrderBillsPanel>().FromComponentInHierarchy().AsSingle();
         Container.Bind<OrderPanelController>().FromComponentInHierarchy().AsSingle();
         Container.Bind<ShopManager>().FromComponentInHierarchy().AsSingle();
@@ -15,6 +17,7 @@ public class SceneInstallers : MonoInstaller
         Container.Bind<TableAvailablePanel>().FromComponentInHierarchy().AsSingle();
         Container.Bind<PlacePanelController>().FromComponentInHierarchy().AsSingle();
         Container.Bind<PlaceController>().FromComponentInHierarchy().AsSingle();
+        //Container.Bind<PlayerPrefsManager>().FromComponentInHierarchy().AsSingle();
     
         //Container.BindInstance(shoppingManagerPanel).AsSingle();
     }

@@ -11,9 +11,10 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 {
     
     [SerializeField] private TableSetData tableSetData;
-    [SerializeField] private List<OrderDataStruct> _orderList ;
+    //[SerializeField] private List<OrderDataStruct> _orderList ;
+    [SerializeField] private CustomerStateManager _customerStateManager;
     
-    public List<AIController> _aiControllerList ;
+   // public List<AIController> _aiControllerList ;
     public bool IsTableAvailable ;
     public bool IsTableMove ;
     public bool IsTableSetTransform ;
@@ -34,16 +35,19 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
 
     private Outline _outline;
     private Player _player;
-    private TableController tableController;
-    private PlayerPrefsManager playerPrefsManager;
+    [Inject] private TableController tableController;
+    [Inject] private PlayerPrefsManager playerPrefsManager;
     
     private GameSceneCanvas _gameSceneCanvas;
     [SerializeField] private Material _material;
     private Material _currentMaterial;
     private Renderer _renderer;
-    
 
 
+    public CustomerStateManager GetCustomerStateManager()
+    {
+        return _customerStateManager;
+    }
     private void OnEnable()
     {
         Chair.GivedOrder += CreateOrdersWithAction;
@@ -57,8 +61,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     
     private void Start()
     {
-        playerPrefsManager = PlayerPrefsManager.Instance;
-        InitializeTable();
+        //InitializeTable();
     }
     private void Update()
     {
@@ -77,22 +80,18 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         TableNumberText.text = (TableNumber+1).ToString();
         _outline = GetComponent<Outline>();
         _player = Player.Instance;
-        tableController = ControllerManager.Instance.Tablecontroller;
         tableSetData = tableController.GetTableSetData();
         TableQuality = 5f;
         _gameSceneCanvas = GameSceneCanvas.Instance;
-        
+        playerPrefsManager = PlayerPrefsManager.Instance;
     }
     
     
 
-    public List<OrderDataStruct> GetOrders()
+    /*public List<OrderDataStruct> GetOrders()
     {
         return _orderList;
-    }
-    
-    public bool CheckAllCustomerFinishedFood() =>
-        _aiControllerList.Count > 0 && _aiControllerList.TrueForAll(ai => ai.IsFinishedFood);
+    }*/
 
     public void AllFoodfinished()
     {
@@ -104,7 +103,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     {
         ControllerManager.Instance._checkOrderBillsPanel.UpdateBillList(TableNumber);
         TotalBills = 0;
-        _aiControllerList.Clear();
+        _customerStateManager._aiControllerList.Clear();
         IsTableFoodFinished = false;
         BillPanel.gameObject.SetActive(false);
     }
@@ -128,78 +127,26 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     {
         
         if (!IsChairAvailable()) return;
-        AssignAIToChairAndOrder(aiArea);
-        NotifyOrderUpdates();
+        
+        _customerStateManager.StartState(aiArea,this);
+        
+        //AssignAIToChairAndOrder(aiArea);
+        //NotifyOrderUpdates();
     }
     private bool IsChairAvailable()
     {
         AvailabilityControl();
-        return CheckChairAvailable() != null;
-    }
-    private void AssignAIToChairAndOrder(AIAreaController aiArea)
-    {
-        var chair = CheckChairAvailable();
-        if (chair == null) return;
-
-        AssignAIToChair(aiArea, chair);
-        SetAIOrder(aiArea);
+        return _customerStateManager.CheckChairAvailable() != null;
     }
     
-    private void NotifyOrderUpdates()
-    {
-        TableController.GivedOrderForAIWaiter?.Invoke(this);
-
-        if (ControllerManager.Instance._orderPanelController.OpenedTableNumber == TableNumber)
-        {
-            Chair.GivedOrder?.Invoke(TableNumber);
-        }
-    }
+    
+    
     private void HandleWaiterState(AIAreaController aiArea)
     {
-        aiArea.WaiterController.AddOrder(_orderList);
+        aiArea.WaiterController.AddOrder(_customerStateManager.GetOrders());
     }
     
-    private void AssignAIToChair(AIAreaController aiArea, Chair chair)
-    {
-        chair.isChairAvailable = false;
-        aiArea.AIController.AssignToChair(aiArea,chair.transform);
-        _aiControllerList.Add(aiArea.GetComponent<AIController>());
-        aiArea.AIController.SetTableInfo(this, chair);
-    }
-    private void SetAIOrder(AIAreaController aiArea)
-    {
-        var orderIndex = Random.Range(0, GameDataManager.Instance.OpenFoodDatas.Count);
-        var orderType = GameDataManager.Instance.OpenFoodDatas[orderIndex].OrderType;
-
-        SetOrderTable(aiArea.AIController, orderType);
-    }
-    public void SetOrderTable(AIController aiController,Enums.OrderType orderType)
-    {
-        
-        var newOrder = new OrderDataStruct()
-        {
-            OrderType = orderType,
-        };
-        aiController.FoodDataStruct = newOrder;
-        SetOrder(newOrder);
-    }
-
-    public void RemoveOrder(OrderDataStruct orderDataStruct)
-    {
-        _orderList.Remove(orderDataStruct);
-    }
-    public Chair CheckChairAvailable()
-    {
-        for (int i = 0; i < ChairList.Count; i++)
-        {
-            if (ChairList[i].isChairAvailable)
-            {
-                return ChairList[i];
-            }
-        }
-
-        return null;
-    }
+    
     public void AvailabilityControl()
     {
         if (CustomerCount < TableCapacity)
@@ -218,6 +165,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     {
         IsTableAvailable = false;
         TableNumberText.text = (TableNumber+1).ToString();
+        InitializeTable();
     }
 
     public void CreateOrdersWithAction(int tableNumber)
@@ -228,11 +176,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         }
         
     }
-
-    public void SetOrder(OrderDataStruct singleOrder)
-    {
-        _orderList.Add(singleOrder);
-    }
+    
     public void InterectableObjectRun()
     {
         HandleOrder();
@@ -244,7 +188,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         {
             if (CustomerCount > 0)
             {
-                ControllerManager.Instance._orderPanelController.ShowOrder(_orderList, TableNumber);
+                ControllerManager.Instance._orderPanelController.ShowOrder(_customerStateManager.GetOrders(), TableNumber);
                 OpenOrderPanels();
             }
         }
@@ -258,18 +202,11 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         }
     }
 
-    private void CheckTutorial()
-    {
-        if (playerPrefsManager.LoadPlayerTutorialStep() == 5)
-        {
-            TutorialManager.Instance.SetTutorialInfo(11);
-        }
-    }
     public void AIPayed()
     {
         GameManager.Instance.CheckAndProgressTutorialStep(5, 100);
 
-        foreach (var aiController in _aiControllerList)
+        foreach (var aiController in _customerStateManager._aiControllerList)
         {
             aiController.AIStateMachineController.SetMoveStateFromOrderBill();
         }
@@ -284,7 +221,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     
     public void OpenOrderPanels()
     {
-        foreach (var aiController in _aiControllerList)
+        foreach (var aiController in _customerStateManager._aiControllerList)
             StartCoroutine(aiController.FoodIcon());
     }
 
@@ -321,7 +258,10 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     {
         if (!IsTableMove && !ControllerManager.Instance.PlaceController.IsRestaurantOpen && CustomerCount == 0)
         {
+            Debug.Log("zbombomove");
+
             InitiateTableMovement();
+
         }
         SetTablePosition();
         

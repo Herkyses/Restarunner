@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Zenject;
 
 public class MapManager : MonoBehaviour
 {
     private string filePath;
     private MapData mapData;
 
+    [Inject] private DiContainer _container;
     [FormerlySerializedAs("treePrefab")] public GameObject tableSetPrefab;
     public GameObject rockPrefab;
     public GameObject orderBoxPf;
@@ -112,6 +114,7 @@ public class MapManager : MonoBehaviour
                 if (mapObject.type == "TableSet")
                 {
                     instantiatedObj.transform.SetParent(ControllerManager.Instance.Tablecontroller.TableTransform);
+                    _container.Inject(instantiatedObj.GetComponent<TableSet>().table);
                 }
                 else if (mapObject.type == "OrderBox")
                 {
