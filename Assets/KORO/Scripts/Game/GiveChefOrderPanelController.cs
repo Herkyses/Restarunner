@@ -39,7 +39,7 @@ public class GiveChefOrderPanelController : MonoBehaviour
         
         if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 7)
         {
-            orderStructs = ControllerManager.Instance.Tablecontroller.TableSets[0].table.GetCustomerStateManager().GetOrders();
+            orderStructs = ControllerManager.Instance.Tablecontroller.TableSets[0].table.GetOrderHandler().GetOrders();
         }
         OnOrderGivenToChef?.Invoke(orderStructs,true,null);
         //PlayerOrderController.Instance.OrderList.Remove(Orders);

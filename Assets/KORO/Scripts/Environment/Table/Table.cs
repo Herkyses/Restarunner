@@ -13,6 +13,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     [SerializeField] private TableSetData tableSetData;
     //[SerializeField] private List<OrderDataStruct> _orderList ;
     [SerializeField] private CustomerStateManager _customerStateManager;
+    [SerializeField] private OrderHandler _orderHandler;
     
    // public List<AIController> _aiControllerList ;
     public bool IsTableAvailable ;
@@ -47,6 +48,10 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     public CustomerStateManager GetCustomerStateManager()
     {
         return _customerStateManager;
+    }
+    public OrderHandler GetOrderHandler()
+    {
+        return _orderHandler;
     }
     private void OnEnable()
     {
@@ -143,7 +148,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     
     private void HandleWaiterState(AIAreaController aiArea)
     {
-        aiArea.WaiterController.AddOrder(_customerStateManager.GetOrders());
+        aiArea.WaiterController.AddOrder(_orderHandler.GetOrders());
     }
     
     
@@ -188,7 +193,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         {
             if (CustomerCount > 0)
             {
-                ControllerManager.Instance._orderPanelController.ShowOrder(_customerStateManager.GetOrders(), TableNumber);
+                ControllerManager.Instance._orderPanelController.ShowOrder(_orderHandler.GetOrders(), TableNumber);
                 OpenOrderPanels();
             }
         }
