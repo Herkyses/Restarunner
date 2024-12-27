@@ -165,7 +165,11 @@ public class PlayerRaycastController : MonoBehaviour
 
     private void HandleInteractionInput()
     {
-        if (Input.GetKeyUp(KeyCode.E))
+        if (Cursor.visible)
+        {
+            return;
+        }
+        if (Input.GetMouseButtonDown(0))
         {
             RunInteractableObject();
         }

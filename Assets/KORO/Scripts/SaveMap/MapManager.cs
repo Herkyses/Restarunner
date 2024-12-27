@@ -114,7 +114,6 @@ public class MapManager : MonoBehaviour
                 if (mapObject.type == "TableSet")
                 {
                     instantiatedObj.transform.SetParent(ControllerManager.Instance.Tablecontroller.TableTransform);
-                    _container.Inject(instantiatedObj.GetComponent<TableSet>().table);
                 }
                 else if (mapObject.type == "OrderBox")
                 {

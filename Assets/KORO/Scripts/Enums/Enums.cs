@@ -91,4 +91,9 @@ public class Enums : MonoBehaviour
         Turkish = 2,
         Chinesee = 3,
     }
+    public enum ToolType
+    {
+        Sweeper, 
+        Bat      
+    }
 }

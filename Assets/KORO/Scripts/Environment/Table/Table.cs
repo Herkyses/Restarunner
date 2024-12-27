@@ -85,6 +85,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         TableNumberText.text = (TableNumber+1).ToString();
         _outline = GetComponent<Outline>();
         _player = Player.Instance;
+        tableController = ControllerManager.Instance.Tablecontroller;
         tableSetData = tableController.GetTableSetData();
         TableQuality = 5f;
         _gameSceneCanvas = GameSceneCanvas.Instance;
