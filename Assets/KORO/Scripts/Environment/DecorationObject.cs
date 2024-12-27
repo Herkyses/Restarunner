@@ -85,7 +85,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
             {
                 _gameSceneCanvas = GameSceneCanvas.Instance;
             }
-            _gameSceneCanvas.MoveObjectInfo(textsForMove,textsButtonsForMove,Enums.PlayerStateType.DecorationMove);
+            _gameSceneCanvas.MoveObjectInfo(textsForMove,textsButtonsForMove,Enums.PlayerStateType.DecorationMove,gameObject);
             isDecorationMove = true;
             
         }

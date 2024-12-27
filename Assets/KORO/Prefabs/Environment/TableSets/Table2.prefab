@@ -895,6 +895,7 @@ GameObject:
   - component: {fileID: 5226238176176456239}
   - component: {fileID: 4579503556467666277}
   - component: {fileID: 8399120830747495218}
+  - component: {fileID: 3407034920190486534}
   - component: {fileID: 131317833848940786}
   m_Layer: 19
   m_Name: Table2
@@ -1042,6 +1043,7 @@ MonoBehaviour:
   tableSetData: {fileID: 0}
   _customerStateManager: {fileID: 131317833848940786}
   _orderHandler: {fileID: 8399120830747495218}
+  _tableMovement: {fileID: 0}
   IsTableAvailable: 0
   IsTableMove: 0
   IsTableSetTransform: 0
@@ -1074,6 +1076,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _orderList: []
   _table: {fileID: 4579503556467666277}
+--- !u!114 &3407034920190486534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9126744464799908567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b5cbf720e5fbd349bbdeb4098f26bad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _material: {fileID: 2100000, guid: aa182e2d79875074aa26908ed9986040, type: 2}
+  IsTableMove: 0
+  IsTableSetTransform: 0
+  ChairList: []
+  TableSet: {fileID: 0}
 --- !u!114 &131317833848940786
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     //[SerializeField] private List<OrderDataStruct> _orderList ;
     [SerializeField] private CustomerStateManager _customerStateManager;
     [SerializeField] private OrderHandler _orderHandler;
+    [SerializeField] private TableMovement _tableMovement;
     
    // public List<AIController> _aiControllerList ;
     public bool IsTableAvailable ;
@@ -66,17 +67,10 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     
     private void Start()
     {
-        //InitializeTable();
+        _tableMovement.Initiliaze(ControllerManager.Instance.Tablecontroller);
     }
-    private void Update()
-    {
-        if (IsTableMove)
-        {
-            SetTablePosition();
-        }
-        
-    }
-    private void InitializeTable()
+    
+    public void InitializeTable()
     {
         _renderer = GetComponent<Renderer>();
         //_material = _renderer.sharedMaterial;
@@ -264,87 +258,19 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     {
         if (!IsTableMove && !ControllerManager.Instance.PlaceController.IsRestaurantOpen && CustomerCount == 0)
         {
-            Debug.Log("zbombomove");
-
-            InitiateTableMovement();
-
-        }
-        SetTablePosition();
-        
-    }
-    private void InitiateTableMovement()
-    {
-        IsTableMove = true;
-        _gameSceneCanvas = _gameSceneCanvas ?? GameSceneCanvas.Instance;
-        if (tableSetData == null)
-        {
-            InitializeTable();
-
-        }
-        _gameSceneCanvas.MoveObjectInfo(tableSetData.textsForTable, tableSetData.textsButtonsForTable, Enums.PlayerStateType.MoveTable);
-        TableSet.GetComponent<BoxCollider>().enabled = false;
-        ControllerManager.Instance.Tablecontroller.EnableTableSetCollider(true);
-        GetComponent<BoxCollider>().isTrigger = true;
-    }
-    public void SetTablePosition()
-    {
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)), out var hit))
-        {
-            TableSet.transform.position = new Vector3(hit.point.x, 0.14f, hit.point.z);
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            var tableRotat = TableSet.transform.rotation;
-            var tableRotatTemp = Quaternion.Euler(new Vector3(tableRotat.eulerAngles.x,tableRotat.eulerAngles.y+90f,tableRotat.eulerAngles.z));
-
-            TableSet.transform.rotation = tableRotatTemp;
-        }
-        PlaceTable();
-    }
-    public void PlaceTable()
-    {
-        // Mouse tıklamasını kontrol edin
-        TableSet.CheckGround();
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (IsTableSetTransform)
-            {
-                FinalizeTablePlacement();
-            }
-            return;
-        }
-
-        Material newMaterial = IsTableSetTransform
-            ? tableController.GetSetableMaterial()
-            : tableController.GetWrongMaterial();
-
-        if (_currentMaterial != newMaterial)
-        {
-            _renderer.sharedMaterial = newMaterial;
-            _currentMaterial = newMaterial;
-            SetChairMaterial(newMaterial);
+            IsTableMove = true;
+            _tableMovement.IsTableMove = true;
+            
         }
     }
-
-    public void SetChairMaterial(Material material)
+   
+   
+    
+    public void FinalizeTablePlacement()
     {
-        for (int i = 0; i < ChairList.Count; i++)
-        {
-            ChairList[i].GetComponent<Renderer>().sharedMaterial = material;
-        }
-    }
-    private void FinalizeTablePlacement()
-    {
-        UpdateTableStatus();
         ResetPlayerState();
-        tableController.EnableTableSetCollider(false);
-        IsTableSetTransform = false;
-        IsTableMove = false;
-        GetComponent<BoxCollider>().isTrigger = false;
-        GetComponent<Renderer>().sharedMaterial = _material;
-        SetChairMaterial(_material);
-        GameManager.Instance.HandleTablePlacementCompletion();
+        UpdateTableStatus();
+        //GameManager.Instance.HandleTablePlacementCompletion();
         HandleTutorialProgression();
     }
     private void UpdateTableStatus()

@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public GameObject PlayerTakedObject;
     public Enums.PlayerStateType PlayerStateType;
     public PlayerStructData PlayerStructData;
+
     // Start is called before the first frame update
     
     
@@ -154,6 +155,8 @@ public class Player : MonoBehaviour
     {
         PlayerTakedObject = null;
         PlayerStateType = Enums.PlayerStateType.Free;
+        Debug.Log("bureayauğramadı be");
+
     }
 
     public void TakedObject(GameObject takeObject,Enums.PlayerStateType stateType)

@@ -10,6 +10,7 @@ public class TableSet : MonoBehaviour
     public int tableTypeID;
     private Outline _outline;
     [SerializeField] private LayerMask _layerMask;
+    [SerializeField] private TableMovement tableMovement;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +41,7 @@ public class TableSet : MonoBehaviour
 
             if (layer != groundLayer && layer == tableIndexLayer)
             {
-                table.IsTableSetTransform = false;
+                tableMovement.IsTableSetTransform = false;
                 return;
             }
 
@@ -51,9 +52,9 @@ public class TableSet : MonoBehaviour
         }
 
         // Kontrol sonucunu belirle
-        if (table.IsTableSetTransform != checkControl)
+        if (tableMovement.IsTableSetTransform != checkControl)
         {
-            table.IsTableSetTransform = checkControl;
+            tableMovement.IsTableSetTransform = checkControl;
         }
     }
     /*private void OnTriggerEnter(Collider other)
