@@ -7,7 +7,7 @@ using Zenject;
 using Random = UnityEngine.Random;
 
 
-public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
+public class Table : MonoBehaviour,IInterectableObject, IAIInteractable,IMovable
 {
     
     [SerializeField] private TableSetData tableSetData;
@@ -18,20 +18,16 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     
    // public List<AIController> _aiControllerList ;
     public bool IsTableAvailable ;
-    public bool IsTableMove ;
-    public bool IsTableSetTransform ;
     public bool IsTableFoodFinished ;
     public int TableNumber ;
     public int TableCapacity;
     public int CustomerCount;
-    public int groundLayer;
     
     public float TableQuality = 5;
     public float TotalBills;
     public TextMeshProUGUI TableNumberText;
     public TableSet TableSet;
 
-    public List<Chair> ChairList;
     public List<Transform> FoodTransformList;
     public Transform BillPanel;
 
@@ -40,10 +36,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     [Inject] private TableController tableController;
     [Inject] private PlayerPrefsManager playerPrefsManager;
     
-    private GameSceneCanvas _gameSceneCanvas;
-    [SerializeField] private Material _material;
-    private Material _currentMaterial;
-    private Renderer _renderer;
+    [SerializeField] private Renderer[] _rendererList;
 
 
     public CustomerStateManager GetCustomerStateManager()
@@ -72,9 +65,6 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     
     public void InitializeTable()
     {
-        _renderer = GetComponent<Renderer>();
-        //_material = _renderer.sharedMaterial;
-        groundLayer = LayerMask.NameToLayer("Ground");
         IsTableAvailable = true;
         TableNumberText.text = (TableNumber+1).ToString();
         _outline = GetComponent<Outline>();
@@ -82,7 +72,6 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
         tableController = ControllerManager.Instance.Tablecontroller;
         tableSetData = tableController.GetTableSetData();
         TableQuality = 5f;
-        _gameSceneCanvas = GameSceneCanvas.Instance;
         playerPrefsManager = PlayerPrefsManager.Instance;
     }
     
@@ -256,12 +245,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     
     public void Move()
     {
-        if (!IsTableMove && !ControllerManager.Instance.PlaceController.IsRestaurantOpen && CustomerCount == 0)
-        {
-            IsTableMove = true;
-            _tableMovement.IsTableMove = true;
-            
-        }
+       
     }
    
    
@@ -299,9 +283,9 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
     }
     private void HandleTutorialProgression()
     {
-        if (PlayerPrefsManager.Instance.LoadPlayerTutorialStep() == 3)
+        if (playerPrefsManager.LoadPlayerTutorialStep() == 3)
         {
-            PlayerPrefsManager.Instance.SavePlayerTutorialStep(5);
+            playerPrefsManager.SavePlayerTutorialStep(5);
             TutorialManager.Instance.Initiliaze();
         }
     }
@@ -330,5 +314,25 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable
             return Enums.PlayerStateType.Free;
 
         }
+    }
+
+    public void Movement()
+    {
+        _tableMovement.InitiateTableMovement();
+    }
+
+    public void PlacedObject()
+    {
+        _tableMovement.FinalizeTableMovement();
+    }
+
+    public Transform GetMoveableObjectTransform()
+    {
+        return TableSet.transform;
+    }
+
+    public Renderer[] GetRenderers()
+    {
+        return _rendererList;
     }
 }

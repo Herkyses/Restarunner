@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject.ReflectionBaking.Mono.Cecil;
 
 public class PlayerRaycastController : MonoBehaviour
 {
@@ -13,8 +14,10 @@ public class PlayerRaycastController : MonoBehaviour
     public bool CanCheckHit;
     
     private GameSceneCanvas _gameSceneCanvas;
+    [SerializeField] private PlayerObjectMoveController _playerObjectMoveController;
 
     public IInterectableObject Izort;
+    public IMovable IMovableObject;
 
     public bool IsRaycastActive = true;
     public int layerMask ;
@@ -28,7 +31,7 @@ public class PlayerRaycastController : MonoBehaviour
         StartCoroutine(SendRaycastCoroutine());
         _gameSceneCanvas = GameSceneCanvas.Instance;
         layerMask = ~LayerMask.GetMask("Ground");
-
+        
 
     }
 
@@ -87,14 +90,18 @@ public class PlayerRaycastController : MonoBehaviour
 
             }
         }
-        
+        if (hitObject.TryGetComponent(out IMovable movable))
+        {
+            IMovableObject = movable;
+            _playerObjectMoveController.InitiliazeMoveableObject(movable.GetMoveableObjectTransform(),movable);
+        }
 
         if (hitObject.TryGetComponent(out IInterectableObject interact) &&
             interact.GetStateType() == Player.Instance.PlayerStateType)
         {
             TargetObject = hitObject;
 
-            UpdateInterectable(hitObject, interact);
+            UpdateInterectable(interact);
             Debug.Log("Raycast hit: " + hitObject.name);
             Debug.DrawRay(ray.origin, hit.point - ray.origin, Color.green, 2f);
         }
@@ -120,7 +127,7 @@ public class PlayerRaycastController : MonoBehaviour
         }
         Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 2f);
     }
-    private void UpdateInterectable(GameObject hitObject, IInterectableObject interact)
+    private void UpdateInterectable(IInterectableObject interact)
     {
         Izort = interact;
         if (InterectabelOutline != null)
@@ -129,7 +136,6 @@ public class PlayerRaycastController : MonoBehaviour
             _gameSceneCanvas.CanShowCanvas = false;
             _gameSceneCanvas.UnShowAreaInfo();
         }
-
         InterectabelOutline = Izort.GetOutlineComponent();
         Izort.ShowOutline(true);
         _gameSceneCanvas.CanShowCanvas = true;
@@ -205,7 +211,13 @@ public class PlayerRaycastController : MonoBehaviour
             {
                 return;
             }
-            Izort.Move();
+
+            if (IMovableObject != null)
+            {
+                IMovableObject.Movement();
+                _playerObjectMoveController.IsCheckAround = true;
+            } 
+            //Izort.Move();
         }
     }
 

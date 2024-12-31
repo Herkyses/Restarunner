@@ -9,7 +9,6 @@ public class TableMovement : MonoBehaviour
     private TableController _tableController;
     private Material _currentMaterial;
     private GameSceneCanvas _gameSceneCanvas;
-    private Renderer _renderer;
     
     public bool IsTableMove ;
     public bool IsTableSetTransform ;
@@ -24,25 +23,12 @@ public class TableMovement : MonoBehaviour
     public void Initiliaze(TableController tableController)
     {
         _tableController = tableController;
-        _renderer = GetComponent<Renderer>();
         _gameSceneCanvas = GameSceneCanvas.Instance;
         
     }
 
-    void Update()
-    {
-        if (IsTableMove)
-        {
-            SetTablePosition();
-            if (!IsTableInitiateForMove && IsTableMove)
-            {
-                InitiateTableMovement();
-            }
-        }
-
-        
-    }
-    private void InitiateTableMovement()
+   
+    public void InitiateTableMovement()
     {
         IsTableInitiateForMove = true;
         _gameSceneCanvas = _gameSceneCanvas ?? GameSceneCanvas.Instance;
@@ -56,46 +42,6 @@ public class TableMovement : MonoBehaviour
         _tableController.EnableTableSetCollider(true);
         GetComponent<BoxCollider>().isTrigger = true;
     }
-    public void SetTablePosition()
-    {
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)), out var hit))
-        {
-            TableSet.transform.position = new Vector3(hit.point.x, 0.14f, hit.point.z);
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            var tableRotat = TableSet.transform.rotation;
-            var tableRotatTemp = Quaternion.Euler(new Vector3(tableRotat.eulerAngles.x,tableRotat.eulerAngles.y+90f,tableRotat.eulerAngles.z));
-
-            TableSet.transform.rotation = tableRotatTemp;
-        }
-        PlaceTable();
-    }
-    public void PlaceTable()
-    {
-        // Mouse tıklamasını kontrol edin
-        TableSet.CheckGround();
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (IsTableSetTransform)
-            {
-                FinalizeTableMovement();
-            }
-            return;
-        }
-
-        Material newMaterial = IsTableSetTransform
-            ? _tableController.GetSetableMaterial()
-            : _tableController.GetWrongMaterial();
-
-        if (_currentMaterial != newMaterial)
-        {
-            _renderer.sharedMaterial = newMaterial;
-            _currentMaterial = newMaterial;
-            SetChairMaterial(newMaterial);
-        }
-    }
     public void SetChairMaterial(Material material)
     {
         for (int i = 0; i < ChairList.Count; i++)
@@ -104,7 +50,7 @@ public class TableMovement : MonoBehaviour
         }
     }
 
-    private void FinalizeTableMovement()
+    public void FinalizeTableMovement()
     {
         IsTableMove = false;
         IsTableSetTransform = false;

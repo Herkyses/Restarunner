@@ -224,6 +224,18 @@ PrefabInstance:
       propertyPath: ChairList.Array.data[0]
       value: 
       objectReference: {fileID: 8223666976206941230}
+    - target: {fileID: 4579503556467666277, guid: fe95e3e540d8f3b408d7e539d49751fb, type: 3}
+      propertyPath: _rendererList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579503556467666277, guid: fe95e3e540d8f3b408d7e539d49751fb, type: 3}
+      propertyPath: _rendererList.Array.data[0]
+      value: 
+      objectReference: {fileID: 4336072454382650}
+    - target: {fileID: 4579503556467666277, guid: fe95e3e540d8f3b408d7e539d49751fb, type: 3}
+      propertyPath: _rendererList.Array.data[1]
+      value: 
+      objectReference: {fileID: 8868279155945666381}
     - target: {fileID: 8494744444474038381, guid: fe95e3e540d8f3b408d7e539d49751fb, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -277,6 +289,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe95e3e540d8f3b408d7e539d49751fb, type: 3}
+--- !u!23 &4336072454382650 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7325185934482662146, guid: fe95e3e540d8f3b408d7e539d49751fb, type: 3}
+  m_PrefabInstance: {fileID: 7324874371218786104}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1172144808203050837 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8494744444474038381, guid: fe95e3e540d8f3b408d7e539d49751fb, type: 3}
