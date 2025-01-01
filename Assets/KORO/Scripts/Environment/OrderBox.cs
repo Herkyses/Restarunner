@@ -144,7 +144,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
             return;
         var tableObjectForInject = tableObject.GetComponent<TableSet>().table;
         controllerManager.Tablecontroller.InjectTableObject(tableObjectForInject);
-        tableObjectForInject.Move();
+        PlayerRaycastController.StartedMove?.Invoke(tableObjectForInject.GetComponent<IMovable>());
     }
 
     private void HandleDecoration(GameObject decorationObject)

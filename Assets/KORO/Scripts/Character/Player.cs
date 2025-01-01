@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerData _playerData;
-    [SerializeField] private PlayerRaycastController _playerRaycastController;
+    public PlayerRaycastController _playerRaycastController;
     public PlayerOrderController PlayerOrdersController;
     public bool _canTakeMoney;
     public bool CanCleanRubbish;

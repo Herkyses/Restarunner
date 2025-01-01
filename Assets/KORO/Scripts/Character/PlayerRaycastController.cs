@@ -14,7 +14,7 @@ public class PlayerRaycastController : MonoBehaviour
     public bool CanCheckHit;
     
     private GameSceneCanvas _gameSceneCanvas;
-    [SerializeField] private PlayerObjectMoveController _playerObjectMoveController;
+    public PlayerObjectMoveController _playerObjectMoveController;
 
     public IInterectableObject Izort;
     public IMovable IMovableObject;
@@ -24,7 +24,20 @@ public class PlayerRaycastController : MonoBehaviour
     private Vector3 screenCenter;
     private Ray ray ;
     private RaycastHit hit;
-    
+
+    public static Action<IMovable> StartedMove;
+
+    private void OnEnable()
+    {
+        StartedMove += StartMoveObject;
+    }
+
+    private void OnDisable()
+    {
+        StartedMove -= StartMoveObject;
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -214,11 +227,16 @@ public class PlayerRaycastController : MonoBehaviour
 
             if (IMovableObject != null)
             {
-                IMovableObject.Movement();
-                _playerObjectMoveController.IsCheckAround = true;
+                StartMoveObject(IMovableObject);
             } 
             //Izort.Move();
         }
+    }
+    public void StartMoveObject(IMovable iMovable)
+    {
+        _playerObjectMoveController.InitiliazeMoveableObject(iMovable.GetMoveableObjectTransform(),iMovable);
+        iMovable.Movement();
+        _playerObjectMoveController.IsCheckAround = true;
     }
 
     private void HandleObjectDrop()

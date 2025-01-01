@@ -34,6 +34,7 @@ public class TableMovement : MonoBehaviour
         _gameSceneCanvas = _gameSceneCanvas ?? GameSceneCanvas.Instance;
         if (tableSetData == null)
         {
+            _tableController = ControllerManager.Instance.Tablecontroller;
             tableSetData = _tableController.GetTableSetData();
             TableSet.table.InitializeTable();
         }
