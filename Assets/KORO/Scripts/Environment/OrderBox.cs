@@ -68,8 +68,6 @@ public class OrderBox : MonoBehaviour,IInterectableObject
         GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTake);
         GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTake);
         _isOrderBoxOpenAvailable = false;
-        
-        
     }
 
     public void ShowOutline(bool active)
