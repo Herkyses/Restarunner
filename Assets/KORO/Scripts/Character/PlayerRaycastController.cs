@@ -24,6 +24,7 @@ public class PlayerRaycastController : MonoBehaviour
     private Vector3 screenCenter;
     private Ray ray ;
     private RaycastHit hit;
+    private Player _player;
 
     public static Action<IMovable> StartedMove;
 
@@ -44,7 +45,7 @@ public class PlayerRaycastController : MonoBehaviour
         StartCoroutine(SendRaycastCoroutine());
         _gameSceneCanvas = GameSceneCanvas.Instance;
         layerMask = ~LayerMask.GetMask("Ground");
-        
+        _player = Player.Instance;
 
     }
 
@@ -190,6 +191,10 @@ public class PlayerRaycastController : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
+            if (_player.GetCurrentTool() != null)
+            {
+                _player.GetCurrentTool().Use();
+            }
             RunInteractableObject();
         }
 

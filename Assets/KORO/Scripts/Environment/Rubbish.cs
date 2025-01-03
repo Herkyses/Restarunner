@@ -21,7 +21,7 @@ public class Rubbish : MonoBehaviour,IInterectableObject
             //gameObject.SetActive(false);
             transform.SetParent(null);
             
-            Player.Instance.StartClean();
+            //Player.Instance.StartClean();
             
             if (PlayerPrefsManager.Instance.LoadPlaceRubbishLevel() == 0)
             {

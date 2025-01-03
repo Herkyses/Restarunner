@@ -212,7 +212,7 @@ public class CameraController : MonoBehaviour
                 Player.Instance.PlayerStateType = Enums.PlayerStateType.Free;
 
             }
-            switch (playerStateType)
+            /*switch (playerStateType)
             {
                 case Enums.PlayerStateType.Fight:
                     FightTool.SetActive(false);
@@ -220,7 +220,7 @@ public class CameraController : MonoBehaviour
                 case Enums.PlayerStateType.Cleaner:
                     CleanTool.SetActive(false);
                     break;
-            }
+            }*/
         }
         else
         {

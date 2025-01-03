@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
     public GameObject PlayerTakedObject;
     public Enums.PlayerStateType PlayerStateType;
     public PlayerStructData PlayerStructData;
+    private Tool currentTool;
+    [SerializeField] private Bat bat;
+    [SerializeField] private Broom broom;
+    
 
     // Start is called before the first frame update
     
@@ -72,13 +76,13 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             //CanCleanRubbish = !CanCleanRubbish;
-            CameraController.Instance.StateInitiliazeForTakeObject(Enums.PlayerStateType.Cleaner);
-
+            EquippedTool(broom);
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
             //CanFight = !CanFight;
-            CameraController.Instance.StateInitiliazeForTakeObject(Enums.PlayerStateType.Fight);
+            //CameraController.Instance.StateInitiliazeForTakeObject(Enums.PlayerStateType.Fight);
+            EquippedTool(bat);
         }
         if (Input.GetKeyDown(KeyCode.I))
         {
@@ -101,6 +105,23 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void EquippedTool(Tool tool)
+    {
+        if (tool == currentTool)
+        {
+            currentTool?.Unequip();
+            currentTool = null;
+            return;
+        }
+        currentTool?.Unequip();
+        currentTool = tool;
+        currentTool.Equip();
+    }
+
+    public Tool GetCurrentTool()
+    {
+        return currentTool;
+    }
     public void DropTakenObject()
     {
         PlayerTakedObject = null;
@@ -164,7 +185,16 @@ public class Player : MonoBehaviour
         PlayerTakedObject = takeObject;
         PlayerStateType = stateType;
     }
-    
+    private void UpdateToolPositionAndRotation()
+    {
+        if (currentTool == null) return;
+
+        // Aracın pozisyonunu oyuncunun eline ayarla
+        currentTool.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 0.5f;
+
+        // Aracın rotasyonunu kameranın rotasyonuyla hizala
+        currentTool.transform.rotation = Camera.main.transform.rotation;
+    }
 }
 [Serializable]
 public struct PlayerStructData
