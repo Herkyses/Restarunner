@@ -131,7 +131,9 @@ public class RubbishManager : MonoBehaviour
     public void UpdateRubbishLevel()
     {
         _rubbishLevel = PlayerPrefsManager.Instance.LoadPlaceLevel();
-        if (_rubbishLevel+1 == 1 && PlayerPrefsManager.Instance.LoadPlayerTutorialStep() < TUTORIAL_CHECK_STEP)
+        Debug.Log("rubbishlev" + _rubbishLevel);
+
+        if (_rubbishLevel == 0 && PlayerPrefsManager.Instance.LoadPlayerTutorialStep() < TUTORIAL_CHECK_STEP)
         {
             Debug.Log("rubbishlev" + _rubbishLevel);
 
@@ -159,9 +161,11 @@ public class RubbishManager : MonoBehaviour
         var rubbishList = GetComponentsInChildren<Rubbish>();
         if (GetRubbishCount() > 0)
         {
+            Debug.Log("rubbishlevelfalse" + GetRubbishCount());
             return false;
             
         }
+        Debug.Log("rubbishleveltrue" + GetRubbishCount());
 
         return true;
     }
