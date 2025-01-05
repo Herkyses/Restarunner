@@ -15,7 +15,9 @@ public class Bat : Tool
     {
         _batject.SetActive(true);
         _batject.transform.SetParent(CameraController.Instance.FightToolChild.transform);
-        _batject.transform.localPosition = Vector3.zero;
+        
+        _batject.transform.localPosition = new Vector3(-0.4f, -0.02f, -0.3f);
+        _batject.transform.localRotation = Quaternion.Euler(new Vector3(63,336,6));
         firstState = Player.Instance.PlayerStateType;
         Player.Instance.PlayerStateType = Enums.PlayerStateType.Fight;
     }
