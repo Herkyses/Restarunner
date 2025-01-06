@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7922134672171927264}
   - component: {fileID: 4982736964307337130}
   - component: {fileID: 8359673765656533822}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7314170908356130744}
   - component: {fileID: 3051215895391423356}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Baseball
   m_TagString: Untagged
   m_Icon: {fileID: 0}

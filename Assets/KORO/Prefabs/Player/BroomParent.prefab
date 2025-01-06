@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2271795423547687348}
   - component: {fileID: 753367942419345006}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: BroomParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,6 +57,10 @@ PrefabInstance:
     - target: {fileID: 7228861516687620429, guid: 8daa1962c58a54c4db34c7ee7706a62f, type: 3}
       propertyPath: m_Name
       value: Broom
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228861516687620429, guid: 8daa1962c58a54c4db34c7ee7706a62f, type: 3}
+      propertyPath: m_Layer
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 8005644849998488567, guid: 8daa1962c58a54c4db34c7ee7706a62f, type: 3}
       propertyPath: m_LocalPosition.x
