@@ -10,7 +10,6 @@ public interface IInterectableObject
     public string GetInterectableText();
     public string[] GetInterectableTexts();
     public string[] GetInterectableButtons();
-    public void Move();
     public void Open();
     public Enums.PlayerStateType GetStateType();
 
