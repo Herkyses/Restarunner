@@ -13,6 +13,7 @@ public class PlayerObjectMoveController : MonoBehaviour
     public int tableIndexLayer;
     
     private Material _currentMaterial;
+    private Vector3 velocityVector = Vector3.zero;
 
     
     private Renderer[] _renderers;
@@ -113,7 +114,8 @@ public class PlayerObjectMoveController : MonoBehaviour
     {
         if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)), out var hit))
         {
-            MoveObjectTransform.position = new Vector3(hit.point.x, 0.14f, hit.point.z);
+            Vector3 targetPosition = new Vector3(hit.point.x, 0.14f, hit.point.z);
+            MoveObjectTransform.position = Vector3.SmoothDamp(MoveObjectTransform.position, targetPosition, ref velocityVector, 0.1f);
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
