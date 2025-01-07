@@ -324,6 +324,7 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable,IMovable
     public void PlacedObject()
     {
         _tableMovement.FinalizeTableMovement();
+        GameVfxManager.Instance.SpawnVFX(GameVfxManager.Instance.vfxPools[1].vfxPrefab, transform.position, transform.rotation);
     }
 
     public Transform GetMoveableObjectTransform()
