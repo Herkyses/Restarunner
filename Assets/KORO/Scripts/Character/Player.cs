@@ -19,7 +19,8 @@ public class Player : MonoBehaviour
     private Tool currentTool;
     [SerializeField] private Bat bat;
     [SerializeField] private Broom broom;
-    
+    public int toolLayer;
+    public int defaultLayer;
 
     // Start is called before the first frame update
     
@@ -52,6 +53,9 @@ public class Player : MonoBehaviour
     
     void Start()
     {
+        toolLayer = LayerMask.NameToLayer("Tool");
+        defaultLayer = LayerMask.NameToLayer("Default");
+
         gameObject.TryGetComponent(out _playerRaycastController);
         gameObject.TryGetComponent(out PlayerOrdersController);
         PlayerMoney = PlayerPrefsManager.Instance.LoadPlayerMoney();
@@ -63,7 +67,6 @@ public class Player : MonoBehaviour
         TakedObjectNull();
         PlayerOrdersController.TakedFood = false;
         PlayerOrdersController.ResetOrder();
-        DropTakenObject();
     }
 
     public void ActivatedRaycast(bool active)
@@ -122,10 +125,7 @@ public class Player : MonoBehaviour
     {
         return currentTool;
     }
-    public void DropTakenObject()
-    {
-        PlayerTakedObject = null;
-    }
+   
 
     public void GainMoney(float gainValue)
     {
@@ -174,9 +174,16 @@ public class Player : MonoBehaviour
 
     public void TakedObjectNull()
     {
-        PlayerTakedObject = null;
         PlayerStateType = Enums.PlayerStateType.Free;
         Debug.Log("bureayauğramadı be");
+        var allObjects = PlayerTakedObject.GetComponentsInChildren<Transform>();
+
+        // Her bir nesnenin layer'ını değiştir
+        foreach (var obj in allObjects)
+        {
+            obj.gameObject.layer = defaultLayer;
+        }
+        PlayerTakedObject = null;
 
     }
     
@@ -184,6 +191,13 @@ public class Player : MonoBehaviour
     {
         PlayerTakedObject = takeObject;
         PlayerStateType = stateType;
+        var allObjects = PlayerTakedObject.GetComponentsInChildren<Transform>();
+
+        // Her bir nesnenin layer'ını değiştir
+        foreach (var obj in allObjects)
+        {
+            obj.gameObject.layer = toolLayer;
+        }
     }
     private void UpdateToolPositionAndRotation()
     {
