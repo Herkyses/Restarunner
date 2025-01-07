@@ -146,7 +146,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
 
     private void HandleDecoration(GameObject decorationObject)
     {
-        decorationObject.GetComponent<DecorationObject>()?.Move();
+        
     }
 
     private void HandleFoodIngredient(ShopItemData shopItemData, GameObject crateObject)
