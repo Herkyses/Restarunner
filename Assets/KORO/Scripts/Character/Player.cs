@@ -179,7 +179,7 @@ public class Player : MonoBehaviour
         Debug.Log("bureayauğramadı be");
 
     }
-
+    
     public void TakedObject(GameObject takeObject,Enums.PlayerStateType stateType)
     {
         PlayerTakedObject = takeObject;
