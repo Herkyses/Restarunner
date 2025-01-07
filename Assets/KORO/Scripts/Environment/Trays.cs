@@ -49,11 +49,7 @@ public class Trays : MonoBehaviour,IInterectableObject
     {
         return textsButtons;
     }
-
-    public void Move()
-    {
-        
-    }
+    
     public void Open()
     {
         

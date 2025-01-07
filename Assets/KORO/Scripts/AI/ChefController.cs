@@ -312,10 +312,7 @@ public class ChefController : MonoBehaviour,IInterectableObject
     {
         return interactionButtons;
     }
-    public void Move()
-    {
-        
-    }
+   
     public void Open()
     {
         

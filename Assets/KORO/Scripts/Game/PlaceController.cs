@@ -69,10 +69,7 @@ public class PlaceController : MonoBehaviour,IInterectableObject
     {
         return "Use Computer";
     }
-    public void Move()
-    {
-        
-    }
+  
     public void Open()
     {
         

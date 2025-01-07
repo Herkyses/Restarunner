@@ -242,14 +242,6 @@ public class Table : MonoBehaviour,IInterectableObject, IAIInteractable,IMovable
     }
 
     
-    
-    public void Move()
-    {
-       
-    }
-   
-   
-    
     public void FinalizeTablePlacement()
     {
         ResetPlayerState();

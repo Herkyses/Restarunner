@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DecorationObject : MonoBehaviour,IInterectableObject
+public class DecorationObject : MonoBehaviour,IInterectableObject,IMovable
 {
     private bool isDecorationMove;
     private bool isDecorationCanSet;
@@ -38,14 +38,7 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
         _outline = GetComponent<Outline>();
         _gameSceneCanvas = GameSceneCanvas.Instance;
     }
-
-    private void Update()
-    {
-        if (isDecorationMove)
-        {
-            MoveStart();
-        }
-    }
+    
 
     public void InterectableObjectRun()
     {
@@ -74,84 +67,9 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
         return textsButtons;
 
     }
-    public void Move()
-    {
-        if (!isDecorationMove && !ControllerManager.Instance.PlaceController.IsRestaurantOpen)
-        {
-            
-            //gameObject.layer = LayerMask.NameToLayer("Ground");
-            GetComponent<BoxCollider>().enabled = false;
-            if (!_gameSceneCanvas)
-            {
-                _gameSceneCanvas = GameSceneCanvas.Instance;
-            }
-            _gameSceneCanvas.MoveObjectInfo(textsForMove,textsButtonsForMove,Enums.PlayerStateType.DecorationMove,gameObject);
-            isDecorationMove = true;
-            
-        }
-    }
-    public void MoveStart()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-        RaycastHit hit;
-        //Player.Instance.DeactivatedRaycast();
-        
-        if (Physics.Raycast(ray, out hit))
-        {
-            float xValue = hit.point.x;
-            float zValue = hit.point.z;
-            //GetComponent<BoxCollider>().enabled = true;
-            transform.position = new Vector3(xValue,0,zValue); // Objenin pozisyonunu fare ile tıklanan noktaya taşı
-        }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            var tableRotat = transform.rotation;
-            var tableRotatTemp = Quaternion.Euler(new Vector3(tableRotat.eulerAngles.x,tableRotat.eulerAngles.y+90f,tableRotat.eulerAngles.z));
+ 
 
-            transform.rotation = tableRotatTemp;
-        }
-        if (Input.GetMouseButton(0))
-        {
-            
-            isDecorationMove = false;
-            Player.Instance.TakedObjectNull();
-            _gameSceneCanvas.CheckShowInfoText = true;
-            MapManager.Instance.SaveMap();
-            gameObject.transform.SetParent(DecorationController.Instance.transform);
-            ControllerManager.Instance.PlaceController.ActivateDecorationPlane(false);
-            GetComponent<BoxCollider>().enabled = true;
-
-
-        }
-        
-    }
-    public void CheckGround()
-    {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.8f);
-        var checkControl = false;
-        foreach (Collider collider in colliders)
-        {
-            if (collider.gameObject != gameObject && collider.gameObject.layer == decorationLayer)
-            {
-                return;
-            }
-           
-        }
-        foreach (Collider collider in colliders)
-        {
-            
-            if (collider.gameObject != gameObject && collider.gameObject.layer == groundLayer) 
-            {
-                isDecorationCanSet = true;
-                return;
-            }
-        }
-
-       
-
-        isDecorationCanSet = false;
-    }
     public void Open()
     {
         
@@ -159,5 +77,30 @@ public class DecorationObject : MonoBehaviour,IInterectableObject
     public Enums.PlayerStateType GetStateType()
     {
         return Enums.PlayerStateType.Free;
+    }
+
+    public void Movement()
+    {
+        _gameSceneCanvas.MoveObjectInfo(textsForMove,textsButtonsForMove,Enums.PlayerStateType.DecorationMove,gameObject);
+
+    }
+    public void PlacedObject()
+    {
+        isDecorationMove = false;
+        Player.Instance.TakedObjectNull();
+        _gameSceneCanvas.CheckShowInfoText = true;
+        MapManager.Instance.SaveMap();
+        gameObject.transform.SetParent(DecorationController.Instance.transform);
+        ControllerManager.Instance.PlaceController.ActivateDecorationPlane(false);
+        GetComponent<BoxCollider>().enabled = true;
+    }
+    public Transform GetMoveableObjectTransform()
+    {
+        return null;
+    }
+    public Renderer[] GetRenderers()
+    {
+        return null;
+
     }
 }

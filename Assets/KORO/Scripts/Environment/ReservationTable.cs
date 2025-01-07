@@ -38,10 +38,6 @@ public class ReservationTable : MonoBehaviour,IInterectableObject
         return "CheckAvailableTables";
     }
 
-    public void Move()
-    {
-        
-    }
 
     public void Open()
     {

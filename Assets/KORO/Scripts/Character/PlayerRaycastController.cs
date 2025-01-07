@@ -26,6 +26,7 @@ public class PlayerRaycastController : MonoBehaviour
     private Player _player;
 
     public static Action<IMovable> StartedMove;
+    
 
     private void OnEnable()
     {

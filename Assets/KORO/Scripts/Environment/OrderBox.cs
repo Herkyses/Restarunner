@@ -23,10 +23,12 @@ public class OrderBox : MonoBehaviour,IInterectableObject
     private Rigidbody _rigidbody;
     public string[] InteractableButtons;
     public int groundLayer;
+    public int toolLayer;
     // Start is called before the first frame update
     void Start()
     {
         groundLayer = LayerMask.NameToLayer("Ground");
+        toolLayer = LayerMask.NameToLayer("Tool");
         texts = new [] {"Key_Interactable_OB_Take","Key_Open"};
         textsBefore = new [] {"Key_Interactable_OB_Take"};
         
@@ -68,6 +70,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
         GameSceneCanvas.Instance.ShowAreaInfoForTexts(textsForTake);
         GameSceneCanvas.Instance.ShowAreaInfoForTextsButtons(textsButtonsForTake);
         _isOrderBoxOpenAvailable = false;
+        //gameObject.layer = toolLayer;
     }
 
     public void ShowOutline(bool active)
@@ -92,11 +95,7 @@ public class OrderBox : MonoBehaviour,IInterectableObject
         }
         return textsBefore;
     }
-
-    public void Move()
-    {
-        
-    }
+    
     
     //TODO: hardcode
     public void Open()

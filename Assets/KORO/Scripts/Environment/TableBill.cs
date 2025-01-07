@@ -40,10 +40,7 @@ public class TableBill : MonoBehaviour,IInterectableObject
     {
         return "Take Order Bill";
     }
-    public void Move()
-    {
-        
-    }
+
     public void Open()
     {
         

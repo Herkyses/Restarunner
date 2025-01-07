@@ -155,10 +155,7 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
     {
         return textsButtons;
     }
-    public void Move()
-    {
-    
-    }
+
     public void Open()
     {
     

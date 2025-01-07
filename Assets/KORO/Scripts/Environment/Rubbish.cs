@@ -65,10 +65,7 @@ public class Rubbish : MonoBehaviour,IInterectableObject
 
     }
 
-    public void Move()
-    {
-        
-    }
+
     public void Open()
     {
         

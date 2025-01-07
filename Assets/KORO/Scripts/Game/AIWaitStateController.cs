@@ -71,10 +71,7 @@ public class AIWaitStateController : MonoBehaviour,IInterectableObject
             }
         }
     }
-    public void Move()
-    {
-        
-    }
+    
     public void Open()
     {
         

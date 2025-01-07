@@ -71,11 +71,7 @@ public class SingleCrate : MonoBehaviour,IInterectableObject
         return null;
 
     }
-
-    public void Move()
-    {
-        
-    }
+    
 
     public void Open()
     {

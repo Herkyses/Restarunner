@@ -78,10 +78,7 @@ public class BillTable : MonoBehaviour,IInterectableObject
         return "Check Order Bills";
     }
 
-    public void Move()
-    {
-        
-    }
+ 
     
     public void Open()
     {

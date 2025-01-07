@@ -71,10 +71,7 @@ public class FoodTable : MonoBehaviour,IInterectableObject
         }
         return "Key_PickUp_Food";
     }
-    public void Move()
-    {
-        
-    }
+ 
     public void Open()
     {
         
