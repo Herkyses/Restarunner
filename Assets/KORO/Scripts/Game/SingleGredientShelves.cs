@@ -23,6 +23,8 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
     [SerializeField] private MealManager _mealManager;
     [SerializeField] private Outline _outline;
 
+    public int defaultLayer;
+
 
     private void OnEnable()
     {
@@ -38,6 +40,8 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
         _outline = GetComponent<Outline>();
         texts = new []{"Place Ingredient"};
         textsButtons = new []{"E"};
+        defaultLayer = LayerMask.NameToLayer("Default");
+
     }
 
     public void CheckIngredients(OrderData orderData)
@@ -86,6 +90,7 @@ public class SingleGredientShelves : MonoBehaviour,IInterectableObject
                 {
                     _ingredientList.Add(singleIngredient);
                     singleIngredient.transform.SetParent(transform);
+                    singleIngredient.layer = defaultLayer;
                     singleIngredient.transform.DOLocalMove(singleIngredient.transform.localPosition + Vector3.up*0.2f, 0.15f).OnComplete(() =>
                     {
                         singleIngredient.transform.DOMove(_ingredientTransformList[_count].position, 0.2f);
