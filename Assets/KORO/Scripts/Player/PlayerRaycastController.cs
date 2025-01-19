@@ -97,7 +97,7 @@ public class PlayerRaycastController : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("targetobjectnull");
+                    
                     TargetObject = null;
                 }
                 //UpdateInterectable(hitObject, interactable);
